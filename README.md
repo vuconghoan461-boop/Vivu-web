@@ -1,11 +1,11 @@
 # Vivu-web
 1. Về thương hiệu VivuGo
-VivuGo là nền tảng lên kế hoạch và đặt tour du lịch giúp người dùng tự thiết kế chuyến đi theo nhu cầu cá nhân, thay vì chỉ lựa chọn giữa một tour có sẵn hoặc tự lên kế hoạch từ đầu. Địa điểm đa dạng nhất có thể để phù hợp với nhu cầu của nhiều người
+  VivuGo là nền tảng lên kế hoạch và đặt tour du lịch giúp người dùng tự thiết kế chuyến đi theo nhu cầu cá nhân, thay vì      chỉ lựa chọn giữa một tour có sẵn hoặc tự lên kế hoạch từ đầu. Địa điểm đa dạng nhất có thể để phù hợp với nhu cầu của       nhiều người
 
-Thông qua AI Trip Designer, người dùng chỉ cần cung cấp những thông tin cơ bản như thời gian, ngân sách, sở thích và hình thức di chuyển. Hệ thống sẽ đề xuất điểm đến, xây dựng lịch trình và cho phép người dùng tiếp tục điều chỉnh trước khi hoàn thiện chuyến đi.
+  Thông qua AI Trip Designer, người dùng chỉ cần cung cấp những thông tin cơ bản như thời gian, ngân sách, sở thích và hình    thức di chuyển. Hệ thống sẽ đề xuất điểm đến, xây dựng lịch trình và cho phép người dùng tiếp tục điều chỉnh trước khi       hoàn thiện chuyến đi.
 
-Tự thiết kế chuyến đi, dễ như chọn một tour.
-Web nằm trong khuôn khổ dự án môn Thiết kế web - do nhóm 2 phụ trách 
+  Tự thiết kế chuyến đi, dễ như chọn một tour.
+  Web nằm trong khuôn khổ dự án môn Thiết kế web - do nhóm 2 phụ trách 
 
 2. Về nhóm 
 Thành viên của nhóm bao gồm : + Vũ Công Hoàn - 27A4043292 ( Nhóm trưởng )
