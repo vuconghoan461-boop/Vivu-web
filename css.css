@@ -731,3 +731,626 @@ input:focus-visible {
   .route-card { grid-template-columns: 1fr; }
   .route-side { align-items: flex-start; text-align: left; }
 }
+
+
+/*----CSS CỦA MODULE CON: CARRENT ----*/
+/* ---------- Filter lọc chung (6.1) ---------- */
+
+.rental-filter-bar {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.08);
+  padding: 20px 22px;
+  margin-bottom: 24px;
+}
+
+.filter-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1F2937;
+  margin-bottom: 14px;
+  cursor: pointer;
+}
+
+.filter-checkbox input {
+  accent-color: #008FE5;
+  width: 16px;
+  height: 16px;}
+
+.rental-filter-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 14px;}
+
+.rental-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 170px;
+  min-width: 150px;}
+
+.rental-field label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #6B7280;}
+
+.rental-field input,
+.rental-field select {
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 13.5px;
+  color: #1F2937;
+  background: #F3FAFF;
+  width: 100%;}
+
+.segmented {
+  display: flex;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  overflow: hidden;}
+
+.seg-btn {
+  flex: 1;
+  border: none;
+  background: #FFFFFF;
+  padding: 9px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6B7280;
+  cursor: pointer;}
+
+.seg-btn.is-active { background: #008FE5; color: #FFFFFF;}
+
+.rental-duration-pill {
+  flex: 0 0 auto;
+  align-self: center;
+  background: #F3FAFF;
+  border: 1px dashed #BAE6FD;
+  color: #008FE5;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 9px 14px;
+  border-radius: 999px;
+  white-space: nowrap; }
+
+.rental-search-btn { flex: 0 0 auto; height: 41px; }
+
+/* ---------- Khối hiển thị thông tin (6.2) ---------- */
+.rental-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 16px; }
+
+.location-select {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #E5E7EB;
+  border-radius: 999px;
+  padding: 9px 16px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  background: #FFFFFF;
+  user-select: none; }
+
+.location-select .chevron { color: #6B7280; font-size: 12px; }
+
+.location-dropdown {
+  display: none;
+  position: absolute;
+  top: 112%;
+  left: 0;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.12);
+  min-width: 170px;
+  z-index: 30;
+  overflow: hidden; }
+
+.location-dropdown.is-open { display: block; }
+
+.location-dropdown button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  border: none;
+  background: none;
+  font-size: 13.5px;
+  cursor: pointer;
+  color: #1F2937; }
+
+.location-dropdown button:hover { background: #F3FAFF; color: #008FE5; }
+.location-dropdown button.is-active { color: #008FE5; font-weight: 700; }
+.category-tabs { display: flex; gap: 8px; flex-wrap: wrap;}
+
+.cat-tab {
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid #E5E7EB;
+  background: #FFFFFF;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6B7280;
+  cursor: pointer;
+  white-space: nowrap; }
+
+.cat-tab.is-active {
+  background: #1F2937;
+  color: #FFFFFF;
+  border-color: #1F2937; }
+
+.cat-tab:hover:not(.is-active) {
+  border-color: #BAE6FD;
+  color: #008FE5; }
+
+.seat-filter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px; }
+
+.seat-pill {
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid #E5E7EB;
+  background: #F3FAFF;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #6B7280;
+  cursor: pointer;
+}
+
+.seat-pill.is-active {
+  background: #008FE5;
+  border-color: #008FE5;
+  color: #FFFFFF;
+}
+
+.result-count {
+  font-size: 13.5px;
+  color: #6B7280;
+  margin-bottom: 14px;
+}
+/* ---------- Grid hình vuông thay vì dọc ---------- */
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; }
+
+.car-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px 20px;
+  color: #6B7280;
+  font-size: 14px;
+  border: 1px dashed #E5E7EB;
+  border-radius: 12px;
+  background: #F3FAFF; }
+
+.car-card {
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  background: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .15s ease, transform .15s ease, border-color .15s ease; }
+
+.car-card:hover {
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.12);
+  transform: translateY(-2px);
+  border-color: #BAE6FD; }
+
+.car-media { position: relative; }
+
+.car-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(16, 133, 73, 0.92);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  z-index: 2; }
+
+.car-body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1; }
+
+.car-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  flex-wrap: wrap; }
+
+.car-rating-row .rating { color: #FF9D16; font-weight: 700; }
+.car-rating-row .provider { color: #008FE5; font-weight: 600; }
+
+.car-rating-row .dot {  color: #6B7280; }
+
+.car-name {
+  font-size: 15.5px;
+  font-weight: 700;
+  line-height: 1.3; }
+
+.car-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  overflow: hidden; }
+
+.car-specs div {
+  padding: 8px 6px;
+  text-align: center;
+  border-right: 1px solid #E5E7EB; }
+
+.car-specs div:last-child { border-right: none; }
+
+.car-specs .spec-label {
+  display: block;
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: #6B7280;
+  margin-bottom: 2px; }
+
+.car-specs .spec-value {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1F2937; }
+
+.car-features {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;}
+
+.car-features li {
+  font-size: 12px;
+  color: #6B7280;
+  display: flex;
+  gap: 6px;}
+
+.car-features li::before {
+  content: "✓";
+  color: #008FE5;
+  font-weight: 700;}
+
+.car-foot {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid #E5E7EB;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;}
+
+.car-price .label {
+  display: block;
+  font-size: 10.5px;
+  color: #6B7280;}
+
+.car-price .value {
+  font-size: 16.5px;
+  font-weight: 800;
+  color: #D97706;}
+
+  .car-price .value span {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #6B7280;}
+
+  /* ---------- Nút Đặt xe nhanh ---------- */
+.btn-quickbook {
+  background: #008FE5;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap; }
+
+.btn-quickbook:hover { background: #FF9D16; }
+
+/* ---------- Modal chung ---------- */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.55);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; }
+
+.modal-overlay.is-open { display: flex; }
+
+.booking-modal,
+.success-modal {
+  background: #FFFFFF;
+  border-radius: 16px;
+  max-width: 460px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25); }
+/* ---------- Form đặt xe nhanh (6.3) ---------- */
+.booking-modal-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 22px 0;
+  gap: 10px; }
+
+.modal-kicker {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  color: #D97706;
+  text-transform: uppercase; }
+
+.booking-modal-head h3 {
+  font-size: 18px;
+  margin-top: 4px; }
+
+.modal-close {
+  border: none;
+  background: #F3FAFF;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  color: #6B7280;
+  flex-shrink: 0; }
+
+.modal-close:hover {
+  background: #BAE6FD;
+  color: #008FE5; }
+
+.booking-provider-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 16px 22px;
+  background: #FFF7EC;
+  border: 1px solid #FCE3B8;
+  border-radius: 10px;
+  padding: 12px 14px; }
+
+.booking-provider-bar strong {
+  font-size: 13px;
+  color: #1F2937;
+  display: block; }
+
+.booking-provider-bar p {
+  font-size: 11.5px;
+  color: #6B7280;
+  margin-top: 3px; }
+
+.booking-price {
+  text-align: right;
+  white-space: nowrap;
+  font-weight: 800;
+  color: #D97706;
+  font-size: 15px; }
+
+.booking-price small {
+  font-weight: 500;
+  color: #6B7280;
+  font-size: 11px; }
+
+.booking-form {
+  padding: 0 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px; }
+
+.form-row { display: flex; gap: 12px; }
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0; }
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6B7280; }
+
+.form-group input,
+.form-group select {
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13.5px;
+  width: 100%; }
+
+.booking-summary {
+  background: #F3FAFF;
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; }
+
+.booking-summary > span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6B7280; }
+
+.promo-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px; }
+
+.promo-row input {
+  flex: 1;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12.5px; }
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #6B7280; }
+
+.summary-line.discount span:last-child {
+  color: #16A34A;
+  font-weight: 700; }
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed #E5E7EB;
+  margin-top: 6px;
+  padding-top: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1F2937; }
+
+.summary-total strong { font-size: 18px; color: #D97706; }
+
+/* ---------- Nút xác nhận ---------- */
+.btn-confirm {
+  background: #008FE5;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 13px;
+  font-size: 14.5px;
+  font-weight: 700;
+  cursor: pointer; }
+.btn-confirm:hover { background: #FF9D16;}
+
+/* ---------- Thông báo đặt thành công ---------- */
+
+.success-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 20px;
+  border-bottom: 1px solid #E5E7EB; }
+
+.success-icon-sm {
+  font-size: 20px; }
+
+.success-head strong {
+  font-size: 14.5px;
+  display: block; }
+
+.success-head p {
+  font-size: 11.5px;
+  color: #6B7280; }
+
+.success-head .modal-close {
+  margin-left: auto; }
+
+.success-body {
+  padding: 26px 24px 28px;
+  text-align: center; }
+
+.success-check {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #E7F8EE;
+  color: #16A34A;
+  font-size: 26px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px; }
+
+.success-body h3 {
+  font-size: 17px;
+  margin-bottom: 6px; }
+
+.success-sub {
+  font-size: 12.5px;
+  color: #6B7280;
+  margin-bottom: 10px; }
+
+.order-code {
+  display: inline-block;
+  background: #F3FAFF;
+  border: 1px dashed #BAE6FD;
+  color: #008FE5;
+  font-weight: 800;
+  letter-spacing: .05em;
+  padding: 8px 18px;
+  border-radius: 8px;
+  margin-bottom: 20px; }
+
+.success-info {
+  text-align: left;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px; }
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #6B7280;
+  gap: 10px; }
+
+.info-row strong {
+  color: #1F2937;
+  text-align: right; }
+
+.info-row strong.amount {
+  color: #D97706; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .car-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .car-grid {
+    grid-template-columns: 1fr;
+  }
+  .rental-toolbar {
+    align-items: flex-start;
+  }
+  .form-row {
+    flex-direction: column;
+  }
+}

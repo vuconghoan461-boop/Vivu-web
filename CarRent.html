@@ -11,7 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="../css.css" />
+    <link rel="stylesheet" href="thue-xe.css" />
     <script src="js.js" defer></script>
+    <script src="thue-xe.js" defer></script>
   </head>
   <body class="site-body">
 
@@ -28,106 +30,197 @@
 
       <div class="vivugo-container">
         <section class="section" style="border-top:none; padding-top:32px;">
-          <div class="listing-layout">
 
-            <aside class="filter-panel">
-              <div class="filter-group">
-                <h4>Loại xe</h4>
-                <label class="filter-option"><input type="checkbox" /> Xe máy</label>
-                <label class="filter-option"><input type="checkbox" checked /> Ô tô 4 chỗ</label>
-                <label class="filter-option"><input type="checkbox" /> Ô tô 7 chỗ</label>
-                <label class="filter-option"><input type="checkbox" /> Xe có tài xế</label>
-              </div>
-              <div class="filter-group">
-                <h4>Hộp số</h4>
-                <label class="filter-option"><input type="checkbox" checked /> Số tự động</label>
-                <label class="filter-option"><input type="checkbox" /> Số sàn</label>
-              </div>
-              <div class="filter-group">
-                <h4>Giá / ngày</h4>
-                <div class="range-row">
-                  <input type="number" placeholder="Từ" />
-                  <span>—</span>
-                  <input type="number" placeholder="Đến" />
+          <!-- ============ 6.1 FILTER LỌC CHUNG ============ -->
+          <div class="rental-filter-bar" id="rentalFilterBar">
+            <label class="filter-checkbox">
+              <input type="checkbox" id="diffLocation" checked />
+              Trả xe tại địa điểm khác
+            </label>
+
+            <div class="rental-filter-grid">
+              <div class="rental-field" style="flex-basis:150px;">
+                <label>Loại phương tiện</label>
+                <div class="segmented" id="vehicleTypeToggle">
+                  <button type="button" class="seg-btn is-active" data-type="oto">Ô tô</button>
+                  <button type="button" class="seg-btn" data-type="xemay">Xe máy</button>
                 </div>
               </div>
-              <button type="button" class="btn-ghost btn-block">Áp dụng bộ lọc</button>
-            </aside>
 
-            <div>
-              <div class="listing-toolbar">
-                <p class="result-count">Tìm thấy 5 xe phù hợp</p>
-                <select class="sort-select">
-                  <option>Sắp xếp: Phổ biến nhất</option>
-                  <option>Giá: Thấp đến cao</option>
-                  <option>Đánh giá cao nhất</option>
-                </select>
+              <div class="rental-field">
+                <label>Địa điểm nhận xe</label>
+                <input type="text" id="pickupLocation" value="Sân bay quốc tế Đào Viên Đài Loan" placeholder="Chọn địa điểm nhận xe" />
               </div>
 
-              <div class="listing-grid">
-                <article class="service-card">
-                  <div class="media-placeholder" data-label="Toyota Vios 2023"></div>
-                  <div class="service-card-body">
-                    <span class="tag-chip">4 chỗ · Số tự động</span>
-                    <div class="service-card-top"><h3>Toyota Vios 2023</h3><span class="rating">★ 4.7 <span class="count">(88)</span></span></div>
-                    <p class="service-location">Nhận xe tại Quận 1, TP.HCM</p>
-                    <div class="tag-row"><span class="tag-chip">Camera hành trình</span><span class="tag-chip">Bảo hiểm đi kèm</span></div>
-                    <div class="service-card-foot">
-                      <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">750.000đ <span>/ngày</span></span></div>
-                      <a href="#" class="btn-outline btn-sm">Thuê ngay</a>
-                    </div>
-                  </div>
-                </article>
-
-                <article class="service-card">
-                  <div class="media-placeholder" data-label="Honda Vision 2022"></div>
-                  <div class="service-card-body">
-                    <span class="tag-chip">Xe máy</span>
-                    <div class="service-card-top"><h3>Honda Vision 2022</h3><span class="rating">★ 4.6 <span class="count">(205)</span></span></div>
-                    <p class="service-location">Nhận xe tại Đà Lạt</p>
-                    <div class="tag-row"><span class="tag-chip">Giao xe tận nơi</span><span class="tag-chip">Cốp rộng</span></div>
-                    <div class="service-card-foot">
-                      <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">150.000đ <span>/ngày</span></span></div>
-                      <a href="#" class="btn-outline btn-sm">Thuê ngay</a>
-                    </div>
-                  </div>
-                </article>
-
-                <article class="service-card">
-                  <div class="media-placeholder" data-label="Ford Everest 2023"></div>
-                  <div class="service-card-body">
-                    <span class="tag-chip">7 chỗ · Số tự động</span>
-                    <div class="service-card-top"><h3>Ford Everest 2023</h3><span class="rating">★ 4.9 <span class="count">(46)</span></span></div>
-                    <p class="service-location">Nhận xe tại Sân bay Nội Bài</p>
-                    <div class="tag-row"><span class="tag-chip">Phù hợp gia đình</span><span class="tag-chip">Có tài xế tùy chọn</span></div>
-                    <div class="service-card-foot">
-                      <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">1.400.000đ <span>/ngày</span></span></div>
-                      <a href="#" class="btn-outline btn-sm">Thuê ngay</a>
-                    </div>
-                  </div>
-                </article>
-
-                <article class="service-card">
-                  <div class="media-placeholder" data-label="Xe 16 chỗ có tài xế"></div>
-                  <div class="service-card-body">
-                    <span class="tag-chip">16 chỗ · Có tài xế</span>
-                    <div class="service-card-top"><h3>Ford Transit 16 chỗ</h3><span class="rating">★ 4.8 <span class="count">(64)</span></span></div>
-                    <p class="service-location">Phục vụ theo tuyến, toàn quốc</p>
-                    <div class="tag-row"><span class="tag-chip">Tài xế địa phương</span><span class="tag-chip">Điều hòa 2 chiều</span></div>
-                    <div class="service-card-foot">
-                      <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">2.200.000đ <span>/ngày</span></span></div>
-                      <a href="#" class="btn-outline btn-sm">Thuê ngay</a>
-                    </div>
-                  </div>
-                </article>
+              <div class="rental-field" id="dropoffField">
+                <label>Địa điểm trả xe</label>
+                <input type="text" id="dropoffLocation" value="Sân bay quốc tế Đào Viên Đài Loan" placeholder="Chọn địa điểm trả xe" />
               </div>
+
+              <div class="rental-field">
+                <label>Ngày &amp; giờ nhận xe</label>
+                <input type="datetime-local" id="pickupDatetime" value="2026-09-23T10:00" />
+              </div>
+
+              <div class="rental-duration-pill" id="durationPill">3 ngày</div>
+
+              <div class="rental-field">
+                <label>Ngày &amp; giờ trả xe</label>
+                <input type="datetime-local" id="dropoffDatetime" value="2026-09-26T10:00" />
+              </div>
+
+              <button type="button" class="btn-cta rental-search-btn" id="searchCarsBtn">Tìm kiếm</button>
             </div>
           </div>
+
+          <!-- ============ 6.2 KHỐI HIỂN THỊ THÔNG TIN ============ -->
+          <div class="rental-toolbar">
+            <div class="location-select" id="locationSelect">
+              <span>📍</span>
+              <span id="locationLabel">Hà Nội</span>
+              <span class="chevron">⌄</span>
+              <div class="location-dropdown" id="locationDropdown">
+                <button data-city="Hà Nội" class="is-active">Hà Nội</button>
+                <button data-city="TP.HCM">TP.HCM</button>
+                <button data-city="Đà Lạt">Đà Lạt</button>
+                <button data-city="Đà Nẵng">Đà Nẵng</button>
+              </div>
+            </div>
+
+            <div class="category-tabs" id="categoryTabs">
+              <button class="cat-tab is-active" data-cat="all">Tất cả loại xe</button>
+              <button class="cat-tab" data-cat="oto">Ô tô tự lái</button>
+              <button class="cat-tab" data-cat="limo">Limousine VIP</button>
+              <button class="cat-tab" data-cat="airport">Đón sân bay</button>
+              <button class="cat-tab" data-cat="xemay">Xe máy phượt</button>
+            </div>
+          </div>
+
+          <div class="seat-filter" id="seatFilter">
+            <button class="seat-pill is-active" data-seat="all">Tất cả</button>
+            <button class="seat-pill" data-seat="2">2 chỗ</button>
+            <button class="seat-pill" data-seat="4">4 chỗ</button>
+            <button class="seat-pill" data-seat="5">5 chỗ</button>
+            <button class="seat-pill" data-seat="7">7 chỗ</button>
+            <button class="seat-pill" data-seat="9">9 chỗ</button>
+          </div>
+
+          <p class="result-count" id="resultCount">Tìm thấy 5 xe phù hợp</p>
+
+          <!-- Grid hình vuông — render bằng JS từ mảng CARS trong thue-xe.js -->
+          <div class="car-grid" id="carGrid"></div>
+
         </section>
       </div>
     </main>
 
     <div id="site-footer"></div>
+
+    <!-- ============ 6.3 FORM THUÊ XE (Đặt xe nhanh) ============ -->
+    <div class="modal-overlay" id="bookingModalOverlay">
+      <div class="booking-modal">
+        <div class="booking-modal-head">
+          <div>
+            <span class="modal-kicker">Đặt thuê phương tiện</span>
+            <h3 id="bookingCarName">Tên xe</h3>
+          </div>
+          <button type="button" class="modal-close" id="closeBookingModal">×</button>
+        </div>
+
+        <div class="booking-provider-bar">
+          <div>
+            <strong id="bookingProvider">Đơn vị cung cấp</strong>
+            <p id="bookingPerks">Bảo hiểm vật chất 2 chiều &amp; Cứu hộ giao thông 24/7 đi kèm</p>
+          </div>
+          <div class="booking-price" id="bookingPricePerDay">0đ<small>/ngày</small></div>
+        </div>
+
+        <form id="bookingForm" class="booking-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Họ và tên người thuê/đặt *</label>
+              <input type="text" id="renterName" placeholder="Nguyễn Văn A" required />
+            </div>
+            <div class="form-group">
+              <label>Số điện thoại *</label>
+              <input type="tel" id="renterPhone" placeholder="0912 345 678" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Địa chỉ giao nhận xe tận nơi *</label>
+            <input type="text" id="deliveryAddress" placeholder="Sân bay Nội Bài / Khách sạn Metropole Hà Nội" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Ngày nhận xe</label>
+              <input type="date" id="bookingPickupDate" />
+            </div>
+            <div class="form-group">
+              <label>Số ngày thuê</label>
+              <select id="rentalDays">
+                <option value="1">1 ngày (24 giờ)</option>
+                <option value="2" selected>2 ngày (48 giờ)</option>
+                <option value="3">3 ngày (72 giờ)</option>
+                <option value="5">5 ngày</option>
+                <option value="7">7 ngày</option>
+              </select>
+            </div>
+          </div>
+
+          <label class="filter-checkbox" style="margin-bottom:0;">
+            <input type="checkbox" id="withDriver" />
+            Kèm theo tài xế chuyên nghiệp (+500.000 VNĐ/ngày)
+          </label>
+
+          <div class="booking-summary">
+            <span>Mã ưu đãi</span>
+            <div class="promo-row">
+              <input type="text" id="promoCode" placeholder="Nhập mã ưu đãi (nếu có)" />
+              <button type="button" class="btn-ghost btn-sm" id="applyPromo">Áp dụng</button>
+            </div>
+            <div class="summary-line"><span>Đơn giá thuê</span><span id="sumBase">0đ</span></div>
+            <div class="summary-line" id="sumDriverRow" style="display:none;"><span>Phí tài xế</span><span id="sumDriver">0đ</span></div>
+            <div class="summary-line discount" id="sumPromoRow" style="display:none;"><span>Giảm giá</span><span id="sumPromo">-0đ</span></div>
+            <div class="summary-total">
+              <span id="totalLabel">Tổng tiền (2 ngày)</span>
+              <strong id="totalAmount">0đ</strong>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-confirm">Xác Nhận Đặt Thuê Xe</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ============ MODAL ĐẶT CHỖ THÀNH CÔNG ============ -->
+    <div class="modal-overlay" id="successModalOverlay">
+      <div class="success-modal">
+        <div class="success-head">
+          <span class="success-icon-sm">🚗</span>
+          <div>
+            <strong>Đặt Chỗ Thành Công</strong>
+            <p>Bảo mật thông tin &amp; xác nhận tức thì</p>
+          </div>
+          <button type="button" class="modal-close" id="closeSuccessModal">×</button>
+        </div>
+        <div class="success-body">
+          <div class="success-check">✓</div>
+          <h3>Chúc mừng bạn đã đặt chỗ thành công!</h3>
+          <p class="success-sub">Mã xác nhận đơn hàng của bạn là:</p>
+          <div class="order-code" id="orderCode">CAR-000000</div>
+          <div class="success-info">
+            <div class="info-row"><span>Khách hàng:</span><strong id="infoName"></strong></div>
+            <div class="info-row"><span>Số điện thoại:</span><strong id="infoPhone"></strong></div>
+            <div class="info-row"><span>Dịch vụ:</span><strong id="infoService"></strong></div>
+            <div class="info-row"><span>Tổng thanh toán:</span><strong class="amount" id="infoTotal"></strong></div>
+            <div class="info-row"><span>Hình thức:</span><strong>Thanh toán khi nhận xe</strong></div>
+          </div>
+          <button type="button" class="btn-primary btn-block" id="goToMyTrips">Xem vé trong "Kế hoạch của tôi"</button>
+        </div>
+      </div>
+    </div>
 
   </body>
 </html>
