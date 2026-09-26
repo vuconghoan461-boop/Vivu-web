@@ -167,7 +167,7 @@ input:focus-visible {
   cursor: pointer;
 }
 
-/* ---------- 5. BUTTONS ---------- */
+/* ---------- 5. BUTTONS ---------- *
 /* Primary = hành động chính (xanh #008FE5). CTA = hành động nổi bật, dùng cam có chọn lọc. */
 .btn-primary, .btn-cta, .btn-outline, .btn-ghost {
   display: inline-flex;
@@ -212,6 +212,33 @@ input:focus-visible {
 
 .btn-block { width: 100%; }
 .btn-sm { padding: 8px 16px; font-size: 13px; }
+
+/*----- 5.1 Thẻ kéo tahr của dịch vụ ------*/
+.nav-dropdown {
+  position: relative;}
+
+.service-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 180px;
+  background: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 6px;
+  z-index: 1000;}
+
+.service-dropdown a {
+  display: block;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #1F2937;
+  border-radius: 6px;}
+
+.service-dropdown a:hover { background: #F3FAFF; color: #008FE5;}
+
+.nav-dropdown:hover .service-dropdown { display: block;}
 
 /* ---------- 6. MAIN / HERO (banner đầu module Dịch vụ) ---------- */
 .site-main { padding-bottom: 64px; }

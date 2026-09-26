@@ -71,12 +71,6 @@ document.addEventListener("DOMContentLoaded", async function () {
      3. MENU ĐIỀU HƯỚNG MOBILE
      =================================================================== */
 
-  /*
-    QUAN TRỌNG:
-    Header phải load xong trước khi tìm .nav-toggle
-    và .main-nav.
-  */
-
   const navToggle =
     document.querySelector(".nav-toggle");
 
@@ -99,7 +93,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
   }
-
 
   /* ===================================================================
      4. TABS LỌC DỊCH VỤ
