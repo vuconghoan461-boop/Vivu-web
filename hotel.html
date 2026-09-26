@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khách sạn | VivuGo</title>
+    <meta name="description" content="Tìm và đặt khách sạn phù hợp cho chuyến đi của bạn tại VivuGo." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../css.css" />
+    <script src="js.js" defer></script>
+  </head>
+  <body class="site-body">
+
+    <div id="site-header"></div>
+
+    <main class="site-main">
+      <section class="module-hero" style="padding-bottom: 40px; margin-bottom: 0;">
+        <div class="vivugo-container module-hero-inner" style="padding-bottom: 40px;">
+          <p class="crumb"><a href="index.html">Dịch vụ</a><span class="sep">/</span>Khách sạn</p>
+          <h1 class="page-title" style="font-size:28px;">Khách sạn &amp; chỗ nghỉ</h1>
+          <p class="page-desc">1.200+ chỗ nghỉ đã kiểm duyệt — từ homestay tiết kiệm đến resort 5 sao.</p>
+        </div>
+      </section>
+
+      <div class="vivugo-container">
+        <section class="section" style="border-top:none; padding-top:32px;">
+          <div class="listing-layout">
+
+            <aside class="filter-panel">
+              <div class="filter-group">
+                <h4>Khoảng giá / đêm</h4>
+                <div class="range-row">
+                  <input type="number" placeholder="Từ" />
+                  <span>—</span>
+                  <input type="number" placeholder="Đến" />
+                </div>
+              </div>
+              <div class="filter-group">
+                <h4>Hạng sao</h4>
+                <label class="filter-option"><input type="checkbox" /> 5 sao</label>
+                <label class="filter-option"><input type="checkbox" checked /> 4 sao</label>
+                <label class="filter-option"><input type="checkbox" /> 3 sao</label>
+                <label class="filter-option"><input type="checkbox" /> Homestay / Khách sạn nhỏ</label>
+              </div>
+              <div class="filter-group">
+                <h4>Tiện ích</h4>
+                <label class="filter-option"><input type="checkbox" checked /> Hồ bơi</label>
+                <label class="filter-option"><input type="checkbox" /> Bãi biển riêng</label>
+                <label class="filter-option"><input type="checkbox" /> Bữa sáng miễn phí</label>
+                <label class="filter-option"><input type="checkbox" /> Bãi đỗ xe</label>
+              </div>
+              <button type="button" class="btn-ghost btn-block">Áp dụng bộ lọc</button>
+            </aside>
+
+            <div>
+              <div class="listing-toolbar">
+                <p class="result-count">Tìm thấy 8 khách sạn phù hợp</p>
+                <select class="sort-select">
+                  <option>Sắp xếp: Phổ biến nhất</option>
+                  <option>Giá: Thấp đến cao</option>
+                  <option>Đánh giá cao nhất</option>
+                </select>
+              </div>
+
+              <div class="listing-grid">
+                <article class="service-card">
+                  <div class="media-placeholder" data-label="Ocean Pearl Nha Trang"></div>
+                  <div class="service-card-body">
+                    <span class="tag-chip">4 sao</span>
+                    <div class="service-card-top"><h3>Ocean Pearl Nha Trang</h3><span class="rating">★ 4.8 <span class="count">(320)</span></span></div>
+                    <p class="service-location">Trần Phú, Nha Trang</p>
+                    <div class="tag-row"><span class="tag-chip">Hồ bơi</span><span class="tag-chip">View biển</span></div>
+                    <div class="service-card-foot">
+                      <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">890.000đ <span>/đêm</span></span></div>
+                      <a href="#" class="btn-outline btn-sm">Đặt phòng</a>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="service-card">
+                  <div class="media-placeholder" data-label="Dalat Pine Homestay"></div>
+                  <div class="service-card-body">
+                    <span class="tag-chip">Homestay</span>
+                    <div class="service-card-top"><h3>Dalat Pine Homestay</h3><span class="rating">★ 4.9 <span class="count">(210)</span></span></div>
+                    <p class="service-location">Phường 8, Đà Lạt</p>
+                    <div class="tag-row"><span class="tag-chip">Ban công đồi thông</span><span class="tag-chip">Bếp riêng</span></div>
+                    <div class="service-card-foot">
+                      <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">420.000đ <span>/đêm</span></span></div>
+                      <a href="#" class="btn-outline btn-sm">Đặt phòng</a>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="service-card">
+                  <div class="media-placeholder" data-label="Sapa Cloud Resort"></div>
+                  <div class="service-card-body">
+                    <span class="tag-chip">5 sao</span>
+                    <div class="service-card-top"><h3>Sapa Cloud Resort</h3><span class="rating">★ 4.7 <span class="count">(176)</span></span></div>
+                    <p class="service-location">Trung tâm thị trấn Sa Pa</p>
+                    <div class="tag-row"><span class="tag-chip">Xông hơi</span><span class="tag-chip">View núi</span></div>
+                    <div class="service-card-foot">
+                      <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">1.650.000đ <span>/đêm</span></span></div>
+                      <a href="#" class="btn-outline btn-sm">Đặt phòng</a>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="service-card">
+                  <div class="media-placeholder" data-label="Phu Quoc Beach Villa"></div>
+                  <div class="service-card-body">
+                    <span class="tag-chip">Villa</span>
+                    <div class="service-card-top"><h3>Phu Quoc Beach Villa</h3><span class="rating">★ 4.9 <span class="count">(98)</span></span></div>
+                    <p class="service-location">Bãi Trường, Phú Quốc</p>
+                    <div class="tag-row"><span class="tag-chip">Hồ bơi riêng</span><span class="tag-chip">Sát biển</span></div>
+                    <div class="service-card-foot">
+                      <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">2.100.000đ <span>/đêm</span></span></div>
+                      <a href="#" class="btn-outline btn-sm">Đặt phòng</a>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="service-card">
+                  <div class="media-placeholder" data-label="Hanoi Old Quarter Hotel"></div>
+                  <div class="service-card-body">
+                    <span class="tag-chip">3 sao</span>
+                    <div class="service-card-top"><h3>Hanoi Old Quarter Hotel</h3><span class="rating">★ 4.5 <span class="count">(540)</span></span></div>
+                    <p class="service-location">Hàng Bạc, Hoàn Kiếm, Hà Nội</p>
+                    <div class="tag-row"><span class="tag-chip">Trung tâm phố cổ</span><span class="tag-chip">Bữa sáng</span></div>
+                    <div class="service-card-foot">
+                      <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">550.000đ <span>/đêm</span></span></div>
+                      <a href="#" class="btn-outline btn-sm">Đặt phòng</a>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="service-card">
+                  <div class="media-placeholder" data-label="Hoi An Riverside Hotel"></div>
+                  <div class="service-card-body">
+                    <span class="tag-chip">4 sao</span>
+                    <div class="service-card-top"><h3>Hoi An Riverside Hotel</h3><span class="rating">★ 4.8 <span class="count">(265)</span></span></div>
+                    <p class="service-location">Cẩm Nam, Hội An</p>
+                    <div class="tag-row"><span class="tag-chip">Ven sông</span><span class="tag-chip">Đưa đón phố cổ</span></div>
+                    <div class="service-card-foot">
+                      <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">760.000đ <span>/đêm</span></span></div>
+                      <a href="#" class="btn-outline btn-sm">Đặt phòng</a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+
+  </body>
+</html>
