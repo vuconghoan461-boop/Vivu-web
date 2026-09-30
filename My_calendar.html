@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="vi">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Calendar</title>
+<link rel="stylesheet" href="My_carlendar.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="hero">
+    <button class="new-trip-btn" onclick="openModal()">✈ Tạo chuyến đi</button>
+    <div class="hero-inner">
+      <h1>Lịch của tôi</h1>
+      <p>Quản lý và lên kế hoạch cho những chuyến đi sắp tới của bạn</p>
+    </div>
+  </div>
+
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <div>
+      <div class="panel" style="margin-bottom:16px;">
+        <ul class="nav-list">
+          <li class="active"><span class="dot"><i class="fa-solid fa-border-all"></i></span> Tất cả</li>
+          <li><span class="dot"><i class="fa-solid fa-calendar-days"></i></span> Sắp tới <span class="count">2</span></li>
+          <li><span class="dot"><i class="fa-solid fa-globe"></i></span> Đang diễn ra</li>
+          <li><span class="dot"><i class="fa-solid fa-check-circle"></i></span> Đã hoàn thành</li>
+        </ul>
+
+        <div class="section-title">Chuyến đi sắp tới </div>
+
+        <div class="trip-card selected" onclick="selectTrip(this)">
+          <div class="trip-thumb thumb-danang"></div>
+          <div class="trip-info">
+            <h4></h4>
+            <div class="trip-meta">
+              <span>📅 20/10 – 24/10/2026</span>
+              <span>📍 Đà Nẵng, Hội An</span>
+            </div>
+          </div>
+        </div>
+        <button class="view-btn">Xem lịch trình</button>
+
+        <div class="trip-card" onclick="selectTrip(this)" style="margin-top:12px;">
+          <div class="trip-thumb thumb-dalat"></div>
+          <div class="trip-info">
+            <h4>Đà Lạt</h4>
+            <div class="trip-meta">
+              <span>📅 5 ngày 4 đêm</span>
+            </div>
+          </div>
+        </div>
+        <button class="view-btn">Xem lịch trình</button>
+
+        <div class="empty-note">Mỗi chuyến đi<br>là một câu chuyện đáng nhớ</div>
+      </div>
+      <div class="panel">
+        <div class="section-title">Thêm nhanh vào lịch</div>
+        <div class="quick-grid">
+          <div class="quick-item"><div class="qi-icon qi-blue"><i class="fa-solid fa-location-dot"></i></div><b>Thêm điểm đến</b><small>Nơi bạn muốn khám phá</small></div>
+          <div class="quick-item"><div class="qi-icon qi-blue"><i class="fa-solid fa-hotel"></i></div><b>Thêm khách sạn</b><small>Nơi bạn sẽ nghỉ</small></div>
+          <div class="quick-item"><div class="qi-icon qi-blue"><i class="fa-solid fa-car"></i></div><b>Thêm phương tiện</b><small>Máy bay, tàu, xe</small></div>
+          <div class="quick-item"><div class="qi-icon qi-blue"><i class="fa-solid fa-map-location-dot"></i></div><b>Thêm tour</b><small>Trải nghiệm đặt sẵn</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="panel">
+      <div class="trip-hero">
+        <button class="share-btn">⋯</button>
+        <div class="trip-hero-inner">
+          <h2>Đà Nẵng – Hội An</h2>
+          <div class="trip-hero-meta">
+            <span>📅 20/10/2026 – 24/10/2026 · 5 ngày 4 đêm</span>
+            <span>📍 Đà Nẵng, Hội An</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active">Lịch trình</div>
+        <div class="tab">Thông tin chuyến đi</div>
+        <div class="tab">Bản đồ</div>
+      </div>
+
+      <div class="day-row" id="dayRow">
+        <div class="day-chip"><div class="dnum">Tất cả</div></div>
+        <div class="day-chip active" data-day="1"><div class="dnum">Ngày 1</div><div class="ddate">20/10</div></div>
+        <div class="day-chip" data-day="2"><div class="dnum">Ngày 2</div><div class="ddate">21/10</div></div>
+        <div class="day-chip" data-day="3"><div class="dnum">Ngày 3</div><div class="ddate">22/10</div></div>
+        <div class="day-chip" data-day="4"><div class="dnum">Ngày 4</div><div class="ddate">23/10</div></div>
+        <div class="day-chip" data-day="5"><div class="dnum">Ngày 5</div><div class="ddate">24/10</div></div>
+      </div>
+
+      <div id="days">
+        <div class="day-block" data-block="1">
+          <div class="day-block-head">
+            <h3><span class="day-badge" style="background:var(--blue-600);">1</span> Ngày 1 · Thứ Ba, 20/10/2026</h3>
+            <button class="add-act" onclick="openModal()">＋ Thêm hoạt động</button>
+          </div>
+          <div class="activity">
+            <div class="time">08:00</div>
+            <div class="content"><h4>Hà Nội → Đà Nẵng</h4><p>✈ Bay VN162</p></div>
+          </div>
+          <div class="activity">
+            <div class="time">12:00</div>
+            <div class="content"><h4>Nhận phòng khách sạn</h4><p>🏨 Đà Nẵng</p></div>
+          </div>
+          <div class="activity">
+            <div class="time">14:00</div>
+            <div class="content"><h4>Tham quan Cầu Rồng</h4><p>📍 Đà Nẵng</p></div>
+            <div class="thumb thumb-bridge"></div>
+          </div>
+          <div class="activity">
+            <div class="time">19:00</div>
+            <div class="content"><h4>Ăn tối</h4><p>🍜 Hải sản Bé Mặn</p></div>
+          </div>
+        </div>
+
+        <div class="day-block" data-block="2" style="display:none;">
+          <div class="day-block-head">
+            <h3><span class="day-badge" style="background:var(--green);">2</span> Ngày 2 · Thứ Tư, 21/10/2026</h3>
+            <button class="add-act" onclick="openModal()">＋ Thêm hoạt động</button>
+          </div>
+          <div class="activity">
+            <div class="time">09:00</div>
+            <div class="content"><h4>Bà Nà Hills</h4><p>🚡 Cáp treo</p></div>
+          </div>
+          <div class="activity">
+            <div class="time">17:00</div>
+            <div class="content"><h4>Ăn tối</h4><p>🍽 Chợ Đêm</p></div>
+          </div>
+          <div class="activity">
+            <div class="time">18:30</div>
+            <div class="content"><h4>Phố cổ Hội An</h4><p>🏮 Đèn lồng Hội An</p></div>
+            <div class="thumb thumb-lantern"></div>
+          </div>
+        </div>
+
+        <div class="day-block" data-block="3" style="display:none;">
+          <div class="day-block-head">
+            <h3><span class="day-badge" style="background:var(--violet);">3</span> Ngày 3 · Thứ Năm, 22/10/2026</h3>
+            <button class="add-act" onclick="openModal()">＋ Thêm hoạt động</button>
+          </div>
+          <div class="activity">
+            <div class="time">08:00</div>
+            <div class="content"><h4>Hội An</h4><p>🚶 Phố cổ ban ngày</p></div>
+          </div>
+          <div class="activity">
+            <div class="time">12:00</div>
+            <div class="content"><h4>Ăn trưa</h4><p>🍲 Cao Lầu</p></div>
+          </div>
+          <div class="activity">
+            <div class="time">18:30</div>
+            <div class="content"><h4>Chèo thúng</h4><p>🛶 Rừng dừa Bảy Mẫu</p></div>
+            <div class="thumb thumb-boat"></div>
+          </div>
+        </div>
+
+        <div class="day-block" data-block="4" style="display:none;">
+          <div class="day-block-head">
+            <h3><span class="day-badge" style="background:var(--amber);">4</span> Ngày 4 · Thứ Sáu, 23/10/2026</h3>
+            <button class="add-act" onclick="openModal()">＋ Thêm hoạt động</button>
+          </div>
+          <div class="activity">
+            <div class="time">09:00</div>
+            <div class="content"><h4>Biển Mỹ Khê</h4><p>🏖 Nghỉ dưỡng</p></div>
+          </div>
+        </div>
+
+        <div class="day-block" data-block="5" style="display:none;">
+          <div class="day-block-head">
+            <h3><span class="day-badge" style="background:var(--blue-900);">5</span> Ngày 5 · Thứ Bảy, 24/10/2026</h3>
+            <button class="add-act" onclick="openModal()">＋ Thêm hoạt động</button>
+          </div>
+          <div class="activity">
+            <div class="time">10:00</div>
+            <div class="content"><h4>Đà Nẵng → Hà Nội</h4><p>✈ Bay VN177</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-head"><h3>Thêm hoạt động</h3><button onclick="closeModal()">✕</button></div>
+    <div class="type-row">
+      <div class="type-chip active" onclick="pickType(this)"><span class="ti">🍜</span>Ăn uống</div>
+      <div class="type-chip" onclick="pickType(this)"><span class="ti">📍</span>Điểm đến</div>
+      <div class="type-chip" onclick="pickType(this)"><span class="ti">🏨</span>Khách sạn</div>
+      <div class="type-chip" onclick="pickType(this)"><span class="ti">🚗</span>Di chuyển</div>
+    </div>
+    <div class="field"><label>Tên hoạt động</label><input type="text" placeholder="Ví dụ: Ăn tối tại nhà hàng..."></div>
+    <div class="field-row">
+      <div class="field"><label>Ngày</label><input type="date" value="2026-10-21"></div>
+      <div class="field"><label>Thời gian</label><input type="time" value="19:00"></div>
+    </div>
+    <div class="field"><label>Ghi chú</label><textarea placeholder="Thêm ghi chú, địa chỉ..."></textarea></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Hủy</button>
+      <button class="btn btn-primary" onclick="closeModal()">Lưu</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function selectTrip(el){
+  document.querySelectorAll('.trip-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+document.getElementById('dayRow').addEventListener('click', e=>{
+  const chip = e.target.closest('.day-chip');
+  if(!chip) return;
+  document.querySelectorAll('.day-chip').forEach(c=>c.classList.remove('active'));
+  chip.classList.add('active');
+  const day = chip.dataset.day;
+  document.querySelectorAll('.day-block').forEach(b=>{
+    b.style.display = (!day || b.dataset.block===day) ? '' : 'none';
+  });
+});
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+}));
+function pickType(el){
+  document.querySelectorAll('.type-chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+}
+function openModal(){ document.getElementById('overlay').classList.add('open'); }
+function closeModal(){ document.getElementById('overlay').classList.remove('open'); }
+</script>
+</body>
+</html>
