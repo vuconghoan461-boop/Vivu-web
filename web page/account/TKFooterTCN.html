@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripGo - Lịch của tôi</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome cho các Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- THANH ĐIỀU HƯỚNG & MENU TÀI KHOẢN -->
+    <header class="navbar">
+        <div class="logo">✈️ TripGo</div>
+        <nav class="nav-links">
+            <a href="#">Trang chủ</a>
+            <a href="#">Khám phá</a>
+            <a href="#" class="active">Lịch của tôi</a>
+        </nav>
+        
+        <!-- Khu vực Avatar và Dropdown -->
+        <div class="account-wrapper">
+            <button id="btnLoginModal" class="btn-login-trigger">Đăng nhập (Test Modal)</button>
+            <div class="avatar" id="userAvatar">
+                <img src="https://ui-avatars.com/api/?name=Tu+Pham&background=0D8ABC&color=fff" alt="Avatar">
+            </div>
+
+            <!-- Dropdown Menu đã tích hợp Mini-Widget Lịch -->
+            <div class="account-dropdown" id="accountDropdown">
+                <div class="user-profile">
+                    <h3 class="user-name">Phạm Anh Tú</h3>
+                    <p class="user-tier">🥉 Bronze Priority &gt;</p>
+                </div>
+                
+                <ul class="menu-list">
+                    <li><a href="#"><i class="fa-solid fa-p"></i> 0 Điểm</a></li>
+                    <li><a href="#"><i class="fa-regular fa-user"></i> Chỉnh sửa hồ sơ</a></li>
+                </ul>
+                <hr class="divider">
+
+                <!-- Mini Widget: Lịch của tôi -->
+                <div class="mini-widget-trip">
+                    <h4 class="widget-title">📍 CHUYẾN ĐI SẮP TỚI</h4>
+                    <div class="trip-card-widget">
+                        <p class="trip-destination">🏖️ Đà Nẵng - Hội An</p>
+                        <p class="trip-countdown">⏳ Khởi hành trong: 3 ngày nữa</p>
+                        <a href="#" class="trip-link">👉 Xem chi tiết lịch trình</a>
+                    </div>
+                </div>
+
+                <ul class="menu-list">
+                    <li><a href="#"><i class="fa-regular fa-calendar"></i> Lịch của tôi</a></li>
+                    <li><a href="#"><i class="fa-solid fa-clipboard-list"></i> Đặt chỗ của tôi</a></li>
+                </ul>
+                <hr class="divider">
+                <ul class="menu-list">
+                    <li><a href="#" class="logout-link"><i class="fa-solid fa-power-off"></i> Đăng xuất</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- NỘI DUNG CHÍNH: LỊCH CỦA TÔI (Phần của KLinh) -->
+    <main class="main-content container">
+        <div class="banner">
+            <h2>Lịch của tôi</h2>
+            <p>Quản lý và lên kế hoạch cho những chuyến đi tuyệt vời của bạn!</p>
+            <button class="btn-create-trip">+ Tạo chuyến đi</button>
+        </div>
+
+        <div class="calendar-layout">
+            <!-- Sidebar: Bộ lọc -->
+            <aside class="sidebar-filter">
+                <ul>
+                    <li class="active"><i class="fa-solid fa-border-all"></i> Tất cả <span>3</span></li>
+                    <li><i class="fa-regular fa-calendar-check"></i> Sắp tới <span>2</span></li>
+                    <li><i class="fa-solid fa-spinner"></i> Đang diễn ra <span>1</span></li>
+                    <li><i class="fa-solid fa-check-double"></i> Đã hoàn thành <span>0</span></li>
+                </ul>
+            </aside>
+
+            <!-- Main: Danh sách chuyến đi -->
+            <section class="trip-list">
+                <h3>Chuyến đi sắp tới (2)</h3>
+                <!-- Card 1 -->
+                <div class="trip-card">
+                    <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b" alt="Đà Nẵng">
+                    <div class="trip-info">
+                        <h4>Đà Nẵng - Hội An</h4>
+                        <p><i class="fa-regular fa-calendar"></i> 20/10/2026 - 24/10/2026</p>
+                        <p><i class="fa-solid fa-location-dot"></i> Đà Nẵng, Hội An</p>
+                    </div>
+                    <button class="btn-outline">Xem lịch trình</button>
+                </div>
+                <!-- Card 2 -->
+                <div class="trip-card">
+                    <img src="https://images.unsplash.com/photo-1582298538104-fe2e74cb07ef" alt="Đà Lạt">
+                    <div class="trip-info">
+                        <h4>Đà Lạt</h4>
+                        <p><i class="fa-regular fa-calendar"></i> 10/11/2026 - 13/11/2026</p>
+                        <p><i class="fa-solid fa-location-dot"></i> Đà Lạt</p>
+                    </div>
+                    <button class="btn-outline">Xem lịch trình</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- FOOTER (Phần Chân trang 4 cột & Newsletter) -->
+    <footer class="footer">
+        <div class="newsletter-bar">
+            <div class="container newsletter-content">
+                <span>Săn vé rẻ & Deal độc quyền hàng tuần!</span>
+                <div class="input-group">
+                    <input type="email" placeholder="Nhập email của bạn...">
+                    <button>Đăng ký</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3 class="logo">✈️ TripGo</h3>
+                <p>Khám phá thế giới, không lo tài chính.</p>
+                <div class="social-icons">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-tiktok"></i>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Liên hệ & Thông tin</h4>
+                <ul class="footer-links">
+                    <li>📍 12 Chùa Bộc, Đống Đa, Hà Nội</li>
+                    <li>📞 <a href="tel:19001234">1900 1234</a></li>
+                    <li>✉️ <a href="mailto:support@tripgo.vn">support@tripgo.vn</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Trợ giúp & Chính sách</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Hướng dẫn đặt vé</a></li>
+                    <li><a href="#">Quy định hoàn/hủy tour</a></li>
+                    <li><a href="#">Câu hỏi thường gặp (FAQ)</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-col text-center">
+                <h4>Truy cập trên App</h4>
+                <div class="qr-box">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=TripGo" alt="QR Code">
+                </div>
+                <div class="app-buttons">
+                    <button class="btn-app"><i class="fa-brands fa-apple"></i> App Store</button>
+                    <button class="btn-app"><i class="fa-brands fa-google-play"></i> Google Play</button>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-bar container">
+            <p>&copy; 2026 Nhóm TripGo - HVNH. Đã đăng ký bản quyền.</p>
+            <div class="payment-logos">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-cc-paypal"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL TÀI KHOẢN (Chia đôi màn hình, Floating Labels) -->
+    <div id="authModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-left">
+                <!-- Chứa ảnh nền bằng CSS -->
+                <div class="modal-slogan">
+                    <h2>Khám phá thế giới cùng TripGo!</h2>
+                </div>
+            </div>
+            <div class="modal-right">
+                <div class="modal-tabs">
+                    <button class="tab-btn active" data-target="loginForm">ĐĂNG NHẬP</button>
+                    <button class="tab-btn" data-target="registerForm">ĐĂNG KÝ</button>
+                </div>
+                
+                <!-- Form Đăng nhập -->
+                <form id="loginForm" class="auth-form active">
+                    <div class="form-group floating-label-group">
+                        <input type="text" id="loginEmail" class="form-control" placeholder=" " required>
+                        <label for="loginEmail">Email hoặc Số điện thoại</label>
+                        <span class="error-msg">Vui lòng nhập đúng định dạng.</span>
+                    </div>
+                    <div class="form-group floating-label-group">
+                        <input type="password" id="loginPass" class="form-control" placeholder=" " required>
+                        <label for="loginPass">Mật khẩu</label>
+                        <i class="fa-regular fa-eye toggle-password"></i>
+                    </div>
+                    <div class="form-options">
+                        <label><input type="checkbox"> Ghi nhớ tôi</label>
+                        <a href="#">Quên mật khẩu?</a>
+                    </div>
+                    <button type="submit" class="btn-primary-full">Tiếp tục</button>
+                    <div class="social-login">
+                        <p>Hoặc đăng nhập bằng</p>
+                        <button type="button" class="btn-social"><i class="fa-brands fa-google"></i></button>
+                        <button type="button" class="btn-social"><i class="fa-brands fa-facebook"></i></button>
+                    </div>
+                </form>
+
+                <!-- Form Đăng ký -->
+                <form id="registerForm" class="auth-form">
+                    <div class="form-group floating-label-group">
+                        <input type="text" class="form-control" placeholder=" " required>
+                        <label>Họ và tên</label>
+                    </div>
+                    <div class="form-group floating-label-group">
+                        <input type="email" class="form-control" placeholder=" " required>
+                        <label>Email</label>
+                    </div>
+                    <div class="form-group floating-label-group">
+                        <input type="password" id="regPass" class="form-control" placeholder=" " required>
+                        <label>Mật khẩu</label>
+                        <i class="fa-regular fa-eye toggle-password"></i>
+                    </div>
+                    <button type="submit" class="btn-primary-full">Tạo tài khoản</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nút Lên đầu trang -->
+    <button id="backToTop" title="Lên đầu trang"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <script src="main.js"></script>
+</body>
+</html>
