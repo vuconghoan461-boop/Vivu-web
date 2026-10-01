@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Di chuyển | VivuGo</title>
+    <meta name="description" content="Đặt vé máy bay, tàu hỏa, xe khách và dịch vụ đưa đón sân bay." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../css.css" />
+    <script src="js.js" defer></script>
+  </head>
+  <body class="site-body">
+
+    <div id="site-header"></div>
+
+      <div class="vivugo-container">
+        <section class="section" style="border-top:none; padding-top:32px;" data-tab-group>
+
+          <div class="tab-bar">
+            <button type="button" class="tab-btn is-active" data-tab-target="tr-all">Tất cả</button>
+            <button type="button" class="tab-btn" data-tab-target="tr-air">Máy bay</button>
+            <button type="button" class="tab-btn" data-tab-target="tr-train">Tàu hỏa</button>
+            <button type="button" class="tab-btn" data-tab-target="tr-bus">Xe khách</button>
+            <button type="button" class="tab-btn" data-tab-target="tr-transfer">Đưa đón sân bay</button>
+          </div>
+
+          <div class="tab-panel is-active" data-tab-panel="tr-all">
+            <div class="route-list">
+
+              <article class="route-card">
+                <div>
+                  <div class="route-mode"><span class="icon-dot"></span>Xe khách giường nằm</div>
+                  <div class="route-points">
+                    <span class="route-city">Hà Nội</span>
+                    <span class="route-track"></span>
+                    <span class="route-city">Sa Pa</span>
+                  </div>
+                  <div class="route-meta"><span>Khởi hành 22:00</span><span>Thời gian: 5 giờ 30 phút</span><span>Còn 12 chỗ</span></div>
+                </div>
+                <div class="route-side">
+                  <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">259.000đ <span>/vé</span></span></div>
+                  <a href="#" class="btn-outline btn-sm">Đặt vé</a>
+                </div>
+              </article>
+
+              <article class="route-card">
+                <div>
+                  <div class="route-mode"><span class="icon-dot"></span>Máy bay</div>
+                  <div class="route-points">
+                    <span class="route-city">TP.HCM</span>
+                    <span class="route-track"></span>
+                    <span class="route-city">Phú Quốc</span>
+                  </div>
+                  <div class="route-meta"><span>Khởi hành 08:15</span><span>Thời gian: 1 giờ 05 phút</span><span>Bay thẳng</span></div>
+                </div>
+                <div class="route-side">
+                  <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">890.000đ <span>/vé</span></span></div>
+                  <a href="#" class="btn-outline btn-sm">Đặt vé</a>
+                </div>
+              </article>
+
+              <article class="route-card">
+                <div>
+                  <div class="route-mode"><span class="icon-dot"></span>Tàu hỏa</div>
+                  <div class="route-points">
+                    <span class="route-city">Hà Nội</span>
+                    <span class="route-track"></span>
+                    <span class="route-city">Đà Nẵng</span>
+                  </div>
+                  <div class="route-meta"><span>Khởi hành 19:30</span><span>Thời gian: 15 giờ</span><span>Khoang 4 giường</span></div>
+                </div>
+                <div class="route-side">
+                  <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">620.000đ <span>/vé</span></span></div>
+                  <a href="#" class="btn-outline btn-sm">Đặt vé</a>
+                </div>
+              </article>
+
+              <article class="route-card">
+                <div>
+                  <div class="route-mode"><span class="icon-dot"></span>Đưa đón sân bay</div>
+                  <div class="route-points">
+                    <span class="route-city">Sân bay Tân Sơn Nhất</span>
+                    <span class="route-track"></span>
+                    <span class="route-city">Trung tâm Quận 1</span>
+                  </div>
+                  <div class="route-meta"><span>Đón theo giờ chuyến bay</span><span>Xe 4 chỗ riêng</span><span>Đón tận cửa ra</span></div>
+                </div>
+                <div class="route-side">
+                  <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">180.000đ <span>/lượt</span></span></div>
+                  <a href="#" class="btn-outline btn-sm">Đặt xe</a>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <div class="tab-panel" data-tab-panel="tr-air">
+            <div class="route-list">
+              <article class="route-card">
+                <div>
+                  <div class="route-mode"><span class="icon-dot"></span>Máy bay</div>
+                  <div class="route-points"><span class="route-city">TP.HCM</span><span class="route-track"></span><span class="route-city">Phú Quốc</span></div>
+                  <div class="route-meta"><span>Khởi hành 08:15</span><span>Thời gian: 1 giờ 05 phút</span><span>Bay thẳng</span></div>
+                </div>
+                <div class="route-side">
+                  <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">890.000đ <span>/vé</span></span></div>
+                  <a href="#" class="btn-outline btn-sm">Đặt vé</a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-tab-panel="tr-train">
+            <div class="route-list">
+              <article class="route-card">
+                <div>
+                  <div class="route-mode"><span class="icon-dot"></span>Tàu hỏa</div>
+                  <div class="route-points"><span class="route-city">Hà Nội</span><span class="route-track"></span><span class="route-city">Đà Nẵng</span></div>
+                  <div class="route-meta"><span>Khởi hành 19:30</span><span>Thời gian: 15 giờ</span><span>Khoang 4 giường</span></div>
+                </div>
+                <div class="route-side">
+                  <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">620.000đ <span>/vé</span></span></div>
+                  <a href="#" class="btn-outline btn-sm">Đặt vé</a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-tab-panel="tr-bus">
+            <div class="route-list">
+              <article class="route-card">
+                <div>
+                  <div class="route-mode"><span class="icon-dot"></span>Xe khách giường nằm</div>
+                  <div class="route-points"><span class="route-city">Hà Nội</span><span class="route-track"></span><span class="route-city">Sa Pa</span></div>
+                  <div class="route-meta"><span>Khởi hành 22:00</span><span>Thời gian: 5 giờ 30 phút</span><span>Còn 12 chỗ</span></div>
+                </div>
+                <div class="route-side">
+                  <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">259.000đ <span>/vé</span></span></div>
+                  <a href="#" class="btn-outline btn-sm">Đặt vé</a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-tab-panel="tr-transfer">
+            <div class="route-list">
+              <article class="route-card">
+                <div>
+                  <div class="route-mode"><span class="icon-dot"></span>Đưa đón sân bay</div>
+                  <div class="route-points"><span class="route-city">Sân bay Tân Sơn Nhất</span><span class="route-track"></span><span class="route-city">Trung tâm Quận 1</span></div>
+                  <div class="route-meta"><span>Đón theo giờ chuyến bay</span><span>Xe 4 chỗ riêng</span><span>Đón tận cửa ra</span></div>
+                </div>
+                <div class="route-side">
+                  <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">180.000đ <span>/lượt</span></span></div>
+                  <a href="#" class="btn-outline btn-sm">Đặt xe</a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+        </section>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+
+  </body>
+</html>
