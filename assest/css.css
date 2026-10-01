@@ -6,97 +6,51 @@ img { max-width: 100%; display: block; }
 button, input, select { font: inherit; color: inherit; }
 h1, h2, h3, h4, p { margin: 0; }
 
-/* ---------- 2. TOKENS (theo PICK) ---------- */
+/*--Giao diện chung--*/
 .logo-image {
   width: 150px;
   height: 100px;
   object-fit: contain;
-  display: block;
-}
-:root {
-  /* Màu thương hiệu */
-  --primary:      #008FE5; /* VivuGo Blue — màu chủ đạo */
-  --primary-dark: #0074BF; /* trạng thái hover/active của primary */
-  --accent:       #FF9D16; /* VivuGo Orange — CTA đặc biệt, đánh giá, badge */
-  --accent-dark:  #E2870A;
-
-  --ink:      #1F2937; /* chữ chính */
-  --ink-soft: #6B7280; /* chữ phụ */
-
-  --bg:      #FFFFFF; /* nền chính của website */
-  --bg-soft: #F3FAFF; /* nền phụ / section xen kẽ / khu vực tìm kiếm-lọc */
-
-  --border:      #E5E7EB; /* viền thông thường */
-  --border-blue: #BAE6FD; /* viền xanh nhạt — dùng khi hover card */
-  --white:       #FFFFFF;
-
-  /* Kiểu chữ */
-  --font-head: "Be Vietnam Pro", "Inter", sans-serif;
-  --font-body: "Inter", sans-serif;
-
-  /* Bố cục & bo góc theo quy chuẩn PICK */
-  --container-w:   1200px;
-  --radius-card:   12px;  /* thẻ / card */
-  --radius-banner: 16px;  /* banner / hero */
-  --radius-button: 8px;   /* nút bấm */
-  --radius-pill:   999px; /* badge/tag dạng viên nhỏ */
-  --shadow-card:   0 1px 3px rgba(31,41,55,0.06), 0 1px 2px rgba(31,41,55,0.04);
-  --shadow-card-hover: 0 6px 16px rgba(0,143,229,0.12);
-}
-
-/* ---------- 3. BASE ---------- */
+  display: block; }
 .site-body {
-  font-family: var(--font-body);
-  background: var(--bg);
-  color: var(--ink);
+  font-family: "Inter", sans-serif;
+  background: #FFFFFF;
+  color: #1F2937;
   line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
-}
+  -webkit-font-smoothing: antialiased; }
 
 .vivugo-container {
-  max-width: var(--container-w);
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 px; /* padding container theo PICK */
-}
+  padding: 0 px; }
 
-h1, h2, h3, h4 { font-family: var(--font-head); color: var(--ink); }
+h1, h2, h3, h4 { font-family: "Be Vietnam Pro", "Inter", sans-serif; color: #1F2937; }
 
 a:focus-visible,
 button:focus-visible,
 input:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
+  outline: 2px solid #008FE5;
+  outline-offset: 2px; }
 
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
-}
+  * { animation: none !important; transition: none !important; } }
 
-/* ---------- 4. HEADER ---------- */
-/*.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-}*/
+/* ---------- HEADER ---------- */
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-}
+  background: #FFFFFF;
+  border-bottom: 1px solid #E5E7EB; }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  height: 76px;
-}
+  height: 76px; }
 
 .brand-logo { display: flex; align-items: center; gap: 10px; }
 
@@ -104,27 +58,26 @@ input:focus-visible {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: var(--primary);
-  color: var(--white);
-  font-family: var(--font-head);
+  background: #008FE5;
+  color: #FFFFFF;
+  font-family: "Be Vietnam Pro", "Inter", sans-serif;
   font-weight: 700;
   font-size: 18px;
   display: flex;
   align-items: center;
-  justify-content: center;
-}
+  justify-content: center; }
 
 .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
-.logo-title { font-family: var(--font-head); font-weight: 700; font-size: 19px; color: var(--ink); }
-.logo-title .highlight { color: var(--accent); }
-.logo-slogan { font-size: 10px; letter-spacing: 0.06em; color: var(--ink-soft); }
-.text-white { color: var(--white) !important; }
+.logo-title { font-family: "Be Vietnam Pro", "Inter", sans-serif; font-weight: 700; font-size: 19px; color: #1F2937; }
+.logo-title .highlight { color: #FF9D16; }
+.logo-slogan { font-size: 10px; letter-spacing: 0.06em; color: #6B7280; }
+.text-white { color: #FFFFFF !important; }
 .text-light { color: #DCEEFB !important; }
 
 .main-nav { display: flex; align-items: center; gap: 8px; }
-.nav-link { font-size: 14.5px; font-weight: 500; color: var(--ink-soft); padding: 11px 22px; border-radius: var(--radius-pill); }
-.nav-link:hover { color: var(--primary); }
-.nav-link.active { color: var(--white); background: var(--primary); }
+.nav-link { font-size: 14.5px; font-weight: 500; color: #6B7280; padding: 11px 22px; border-radius: 999px; }
+.nav-link:hover { color: #008FE5; }
+.nav-link.active { color: #FFFFFF; background: #008FE5; }
 
 .header-actions { display: flex; align-items: center; gap: 14px; }
 
@@ -133,13 +86,13 @@ input:focus-visible {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--white);
+  border: 1px solid #E5E7EB;
+  background: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-}
+  cursor: pointer; }
+
 .btn-icon .badge {
   position: absolute;
   top: -4px;
@@ -148,72 +101,64 @@ input:focus-visible {
   height: 16px;
   padding: 0 3px;
   border-radius: 50%;
-  background: var(--accent);
-  color: var(--white);
+  background: #FF9D16;
+  color: #FFFFFF;
   font-size: 10px;
   font-weight: 700;
   display: flex;
   align-items: center;
-  justify-content: center;
-}
+  justify-content: center; }
 
 .nav-toggle {
   display: none;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--white);
-  cursor: pointer;
-}
+  border: 1px solid #E5E7EB;
+  background: #FFFFFF;
+  cursor: pointer; }
 
-/* ---------- 5. BUTTONS ---------- *
-/* Primary = hành động chính (xanh #008FE5). CTA = hành động nổi bật, dùng cam có chọn lọc. */
+/* ---------- BUTTONS ---------- */
 .btn-primary, .btn-cta, .btn-outline, .btn-ghost {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   padding: 11px 22px;
-  border-radius: var(--radius-button);
+  border-radius: 8px;
   font-weight: 600;
   font-size: 14.5px;
   border: 1px solid transparent;
   cursor: pointer;
-  white-space: nowrap;
-}
+  white-space: nowrap; }
+
 .btn-primary {
-  background: var(--primary);
-  color: var(--white);
-}
+  background: #008FE5;
+  color: #FFFFFF; }
 .btn-primary:hover {
   background: #ff9d16;
-  color: #fff;
-}
+  color: #fff; }
 
 .btn-cta {
-  background: var(--accent);
-  color: var(--white);
-}
-.btn-cta:hover { background: var(--accent-dark); }
+  background: #FF9D16;
+  color: #FFFFFF; }
+.btn-cta:hover { background: #E2870A; }
 
 .btn-outline {
   background: transparent;
-  border-color: var(--primary);
-  color: var(--primary);
-}
-.btn-outline:hover { background: var(--primary); color: var(--white); }
+  border-color: #008FE5;
+  color: #008FE5; }
+.btn-outline:hover { background: #008FE5; color: #FFFFFF; }
 
 .btn-ghost {
-  background: var(--bg-soft);
-  color: var(--primary);
-}
-.btn-ghost:hover { background: var(--border-blue); }
+  background: #F3FAFF;
+  color: #008FE5; }
+.btn-ghost:hover { background: #BAE6FD; }
 
 .btn-block { width: 100%; }
 .btn-sm { padding: 8px 16px; font-size: 13px; }
 
-/*----- 5.1 Thẻ kéo tahr của dịch vụ ------*/
+/*----- thẻ kéo tab của dịch vụ ------*/
 .nav-dropdown {
   position: relative;}
 
@@ -240,77 +185,72 @@ input:focus-visible {
 
 .nav-dropdown:hover .service-dropdown { display: block;}
 
-/* ---------- 6. MAIN / HERO (banner đầu module Dịch vụ) ---------- */
+/* ---------- ảnh banner đầu module Dịch vụ) ---------- */
 .site-main { padding-bottom: 64px; }
 
 .module-hero {
-  background: var(--primary);
-  background-image: linear-gradient(120deg, var(--primary) 0%, #0074BF 100%);
-  color: var(--white);
+  background: #008FE5;
+  background-image: linear-gradient(120deg, #008FE5 0%, #0074BF 100%);
+  color: #FFFFFF;
   padding: 40px 0 0;
   margin: 20px 0 0;
-  border-radius: var(--radius-banner);
+  border-radius: 16px;
   overflow: hidden; }
 .module-hero-inner { padding: 0 4px 78px; }
 
 .crumb { font-size: 13px; color: #CDEBFF; margin-bottom: 14px; }
 .crumb a { color: #CDEBFF; }
-.crumb a:hover { color: var(--white); }
+.crumb a:hover { color: #FFFFFF; }
 .crumb .sep { margin: 0 6px; opacity: .6; }
 
 .tag-pill {
   display: inline-block;
   padding: 5px 14px;
-  border-radius: var(--radius-pill);
+  border-radius: 999px;
   background: rgba(255,255,255,0.16);
   border: 1px solid rgba(255,255,255,0.3);
   font-size: 12.5px;
   font-weight: 500;
-  margin-bottom: 14px;
-}
+  margin-bottom: 14px; }
 .vivugo-card .tag-pill,
-.filter-panel .tag-pill { background: var(--bg-soft); border-color: var(--border-blue); color: var(--primary); }
+.filter-panel .tag-pill { background: #F3FAFF; border-color: #BAE6FD; color: #008FE5; }
 
 .page-title { font-size: 34px; font-weight: 700; max-width: 620px; margin-bottom: 12px; }
 .page-desc { font-size: 15.5px; color: #E4F3FD; max-width: 560px; }
 
-/* ---------- 7. SEARCH BAR ---------- */
-/* Bỏ đường kẻ đứt kiểu cuống vé, dùng card trắng bo góc + đổ bóng nhẹ theo PICK */
+/* ----------Thanh tìm kiếm---------- */
 .search-bar {
   position: relative;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
   padding: 18px;
   display: grid;
   grid-template-columns: repeat(4, 1fr) auto;
   gap: 0;
-  box-shadow: var(--shadow-card);
-}
+  box-shadow: 0 1px 3px rgba(31,41,55,0.06), 0 1px 2px rgba(31,41,55,0.04); }
 .search-field {
   padding: 4px 18px;
-  border-right: 1px solid var(--border);
+  border-right: 1px solid #E5E7EB;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-}
+  gap: 4px; }
 .search-field:first-child { padding-left: 4px; }
 .search-field:last-of-type { border-right: none; }
-.search-field label { font-size: 11.5px; font-weight: 600; color: var(--ink-soft); }
+.search-field label { font-size: 11.5px; font-weight: 600; color: #6B7280; }
 .search-field select,
 .search-field input {
   border: none;
   background: transparent;
   font-size: 14.5px;
-  color: var(--ink);
-  padding: 2px 0;
-}
+  color: #1F2937;
+  padding: 2px 0; }
 .search-submit { display: flex; align-items: center; padding-left: 18px; }
 
 /* ---------- 8. SECTION HEADING ---------- */
 .section {
   padding: 56px 0;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid #E5E7EB;
 }
 .module-hero + .section { border-top: none; padding-top: 0; }
 .section-head {
@@ -321,9 +261,9 @@ input:focus-visible {
   margin-bottom: 28px;
 }
 .section-title { font-size: 24px; font-weight: 700; }
-.section-sub { font-size: 14px; color: var(--ink-soft); margin-top: 6px; }
-.section-link { font-size: 14px; font-weight: 600; color: var(--primary); white-space: nowrap; }
-.section-link:hover { color: var(--accent-dark); }
+.section-sub { font-size: 14px; color: #6B7280; margin-top: 6px; }
+.section-link { font-size: 14px; font-weight: 600; color: #008FE5; white-space: nowrap; }
+.section-link:hover { color: #E2870A; }
 
 .module-hero + .vivugo-container {
   position: static !important;
@@ -331,7 +271,7 @@ input:focus-visible {
   padding-top: 24px !important;
 }
 
-/*--- Voucher---- */
+/*--- Thẻ Voucher---- */
 .voucher-section {
   margin-top: 32px;
   margin-bottom: 48px;}
@@ -346,14 +286,14 @@ input:focus-visible {
   letter-spacing: 0.04em;
   color: #008FE5;}
 
-/* 3 voucher nằm ngang */
+/* khối voucher nằm ngang */
 .voucher-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
   margin-top: 16px;}
 
-/* Một voucher */
+/* Thẻ của một voucher */
 .voucher-card {
   position: relative;
   display: flex;
@@ -367,11 +307,11 @@ input:focus-visible {
     border-color 0.2s ease,
     box-shadow 0.2s ease,
     transform 0.2s ease;}
-
 .voucher-card:hover {
   border-color: #BAE6FD;
   box-shadow: 0 4px 14px rgba(0, 143, 229, 0.08);
   transform: translateY(-1px);}
+
 /* Phần nội dung */
 .voucher-content {
   flex: 1;
@@ -406,15 +346,14 @@ input:focus-visible {
   color: #6B7280;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
-}
+  text-overflow: ellipsis; }
 /* Dòng mã + nút copy */
 .voucher-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-top: 10px;}
+  margin-top: 10px; }
 
 /* Mã voucher */
 .voucher-code {
@@ -473,62 +412,57 @@ input:focus-visible {
   }
 }
 
-/* ---------- 9. CATEGORY GRID (module index — Tour/Khách sạn/Phương tiện/Thuê xe) ---------- */
+/* ----------Khối module Tour/Khách sạn/Phương tiện/Thuê xe---------- */
 .category-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
   margin-top: 0;
   position: relative;
-  z-index: 5;
-}
+  z-index: 5; }
 
 .category-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(31,41,55,0.06), 0 1px 2px rgba(31,41,55,0.04);
   padding: 22px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border-top: 3px solid var(--primary);
-  transition: box-shadow .15s ease, transform .15s ease, border-color .15s ease;
-}
-.category-card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-2px); border-color: var(--border-blue); }
-.category-card:nth-child(2) { border-top-color: var(--accent); }
-.category-card:nth-child(3) { border-top-color: var(--primary-dark); }
-.category-card:nth-child(4) { border-top-color: var(--accent-dark); }
+  border-top: 3px solid #008FE5;
+  transition: box-shadow .15s ease, transform .15s ease, border-color .15s ease; }
+.category-card:hover { box-shadow: 0 6px 16px rgba(0,143,229,0.12); transform: translateY(-2px); border-color: #BAE6FD; }
+.category-card:nth-child(2) { border-top-color: #FF9D16; }
+.category-card:nth-child(3) { border-top-color: #0074BF; }
+.category-card:nth-child(4) { border-top-color: #E2870A; }
 .category-card .cat-icon {
   width: 42px; height: 42px;
   border-radius: 50%;
-  background: var(--bg-soft);
+  background: #F3FAFF;
   display: flex; align-items: center; justify-content: center;
-  color: var(--primary);
-}
+  color: #008FE5; }
 .category-card h3 { font-size: 17px; }
-.category-card p { font-size: 13.5px; color: var(--ink-soft); }
-.category-card .cat-price { font-size: 13px; font-weight: 600; color: var(--accent-dark); margin-top: auto; padding-top: 6px; border-top: 1px solid var(--border); }
+.category-card p { font-size: 13.5px; color: #6B7280; }
+.category-card .cat-price { font-size: 13px; font-weight: 600; color: #E2870A; margin-top: auto; padding-top: 6px; border-top: 1px solid #E5E7EB; }
 
-/* ---------- 10. CARD GRID (danh sách Tour / Khách sạn / Xe...) ---------- */
+/* ----------CARD GRID (danh sách Tour / Khách sạn / Xe...) ---------- */
 .content-grid, .listing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
+  gap: 20px; }
 .listing-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
 
 .vivugo-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(31,41,55,0.06), 0 1px 2px rgba(31,41,55,0.04);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: box-shadow .15s ease, transform .15s ease, border-color .15s ease;
-}
-.vivugo-card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-2px); border-color: var(--border-blue); }
+  transition: box-shadow .15s ease, transform .15s ease, border-color .15s ease; }
+.vivugo-card:hover { box-shadow: 0 6px 16px rgba(0,143,229,0.12); transform: translateY(-2px); border-color: #BAE6FD; }
 .card-padding { padding: 22px; }
 
 /* ảnh placeholder — thay data-label bằng ảnh thật khi có link */
@@ -537,88 +471,81 @@ input:focus-visible {
   width: 100%;
   aspect-ratio: 4 / 3;
   background:
-    repeating-linear-gradient(135deg, var(--bg-soft), var(--bg-soft) 10px, #E9F5FE 10px, #E9F5FE 20px);
+    repeating-linear-gradient(135deg, #F3FAFF, #F3FAFF 10px, #E9F5FE 10px, #E9F5FE 20px);
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-}
+  text-align: center; }
 .media-placeholder::after {
   content: "Ảnh: " attr(data-label);
   font-size: 12px;
-  color: var(--primary);
+  color: #008FE5;
   background: rgba(255,255,255,0.9);
   padding: 4px 10px;
-  border-radius: var(--radius-pill);
-}
+  border-radius: 999px; }
 .media-placeholder.ratio-16-9 { aspect-ratio: 16 / 9; }
 
 .service-card {
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
-  background: var(--white);
-  box-shadow: var(--shadow-card);
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  background: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(31,41,55,0.06), 0 1px 2px rgba(31,41,55,0.04);
   overflow: hidden;
-  transition: box-shadow .15s ease, transform .15s ease, border-color .15s ease;
-}
-.service-card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-2px); border-color: var(--border-blue); }
+  transition: box-shadow .15s ease, transform .15s ease, border-color .15s ease; }
+.service-card:hover { box-shadow: 0 6px 16px rgba(0,143,229,0.12); transform: translateY(-2px); border-color: #BAE6FD; }
 .service-card-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; }
 .service-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
 .service-card h3 { font-size: 16.5px; line-height: 1.3; }
-.service-location { font-size: 12.5px; color: var(--ink-soft); display: flex; align-items: center; gap: 5px; }
+.service-location { font-size: 12.5px; color: #6B7280; display: flex; align-items: center; gap: 5px; }
 
 /* Đánh giá sao dùng màu cam theo PICK */
-.rating { display: flex; align-items: center; gap: 5px; font-size: 12.5px; font-weight: 700; color: var(--accent); white-space: nowrap; }
-.rating .count { font-weight: 400; color: var(--ink-soft); }
+.rating { display: flex; align-items: center; gap: 5px; font-size: 12.5px; font-weight: 700; color: #FF9D16; white-space: nowrap; }
+.rating .count { font-weight: 400; color: #6B7280; }
 
 .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
 .tag-chip {
   font-size: 11.5px;
   padding: 3px 10px;
   border-radius: 6px;
-  background: var(--bg-soft);
-  color: var(--primary);
-  font-weight: 500;
-}
+  background: #F3FAFF;
+  color: #008FE5;
+  font-weight: 500; }
 
 .service-card-foot {
   margin-top: 6px;
   padding-top: 10px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid #E5E7EB;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
+  justify-content: space-between; }
 .price { display: flex; flex-direction: column; }
-.price .from { font-size: 11px; color: var(--ink-soft); }
-.price .amount { font-size: 17px; font-weight: 700; color: var(--accent-dark); }
-.price .amount span { font-size: 12px; font-weight: 500; color: var(--ink-soft); }
+.price .from { font-size: 11px; color: #6B7280; }
+.price .amount { font-size: 17px; font-weight: 700; color: #E2870A; }
+.price .amount span { font-size: 12px; font-weight: 500; color: #6B7280; }
 
 /* ---------- 11. LISTING LAYOUT (sidebar lọc + grid) ---------- */
 .listing-layout {
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: 28px;
-  align-items: flex-start;
-}
+  align-items: flex-start; }
 .filter-panel {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(31,41,55,0.06), 0 1px 2px rgba(31,41,55,0.04);
   padding: 20px;
   position: sticky;
   top: 96px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
+  gap: 20px; }
 .filter-group { display: flex; flex-direction: column; gap: 10px; }
 .filter-group h4 { font-size: 13.5px; font-weight: 700; }
-.filter-option { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--ink-soft); }
-.filter-option input { accent-color: var(--primary); }
+.filter-option { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: #6B7280; }
+.filter-option input { accent-color: #008FE5; }
 .range-row { display: flex; align-items: center; gap: 8px; }
-.range-row input { width: 100%; border: 1px solid var(--border); border-radius: 6px; padding: 6px 8px; font-size: 13px; }
+.range-row input { width: 100%; border: 1px solid #E5E7EB; border-radius: 6px; padding: 6px 8px; font-size: 13px; }
 
 .listing-toolbar {
   display: flex;
@@ -626,36 +553,34 @@ input:focus-visible {
   justify-content: space-between;
   margin-bottom: 18px;
   gap: 12px;
-  flex-wrap: wrap;
-}
-.result-count { font-size: 13.5px; color: var(--ink-soft); }
-.sort-select { border: 1px solid var(--border); border-radius: var(--radius-button); padding: 8px 14px; font-size: 13px; background: var(--white); }
+  flex-wrap: wrap; }
+.result-count { font-size: 13.5px; color: #6B7280; }
+.sort-select { border: 1px solid #E5E7EB; border-radius: 8px; padding: 8px 14px; font-size: 13px; background: #FFFFFF; }
 
 /* ---------- 12. TABS (trang chi tiết dịch vụ) ---------- */
-.tab-bar { display: flex; gap: 6px; border-bottom: 1px solid var(--border); margin-bottom: 26px; overflow-x: auto; }
+.tab-bar { display: flex; gap: 6px; border-bottom: 1px solid #E5E7EB; margin-bottom: 26px; overflow-x: auto; }
 .tab-btn {
   padding: 12px 18px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--ink-soft);
+  color: #6B7280;
   border-bottom: 2px solid transparent;
   background: none;
   border-top: none; border-left: none; border-right: none;
   cursor: pointer;
-  white-space: nowrap;
-}
-.tab-btn:hover { color: var(--primary); }
-.tab-btn.is-active { color: var(--primary); border-bottom-color: var(--accent); }
+  white-space: nowrap; }
+.tab-btn:hover { color: #008FE5; }
+.tab-btn.is-active { color: #008FE5; border-bottom-color: #FF9D16; }
 .tab-panel { display: none; }
 .tab-panel.is-active { display: block; }
 
 /* ---------- 13. TRANSPORT LIST (Máy bay / Tàu / Xe ghép) ---------- */
 .route-list { display: flex; flex-direction: column; gap: 14px; }
 .route-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(31,41,55,0.06), 0 1px 2px rgba(31,41,55,0.04);
   padding: 18px 20px;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -663,42 +588,42 @@ input:focus-visible {
   align-items: center;
   transition: box-shadow .15s ease, border-color .15s ease;
 }
-.route-card:hover { box-shadow: var(--shadow-card-hover); border-color: var(--border-blue); }
+.route-card:hover { box-shadow: 0 6px 16px rgba(0,143,229,0.12); border-color: #BAE6FD; }
 .route-mode {
   display: flex; align-items: center; gap: 8px;
-  font-size: 12.5px; font-weight: 700; color: var(--primary);
+  font-size: 12.5px; font-weight: 700; color: #008FE5;
   margin-bottom: 8px;
 }
-.route-mode .icon-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.route-mode .icon-dot { width: 8px; height: 8px; border-radius: 50%; background: #FF9D16; }
 .route-points { display: flex; align-items: center; gap: 14px; }
 .route-city { font-size: 17px; font-weight: 700; }
-.route-track { flex: 1; position: relative; height: 1px; background: var(--border); min-width: 80px; }
+.route-track { flex: 1; position: relative; height: 1px; background: #E5E7EB; min-width: 80px; }
 .route-track::before, .route-track::after {
   content: ""; position: absolute; top: 50%; width: 6px; height: 6px; border-radius: 50%;
-  background: var(--primary); transform: translateY(-50%);
+  background: #008FE5; transform: translateY(-50%);
 }
-.route-track::before { left: 0; } .route-track::after { right: 0; background: var(--accent); }
-.route-meta { font-size: 12.5px; color: var(--ink-soft); margin-top: 8px; display: flex; gap: 14px; }
+.route-track::before { left: 0; } .route-track::after { right: 0; background: #FF9D16; }
+.route-meta { font-size: 12.5px; color: #6B7280; margin-top: 8px; display: flex; gap: 14px; }
 .route-side { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
 
 /* ---------- 14. FOOTER ---------- */
-.site-footer { background: var(--primary); color: #D6EEFC; padding: 56px 0 0; margin-top: 40px; }
+.site-footer { background: #008FE5; color: #D6EEFC; padding: 56px 0 0; margin-top: 40px; }
 .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.3fr; gap: 32px; padding-bottom: 40px; }
 .footer-logo { margin-bottom: 14px; }
 .logo-image-footer {  width: 250px; height: 150px; object-fit: contain; display: block;}
 .footer-text { font-size: 13.5px; color: #BFE3F9; max-width: 300px; }
-.footer-heading { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 14px; }
+.footer-heading { font-size: 14px; font-weight: 700; color: #FFFFFF; margin-bottom: 14px; }
 .footer-links li { margin-bottom: 9px; }
 .footer-links a { font-size: 13.5px; color: #BFE3F9; }
-.footer-links a:hover { color: var(--white); }
+.footer-links a:hover { color: #FFFFFF; }
 .newsletter-form { display: flex; gap: 8px; margin-top: 12px; }
 .form-input {
   flex: 1;
   padding: 10px 14px;
-  border-radius: var(--radius-button);
+  border-radius: 8px;
   border: 1px solid rgba(255,255,255,0.3);
   background: rgba(255,255,255,0.1);
-  color: var(--white);
+  color: #FFFFFF;
   font-size: 13px;
 }
 .form-input::placeholder { color: #BFE3F9; }
@@ -718,7 +643,7 @@ input:focus-visible {
   .filter-panel { position: static; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .search-bar { grid-template-columns: repeat(2, 1fr); row-gap: 14px; }
-  .search-field { border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+  .search-field { border-right: none; border-bottom: 1px solid #E5E7EB; padding-bottom: 10px; }
   .search-submit { grid-column: span 2; padding-left: 4px; }
 }
 
@@ -734,8 +659,6 @@ input:focus-visible {
 
 
 /*----CSS CỦA MODULE CON: CARRENT ----*/
-/* ---------- Filter lọc chung (6.1) ---------- */
-
 .rental-filter-bar {
   background: #FFFFFF;
   border: 1px solid #E5E7EB;
@@ -1353,4 +1276,102 @@ input:focus-visible {
   .form-row {
     flex-direction: column;
   }
+}
+
+/*--Module con: đặt tour---*/
+/* tour.css — chỉ phần BỔ SUNG cho css.css (dùng lại .car-grid, .car-card, .rental-*, .cat-tab, .seat-pill, .modal-*, .booking-*, .success-*) */
+
+/* Badge card */
+.badge-row { position: absolute; top: 10px; left: 10px; display: flex; gap: 6px; z-index: 2; }
+.badge-row .car-badge { position: static; }
+.car-badge.hot { background: rgba(226,135,10,.95); }
+.car-badge.sale { background: rgba(0,143,229,.95); }
+.car-card { cursor: pointer; }
+.tour-route { font-size: 12.5px; color: #6B7280; }
+.old-price { display: block; font-size: 12px; color: #6B7280; text-decoration: line-through; }
+.form-error { color: #DC2626; font-size: 12.5px; }
+.booking-form input.is-invalid { border-color: #DC2626; }
+
+/* Popup chi tiết */
+.booking-modal.detail-modal { max-width: 860px; position: relative; }
+.detail-modal .modal-close { position: absolute; top: 14px; right: 14px; z-index: 5; }
+.gallery { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 6px; padding: 14px 14px 0; height: 300px; }
+.gallery .media-placeholder { aspect-ratio: auto; height: 100%; border-radius: 10px; overflow: hidden; }
+.gallery .media-placeholder:first-child { grid-row: span 2; }
+.gallery img, .car-media img { width: 100%; height: 100%; object-fit: cover; }
+.detail-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 16px 22px 0; flex-wrap: wrap; }
+.detail-top h2 { font-size: 20px; }
+.detail-price { font-size: 24px; font-weight: 800; color: #D97706; margin-top: 8px; }
+.detail-price small { font-size: 12px; font-weight: 500; color: #6B7280; }
+.quick-info { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #E5E7EB; border-radius: 10px; margin: 16px 22px; }
+.quick-info div { padding: 10px 12px; border-right: 1px solid #E5E7EB; font-size: 12.5px; }
+.quick-info div:last-child { border-right: none; }
+.quick-info span { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .04em; color: #6B7280; }
+.detail-body { padding: 0 22px 22px; }
+.detail-body .tab-bar { margin-bottom: 16px; }
+.panel-h { font-size: 14px; font-weight: 700; margin: 14px 0 6px; }
+.hl-list li, .inc-list li, .exc-list li, .note-list li { position: relative; padding: 4px 0 4px 20px; font-size: 13.5px; }
+.hl-list li::before, .inc-list li::before { content: "✓"; position: absolute; left: 0; color: #008FE5; font-weight: 700; }
+.exc-list li::before { content: "✕"; position: absolute; left: 0; color: #DC2626; font-weight: 700; }
+.note-list li::before { content: "•"; position: absolute; left: 6px; color: #FF9D16; }
+.acc-head { width: 100%; display: flex; justify-content: space-between; border: none; border-radius: 8px; background: #F3FAFF; padding: 11px 14px; font-weight: 700; font-size: 13.5px; cursor: pointer; }
+.timeline li { display: grid; grid-template-columns: 70px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px dashed #E5E7EB; font-size: 13.5px; }
+.timeline .t-time { font-weight: 700; color: #008FE5; }
+.timeline .t-desc { display: block; font-size: 12.5px; color: #6B7280; }
+.price-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.price-table th, .price-table td { padding: 9px 10px; border-bottom: 1px solid #E5E7EB; text-align: left; }
+.price-table th { font-size: 12px; color: #6B7280; }
+.detail-cta { position: sticky; bottom: 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; background: #FFFFFF; border-top: 1px solid #E5E7EB; padding: 12px 22px; }
+
+@media (max-width: 768px) {
+  .gallery { grid-template-columns: 1fr 1fr; height: 220px; }
+  .gallery .media-placeholder:nth-child(n+4) { display: none; }
+  .quick-info { grid-template-columns: 1fr 1fr; }
+}
+
+/*--Module con: đặt hotel---*/
+/* ---- MODULE CON: HOTEL (dán vào cuối assest/css.css, SAU phần CSS của tour) ---- */
+/* Dùng lại từ phần tour: .detail-modal, .gallery, .detail-top, .detail-body, .panel-h, .inc-list, .note-list, .old-price, .badge-row */
+
+.hotel-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+.hotel-card { display: flex; background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 12px; box-shadow: 0 2px 8px rgba(17,24,39,.08); overflow: hidden; cursor: pointer; transition: box-shadow .15s ease, transform .15s ease, border-color .15s ease; }
+.hotel-card:hover { box-shadow: 0 8px 24px rgba(17,24,39,.12); transform: translateY(-2px); border-color: #BAE6FD; }
+.hotel-media { position: relative; flex: 0 0 38%; min-height: 240px; }
+.hotel-media .media-placeholder { aspect-ratio: auto; position: absolute; inset: 0; height: 100%; }
+.hotel-media img { width: 100%; height: 100%; object-fit: cover; }
+.hotel-rating { position: absolute; top: 10px; left: 10px; z-index: 2; background: #FFFFFF; border-radius: 999px; padding: 4px 10px; font-size: 11.5px; font-weight: 700; color: #FF9D16; box-shadow: 0 1px 4px rgba(0,0,0,.15); }
+.hotel-rating span { color: #6B7280; font-weight: 500; }
+.hotel-body { flex: 1; min-width: 0; padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; }
+.hotel-stars { font-size: 12px; color: #FF9D16; }
+.hotel-stars span { color: #6B7280; margin-left: 6px; }
+.hotel-name { font-size: 16.5px; font-weight: 800; line-height: 1.3; }
+.hotel-addr { font-size: 12.5px; color: #6B7280; }
+.hotel-desc { font-size: 12.5px; color: #6B7280; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.hotel-foot { margin-top: auto; padding-top: 10px; border-top: 1px solid #E5E7EB; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+
+/* Popup: danh sách phòng */
+.hotel-meta { font-size: 13px; color: #6B7280; margin-top: 4px; }
+.hotel-score { text-align: right; font-size: 12px; color: #6B7280; }
+.hotel-score strong { display: block; font-size: 20px; color: #FF9D16; }
+.room-list { display: flex; flex-direction: column; gap: 12px; margin-top: 14px; }
+.room-row { display: grid; grid-template-columns: 120px 1fr auto; gap: 14px; align-items: center; border: 1px solid #E5E7EB; border-radius: 12px; padding: 12px; }
+.room-row:hover { border-color: #BAE6FD; }
+.room-row .media-placeholder { aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; }
+.room-row .media-placeholder::after { font-size: 9px; padding: 2px 6px; }
+.room-name { font-size: 14.5px; font-weight: 700; }
+.room-info { font-size: 12px; color: #6B7280; margin: 2px 0 6px; }
+.room-side { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.room-price { font-size: 17px; font-weight: 800; color: #D97706; }
+.room-note { font-size: 11px; color: #6B7280; }
+.room-left { font-size: 11.5px; font-weight: 600; color: #D97706; }
+.rating-box { display: flex; align-items: center; gap: 14px; background: #F3FAFF; border-radius: 10px; padding: 14px 16px; }
+.rating-box strong { font-size: 26px; color: #FF9D16; }
+
+@media (max-width: 1024px) { .hotel-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .hotel-card { flex-direction: column; }
+  .hotel-media { flex-basis: auto; min-height: 180px; }
+  .room-row { grid-template-columns: 1fr; }
+  .room-side { align-items: flex-start; text-align: left; }
 }

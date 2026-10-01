@@ -10,10 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="../css.css" />
-    <link rel="stylesheet" href="thue-xe.css" />
-    <script src="js.js" defer></script>
-    <script src="thue-xe.js" defer></script>
+    <link rel="stylesheet" href="../../assest/css.css" />
+    <script src="../../assest/js.js" defer></script>
   </head>
   <body class="site-body">
 
@@ -22,7 +20,7 @@
     <main class="site-main">
       <section class="module-hero" style="padding-bottom: 40px; margin-bottom: 0;">
         <div class="vivugo-container module-hero-inner" style="padding-bottom: 40px;">
-          <p class="crumb"><a href="index.html">Dịch vụ</a><span class="sep">/</span>Thuê xe</p>
+          <p class="crumb"><a href="../../index.html">Dịch vụ</a><span class="sep">/</span>Thuê xe</p>
           <h1 class="page-title" style="font-size:28px;">Thuê xe tự lái &amp; có tài xế</h1>
           <p class="page-desc">Xe máy, ô tô đời mới, giao xe tận nơi — thanh toán khi nhận xe hoặc trực tuyến.</p>
         </div>
@@ -62,21 +60,18 @@
                 <input type="datetime-local" id="pickupDatetime" value="2026-09-23T10:00" />
               </div>
 
-              <div class="rental-duration-pill" id="durationPill">3 ngày</div>
-
               <div class="rental-field">
                 <label>Ngày &amp; giờ trả xe</label>
                 <input type="datetime-local" id="dropoffDatetime" value="2026-09-26T10:00" />
               </div>
-
               <button type="button" class="btn-cta rental-search-btn" id="searchCarsBtn">Tìm kiếm</button>
+              <button type="button" class="btn-ghost rental-search-btn" id="resetBtn">Xoá lọc</button>
             </div>
           </div>
 
           <!-- ============ 6.2 KHỐI HIỂN THỊ THÔNG TIN ============ -->
           <div class="rental-toolbar">
             <div class="location-select" id="locationSelect">
-              <span>📍</span>
               <span id="locationLabel">Hà Nội</span>
               <span class="chevron">⌄</span>
               <div class="location-dropdown" id="locationDropdown">
@@ -107,7 +102,7 @@
 
           <p class="result-count" id="resultCount">Tìm thấy 5 xe phù hợp</p>
 
-          <!-- Grid hình vuông — render bằng JS từ mảng CARS trong thue-xe.js -->
+          <!-- Grid hình vuông — render bằng JS từ data/car.json -->
           <div class="car-grid" id="carGrid"></div>
 
         </section>
