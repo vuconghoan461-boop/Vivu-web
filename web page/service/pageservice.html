@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dịch vụ du lịch | VivuGo</title>
+    <meta name="description" content="Đặt khách sạn, tour, thuê xe và phương tiện di chuyển cho chuyến đi của bạn tại VivuGo." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css.css" />
+    <script src="js.js" defer></script>
+  </head>
+  <body class="site-body">
+
+    <!-- ==================== HEADER (dùng chung mọi trang) ==================== -->
+    <div id="site-header"></div>
+
+    <!-- ==================== MAIN ==================== -->
+    <main class="site-main">
+
+      <!-- Hero + thanh tìm kiếm -->
+      <section class="module-hero">
+        <div class="vivugo-container module-hero-inner">
+          <p class="crumb"><a href="service.html">Trang chủ</a><span class="sep">/</span>Dịch vụ</p>
+          <span class="tag-pill">4 nhóm dịch vụ · Đặt trong một chạm</span>
+          <h1 class="page-title">Đặt dịch vụ cho chuyến đi của bạn</h1>
+          <p class="page-desc">Khách sạn, tour trọn gói, thuê xe và phương tiện di chuyển — tất cả ở một nơi, giá cập nhật theo ngày thực tế.</p>
+
+          <form class="search-bar" onsubmit="event.preventDefault();">
+            <div class="search-field">
+              <label for="loaiDv">Loại dịch vụ</label>
+              <select id="loaiDv">
+                <option>Khách sạn</option>
+                <option>Tour du lịch</option>
+                <option>Thuê xe</option>
+                <option>Di chuyển</option>
+              </select>
+            </div>
+            <div class="search-field">
+              <label for="diemDen">Điểm đến</label>
+              <input id="diemDen" type="text" placeholder="VD: Đà Lạt" />
+            </div>
+            <div class="search-field">
+              <label for="ngayDi">Ngày đi</label>
+              <input id="ngayDi" type="date" />
+            </div>
+            <div class="search-field">
+              <label for="soKhach">Số khách</label>
+              <input id="soKhach" type="number" min="1" value="2" />
+            </div>
+            <div class="search-submit">
+              <button type="submit" class="btn-primary btn-block">Tìm kiếm</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <div class="vivugo-container">
+        <!-- Lưới danh mục dịch vụ -->
+        <div class="category-grid">
+          <a href="hotel.html" class="vivugo-card category-card">
+            <div class="cat-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01"/></svg>
+            </div>
+            <h3>Khách sạn</h3>
+            <p>Hơn 1.200 chỗ nghỉ đã kiểm duyệt trên toàn quốc.</p>
+            <span class="cat-price">Chỉ từ 350.000đ/đêm</span>
+          </a>
+
+          <a href="tour.html" class="vivugo-card category-card">
+            <div class="cat-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/><path d="M2 12h20"/></svg>
+            </div>
+            <h3>Tour du lịch</h3>
+            <p>Lịch trình trọn gói, có hướng dẫn viên bản địa.</p>
+            <span class="cat-price">Chỉ từ 1.290.000đ/khách</span>
+          </a>
+
+          <a href="CarRent.html" class="vivugo-card category-card">
+            <div class="cat-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm14 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0ZM3 17l1.5-6h15L21 17M6 11l1.5-4h9L18 11"/></svg>
+            </div>
+            <h3>Thuê xe</h3>
+            <p>Xe máy, ô tô tự lái hoặc có tài xế theo yêu cầu.</p>
+            <span class="cat-price">Chỉ từ 150.000đ/ngày</span>
+          </a>
+
+          <a href="transportation.html" class="vivugo-card category-card">
+            <div class="cat-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 12l4 1 1 4 5-5 5 5 1-4 4-1z"/></svg>
+            </div>
+            <h3>Di chuyển</h3>
+            <p>Vé máy bay, tàu hỏa, xe khách và đưa đón sân bay.</p>
+            <span class="cat-price">Chỉ từ 89.000đ/chặng</span>
+          </a>
+        </div>
+
+        <!--Thẻ voucher-->
+        <section class="voucher-section">
+          <div class="section-head">
+            <div>
+              <span class="voucher-kicker">ƯU ĐÃI CHO BẠN</span>
+              <h2 class="section-title">Mã giảm giá dành cho bạn</h2>
+              <p class="section-sub">
+                Lưu mã và áp dụng khi đặt dịch vụ tại VivuGo.
+              </p>
+            </div>
+
+            <a href="service.html" class="section-link">
+              Xem tất cả ưu đãi →
+            </a>
+          </div>
+
+          <div class="voucher-grid">
+
+            <article class="voucher-card">
+              <div class="voucher-content">
+                <span class="voucher-service">TOUR DU LỊCH</span>
+
+                <h3>Giảm 10% cho đơn Tour</h3>
+
+                <p>Giảm tối đa 200.000đ cho tour từ 1.500.000đ.</p>
+
+                <div class="voucher-bottom">
+                  <span class="voucher-code">VIVUGO10</span>
+
+                  <button
+                    type="button"
+                    class="voucher-copy"
+                    onclick="copyVoucher('VIVUGO10', this)">
+                    Copy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="voucher-card">
+              <div class="voucher-content">
+                <span class="voucher-service">KHÁCH SẠN</span>
+
+                <h3>Giảm 15% cho đơn phòng</h3>
+
+                <p>Giảm tối đa 300.000đ cho đơn từ 2.000.000đ.</p>
+
+                <div class="voucher-bottom">
+                  <span class="voucher-code">VIVUGO15</span>
+
+                  <button
+                    type="button"
+                    class="voucher-copy"
+                    onclick="copyVoucher('VIVUGO15', this)">
+                    Copy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+
+            <article class="voucher-card">
+              <div class="voucher-content">
+                <span class="voucher-service">DI CHUYỂN</span>
+
+                <h3>Giảm 100.000đ vé xe</h3>
+
+                <p>Áp dụng cho đơn vé từ 800.000đ.</p>
+
+                <div class="voucher-bottom">
+                  <span class="voucher-code">VIVUGO100</span>
+
+                  <button
+                    type="button"
+                    class="voucher-copy"
+                    onclick="copyVoucher('VIVUGO100', this)">
+                    Copy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- Dịch vụ nổi bật (dữ liệu mẫu) -->
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">Dịch vụ nổi bật tuần này</h2>
+              <p class="section-sub">Chọn lọc từ đánh giá thực tế của cộng đồng VivuGo.</p>
+            </div>
+            <a href="service.html" class="section-link">Xem tất cả dịch vụ →</a>
+          </div>
+
+          <div class="listing-grid cols-4">
+
+            <article class="service-card">
+              <div class="media-placeholder" data-label="Khách sạn Ocean Pearl"></div>
+              <div class="service-card-body">
+                <span class="tag-chip">Khách sạn</span>
+                <div class="service-card-top">
+                  <h3>Ocean Pearl Nha Trang</h3>
+                  <span class="rating">★ 4.8 <span class="count">(320)</span></span>
+                </div>
+                <p class="service-location">Trần Phú, Nha Trang</p>
+                <div class="service-card-foot">
+                  <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">890.000đ <span>/đêm</span></span></div>
+                  <a href="hotel.html" class="btn-outline btn-sm">Xem</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="media-placeholder" data-label="Tour Đà Lạt 3N2Đ"></div>
+              <div class="service-card-body">
+                <span class="tag-chip">Tour du lịch</span>
+                <div class="service-card-top">
+                  <h3>Đà Lạt mộng mơ 3N2Đ</h3>
+                  <span class="rating">★ 4.9 <span class="count">(154)</span></span>
+                </div>
+                <p class="service-location">Khởi hành từ TP.HCM</p>
+                <div class="service-card-foot">
+                  <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">1.890.000đ <span>/khách</span></span></div>
+                  <a href="tour.html" class="btn-outline btn-sm">Xem</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="media-placeholder" data-label="Toyota Vios 2023"></div>
+              <div class="service-card-body">
+                <span class="tag-chip">Thuê xe</span>
+                <div class="service-card-top">
+                  <h3>Toyota Vios 2023</h3>
+                  <span class="rating">★ 4.7 <span class="count">(88)</span></span>
+                </div>
+                <p class="service-location">Nhận xe tại Quận 1, TP.HCM</p>
+                <div class="service-card-foot">
+                  <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">750.000đ <span>/ngày</span></span></div>
+                  <a href="CarRent.html" class="btn-outline btn-sm">Xem</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="media-placeholder" data-label="Vé xe khách Hà Nội – Sapa"></div>
+              <div class="service-card-body">
+                <span class="tag-chip">Di chuyển</span>
+                <div class="service-card-top">
+                  <h3>Xe khách Hà Nội – Sa Pa</h3>
+                  <span class="rating">★ 4.6 <span class="count">(412)</span></span>
+                </div>
+                <p class="service-location">Giường nằm, khởi hành 22:00</p>
+                <div class="service-card-foot">
+                  <div class="price"><span class="from">Giá chỉ từ</span><span class="amount">259.000đ <span>/vé</span></span></div>
+                  <a href="transportation.html" class="btn-outline btn-sm">Xem</a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ==================== FOOTER (dùng chung mọi trang) ==================== -->
+    <div id="site-footer"></div>
+
+  </body>
+</html>
