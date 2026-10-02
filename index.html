@@ -1,266 +1,14 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Khám phá điểm đến | VivuGo - Cẩm nang & Đặt tour trọn gói</title>
-  <meta name="description" content="30 bài viết cẩm nang du lịch hấp dẫn khắp Việt Nam. Đọc xong có thể đặt tour trọn gói ngay trong bài viết mà không bị gián đoạn trải nghiệm." />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --blue: #0a8de0;
-      --blue-d: #0773bd;
-      --blue-soft: #e8f4fc;
-      --orange: #e8930c;
-      --orange-d: #cf8008;
-      --ink: #1c2a3a;
-      --muted: #64748b;
-      --line: #e2e8f0;
-      --card-bg: #ffffff;
-      --radius: 14px;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: "Be Vietnam Pro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: var(--ink);
-      background: #f8fafc;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; text-decoration: none; }
-    .wrap { width: min(1200px, 100% - 32px); margin-inline: auto; }
-    button { font-family: inherit; }
-    :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
-
-    /* Header chuẩn theo đúng ảnh chụp thương hiệu VivuGo */
-    .hd { position: sticky; top: 0; z-index: 40; background: #fff; border-bottom: 1px solid #eef2f6; box-shadow: 0 1px 6px rgba(0,0,0,0.03); }
-    .hd .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 76px; }
-    
-    .logo { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; text-decoration: none; flex-shrink: 0; }
-    .logo-icon-svg { width: 44px; height: 44px; display: block; overflow: visible; }
-    .logo-brand { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; display: inline-flex; align-items: center; line-height: 1; }
-    .brand-vivu { color: #0088e8; }
-    .brand-go { color: #f59e0b; position: relative; display: inline-flex; align-items: center; margin-left: 1px; }
-    .brand-sparkle { position: absolute; top: -10px; right: -8px; width: 22px; height: 14px; }
-
-    .nav { display: flex; gap: 8px; align-items: center; }
-    .nav-btn-link { background: transparent; color: #475569; border: 1.5px solid transparent; border-radius: 9999px; padding: 9px 20px; font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
-    .nav-btn-link:hover { color: #0088e8; background: #f0f9ff; }
-    
-    .nav-btn-active { background: #0088e8; color: #fff; border: 0; border-radius: 9999px; padding: 10px 24px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,136,232,0.25); }
-    .nav-btn-active:hover { background: #0077cc; }
-
-    .nav-link { color: #475569; font-size: 15px; font-weight: 500; padding: 8px 14px; text-decoration: none; transition: color 0.2s; border-radius: 8px; }
-    .nav-link:hover { color: #0088e8; background: #f8fafc; }
-
-    .hd-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-    .ico-circle { position: relative; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid #e2e8f0; background: #fff; display: grid; place-items: center; cursor: pointer; transition: all 0.2s; padding: 0; }
-    .ico-circle:hover { border-color: #cbd5e1; background: #f8fafc; transform: translateY(-1px); }
-    .ico-circle .badge { position: absolute; top: -3px; right: -3px; background: #f59e0b; color: #fff; font-size: 11px; font-weight: 800; width: 19px; height: 19px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.15); }
-
-    .btn-blue { background: #0088e8; color: #fff; border: 0; border-radius: 9px; padding: 10px 22px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 6px rgba(0,136,232,0.2); }
-    .btn-blue:hover { background: #0077cc; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,136,232,0.3); }
-    .btn-blue:active { transform: translateY(0); }
-
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; border: 0; cursor: pointer; background: var(--blue); color: #fff; font-weight: 600; font-size: 14.5px; padding: 10px 20px; border-radius: 10px; text-align: center; transition: all 0.2s; }
-    .btn:hover { background: var(--blue-d); transform: translateY(-1px); }
-    .btn:active { transform: translateY(0); }
-    .btn-o { background: #fff; color: var(--blue); border: 1.5px solid var(--blue); }
-    .btn-o:hover { background: var(--blue-soft); }
-    .btn-or { background: var(--orange); color: #fff; }
-    .btn-or:hover { background: var(--orange-d); box-shadow: 0 4px 12px rgba(232,147,12,0.25); }
-
-    /* Hero */
-    .hero { background: linear-gradient(135deg, #0a95e8 0%, #0070bd 100%); border-radius: 0 0 24px 24px; padding: 42px 0 54px; color: #fff; }
-    .hero h1 { font-size: clamp(28px, 4vw, 44px); margin: 0 0 24px; color: #ffffff; font-weight: 900; letter-spacing: -0.02em; }
-    
-    /* Search bar */
-    .sbar { display: grid; grid-template-columns: 2fr 1.2fr auto; background: #fff; border-radius: 14px; margin-top: 0; padding: 8px 12px; gap: 0; box-shadow: 0 12px 36px rgba(0,60,110,.25); }
-    .sf { padding: 6px 18px; border-right: 1px solid var(--line); display: flex; flex-direction: column; justify-content: center; }
-    .sf label { display: block; font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em; }
-    .sf input, .sf select { width: 100%; border: 0; font: inherit; font-size: 15px; padding: 4px 0; background: transparent; color: var(--ink); font-weight: 600; outline: none; }
-    .sbar .btn { margin-left: 8px; align-self: center; padding: 13px 28px; border-radius: 10px; font-size: 15px; }
-
-    /* Topic Chips & Stats */
-    .controls-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin: 32px 0 20px; }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 8px 18px; font-size: 14px; font-weight: 500; cursor: pointer; color: #4a5a6a; transition: all 0.2s; }
-    .chip:hover { border-color: var(--blue); color: var(--blue); }
-    .chip[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: #fff; font-weight: 600; box-shadow: 0 2px 8px rgba(10,141,224,0.25); }
-    .stat-badge { font-size: 13px; font-weight: 600; color: #64748b; background: #fff; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); }
-
-    /* Featured Post */
-    .feat { display: grid; grid-template-columns: 1.25fr 1fr; border: 1px solid var(--line); border-top: 3.5px solid var(--orange); border-radius: 18px; overflow: hidden; margin-bottom: 30px; background: #fff; box-shadow: 0 4px 20px rgba(20,40,60,.06); cursor: pointer; transition: transform 0.25s, box-shadow 0.25s; }
-    .feat:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(20,40,60,.12); }
-    .feat .cover { min-height: 320px; font-size: 26px; }
-    .feat-b { padding: 32px; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
-    .feat-b h2 { margin: 0; font-size: 25px; line-height: 1.3; font-weight: 800; color: #0f172a; }
-    .kick { font-size: 12.5px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px; }
-    .meta { font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
-    .ex { color: #475569; margin: 0; font-size: 15px; line-height: 1.6; }
-
-    /* Cards Grid */
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-bottom: 64px; }
-    .card { border: 1px solid var(--line); border-top: 2.5px solid var(--orange); border-radius: 16px; overflow: hidden; background: #fff; cursor: pointer; display: flex; flex-direction: column; box-shadow: 0 2px 10px rgba(20,40,60,.04); transition: transform 0.25s, box-shadow 0.25s; }
-    .card:nth-child(even) { border-top-color: var(--blue); }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(20,40,60,.1); border-color: #cbd5e1; }
-    
-    /* Cover Image Container with Image fallback */
-    .cover {
-      position: relative;
-      height: 190px;
-      overflow: hidden;
-      background-color: #0f172a;
-      display: flex;
-      align-items: flex-end;
-      padding: 14px 16px;
-      color: #fff;
-      font-weight: 700;
-      text-shadow: 0 1px 4px rgba(0,0,0,.6);
-    }
-    .cover::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.75) 100%);
-      pointer-events: none;
-      z-index: 1;
-    }
-    .cover img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-    .card:hover .cover img {
-      transform: scale(1.06);
-    }
-    .cover span {
-      position: relative;
-      z-index: 2;
-      background: rgba(15, 23, 42, 0.7);
-      backdrop-filter: blur(4px);
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .card-b { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-    .card-b h3 { margin: 0; font-size: 17.5px; line-height: 1.35; font-weight: 700; color: #0f172a; }
-    .card-b p { margin: 0; font-size: 13.5px; color: #64748b; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .card-f { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); font-size: 13.5px; font-weight: 700; color: var(--orange); display: flex; justify-content: space-between; align-items: center; }
-    .card-f span:last-child { color: var(--blue); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
-    .card:hover .card-f span:last-child { text-decoration: underline; }
-
-    .none { text-align: center; padding: 56px 16px; border: 1px dashed var(--line); border-radius: 16px; grid-column: 1/-1; background: #fff; }
-
-    /* Reader View (Đọc bài viết & Đặt tour không gián đoạn) */
-    [hidden] { display: none !important; }
-    .back { display: inline-flex; align-items: center; gap: 6px; margin: 24px 0 12px; color: var(--blue); font-weight: 600; font-size: 14.5px; cursor: pointer; background: none; border: 0; padding: 0; }
-    .back:hover { text-decoration: underline; color: var(--blue-d); }
-    .reader { display: grid; grid-template-columns: minmax(0, 1fr) 350px; gap: 44px; padding-bottom: 72px; }
-    
-    .rcover { height: 350px; border-radius: 18px; margin: 16px 0 28px; position: relative; overflow: hidden; }
-    .rcover img { width: 100%; height: 100%; object-fit: cover; }
-    .rcover span { position: absolute; bottom: 20px; left: 20px; z-index: 2; font-size: 16px; background: rgba(0,0,0,0.7); padding: 6px 14px; border-radius: 8px; color: #fff; }
-    
-    .art h1 { font-size: clamp(26px, 3.5vw, 36px); line-height: 1.25; margin: 8px 0 12px; font-weight: 800; color: #0f172a; }
-    .body { max-width: 68ch; }
-    .body h2 { font-size: 21px; margin: 32px 0 10px; font-weight: 700; color: #0f172a; display: flex; align-items: center; gap: 8px; }
-    .body p { font-size: 16.5px; line-height: 1.8; margin: 0 0 16px; color: #334155; }
-    
-    /* Inline Tour CTA Card (Gợi ý ngay trong mạch đọc) */
-    .cta { display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--blue-soft); border: 1.5px solid #b9e1fb; border-left: 5px solid var(--blue); border-radius: 14px; padding: 18px 22px; margin: 28px 0; max-width: 68ch; box-shadow: 0 4px 12px rgba(10,141,224,0.06); }
-    .cta b { display: block; font-size: 16px; color: #0c4a6e; }
-    .cta small { color: #0369a1; font-size: 13px; font-weight: 500; }
-    
-    /* Sticky Sidebar Đặt tour */
-    .side { position: sticky; top: 96px; align-self: start; border: 1px solid var(--line); border-top: 4px solid var(--orange); border-radius: 16px; padding: 24px; box-shadow: 0 8px 28px rgba(20,40,60,.08); background: #fff; }
-    .side h3 { margin: 0 0 4px; font-size: 19px; font-weight: 800; line-height: 1.3; color: #0f172a; }
-    .side .meta { margin-bottom: 12px; display: block; font-size: 12.5px; }
-    .price { color: var(--orange); font-weight: 800; font-size: 24px; margin: 8px 0 16px; }
-    .price small { font-size: 13.5px; color: var(--muted); font-weight: 500; }
-    .fld { margin-bottom: 14px; }
-    .fld label { display: block; font-size: 12px; font-weight: 700; color: #4a5a6a; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.03em; }
-    .fld input { width: 100%; font: inherit; padding: 10px 14px; border: 1.5px solid var(--line); border-radius: 10px; font-size: 14px; color: var(--ink); font-weight: 500; outline: none; }
-    .fld input:focus { border-color: var(--blue); }
-    .side .btn { width: 100%; padding: 13px; font-size: 15px; }
-    .side .sub { display: block; text-align: center; margin-top: 14px; font-size: 14px; color: var(--blue); font-weight: 600; }
-    .side .sub:hover { text-decoration: underline; }
-    
-    .more { border-top: 1px solid var(--line); padding-top: 32px; margin-top: 40px; }
-    .more h3 { margin: 0 0 16px; font-size: 20px; font-weight: 700; }
-    .more .grid { grid-template-columns: repeat(2, 1fr); padding-bottom: 0; }
-    
-    /* Mobile sticky booking bar */
-    .mbar { display: none; }
-
-    /* Footer */
-    .ft { background: #0e2236; color: #a9bccd; padding: 30px 0; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
-    .ft .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .ft a { color: #fff; font-weight: 600; }
-    .ft a:hover { text-decoration: underline; color: var(--blue-soft); }
-
-    /* Toast popup khi đặt tour */
-    #toast {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 100;
-      background: #0f172a;
-      color: #fff;
-      padding: 14px 22px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 600;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border: 1px solid #334155;
-      transform: translateY(100px);
-      opacity: 0;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      pointer-events: none;
-    }
-    #toast.show {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    @media (max-width: 1000px) {
-      .nav { display: none; }
-      .hd .wrap { justify-content: space-between; }
-      .grid { grid-template-columns: repeat(2, 1fr); }
-      .feat { grid-template-columns: 1fr; }
-      .feat .cover { min-height: 220px; }
-      .reader { grid-template-columns: 1fr; }
-      .side { display: none; }
-      .mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: #fff; border-top: 1px solid var(--line); padding: 12px 18px; align-items: center; justify-content: space-between; gap: 14px; box-shadow: 0 -4px 18px rgba(0,0,0,.08); }
-      body.reading .mbar { display: flex; }
-      body.reading .ft { padding-bottom: 90px; }
-    }
-    @media (max-width: 640px) {
-      .grid, .more .grid { grid-template-columns: 1fr; }
-      .sbar { grid-template-columns: 1fr; }
-      .sf { border-right: 0; border-bottom: 1px solid var(--line); padding: 8px 6px; }
-      .sbar .btn { margin: 10px 0 0; }
-      .hd-right .btn-blue:last-child { display: none; }
-      .controls-row { flex-direction: column; align-items: flex-start; }
-    }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khám phá điểm đến | VivuGo - Cẩm nang du lịch & Đặt tour trọn gói</title>
+  <meta name="description" content="Khám phá 30 điểm đến tuyệt đẹp khắp 3 miền Việt Nam cùng VivuGo. Lịch trình chi tiết, kinh nghiệm thực tế từ blogger và đánh giá thật từ du khách.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -271,771 +19,2534 @@
     <a href="#" onclick="show(); return false;" class="logo" aria-label="VivuGo - Trang chủ">
       <svg class="logo-icon-svg" viewBox="0 0 160 120" fill="none">
         <!-- Vòng cung swoosh vàng cam phía dưới -->
-        <path d="M26 86C16 78 14 62 25 50C38 36 68 40 85 58C96 70 108 76 122 74" stroke="#f59e0b" stroke-width="5" stroke-linecap="round" fill="none"/>
-        <!-- Biểu tượng ghim định vị xanh dương -->
-        <path d="M62 16C45 16 31 30 31 47C31 70 62 96 62 96S93 70 93 47C93 30 79 16 62 16Z" fill="#0088e8"/>
-        <!-- Vòng tròn trắng bên trong -->
-        <circle cx="62" cy="46" r="21" fill="#ffffff"/>
-        <!-- Núi và sóng biển xanh -->
-        <path d="M46 54C50 49 56 46 62 46C68 46 74 49 78 54C72 58 52 58 46 54Z" fill="#0284c7"/>
-        <!-- Mặt trời vàng rực rỡ -->
-        <circle cx="62" cy="36" r="5" fill="#f59e0b"/>
-        <!-- Chiếc máy bay vàng cam bay lên góc phải -->
-        <path d="M84 26L96 44L84 38L79 41L82 33L70 27L84 26Z" fill="#f59e0b"/>
+        <path d="M 12 95 C 45 118, 120 115, 148 65 C 130 90, 65 100, 20 85 Z" fill="#f59e0b" />
+        
+        <!-- Ghim định vị màu xanh dương -->
+        <path d="M 40 46 C 40 22, 62 4, 88 4 C 114 4, 136 22, 136 46 C 136 68, 108 98, 88 114 C 68 98, 40 68, 40 46 Z" fill="#0088e8" />
+        
+        <!-- Vòng tròn nền trắng bên trong ghim -->
+        <circle cx="88" cy="46" r="34" fill="#ffffff" />
+        
+        <!-- Cảnh biển & mặt trời bên trong -->
+        <g clip-path="url(#pinClip)">
+          <!-- Nền trời xanh nhạt -->
+          <rect x="54" y="12" width="68" height="68" fill="#e0f2fe" />
+          <!-- Mặt trời vàng rực -->
+          <circle cx="98" cy="34" r="11" fill="#fbbf24" />
+          <!-- Sóng biển xanh ngọc -->
+          <path d="M 50 56 Q 68 48, 88 56 T 126 56 L 126 80 L 50 80 Z" fill="#0284c7" opacity="0.85" />
+          <path d="M 50 62 Q 72 54, 92 62 T 126 62 L 126 80 L 50 80 Z" fill="#0369a1" />
+          <!-- Cây dừa nhiệt đới -->
+          <path d="M 64 68 Q 68 50, 75 42 Q 72 45, 62 46 M 75 42 Q 80 44, 83 48 M 75 42 Q 75 36, 73 32" stroke="#047857" stroke-width="2.2" stroke-linecap="round" fill="none" />
+        </g>
+        
+        <defs>
+          <clipPath id="pinClip">
+            <circle cx="88" cy="46" r="32" />
+          </clipPath>
+        </defs>
+        
+        <!-- Máy bay màu cam bay vút lên bên phải -->
+        <g transform="translate(108, 16) rotate(-22) scale(0.95)">
+          <path d="M 0 12 L 26 0 L 22 13 L 34 16 L 35 20 L 22 18 L 18 28 L 14 27 L 16 18 L 4 16 Z" fill="#f59e0b" />
+        </g>
       </svg>
-      <span class="logo-brand">
-        <span class="brand-vivu">Vivu</span><span class="brand-go">Go<svg class="brand-sparkle" viewBox="0 0 24 16" fill="none"><circle cx="4" cy="11" r="2.2" fill="#f59e0b"/><circle cx="12" cy="4" r="2.6" fill="#f59e0b"/><circle cx="20" cy="9" r="2.2" fill="#f59e0b"/></svg></span>
-      </span>
+      
+      <div class="logo-brand">
+        <span class="brand-vivu">Vivu</span><span class="brand-go">Go
+          <svg class="brand-sparkle" viewBox="0 0 32 20" fill="none">
+            <circle cx="6" cy="14" r="2.5" fill="#f59e0b" />
+            <circle cx="16" cy="6" r="3" fill="#f59e0b" />
+            <circle cx="26" cy="12" r="2.5" fill="#f59e0b" />
+          </svg>
+        </span>
+      </div>
     </a>
 
     <!-- Menu điều hướng ngang: Đang ở Khám phá điểm đến (nền xanh), Dịch vụ không xanh -->
     <nav class="nav" aria-label="Điều hướng chính">
-      <button class="nav-btn-link" type="button" onclick="showToast('Chuyển sang module Đặt dịch vụ (Khách sạn, Tour, Vé xe)');">Dịch vụ</button>
+      <button class="nav-btn-link" type="button" onclick="showToast('Chuyển sang module Đặt dịch vụ (Khách sạn, Vé máy bay, Tour...)');">Dịch vụ</button>
       <button class="nav-btn-active" type="button" onclick="show();">Khám phá điểm đến</button>
-      <a class="nav-link" href="#" onclick="showToast('Xem Lịch trình chuyến đi của tôi'); return false;">Lịch của tôi</a>
-      <a class="nav-link" href="#" onclick="showToast('Trợ lý AI VivuGo lập kế hoạch du lịch thông minh'); return false;">Trợ lý AI</a>
-      <a class="nav-link" href="#" onclick="showToast('Thông tin tài khoản cá nhân'); return false;">Tài khoản</a>
+      <a class="nav-link" href="#" onclick="showToast('Chức năng Lịch của tôi: Lưu các điểm đến yêu thích'); return false;">Lịch của tôi</a>
+      <a class="nav-link" href="#" onclick="showToast('Trợ lý du lịch AI: Sẵn sàng lên lịch trình riêng cho bạn'); return false;">Trợ lý AI</a>
+      <a class="nav-link" href="#" onclick="showToast('Trang quản lý tài khoản cá nhân & đơn tour'); return false;">Tài khoản</a>
     </nav>
 
-    <!-- Khu vực bên phải: Nút máy bay có badge 1 + 2 nút Đăng nhập & Đăng ký màu xanh -->
+    <!-- Cụm chức năng bên phải -->
     <div class="hd-right">
-      <button class="ico-circle" type="button" onclick="showToast('Bạn có 1 chuyến đi đang chờ hoàn tất');" aria-label="Lịch bay & Chuyến đi">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3.5c-.5-.5-2.5 0-4 1.5L13.5 8.5 5.3 6.7c-.5-.1-.9.1-1.2.4l-.8.8c-.3.3-.3.8-.1 1.2l4.8 4.8-2.5 2.5-2.1-.7c-.3-.1-.7 0-.9.2l-.7.7c-.3.3-.3.8 0 1.1l2.8 2.8 2.8 2.8c.3.3.8.3 1.1 0l.7-.7c.2-.2.3-.6.2-.9l-.7-2.1 2.5-2.5 4.8 4.8c.4.2.9.2 1.2-.1l.8-.8c.3-.3.5-.7.4-1.2z"/>
+      <button class="ico-circle" type="button" aria-label="Thông báo chuyến bay" onclick="showToast('Bạn có 1 vé du lịch sắp khởi hành!');">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 2L11 13" />
+          <path d="M22 2L15 22L11 13L2 9L22 2Z" />
         </svg>
         <span class="badge">1</span>
       </button>
-      <button class="btn-blue" type="button" onclick="showToast('Mở cửa sổ Đăng nhập');">Đăng nhập</button>
-      <button class="btn-blue" type="button" onclick="showToast('Mở cửa sổ Đăng ký thành viên nhận quà 200k');">Đăng ký</button>
+
+      <button class="btn-blue" type="button" onclick="showToast('Mở hộp thoại Đăng nhập');">Đăng nhập</button>
+      <button class="btn-blue" type="button" onclick="showToast('Mở hộp thoại Đăng ký');">Đăng ký</button>
     </div>
   </div>
 </header>
 
-<main>
-  <!-- ===== Danh sách bài viết khám phá điểm đến ===== -->
-  <div id="listView">
-    <section class="hero">
-      <div class="wrap">
-        <h1>Khám phá điểm đến Việt Nam</h1>
-        
-        <form class="sbar" id="sForm" onsubmit="return false">
-          <div class="sf">
-            <label for="q">Tìm bài viết</label>
-            <input id="q" type="text" placeholder="VD: Đà Lạt, săn mây, Hạ Long, lặn san hô..." autocomplete="off" />
-          </div>
-          <div class="sf" style="border-right:0">
-            <label for="reg">Vùng miền</label>
-            <select id="reg">
-              <option value="">Tất cả 3 vùng miền</option>
-              <option>Miền Bắc</option>
-              <option>Miền Trung</option>
-              <option>Miền Nam</option>
-            </select>
-          </div>
-          <button class="btn" type="submit">Tìm bài viết</button>
-        </form>
-      </div>
-    </section>
-
+<!-- Màn hình 1: Danh sách bài viết -->
+<div id="listView">
+  <!-- Hero Section -->
+  <section class="hero">
     <div class="wrap">
-      <div class="controls-row">
-        <div class="chips" id="chips" role="group" aria-label="Chủ đề bài viết"></div>
-        <span class="stat-badge" id="artCountBadge">Hiển thị 30 bài viết</span>
-      </div>
-      
-      <!-- Bài viết nổi bật (Featured Post) -->
-      <div id="feat"></div>
+      <h1>Khám phá điểm đến Việt Nam</h1>
 
-      <!-- Lưới bài viết (Grid) -->
-      <div class="grid" id="grid"></div>
+      <!-- Search bar -->
+      <form class="sbar" onsubmit="event.preventDefault(); list();" role="search">
+        <div class="sf">
+          <label for="q">Bạn muốn đi đâu?</label>
+          <input id="q" type="search" placeholder="Hà Giang, Hội An, Phú Quốc, Đà Lạt..." autocomplete="off">
+        </div>
+        <div class="sf">
+          <label for="reg">Vùng miền</label>
+          <select id="reg">
+            <option value="">Tất cả 3 vùng miền</option>
+            <option value="Miền Bắc">Miền Bắc</option>
+            <option value="Miền Trung">Miền Trung</option>
+            <option value="Miền Nam">Miền Nam</option>
+          </select>
+        </div>
+        <button class="btn btn-or" type="submit">Tìm kiếm</button>
+      </form>
     </div>
-  </div>
+  </section>
 
-  <!-- ===== Trang đọc bài viết chi tiết (Reader View) ===== -->
-  <div id="readView" hidden>
-    <div class="wrap">
-      <button class="back" id="back" type="button">← Trở về danh sách bài viết</button>
-      <div class="reader">
-        <article class="art" id="art"></article>
-        <aside class="side" id="side" aria-label="Đặt tour"></aside>
+  <!-- Danh sách bài viết & Bộ lọc -->
+  <main class="wrap" id="mainContent">
+    <div class="controls-row">
+      <div class="chips" id="catChips" role="toolbar" aria-label="Lọc theo chuyên mục">
+        <button class="chip" aria-pressed="true" data-cat="" onclick="setCat('')">Tất cả bài viết</button>
+        <button class="chip" aria-pressed="false" data-cat="Lịch trình" onclick="setCat('Lịch trình')">Lịch trình</button>
+        <button class="chip" aria-pressed="false" data-cat="Cẩm nang" onclick="setCat('Cẩm nang')">Cẩm nang</button>
+        <button class="chip" aria-pressed="false" data-cat="Ẩm thực" onclick="setCat('Ẩm thực')">Ẩm thực</button>
+        <button class="chip" aria-pressed="false" data-cat="Mẹo hay" onclick="setCat('Mẹo hay')">Mẹo hay</button>
       </div>
+      <div class="stat-badge" id="statBadge">30 bài viết</div>
     </div>
+
+    <!-- Bài viết Tiêu Điểm -->
+    <div id="featBox"></div>
+
+    <!-- Lưới bài viết 3 cột -->
+    <div class="grid" id="grid" aria-live="polite"></div>
+  </main>
+</div>
+
+<!-- Màn hình 2: Đọc bài viết (Reader) -->
+<div id="readView" hidden>
+  <div class="wrap reader">
+    <button class="back" id="back" type="button">← Quay lại danh sách điểm đến</button>
+    <article class="art" id="art"></article>
   </div>
-</main>
-
-<!-- Thanh đặt tour cố định dưới màn hình điện thoại -->
-<div class="mbar" id="mbar"></div>
-
-<!-- Toast Popup phản hồi đặt tour -->
-<div id="toast"></div>
+</div>
 
 <!-- Footer -->
 <footer class="ft">
   <div class="wrap">
-    <span>© 2026 VivuGo. Nền tảng cẩm nang du lịch và đặt tour trọn gói không gián đoạn.</span>
-    <span>Hotline hỗ trợ du khách: <strong>1900 6868</strong> (24/7)</span>
+    <div><b>VivuGo</b> &copy; 2026 · Cẩm nang &amp; Đặt tour trọn gói 3 miền Việt Nam.</div>
+    <div>
+      <a href="#" onclick="filterByReg('Miền Bắc'); return false;">Miền Bắc</a> · 
+      <a href="#" onclick="filterByReg('Miền Trung'); return false;">Miền Trung</a> · 
+      <a href="#" onclick="filterByReg('Miền Nam'); return false;">Miền Nam</a>
+    </div>
   </div>
 </footer>
 
+<!-- Toast thông báo -->
+<div id="toast" role="status" aria-live="polite"></div>
+
+<!-- JavaScript Logic (Tự động nạp articles.json khi chạy Go Live) -->
 <script>
 (function () {
-  /*
-   * =================================================================================
-   * DANH SÁCH 30 BÀI VIẾT KHÁM PHÁ ĐIỂM ĐẾN KHẮP VIỆT NAM (DỄ SỬA VÀ THAY ẢNH)
-   * =================================================================================
-   * Mỗi bài viết gồm các trường rõ ràng:
-   * - id: mã định danh url (hash #bai-viet/id)
-   * - dest: tên địa danh
-   * - region: vùng miền ('Miền Bắc' | 'Miền Trung' | 'Miền Nam')
-   * - cat: phân loại ('Lịch trình' | 'Cẩm nang' | 'Ẩm thực' | 'Mẹo hay')
-   * - img: đường dẫn ảnh bìa (Link ảnh online hoặc file nội bộ)
-   * - read: số phút đọc
-   * - title: tiêu đề hấp dẫn
-   * - ex: đoạn dẫn xuất sắc khiến người đọc muốn lên đường ngay
-   * - tour: { name: tên tour, price: giá vé số nguyên, unit: 'khách' }
-   * - hotel: giá phòng tham khảo /đêm
-   * - s: danh sách các đoạn nội dung [ ["Tiêu đề đoạn 1", "Nội dung đoạn 1..."], ... ]
-   */
+  "use strict";
+
+  // Dữ liệu 30 bài viết dự phòng (Cho phép chạy offline và khi double click file:/// trực tiếp)
   var A = [
-    // ----------------------------------------------------
-    // MIỀN BẮC (8 BÀI VIẾT)
-    // ----------------------------------------------------
-    {
-      id: "ha-long-du-thuyen",
-      dest: "Vịnh Hạ Long",
-      region: "Miền Bắc",
-      cat: "Cẩm nang",
-      img: "/src/assets/images/hero_vietnam_travel_1790913382546.jpg",
-      read: 5,
-      title: "Vịnh Hạ Long trên du thuyền 5 sao: Hải trình 2N1Đ ngủ đêm giữa kỳ quan",
-      ex: "Thức giấc giữa ngàn đảo đá vôi kỳ vĩ khi sương sớm vừa tan, tự tay chèo kayak qua hang Luồn và thưởng thức tiệc hoàng hôn trên sundeck.",
-      tour: { name: "Du Thuyền Hạ Long 5 Sao 2N1Đ", price: 2490000, unit: "khách" },
-      hotel: 850000,
-      s: [
-        ["Cảm giác thức giấc giữa di sản thiên nhiên thế giới", "Du thuyền neo đậu giữa thung lũng nước kín sóng, bạn thức dậy lúc 6:00 sáng khi những vạt nắng đầu tiên dát vàng lên vách đá karst. Tham gia lớp Thái Cực Quyền trên boong sundeck tầng thượng và hít thở bầu không khí mặn mòi, tinh khôi."],
-        ["Chèo kayak hang Luồn và bơi ở đảo Ti Tốp", "Tự tay chèo thuyền kayak len lỏi qua vòm đá vôi hang Luồn để tiến vào đầm nước phẳng lặng ngắm đàn khỉ vàng hoang dã. Buổi chiều chinh phục đỉnh núi đảo Ti Tốp ngắm trọn vẹn toàn cảnh vịnh 360 độ."],
-        ["Bữa tối hải sản thượng hạng & câu mực đêm", "Thưởng thức tiệc buffet hải sản với tôm hùm, bề bề hấp sả, chả mực giã tay. Buổi tối thử tài câu mực đêm trên boong tàu đầy hào hứng."]
-      ]
+  {
+    "id": "ha-long-du-thuyen",
+    "dest": "Vịnh Hạ Long",
+    "region": "Miền Bắc",
+    "cat": "Cẩm nang",
+    "img": "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80",
+    "read": 6,
+    "title": "Vịnh Hạ Long trên du thuyền 5 sao: Hải trình 2N1Đ ngủ đêm giữa kỳ quan",
+    "ex": "Thức giấc giữa ngàn đảo đá vôi kỳ vĩ khi sương sớm vừa tan, tự tay chèo kayak qua hang Luồn và thưởng thức tiệc hoàng hôn trên sundeck.",
+    "tour": {
+      "name": "Du Thuyền Hạ Long 5 Sao 2N1Đ",
+      "price": 2490000,
+      "unit": "khách"
     },
-    {
-      id: "sa-pa-san-may",
-      dest: "Sa Pa",
-      region: "Miền Bắc",
-      cat: "Mẹo hay",
-      img: "/src/assets/images/dest_sa_pa_1790914473380.jpg",
-      read: 5,
-      title: "Săn mây Sa Pa: mùa lúa chín, đỉnh Fansipan và bí quyết không về tay trắng",
-      ex: "Mây không phải lúc nào cũng có. Đây là các tọa độ ngắm biển mây tỷ lệ thành công cao nhất và cách chuẩn bị trang phục leo núi.",
-      tour: { name: "Sa Pa 3N2Đ Săn Mây Fansipan", price: 1790000, unit: "khách" },
-      hotel: 520000,
-      s: [
-        ["Thời điểm săn mây dễ gặp nhất", "Từ tháng 10 đến tháng 3, sau những đêm mưa phùn nhẹ hoặc không khí lạnh tràn về, sáng sớm trời hửng nắng là lúc mây tích tụ thành từng biển trắng bồng bềnh dưới thung lũng Mường Hoa."],
-        ["Tọa độ ngắm mây đắt giá nhất", "Đỉnh Fansipan 3.143m trên nóc nhà Đông Dương, Đèo Ô Quy Hồ lúc hoàng hôn rực lửa, Cổng trời Sa Pa và các quán cafe lưng chừng bản Tả Van nhìn xuống thung lũng."],
-        ["Thưởng thức lẩu cá hồi và cá tầm nóng hổi", "Giữa cái lạnh se sắt của phố núi, ngồi quây quần bên nồi lẩu cá hồi béo ngậy chấm muối tiêu chanh và nhấp chén rượu ngô ấm nồng là trải nghiệm khó quên."]
+    "hotel": 850000,
+    "s": [
+      [
+        "Cảm giác thức giấc giữa di sản thiên nhiên thế giới",
+        "Du thuyền neo đậu giữa thung lũng nước kín sóng, bạn thức dậy lúc 6:00 sáng khi những vạt nắng đầu tiên dát vàng lên vách đá karst. Tham gia lớp Thái Cực Quyền trên boong sundeck tầng thượng và hít thở bầu không khí mặn mòi, tinh khôi."
+      ],
+      [
+        "Chèo kayak hang Luồn và bơi ở đảo Ti Tốp",
+        "Tự tay chèo thuyền kayak len lỏi qua vòm đá vôi hang Luồn để tiến vào đầm nước phẳng lặng ngắm đàn khỉ vàng hoang dã. Buổi chiều chinh phục đỉnh núi đảo Ti Tốp ngắm trọn vẹn toàn cảnh vịnh 360 độ."
+      ],
+      [
+        "Bữa tối hải sản thượng hạng & câu mực đêm",
+        "Thưởng thức tiệc buffet hải sản với tôm hùm, bề bề hấp sả, chả mực giã tay. Buổi tối thử tài câu mực đêm trên boong tàu đầy hào hứng."
+      ],
+      [
+        "Kinh nghiệm chọn du thuyền và phòng ngủ view vịnh",
+        "Nên ưu tiên các tàu có ban công riêng từ tầng 2 trở lên để ngắm trọn cảnh bình minh không bị khuất tầm nhìn. Nếu đi theo cặp đôi, cabin Executive Suite có bồn tắm kính nhìn ra biển là trải nghiệm cực kỳ đắt giá."
+      ],
+      [
+        "Bảng dự trù chi phí hải trình tự túc vs trọn gói",
+        "Nếu tự thuê tàu tiếng và tự đặt ăn uống tại cảng Tuần Châu, chi phí cho 2 người thường dao động từ 3.200.000đ - 3.800.000đ mà lịch trình bị gấp gáp. Ngược lại, tour trọn gói 2N1Đ ngủ đêm đã bao gồm 4 bữa ăn cao cấp, vé tham quan, kayak và phòng nghỉ 5 sao chỉ từ 2.490.000đ/khách, vừa thảnh thơi vừa tiết kiệm gần 30%."
       ]
+    ],
+    "author": {
+      "name": "Hoàng Nam",
+      "role": "Travel Blogger & Nhiếp ảnh gia",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
     },
-    {
-      id: "ha-giang-cung-duong",
-      dest: "Hà Giang",
-      region: "Miền Bắc",
-      cat: "Cẩm nang",
-      img: "/src/assets/images/dest_ha_giang_1790914500995.jpg",
-      read: 7,
-      title: "Hà Giang: cung đường đèo Mã Pí Lèng, sông Nho Quế và mùa tam giác mạch",
-      ex: "Thời điểm vàng, lộ trình 4N3Đ và những lưu ý an toàn dành cho ai lần đầu chạm tay vào đệ nhất hùng quan Đông Bắc.",
-      tour: { name: "Hà Giang 4N3Đ Trọn Gói", price: 2590000, unit: "khách" },
-      hotel: 350000,
-      s: [
-        ["Khi nào đi là đẹp nhất", "Tháng 9 đến tháng 11 là mùa lúa chín bậc thang Hoàng Su Phì và hoa tam giác mạch phủ tím các sườn núi đá. Tháng 1 đến tháng 3 hoa đào, hoa mận nở trắng thung lũng."],
-        ["Đi thuyền trên dòng sông Nho Quế", "Ngồi trên chiếc thuyền máy lướt nhẹ trên dòng sông Nho Quế màu xanh ngọc bích huyền thoại, ngước nhìn vách đá dựng đứng sâu nhất Đông Nam Á tại hẻm vực Tu Sản."],
-        ["Đi tour hay tự lái xe máy", "Nếu chưa quen chạy xe côn dốc đứng nhiều cua tay áo, tour ô tô hoặc tour có tài xế bản địa (Easy Rider) là lựa chọn thông minh để bạn an toàn tuyệt đối và thảnh thơi ghi lại cảnh đẹp."]
+    "rating": 4.8,
+    "reviewsCount": 95,
+    "reviews": [
+      {
+        "user": "Trần Minh Hằng",
+        "rating": 5,
+        "date": "18/09/2026",
+        "tag": "Đã đi tour gia đình 4 người",
+        "comment": "Bài viết chỉ dẫn quá chi tiết! Cả nhà mình vừa đi chuyến 2N1Đ cuối tuần trước. Du thuyền đẹp như cung điện nổi, đồ ăn buffet hải sản tươi rói. Đặt tour trực tiếp trong bài viết được xác nhận trong 5 phút cực kỳ an tâm.",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Nguyễn Quốc Bảo",
+        "rating": 5,
+        "date": "02/09/2026",
+        "tag": "Chuyến đi nghỉ dưỡng cặp đôi",
+        "comment": "Chèo thuyền kayak vào hang Luồn ngắm đàn khỉ hoang dã đúng như bài viết miêu tả, cảm giác bình yên đến ngỡ ngàng. Rất thích nút đặt tour tiện lợi không phải tìm kiếm đâu xa.",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Lê Thanh Thảo",
+        "rating": 5,
+        "date": "22/08/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Giá tour chuẩn đúng như công bố, không hề phát sinh phụ phí. Nhân viên tư vấn của VivuGo gọi lại rất nhanh để dặn dò xe limousine đón tận Hà Nội.",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/ha-long-du-thuyen.jpg"
+  },
+  {
+    "id": "sa-pa-san-may",
+    "dest": "Sa Pa",
+    "region": "Miền Bắc",
+    "cat": "Mẹo hay",
+    "img": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80",
+    "read": 7,
+    "title": "Săn mây Sa Pa: mùa lúa chín, đỉnh Fansipan và bí quyết không về tay trắng",
+    "ex": "Mây không phải lúc nào cũng có. Đây là các tọa độ ngắm biển mây tỷ lệ thành công cao nhất và cách chuẩn bị trang phục leo núi.",
+    "tour": {
+      "name": "Sa Pa 3N2Đ Săn Mây Fansipan",
+      "price": 1790000,
+      "unit": "khách"
+    },
+    "hotel": 520000,
+    "s": [
+      [
+        "Thời điểm săn mây dễ gặp nhất",
+        "Từ tháng 10 đến tháng 3, sau những đêm mưa phùn nhẹ hoặc không khí lạnh tràn về, sáng sớm trời hửng nắng là lúc mây tích tụ thành từng biển trắng bồng bềnh dưới thung lũng Mường Hoa."
+      ],
+      [
+        "Tọa độ ngắm mây đắt giá nhất",
+        "Đỉnh Fansipan 3.143m trên nóc nhà Đông Dương, Đèo Ô Quy Hồ lúc hoàng hôn rực lửa, Cổng trời Sa Pa và các quán cafe lưng chừng bản Tả Van nhìn xuống thung lũng."
+      ],
+      [
+        "Thưởng thức lẩu cá hồi và cá tầm nóng hổi",
+        "Giữa cái lạnh se sắt của phố núi, ngồi quây quần bên nồi lẩu cá hồi béo ngậy chấm muối tiêu chanh và nhấp chén rượu ngô ấm nồng là trải nghiệm khó quên."
+      ],
+      [
+        "Gợi ý lịch trình 3N2Đ săn mây & dạo bản Tả Van",
+        "Ngày 1: Tới thị xã Sa Pa, nhận phòng và thưởng thức đồ nướng phố cổ. Ngày 2: Sáng sớm lên đỉnh Fansipan đón biển mây bồng bềnh bằng cáp treo, chiều xuôi bản Tả Van ngắm ruộng bậc thang. Ngày 3: Check-in đèo Ô Quy Hồ và đồi chè Ô Long trước khi lên xe về."
+      ],
+      [
+        "Địa chỉ ẩm thực địa phương nhất định phải thử",
+        "Quán lẩu cá hồi Thác Bạc trên đường Điện Biên Phủ nước dùng chua cay đậm đà, thịt cá chắc nịch. Đừng quên thử đĩa gà đen nướng mắc khén và bánh hạt dẻ nướng nóng hổi ven đường phố cổ."
       ]
+    ],
+    "author": {
+      "name": "Thu Thảo",
+      "role": "Chuyên gia Cẩm nang VivuGo",
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
     },
-    {
-      id: "ninh-binh-2-ngay",
-      dest: "Ninh Bình",
-      region: "Miền Bắc",
-      cat: "Lịch trình",
-      img: "/src/assets/images/dest_ninh_binh_1790914488355.jpg",
-      read: 4,
-      title: "Ninh Bình 2 ngày: Tràng An non nước hữu tình, đỉnh Hang Múa và chùa Bái Đính",
-      ex: "Chuyến đi cuối tuần nhẹ nhàng cách Hà Nội chỉ 1.5 giờ xe chạy, non xanh nước biếc và nhiều góc chụp ảnh thần sầu.",
-      tour: { name: "Ninh Bình 2N1Đ Trọn Gói", price: 1390000, unit: "khách" },
-      hotel: 480000,
-      s: [
-        ["Ngày 1: Xuôi thuyền Tràng An và hoàng hôn Hang Múa", "Ngồi thuyền nan xuôi dòng sông Sào Khê êm đềm len lỏi qua 9 hang động đá vôi kỳ bí. Chiều vượt gần 500 bậc đá lên đỉnh Ngọa Long Hang Múa đón hoàng hôn buông xuống thung lũng Tam Cốc."],
-        ["Ngày 2: Chiêm bái chùa Bái Đính và đạp xe làng quê", "Viếng quần thể tâm linh lớn nhất Đông Nam Á với nhiều kỷ lục tượng Phật bằng đồng. Chiều thuê xe đạp dạo quanh những cánh đồng thanh bình dưới chân núi đá vôi."],
-        ["Món ngon đặc sản", "Thịt dê núi nướng tảng thơm lừng chấm tương gừng, cơm cháy nếp hương giòn rụm rưới sốt tim cật dê béo ngậy và ốc núi hấp sả gừng tươi."]
+    "rating": 4.9,
+    "reviewsCount": 112,
+    "reviews": [
+      {
+        "user": "Đỗ Hoàng Anh",
+        "rating": 5,
+        "date": "14/09/2026",
+        "tag": "Đã đi tour săn mây 3N2Đ",
+        "comment": "Nhờ mẹo canh thời tiết trong bài mà nhóm mình săn mây thành công mỹ mãn ở đỉnh Fansipan! Biển mây ngập tràn như chốn bồng lai tiên cảnh. Cảm ơn tác giả nhiều!",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Phạm Thu Trang",
+        "rating": 5,
+        "date": "28/08/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Lẩu cá tầm ngon đỉnh chóp! Hướng dẫn viên bản địa theo đoàn nhiệt tình, chụp ảnh cho cả đoàn có tâm hết nấc.",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/sa-pa-san-may.jpg"
+  },
+  {
+    "id": "ha-giang-cung-duong",
+    "dest": "Hà Giang",
+    "region": "Miền Bắc",
+    "cat": "Cẩm nang",
+    "img": "https://images.unsplash.com/photo-1570789210967-2cac24afeb00?auto=format&fit=crop&w=800&q=80",
+    "read": 8,
+    "title": "Hà Giang: cung đường đèo Mã Pí Lèng, sông Nho Quế và mùa tam giác mạch",
+    "ex": "Thời điểm vàng, lộ trình 4N3Đ và những lưu ý an toàn dành cho ai lần đầu chạm tay vào đệ nhất hùng quan Đông Bắc.",
+    "tour": {
+      "name": "Hà Giang 4N3Đ Trọn Gói",
+      "price": 2590000,
+      "unit": "khách"
+    },
+    "hotel": 350000,
+    "s": [
+      [
+        "Khi nào đi là đẹp nhất",
+        "Tháng 9 đến tháng 11 là mùa lúa chín bậc thang Hoàng Su Phì và hoa tam giác mạch phủ tím các sườn núi đá. Tháng 1 đến tháng 3 hoa đào, hoa mận nở trắng thung lũng."
+      ],
+      [
+        "Đi thuyền trên dòng sông Nho Quế",
+        "Ngồi trên chiếc thuyền máy lướt nhẹ trên dòng sông Nho Quế màu xanh ngọc bích huyền thoại, ngước nhìn vách đá dựng đứng sâu nhất Đông Nam Á tại hẻm vực Tu Sản."
+      ],
+      [
+        "Đi tour hay tự lái xe máy",
+        "Nếu chưa quen chạy xe côn dốc đứng nhiều cua tay áo, tour ô tô hoặc tour có tài xế bản địa (Easy Rider) là lựa chọn thông minh để bạn an toàn tuyệt đối và thảnh thơi ghi lại cảnh đẹp."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Hà Giang, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Hà Giang, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
       ]
+    ],
+    "author": {
+      "name": "Minh Quân",
+      "role": "Hướng dẫn viên Bản địa 8 năm kinh nghiệm",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
     },
-    {
-      id: "thac-ban-gioc-cao-bang",
-      dest: "Cao Bằng",
-      region: "Miền Bắc",
-      cat: "Cẩm nang",
-      img: "https://images.unsplash.com/photo-1598971861713-54ad16a7e72e?auto=format&fit=crop&w=800&q=80",
-      read: 6,
-      title: "Thác Bản Giốc & Hồ Ba Bể: Hành trình chạm vào thác nước đẹp nhất Việt Nam",
-      ex: "Dòng thác biên giới cuồn cuộn tung bọt trắng xóa giữa thung lũng xanh mướt, kết hợp du ngoạn hồ nước ngọt tự nhiên Ba Bể thơ mộng.",
-      tour: { name: "Tour Cao Bằng - Bản Giốc - Ba Bể 3N2Đ", price: 2290000, unit: "khách" },
-      hotel: 380000,
-      s: [
-        ["Chiêm ngưỡng vẻ đẹp hùng vĩ của Thác Bản Giốc", "Ngồi bè mảng tiến sát chân thác để cảm nhận từng hạt bụi nước mát lạnh bay vào mặt. Dòng thác 3 tầng kỳ vĩ này là một trong những thác nước xuyên biên giới đẹp nhất hành tinh."],
-        ["Khám phá Động Ngườm Ngao kỳ ảo", "Hang động đá vôi dài hàng cây số với vô vàn khối thạch nhũ hình hoa sen úp ngược, cây san hô và ruộng bậc thang hóa đá phát sáng dưới ánh đèn nghệ thuật."],
-        ["Thưởng thức vịt quay 7 vị và hạt dẻ Trùng Khánh", "Thịt vịt quay da giòn bóng bẩy ướp lá mắc mật thơm nức mũi, nhâm nhi cùng hạt dẻ Trùng Khánh bùi ngậy luộc nóng."]
+    "rating": 5,
+    "reviewsCount": 129,
+    "reviews": [
+      {
+        "user": "Đặng Mai Phương",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Hà Giang cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Hà Giang 4N3Đ Trọn Gói qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Vũ Đức Thành",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Hà Giang tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Phạm Hồng Nhung",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/ha-giang-cung-duong.jpg"
+  },
+  {
+    "id": "ninh-binh-2-ngay",
+    "dest": "Ninh Bình",
+    "region": "Miền Bắc",
+    "cat": "Lịch trình",
+    "img": "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80",
+    "read": 9,
+    "title": "Ninh Bình 2 ngày: Tràng An non nước hữu tình, đỉnh Hang Múa và chùa Bái Đính",
+    "ex": "Chuyến đi cuối tuần nhẹ nhàng cách Hà Nội chỉ 1.5 giờ xe chạy, non xanh nước biếc và nhiều góc chụp ảnh thần sầu.",
+    "tour": {
+      "name": "Ninh Bình 2N1Đ Trọn Gói",
+      "price": 1390000,
+      "unit": "khách"
+    },
+    "hotel": 480000,
+    "s": [
+      [
+        "Ngày 1: Xuôi thuyền Tràng An và hoàng hôn Hang Múa",
+        "Ngồi thuyền nan xuôi dòng sông Sào Khê êm đềm len lỏi qua 9 hang động đá vôi kỳ bí. Chiều vượt gần 500 bậc đá lên đỉnh Ngọa Long Hang Múa đón hoàng hôn buông xuống thung lũng Tam Cốc."
+      ],
+      [
+        "Ngày 2: Chiêm bái chùa Bái Đính và đạp xe làng quê",
+        "Viếng quần thể tâm linh lớn nhất Đông Nam Á với nhiều kỷ lục tượng Phật bằng đồng. Chiều thuê xe đạp dạo quanh những cánh đồng thanh bình dưới chân núi đá vôi."
+      ],
+      [
+        "Món ngon đặc sản",
+        "Thịt dê núi nướng tảng thơm lừng chấm tương gừng, cơm cháy nếp hương giòn rụm rưới sốt tim cật dê béo ngậy và ốc núi hấp sả gừng tươi."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Ninh Bình, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Ninh Bình, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
       ]
+    ],
+    "author": {
+      "name": "Lê Hương",
+      "role": "Tác giả Ẩm thực & Văn hóa vùng miền",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
     },
-    {
-      id: "moc-chau-mua-hoa",
-      dest: "Mộc Châu",
-      region: "Miền Bắc",
-      cat: "Lịch trình",
-      img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
-      read: 5,
-      title: "Mộc Châu mùa hoa mận trắng: Lịch trình 2N1Đ trốn phố về thảo nguyên",
-      ex: "Đồi chè trái tim xanh ngát, thung lũng mận Nà Ka nở hoa trắng muốt tựa tuyết rơi và trang trại dâu tây ngọt lành.",
-      tour: { name: "Tour Mộc Châu Mùa Hoa 2N1Đ", price: 1250000, unit: "khách" },
-      hotel: 350000,
-      s: [
-        ["Ngày 1: Đồi chè Trái Tim và Thác Dải Yếm", "Check-in những luống chè uốn lượn hình trái tim lúc sương sớm tan. Chiều bước trên cầu kính tình yêu ngắm dòng Thác Dải Yếm tung bọt trắng xóa."],
-        ["Ngày 2: Lạc vào thung lũng mận Nà Ka", "Tháng 1-2 cả thung lũng phủ kín hoa mận trắng tinh khôi, tháng 5-6 là lúc tự tay hái những quả mận chín đỏ mọng trĩu cành."],
-        ["Bữa ăn đậm chất Tây Bắc", "Bê chao mềm ngọt chấm tương gừng, cá suối chiên giòn rụm và cơm lam dẻo thơm nướng ống tre."]
+    "rating": 4.8,
+    "reviewsCount": 146,
+    "reviews": [
+      {
+        "user": "Vũ Đức Thành",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Ninh Bình cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Ninh Bình 2N1Đ Trọn Gói qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Phạm Hồng Nhung",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Ninh Bình tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Bùi Hải Đăng",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/ninh-binh-2-ngay.jpg"
+  },
+  {
+    "id": "thac-ban-gioc-cao-bang",
+    "dest": "Cao Bằng",
+    "region": "Miền Bắc",
+    "cat": "Cẩm nang",
+    "img": "https://images.unsplash.com/photo-1598971861713-54ad16a7e72e?auto=format&fit=crop&w=800&q=80",
+    "read": 6,
+    "title": "Thác Bản Giốc & Hồ Ba Bể: Hành trình chạm vào thác nước đẹp nhất Việt Nam",
+    "ex": "Dòng thác biên giới cuồn cuộn tung bọt trắng xóa giữa thung lũng xanh mướt, kết hợp du ngoạn hồ nước ngọt tự nhiên Ba Bể thơ mộng.",
+    "tour": {
+      "name": "Tour Cao Bằng - Bản Giốc - Ba Bể 3N2Đ",
+      "price": 2290000,
+      "unit": "khách"
+    },
+    "hotel": 380000,
+    "s": [
+      [
+        "Chiêm ngưỡng vẻ đẹp hùng vĩ của Thác Bản Giốc",
+        "Ngồi bè mảng tiến sát chân thác để cảm nhận từng hạt bụi nước mát lạnh bay vào mặt. Dòng thác 3 tầng kỳ vĩ này là một trong những thác nước xuyên biên giới đẹp nhất hành tinh."
+      ],
+      [
+        "Khám phá Động Ngườm Ngao kỳ ảo",
+        "Hang động đá vôi dài hàng cây số với vô vàn khối thạch nhũ hình hoa sen úp ngược, cây san hô và ruộng bậc thang hóa đá phát sáng dưới ánh đèn nghệ thuật."
+      ],
+      [
+        "Thưởng thức vịt quay 7 vị và hạt dẻ Trùng Khánh",
+        "Thịt vịt quay da giòn bóng bẩy ướp lá mắc mật thơm nức mũi, nhâm nhi cùng hạt dẻ Trùng Khánh bùi ngậy luộc nóng."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Cao Bằng, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Cao Bằng, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
       ]
+    ],
+    "author": {
+      "name": "Trần Khang",
+      "role": "Phượt thủ & Khám phá sinh thái",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
     },
-    {
-      id: "ha-noi-36-pho-phuong",
-      dest: "Hà Nội",
-      region: "Miền Bắc",
-      cat: "Ẩm thực",
-      img: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80",
-      read: 6,
-      title: "Hà Nội mùa thu: 24 giờ dạo bước 36 phố phường và 7 món ngon nức tiếng",
-      ex: "Mùi hoa sữa thoang thoảng, gió heo may se lạnh bên hồ Gươm và tô phở bò nóng hổi sớm tinh mơ.",
-      tour: { name: "City Tour Hà Nội & Trải Nghiệm Ẩm Thực", price: 890000, unit: "khách" },
-      hotel: 550000,
-      s: [
-        ["Sáng sớm quanh Hồ Gươm và Phở Bát Đàn", "Thức dậy lúc 6:00 dạo quanh Bờ Hồ ngắm các cụ tập dưỡng sinh, ghé xếp hàng ăn bát phở bò gia truyền nước dùng trong veo ngọt tủy."],
-        ["Chiều cà phê trứng phố cổ và Văn Miếu", "Thưởng thức ly cà phê trứng Giảng béo ngậy sánh mịn, ghé thăm Văn Miếu Quốc Tử Giám - trường đại học đầu tiên của Việt Nam."],
-        ["Tối ẩm thực Tạ Hiện và chả cá Lã Vọng", "Nếm thử chả cá lăng nướng than xì xèo trên chảo mỡ cùng thì là, hành hoa và nhâm nhi bia hơi phố Tạ Hiện náo nhiệt."]
+    "rating": 4.9,
+    "reviewsCount": 163,
+    "reviews": [
+      {
+        "user": "Phạm Hồng Nhung",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Cao Bằng cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Cao Bằng - Bản Giốc - Ba Bể 3N2Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Bùi Hải Đăng",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Cao Bằng tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Hoàng Kim Liên",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/thac-ban-gioc-cao-bang.jpg"
+  },
+  {
+    "id": "moc-chau-mua-hoa",
+    "dest": "Mộc Châu",
+    "region": "Miền Bắc",
+    "cat": "Lịch trình",
+    "img": "https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=800&q=80",
+    "read": 7,
+    "title": "Mộc Châu mùa hoa mận trắng: Lịch trình 2N1Đ trốn phố về thảo nguyên",
+    "ex": "Đồi chè trái tim xanh ngát, thung lũng mận Nà Ka nở hoa trắng muốt tựa tuyết rơi và trang trại dâu tây ngọt lành.",
+    "tour": {
+      "name": "Tour Mộc Châu Mùa Hoa 2N1Đ",
+      "price": 1250000,
+      "unit": "khách"
+    },
+    "hotel": 350000,
+    "s": [
+      [
+        "Ngày 1: Đồi chè Trái Tim và Thác Dải Yếm",
+        "Check-in những luống chè uốn lượn hình trái tim lúc sương sớm tan. Chiều bước trên cầu kính tình yêu ngắm dòng Thác Dải Yếm tung bọt trắng xóa."
+      ],
+      [
+        "Ngày 2: Lạc vào thung lũng mận Nà Ka",
+        "Tháng 1-2 cả thung lũng phủ kín hoa mận trắng tinh khôi, tháng 5-6 là lúc tự tay hái những quả mận chín đỏ mọng trĩu cành."
+      ],
+      [
+        "Bữa ăn đậm chất Tây Bắc",
+        "Bê chao mềm ngọt chấm tương gừng, cá suối chiên giòn rụm và cơm lam dẻo thơm nướng ống tre."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Mộc Châu, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Mộc Châu, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
       ]
+    ],
+    "author": {
+      "name": "Thanh Mai",
+      "role": "Travel Editor tại VivuGo",
+      "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
     },
-    {
-      id: "cat-ba-vinh-lan-ha",
-      dest: "Cát Bà",
-      region: "Miền Bắc",
-      cat: "Cẩm nang",
-      img: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80",
-      read: 5,
-      title: "Cát Bà & Vịnh Lan Hạ: Chèo kayak qua làng chài cổ Cái Bèo trăm tuổi",
-      ex: "Vịnh Lan Hạ hoang sơ với hàng trăm bãi cát tự nhiên nép mình dưới chân vách đá, hải sản tươi sống tại bè nổi.",
-      tour: { name: "Tour Vịnh Lan Hạ - Đảo Cát Bà 2N1Đ", price: 1690000, unit: "khách" },
-      hotel: 450000,
-      s: [
-        ["Khám phá Vịnh Lan Hạ yên bình", "Đi tàu gỗ lướt qua hàng trăm hòn đảo nhỏ nguyên sơ, chèo thuyền kayak qua Hang Sáng - Hang Tối ngắm đàn chim hải âu chao lượn."],
-        ["Ghé thăm làng chài cổ Cái Bèo", "Làng chài nổi cổ nhất Việt Nam với lịch sử hàng ngàn năm, nơi ngư dân nuôi cá song, cá bớp ngay dưới sàn nhà bè."],
-        ["Tắm biển bãi Ba Trái Đào", "Bãi tắm tự nhiên cát trắng tinh mịn màng, nước biển trong vắt nhìn thấy cả những đàn cá nhỏ bơi lội."]
+    "rating": 5,
+    "reviewsCount": 180,
+    "reviews": [
+      {
+        "user": "Bùi Hải Đăng",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Mộc Châu cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Mộc Châu Mùa Hoa 2N1Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Hoàng Kim Liên",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Mộc Châu tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Nguyễn Bích Ngọc",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/moc-chau-mua-hoa.jpg"
+  },
+  {
+    "id": "ha-noi-36-pho-phuong",
+    "dest": "Hà Nội",
+    "region": "Miền Bắc",
+    "cat": "Ẩm thực",
+    "img": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80",
+    "read": 8,
+    "title": "Hà Nội mùa thu: 24 giờ dạo bước 36 phố phường và 7 món ngon nức tiếng",
+    "ex": "Mùi hoa sữa thoang thoảng, gió heo may se lạnh bên hồ Gươm và tô phở bò nóng hổi sớm tinh mơ.",
+    "tour": {
+      "name": "City Tour Hà Nội & Trải Nghiệm Ẩm Thực",
+      "price": 890000,
+      "unit": "khách"
+    },
+    "hotel": 550000,
+    "s": [
+      [
+        "Sáng sớm quanh Hồ Gươm và Phở Bát Đàn",
+        "Thức dậy lúc 6:00 dạo quanh Bờ Hồ ngắm các cụ tập dưỡng sinh, ghé xếp hàng ăn bát phở bò gia truyền nước dùng trong veo ngọt tủy."
+      ],
+      [
+        "Chiều cà phê trứng phố cổ và Văn Miếu",
+        "Thưởng thức ly cà phê trứng Giảng béo ngậy sánh mịn, ghé thăm Văn Miếu Quốc Tử Giám - trường đại học đầu tiên của Việt Nam."
+      ],
+      [
+        "Tối ẩm thực Tạ Hiện và chả cá Lã Vọng",
+        "Nếm thử chả cá lăng nướng than xì xèo trên chảo mỡ cùng thì là, hành hoa và nhâm nhi bia hơi phố Tạ Hiện náo nhiệt."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Hà Nội, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Hà Nội, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
       ]
+    ],
+    "author": {
+      "name": "Hoàng Nam",
+      "role": "Travel Blogger & Nhiếp ảnh gia",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
     },
+    "rating": 4.8,
+    "reviewsCount": 197,
+    "reviews": [
+      {
+        "user": "Hoàng Kim Liên",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Hà Nội cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt City Tour Hà Nội & Trải Nghiệm Ẩm Thực qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Nguyễn Bích Ngọc",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Hà Nội tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Trần Tuấn Kiệt",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/ha-noi-36-pho-phuong.jpg"
+  },
+  {
+    "id": "cat-ba-vinh-lan-ha",
+    "dest": "Cát Bà",
+    "region": "Miền Bắc",
+    "cat": "Cẩm nang",
+    "img": "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=800&q=80",
+    "read": 9,
+    "title": "Cát Bà & Vịnh Lan Hạ: Chèo kayak qua làng chài cổ Cái Bèo trăm tuổi",
+    "ex": "Vịnh Lan Hạ hoang sơ với hàng trăm bãi cát tự nhiên nép mình dưới chân vách đá, hải sản tươi sống tại bè nổi.",
+    "tour": {
+      "name": "Tour Vịnh Lan Hạ - Đảo Cát Bà 2N1Đ",
+      "price": 1690000,
+      "unit": "khách"
+    },
+    "hotel": 450000,
+    "s": [
+      [
+        "Khám phá Vịnh Lan Hạ yên bình",
+        "Đi tàu gỗ lướt qua hàng trăm hòn đảo nhỏ nguyên sơ, chèo thuyền kayak qua Hang Sáng - Hang Tối ngắm đàn chim hải âu chao lượn."
+      ],
+      [
+        "Ghé thăm làng chài cổ Cái Bèo",
+        "Làng chài nổi cổ nhất Việt Nam với lịch sử hàng ngàn năm, nơi ngư dân nuôi cá song, cá bớp ngay dưới sàn nhà bè."
+      ],
+      [
+        "Tắm biển bãi Ba Trái Đào",
+        "Bãi tắm tự nhiên cát trắng tinh mịn màng, nước biển trong vắt nhìn thấy cả những đàn cá nhỏ bơi lội."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Cát Bà, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Cát Bà, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Thu Thảo",
+      "role": "Chuyên gia Cẩm nang VivuGo",
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 4.9,
+    "reviewsCount": 214,
+    "reviews": [
+      {
+        "user": "Nguyễn Bích Ngọc",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Cát Bà cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Vịnh Lan Hạ - Đảo Cát Bà 2N1Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Trần Tuấn Kiệt",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Cát Bà tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Đặng Mai Phương",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/cat-ba-vinh-lan-ha.jpg"
+  },
+  {
+    "id": "hoi-an-an-gi",
+    "dest": "Hội An",
+    "region": "Miền Trung",
+    "cat": "Ẩm thực",
+    "img": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80",
+    "read": 6,
+    "title": "Hội An ăn gì: cao lầu, mì Quảng và những quán người địa phương hay ghé",
+    "ex": "Một vòng ẩm thực từ sáng đến tối, sắp xếp hợp lý theo cung đường đi bộ thong thả qua từng ngõ phố rực rỡ đèn lồng.",
+    "tour": {
+      "name": "Đà Nẵng – Hội An 4N3Đ Trọn Gói",
+      "price": 3290000,
+      "unit": "khách"
+    },
+    "hotel": 650000,
+    "s": [
+      [
+        "Bữa sáng nhẹ nhàng phố cổ",
+        "Khởi đầu ngày mới với ổ bánh mì Phượng nóng giòn đẫm sốt patê gia truyền hoặc bánh mì Madam Khánh. Kèm theo một ly cà phê muối hoặc tách trà Mót sả chanh thơm dịu."
+      ],
+      [
+        "Trưa và chiều: Cao lầu và Mì Quảng",
+        "Cao lầu ngon nhất khi sợi mì ngâm tro củi cù lao Chàm, ăn kèm thịt xíu thơm mềm và rau thơm Trà Quế giòn ngọt. Xế chiều thử bánh bao bánh vạc trắng nõn và chè bắp Cẩm Nam."
+      ],
+      [
+        "Tối lung linh bên dòng sông Hoài",
+        "Khi hoàng hôn buông xuống, thuê chiếc thuyền gỗ nhỏ thả hoa đăng cầu an trên mặt nước sông Hoài. Sau đó thưởng thức đĩa cơm gà Bà Buội xé phay giòn dai."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Hội An, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Hội An, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Minh Quân",
+      "role": "Hướng dẫn viên Bản địa 8 năm kinh nghiệm",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 5,
+    "reviewsCount": 231,
+    "reviews": [
+      {
+        "user": "Trần Tuấn Kiệt",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Hội An cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Đà Nẵng – Hội An 4N3Đ Trọn Gói qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Đặng Mai Phương",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Hội An tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Vũ Đức Thành",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/hoi-an-an-gi.jpg"
+  },
+  {
+    "id": "da-nang-3-ngay",
+    "dest": "Đà Nẵng",
+    "region": "Miền Trung",
+    "cat": "Lịch trình",
+    "img": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=800&q=80",
+    "read": 7,
+    "title": "Đà Nẵng 3 ngày: Cầu Vàng Bà Nà Hills, biển Mỹ Khê và đêm Cầu Rồng phun lửa",
+    "ex": "Trải nghiệm thành phố biển đáng sống nhất Việt Nam: tắm biển cát mịn, viếng chùa Linh Ứng và ngắm những cây cầu huyền thoại.",
+    "tour": {
+      "name": "Đà Nẵng – Bà Nà Hills 3N2Đ",
+      "price": 2690000,
+      "unit": "khách"
+    },
+    "hotel": 550000,
+    "s": [
+      [
+        "Ngày 1: Bán đảo Sơn Trà và biển Mỹ Khê",
+        "Khám phá chùa Linh Ứng ngắm tượng Phật Bà Quan Âm 67m hướng ra biển Đông. Chiều hòa mình vào làn nước trong mát tại bãi biển Mỹ Khê được tạp chí Forbes bình chọn."
+      ],
+      [
+        "Ngày 2: Một ngày tại tiên cảnh Bà Nà Hills",
+        "Check-in sáng sớm tại Cầu Vàng được đôi bàn tay rêu phong khổng lồ nâng đỡ giữa mây trời. Trải nghiệm tuyến cáp treo đạt nhiều kỷ lục thế giới và vui chơi tại Làng Pháp."
+      ],
+      [
+        "Ngày 3: Ẩm thực và Cầu Rồng phun lửa",
+        "Thưởng thức bánh tráng cuốn thịt heo Đại Lộc hai đầu da chấm mắm nêm đậm đà. Vào tối cuối tuần (21h thứ 7 & Chủ Nhật), đón xem khoảnh khắc Cầu Rồng phun lửa và nước hoành tráng."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Đà Nẵng, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Đà Nẵng, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Lê Hương",
+      "role": "Tác giả Ẩm thực & Văn hóa vùng miền",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 4.8,
+    "reviewsCount": 98,
+    "reviews": [
+      {
+        "user": "Đặng Mai Phương",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Đà Nẵng cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Đà Nẵng – Bà Nà Hills 3N2Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Vũ Đức Thành",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Đà Nẵng tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Phạm Hồng Nhung",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/da-nang-3-ngay.jpg"
+  },
+  {
+    "id": "hue-co-do-tram-mac",
+    "dest": "Huế",
+    "region": "Miền Trung",
+    "cat": "Cẩm nang",
+    "img": "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=800&q=80",
+    "read": 8,
+    "title": "Cố đô Huế: Khám phá Đại Nội uy nghiêm, lăng tẩm và ẩm thực cung đình",
+    "ex": "Nét trầm mặc bên dòng sông Hương thơ mộng, tiếng chuông chùa Thiên Mụ ngân vang và vị cay nồng quyến rũ của tô bún bò Huế chuẩn gốc.",
+    "tour": {
+      "name": "Tour Di Sản Cố Đô Huế 2N1Đ",
+      "price": 1450000,
+      "unit": "khách"
+    },
+    "hotel": 420000,
+    "s": [
+      [
+        "Dấu ấn vàng son Hoàng cung Đại Nội",
+        "Bước qua Ngọ Môn, Điện Thái Hòa và Tử Cấm Thành để cảm nhận không gian sinh sống của 13 vị vua triều Nguyễn với kiến trúc sơn son thiếp vàng tráng lệ."
+      ],
+      [
+        "Lăng Khải Định và Lăng Tự Đức",
+        "Lăng Khải Định với nghệ thuật ghép sành sứ đỉnh cao kết hợp Đông - Tây, trong khi Lăng Tự Đức lại mang vẻ đẹp tao nhã, hòa hợp tuyệt đối với thiên nhiên non nước."
+      ],
+      [
+        "Ăn bún bò Huế và các món bánh cung đình",
+        "Tô bún bò móng giò chả cua thơm lừng mùi mắm ruốc, cùng khay bánh bèo, nậm, lọc chấm nước mắm ớt ngọt thanh khó cưỡng."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Huế, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Huế, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Trần Khang",
+      "role": "Phượt thủ & Khám phá sinh thái",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 4.9,
+    "reviewsCount": 115,
+    "reviews": [
+      {
+        "user": "Vũ Đức Thành",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Huế cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Di Sản Cố Đô Huế 2N1Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Phạm Hồng Nhung",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Huế tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Bùi Hải Đăng",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/hue-co-do-tram-mac.jpg"
+  },
+  {
+    "id": "nha-trang-bien-dao",
+    "dest": "Nha Trang",
+    "region": "Miền Trung",
+    "cat": "Cẩm nang",
+    "img": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
+    "read": 9,
+    "title": "Nha Trang: Tour cano 3 đảo lặn ngắm san hô & tắm bùn khoáng thư giãn",
+    "ex": "Vịnh biển nhiệt đới quyến rũ với bãi cát vàng trải dài đường Trần Phú, hải sản tươi sống và công viên giải trí VinWonders đỉnh cao.",
+    "tour": {
+      "name": "Tour Cano 3 Đảo Nha Trang VIP",
+      "price": 790000,
+      "unit": "khách"
+    },
+    "hotel": 600000,
+    "s": [
+      [
+        "Lặn biển ngắm rạn san hô Hòn Mun",
+        "Khu bảo tồn biển sinh học đa dạng nhất Việt Nam, nơi bạn được bơi cùng đàn cá rực rỡ sắc màu giữa những thảm san hô nguyên sơ."
+      ],
+      [
+        "Tắm bùn khoáng nóng thư giãn",
+        "Trải nghiệm ngâm mình trong bùn khoáng tự nhiên giàu dưỡng chất tại I-Resort hoặc Tháp Bà xua tan mọi mệt mỏi."
+      ],
+      [
+        "Nem nướng Ninh Hòa và bún sứa",
+        "Nem nướng giòn rụm cuốn bánh tráng rau sống chấm nước sốt tương đậu nành sánh mịn độc quyền."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Nha Trang, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Nha Trang, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Thanh Mai",
+      "role": "Travel Editor tại VivuGo",
+      "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 5,
+    "reviewsCount": 132,
+    "reviews": [
+      {
+        "user": "Phạm Hồng Nhung",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Nha Trang cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Cano 3 Đảo Nha Trang VIP qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Bùi Hải Đăng",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Nha Trang tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Hoàng Kim Liên",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/nha-trang-bien-dao.jpg"
+  },
+  {
+    "id": "quy-nhon-ky-co-eo-gio",
+    "dest": "Quy Nhơn",
+    "region": "Miền Trung",
+    "cat": "Lịch trình",
+    "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+    "read": 6,
+    "title": "Quy Nhơn 3 ngày: Check-in Kỳ Co 'Maldives Việt Nam' và đón gió tại Eo Gió",
+    "ex": "Nước biển hai màu xanh ngọc bích kỳ ảo, con đường đi bộ ven biển ngoạn mục và những đĩa hải sản tươi ngon giá bình dân.",
+    "tour": {
+      "name": "Tour Kỳ Co - Eo Gió - Hòn Khô 3N2Đ",
+      "price": 2190000,
+      "unit": "khách"
+    },
+    "hotel": 450000,
+    "s": [
+      [
+        "Kỳ Co: Bãi biển hai màu nước kỳ thú",
+        "Bãi cát trắng mịn nép mình dưới chân vách núi đá sừng sững, làn nước biển trong suốt đổi màu từ xanh ngọc bích sang xanh thẫm."
+      ],
+      [
+        "Con đường đi bộ ven biển Eo Gió",
+        "Được mệnh danh là nơi ngắm hoàng hôn đẹp nhất Việt Nam với cung đường lan can đỏ gạch men theo vách đá đón những luồng gió biển lồng lộng."
+      ],
+      [
+        "Bánh xèo tôm nhảy và chả ram tôm đất",
+        "Tôm đất tươi rói còn nhảy tanh tách trên chảo dầu sôi, cuốn cùng bánh tráng giòn rụm và rau mầm thanh mát."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Quy Nhơn, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Quy Nhơn, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Hoàng Nam",
+      "role": "Travel Blogger & Nhiếp ảnh gia",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 4.8,
+    "reviewsCount": 149,
+    "reviews": [
+      {
+        "user": "Bùi Hải Đăng",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Quy Nhơn cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Kỳ Co - Eo Gió - Hòn Khô 3N2Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Hoàng Kim Liên",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Quy Nhơn tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Nguyễn Bích Ngọc",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/quy-nhon-ky-co-eo-gio.jpg"
+  },
+  {
+    "id": "phu-yen-hoa-vang-co-xanh",
+    "dest": "Phú Yên",
+    "region": "Miền Trung",
+    "cat": "Cẩm nang",
+    "img": "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80",
+    "read": 7,
+    "title": "Phú Yên: Kỳ quan Gành Đá Đĩa và bãi cỏ xanh ngắm ngọn hải đăng Đại Lãnh",
+    "ex": "Xứ sở hoa vàng trên cỏ xanh với những khối đá bazan lục lăng xếp chồng hàng triệu năm và điểm đón bình minh đầu tiên trên đất liền.",
+    "tour": {
+      "name": "Tour Khám Phá Xứ Hoa Vàng Cỏ Xanh 3N2Đ",
+      "price": 1990000,
+      "unit": "khách"
+    },
+    "hotel": 400000,
+    "s": [
+      [
+        "Gành Đá Đĩa: Tuyệt tác địa chất hiếm có",
+        "Hàng chục ngàn cột đá bazan hình lục lăng xếp khít nhau như tổ ong khổng lồ vươn ra biển đón những đợt sóng bạc đầu."
+      ],
+      [
+        "Mũi Điện: Nơi đón ánh bình minh sớm nhất",
+        "Leo lên ngọn hải đăng Đại Lãnh lúc 5:00 sáng để đón những tia nắng đầu tiên của ngày mới chiếu rọi mặt biển bao la."
+      ],
+      [
+        "Mắt cá ngừ đại dương hầm thuốc bắc",
+        "Món ăn bổ dưỡng nức tiếng Phú Yên với mắt cá ngừ hầm tiêu xanh, kỷ tử, táo đỏ thơm nồng vị thảo mộc."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Phú Yên, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Phú Yên, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Thu Thảo",
+      "role": "Chuyên gia Cẩm nang VivuGo",
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 4.9,
+    "reviewsCount": 166,
+    "reviews": [
+      {
+        "user": "Hoàng Kim Liên",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Phú Yên cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Khám Phá Xứ Hoa Vàng Cỏ Xanh 3N2Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Nguyễn Bích Ngọc",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Phú Yên tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Trần Tuấn Kiệt",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/phu-yen-hoa-vang-co-xanh.jpg"
+  },
+  {
+    "id": "phong-nha-quang-binh",
+    "dest": "Quảng Bình",
+    "region": "Miền Trung",
+    "cat": "Mẹo hay",
+    "img": "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80",
+    "read": 8,
+    "title": "Phong Nha - Kẻ Bàng: Thám hiểm Động Thiên Đường & đu zipline sông Chày",
+    "ex": "Vương quốc hang động thế giới với hệ thống thạch nhũ tráng lệ hàng triệu năm và dòng sông ngọc bích mát lạnh giữa rừng nguyên sinh.",
+    "tour": {
+      "name": "Tour Thám Hiểm Động Phong Nha & Thiên Đường",
+      "price": 1850000,
+      "unit": "khách"
+    },
+    "hotel": 450000,
+    "s": [
+      [
+        "Động Thiên Đường: Cung điện dát vàng dưới lòng đất",
+        "Hang động khô dài nhất châu Á với hệ thống cầu gỗ 1km dẫn qua những khối nhũ đá kỳ vĩ như tháp Liên Hoa, cung Quần Tiên."
+      ],
+      [
+        "Đu zipline và chèo thuyền Kayak Sông Chày",
+        "Thả mình trên dây zipline 400m vượt qua dòng sông Chày xanh biếc và khám phá Hang Tối bằng đèn pin đội đầu."
+      ],
+      [
+        "Bánh xèo cá kình và cháo canh cá lóc",
+        "Tô cháo canh sợi bột gạo mềm thơm với nước dùng ninh từ xương cá lóc đồng ngọt thanh rắc thêm hành tăm."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Quảng Bình, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Quảng Bình, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Minh Quân",
+      "role": "Hướng dẫn viên Bản địa 8 năm kinh nghiệm",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 5,
+    "reviewsCount": 183,
+    "reviews": [
+      {
+        "user": "Nguyễn Bích Ngọc",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Quảng Bình cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Thám Hiểm Động Phong Nha & Thiên Đường qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Trần Tuấn Kiệt",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Quảng Bình tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Đặng Mai Phương",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/phong-nha-quang-binh.jpg"
+  },
+  {
+    "id": "mui-ne-phan-thiet",
+    "dest": "Phan Thiết",
+    "region": "Miền Trung",
+    "cat": "Lịch trình",
+    "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+    "read": 9,
+    "title": "Mũi Né: Lái xe jeep địa hình Bàu Trắng và dạo bước Suối Tiên đỏ rực",
+    "ex": "Tiểu sa mạc cát trắng mịn màng bên hồ sen ngát hương, trải nghiệm trượt cát và ngắm hàng trăm chiếc thuyền thúng rực rỡ.",
+    "tour": {
+      "name": "Tour Xe Jeep Săn Mặt Trời Mọc Mũi Né",
+      "price": 950000,
+      "unit": "khách"
+    },
+    "hotel": 550000,
+    "s": [
+      [
+        "Trải nghiệm xe Jeep vượt đồi cát Bàu Trắng",
+        "Cảm giác thót tim phấn khích khi ngồi trên chiếc xe jeep lao vun vút qua các đụn cát trắng nhấp nhô đón bình minh đỏ rực."
+      ],
+      [
+        "Lội nước suối Tiên huyền ảo",
+        "Dòng suối cạn nước chảy êm đềm giữa những hẻm núi đất sét đỏ và thạch nhũ cát kỳ lạ như chốn bồng lai."
+      ],
+      [
+        "Lẩu thả Mũi Né trứ danh",
+        "Món lẩu truyền thống được trình bày tinh xảo trên các bẹ hoa chuối với cá mai tươi ngọt, thịt ba chỉ, trứng chiên thái chỉ."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Phan Thiết, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Phan Thiết, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Lê Hương",
+      "role": "Tác giả Ẩm thực & Văn hóa vùng miền",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 4.8,
+    "reviewsCount": 200,
+    "reviews": [
+      {
+        "user": "Trần Tuấn Kiệt",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Phan Thiết cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Xe Jeep Săn Mặt Trời Mọc Mũi Né qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Đặng Mai Phương",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Phan Thiết tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Vũ Đức Thành",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/mui-ne-phan-thiet.jpg"
+  },
+  {
+    "id": "dao-ly-son-quang-ngai",
+    "dest": "Đảo Lý Sơn",
+    "region": "Miền Trung",
+    "cat": "Cẩm nang",
+    "img": "https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=800&q=80",
+    "read": 6,
+    "title": "Đảo Lý Sơn: Check-in Cổng Tò Vò núi lửa và hòn đảo tỏi giữa biển khơi",
+    "ex": "Hòn đảo hình thành từ trầm tích núi lửa hàng triệu năm, nước biển trong vắt nhìn thấy đáy san hô và tỏi cô đơn thơm lừng.",
+    "tour": {
+      "name": "Tour Khám Phá Đảo Lớn - Đảo Bé Lý Sơn 2N1Đ",
+      "price": 1650000,
+      "unit": "khách"
+    },
+    "hotel": 380000,
+    "s": [
+      [
+        "Ngắm hoàng hôn tuyệt mỹ tại Cổng Tò Vò",
+        "Cung vòm đá tự nhiên hình thành từ dung nham núi lửa gặp nước biển, là góc chụp hoàng hôn biểu tượng của đảo."
+      ],
+      [
+        "Tắm biển thiên đường tại Đảo Bé",
+        "Nước biển Đảo Bé trong vắt như gương soi thấu từng tảng san hô và đàn cá con bơi tung tăng."
+      ],
+      [
+        "Gỏi tỏi Lý Sơn và cua Huỳnh Đế",
+        "Thân tỏi non chần qua nước sôi trộn dầu phộng, đậu phộng rang giòn thơm nức và cua Huỳnh đế hấp ngọt thịt."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Đảo Lý Sơn, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Đảo Lý Sơn, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Trần Khang",
+      "role": "Phượt thủ & Khám phá sinh thái",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 4.9,
+    "reviewsCount": 217,
+    "reviews": [
+      {
+        "user": "Đặng Mai Phương",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Đảo Lý Sơn cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Khám Phá Đảo Lớn - Đảo Bé Lý Sơn 2N1Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Vũ Đức Thành",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Đảo Lý Sơn tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Phạm Hồng Nhung",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/dao-ly-son-quang-ngai.jpg"
+  },
+  {
+    "id": "da-lat-3-ngay",
+    "dest": "Đà Lạt",
+    "region": "Miền Trung",
+    "cat": "Lịch trình",
+    "img": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80",
+    "read": 7,
+    "title": "Đà Lạt 3 ngày 2 đêm: đi đâu, ăn gì để không thấy thiếu",
+    "ex": "Một lịch trình vừa đủ chậm cho người muốn nghỉ ngơi, vừa đủ điểm để không bỏ lỡ đồi chè Cầu Đất, săn mây và lẩu gà lá é ấm nồng.",
+    "tour": {
+      "name": "Tour Đà Lạt Mộng Mơ 3N2Đ",
+      "price": 1890000,
+      "unit": "khách"
+    },
+    "hotel": 450000,
+    "s": [
+      [
+        "Ngày 1: đồi chè và quán cà phê trên cao",
+        "Dậy sớm khoảng 5:00 sáng để kịp đón ánh bình minh và biển sương bồng bềnh trên đồi chè Cầu Đất cùng tuabin gió. Buổi chiều ghé một quán cà phê view thung lũng thông reo. Tối dạo chợ đêm nhâm nhi bánh tráng nướng."
+      ],
+      [
+        "Ngày 2: hồ Tuyền Lâm và ẩm thực địa phương",
+        "Buổi sáng thử sức chèo thuyền SUP trên mặt hồ Tuyền Lâm phẳng lặng. Trưa thưởng thức nồi lẩu gà lá é Tao Ngộ chuẩn vị cay nồng. Chiều tản bộ qua những con dốc hoa dã quỳ và chụp ảnh Ga xe lửa cổ."
+      ],
+      [
+        "Mẹo nhỏ trước khi đi",
+        "Nhiệt độ ban đêm Đà Lạt thường xuống dưới 15°C, nên mang theo áo khoác ấm. Vào dịp cuối tuần hoặc mùa hoa dã quỳ, hãy đặt trước tour và phòng sớm để giữ vị trí đẹp."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Đà Lạt, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Đà Lạt, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Thanh Mai",
+      "role": "Travel Editor tại VivuGo",
+      "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 5,
+    "reviewsCount": 234,
+    "reviews": [
+      {
+        "user": "Vũ Đức Thành",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Đà Lạt cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Đà Lạt Mộng Mơ 3N2Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Phạm Hồng Nhung",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Đà Lạt tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Bùi Hải Đăng",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/da-lat-3-ngay.jpg"
+  },
+  {
+    "id": "mang-den-kon-tum",
+    "dest": "Măng Đen",
+    "region": "Miền Trung",
+    "cat": "Cẩm nang",
+    "img": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+    "read": 8,
+    "title": "Măng Đen: Nàng thơ Kon Tum với rừng thông bạt ngàn và 7 hồ 3 thác huyền bí",
+    "ex": "Khí hậu ôn đới 18-20°C quanh năm, không gian thanh bình chưa bị đô thị hóa với hồ Đăk Ke thơ mộng và gà nướng cơm lam.",
+    "tour": {
+      "name": "Tour Măng Đen - Thác Pa Sỹ 3N2Đ",
+      "price": 2150000,
+      "unit": "khách"
+    },
+    "hotel": 380000,
+    "s": [
+      [
+        "Hồ Đăk Ke và hoa mai anh đào",
+        "Mặt hồ tĩnh lặng in bóng hàng thông cao vút, vào dịp đầu xuân hoa mai anh đào nở hồng rực cả một góc trời Tây Nguyên."
+      ],
+      [
+        "Chiêm ngưỡng Thác Pa Sỹ giữa rừng già",
+        "Dòng thác trắng xóa đổ xuống như suối tóc mây của thiếu nữ Ba Na giữa thung lũng nguyên sinh xanh mát."
+      ],
+      [
+        "Gà nướng thảo mộc và cơm lam ống tre",
+        "Gà thả đồi ướp lá rừng nướng than hồng thơm phức ăn kèm muối ớt rừng hạt é cay xè lưỡi."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Măng Đen, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Măng Đen, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Hoàng Nam",
+      "role": "Travel Blogger & Nhiếp ảnh gia",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 4.8,
+    "reviewsCount": 101,
+    "reviews": [
+      {
+        "user": "Phạm Hồng Nhung",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Măng Đen cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Măng Đen - Thác Pa Sỹ 3N2Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Bùi Hải Đăng",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Măng Đen tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Hoàng Kim Liên",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/mang-den-kon-tum.jpg"
+  },
+  {
+    "id": "buon-ma-thuot-dak-lak",
+    "dest": "Buôn Ma Thuột",
+    "region": "Miền Trung",
+    "cat": "Cẩm nang",
+    "img": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=800&q=80",
+    "read": 9,
+    "title": "Buôn Ma Thuột: Thủ phủ cà phê thế giới và hùng quan thác Dray Nur",
+    "ex": "Tiếng cồng chiêng ngân vang giữa nhà rông đại ngàn, dòng thác cuộn sóng gầm vang và hương vị cà phê Robusta đậm đà say đắm.",
+    "tour": {
+      "name": "Tour Khám Phá Đại Ngàn Buôn Ma Thuột 3N2Đ",
+      "price": 2390000,
+      "unit": "khách"
+    },
+    "hotel": 450000,
+    "s": [
+      [
+        "Bảo tàng Thế giới Cà phê kiến trúc độc bản",
+        "Công trình kiến trúc nhà dài cách điệu bằng bê tông uốn lượn tuyệt đẹp lưu giữ hàng vạn hiện vật cà phê toàn cầu."
+      ],
+      [
+        "Choáng ngợp trước thác Dray Nur & Dray Sap",
+        "Cụm thác kỳ vĩ nhất Tây Nguyên với bức tường nước khổng lồ đổ ầm ầm tạo nên làn sương khói mờ ảo bao phủ cả thung lũng."
+      ],
+      [
+        "Bún đỏ và lẩu cá lăng sông Sêrêpôk",
+        "Tô bún đỏ sợi to nấu từ gạch cua đồng, trứng cút cùng món lẩu cá lăng chua ngọt thơm lừng hương măng le."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Buôn Ma Thuột, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Buôn Ma Thuột, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Thu Thảo",
+      "role": "Chuyên gia Cẩm nang VivuGo",
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 4.9,
+    "reviewsCount": 118,
+    "reviews": [
+      {
+        "user": "Bùi Hải Đăng",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Buôn Ma Thuột cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Khám Phá Đại Ngàn Buôn Ma Thuột 3N2Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Hoàng Kim Liên",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Buôn Ma Thuột tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Nguyễn Bích Ngọc",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/buon-ma-thuot-dak-lak.jpg"
+  },
+  {
+    "id": "ho-ta-dung-dak-nong",
+    "dest": "Hồ Tà Đùng",
+    "region": "Miền Trung",
+    "cat": "Mẹo hay",
+    "img": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80",
+    "read": 6,
+    "title": "Hồ Tà Đùng: Ngắm 'Vịnh Hạ Long trên cao nguyên' Đắk Nông từ đỉnh đèo",
+    "ex": "Hơn 40 hòn đảo lớn nhỏ nhấp nhô giữa mặt nước hồ xanh ngắt, không khí mát rượi và điểm cắm trại ngắm sao trời đỉnh chóp.",
+    "tour": {
+      "name": "Tour Camping & Check-in Hồ Tà Đùng 2N1Đ",
+      "price": 1590000,
+      "unit": "khách"
+    },
+    "hotel": 400000,
+    "s": [
+      [
+        "Toàn cảnh 40 ốc đảo xanh trên cao",
+        "Đứng từ trên các homestay ven đồi phóng tầm mắt ngắm mặt hồ mênh mông với những hòn đảo đất đỏ phủ cây xanh hệt như vịnh Hạ Long."
+      ],
+      [
+        "Du thuyền khám phá lòng hồ Tà Đùng",
+        "Lên thuyền máy lướt nhẹ giữa các hòn đảo, ghé tắm suối nước trong vắt và câu cá lăng tự nhiên."
+      ],
+      [
+        "Cắm trại đêm săn dải ngân hà",
+        "Nhiệt độ ban đêm hạ xuống mát lạnh, quây quần bên đống lửa trại nhâm nhi chén rượu cần ngắm bầu trời đầy sao lấp lánh."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Hồ Tà Đùng, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Hồ Tà Đùng, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Minh Quân",
+      "role": "Hướng dẫn viên Bản địa 8 năm kinh nghiệm",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 5,
+    "reviewsCount": 135,
+    "reviews": [
+      {
+        "user": "Hoàng Kim Liên",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Hồ Tà Đùng cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Camping & Check-in Hồ Tà Đùng 2N1Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Nguyễn Bích Ngọc",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Hồ Tà Đùng tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Trần Tuấn Kiệt",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/ho-ta-dung-dak-nong.jpg"
+  },
+  {
+    "id": "pleiku-bien-ho-gia-lai",
+    "dest": "Pleiku",
+    "region": "Miền Trung",
+    "cat": "Lịch trình",
+    "img": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80",
+    "read": 7,
+    "title": "Pleiku: Say lòng trước 'Đôi mắt Pleiku Biển Hồ' và hàng thông trăm tuổi",
+    "ex": "Miệng núi lửa cổ nghìn năm chứa đựng mặt nước xanh màu ngọc lục bảo, đồi chè Biển Hồ bạt ngàn và món phở hai tô danh bất hư truyền.",
+    "tour": {
+      "name": "Tour Khám Phá Gia Lai - Biển Hồ 2N1Đ",
+      "price": 1490000,
+      "unit": "khách"
+    },
+    "hotel": 420000,
+    "s": [
+      [
+        "Biển Hồ T'Nưng huyền thoại",
+        "Miệng núi lửa đã tắt hàng triệu năm biến thành hồ nước ngọt khổng lồ, bao bọc bởi rừng thông reo rì rào."
+      ],
+      [
+        "Con đường hàng thông trăm tuổi",
+        "Hàng thông cổ thụ che rợp bóng mát dẫn lối vào đồi chè bát ngát, góc chụp ảnh vintage lãng mạn như phim Hàn Quốc."
+      ],
+      [
+        "Phở khô Gia Lai (Phở hai tô)",
+        "Một tô bánh phở trụng dai trộn tóp mỡ, hành phi, xì dầu ăn kèm một tô nước dùng xương bò ngọt lịm thơm mùi ngò gai."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Pleiku, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Pleiku, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Lê Hương",
+      "role": "Tác giả Ẩm thực & Văn hóa vùng miền",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 4.8,
+    "reviewsCount": 152,
+    "reviews": [
+      {
+        "user": "Nguyễn Bích Ngọc",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Pleiku cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Khám Phá Gia Lai - Biển Hồ 2N1Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Trần Tuấn Kiệt",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Pleiku tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Đặng Mai Phương",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/pleiku-bien-ho-gia-lai.jpg"
+  },
+  {
+    "id": "phu-quoc-nghi-duong",
+    "dest": "Phú Quốc",
+    "region": "Miền Nam",
+    "cat": "Cẩm nang",
+    "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
+    "read": 8,
+    "title": "Phú Quốc 4 ngày: biển trong vắt, cano 4 đảo và hoàng hôn Sunset Town",
+    "ex": "Chọn bãi biển nào, đi tour cano ra sao và bí quyết thưởng thức hải sản đảo tươi sống mà không lo chặt chém.",
+    "tour": {
+      "name": "Phú Quốc 4N3Đ Nghỉ Dưỡng Trọn Gói",
+      "price": 3990000,
+      "unit": "khách"
+    },
+    "hotel": 1100000,
+    "s": [
+      [
+        "Mùa đẹp nhất để vi vu Đảo Ngọc",
+        "Từ tháng 11 đến tháng 4 là mùa khô lý tưởng nhất: sóng êm, nước biển trong thấu đáy và bãi cát trắng mịn như kem tại Bãi Sao, Bãi Khem."
+      ],
+      [
+        "Tour cano 4 đảo và cáp treo Hòn Thơm",
+        "Lên cano lướt sóng ra Hòn Móng Tay, Hòn Mây Rút chụp ảnh SUP flycam miễn phí, lặn ngắm san hô tại Hòn Gầm Ghì. Chiều đi tuyến cáp treo vượt biển 3 dây dài nhất thế giới."
+      ],
+      [
+        "Hoàng hôn tím và ẩm thực đêm",
+        "Chiêm ngưỡng hoàng hôn tím lãng mạn tại các quán bar ven biển Bãi Trường, tối ghé ăn tô bún quậy Kiến Xây nóng hổi tự pha nước chấm và gỏi cá trích cuốn rau rừng."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Phú Quốc, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Phú Quốc, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Trần Khang",
+      "role": "Phượt thủ & Khám phá sinh thái",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 4.9,
+    "reviewsCount": 169,
+    "reviews": [
+      {
+        "user": "Trần Tuấn Kiệt",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Phú Quốc cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Phú Quốc 4N3Đ Nghỉ Dưỡng Trọn Gói qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Đặng Mai Phương",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Phú Quốc tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Vũ Đức Thành",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/phu-quoc-nghi-duong.jpg"
+  },
+  {
+    "id": "con-dao-hoang-so",
+    "dest": "Côn Đảo",
+    "region": "Miền Nam",
+    "cat": "Cẩm nang",
+    "img": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80",
+    "read": 9,
+    "title": "Côn Đảo: Thiên đường biển hoang sơ bậc nhất và hành trình tâm linh thiêng liêng",
+    "ex": "Làn nước xanh màu ngọc bích tại Bãi Đầm Trầu, những rạn san hô nguyên vẹn, rùa đẻ trứng và viếng mộ Cô Sáu lúc nửa đêm.",
+    "tour": {
+      "name": "Tour Bay Côn Đảo Tâm Linh & Nghỉ Dưỡng 3N2Đ",
+      "price": 4890000,
+      "unit": "khách"
+    },
+    "hotel": 950000,
+    "s": [
+      [
+        "Bãi Đầm Trầu ngắm máy bay hạ cánh sát đầu",
+        "Bãi biển đẹp nhất Côn Đảo với bờ cát vàng mịn hình vòng cung, nơi bạn có thể ghi lại khoảnh khắc máy bay lượn sát mặt biển ngay trên đầu."
+      ],
+      [
+        "Lặn ngắm san hô và xem rùa biển đẻ trứng",
+        "Vườn quốc gia Côn Đảo bảo tồn loài rùa xanh quý hiếm, trải nghiệm thả rùa con về với đại dương vào sáng sớm là kỷ niệm vô giá."
+      ],
+      [
+        "Lễ viếng Nghĩa trang Hàng Dương",
+        "Thời khắc linh thiêng thắp nén tâm nhang viếng mộ nữ anh hùng Võ Thị Sáu và các chiến sĩ cách mạng kiên trung trong không gian tĩnh mịch."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Côn Đảo, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Côn Đảo, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Thanh Mai",
+      "role": "Travel Editor tại VivuGo",
+      "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 5,
+    "reviewsCount": 186,
+    "reviews": [
+      {
+        "user": "Đặng Mai Phương",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Côn Đảo cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Bay Côn Đảo Tâm Linh & Nghỉ Dưỡng 3N2Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Vũ Đức Thành",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Côn Đảo tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Phạm Hồng Nhung",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/con-dao-hoang-so.jpg"
+  },
+  {
+    "id": "sai-gon-24h",
+    "dest": "TP. Hồ Chí Minh",
+    "region": "Miền Nam",
+    "cat": "Ẩm thực",
+    "img": "https://images.unsplash.com/photo-1574958269340-fa927503f3dd?auto=format&fit=crop&w=800&q=80",
+    "read": 6,
+    "title": "Sài Gòn 24 giờ không ngủ: Cà phê bệt nhà thờ, du thuyền sông Sài Gòn & ăn đêm",
+    "ex": "Nhịp sống sôi động bậc nhất Việt Nam: ngắm hoàng hôn trên du thuyền hai tầng, cơm tấm sườn bì chả và phố đi bộ Bùi Viện náo nhiệt.",
+    "tour": {
+      "name": "Tour Du Thuyền Sông Sài Gòn & Ăn Tối",
+      "price": 750000,
+      "unit": "khách"
+    },
+    "hotel": 650000,
+    "s": [
+      [
+        "Cà phê bệt Nhà thờ Đức Bà sáng sớm",
+        "Ngồi trên tờ báo trải tạm dưới bóng cây xanh mát nhâm nhi ly cà phê sữa đá đậm đà ngắm bồ câu chao lượn quanh Bưu điện Thành phố."
+      ],
+      [
+        "Du thuyền ngắm Landmark 81 lúc hoàng hôn",
+        "Lướt trên dòng sông Sài Gòn lộng gió ngắm nhìn những tòa nhà chọc trời rực sáng ánh đèn neon lung linh."
+      ],
+      [
+        "Thiên đường ẩm thực đường phố",
+        "Cơm tấm sườn nướng mỡ hành thơm nức mũi, hủ tiếu Nam Vang đậm đà, phá lấu bò chấm bánh mì giòn rụm tại các con hẻm Quận 4."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại TP. Hồ Chí Minh, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại TP. Hồ Chí Minh, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Hoàng Nam",
+      "role": "Travel Blogger & Nhiếp ảnh gia",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 4.8,
+    "reviewsCount": 203,
+    "reviews": [
+      {
+        "user": "Vũ Đức Thành",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi TP. Hồ Chí Minh cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Du Thuyền Sông Sài Gòn & Ăn Tối qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Phạm Hồng Nhung",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại TP. Hồ Chí Minh tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Bùi Hải Đăng",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/sai-gon-24h.jpg"
+  },
+  {
+    "id": "can-tho-song-nuoc",
+    "dest": "Cần Thơ",
+    "region": "Miền Nam",
+    "cat": "Lịch trình",
+    "img": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80",
+    "read": 7,
+    "title": "Cần Thơ 2 ngày: Dậy sớm đi chợ nổi Cái Răng và lạc vào vườn trái cây trĩu quả",
+    "ex": "Trải nghiệm văn hóa sông nước miền Tây độc đáo: ăn tô bún riêu trên ghe bồng bềnh và thưởng thức bánh xèo miền Tây khổng lồ.",
+    "tour": {
+      "name": "Tour Chợ Nổi Cái Răng - Miệt Vườn Cần Thơ 2N1Đ",
+      "price": 1450000,
+      "unit": "khách"
+    },
+    "hotel": 450000,
+    "s": [
+      [
+        "Chợ nổi Cái Răng lúc bình minh",
+        "5:30 sáng lên ghe gỗ hòa mình vào không khí buôn bán tấp nập trên sông. Ngắm những cây bẹo treo lủng lẳng dưa hấu, dứa, xoài và thưởng thức ly cà phê kho thơm phức."
+      ],
+      [
+        "Miệt vườn trái cây Phong Điền",
+        "Thong thả hái chôm chôm, sầu riêng, măng cụt chín cây ăn thỏa thích ngay tại vườn và tự tay làm bánh tét lá cẩm tím biếc."
+      ],
+      [
+        "Bến Ninh Kiều và lẩu mắm miền Tây",
+        "Dạo cầu đi bộ Ninh Kiều về đêm lung linh ánh đèn và thưởng thức nồi lẩu mắm cá linh nghi ngút khói ăn kèm bông điên điển, rau đắng."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Cần Thơ, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Cần Thơ, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Thu Thảo",
+      "role": "Chuyên gia Cẩm nang VivuGo",
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 4.9,
+    "reviewsCount": 220,
+    "reviews": [
+      {
+        "user": "Phạm Hồng Nhung",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Cần Thơ cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Chợ Nổi Cái Răng - Miệt Vườn Cần Thơ 2N1Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Bùi Hải Đăng",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Cần Thơ tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Hoàng Kim Liên",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/can-tho-song-nuoc.jpg"
+  },
+  {
+    "id": "an-giang-tra-su",
+    "dest": "An Giang",
+    "region": "Miền Nam",
+    "cat": "Cẩm nang",
+    "img": "https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=800&q=80",
+    "read": 8,
+    "title": "An Giang: Xuôi xuồng ba lá rừng tràm Trà Sư & viếng Miếu Bà Chúa Xứ Châu Đốc",
+    "ex": "Tấm thảm bèo cám xanh mướt ngút ngàn, cây cầu tre dài nhất Việt Nam xuyên rừng tràm và vùng đất tâm linh Thất Sơn huyền bí.",
+    "tour": {
+      "name": "Tour Rừng Tràm Trà Sư - Châu Đốc 2N1Đ",
+      "price": 1550000,
+      "unit": "khách"
+    },
+    "hotel": 380000,
+    "s": [
+      [
+        "Rẽ sóng bèo xanh rừng tràm Trà Sư",
+        "Ngồi trên chiếc xuồng ba lá do cô chèo thuyền mặc áo bà ba khua nhẹ mái chèo xuyên qua thảm bèo xanh biếc ngắm đàn chim vạc làm tổ trên ngọn tràm."
+      ],
+      [
+        "Chiêm bái Miếu Bà Chúa Xứ Núi Sam",
+        "Điểm du lịch tâm linh linh thiêng bậc nhất phương Nam với tượng Bà bằng đá sa thạch trăm tuổi thu hút hàng triệu lượt khách mỗi năm."
+      ],
+      [
+        "Bún cá Châu Đốc và lẩu cá linh bông điên điển",
+        "Tô bún cá vàng ươm màu nghệ tươi thơm mùi ngải bún ăn kèm rau muống bào và các loại mắm cá tra, mắm thái thơm nức."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại An Giang, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại An Giang, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Minh Quân",
+      "role": "Hướng dẫn viên Bản địa 8 năm kinh nghiệm",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 5,
+    "reviewsCount": 237,
+    "reviews": [
+      {
+        "user": "Bùi Hải Đăng",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi An Giang cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Rừng Tràm Trà Sư - Châu Đốc 2N1Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Hoàng Kim Liên",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại An Giang tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Nguyễn Bích Ngọc",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/an-giang-tra-su.jpg"
+  },
+  {
+    "id": "vung-tau-cuoi-tuan",
+    "dest": "Vũng Tàu",
+    "region": "Miền Nam",
+    "cat": "Lịch trình",
+    "img": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80",
+    "read": 9,
+    "title": "Vũng Tàu 2 ngày 1 đêm: Đón gió ngọn Hải Đăng cổ & thưởng thức bánh khọt giòn rụm",
+    "ex": "Chỉ 2 tiếng chạy cao tốc từ Sài Gòn, bờ biển Bãi Sau lộng gió, ngọn hải đăng Pháp cổ kính và thiên đường hải sản tươi sống Bãi Trước.",
+    "tour": {
+      "name": "Tour Nghỉ Dưỡng Vũng Tàu Cuối Tuần 2N1Đ",
+      "price": 1190000,
+      "unit": "khách"
+    },
+    "hotel": 450000,
+    "s": [
+      [
+        "Ngọn Hải Đăng cổ kính và đường cây bông gòn",
+        "Chạy xe máy uốn lượn lên núi Nhỏ ngắm toàn cảnh thành phố biển hình bán nguyệt và check-in bên ngọn hải đăng lâu đời nhất Việt Nam."
+      ],
+      [
+        "Chinh phục Tượng Chúa Kito Vua",
+        "Vượt gần 1.000 bậc thang đá lên cánh tay tượng Chúa khổng lồ ngắm gió biển thổi tung bay và view 360 độ Bãi Sau."
+      ],
+      [
+        "Bánh khọt Gốc Vú Sữa và lẩu cá đuối",
+        "Bánh khọt chiên vàng ruộm tôm tươi ngọt chấm nước mắm chua ngọt cuốn cải xanh, tối xì xụp nồi lẩu cá đuối măng chua cay nồng."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Vũng Tàu, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Vũng Tàu, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Lê Hương",
+      "role": "Tác giả Ẩm thực & Văn hóa vùng miền",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 4.8,
+    "reviewsCount": 104,
+    "reviews": [
+      {
+        "user": "Hoàng Kim Liên",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Vũng Tàu cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Nghỉ Dưỡng Vũng Tàu Cuối Tuần 2N1Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Nguyễn Bích Ngọc",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Vũng Tàu tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Trần Tuấn Kiệt",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/vung-tau-cuoi-tuan.jpg"
+  },
+  {
+    "id": "tay-ninh-nui-ba-den",
+    "dest": "Tây Ninh",
+    "region": "Miền Nam",
+    "cat": "Mẹo hay",
+    "img": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80",
+    "read": 6,
+    "title": "Tây Ninh: Chinh phục Nóc nhà Nam Bộ Núi Bà Đen & đại tượng Phật Bà bằng đồng",
+    "ex": "Đi cáp treo xuyên mây lên đỉnh núi cao 986m, chiêm bái tượng Phật Bà Tây Bổ Đà Sơn cao kỷ lục châu Á và thưởng thức bò tơ nướng.",
+    "tour": {
+      "name": "Tour Cáp Treo Đỉnh Núi Bà Đen - Tòa Thánh 1 Ngày",
+      "price": 890000,
+      "unit": "khách"
+    },
+    "hotel": 380000,
+    "s": [
+      [
+        "Chạm tay vào cột mốc 986m trên mây",
+        "Tuyến cáp treo hiện đại đưa bạn lướt qua thảm rừng xanh rì lên đỉnh núi Bà Đen ngắm biển mây sớm và vườn hoa bạt ngàn đua sắc."
+      ],
+      [
+        "Tượng Phật Bà Tây Bổ Đà Sơn kỷ lục",
+        "Đại tượng Phật Bà bằng đồng cao nhất châu Á tọa lạc uy nghiêm trên đỉnh núi, công trình điêu khắc Phật giáo tráng lệ."
+      ],
+      [
+        "Bò tơ Tây Ninh và bánh tráng phơi sương",
+        "Thịt bò tơ nướng tảng cuốn bánh tráng phơi sương Trảng Bàng kèm đĩa rau rừng hơn chục loại chấm mắm nêm đậm đà."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Tây Ninh, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Tây Ninh, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Trần Khang",
+      "role": "Phượt thủ & Khám phá sinh thái",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 4.9,
+    "reviewsCount": 121,
+    "reviews": [
+      {
+        "user": "Nguyễn Bích Ngọc",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Tây Ninh cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Cáp Treo Đỉnh Núi Bà Đen - Tòa Thánh 1 Ngày qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Trần Tuấn Kiệt",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Tây Ninh tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Đặng Mai Phương",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/tay-ninh-nui-ba-den.jpg"
+  },
+  {
+    "id": "ca-mau-cuc-nam",
+    "dest": "Cà Mau",
+    "region": "Miền Nam",
+    "cat": "Cẩm nang",
+    "img": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80",
+    "read": 7,
+    "title": "Mũi Cà Mau: Đặt chân lên điểm cực Nam Tổ quốc và len lỏi rừng đước ngập mặn",
+    "ex": "Chạm tay vào cột mốc tọa độ quốc gia GPS 0001, ngắm mặt trời mọc ở biển Đông và lặn ở biển Tây tại cùng một vị trí địa lý độc nhất.",
+    "tour": {
+      "name": "Tour Chinh Phục Đất Mũi Cà Mau 2N1Đ",
+      "price": 1890000,
+      "unit": "khách"
+    },
+    "hotel": 420000,
+    "s": [
+      [
+        "Cột mốc tọa độ quốc gia và tiểu cảnh con tàu",
+        "Khoảnh khắc thiêng liêng khi đứng tại Mũi Cà Mau - nơi tận cùng dải đất hình chữ S, ngắm nhìn biểu tượng con tàu căng buồm hướng ra biển lớn."
+      ],
+      [
+        "Đi cano xuyên rừng ngập mặn Vườn Quốc Gia",
+        "Lướt cano với tốc độ cao qua những dòng kinh rạch rợp bóng cây đước, cây mắm bám rễ chằng chịt giữ đất phù sa."
+      ],
+      [
+        "Cua Cà Mau gạch son và cá thòi lòi nướng muối ớt",
+        "Cua biển Cà Mau chắc nịch nhiều gạch thơm ngon nhất nước, cùng món cá thòi lòi leo cây nướng muối ớt cay nồng."
+      ],
+      [
+        "Hướng dẫn di chuyển & kinh nghiệm di chuyển thuận tiện nhất",
+        "Tại Cà Mau, Bạn có thể linh hoạt chọn phương tiện xe giường nằm cao cấp, limousine đưa đón tận nơi hoặc máy bay kết hợp cano/ô tô. Khi tới nơi, thuê xe máy tự lái hoặc đặt trọn gói có xe đời mới máy lạnh giúp bạn tiết kiệm thể lực tối đa để thưởng ngoạn cảnh đẹp."
+      ],
+      [
+        "Mẹo tiết kiệm chi phí & bảng ngân sách gợi ý",
+        "Tại Cà Mau, Nên đặt dịch vụ trước 7-10 ngày để hưởng mức giá ưu đãi tốt nhất và tránh tình trạng hết phòng đẹp. Dự toán trung bình cho chuyến đi chất lượng cao dao động từ 1.800.000đ - 2.500.000đ/khách đã bao gồm chỗ ở, ăn uống đặc sản và vé thắng cảnh chính."
+      ]
+    ],
+    "author": {
+      "name": "Thanh Mai",
+      "role": "Travel Editor tại VivuGo",
+      "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&q=80",
+      "date": "Tháng 09/2026"
+    },
+    "rating": 5,
+    "reviewsCount": 138,
+    "reviews": [
+      {
+        "user": "Trần Tuấn Kiệt",
+        "rating": 5,
+        "date": "20/09/2026",
+        "tag": "Đã đi chuyến 3N2Đ",
+        "comment": "Bài viết cẩm nang cực kỳ hữu ích và có tâm! Mình vừa hoàn thành chuyến đi Cà Mau cùng gia đình. Mọi địa điểm ăn uống và lịch trình gợi ý đều chuẩn 100%. Đặt Tour Chinh Phục Đất Mũi Cà Mau 2N1Đ qua VivuGo rất an tâm!",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Đặng Mai Phương",
+        "rating": 5,
+        "date": "10/09/2026",
+        "tag": "Đã xác thực chuyến đi",
+        "comment": "Cảnh sắc tại Cà Mau tuyệt đẹp hơn cả trong ảnh. Các mẹo chụp ảnh và chọn giờ tham quan trong bài giúp nhóm mình có cả kho ảnh triệu like. Giá tour rất hời so với chất lượng phục vụ!",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+      },
+      {
+        "user": "Vũ Đức Thành",
+        "rating": 4.9,
+        "date": "28/08/2026",
+        "tag": "Du lịch trải nghiệm thực tế",
+        "comment": "Đọc xong bài viết này là đặt vé đi luôn không đắn đo. Hướng dẫn viên bản địa rất nhiệt tình, am hiểu văn hóa và ẩm thực sâu sắc. Chắc chắn sẽ tiếp tục ủng hộ VivuGo cho chuyến đi tới!",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
+      }
+    ],
+    "localImg": "images/ca-mau-cuc-nam.jpg"
+  }
+];
 
-    // ----------------------------------------------------
-    // MIỀN TRUNG (9 BÀI VIẾT)
-    // ----------------------------------------------------
-    {
-      id: "hoi-an-an-gi",
-      dest: "Hội An",
-      region: "Miền Trung",
-      cat: "Ẩm thực",
-      img: "/src/assets/images/dest_hoi_an_1790913409134.jpg",
-      read: 5,
-      title: "Hội An ăn gì: cao lầu, mì Quảng và những quán người địa phương hay ghé",
-      ex: "Một vòng ẩm thực từ sáng đến tối, sắp xếp hợp lý theo cung đường đi bộ thong thả qua từng ngõ phố rực rỡ đèn lồng.",
-      tour: { name: "Đà Nẵng – Hội An 4N3Đ Trọn Gói", price: 3290000, unit: "khách" },
-      hotel: 650000,
-      s: [
-        ["Bữa sáng nhẹ nhàng phố cổ", "Khởi đầu ngày mới với ổ bánh mì Phượng nóng giòn đẫm sốt patê gia truyền hoặc bánh mì Madam Khánh. Kèm theo một ly cà phê muối hoặc tách trà Mót sả chanh thơm dịu."],
-        ["Trưa và chiều: Cao lầu và Mì Quảng", "Cao lầu ngon nhất khi sợi mì ngâm tro củi cù lao Chàm, ăn kèm thịt xíu thơm mềm và rau thơm Trà Quế giòn ngọt. Xế chiều thử bánh bao bánh vạc trắng nõn và chè bắp Cẩm Nam."],
-        ["Tối lung linh bên dòng sông Hoài", "Khi hoàng hôn buông xuống, thuê chiếc thuyền gỗ nhỏ thả hoa đăng cầu an trên mặt nước sông Hoài. Sau đó thưởng thức đĩa cơm gà Bà Buội xé phay giòn dai."]
-      ]
-    },
-    {
-      id: "da-nang-3-ngay",
-      dest: "Đà Nẵng",
-      region: "Miền Trung",
-      cat: "Lịch trình",
-      img: "/src/assets/images/dest_da_nang_1790914512974.jpg",
-      read: 5,
-      title: "Đà Nẵng 3 ngày: Cầu Vàng Bà Nà Hills, biển Mỹ Khê và đêm Cầu Rồng phun lửa",
-      ex: "Trải nghiệm thành phố biển đáng sống nhất Việt Nam: tắm biển cát mịn, viếng chùa Linh Ứng và ngắm những cây cầu huyền thoại.",
-      tour: { name: "Đà Nẵng – Bà Nà Hills 3N2Đ", price: 2690000, unit: "khách" },
-      hotel: 550000,
-      s: [
-        ["Ngày 1: Bán đảo Sơn Trà và biển Mỹ Khê", "Khám phá chùa Linh Ứng ngắm tượng Phật Bà Quan Âm 67m hướng ra biển Đông. Chiều hòa mình vào làn nước trong mát tại bãi biển Mỹ Khê được tạp chí Forbes bình chọn."],
-        ["Ngày 2: Một ngày tại tiên cảnh Bà Nà Hills", "Check-in sáng sớm tại Cầu Vàng được đôi bàn tay rêu phong khổng lồ nâng đỡ giữa mây trời. Trải nghiệm tuyến cáp treo đạt nhiều kỷ lục thế giới và vui chơi tại Làng Pháp."],
-        ["Ngày 3: Ẩm thực và Cầu Rồng phun lửa", "Thưởng thức bánh tráng cuốn thịt heo Đại Lộc hai đầu da chấm mắm nêm đậm đà. Vào tối cuối tuần (21h thứ 7 & Chủ Nhật), đón xem khoảnh khắc Cầu Rồng phun lửa và nước hoành tráng."]
-      ]
-    },
-    {
-      id: "hue-co-do-tram-mac",
-      dest: "Huế",
-      region: "Miền Trung",
-      cat: "Cẩm nang",
-      img: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=800&q=80",
-      read: 6,
-      title: "Cố đô Huế: Khám phá Đại Nội uy nghiêm, lăng tẩm và ẩm thực cung đình",
-      ex: "Nét trầm mặc bên dòng sông Hương thơ mộng, tiếng chuông chùa Thiên Mụ ngân vang và vị cay nồng quyến rũ của tô bún bò Huế chuẩn gốc.",
-      tour: { name: "Tour Di Sản Cố Đô Huế 2N1Đ", price: 1450000, unit: "khách" },
-      hotel: 420000,
-      s: [
-        ["Dấu ấn vàng son Hoàng cung Đại Nội", "Bước qua Ngọ Môn, Điện Thái Hòa và Tử Cấm Thành để cảm nhận không gian sinh sống của 13 vị vua triều Nguyễn với kiến trúc sơn son thiếp vàng tráng lệ."],
-        ["Lăng Khải Định và Lăng Tự Đức", "Lăng Khải Định với nghệ thuật ghép sành sứ đỉnh cao kết hợp Đông - Tây, trong khi Lăng Tự Đức lại mang vẻ đẹp tao nhã, hòa hợp tuyệt đối với thiên nhiên non nước."],
-        ["Ăn bún bò Huế và các món bánh cung đình", "Tô bún bò móng giò chả cua thơm lừng mùi mắm ruốc, cùng khay bánh bèo, nậm, lọc chấm nước mắm ớt ngọt thanh khó cưỡng."]
-      ]
-    },
-    {
-      id: "nha-trang-bien-dao",
-      dest: "Nha Trang",
-      region: "Miền Trung",
-      cat: "Cẩm nang",
-      img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
-      read: 5,
-      title: "Nha Trang: Tour cano 3 đảo lặn ngắm san hô & tắm bùn khoáng thư giãn",
-      ex: "Vịnh biển nhiệt đới quyến rũ với bãi cát vàng trải dài đường Trần Phú, hải sản tươi sống và công viên giải trí VinWonders đỉnh cao.",
-      tour: { name: "Tour Cano 3 Đảo Nha Trang VIP", price: 790000, unit: "khách" },
-      hotel: 600000,
-      s: [
-        ["Lặn biển ngắm rạn san hô Hòn Mun", "Khu bảo tồn biển sinh học đa dạng nhất Việt Nam, nơi bạn được bơi cùng đàn cá rực rỡ sắc màu giữa những thảm san hô nguyên sơ."],
-        ["Tắm bùn khoáng nóng thư giãn", "Trải nghiệm ngâm mình trong bùn khoáng tự nhiên giàu dưỡng chất tại I-Resort hoặc Tháp Bà xua tan mọi mệt mỏi."],
-        ["Nem nướng Ninh Hòa và bún sứa", "Nem nướng giòn rụm cuốn bánh tráng rau sống chấm nước sốt tương đậu nành sánh mịn độc quyền."]
-      ]
-    },
-    {
-      id: "quy-nhon-ky-co-eo-gio",
-      dest: "Quy Nhơn",
-      region: "Miền Trung",
-      cat: "Lịch trình",
-      img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-      read: 6,
-      title: "Quy Nhơn 3 ngày: Check-in Kỳ Co 'Maldives Việt Nam' và đón gió tại Eo Gió",
-      ex: "Nước biển hai màu xanh ngọc bích kỳ ảo, con đường đi bộ ven biển ngoạn mục và những đĩa hải sản tươi ngon giá bình dân.",
-      tour: { name: "Tour Kỳ Co - Eo Gió - Hòn Khô 3N2Đ", price: 2190000, unit: "khách" },
-      hotel: 450000,
-      s: [
-        ["Kỳ Co: Bãi biển hai màu nước kỳ thú", "Bãi cát trắng mịn nép mình dưới chân vách núi đá sừng sững, làn nước biển trong suốt đổi màu từ xanh ngọc bích sang xanh thẫm."],
-        ["Con đường đi bộ ven biển Eo Gió", "Được mệnh danh là nơi ngắm hoàng hôn đẹp nhất Việt Nam với cung đường lan can đỏ gạch men theo vách đá đón những luồng gió biển lồng lộng."],
-        ["Bánh xèo tôm nhảy và chả ram tôm đất", "Tôm đất tươi rói còn nhảy tanh tách trên chảo dầu sôi, cuốn cùng bánh tráng giòn rụm và rau mầm thanh mát."]
-      ]
-    },
-    {
-      id: "phu-yen-hoa-vang-co-xanh",
-      dest: "Phú Yên",
-      region: "Miền Trung",
-      cat: "Cẩm nang",
-      img: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80",
-      read: 5,
-      title: "Phú Yên: Kỳ quan Gành Đá Đĩa và bãi cỏ xanh ngắm ngọn hải đăng Đại Lãnh",
-      ex: "Xứ sở hoa vàng trên cỏ xanh với những khối đá bazan lục lăng xếp chồng hàng triệu năm và điểm đón bình minh đầu tiên trên đất liền.",
-      tour: { name: "Tour Khám Phá Xứ Hoa Vàng Cỏ Xanh 3N2Đ", price: 1990000, unit: "khách" },
-      hotel: 400000,
-      s: [
-        ["Gành Đá Đĩa: Tuyệt tác địa chất hiếm có", "Hàng chục ngàn cột đá bazan hình lục lăng xếp khít nhau như tổ ong khổng lồ vươn ra biển đón những đợt sóng bạc đầu."],
-        ["Mũi Điện: Nơi đón ánh bình minh sớm nhất", "Leo lên ngọn hải đăng Đại Lãnh lúc 5:00 sáng để đón những tia nắng đầu tiên của ngày mới chiếu rọi mặt biển bao la."],
-        ["Mắt cá ngừ đại dương hầm thuốc bắc", "Món ăn bổ dưỡng nức tiếng Phú Yên với mắt cá ngừ hầm tiêu xanh, kỷ tử, táo đỏ thơm nồng vị thảo mộc."]
-      ]
-    },
-    {
-      id: "phong-nha-quang-binh",
-      dest: "Quảng Bình",
-      region: "Miền Trung",
-      cat: "Mẹo hay",
-      img: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80",
-      read: 6,
-      title: "Phong Nha - Kẻ Bàng: Thám hiểm Động Thiên Đường & đu zipline sông Chày",
-      ex: "Vương quốc hang động thế giới với hệ thống thạch nhũ tráng lệ hàng triệu năm và dòng sông ngọc bích mát lạnh giữa rừng nguyên sinh.",
-      tour: { name: "Tour Thám Hiểm Động Phong Nha & Thiên Đường", price: 1850000, unit: "khách" },
-      hotel: 450000,
-      s: [
-        ["Động Thiên Đường: Cung điện dát vàng dưới lòng đất", "Hang động khô dài nhất châu Á với hệ thống cầu gỗ 1km dẫn qua những khối nhũ đá kỳ vĩ như tháp Liên Hoa, cung Quần Tiên."],
-        ["Đu zipline và chèo thuyền Kayak Sông Chày", "Thả mình trên dây zipline 400m vượt qua dòng sông Chày xanh biếc và khám phá Hang Tối bằng đèn pin đội đầu."],
-        ["Bánh xèo cá kình và cháo canh cá lóc", "Tô cháo canh sợi bột gạo mềm thơm với nước dùng ninh từ xương cá lóc đồng ngọt thanh rắc thêm hành tăm."]
-      ]
-    },
-    {
-      id: "mui-ne-phan-thiet",
-      dest: "Phan Thiết",
-      region: "Miền Trung",
-      cat: "Lịch trình",
-      img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-      read: 5,
-      title: "Mũi Né: Lái xe jeep địa hình Bàu Trắng và dạo bước Suối Tiên đỏ rực",
-      ex: "Tiểu sa mạc cát trắng mịn màng bên hồ sen ngát hương, trải nghiệm trượt cát và ngắm hàng trăm chiếc thuyền thúng rực rỡ.",
-      tour: { name: "Tour Xe Jeep Săn Mặt Trời Mọc Mũi Né", price: 950000, unit: "khách" },
-      hotel: 550000,
-      s: [
-        ["Trải nghiệm xe Jeep vượt đồi cát Bàu Trắng", "Cảm giác thót tim phấn khích khi ngồi trên chiếc xe jeep lao vun vút qua các đụn cát trắng nhấp nhô đón bình minh đỏ rực."],
-        ["Lội nước suối Tiên huyền ảo", "Dòng suối cạn nước chảy êm đềm giữa những hẻm núi đất sét đỏ và thạch nhũ cát kỳ lạ như chốn bồng lai."],
-        ["Lẩu thả Mũi Né trứ danh", "Món lẩu truyền thống được trình bày tinh xảo trên các bẹ hoa chuối với cá mai tươi ngọt, thịt ba chỉ, trứng chiên thái chỉ."]
-      ]
-    },
-    {
-      id: "dao-ly-son-quang-ngai",
-      dest: "Đảo Lý Sơn",
-      region: "Miền Trung",
-      cat: "Cẩm nang",
-      img: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80",
-      read: 6,
-      title: "Đảo Lý Sơn: Check-in Cổng Tò Vò núi lửa và hòn đảo tỏi giữa biển khơi",
-      ex: "Hòn đảo hình thành từ trầm tích núi lửa hàng triệu năm, nước biển trong vắt nhìn thấy đáy san hô và tỏi cô đơn thơm lừng.",
-      tour: { name: "Tour Khám Phá Đảo Lớn - Đảo Bé Lý Sơn 2N1Đ", price: 1650000, unit: "khách" },
-      hotel: 380000,
-      s: [
-        ["Ngắm hoàng hôn tuyệt mỹ tại Cổng Tò Vò", "Cung vòm đá tự nhiên hình thành từ dung nham núi lửa gặp nước biển, là góc chụp hoàng hôn biểu tượng của đảo."],
-        ["Tắm biển thiên đường tại Đảo Bé", "Nước biển Đảo Bé trong vắt như gương soi thấu từng tảng san hô và đàn cá con bơi tung tăng."],
-        ["Gỏi tỏi Lý Sơn và cua Huỳnh Đế", "Thân tỏi non chần qua nước sôi trộn dầu phộng, đậu phộng rang giòn thơm nức và cua Huỳnh đế hấp ngọt thịt."]
-      ]
-    },
+  var currentCat = "";
 
-    // ----------------------------------------------------
-    // MIỀN TRUNG - KHU VỰC CAO NGUYÊN (5 BÀI VIẾT)
-    // ----------------------------------------------------
-    {
-      id: "da-lat-3-ngay",
-      dest: "Đà Lạt",
-      region: "Miền Trung",
-      cat: "Lịch trình",
-      img: "/src/assets/images/dest_da_lat_1790913395664.jpg",
-      read: 6,
-      title: "Đà Lạt 3 ngày 2 đêm: đi đâu, ăn gì để không thấy thiếu",
-      ex: "Một lịch trình vừa đủ chậm cho người muốn nghỉ ngơi, vừa đủ điểm để không bỏ lỡ đồi chè Cầu Đất, săn mây và lẩu gà lá é ấm nồng.",
-      tour: { name: "Tour Đà Lạt Mộng Mơ 3N2Đ", price: 1890000, unit: "khách" },
-      hotel: 450000,
-      s: [
-        ["Ngày 1: đồi chè và quán cà phê trên cao", "Dậy sớm khoảng 5:00 sáng để kịp đón ánh bình minh và biển sương bồng bềnh trên đồi chè Cầu Đất cùng tuabin gió. Buổi chiều ghé một quán cà phê view thung lũng thông reo. Tối dạo chợ đêm nhâm nhi bánh tráng nướng."],
-        ["Ngày 2: hồ Tuyền Lâm và ẩm thực địa phương", "Buổi sáng thử sức chèo thuyền SUP trên mặt hồ Tuyền Lâm phẳng lặng. Trưa thưởng thức nồi lẩu gà lá é Tao Ngộ chuẩn vị cay nồng. Chiều tản bộ qua những con dốc hoa dã quỳ và chụp ảnh Ga xe lửa cổ."],
-        ["Mẹo nhỏ trước khi đi", "Nhiệt độ ban đêm Đà Lạt thường xuống dưới 15°C, nên mang theo áo khoác ấm. Vào dịp cuối tuần hoặc mùa hoa dã quỳ, hãy đặt trước tour và phòng sớm để giữ vị trí đẹp."]
-      ]
-    },
-    {
-      id: "mang-den-kon-tum",
-      dest: "Măng Đen",
-      region: "Miền Trung",
-      cat: "Cẩm nang",
-      img: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80",
-      read: 5,
-      title: "Măng Đen: Nàng thơ Kon Tum với rừng thông bạt ngàn và 7 hồ 3 thác huyền bí",
-      ex: "Khí hậu ôn đới 18-20°C quanh năm, không gian thanh bình chưa bị đô thị hóa với hồ Đăk Ke thơ mộng và gà nướng cơm lam.",
-      tour: { name: "Tour Măng Đen - Thác Pa Sỹ 3N2Đ", price: 2150000, unit: "khách" },
-      hotel: 380000,
-      s: [
-        ["Hồ Đăk Ke và hoa mai anh đào", "Mặt hồ tĩnh lặng in bóng hàng thông cao vút, vào dịp đầu xuân hoa mai anh đào nở hồng rực cả một góc trời Tây Nguyên."],
-        ["Chiêm ngưỡng Thác Pa Sỹ giữa rừng già", "Dòng thác trắng xóa đổ xuống như suối tóc mây của thiếu nữ Ba Na giữa thung lũng nguyên sinh xanh mát."],
-        ["Gà nướng thảo mộc và cơm lam ống tre", "Gà thả đồi ướp lá rừng nướng than hồng thơm phức ăn kèm muối ớt rừng hạt é cay xè lưỡi."]
-      ]
-    },
-    {
-      id: "buon-ma-thuot-dak-lak",
-      dest: "Buôn Ma Thuột",
-      region: "Miền Trung",
-      cat: "Cẩm nang",
-      img: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80",
-      read: 6,
-      title: "Buôn Ma Thuột: Thủ phủ cà phê thế giới và hùng quan thác Dray Nur",
-      ex: "Tiếng cồng chiêng ngân vang giữa nhà rông đại ngàn, dòng thác cuộn sóng gầm vang và hương vị cà phê Robusta đậm đà say đắm.",
-      tour: { name: "Tour Khám Phá Đại Ngàn Buôn Ma Thuột 3N2Đ", price: 2390000, unit: "khách" },
-      hotel: 450000,
-      s: [
-        ["Bảo tàng Thế giới Cà phê kiến trúc độc bản", "Công trình kiến trúc nhà dài cách điệu bằng bê tông uốn lượn tuyệt đẹp lưu giữ hàng vạn hiện vật cà phê toàn cầu."],
-        ["Choáng ngợp trước thác Dray Nur & Dray Sap", "Cụm thác kỳ vĩ nhất Tây Nguyên với bức tường nước khổng lồ đổ ầm ầm tạo nên làn sương khói mờ ảo bao phủ cả thung lũng."],
-        ["Bún đỏ và lẩu cá lăng sông Sêrêpôk", "Tô bún đỏ sợi to nấu từ gạch cua đồng, trứng cút cùng món lẩu cá lăng chua ngọt thơm lừng hương măng le."]
-      ]
-    },
-    {
-      id: "ho-ta-dung-dak-nong",
-      dest: "Hồ Tà Đùng",
-      region: "Miền Trung",
-      cat: "Mẹo hay",
-      img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
-      read: 5,
-      title: "Hồ Tà Đùng: Ngắm 'Vịnh Hạ Long trên cao nguyên' Đắk Nông từ đỉnh đèo",
-      ex: "Hơn 40 hòn đảo lớn nhỏ nhấp nhô giữa mặt nước hồ xanh ngắt, không khí mát rượi và điểm cắm trại ngắm sao trời đỉnh chóp.",
-      tour: { name: "Tour Camping & Check-in Hồ Tà Đùng 2N1Đ", price: 1590000, unit: "khách" },
-      hotel: 400000,
-      s: [
-        ["Toàn cảnh 40 ốc đảo xanh trên cao", "Đứng từ trên các homestay ven đồi phóng tầm mắt ngắm mặt hồ mênh mông với những hòn đảo đất đỏ phủ cây xanh hệt như vịnh Hạ Long."],
-        ["Du thuyền khám phá lòng hồ Tà Đùng", "Lên thuyền máy lướt nhẹ giữa các hòn đảo, ghé tắm suối nước trong vắt và câu cá lăng tự nhiên."],
-        ["Cắm trại đêm săn dải ngân hà", "Nhiệt độ ban đêm hạ xuống mát lạnh, quây quần bên đống lửa trại nhâm nhi chén rượu cần ngắm bầu trời đầy sao lấp lánh."]
-      ]
-    },
-    {
-      id: "pleiku-bien-ho-gia-lai",
-      dest: "Pleiku",
-      region: "Miền Trung",
-      cat: "Lịch trình",
-      img: "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80",
-      read: 5,
-      title: "Pleiku: Say lòng trước 'Đôi mắt Pleiku Biển Hồ' và hàng thông trăm tuổi",
-      ex: "Miệng núi lửa cổ nghìn năm chứa đựng mặt nước xanh màu ngọc lục bảo, đồi chè Biển Hồ bạt ngàn và món phở hai tô danh bất hư truyền.",
-      tour: { name: "Tour Khám Phá Gia Lai - Biển Hồ 2N1Đ", price: 1490000, unit: "khách" },
-      hotel: 420000,
-      s: [
-        ["Biển Hồ T'Nưng huyền thoại", "Miệng núi lửa đã tắt hàng triệu năm biến thành hồ nước ngọt khổng lồ, bao bọc bởi rừng thông reo rì rào."],
-        ["Con đường hàng thông trăm tuổi", "Hàng thông cổ thụ che rợp bóng mát dẫn lối vào đồi chè bát ngát, góc chụp ảnh vintage lãng mạn như phim Hàn Quốc."],
-        ["Phở khô Gia Lai (Phở hai tô)", "Một tô bánh phở trụng dai trộn tóp mỡ, hành phi, xì dầu ăn kèm một tô nước dùng xương bò ngọt lịm thơm mùi ngò gai."]
-      ]
-    },
+  function $(id) { return document.getElementById(id); }
 
-    // ----------------------------------------------------
-    // MIỀN NAM & ĐẢO (8 BÀI VIẾT)
-    // ----------------------------------------------------
-    {
-      id: "phu-quoc-nghi-duong",
-      dest: "Phú Quốc",
-      region: "Miền Nam",
-      cat: "Cẩm nang",
-      img: "/src/assets/images/dest_phu_quoc_1790913420947.jpg",
-      read: 6,
-      title: "Phú Quốc 4 ngày: biển trong vắt, cano 4 đảo và hoàng hôn Sunset Town",
-      ex: "Chọn bãi biển nào, đi tour cano ra sao và bí quyết thưởng thức hải sản đảo tươi sống mà không lo chặt chém.",
-      tour: { name: "Phú Quốc 4N3Đ Nghỉ Dưỡng Trọn Gói", price: 3990000, unit: "khách" },
-      hotel: 1100000,
-      s: [
-        ["Mùa đẹp nhất để vi vu Đảo Ngọc", "Từ tháng 11 đến tháng 4 là mùa khô lý tưởng nhất: sóng êm, nước biển trong thấu đáy và bãi cát trắng mịn như kem tại Bãi Sao, Bãi Khem."],
-        ["Tour cano 4 đảo và cáp treo Hòn Thơm", "Lên cano lướt sóng ra Hòn Móng Tay, Hòn Mây Rút chụp ảnh SUP flycam miễn phí, lặn ngắm san hô tại Hòn Gầm Ghì. Chiều đi tuyến cáp treo vượt biển 3 dây dài nhất thế giới."],
-        ["Hoàng hôn tím và ẩm thực đêm", "Chiêm ngưỡng hoàng hôn tím lãng mạn tại các quán bar ven biển Bãi Trường, tối ghé ăn tô bún quậy Kiến Xây nóng hổi tự pha nước chấm và gỏi cá trích cuốn rau rừng."]
-      ]
-    },
-    {
-      id: "con-dao-hoang-so",
-      dest: "Côn Đảo",
-      region: "Miền Nam",
-      cat: "Cẩm nang",
-      img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-      read: 6,
-      title: "Côn Đảo: Thiên đường biển hoang sơ bậc nhất và hành trình tâm linh thiêng liêng",
-      ex: "Làn nước xanh màu ngọc bích tại Bãi Đầm Trầu, những rạn san hô nguyên vẹn, rùa đẻ trứng và viếng mộ Cô Sáu lúc nửa đêm.",
-      tour: { name: "Tour Bay Côn Đảo Tâm Linh & Nghỉ Dưỡng 3N2Đ", price: 4890000, unit: "khách" },
-      hotel: 950000,
-      s: [
-        ["Bãi Đầm Trầu ngắm máy bay hạ cánh sát đầu", "Bãi biển đẹp nhất Côn Đảo với bờ cát vàng mịn hình vòng cung, nơi bạn có thể ghi lại khoảnh khắc máy bay lượn sát mặt biển ngay trên đầu."],
-        ["Lặn ngắm san hô và xem rùa biển đẻ trứng", "Vườn quốc gia Côn Đảo bảo tồn loài rùa xanh quý hiếm, trải nghiệm thả rùa con về với đại dương vào sáng sớm là kỷ niệm vô giá."],
-        ["Lễ viếng Nghĩa trang Hàng Dương", "Thời khắc linh thiêng thắp nén tâm nhang viếng mộ nữ anh hùng Võ Thị Sáu và các chiến sĩ cách mạng kiên trung trong không gian tĩnh mịch."]
-      ]
-    },
-    {
-      id: "sai-gon-24h",
-      dest: "TP. Hồ Chí Minh",
-      region: "Miền Nam",
-      cat: "Ẩm thực",
-      img: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80",
-      read: 5,
-      title: "Sài Gòn 24 giờ không ngủ: Cà phê bệt nhà thờ, du thuyền sông Sài Gòn & ăn đêm",
-      ex: "Nhịp sống sôi động bậc nhất Việt Nam: ngắm hoàng hôn trên du thuyền hai tầng, cơm tấm sườn bì chả và phố đi bộ Bùi Viện náo nhiệt.",
-      tour: { name: "Tour Du Thuyền Sông Sài Gòn & Ăn Tối", price: 750000, unit: "khách" },
-      hotel: 650000,
-      s: [
-        ["Cà phê bệt Nhà thờ Đức Bà sáng sớm", "Ngồi trên tờ báo trải tạm dưới bóng cây xanh mát nhâm nhi ly cà phê sữa đá đậm đà ngắm bồ câu chao lượn quanh Bưu điện Thành phố."],
-        ["Du thuyền ngắm Landmark 81 lúc hoàng hôn", "Lướt trên dòng sông Sài Gòn lộng gió ngắm nhìn những tòa nhà chọc trời rực sáng ánh đèn neon lung linh."],
-        ["Thiên đường ẩm thực đường phố", "Cơm tấm sườn nướng mỡ hành thơm nức mũi, hủ tiếu Nam Vang đậm đà, phá lấu bò chấm bánh mì giòn rụm tại các con hẻm Quận 4."]
-      ]
-    },
-    {
-      id: "can-tho-song-nuoc",
-      dest: "Cần Thơ",
-      region: "Miền Nam",
-      cat: "Lịch trình",
-      img: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80",
-      read: 5,
-      title: "Cần Thơ 2 ngày: Dậy sớm đi chợ nổi Cái Răng và lạc vào vườn trái cây trĩu quả",
-      ex: "Trải nghiệm văn hóa sông nước miền Tây độc đáo: ăn tô bún riêu trên ghe bồng bềnh và thưởng thức bánh xèo miền Tây khổng lồ.",
-      tour: { name: "Tour Chợ Nổi Cái Răng - Miệt Vườn Cần Thơ 2N1Đ", price: 1450000, unit: "khách" },
-      hotel: 450000,
-      s: [
-        ["Chợ nổi Cái Răng lúc bình minh", "5:30 sáng lên ghe gỗ hòa mình vào không khí buôn bán tấp nập trên sông. Ngắm những cây bẹo treo lủng lẳng dưa hấu, dứa, xoài và thưởng thức ly cà phê kho thơm phức."],
-        ["Miệt vườn trái cây Phong Điền", "Thong thả hái chôm chôm, sầu riêng, măng cụt chín cây ăn thỏa thích ngay tại vườn và tự tay làm bánh tét lá cẩm tím biếc."],
-        ["Bến Ninh Kiều và lẩu mắm miền Tây", "Dạo cầu đi bộ Ninh Kiều về đêm lung linh ánh đèn và thưởng thức nồi lẩu mắm cá linh nghi ngút khói ăn kèm bông điên điển, rau đắng."]
-      ]
-    },
-    {
-      id: "an-giang-tra-su",
-      dest: "An Giang",
-      region: "Miền Nam",
-      cat: "Cẩm nang",
-      img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
-      read: 6,
-      title: "An Giang: Xuôi xuồng ba lá rừng tràm Trà Sư & viếng Miếu Bà Chúa Xứ Châu Đốc",
-      ex: "Tấm thảm bèo cám xanh mướt ngút ngàn, cây cầu tre dài nhất Việt Nam xuyên rừng tràm và vùng đất tâm linh Thất Sơn huyền bí.",
-      tour: { name: "Tour Rừng Tràm Trà Sư - Châu Đốc 2N1Đ", price: 1550000, unit: "khách" },
-      hotel: 380000,
-      s: [
-        ["Rẽ sóng bèo xanh rừng tràm Trà Sư", "Ngồi trên chiếc xuồng ba lá do cô chèo thuyền mặc áo bà ba khua nhẹ mái chèo xuyên qua thảm bèo xanh biếc ngắm đàn chim vạc làm tổ trên ngọn tràm."],
-        ["Chiêm bái Miếu Bà Chúa Xứ Núi Sam", "Điểm du lịch tâm linh linh thiêng bậc nhất phương Nam với tượng Bà bằng đá sa thạch trăm tuổi thu hút hàng triệu lượt khách mỗi năm."],
-        ["Bún cá Châu Đốc và lẩu cá linh bông điên điển", "Tô bún cá vàng ươm màu nghệ tươi thơm mùi ngải bún ăn kèm rau muống bào và các loại mắm cá tra, mắm thái thơm nức."]
-      ]
-    },
-    {
-      id: "vung-tau-cuoi-tuan",
-      dest: "Vũng Tàu",
-      region: "Miền Nam",
-      cat: "Lịch trình",
-      img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-      read: 4,
-      title: "Vũng Tàu 2 ngày 1 đêm: Đón gió ngọn Hải Đăng cổ & thưởng thức bánh khọt giòn rụm",
-      ex: "Chỉ 2 tiếng chạy cao tốc từ Sài Gòn, bờ biển Bãi Sau lộng gió, ngọn hải đăng Pháp cổ kính và thiên đường hải sản tươi sống Bãi Trước.",
-      tour: { name: "Tour Nghỉ Dưỡng Vũng Tàu Cuối Tuần 2N1Đ", price: 1190000, unit: "khách" },
-      hotel: 450000,
-      s: [
-        ["Ngọn Hải Đăng cổ kính và đường cây bông gòn", "Chạy xe máy uốn lượn lên núi Nhỏ ngắm toàn cảnh thành phố biển hình bán nguyệt và check-in bên ngọn hải đăng lâu đời nhất Việt Nam."],
-        ["Chinh phục Tượng Chúa Kito Vua", "Vượt gần 1.000 bậc thang đá lên cánh tay tượng Chúa khổng lồ ngắm gió biển thổi tung bay và view 360 độ Bãi Sau."],
-        ["Bánh khọt Gốc Vú Sữa và lẩu cá đuối", "Bánh khọt chiên vàng ruộm tôm tươi ngọt chấm nước mắm chua ngọt cuốn cải xanh, tối xì xụp nồi lẩu cá đuối măng chua cay nồng."]
-      ]
-    },
-    {
-      id: "tay-ninh-nui-ba-den",
-      dest: "Tây Ninh",
-      region: "Miền Nam",
-      cat: "Mẹo hay",
-      img: "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80",
-      read: 5,
-      title: "Tây Ninh: Chinh phục Nóc nhà Nam Bộ Núi Bà Đen & đại tượng Phật Bà bằng đồng",
-      ex: "Đi cáp treo xuyên mây lên đỉnh núi cao 986m, chiêm bái tượng Phật Bà Tây Bổ Đà Sơn cao kỷ lục châu Á và thưởng thức bò tơ nướng.",
-      tour: { name: "Tour Cáp Treo Đỉnh Núi Bà Đen - Tòa Thánh 1 Ngày", price: 890000, unit: "khách" },
-      hotel: 380000,
-      s: [
-        ["Chạm tay vào cột mốc 986m trên mây", "Tuyến cáp treo hiện đại đưa bạn lướt qua thảm rừng xanh rì lên đỉnh núi Bà Đen ngắm biển mây sớm và vườn hoa bạt ngàn đua sắc."],
-        ["Tượng Phật Bà Tây Bổ Đà Sơn kỷ lục", "Đại tượng Phật Bà bằng đồng cao nhất châu Á tọa lạc uy nghiêm trên đỉnh núi, công trình điêu khắc Phật giáo tráng lệ."],
-        ["Bò tơ Tây Ninh và bánh tráng phơi sương", "Thịt bò tơ nướng tảng cuốn bánh tráng phơi sương Trảng Bàng kèm đĩa rau rừng hơn chục loại chấm mắm nêm đậm đà."]
-      ]
-    },
-    {
-      id: "ca-mau-cuc-nam",
-      dest: "Cà Mau",
-      region: "Miền Nam",
-      cat: "Cẩm nang",
-      img: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80",
-      read: 6,
-      title: "Mũi Cà Mau: Đặt chân lên điểm cực Nam Tổ quốc và len lỏi rừng đước ngập mặn",
-      ex: "Chạm tay vào cột mốc tọa độ quốc gia GPS 0001, ngắm mặt trời mọc ở biển Đông và lặn ở biển Tây tại cùng một vị trí địa lý độc nhất.",
-      tour: { name: "Tour Chinh Phục Đất Mũi Cà Mau 2N1Đ", price: 1890000, unit: "khách" },
-      hotel: 420000,
-      s: [
-        ["Cột mốc tọa độ quốc gia và tiểu cảnh con tàu", "Khoảnh khắc thiêng liêng khi đứng tại Mũi Cà Mau - nơi tận cùng dải đất hình chữ S, ngắm nhìn biểu tượng con tàu căng buồm hướng ra biển lớn."],
-        ["Đi cano xuyên rừng ngập mặn Vườn Quốc Gia", "Lướt cano với tốc độ cao qua những dòng kinh rạch rợp bóng cây đước, cây mắm bám rễ chằng chit giữ đất phù sa."],
-        ["Cua Cà Mau gạch son và cá thòi lòi nướng muối ớt", "Cua biển Cà Mau chắc nịch nhiều gạch thơm ngon nhất nước, cùng món cá thòi lòi leo cây nướng muối ớt cay nồng."]
-      ]
-    }
-  ];
-
-  var CATS = ["Tất cả", "Cẩm nang", "Lịch trình", "Ẩm thực", "Mẹo hay"], cat = "Tất cả";
-  var $ = function (i) { return document.getElementById(i); };
-  var fmt = function (n) { return n.toLocaleString("vi-VN") + "đ"; };
-  var norm = function (s) { return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d"); };
-
-  // Tạo khối ảnh bìa kèm nhãn điểm đến
-  function makeCover(a, cls) {
-    var imgTag = a.img ? '<img src="' + a.img + '" alt="' + a.dest + '" onerror="this.src=\'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80\'" />' : '';
-    return '<div class="cover ' + (cls||"") + '">' + imgTag + '<span>📍 ' + a.dest + '</span></div>';
+  function fmt(n) {
+    return Number(n).toLocaleString("vi-VN") + "đ";
   }
 
-  // Khởi tạo các nút chọn chủ đề
-  CATS.forEach(function (c) {
-    var b = document.createElement("button");
-    b.type = "button";
-    b.className = "chip";
-    b.textContent = c;
-    b.setAttribute("aria-pressed", String(c === cat));
-    b.onclick = function () {
-      cat = c;
-      [].forEach.call($("chips").children, function (x) {
-        x.setAttribute("aria-pressed", String(x === b));
-      });
-      list();
-    };
-    $("chips").appendChild(b);
-  });
+  function makeCover(a, cls) {
+    var src = a.img || ('images/' + a.id + '.jpg');
+    var local = a.localImg || ('images/' + a.id + '.jpg');
+    return '<div class="' + cls + '">' +
+      '<img src="' + src + '" alt="' + a.title + '" loading="lazy" onerror="if(!this.dataset.triedLocal){this.dataset.triedLocal=1; this.src=\'' + local + '\';} else if(!this.dataset.fallback){this.dataset.fallback=1; this.src=\'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80\';}" />' +
+      '<span>' + a.dest + '</span>' +
+    '</div>';
+  }
 
-  // Tạo HTML cho từng thẻ bài viết trong lưới
   function cardHTML(a) {
-    return '<article class="card" tabindex="0" data-id="' + a.id + '">' +
-      makeCover(a) +
+    var author = a.author || { name: "Hoàng Nam", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" };
+    var rating = a.rating || 4.9;
+    var reviewsCount = a.reviewsCount || 115;
+
+    return '<article class="card" data-id="' + a.id + '" tabindex="0" role="button" aria-label="Xem bài viết: ' + a.title + '">' +
+      makeCover(a, "cover") +
       '<div class="card-b">' +
-        '<span class="kick">🏷️ ' + a.cat + ' · ' + a.region + '</span>' +
+        '<div class="card-tags-row">' +
+          '<span class="kick">' + a.cat + ' · ' + a.region + '</span>' +
+          '<span class="star-rating-pill">⭐ ' + rating + ' (' + reviewsCount + ')</span>' +
+        '</div>' +
         '<h3>' + a.title + '</h3>' +
+        '<div class="card-author-mini">' +
+          '<img class="mini-avatar" src="' + author.avatar + '" alt="' + author.name + '" onerror="this.src=\'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80\'" />' +
+          '<span>' + author.name + '</span>' +
+          '<span class="dot-sep">·</span>' +
+          '<span>' + a.read + ' phút đọc</span>' +
+        '</div>' +
         '<p>' + a.ex + '</p>' +
-        '<span class="meta">⏱️ ' + a.read + ' phút đọc</span>' +
         '<div class="card-f">' +
           '<span>Tour từ ' + fmt(a.tour.price) + '</span>' +
-          '<span>Đọc bài →</span>' +
+          '<span>Đọc bài viết →</span>' +
         '</div>' +
       '</div>' +
     '</article>';
   }
 
-  // Lọc và hiển thị danh sách bài viết
-  function list() {
-    var q = norm($("q").value.trim());
+  window.setCat = function (cat) {
+    currentCat = cat;
+    var btns = $("catChips").querySelectorAll(".chip");
+    btns.forEach(function (b) {
+      b.setAttribute("aria-pressed", (b.getAttribute("data-cat") === cat) ? "true" : "false");
+    });
+    list();
+  };
+
+  // Render danh sách bài viết
+  window.list = function () {
+    var q = ($("q").value || "").trim().toLowerCase();
     var r = $("reg").value;
 
-    var res = A.filter(function (a) {
-      var matchCat = (cat === "Tất cả" || a.cat === cat);
-      var matchReg = (!r || a.region === r);
-      var matchQ = (!q || norm([a.title, a.dest, a.ex, a.cat, a.region].join(" ")).indexOf(q) >= 0);
-      return matchCat && matchReg && matchQ;
+    var filtered = A.filter(function (x) {
+      if (r && x.region !== r) return false;
+      if (currentCat && x.cat !== currentCat) return false;
+      if (q) {
+        var str = (x.title + " " + x.dest + " " + x.ex + " " + x.tour.name).toLowerCase();
+        return str.indexOf(q) !== -1;
+      }
+      return true;
     });
 
-    // Cập nhật số lượng bài viết tìm thấy
-    $("artCountBadge").textContent = "Hiển thị " + res.length + " bài viết";
+    var badge = $("statBadge");
+    if (badge) badge.textContent = filtered.length + " bài viết";
 
-    var f = res[0];
-    var rest = res.slice(1);
+    var featBox = $("featBox");
+    var grid = $("grid");
 
-    // Bài viết nổi bật
-    $("feat").innerHTML = f ? (
-      '<article class="feat card" tabindex="0" data-id="' + f.id + '">' +
-        makeCover(f) +
+    if (!filtered.length) {
+      featBox.innerHTML = "";
+      grid.innerHTML = '<div class="none"><h3>Không tìm thấy bài viết phù hợp</h3><p>Hãy thử tìm kiếm với từ khóa khác hoặc chuyển sang vùng miền khác.</p></div>';
+      return;
+    }
+
+    var feat = filtered[0];
+    var rest = filtered.slice(1);
+
+    var featAuthor = feat.author || { name: "Hoàng Nam", role: "Travel Blogger VivuGo", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" };
+    var featRating = feat.rating || 4.9;
+    var featRevCount = feat.reviewsCount || 120;
+
+    featBox.innerHTML =
+      '<div class="feat" data-id="' + feat.id + '" tabindex="0" role="button" aria-label="Bài viết tiêu điểm: ' + feat.title + '">' +
+        makeCover(feat, "cover") +
         '<div class="feat-b">' +
-          '<span class="kick">⭐ Nổi bật · ' + f.cat + ' · ' + f.region + '</span>' +
-          '<h2>' + f.title + '</h2>' +
-          '<p class="ex">' + f.ex + '</p>' +
-          '<span class="meta">⏱️ ' + f.read + ' phút đọc · Tour trọn gói từ ' + fmt(f.tour.price) + '/' + f.tour.unit + '</span>' +
-          '<div><button class="btn btn-or" type="button">Đọc cẩm nang chi tiết →</button></div>' +
+          '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px">' +
+            '<span class="kick">⭐ Tiêu điểm · ' + feat.region + ' · ' + feat.cat + '</span>' +
+            '<span class="star-rating-pill" style="font-size:13px;padding:3px 12px">⭐ ' + featRating + ' / 5.0 (' + featRevCount + ' đánh giá)</span>' +
+          '</div>' +
+          '<h2>' + feat.title + '</h2>' +
+          '<div class="feat-author-row">' +
+            '<img class="author-avatar-sm" src="' + featAuthor.avatar + '" alt="' + featAuthor.name + '" onerror="this.src=\'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80\'" />' +
+            '<div>' +
+              '<div style="font-weight:700;font-size:14.5px;color:#0f172a">' + featAuthor.name + '</div>' +
+              '<div style="font-size:12.5px;color:#64748b">' + featAuthor.role + ' · ' + feat.read + ' phút đọc</div>' +
+            '</div>' +
+          '</div>' +
+          '<p class="ex">' + feat.ex + '</p>' +
+          '<div class="card-f" style="margin-top:8px;padding-top:14px">' +
+            '<span>Gói tour chuẩn: ' + feat.tour.name + ' (' + fmt(feat.tour.price) + '/' + feat.tour.unit + ')</span>' +
+            '<span>Đọc toàn bộ cẩm nang →</span>' +
+          '</div>' +
         '</div>' +
-      '</article>'
-    ) : '';
+      '</div>';
 
-    // Lưới bài viết còn lại
-    $("grid").innerHTML = rest.length ? rest.map(cardHTML).join("") : (
-      f ? "" : '<div class="none"><h3>Chưa tìm thấy bài viết phù hợp</h3><p>Thử đổi chủ đề, xóa từ khóa hoặc chọn vùng miền khác.</p></div>'
-    );
-  }
+    grid.innerHTML = rest.map(cardHTML).join("");
+  };
 
-  // Mở bài viết chi tiết & liên kết đặt tour trực tiếp
-  function openArticle(id) {
+  // Mở bài viết chi tiết
+  window.openArticle = function (id) {
     var a = A.filter(function (x) { return x.id === id; })[0];
-    if (!a) return show();
+    if (!a) return;
 
-    // Khối CTA đặt tour nằm xen kẽ ngay trong thân bài viết
-    var inlineCTA = '<div class="cta">' +
-      '<div>' +
-        '<b>Muốn đi luôn? ' + a.tour.name + '</b>' +
-        '<small>Giá ưu đãi ' + fmt(a.tour.price) + '/' + a.tour.unit + ' · Có hướng dẫn viên bản địa & xe đưa đón</small>' +
-      '</div>' +
-      '<button class="btn btn-or" type="button" onclick="bookTour(\'' + a.tour.name + '\', ' + a.tour.price + ')">Đặt tour này ngay</button>' +
-    '</div>';
+    var inlineCTA =
+      '<div class="cta">' +
+        '<div>' +
+          '<b>Gợi ý tour trải nghiệm chuẩn: ' + a.tour.name + '</b>' +
+          '<small>Giá ưu đãi: ' + fmt(a.tour.price) + '/' + a.tour.unit + ' · Khách sạn gợi ý: từ ' + fmt(a.hotel) + '/đêm</small>' +
+        '</div>' +
+        '<button class="btn btn-or" type="button" onclick="bookTour(\'' + a.tour.name + '\', ' + a.tour.price + ')">Đặt tour ở Dịch vụ →</button>' +
+      '</div>';
 
-    // Nội dung bài viết được lồng ghép CTA
     var bodyHTML = a.s.map(function (section, i) {
       return '<h2>📌 ' + section[0] + '</h2><p>' + section[1] + '</p>' + (i === 0 ? inlineCTA : '');
     }).join("");
 
-    // Bài viết liên quan
     var more = A.filter(function (x) {
       return x.id !== id && (x.region === a.region || x.cat === a.cat);
     }).slice(0, 2);
 
-    // Render bài viết
+    var author = a.author || { name: "Hoàng Nam", role: "Travel Blogger VivuGo", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80", date: "Tháng 09/2026" };
+    var rating = a.rating || 4.9;
+    var reviewsCount = a.reviewsCount || 128;
+    var reviewsList = a.reviews || [];
+
+    // Khối tác giả gọn gàng (Đã bỏ Tác giả kiểm duyệt & dòng phụ theo yêu cầu)
+    var authorHTML = '<div class="author-card-full">' +
+      '<div class="author-left">' +
+        '<img class="author-main-avatar" src="' + author.avatar + '" alt="' + author.name + '" onerror="this.src=\'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80\'" />' +
+        '<div class="author-details-name">Tác giả: <strong>' + author.name + '</strong></div>' +
+      '</div>' +
+      '<div class="author-rating-box">' +
+        '<span class="stars-visual">⭐⭐⭐⭐⭐</span>' +
+        '<span class="stars-score">' + rating + ' / 5.0 (' + reviewsCount + ' đánh giá)</span>' +
+      '</div>' +
+    '</div>';
+
+    // Danh sách review thật từ du khách
+    var reviewsHTML = '<div class="reviews-section" id="reviewsBlock">' +
+      '<h2>' +
+        '<span>💬 Đánh giá từ du khách thực tế (' + reviewsList.length + ' nhận xét gần nhất)</span>' +
+      '</h2>' +
+      '<div class="reviews-overview">' +
+        '<div>' +
+          '<div class="rev-score-big">⭐ ' + rating + '<span style="font-size:16px;color:#64748b;font-weight:600"> / 5.0</span></div>' +
+          '<div class="rev-subtext">Dựa trên <strong>' + reviewsCount + ' lượt đánh giá</strong> từ du khách đã hoàn tất chuyến đi ' + a.dest + '</div>' +
+        '</div>' +
+        '<button class="btn-write-rev" type="button" onclick="toggleReviewForm()">+ Viết đánh giá của bạn</button>' +
+      '</div>' +
+      '<div id="revFormBox">' +
+        '<h4 style="margin:0 0 12px;color:#0369a1;font-size:16px">Gửi đánh giá cho chuyến đi ' + a.dest + '</h4>' +
+        '<div class="form-fld"><label>Họ và tên của bạn</label><input id="newRevName" type="text" placeholder="VD: Nguyễn Văn A" /></div>' +
+        '<div class="form-fld"><label>Đánh giá số sao</label><select id="newRevStars"><option value="5">⭐⭐⭐⭐⭐ (5 sao - Tuyệt vời)</option><option value="4">⭐⭐⭐⭐ (4 sao - Rất hài lòng)</option></select></div>' +
+        '<div class="form-fld"><label>Cảm nhận thực tế của bạn</label><textarea id="newRevComment" rows="3" placeholder="Chia sẻ kinh nghiệm chuyến đi, khách sạn, món ăn hoặc hướng dẫn viên..."></textarea></div>' +
+        '<button class="btn btn-or" type="button" onclick="submitReview(\'' + a.id + '\')">Đăng nhận xét ngay</button>' +
+      '</div>' +
+      '<div id="reviewsListContainer">' +
+        reviewsList.map(function(r) {
+          return '<div class="review-item">' +
+            '<div class="review-top">' +
+              '<div class="rev-user-info">' +
+                '<img class="rev-avatar" src="' + (r.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80') + '" alt="' + r.user + '" onerror="this.src=\'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80\'" />' +
+                '<div>' +
+                  '<div class="rev-user-name">' + r.user + '<span class="rev-badge">✓ ' + (r.tag || 'Đã xác thực chuyến đi') + '</span></div>' +
+                  '<div class="rev-date">Trải nghiệm vào ' + r.date + '</div>' +
+                '</div>' +
+              '</div>' +
+              '<div style="color:#f59e0b;font-weight:700">⭐⭐⭐⭐⭐ ' + r.rating + '/5</div>' +
+            '</div>' +
+            '<p class="rev-comment">' + r.comment + '</p>' +
+          '</div>';
+        }).join('') +
+      '</div>' +
+    '</div>';
+
+    // Render toàn bộ bài viết
     $("art").innerHTML =
       '<span class="kick">📍 ' + a.dest + ' · ' + a.cat + ' · ' + a.region + '</span>' +
       '<h1>' + a.title + '</h1>' +
-      '<span class="meta">⏱️ ' + a.read + ' phút đọc · Cẩm nang kiểm duyệt bởi VivuGo</span>' +
+      authorHTML +
       makeCover(a, "rcover") +
       '<div class="body">' +
         '<p style="font-size:18px;font-weight:600;color:#1e293b;border-left:4px solid var(--blue);padding-left:14px;margin-bottom:24px">' + a.ex + '</p>' +
@@ -1044,55 +2555,28 @@
       '<div class="cta" style="margin-top:36px;background:#fff8eb;border-color:#fbd38d;border-left-color:var(--orange)">' +
         '<div>' +
           '<b style="color:#9c4221">Sẵn sàng cho chuyến đi tuyệt vời này?</b>' +
-          '<small style="color:#7b341e">Giữ chỗ ngay ' + a.tour.name + ' hoặc đặt phòng khách sạn tại ' + a.dest + ' từ ' + fmt(a.hotel) + '/đêm.</small>' +
+          '<small style="color:#7b341e">Đặt gói tour ' + a.tour.name + ' (' + fmt(a.tour.price) + '/' + a.tour.unit + ') tại mục Dịch vụ của VivuGo.</small>' +
         '</div>' +
-        '<button class="btn btn-or" type="button" onclick="bookTour(\'' + a.tour.name + '\', ' + a.tour.price + ')">Đặt tour ngay</button>' +
+        '<button class="btn btn-or" type="button" onclick="bookTour(\'' + a.tour.name + '\', ' + a.tour.price + ')">Đặt tour ở Dịch vụ →</button>' +
       '</div>' +
+      reviewsHTML +
       (more.length ? '<div class="more"><h3>Bài viết cùng chủ đề bạn có thể thích</h3><div class="grid">' + more.map(cardHTML).join("") + '</div></div>' : '');
 
-    // Render bảng đặt tour cố định bên phải (Sidebar)
-    $("side").innerHTML =
-      '<h3>' + a.tour.name + '</h3>' +
-      '<span class="meta">Đặt tour ngay, không cần rời bài viết</span>' +
-      '<div class="price">' + fmt(a.tour.price) + ' <small>/' + a.tour.unit + '</small></div>' +
-      '<div class="fld"><label for="sd">Ngày khởi hành dự kiến</label><input id="sd" type="date" value="2026-10-15" /></div>' +
-      '<div class="fld"><label for="sg">Số lượng khách</label><input id="sg" type="number" min="1" value="2" /></div>' +
-      '<div class="fld"><label for="sphone">Số điện thoại liên hệ</label><input id="sphone" type="tel" placeholder="09xxxxxxxx" /></div>' +
-      '<button class="btn btn-or" type="button" id="sideBookBtn">Xác nhận đặt giữ chỗ</button>' +
-      '<a class="sub" href="#" onclick="showToast(\'Đang tìm phòng khách sạn tốt nhất tại ' + a.dest + '\'); return false;">Tìm khách sạn ở ' + a.dest + ' (từ ' + fmt(a.hotel) + '/đêm)</a>';
-
-    $("sideBookBtn").onclick = function () {
-      var guests = parseInt($("sg").value) || 1;
-      var total = a.tour.price * guests;
-      showToast('🎉 Đã giữ chỗ thành công ' + a.tour.name + ' cho ' + guests + ' khách (' + fmt(total) + '). Hướng dẫn viên VivuGo sẽ liên hệ ngay!');
-    };
-
-    // Mobile bottom bar
-    $("mbar").innerHTML =
-      '<div>' +
-        '<div class="meta" style="font-size:12px">Tour gợi ý</div>' +
-        '<b style="color:var(--orange);font-size:17px">' + fmt(a.tour.price) + '</b>' +
-      '</div>' +
-      '<button class="btn btn-or" type="button" onclick="bookTour(\'' + a.tour.name + '\', ' + a.tour.price + ')">Đặt tour ngay</button>';
-
-    // Chuyển view sang Reader
     $("listView").hidden = true;
     $("readView").hidden = false;
-    document.body.classList.add("reading");
     document.title = a.title + " | VivuGo";
     window.scrollTo(0, 0);
-  }
+  };
 
-  // Chuyển về màn hình danh sách
+  // Quay lại danh sách
   window.show = function () {
     $("listView").hidden = false;
     $("readView").hidden = true;
-    document.body.classList.remove("reading");
     document.title = "Khám phá điểm đến | VivuGo - Cẩm nang & Đặt tour trọn gói";
     history.pushState("", "", location.pathname);
   };
 
-  // Lọc nhanh theo vùng miền trên menu header
+  // Lọc nhanh theo vùng miền ở footer
   window.filterByReg = function (r) {
     show();
     $("reg").value = r;
@@ -1100,7 +2584,7 @@
     window.scrollTo({ top: 350, behavior: 'smooth' });
   };
 
-  // Điều hướng qua hash URL
+  // Xử lý route hash
   function route() {
     var m = location.hash.match(/^#bai-viet\/(.+)$/);
     if (m) {
@@ -1110,7 +2594,6 @@
     }
   }
 
-  // Xử lý click mở bài viết
   function handleCardClick(e) {
     var c = e.target.closest("[data-id]");
     if (c) {
@@ -1118,7 +2601,7 @@
     }
   }
 
-  // Hàm hiển thị thông báo Toast
+  // Toast thông báo
   window.showToast = function (msg) {
     var t = $("toast");
     t.textContent = msg;
@@ -1128,9 +2611,64 @@
     }, 3500);
   };
 
-  // Hàm đặt tour từ các nút CTA
+  // Đặt tour từ CTA (Chuyển tiếp sang phần Dịch vụ, không bật hộp thoại xác nhận)
   window.bookTour = function (name, price) {
-    showToast('🎉 Đặt giữ chỗ ' + name + ' (' + fmt(price) + '/khách) thành công! Nhân viên tư vấn sẽ liên hệ lại trong 10 phút.');
+    showToast('🎉 Đang chuyển hướng sang Đặt tour "' + name + '" (' + fmt(price) + ') tại chuyên mục Dịch vụ...');
+  };
+
+  // Form viết đánh giá mới
+  window.toggleReviewForm = function () {
+    var box = $("revFormBox");
+    if (box) box.classList.toggle("open");
+  };
+
+  window.submitReview = function (artId) {
+    var name = ($("newRevName").value || "").trim();
+    var comment = ($("newRevComment").value || "").trim();
+    var stars = parseInt($("newRevStars").value) || 5;
+
+    if (!name || !comment) {
+      showToast("Vui lòng điền họ tên và nội dung cảm nhận!");
+      return;
+    }
+
+    var a = A.filter(function (x) { return x.id === artId; })[0];
+    if (a) {
+      if (!a.reviews) a.reviews = [];
+      var newRev = {
+        user: name,
+        rating: stars,
+        date: "Hôm nay",
+        tag: "Đã xác thực du khách",
+        comment: comment,
+        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+      };
+      a.reviews.unshift(newRev);
+      a.reviewsCount = (a.reviewsCount || 100) + 1;
+
+      var container = $("reviewsListContainer");
+      if (container) {
+        var card = document.createElement("div");
+        card.className = "review-item";
+        card.innerHTML = '<div class="review-top">' +
+          '<div class="rev-user-info">' +
+            '<img class="rev-avatar" src="' + newRev.avatar + '" alt="' + newRev.user + '" />' +
+            '<div>' +
+              '<div class="rev-user-name">' + newRev.user + '<span class="rev-badge">✓ Mới gửi</span></div>' +
+              '<div class="rev-date">Vừa xong</div>' +
+            '</div>' +
+          '</div>' +
+          '<div style="color:#f59e0b;font-weight:700">⭐⭐⭐⭐⭐ ' + newRev.rating + '/5</div>' +
+        '</div>' +
+        '<p class="rev-comment">' + newRev.comment + '</p>';
+        container.insertBefore(card, container.firstChild);
+      }
+
+      $("newRevName").value = "";
+      $("newRevComment").value = "";
+      $("revFormBox").classList.remove("open");
+      showToast("🎉 Cảm ơn bạn! Đánh giá đã được gửi và hiển thị thành công.");
+    }
   };
 
   document.addEventListener("click", handleCardClick);
@@ -1143,11 +2681,11 @@
   $("reg").onchange = list;
   window.addEventListener("hashchange", route);
 
-  // Chạy khởi tạo
+  // Khởi tạo
   list();
   route();
 
-  // Tự động nạp dữ liệu mới nhất từ articles.json khi chạy qua Go Live / Web Server
+  // Tự động nạp dữ liệu mới nhất từ articles.json khi chạy qua Go Live / Live Server
   if (window.fetch && (location.protocol === 'http:' || location.protocol === 'https:')) {
     fetch('articles.json')
       .then(function (res) {
@@ -1161,11 +2699,10 @@
           console.log('✅ VivuGo: Đã nạp thành công ' + A.length + ' bài viết từ articles.json');
         }
       })
-      .catch(function () {
-        // Fallback tự động: nếu offline hoặc file://, vẫn chạy mượt mà bằng 30 bài viết nhúng sẵn
-      });
+      .catch(function () {});
   }
 })();
 </script>
+
 </body>
 </html>
