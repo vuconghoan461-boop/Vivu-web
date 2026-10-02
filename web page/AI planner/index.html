@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VivuGo - Nền tảng Du lịch Thông minh & Gợi ý Tour AI</title>
+<meta name="description" content="VivuGo: AI Lên Tour tự động đề xuất lịch trình cá nhân hóa dựa trên sở thích và ngân sách.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="logo.jpg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#" aria-label="VivuGo">
+    <span class="brand-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 3 10.5l7 3 3 7z"/><path d="M21 3 10 13.5"/></svg></span>
+    <span class="brand-text">Vivu<b>Go</b><i></i></span>
+  </a>
+  <div class="top-actions">
+    <button id="embedBtn" class="pill"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>Mã nhúng Web</button>
+    <button id="keyBtn" class="pill round" aria-label="Cài đặt Gemini API key" title="Cài đặt Gemini API key"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 12 10 5 10-5M2 17l10 5 10-5"/></svg></button>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-in">
+    <h1>Tự thiết kế chuyến đi,<br><span class="grad">dễ như chọn một tour Vivu<em>.</em></span></h1>
+    <p>Trợ lý AI của <b>VivuGo</b> đồng hành cùng bạn từ ý tưởng đến lịch trình chi tiết. Phân tích thông minh dựa trên đúng sở thích, thời gian và ngân sách của bạn với kho dữ liệu tour hàng đầu Việt Nam.</p>
+    <div class="hero-cta">
+      <a class="cta main" href="#stepForm">Bắt đầu lên tour với AI</a>
+      <a class="cta alt" href="#stepForm">Xem gợi ý mẫu</a>
+    </div>
+  </div>
+</section>
+<main>
+  <section id="stepForm" class="panel">
+    <h2>Lên tour bằng AI</h2>
+    <p class="muted">Chọn sở thích và ngân sách, AI sẽ gợi ý 3 điểm đến phù hợp.</p>
+    <form id="form">
+      <label>Sở thích</label>
+      <div class="chips" id="prefs"></div>
+      <div class="grid">
+        <div><label for="duration">Thời gian</label>
+          <select id="duration"><option>2 ngày 1 đêm</option><option selected>3 ngày 2 đêm</option><option>4 ngày 3 đêm</option><option>5 ngày 4 đêm</option></select></div>
+        <div><label for="budget">Ngân sách / người</label>
+          <select id="budget"><option>Dưới 3 triệu</option><option selected>3 - 5 triệu</option><option>5 - 8 triệu</option><option>Trên 8 triệu</option></select></div>
+        <div><label for="companions">Đi cùng</label>
+          <select id="companions"><option>Một mình</option><option selected>Người yêu</option><option>Bạn bè</option><option>Gia đình</option></select></div>
+        <div><label for="transport">Phương tiện</label>
+          <select id="transport"><option>Xe khách</option><option>Xe Limousine</option><option>Máy bay</option><option>Xe máy / tự lái</option></select></div>
+        <div><label for="departure">Xuất phát từ</label><input id="departure" value="Hà Nội"></div>
+        <div><label for="notes">Yêu cầu đặc biệt</label><input id="notes" placeholder="Ví dụ: không leo núi nhiều"></div>
+      </div>
+      <button class="primary" type="submit">Gợi ý điểm đến</button>
+    </form>
+  </section>
+  <p id="status" class="status" role="status" hidden></p>
+  <section id="stepDest" class="panel" hidden>
+    <h2>3 điểm đến dành cho bạn</h2>
+    <div id="destList" class="cards"></div>
+  </section>
+  <section id="stepTrip" class="panel" hidden>
+    <div id="trip"></div>
+    <div class="custom">
+      <h3>Điều chỉnh lịch trình</h3>
+      <div class="grid">
+        <div><label for="sStyle">Phong cách: chill ↔ khám phá</label><input type="range" id="sStyle" value="50"></div>
+        <div><label for="sSpend">Chi tiêu: tiết kiệm ↔ thoải mái</label><input type="range" id="sSpend" value="50"></div>
+        <div><label for="sPace">Nhịp độ: thư thả ↔ dày đặc</label><input type="range" id="sPace" value="50"></div>
+      </div>
+      <input id="userPrompt" placeholder="Yêu cầu thêm, ví dụ: thêm ẩm thực địa phương">
+      <button id="customBtn" class="primary">Cập nhật lịch trình</button>
+      <div id="changes"></div>
+    </div>
+  </section>
+</main>
+<footer class="foot"><img src="logo.jpg" alt="VivuGo" height="44"><span>Nền tảng du lịch thông minh &amp; gợi ý tour AI</span></footer>
+<dialog id="embedDialog">
+  <form method="dialog">
+    <h3>Mã nhúng Web</h3>
+    <p class="muted">Dán đoạn này vào trang của bạn (đổi URL thành nơi bạn đăng VivuGo).</p>
+    <textarea id="embedCode" readonly rows="3"></textarea>
+    <div class="row"><button value="cancel" class="ghost">Đóng</button><button type="button" id="embedCopy" class="primary">Sao chép</button></div>
+  </form>
+</dialog>
+<dialog id="keyDialog">
+  <form method="dialog">
+    <h3>Gemini API key</h3>
+    <p class="muted">Key chỉ lưu trong trình duyệt của bạn (localStorage). Không có key, app dùng dữ liệu mẫu.</p>
+    <input id="keyInput" type="password" placeholder="AIza...">
+    <div class="row"><button value="cancel" class="ghost">Hủy</button><button id="keySave" value="ok" class="primary">Lưu</button></div>
+  </form>
+</dialog>
+<script src="script.js"></script>
+</body>
+</html>
