@@ -209,361 +209,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
 });
-
-
-/*---- TRANG CARRENT ----*/
-/* =========================================================
-   thue-xe.js — logic cho module "Thuê xe tự lái"
-   -----------------------------------------------------------
-   DỮ LIỆU MẪU: mảng CARS bên dưới. Sau này khi có file JSON
-   thật, chỉ cần thay khối "const CARS = [...]" bằng:
-
-     let CARS = [];
-     fetch('data/cars.json')
-       .then(r => r.json())
-       .then(data => { CARS = data; filterAndRender(); });
-
-   Toàn bộ phần render/filter/modal phía dưới KHÔNG cần sửa gì
-   thêm vì đều đọc từ biến CARS.
-   ========================================================= */
-
-let CARS = [];
-
-/* Nhóm loại phương tiện: dùng cho toggle "Ô tô / Xe máy" ở thanh filter chung */
-const TYPE_MAP = { oto: "oto", limo: "oto", airport: "oto", xemay: "xemay" };
-
-const state = {
-  vehicleType: "oto",
-  category: "all",
-  seat: "all",
-  city: "Hà Nội"
-};
-
-let currentCarId = null;
-let promoApplied = false;
-
-function formatCurrency(n) {
-  return Math.round(n).toLocaleString("vi-VN") + "đ";
-}
-
-/* ---------------- Render danh sách xe ---------------- */
-function carCardHTML(car) {
-  const badge = car.badge ? `<span class="car-badge">${car.badge}</span>` : "";
-  const featuresHTML = car.features.map(f => `<li>${f}</li>`).join("");
-  return `
-    <article class="car-card">
-      <div class="car-media">
-        ${badge}
-        <div class="media-placeholder" data-label="${car.name}"></div>
-      </div>
-      <div class="car-body">
-        <div class="car-rating-row">
-          <span class="rating">★ ${car.rating.toFixed(2)}</span>
-          <span class="dot">·</span>
-          <span>${car.reviews} chuyến</span>
-          <span class="dot">·</span>
-          <span class="provider">${car.provider}</span>
-        </div>
-        <h3 class="car-name">${car.name}</h3>
-        <div class="car-specs">
-          <div><span class="spec-label">Chỗ ngồi</span><span class="spec-value">${car.seats} chỗ</span></div>
-          <div><span class="spec-label">Hộp số</span><span class="spec-value">${car.transmission}</span></div>
-          <div><span class="spec-label">Nhiên liệu</span><span class="spec-value">${car.fuel}</span></div>
-        </div>
-        <ul class="car-features">${featuresHTML}</ul>
-        <div class="car-foot">
-          <div class="car-price">
-            <span class="label">Giá thuê</span>
-            <span class="value">${formatCurrency(car.price)} <span>${car.priceUnit}</span></span>
-          </div>
-          <button type="button" class="btn-quickbook" data-id="${car.id}">Đặt xe nhanh →</button>
-        </div>
-      </div>
-    </article>
-  `;
-}
-
-function filterAndRender() {
-  const list = CARS.filter(car => {
-    if (TYPE_MAP[car.category] !== state.vehicleType) return false;
-    if (state.category !== "all" && car.category !== state.category) return false;
-    if (state.seat !== "all" && String(car.seats) !== String(state.seat)) return false;
-    if (state.city !== "all" && car.city !== state.city) return false;
-    return true;
-  });
-
-  const grid = document.getElementById("carGrid");
-  const resultCount = document.getElementById("resultCount");
-  if (!grid) return;
-
-  if (list.length === 0) {
-    grid.innerHTML = `<div class="car-empty">Không tìm thấy xe phù hợp. Vui lòng thử bộ lọc khác.</div>`;
-  } else {
-    grid.innerHTML = list.map(carCardHTML).join("");
-  }
-  if (resultCount) resultCount.textContent = `Tìm thấy ${list.length} xe phù hợp`;
-}
-
-/* ---------------- Thanh filter chung (6.1) ---------------- */
-function initFilterBar() {
-  const diffLocation = document.getElementById("diffLocation");
-  const dropoffField = document.getElementById("dropoffField");
-  const pickupLocation = document.getElementById("pickupLocation");
-  const dropoffLocation = document.getElementById("dropoffLocation");
-  const pickupDatetime = document.getElementById("pickupDatetime");
-  const dropoffDatetime = document.getElementById("dropoffDatetime");
-  const durationPill = document.getElementById("durationPill");
-  const vehicleToggle = document.getElementById("vehicleTypeToggle");
-  const searchBtn = document.getElementById("searchCarsBtn");
-
-  function syncDropoffVisibility() {
-    if (!diffLocation) return;
-    if (diffLocation.checked) {
-      dropoffField.style.display = "flex";
-    } else {
-      dropoffField.style.display = "none";
-      dropoffLocation.value = pickupLocation.value;
-    }
-  }
-
-  function updateDuration() {
-    if (!pickupDatetime.value || !dropoffDatetime.value) return;
-    const pick = new Date(pickupDatetime.value);
-    const drop = new Date(dropoffDatetime.value);
-    let days = Math.round((drop - pick) / (1000 * 60 * 60 * 24));
-    if (isNaN(days) || days < 1) days = 1;
-    durationPill.textContent = `${days} ngày`;
-  }
-
-  if (diffLocation) diffLocation.addEventListener("change", syncDropoffVisibility);
-  if (pickupDatetime) pickupDatetime.addEventListener("change", updateDuration);
-  if (dropoffDatetime) dropoffDatetime.addEventListener("change", updateDuration);
-
-  if (vehicleToggle) {
-    vehicleToggle.querySelectorAll(".seg-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        vehicleToggle.querySelectorAll(".seg-btn").forEach(b => b.classList.remove("is-active"));
-        btn.classList.add("is-active");
-        state.vehicleType = btn.dataset.type;
-        // Khi chuyển sang xe máy, mặc định chọn tab "Xe máy phượt"; ngược lại về "Tất cả"
-        const targetCat = state.vehicleType === "xemay" ? "xemay" : "all";
-        setActiveCategory(targetCat);
-      });
-    });
-  }
-
-  if (searchBtn) {
-    searchBtn.addEventListener("click", () => {
-      updateDuration();
-      filterAndRender();
-      document.getElementById("resultCount")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  }
-
-  syncDropoffVisibility();
-  updateDuration();
-}
-
-/* ---------------- Location dropdown + tabs + seat filter (6.2) ---------------- */
-function setActiveCategory(cat) {
-  state.category = cat;
-  document.querySelectorAll(".cat-tab").forEach(btn => {
-    btn.classList.toggle("is-active", btn.dataset.cat === cat);
-  });
-  filterAndRender();
-}
-
-function initToolbar() {
-  const locationSelect = document.getElementById("locationSelect");
-  const locationDropdown = document.getElementById("locationDropdown");
-  const locationLabel = document.getElementById("locationLabel");
-
-  if (locationSelect && locationDropdown) {
-    locationSelect.addEventListener("click", (e) => {
-      e.stopPropagation();
-      locationDropdown.classList.toggle("is-open");
-    });
-    locationDropdown.querySelectorAll("button").forEach(btn => {
-      btn.addEventListener("click", () => {
-        state.city = btn.dataset.city;
-        locationLabel.textContent = btn.dataset.city;
-        locationDropdown.querySelectorAll("button").forEach(b => b.classList.remove("is-active"));
-        btn.classList.add("is-active");
-        locationDropdown.classList.remove("is-open");
-        filterAndRender();
-      });
-    });
-    document.addEventListener("click", () => locationDropdown.classList.remove("is-open"));
-  }
-
-  document.querySelectorAll(".cat-tab").forEach(btn => {
-    btn.addEventListener("click", () => setActiveCategory(btn.dataset.cat));
-  });
-
-  document.querySelectorAll(".seat-pill").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".seat-pill").forEach(b => b.classList.remove("is-active"));
-      btn.classList.add("is-active");
-      state.seat = btn.dataset.seat;
-      filterAndRender();
-    });
-  });
-}
-
-/* ---------------- Form đặt xe nhanh (6.3) ---------------- */
-function openBookingModal(carId) {
-  const car = CARS.find(c => c.id === Number(carId));
-  if (!car) return;
-  currentCarId = car.id;
-  promoApplied = false;
-
-  document.getElementById("bookingCarName").textContent = car.name;
-  document.getElementById("bookingProvider").textContent = `Đơn vị cung cấp: ${car.provider}`;
-  document.getElementById("bookingPerks").textContent = car.perks;
-  document.getElementById("bookingPricePerDay").innerHTML =
-    `${formatCurrency(car.price)}<small>${car.priceUnit}</small>`;
-
-  document.getElementById("bookingForm").reset();
-  document.getElementById("rentalDays").value = "2";
-  document.getElementById("promoCode").value = "";
-  document.getElementById("sumPromoRow").style.display = "none";
-
-  const today = new Date().toISOString().slice(0, 10);
-  document.getElementById("bookingPickupDate").value = today;
-
-  updateSummary();
-  document.getElementById("bookingModalOverlay").classList.add("is-open");
-}
-
-function closeBookingModal() {
-  document.getElementById("bookingModalOverlay").classList.remove("is-open");
-}
-
-function updateSummary() {
-  const car = CARS.find(c => c.id === currentCarId);
-  if (!car) return;
-  const days = parseInt(document.getElementById("rentalDays").value, 10) || 1;
-  const withDriver = document.getElementById("withDriver").checked;
-
-  const base = car.price * days;
-  const driverFee = withDriver ? 500000 * days : 0;
-  let subtotal = base + driverFee;
-  let discount = 0;
-  if (promoApplied) discount = Math.round(subtotal * 0.1);
-  const total = subtotal - discount;
-
-  document.getElementById("sumBase").textContent = formatCurrency(base);
-
-  const driverRow = document.getElementById("sumDriverRow");
-  driverRow.style.display = withDriver ? "flex" : "none";
-  document.getElementById("sumDriver").textContent = formatCurrency(driverFee);
-
-  const promoRow = document.getElementById("sumPromoRow");
-  promoRow.style.display = promoApplied ? "flex" : "none";
-  document.getElementById("sumPromo").textContent = "-" + formatCurrency(discount);
-
-  document.getElementById("totalLabel").textContent = `Tổng tiền (${days} ngày)`;
-  document.getElementById("totalAmount").textContent = formatCurrency(total);
-}
-
-function initBookingForm() {
-  document.getElementById("rentalDays").addEventListener("change", updateSummary);
-  document.getElementById("withDriver").addEventListener("change", updateSummary);
-
-  document.getElementById("applyPromo").addEventListener("click", () => {
-    const code = document.getElementById("promoCode").value.trim().toUpperCase();
-    if (code === "VIVU10") {
-      promoApplied = true;
-    } else {
-      promoApplied = false;
-      alert("Mã ưu đãi không hợp lệ hoặc đã hết hạn.");
-    }
-    updateSummary();
-  });
-
-  document.getElementById("bookingForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const car = CARS.find(c => c.id === currentCarId);
-    if (!car) return;
-
-    const name = document.getElementById("renterName").value.trim();
-    const phone = document.getElementById("renterPhone").value.trim();
-    const address = document.getElementById("deliveryAddress").value.trim();
-    if (!name || !phone || !address) return;
-
-    const totalText = document.getElementById("totalAmount").textContent;
-
-    closeBookingModal();
-    openSuccessModal({
-      name,
-      phone,
-      service: car.name,
-      total: totalText
-    });
-  });
-}
-
-/* ---------------- Modal thành công ---------------- */
-function openSuccessModal(info) {
-  const code = "CAR-" + Math.floor(100000 + Math.random() * 900000);
-  document.getElementById("orderCode").textContent = code;
-  document.getElementById("infoName").textContent = info.name;
-  document.getElementById("infoPhone").textContent = info.phone;
-  document.getElementById("infoService").textContent = info.service;
-  document.getElementById("infoTotal").textContent = info.total;
-  document.getElementById("successModalOverlay").classList.add("is-open");
-}
-
-function closeSuccessModal() {
-  document.getElementById("successModalOverlay").classList.remove("is-open");
-}
-
-/* ---------------- Khởi tạo chung ---------------- */
-function initModals() {
-  document.getElementById("closeBookingModal").addEventListener("click", closeBookingModal);
-  document.getElementById("closeSuccessModal").addEventListener("click", closeSuccessModal);
-
-  document.getElementById("bookingModalOverlay").addEventListener("click", (e) => {
-    if (e.target.id === "bookingModalOverlay") closeBookingModal();
-  });
-  document.getElementById("successModalOverlay").addEventListener("click", (e) => {
-    if (e.target.id === "successModalOverlay") closeSuccessModal();
-  });
-
-  // Nút "Xem vé trong Chuyến của tôi" -> điều hướng sang module "KH của tôi" / "Lịch của tôi"
-  document.getElementById("goToMyTrips").addEventListener("click", () => {
-    closeSuccessModal();
-    // TODO: đổi sang đường dẫn thật của module "Lịch của tôi" khi có
-    // window.location.href = "lich-cua-toi.html";
-  });
-
-  // Event delegation cho nút "Đặt xe nhanh" trong grid (grid re-render liên tục)
-  document.getElementById("carGrid").addEventListener("click", (e) => {
-    const btn = e.target.closest(".btn-quickbook");
-    if (btn) openBookingModal(btn.dataset.id);
-  });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  if (document.getElementById("carGrid")) {
-    initFilterBar();
-    initToolbar();
-    initModals();
-    initBookingForm();
-    filterAndRender();
- 
-    // Đường dẫn tính từ web page/service/CarRent.html -> data/car.json
-    fetch("../../data/car.json")
-      .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-      .then(data => { CARS = data; filterAndRender(); })
-      .catch(err => {
-        console.error("Lỗi tải car.json:", err);
-        document.getElementById("carGrid").innerHTML =
-          '<div class="car-empty">Không tải được dữ liệu xe. Hãy chạy bằng Live Server / localhost.</div>';
-      });
-  }
-});
-
+/*----------Voucher--------*/
 function copyVoucher(code, button) {
   navigator.clipboard.writeText(code).then(() => {
     const oldText = button.textContent;
@@ -577,6 +223,323 @@ function copyVoucher(code, button) {
     alert("Không thể sao chép mã. Bạn hãy copy thủ công: " + code);
   });
 }
+
+/* JSS CỦA MODULE CON: CARRENT */
+let CARS = [];
+let currentCarId = null;
+let promoApplied = false;
+
+/* Nhóm loại phương tiện: dùng cho toggle "Ô tô / Xe máy" ở thanh filter chung */
+const TYPE_MAP = { oto: "oto", xemay: "xemay" };
+const state = {
+  vehicleType: "oto",
+  category: "all",
+  seat: "all",
+  city: "Tất cả"
+};
+
+function formatCurrency(n) {
+  return Math.round(n).toLocaleString("vi-VN") + "đ";
+}
+
+/* ---------------- Render danh sách xe ---------------- */
+function carCardHTML(car) {
+  // Có trường "image" trong JSON thì hiện ảnh, không có thì giữ khung sọc xanh
+  const image = car.image
+    ? `<img src="../../assest/images/cars/${car.image}" alt="${car.name}" onerror="this.remove()">`
+    : "";
+  const featuresHTML = car.features.map(f => `<li>${f}</li>`).join("");
+  return `
+    <article class="car-card">
+      <div class="car-media">
+        <div class="media-placeholder" data-label="${car.name}">${image}</div>
+      </div>
+      <div class="car-body">
+        <div class="car-rating-row">
+          <span class="rating">★ ${car.rating.toFixed(2)}</span>
+          <span class="dot">·</span>
+          <span>${car.reviews} chuyến</span>
+          <span class="dot">·</span>
+          <span class="provider">${car.provider}</span>
+        </div>
+        <h3 class="car-name">${car.name}</h3>
+        <div class="car-specs">
+          <div><span class="spec-label">Chỗ ngồi: </span><span class="spec-value">${car.seats} chỗ</span></div>
+          <div><span class="spec-label">Hộp số: </span><span class="spec-value">${car.transmission}</span></div>
+          <div><span class="spec-label">Nhiên liệu: </span><span class="spec-value">${car.fuel}</span></div>
+        </div>
+        <ul class="car-features">${featuresHTML}</ul>
+        <div class="car-foot">
+          <div class="car-price">
+            <span class="label">Giá thuê</span>
+            <span class="value">${formatCurrency(car.price)} <span>${car.priceUnit}</span></span>
+          </div>
+          <button type="button" class="btn-quickbook" data-id="${car.id}">Đặt xe nhanh</button>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+
+function filterAndRender() {
+  //Gán giá trị từ ô nhập điểm nhận và trả xe
+    const pickup = document.getElementById("pickupLocation").value.trim().toLowerCase();
+    const dropoff = document.getElementById("diffLocation").checked
+      ? document.getElementById("dropoffLocation").value.trim().toLowerCase(): "";
+  //Lấy data
+  const list = CARS.filter(car => {
+    const place = (car.city + " " + (car.locations || []).join(" ")).toLowerCase();
+    if (car.category !== state.vehicleType) return false;
+    if (state.city !== "Tất cả" && car.city !== state.city) return false;
+    if (state.seat !== "all" && String(car.seats) !== String(state.seat)) return false;
+    if (!place.includes(pickup)) return false;
+    if (!place.includes(dropoff)) return false;
+    return true;
+  });
+
+  const grid = document.getElementById("carGrid");
+  const resultCount = document.getElementById("resultCount");
+
+  if (list.length === 0) {
+    grid.innerHTML = `<div class="car-empty">Không tìm thấy xe phù hợp. Vui lòng thử bộ lọc khác.</div>`;
+  } 
+  else {
+    grid.innerHTML = list.map(carCardHTML).join("");
+  }
+  resultCount.textContent = `Tìm thấy ${list.length} xe phù hợp`;
+}
+
+/*Thanh filter hàng 1 */
+function initFilterBar() {
+  const diffLocation = document.getElementById("diffLocation");
+  const dropoffField = document.getElementById("dropoffField");
+  const pickupLocation = document.getElementById("pickupLocation");
+  const dropoffLocation = document.getElementById("dropoffLocation");
+  const pickupDatetime = document.getElementById("pickupDatetime");
+  const dropoffDatetime = document.getElementById("dropoffDatetime");
+  const durationPill = document.getElementById("durationPill");
+  const vehicleToggle = document.getElementById("vehicleTypeToggle");
+  const searchBtn = document.getElementById("searchCarsBtn");
+
+  //Tick ô box ẩn/hiển điểm trả nhận
+  function syncDropoffVisibility() {
+    if (diffLocation.checked) {
+      dropoffField.style.display = "flex";
+    } 
+    else {
+      dropoffField.style.display = "none";
+    }
+  }
+ diffLocation.addEventListener("change", syncDropoffVisibility);
+  syncDropoffVisibility();
+
+  // Chọn Ô tô / Xe máy
+  vehicleToggle.querySelectorAll(".seg-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      vehicleToggle.querySelectorAll(".seg-btn").forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      state.vehicleType = btn.dataset.type;
+ 
+      // Đổi loại xe thì bỏ lọc số chỗ cũ (xe máy không có loại 5 chỗ...)
+      state.seat = "all";
+      document.querySelectorAll(".seat-pill").forEach(b => {
+        b.classList.toggle("is-active", b.dataset.seat === "all");
+      });
+      filterAndRender();
+    });
+  });
+ 
+  // Nút Tìm kiếm
+  searchBtn.addEventListener("click", () => {
+    filterAndRender();
+    document.getElementById("resultCount").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+ 
+  // Nút Xoá lọc: xoá chữ đã gõ, rồi bấm lại nút đầu tiên của mỗi nhóm (Ô tô, Tất cả, Hà Nội)
+  resetBtn.addEventListener("click", () => {
+    pickupLocation.value = "";
+    dropoffLocation.value = "";
+    diffLocation.checked = true;
+    syncDropoffVisibility();
+    vehicleToggle.querySelector(".seg-btn").click();
+    document.querySelector("#seatFilter .seat-pill").click();
+    document.querySelector("#locationDropdown button").click();
+  });
+}
+
+/* Thanh filter hàng 2 */
+function initToolbar() {
+  const locationSelect = document.getElementById("locationSelect");
+  const locationDropdown = document.getElementById("locationDropdown");
+  const locationLabel = document.getElementById("locationLabel");
+  locationLabel.textContent = locationDropdown.querySelector("button").textContent;
+ 
+  locationSelect.addEventListener("click", (e) => {
+    e.stopPropagation();
+    locationDropdown.classList.toggle("is-open");
+  });
+ 
+  locationDropdown.querySelectorAll("button").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();   // không cho sự kiện nổi lên locationSelect, tránh danh sách mở lại
+      state.city = btn.dataset.city;
+      locationLabel.textContent = btn.textContent;
+      locationDropdown.querySelectorAll("button").forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      locationDropdown.classList.remove("is-open");
+ 
+      // Địa điểm đã gõ thuộc thành phố cũ nên xoá đi
+      document.getElementById("pickupLocation").value = "";
+      document.getElementById("dropoffLocation").value = "";
+      filterAndRender();
+    });
+  });
+  document.addEventListener("click", () => locationDropdown.classList.remove("is-open"));
+ 
+  document.querySelectorAll(".seat-pill").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".seat-pill").forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      state.seat = btn.dataset.seat;
+      filterAndRender();
+    });
+  });
+}
+
+/* ---------------- Form điền thông tin đặt xe ---------------- */
+function openBookingModal(carId) {
+  const car = CARS.find(c => c.id === Number(carId));
+  if (!car) return;
+  currentCarId = car.id;
+  promoApplied = false;
+ 
+  document.getElementById("bookingForm").reset();
+  document.getElementById("bookingCarName").textContent = car.name;
+  document.getElementById("bookingProvider").textContent = `Đơn vị cung cấp: ${car.provider}`;
+  document.getElementById("bookingPerks").textContent = car.perks;
+  document.getElementById("bookingPricePerDay").innerHTML =
+    `${formatCurrency(car.price)}<small>${car.priceUnit}</small>`;
+ 
+  document.getElementById("rentalDays").value = "2";
+  document.getElementById("bookingPickupDate").value = new Date().toISOString().slice(0, 10);
+ 
+  updateSummary();
+  document.getElementById("bookingModalOverlay").classList.add("is-open");
+}
+ 
+function closeBookingModal() {
+  document.getElementById("bookingModalOverlay").classList.remove("is-open");
+}
+ 
+function updateSummary() {
+  const car = CARS.find(c => c.id === currentCarId);
+  if (!car) return;
+  const days = parseInt(document.getElementById("rentalDays").value, 10) || 1;
+  const withDriver = document.getElementById("withDriver").checked;
+ 
+  const base = car.price * days;
+  const driverFee = withDriver ? 500000 * days : 0;
+  const subtotal = base + driverFee;
+  const discount = promoApplied ? Math.round(subtotal * 0.1) : 0;
+ 
+  document.getElementById("sumBase").textContent = formatCurrency(base);
+  document.getElementById("sumDriverRow").style.display = withDriver ? "flex" : "none";
+  document.getElementById("sumDriver").textContent = formatCurrency(driverFee);
+  document.getElementById("sumPromoRow").style.display = promoApplied ? "flex" : "none";
+  document.getElementById("sumPromo").textContent = "-" + formatCurrency(discount);
+  document.getElementById("totalLabel").textContent = `Tổng tiền (${days} ngày)`;
+  document.getElementById("totalAmount").textContent = formatCurrency(subtotal - discount);
+}
+ 
+function initBookingForm() {
+  document.getElementById("rentalDays").addEventListener("change", updateSummary);
+  document.getElementById("withDriver").addEventListener("change", updateSummary);
+ 
+  document.getElementById("applyPromo").addEventListener("click", () => {
+    const code = document.getElementById("promoCode").value.trim().toUpperCase();
+    if (code === "VIVU10") {
+      promoApplied = true;
+    } else {
+      promoApplied = false;
+      alert("Mã ưu đãi không hợp lệ hoặc đã hết hạn.");
+    }
+    updateSummary();
+  });
+ 
+  document.getElementById("bookingForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const car = CARS.find(c => c.id === currentCarId);
+    if (!car) return;
+ 
+    closeBookingModal();
+    openSuccessModal({
+      name: document.getElementById("renterName").value.trim(),
+      phone: document.getElementById("renterPhone").value.trim(),
+      service: car.name,
+      total: document.getElementById("totalAmount").textContent
+    });
+  });
+}
+
+/* Modal thành công */
+function openSuccessModal(info) {
+  const code = "CAR-" + Math.floor(100000 + Math.random() * 900000);
+  document.getElementById("orderCode").textContent = code;
+  document.getElementById("infoName").textContent = info.name;
+  document.getElementById("infoPhone").textContent = info.phone;
+  document.getElementById("infoService").textContent = info.service;
+  document.getElementById("infoTotal").textContent = info.total;
+  document.getElementById("successModalOverlay").classList.add("is-open");
+}
+ 
+function closeSuccessModal() {
+  document.getElementById("successModalOverlay").classList.remove("is-open");
+}
+
+/*Khởi tạo chung các form */
+function initModals() {
+  document.getElementById("closeBookingModal").addEventListener("click", closeBookingModal);
+  document.getElementById("closeSuccessModal").addEventListener("click", closeSuccessModal);
+ 
+  document.getElementById("bookingModalOverlay").addEventListener("click", (e) => {
+    if (e.target.id === "bookingModalOverlay") closeBookingModal();
+  });
+  document.getElementById("successModalOverlay").addEventListener("click", (e) => {
+    if (e.target.id === "successModalOverlay") closeSuccessModal();
+  });
+ 
+  document.getElementById("goToMyTrips").addEventListener("click", () => {
+    closeSuccessModal();
+    // TODO: đổi sang đường dẫn thật của module "Lịch của tôi" khi có
+    // window.location.href = "lich-cua-toi.html";
+  });
+ 
+  // Event delegation cho nút "Đặt xe nhanh" trong grid (grid được vẽ lại liên tục)
+  document.getElementById("carGrid").addEventListener("click", (e) => {
+    const btn = e.target.closest(".btn-quickbook");
+    if (btn) openBookingModal(btn.dataset.id);
+  });
+}
+/*Khởi tạo carren*/
+document.addEventListener("DOMContentLoaded", () => {
+  if (!document.getElementById("carGrid")) return;   // chỉ chạy trên trang Thuê xe
+ 
+  initFilterBar();
+  initToolbar();
+  initModals();
+  initBookingForm();
+ 
+  // Đường dẫn tính từ web page/service/CarRent.html -> data/CarRent.json
+  fetch("../../data/CarRent.json")
+    .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(data => { CARS = data; filterAndRender(); })
+    .catch(err => {
+      console.error("Lỗi tải CarRent.json:", err);
+      document.getElementById("carGrid").innerHTML =
+        '<div class="car-empty">Không tải được dữ liệu xe. Hãy chạy bằng Live Server / localhost.</div>';
+    });
+});
 
 /* ---- MODULE CON: TOUR (dán vào cuối assest/js.js) ---- */
 /* Trang Tour (cấu trúc giống thue-xe.js: render từ JSON, modal .is-open) */
