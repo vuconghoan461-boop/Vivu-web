@@ -884,8 +884,11 @@ input:focus-visible {
   border-color: #BAE6FD; }
 
 /*Ảnh*/
-.car-media { position: relative; }
+.car-media { 
+  position: relative;
+}
 
+/*Nội dung dưới*/
 .car-body {
   padding: 14px 16px 16px;
   display: flex;
