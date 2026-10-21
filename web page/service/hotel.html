@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Khách sạn &amp; Khu nghỉ dưỡng | VivuGo</title>
+    <title>Khách sạn và Khu nghỉ dưỡng | VivuGo</title>
     <meta name="description" content="Khách sạn, resort, villa trên khắp Việt Nam — giá tốt, xác nhận tức thì." />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,65 +18,72 @@
     <div id="site-header"></div>
 
     <main class="site-main">
-      <section class="module-hero" style="padding-bottom: 40px; margin-bottom: 0;">
-        <div class="vivugo-container module-hero-inner" style="padding-bottom: 40px;">
-          <p class="crumb"><a href="../../index.html">Dịch vụ</a><span class="sep">/</span>Khách sạn</p>
-          <h1 class="page-title" style="font-size:28px;">Khách sạn &amp; Khu nghỉ dưỡng</h1>
-          <p class="page-desc">Tận hưởng không gian nghỉ dưỡng tuyệt vời tại những khách sạn, resort và villa trên khắp Việt Nam.</p>
+      <section class="slider-hotel">
+        <div class ="slider-inner">
+          <h1 class="page-title">BOOKING KHÁCH SẠN CAO CẤP</h1>
+          <p class="page-desc">VivuGo cung cấp cơ hội tận hưởng không gian nghỉ dưỡng tuyệt vời tại những khách sạn, resort và villa trên khắp Việt Nam.</p>
         </div>
       </section>
 
       <div class="vivugo-container">
-        <section class="section" style="border-top:none; padding-top:32px;">
-
-          <!-- ============ TÌM KIẾM ============ -->
-          <div class="rental-filter-bar">
+        <div class = "rental-filter-bar">
             <div class="rental-filter-grid">
-              <div class="rental-field" style="flex-basis:320px;">
+              <div class="rental-field">
                 <label>Tìm theo tên khách sạn</label>
                 <input type="text" id="keyword" placeholder="Ví dụ: Meliá, Vinpearl, Sa Pa..." />
               </div>
-              <button type="button" class="btn-cta rental-search-btn" id="searchBtn">Tìm kiếm</button>
+              <button type="button" class="btn-cta rental-search-btn" id="searchhotelBtn">Tìm kiếm</button>
               <button type="button" class="btn-ghost rental-search-btn" id="resetBtn">Xoá lọc</button>
             </div>
           </div>
 
-          <!-- ============ LOẠI HÌNH + SẮP XẾP ============ -->
-          <div class="rental-toolbar">
-            <select class="sort-select" id="fSort">
-              <option value="popular">Phổ biến nhất</option>
-              <option value="priceAsc">Giá tăng dần</option>
-              <option value="priceDesc">Giá giảm dần</option>
-              <option value="az">Tên A → Z</option>
-              <option value="za">Tên Z → A</option>
-            </select>
-            <div class="category-tabs" id="categoryTabs"></div>
+          <!-- Sắp xếp + loại hình -->
+          <div class="filter-row">
+              <div class="seat-filter" id="cityFilter">
+                <button type="button" class="seat-pill is-active" data-city="all">Tất cả địa điểm</button>
+                <button type="button" class="seat-pill" data-city="Hà Nội">Hà Nội</button>
+                <button type="button" class="seat-pill" data-city="Hạ Long">Hạ Long</button>
+                <button type="button" class="seat-pill" data-city="Đà Nẵng">Đà Nẵng</button>
+                <button type="button" class="seat-pill" data-city="Sa Pa">Sa Pa</button>
+                <button type="button" class="seat-pill" data-city="Đà Lạt">Đà Lạt</button>
+              </div>
+            <div class="seat-filter" id="categoryHotels">
+              <button type="button" class="seat-pill is-active" data-category="all">Tất cả loại hình</button>
+              <button type="button" class="seat-pill" data-category="Hotel">Hotel</button>
+              <button type="button" class="seat-pill" data-category="Villa">Villa</button>
+              <button type="button" class="seat-pill" data-category="Resort">Resort</button>
+            </div>
           </div>
 
-          <!-- Địa điểm (dùng lại style seat-pill) -->
-          <div class="seat-filter" id="cityFilter"></div>
+           <div class="rental-toolbar-hotel">
+              <select class="sort-select" id="Sort">
+                <option value="popular">Phổ biến nhất</option>
+                <option value="priceAsc">Giá tăng dần</option>
+                <option value="priceDesc">Giá giảm dần</option>
+                <option value="az">Tên A → Z</option>
+                <option value="za">Tên Z → A</option>
+              </select>
+            </div>
 
+          <!--Load trang kết quả tìm-->
           <p class="result-count" id="resultCount"></p>
-
           <div class="hotel-grid" id="hotelGrid"></div>
-
-        </section>
       </div>
     </main>
 
     <div id="site-footer"></div>
 
-    <!-- ============ POPUP CHI TIẾT KHÁCH SẠN ============ -->
+   <!--Popup đặt phòng khách sạn-->
     <div class="modal-overlay" id="detailModalOverlay">
       <div class="booking-modal detail-modal" id="detailModal"></div>
     </div>
 
-    <!-- ============ FORM ĐẶT PHÒNG ============ -->
+    <!--Form đặt phòng-->
     <div class="modal-overlay" id="bookingModalOverlay">
       <div class="booking-modal">
         <div class="booking-modal-head">
           <div>
-            <span class="modal-kicker">Khách sạn &amp; Resort</span>
+            <span class="modal-kicker">Khách sạn, Resort và Villa</span>
             <h3>Thông tin đặt phòng</h3>
           </div>
           <button type="button" class="modal-close" id="closeBookingModal">×</button>
@@ -86,7 +93,6 @@
           <div>
             <strong id="bookingHotel">Tên khách sạn</strong>
             <p id="bookingRoom">Loại phòng</p>
-            <p id="bookingTimes">Nhận phòng 14:00 · Trả phòng 12:00</p>
           </div>
           <div class="booking-price" id="bookingPrice">0đ<small>/đêm</small></div>
         </div>
@@ -100,8 +106,8 @@
             <div class="form-group">
               <label>Số đêm lưu trú</label>
               <select id="nights">
-                <option value="1">1 đêm</option>
-                <option value="2" selected>2 đêm</option>
+                <option value="1" selected>1 đêm</option>
+                <option value="2">2 đêm</option>
                 <option value="3">3 đêm</option>
                 <option value="5">5 đêm</option>
                 <option value="7">7 đêm</option>
@@ -122,17 +128,17 @@
 
           <div class="form-group">
             <label>Họ và tên khách *</label>
-            <input type="text" id="renterName" placeholder="Nguyễn Văn A" required />
+            <input type="text" id="renterName" required />
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label>Số điện thoại *</label>
-              <input type="tel" id="renterPhone" placeholder="0912 345 678" required />
+              <input type="tel" id="renterPhone" required />
             </div>
             <div class="form-group">
               <label>CCCD (tuỳ chọn)</label>
-              <input type="text" id="renterId" placeholder="012345678901" />
+              <input type="text" id="renterId"/>
             </div>
           </div>
 
@@ -142,7 +148,7 @@
           </div>
 
           <div class="form-group">
-            <label>Yêu cầu riêng (tuỳ chọn)</label>
+            <label>Yêu cầu riêng</label>
             <input type="text" id="renterNote" placeholder="Không hút thuốc, tầng cao, view biển..." />
           </div>
 
@@ -151,8 +157,8 @@
             <select id="payMethod">
               <option>VietQR - Quét mã</option>
               <option>Thẻ Visa / Master</option>
+              <option>Thẻ tín dụng</option>
               <option>Ví MoMo</option>
-              <option>Thanh toán sau (tại quầy khi nhận phòng)</option>
             </select>
           </div>
 
@@ -163,7 +169,7 @@
               <button type="button" class="btn-ghost btn-sm" id="applyPromo">Áp dụng</button>
             </div>
             <div class="summary-line"><span id="sumLabel">Tạm tính</span><span id="sumBase">0đ</span></div>
-            <div class="summary-line"><span>Phí dịch vụ &amp; VAT</span><span>Đã bao gồm</span></div>
+            <div class="summary-line"><span>Phí dịch vụ và VAT</span><span>Đã bao gồm</span></div>
             <div class="summary-line discount" id="sumPromoRow" style="display:none;"><span>Giảm giá</span><span id="sumPromo">-0đ</span></div>
             <div class="summary-total">
               <span>Tổng thanh toán</span>
@@ -176,14 +182,14 @@
       </div>
     </div>
 
-    <!-- ============ MODAL ĐẶT CHỖ THÀNH CÔNG ============ -->
+    <!--Đặt chỗ thành công-->
     <div class="modal-overlay" id="successModalOverlay">
       <div class="success-modal">
         <div class="success-head">
           <span class="success-icon-sm">🏨</span>
           <div>
             <strong>Đặt Chỗ Thành Công</strong>
-            <p>Bảo mật thông tin &amp; xác nhận tức thì</p>
+            <p>Bảo mật thông tin và xác nhận tức thì</p>
           </div>
           <button type="button" class="modal-close" id="closeSuccessModal">×</button>
         </div>

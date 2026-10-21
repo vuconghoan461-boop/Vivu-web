@@ -1,13 +1,10 @@
 {
- "promoCodes": [
-  {
-   "code": "VIVUGO10",
-   "percent": 10,
-   "note": "Mã mẫu - thay bằng mã thật"
-  }
- ],
- "hotels": [
-  {
+"promoCodes": [
+    { "code": "VIVU10", "percent": 10 },
+    { "code": "VIVUGO20", "percent": 20 }
+  ],
+"Hotels":[
+{
    "id": 1,
    "code": "HTL-HN-001",
    "slug": "melia-hanoi",
@@ -95,11 +92,11 @@
     "tiện nghi cho khách khuyết tật",
     "dịch vụ đưa đón sân bay theo yêu cầu."
    ],
-   "policy": "Nhận phòng từ 14:00, trả phòng đến 12:00. Khi nhận phòng cần xuất trình giấy tờ tùy thân có ảnh và thẻ tín dụng. Trẻ em được chào đón; chính sách hủy/trả trước thay đổi theo từng loại giá/phòng. Có thể yêu cầu dịch vụ/giường phụ tùy hạng phòng và tình trạng. Khách nên thông báo trước giờ đến dự kiến.",
+   "policy": "Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. \nChính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. \nTrẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
    "checkIn": "14:00",
    "checkOut": "12:00",
    "images": []
-  },
+},
   {
    "id": 2,
    "code": "HTL-HN-002",
@@ -184,7 +181,7 @@
     "L'Epicerie",
     "tour Path of History & Bomb Shelter."
    ],
-   "policy": "Nhận phòng 14:00–00:00, trả phòng đến 12:00. Yêu cầu giấy tờ tùy thân có ảnh và thẻ tín dụng. Trẻ em được chào đón; nôi 0–2 tuổi miễn phí theo yêu cầu và tình trạng; giường phụ từ 12 tuổi có thể tính 2.400.000 VND/người/đêm. Vật nuôi không được phép. Hủy/trả trước phụ thuộc loại phòng/giá. Opera Wing có thông báo thi công từ giữa tháng 6 đến cuối tháng 9/2026, cần kiểm tra khi đặt.",
+   "policy": "Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. \nChính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. \nTrẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
    "checkIn": "14:00–00:00",
    "checkOut": "12:00",
    "images": []
@@ -212,6 +209,22 @@
     "serviced suite"
    ],
    "rooms": [
+    {
+     "name": "Double Room - Opera Wing",
+     "info": "32m²; King hoặc Twin; view vườn/hồ bơi/thành phố",
+     "capacity": 2,
+     "priceOriginal": 9659713,
+     "price": 9659713,
+     "discount": 0,
+     "left": 2,
+     "amenities": [
+      "Điều hòa",
+      "TV màn hình phẳng",
+      "WiFi",
+      "Phòng tắm riêng",
+      "Đồ vệ sinh cao cấp"
+     ]
+    },
     {
      "name": "Deluxe Room",
      "info": "35m²; King hoặc Twin; view thành phố",
@@ -273,7 +286,7 @@
     "Pastry Corner",
     "trung tâm dịch vụ doanh nhân."
    ],
-   "policy": "Nhận phòng từ 14:00, trả phòng 12:00. Giá có thể chịu 5% phí phục vụ và thuế Chính phủ theo chính sách khách sạn. Trẻ em dưới 12 tuổi có thể ở cùng cha mẹ với giường hiện hữu theo chính sách; tối đa một trẻ/phòng hoặc hai trẻ/suite. Nôi miễn phí theo yêu cầu và tình trạng; giường phụ có phụ phí. Khách sạn không cho phép vật nuôi. Không hút thuốc trong phòng và khu vực cấm; có khu vực hút thuốc chỉ định. Bãi đỗ xe miễn phí theo tình trạng.",
+   "policy": "Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. \nChính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. \nTrẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
    "checkIn": "14:00",
    "checkOut": "12:00",
    "images": []
@@ -302,8 +315,8 @@
    ],
    "rooms": [
     {
-     "name": "Deluxe Double Room - Sketch",
-     "info": "Diện tích theo loại phòng; 1 Queen; thiết kế nghệ thuật Sketch",
+     "name": "Deluxe Double Room",
+     "info": "Diện tích theo loại phòng; 1 Queen",
      "capacity": 2,
      "priceOriginal": 4300000,
      "price": 4300000,
@@ -320,6 +333,52 @@
       "ấm đun nước",
       "bàn là",
       "phòng tắm riêng",
+      "áo choàng",
+      "máy sấy"
+     ]
+    },
+     {
+     "name": "Deluxe Double Room - Sketch",
+     "info": "Diện tích theo loại phòng; 1 Queen; thiết kế nghệ thuật Sketch",
+     "capacity": 2,
+     "priceOriginal": 5600000,
+     "price": 5600000,
+     "discount": 0,
+     "left": 2,
+     "amenities": [
+      "Điều hòa",
+      "TV cáp",
+      "WiFi",
+      "minibar",
+      "két sắt",
+      "bàn làm việc",
+      "khu vực ngồi",
+      "ấm đun nước",
+      "bàn là",
+      "phòng tắm riêng",
+      "áo choàng",
+      "máy sấy"
+     ]
+    },    
+    {
+     "name": "Deluxe Room",
+     "info": "35m²; King hoặc Twin; view thành phố",
+     "capacity": 2,
+     "priceOriginal": 9700000,
+     "price": 9700000,
+     "discount": 0,
+     "left": 3,
+     "amenities": [
+      "WiFi",
+      "điều hòa",
+      "bàn làm việc",
+      "TV LCD",
+      "phòng tắm riêng",
+      "bồn tắm/vòi sen",
+      "minibar",
+      "két sắt",
+      "trà/cà phê",
+      "nước đóng chai",
       "áo choàng",
       "máy sấy"
      ]
@@ -344,9 +403,9 @@
     "thuê xe",
     "đặt vé và tour."
    ],
-   "policy": "Nhận phòng từ 14:00, trả phòng đến 12:00. Khách cần xuất trình giấy tờ tùy thân có ảnh và thẻ tín dụng khi nhận phòng, đồng thời thông báo trước giờ đến dự kiến. Trẻ em mọi độ tuổi được chào đón; trẻ từ 13 tuổi tính như người lớn. Trẻ 0–12 tuổi có thể yêu cầu giường phụ 1.475.000 VND/trẻ/đêm, tùy tình trạng và loại phòng. Không có nôi/cũi theo thông tin hiện tại. Vật nuôi không được phép. Hủy/trả trước tùy loại giá.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
+   "policy": "Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. \nChính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. \nTrẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
+   "checkIn": "15:00",
+   "checkOut": "13:00",
    "images": []
   },
   {
@@ -377,8 +436,8 @@
      "name": "Grand Deluxe",
      "info": "28–32m²; King hoặc Twin; view thành phố; không hút thuốc",
      "capacity": 2,
-     "priceOriginal": 6900000,
-     "price": 6900000,
+     "priceOriginal": 5000000,
+     "price": 4500000,
      "discount": 0,
      "left": 3,
      "amenities": [
@@ -395,6 +454,29 @@
       "minibar",
       "housekeeping",
       "room service"
+     ]
+    },
+        {
+     "name": "Deluxe Room",
+     "info": "35m²; King hoặc Twin; view thành phố",
+     "capacity": 2,
+     "priceOriginal": 9700000,
+     "price": 9700000,
+     "discount": 0,
+     "left": 3,
+     "amenities": [
+      "WiFi",
+      "điều hòa",
+      "bàn làm việc",
+      "TV LCD",
+      "phòng tắm riêng",
+      "bồn tắm/vòi sen",
+      "minibar",
+      "két sắt",
+      "trà/cà phê",
+      "nước đóng chai",
+      "áo choàng",
+      "máy sấy"
      ]
     }
    ],
@@ -468,6 +550,29 @@
       "bàn làm việc",
       "dọn phòng hằng ngày"
      ]
+    },
+     {
+     "name": "High Room",
+     "info": "Khoảng 24m²; 1 giường King; phòng không hút thuốc; phòng tắm riêng; TV màn hình phẳng; minibar; ấm đun nước; bàn làm việc",
+     "capacity": 2,
+     "priceOriginal": 850000,
+     "price": 700000,
+     "discount": 13,
+     "left": 3,
+     "amenities": [
+      "WiFi miễn phí",
+      "điều hòa",
+      "TV màn hình phẳng",
+      "truyền hình cáp",
+      "minibar",
+      "ấm đun nước",
+      "trà/cà phê",
+      "máy sấy tóc",
+      "đồ vệ sinh cá nhân",
+      "rèm cản sáng",
+      "bàn làm việc",
+      "dọn phòng hằng ngày"
+     ]
     }
    ],
    "amenities": [
@@ -482,7 +587,7 @@
     "đưa đón sân bay có phụ phí",
     "bãi đỗ xe có phụ phí"
    ],
-   "policy": "Nhận phòng từ 14:00. Trả phòng trước 12:00. Khách phải xuất trình giấy tờ tùy thân; có thể yêu cầu đặt cọc/thẻ cho chi phí phát sinh. Chỉ khách đã đăng ký được lưu trú trong phòng. Yêu cầu đặc biệt tùy tình trạng phòng và có thể phát sinh phí. Thú cưng không được phép.",
+   "policy": "Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. \nChính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. \nTrẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
    "checkIn": "14:00",
    "checkOut": "12:00",
    "images": []
@@ -509,6 +614,27 @@
     "lễ tân 24h"
    ],
    "rooms": [
+    {
+     "name": "Superior Single",
+     "info": "Phòng 1 khách; giường đơn; điều hòa; WiFi; TV; phòng tắm riêng; đồ vệ sinh cá nhân",
+     "capacity": 2,
+     "priceOriginal": 650000,
+     "price": 600000,
+     "discount": 7,
+     "left": 3,
+     "amenities": [
+      "WiFi miễn phí",
+      "điều hòa",
+      "TV",
+      "bàn làm việc",
+      "phòng tắm riêng",
+      "đồ vệ sinh cá nhân",
+      "máy sấy tóc",
+      "thang máy",
+      "dọn phòng",
+      "lễ tân 24h"
+     ]
+    },
     {
      "name": "Superior Double",
      "info": "Phòng 2 khách; giường đôi; điều hòa; WiFi; TV; phòng tắm riêng; đồ vệ sinh cá nhân",
@@ -542,7 +668,7 @@
     "bãi đỗ xe máy",
     "khách sạn không hút thuốc"
    ],
-   "policy": "Nhận phòng và yêu cầu đặc biệt theo chính sách tại thời điểm đặt. Có thể yêu cầu giấy tờ tùy thân và thẻ/tiền đặt cọc cho chi phí phát sinh. Chỉ khách đã đăng ký được lưu trú. Khách sạn không hút thuốc; bữa sáng có thể tính phí. Chỗ đỗ xe chủ yếu dành cho xe máy.",
+   "policy": "Nhận phòng và yêu cầu đặc biệt theo chính sách tại thời điểm đặt. Yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. Chính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Có thể yêu cầu giấy tờ tùy thân và thẻ/tiền đặt cọc cho chi phí phát sinh. Chỉ khách đã đăng ký được lưu trú. Khách sạn không hút thuốc; bữa sáng có thể tính phí. Chỗ đỗ xe chủ yếu dành cho xe máy.",
    "checkIn": "14:00",
    "checkOut": "12:00",
    "images": []
@@ -569,6 +695,26 @@
     "WiFi"
    ],
    "rooms": [
+    {
+     "name": "Standard Single",
+     "info": "Phòng tiêu chuẩn; giường đơn; điều hòa; WiFi; TV; phòng tắm riêng; đồ vệ sinh cá nhân",
+     "capacity": 2,
+     "priceOriginal": 750000,
+     "price": 700000,
+     "discount": 11,
+     "left": 3,
+     "amenities": [
+      "WiFi miễn phí",
+      "điều hòa",
+      "TV",
+      "phòng tắm riêng",
+      "máy sấy tóc",
+      "đồ vệ sinh cá nhân",
+      "bàn làm việc",
+      "dọn phòng",
+      "thang máy"
+     ]
+    },
     {
      "name": "Standard Double",
      "info": "Phòng tiêu chuẩn; giường đôi; điều hòa; WiFi; TV; phòng tắm riêng; đồ vệ sinh cá nhân",
@@ -628,6 +774,22 @@
     "WiFi"
    ],
    "rooms": [
+      {
+     "name": "Deluxe Single",
+     "info": "25m²; 1 giường đơn; view thành phố",
+     "capacity": 2,
+     "priceOriginal": 500000,
+     "price": 500000,
+     "discount": 0,
+     "left": 5,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "minibar",
+      "vòi sen"
+     ]
+    },
     {
      "name": "Deluxe Double",
      "info": "25m²; 1 giường đôi; view thành phố",
@@ -652,7 +814,7 @@
     "nhà hàng",
     "bãi đỗ xe"
    ],
-   "policy": "Giá tham khảo/đêm; chính sách hủy và phụ thu tùy ngày/hạng phòng; cần xác nhận khi đặt.",
+   "policy": "Theo quy định, yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. Chính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
    "checkIn": "14:00",
    "checkOut": "12:00",
    "images": []
@@ -678,6 +840,36 @@
     "WiFi"
    ],
    "rooms": [
+       {
+     "name": "Standard Room",
+     "info": "20m²; 1 giường đơn; view thành phố",
+     "capacity": 2,
+     "priceOriginal": 550000,
+     "price": 550000,
+     "discount": 0,
+     "left": 6,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "tủ lạnh mini"
+     ]
+    },
+    {
+     "name": "Superior Single",
+     "info": "28m²; 1 giường đơn; view thành phố",
+     "capacity": 2,
+     "priceOriginal": 650000,
+     "price": 650000,
+     "discount": 0,
+     "left": 6,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "tủ lạnh mini"
+     ]
+    },
     {
      "name": "Superior Double",
      "info": "28m²; 1 giường đôi; view thành phố",
@@ -701,51 +893,86 @@
     "nhà hàng",
     "bãi đỗ xe"
    ],
-   "policy": "Giá tham khảo/đêm; kiểm tra chính sách hủy, thuế phí và phụ thu theo ngày lưu trú.",
+   "policy": "Giá tham khảo/đêm; kiểm tra chính sách hủy, thuế phí và phụ thu theo ngày lưu trú. Chính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. Trẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
    "checkIn": "14:00",
    "checkOut": "12:00",
    "images": []
   },
   {
-   "id": 11,
-   "code": "HTL-HL-003",
-   "slug": "paddington-hotel-ha-long",
-   "name": "Paddington Hotel Hạ Long",
-   "type": "Hotel",
-   "stars": 5,
-   "rating": 4.6,
-   "ratingMax": 5,
-   "reviews": 546,
-   "booked": 0,
-   "city": "Hạ Long",
-   "address": "Lô dịch vụ 02, Cột 5–Cột 8 mở rộng, đường Điện Biên Phủ, Hạ Long, Quảng Ninh",
-   "description": "Khách sạn 5 sao hướng biển với phân khúc giá trung cấp, phù hợp nghỉ dưỡng và công tác.",
-   "keywords": [
+    "id": 11,
+    "code": "HTL-HL-003",
+    "slug": "paddington-hotel-ha-long",
+    "name": "Paddington Hotel Hạ Long",
+    "type": "Hotel",
+    "stars": 5,
+    "rating": 4.6,
+    "ratingMax": 5,
+    "reviews": 546,
+    "booked": 0,
+    "city": "Hạ Long",
+    "address": "Lô dịch vụ 02, Cột 5–Cột 8 mở rộng, đường Điện Biên Phủ, Hạ Long, Quảng Ninh",
+    "description": "Khách sạn 5 sao hướng biển nằm gần khu Bãi Cháy với mức giá trung cấp, phù hợp cho cả chuyến nghỉ dưỡng lẫn công tác. Phòng nghỉ rộng rãi, nhìn ra thành phố hoặc vịnh Hạ Long, trang bị đầy đủ tiện nghi hiện đại. Khách sạn có nhà hàng phục vụ ẩm thực Á – Âu, hồ bơi, spa và lễ tân hoạt động 24/7, thuận tiện di chuyển ra cảng tàu du thuyền tham quan vịnh.",
+    "keywords": [
     "5 sao",
     "biển",
     "hồ bơi",
     "nhà hàng",
     "spa"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Deluxe City View",
-     "info": "30m²; 1 giường King; view thành phố",
-     "capacity": 2,
-     "priceOriginal": 900000,
-     "price": 900000,
-     "discount": 0,
-     "left": 4,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "điều hòa",
-      "minibar",
-      "két an toàn"
-     ]
+    "name": "Deluxe City View",
+    "info": "30m²; 1 giường King; view thành phố",
+    "capacity": 2,
+    "priceOriginal": 900000,
+    "price": 900000,
+    "discount": 0,
+    "left": 4,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "két an toàn"
+    ]
+    },
+    {
+    "name": "Deluxe Ocean View",
+    "info": "32m²; 1 giường King hoặc 2 giường đơn; view biển",
+    "capacity": 3,
+    "priceOriginal": 1350000,
+    "price": 1150000,
+    "discount": 15,
+    "left": 3,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "két an toàn",
+        "ban công"
+    ]
+    },
+    {
+    "name": "Family Suite",
+    "info": "55m²; 1 giường King + 1 giường đơn; phòng khách riêng",
+    "capacity": 4,
+    "priceOriginal": 1800000,
+    "price": 1800000,
+    "discount": 0,
+    "left": 2,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "két an toàn",
+        "bồn tắm",
+        "sofa bed"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Hồ bơi",
     "gym",
     "spa",
@@ -753,52 +980,88 @@
     "bar",
     "lễ tân 24/7",
     "bãi đỗ xe"
-   ],
-   "policy": "Giá tham khảo/đêm; dịch vụ và ưu đãi thay đổi theo ngày; xác nhận điều kiện hủy trước khi đặt.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 12,
-   "code": "HTL-HL-004",
-   "slug": "flc-grand-hotel-ha-long",
-   "name": "FLC Grand Hotel Hạ Long",
-   "type": "Hotel",
-   "stars": 5,
-   "rating": 4.4,
-   "ratingMax": 5,
-   "reviews": 2023,
-   "booked": 0,
-   "city": "Hạ Long",
-   "address": "Nguyễn Văn Cừ, Hạ Long, Quảng Ninh",
-   "description": "Khách sạn nghỉ dưỡng 5 sao cạnh sân golf, có nhiều hạng phòng và tiện ích phù hợp gia đình.",
-   "keywords": [
+    ],
+    "policy": "Giá tham khảo theo đêm, dịch vụ và ưu đãi thay đổi theo ngày và mùa du lịch. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 48 giờ so với ngày nhận phòng; hủy muộn hơn hoặc không đến nhận phòng sẽ bị tính phí 01 đêm đầu tiên. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 12,
+    "code": "HTL-HL-004",
+    "slug": "flc-grand-hotel-ha-long",
+    "name": "FLC Grand Hotel Hạ Long",
+    "type": "Hotel",
+    "stars": 5,
+    "rating": 4.4,
+    "ratingMax": 5,
+    "reviews": 2023,
+    "booked": 0,
+    "city": "Hạ Long",
+    "address": "Nguyễn Văn Cừ, Hạ Long, Quảng Ninh",
+    "description": "Khách sạn nghỉ dưỡng 5 sao nằm cạnh sân golf, có tầm nhìn bao quát ra sân cỏ xanh và vịnh Hạ Long. Khách sạn sở hữu nhiều hạng phòng từ Deluxe đến Suite gia đình, kết hợp khu vui chơi, hồ bơi, spa và nhà hàng đa dạng món ăn. Đây là lựa chọn phù hợp cho gia đình, nhóm bạn và khách yêu thích golf muốn kết hợp nghỉ dưỡng dài ngày.",
+    "keywords": [
     "5 sao",
     "golf",
     "hồ bơi",
     "spa",
     "biển"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Deluxe Golf View",
-     "info": "48m²; 1 giường King; view sân golf",
-     "capacity": 2,
-     "priceOriginal": 4250000,
-     "price": 3195500,
-     "discount": 25,
-     "left": 3,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "điều hòa",
-      "bồn tắm",
-      "két an toàn"
-     ]
+    "name": "Deluxe Golf View",
+    "info": "48m²; 1 giường King; view sân golf",
+    "capacity": 2,
+    "priceOriginal": 4250000,
+    "price": 3195500,
+    "discount": 25,
+    "left": 3,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "bồn tắm",
+        "két an toàn"
+    ]
+    },
+    {
+    "name": "Premier Sea View",
+    "info": "52m²; 1 giường King; view biển, ban công riêng",
+    "capacity": 3,
+    "priceOriginal": 4800000,
+    "price": 4800000,
+    "discount": 0,
+    "left": 3,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "két an toàn",
+        "bồn tắm",
+        "ban công"
+    ]
+    },
+    {
+    "name": "Family Suite",
+    "info": "85m²; 2 phòng ngủ; phòng khách riêng",
+    "capacity": 4,
+    "priceOriginal": 6500000,
+    "price": 6500000,
+    "discount": 0,
+    "left": 2,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "két an toàn",
+        "bồn tắm",
+        "bếp nhỏ"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Hồ bơi",
     "spa",
     "gym",
@@ -806,53 +1069,87 @@
     "nhà hàng",
     "bar",
     "phòng hội nghị"
-   ],
-   "policy": "Giá tham khảo theo một mức đặt phòng được công bố; giá thay đổi theo ngày và ưu đãi.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 13,
-   "code": "HTL-HL-005",
-   "slug": "vinpearl-resort-spa-ha-long",
-   "name": "Vinpearl Resort & Spa Hạ Long",
-   "type": "Hotel",
-   "stars": 5,
-   "rating": 4.6,
-   "ratingMax": 5,
-   "reviews": 0,
-   "booked": 0,
-   "city": "Hạ Long",
-   "address": "Đảo Rều, Bãi Cháy, Hạ Long, Quảng Ninh",
-   "description": "Khu nghỉ dưỡng 5 sao trên đảo với bãi biển riêng, hồ bơi và nhiều hạng phòng nhìn vịnh.",
-   "keywords": [
+    ],
+    "policy": "Giá tham khảo theo mức đặt phòng được công bố, thay đổi theo ngày và chương trình ưu đãi. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Giá có thể chưa gồm phí chơi golf, xe điện và dịch vụ caddie; vui lòng đặt riêng với khách sạn. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 13,
+    "code": "HTL-HL-005",
+    "slug": "vinpearl-resort-spa-ha-long",
+    "name": "Vinpearl Resort & Spa Hạ Long",
+    "type": "Hotel",
+    "stars": 5,
+    "rating": 4.6,
+    "ratingMax": 5,
+    "reviews": 0,
+    "booked": 0,
+    "city": "Hạ Long",
+    "address": "Đảo Rều, Bãi Cháy, Hạ Long, Quảng Ninh",
+    "description": "Khu nghỉ dưỡng 5 sao nằm trên đảo Rều với các bãi biển riêng, hồ bơi lớn và nhiều hạng phòng nhìn ra vịnh Hạ Long. Du khách di chuyển từ đất liền ra đảo bằng cano của resort, mang lại cảm giác tách biệt, yên tĩnh. Resort có spa, sân tennis, nhà hàng và các hoạt động giải trí phù hợp cả cặp đôi lẫn gia đình có trẻ nhỏ.",
+    "keywords": [
     "5 sao",
     "đảo Rều",
     "biển riêng",
     "hồ bơi",
     "spa"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Deluxe Ocean View",
-     "info": "38m²; 1 giường đôi; view biển",
-     "capacity": 4,
-     "priceOriginal": 3222000,
-     "price": 3222000,
-     "discount": 0,
-     "left": 3,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "điều hòa",
-      "minibar",
-      "bồn tắm",
-      "ban công"
-     ]
+    "name": "Deluxe Ocean View",
+    "info": "38m²; 1 giường đôi; view biển",
+    "capacity": 4,
+    "priceOriginal": 3222000,
+    "price": 3222000,
+    "discount": 0,
+    "left": 3,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "bồn tắm",
+        "ban công"
+    ]
+    },
+    {
+    "name": "Premier Ocean View Balcony",
+    "info": "45m²; 1 giường King; ban công lớn nhìn vịnh",
+    "capacity": 3,
+    "priceOriginal": 3950000,
+    "price": 3950000,
+    "discount": 0,
+    "left": 3,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "bồn tắm",
+        "ban công"
+    ]
+    },
+    {
+    "name": "Family Suite",
+    "info": "75m²; 2 giường đôi; phòng khách riêng",
+    "capacity": 4,
+    "priceOriginal": 5600000,
+    "price": 5600000,
+    "discount": 0,
+    "left": 2,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "bồn tắm",
+        "sofa bed"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "3 bãi biển riêng",
     "hồ bơi",
     "spa",
@@ -860,206 +1157,342 @@
     "bar",
     "sân tennis",
     "cano đưa đón"
-   ],
-   "policy": "Giá tham khảo/đêm; giá theo mùa và ưu đãi; cano đất liền–đảo theo chính sách resort.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 14,
-   "code": "HTL-DN-001",
-   "slug": "muong-thanh-grand-da-nang",
-   "name": "Mường Thanh Grand Đà Nẵng Hotel",
-   "type": "Hotel",
-   "stars": 4,
-   "rating": 4.2,
-   "ratingMax": 5,
-   "reviews": 2175,
-   "booked": 0,
-   "city": "Đà Nẵng",
-   "address": "962 Ngô Quyền, An Hải, Đà Nẵng",
-   "description": "Khách sạn 4 sao gần sông Hàn, có nhiều hạng phòng từ tiêu chuẩn đến suite.",
-   "keywords": [
+    ],
+    "policy": "Giá tham khảo theo đêm; giá thay đổi theo mùa và chương trình ưu đãi. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Cano đưa đón đất liền – đảo hoạt động theo lịch của resort; khách nên đến bến trước giờ khởi hành ít nhất 30 phút. Thời tiết xấu có thể làm thay đổi lịch cano. Vui lòng giữ yên tĩnh sau 22:00 để không ảnh hưởng khách lưu trú khác; hư hỏng hoặc mất mát tài sản trong phòng sẽ được tính theo giá bồi thường của đơn vị. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 14,
+    "code": "HTL-DN-001",
+    "slug": "muong-thanh-grand-da-nang",
+    "name": "Mường Thanh Grand Đà Nẵng Hotel",
+    "type": "Hotel",
+    "stars": 4,
+    "rating": 4.2,
+    "ratingMax": 5,
+    "reviews": 2175,
+    "booked": 0,
+    "city": "Đà Nẵng",
+    "address": "962 Ngô Quyền, An Hải, Đà Nẵng",
+    "description": "Khách sạn 4 sao gần sông Hàn và cầu Rồng, thuận tiện đi bộ đến các điểm tham quan và khu ẩm thực của thành phố. Khách sạn có nhiều hạng phòng từ tiêu chuẩn đến phòng gia đình, phù hợp ngân sách tiết kiệm nhưng vẫn đảm bảo sạch sẽ, đầy đủ tiện nghi. Hồ bơi, nhà hàng và lễ tân 24/7 giúp chuyến đi của gia đình hoặc nhóm bạn thêm thoải mái.",
+    "keywords": [
     "4 sao",
     "sông Hàn",
     "gia đình",
     "giá tốt"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Deluxe Twin",
-     "info": "32m²; 2 giường đơn; view thành phố",
-     "capacity": 2,
-     "priceOriginal": 900000,
-     "price": 900000,
-     "discount": 0,
-     "left": 5,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "điều hòa",
-      "minibar",
-      "két an toàn"
-     ]
+    "name": "Deluxe Twin",
+    "info": "32m²; 2 giường đơn; view thành phố",
+    "capacity": 2,
+    "priceOriginal": 900000,
+    "price": 900000,
+    "discount": 0,
+    "left": 5,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "két an toàn"
+    ]
+    },
+    {
+    "name": "Deluxe Double",
+    "info": "32m²; 1 giường đôi lớn; view thành phố",
+    "capacity": 2,
+    "priceOriginal": 950000,
+    "price": 950000,
+    "discount": 0,
+    "left": 4,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "két an toàn"
+    ]
+    },
+    {
+    "name": "Family Room",
+    "info": "45m²; 1 giường đôi + 2 giường đơn",
+    "capacity": 4,
+    "priceOriginal": 1450000,
+    "price": 1450000,
+    "discount": 0,
+    "left": 3,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "két an toàn",
+        "sofa bed"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Hồ bơi",
     "gym",
     "spa",
     "nhà hàng",
     "bar",
     "lễ tân 24/7"
-   ],
-   "policy": "Giá tham khảo/đêm; giá thực tế thay đổi theo ngày và điều kiện đặt phòng.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 15,
-   "code": "HTL-DN-002",
-   "slug": "muong-thanh-luxury-da-nang",
-   "name": "Mường Thanh Luxury Đà Nẵng",
-   "type": "Hotel",
-   "stars": 5,
-   "rating": 4.3,
-   "ratingMax": 5,
-   "reviews": 6574,
-   "booked": 0,
-   "city": "Đà Nẵng",
-   "address": "270 Võ Nguyên Giáp, Ngũ Hành Sơn, Đà Nẵng",
-   "description": "Khách sạn 5 sao đối diện biển Mỹ Khê, có phòng hướng biển và suite.",
-   "keywords": [
+    ],
+    "policy": "Giá tham khảo theo đêm, giá thực tế thay đổi theo ngày và điều kiện đặt phòng. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 48 giờ so với ngày nhận phòng; hủy muộn hơn hoặc không đến nhận phòng sẽ bị tính phí 01 đêm đầu tiên. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 15,
+    "code": "HTL-DN-002",
+    "slug": "muong-thanh-luxury-da-nang",
+    "name": "Mường Thanh Luxury Đà Nẵng",
+    "type": "Hotel",
+    "stars": 5,
+    "rating": 4.3,
+    "ratingMax": 5,
+    "reviews": 6574,
+    "booked": 0,
+    "city": "Đà Nẵng",
+    "address": "270 Võ Nguyên Giáp, Ngũ Hành Sơn, Đà Nẵng",
+    "description": "Khách sạn 5 sao đối diện biển Mỹ Khê với phòng hướng biển và suite rộng rãi, ban công đón gió. Khách có thể ra bãi biển chỉ sau vài phút đi bộ, sử dụng hồ bơi, spa, phòng gym hoặc thưởng thức ẩm thực tại nhà hàng và bar của khách sạn. Phòng hội nghị phù hợp tổ chức sự kiện nhỏ, đồng thời khách sạn có nhiều ưu đãi theo mùa.",
+    "keywords": [
     "5 sao",
     "Mỹ Khê",
     "biển",
     "hồ bơi",
     "spa"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Superior Twin",
-     "info": "33m²; 1 giường đơn + 1 giường King; view thành phố",
-     "capacity": 2,
-     "priceOriginal": 1853100,
-     "price": 1853100,
-     "discount": 0,
-     "left": 4,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "điều hòa",
-      "minibar",
-      "két an toàn"
-     ]
+    "name": "Superior Twin",
+    "info": "33m²; 1 giường đơn + 1 giường King; view thành phố",
+    "capacity": 2,
+    "priceOriginal": 1853100,
+    "price": 1853100,
+    "discount": 0,
+    "left": 4,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "két an toàn"
+    ]
+    },
+    {
+    "name": "Deluxe Ocean View",
+    "info": "38m²; 1 giường King; view biển, ban công",
+    "capacity": 3,
+    "priceOriginal": 2350000,
+    "price": 2350000,
+    "discount": 0,
+    "left": 3,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "két an toàn",
+        "ban công"
+    ]
+    },
+    {
+    "name": "Executive Suite",
+    "info": "65m²; 1 giường King; phòng khách riêng; view biển",
+    "capacity": 3,
+    "priceOriginal": 3900000,
+    "price": 3900000,
+    "discount": 0,
+    "left": 2,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "két an toàn",
+        "bồn tắm",
+        "ban công"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Hồ bơi",
     "gym",
     "spa",
     "nhà hàng",
     "bar",
     "phòng hội nghị"
-   ],
-   "policy": "Giá tham khảo theo mức công bố; giá thay đổi theo ngày và chương trình ưu đãi.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 16,
-   "code": "HTL-DN-003",
-   "slug": "nalod-da-nang-hotel",
-   "name": "NALOD Đà Nẵng",
-   "type": "Hotel",
-   "stars": 4,
-   "rating": 4.7,
-   "ratingMax": 5,
-   "reviews": 4426,
-   "booked": 0,
-   "city": "Đà Nẵng",
-   "address": "192 Võ Nguyên Giáp, An Hải, Đà Nẵng",
-   "description": "Khách sạn nghỉ dưỡng ven biển Mỹ Khê, phù hợp khách du lịch và nhóm gia đình.",
-   "keywords": [
+    ],
+    "policy": "Giá tham khảo theo mức công bố, thay đổi theo ngày và chương trình ưu đãi. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Vào dịp lễ, Tết và pháo hoa quốc tế, khách sạn có thể áp dụng chính sách đặt cọc và không hoàn hủy. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 16,
+    "code": "HTL-DN-003",
+    "slug": "nalod-da-nang-hotel",
+    "name": "NALOD Đà Nẵng",
+    "type": "Hotel",
+    "stars": 4,
+    "rating": 4.7,
+    "ratingMax": 5,
+    "reviews": 4426,
+    "booked": 0,
+    "city": "Đà Nẵng",
+    "address": "192 Võ Nguyên Giáp, An Hải, Đà Nẵng",
+    "description": "Khách sạn nghỉ dưỡng ven biển Mỹ Khê với vị trí thuận tiện, chỉ vài bước chân là tới bãi cát dài. Phòng nghỉ thoáng, sạch sẽ, có lựa chọn nhìn biển hoặc nhìn thành phố; đội ngũ nhân viên thân thiện, hỗ trợ đặt tour và xe đưa đón. Khách sạn phù hợp khách du lịch tự túc, nhóm gia đình và đoàn có nhu cầu tổ chức hội nghị nhỏ.",
+    "keywords": [
     "biển Mỹ Khê",
     "4 sao",
     "hồ bơi",
     "hội nghị"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Deluxe Ocean View",
-     "info": "35m²; 1 giường King; view biển",
-     "capacity": 2,
-     "priceOriginal": 1300000,
-     "price": 1300000,
-     "discount": 0,
-     "left": 4,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "điều hòa",
-      "minibar",
-      "két an toàn"
-     ]
+    "name": "Deluxe City View",
+    "info": "30m²; 1 giường đôi; view thành phố",
+    "capacity": 2,
+    "priceOriginal": 1250000,
+    "price": 1062500,
+    "discount": 15,
+    "left": 5,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "két an toàn"
+    ]
+    },
+    {
+    "name": "Deluxe Ocean View",
+    "info": "35m²; 1 giường King; view biển",
+    "capacity": 2,
+    "priceOriginal": 1300000,
+    "price": 1300000,
+    "discount": 0,
+    "left": 4,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "két an toàn"
+    ]
+    },
+    {
+    "name": "Family Ocean Suite",
+    "info": "60m²; 1 giường King + 2 giường đơn; view biển",
+    "capacity": 4,
+    "priceOriginal": 2100000,
+    "price": 2100000,
+    "discount": 0,
+    "left": 2,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "két an toàn",
+        "ban công",
+        "sofa bed"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Hồ bơi",
     "gym",
     "nhà hàng",
     "bar",
     "phòng hội nghị",
     "bãi đỗ xe"
-   ],
-   "policy": "Giá tham khảo/đêm; thuế phí và chính sách hủy tùy rate.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 17,
-   "code": "HTL-DN-004",
-   "slug": "dlg-hotel-danang",
-   "name": "DLG Hotel Danang",
-   "type": "Hotel",
-   "stars": 5,
-   "rating": 4.6,
-   "ratingMax": 5,
-   "reviews": 2777,
-   "booked": 0,
-   "city": "Đà Nẵng",
-   "address": "258 Võ Nguyên Giáp, An Hải, Đà Nẵng",
-   "description": "Khách sạn 5 sao ven biển với phòng nhìn biển và hồ bơi, phù hợp nghỉ dưỡng.",
-   "keywords": [
+    ],
+    "policy": "Giá tham khảo theo đêm; thuế, phí và chính sách hủy tùy theo loại giá đã chọn. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 48 giờ so với ngày nhận phòng; hủy muộn hơn hoặc không đến nhận phòng sẽ bị tính phí 01 đêm đầu tiên. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Vui lòng giữ yên tĩnh sau 22:00 để không ảnh hưởng khách lưu trú khác; hư hỏng hoặc mất mát tài sản trong phòng sẽ được tính theo giá bồi thường của đơn vị. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 17,
+    "code": "HTL-DN-004",
+    "slug": "dlg-hotel-danang",
+    "name": "DLG Hotel Danang",
+    "type": "Hotel",
+    "stars": 5,
+    "rating": 4.6,
+    "ratingMax": 5,
+    "reviews": 2777,
+    "booked": 0,
+    "city": "Đà Nẵng",
+    "address": "258 Võ Nguyên Giáp, An Hải, Đà Nẵng",
+    "description": "Khách sạn 5 sao ven biển với phòng nhìn ra biển Mỹ Khê và hồ bơi ngoài trời, phù hợp nghỉ dưỡng gia đình lẫn cặp đôi. Phòng được thiết kế hiện đại, có bồn tắm và ban công ở nhiều hạng phòng. Khách sạn có spa, gym, nhà hàng và phòng hội nghị phục vụ cả nhu cầu công tác kết hợp nghỉ dưỡng.",
+    "keywords": [
     "5 sao",
     "biển",
     "hồ bơi",
     "spa",
     "gia đình"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Deluxe Ocean View",
-     "info": "36m²; 1 giường King; view biển",
-     "capacity": 2,
-     "priceOriginal": 3150000,
-     "price": 3150000,
-     "discount": 0,
-     "left": 3,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "điều hòa",
-      "minibar",
-      "bồn tắm"
-     ]
+    "name": "Deluxe Ocean View",
+    "info": "36m²; 1 giường King; view biển",
+    "capacity": 2,
+    "priceOriginal": 3150000,
+    "price": 3150000,
+    "discount": 0,
+    "left": 3,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "bồn tắm"
+    ]
+    },
+    {
+    "name": "Premier Corner Ocean View",
+    "info": "48m²; 1 giường King; góc phòng view biển 2 hướng",
+    "capacity": 3,
+    "priceOriginal": 3900000,
+    "price": 3900000,
+    "discount": 0,
+    "left": 3,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "bồn tắm",
+        "ban công"
+    ]
+    },
+    {
+    "name": "Family Suite",
+    "info": "70m²; 2 giường đôi; phòng khách riêng",
+    "capacity": 4,
+    "priceOriginal": 5200000,
+    "price": 5200000,
+    "discount": 0,
+    "left": 2,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "bồn tắm",
+        "sofa bed"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Hồ bơi",
     "gym",
     "spa",
@@ -1067,52 +1500,87 @@
     "bar",
     "hội nghị",
     "bãi đỗ xe"
-   ],
-   "policy": "Giá tham khảo/đêm; một số rate có ưu đãi theo mùa; kiểm tra điều kiện hủy.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 18,
-   "code": "HTL-DN-005",
-   "slug": "novotel-danang-premier-han-river",
-   "name": "Novotel Danang Premier Han River",
-   "type": "Hotel",
-   "stars": 5,
-   "rating": 4.6,
-   "ratingMax": 5,
-   "reviews": 8685,
-   "booked": 0,
-   "city": "Đà Nẵng",
-   "address": "36 Bạch Đằng, Hải Châu, Đà Nẵng",
-   "description": "Khách sạn 5 sao bên sông Hàn với phòng và suite cao cấp, phù hợp khách công tác và nghỉ dưỡng.",
-   "keywords": [
+    ],
+    "policy": "Giá tham khảo theo đêm; một số mức giá có ưu đãi theo mùa, vui lòng kiểm tra điều kiện hủy trước khi đặt. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 18,
+    "code": "HTL-DN-005",
+    "slug": "novotel-danang-premier-han-river",
+    "name": "Novotel Danang Premier Han River",
+    "type": "Hotel",
+    "stars": 5,
+    "rating": 4.6,
+    "ratingMax": 5,
+    "reviews": 8685,
+    "booked": 0,
+    "city": "Đà Nẵng",
+    "address": "36 Bạch Đằng, Hải Châu, Đà Nẵng",
+    "description": "Khách sạn 5 sao bên sông Hàn ngay trung tâm thành phố, gần cầu Rồng, cầu Quay và các khu mua sắm. Phòng và suite cao cấp nhìn ra sông hoặc thành phố, đặc biệt đẹp về đêm. Rooftop bar, nhà hàng, hồ bơi, spa và phòng hội nghị đáp ứng tốt nhu cầu của khách công tác lẫn khách nghỉ dưỡng.",
+    "keywords": [
     "5 sao",
     "sông Hàn",
     "rooftop",
     "suite",
     "trung tâm"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Superior Room",
-     "info": "28m²; 1 giường King; view sông/thành phố",
-     "capacity": 2,
-     "priceOriginal": 6400000,
-     "price": 6400000,
-     "discount": 0,
-     "left": 2,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "điều hòa",
-      "minibar",
-      "két an toàn"
-     ]
+    "name": "Superior Room",
+    "info": "28m²; 1 giường King; view sông/thành phố",
+    "capacity": 2,
+    "priceOriginal": 6400000,
+    "price": 6400000,
+    "discount": 0,
+    "left": 2,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "két an toàn"
+    ]
+    },
+    {
+    "name": "Deluxe River View",
+    "info": "35m²; 1 giường King; view sông Hàn",
+    "capacity": 2,
+    "priceOriginal": 7200000,
+    "price": 7200000,
+    "discount": 0,
+    "left": 2,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "két an toàn",
+        "bồn tắm"
+    ]
+    },
+    {
+    "name": "Executive Suite",
+    "info": "70m²; 1 giường King; phòng khách riêng; đặc quyền lounge",
+    "capacity": 3,
+    "priceOriginal": 10500000,
+    "price": 10500000,
+    "discount": 0,
+    "left": 1,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "két an toàn",
+        "bồn tắm",
+        "máy pha cà phê"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Hồ bơi",
     "gym",
     "spa",
@@ -1120,512 +1588,734 @@
     "bar",
     "rooftop",
     "phòng hội nghị"
-   ],
-   "policy": "Giá tham khảo theo giá phòng được hiển thị; có thể phát sinh thuế phí tùy kênh đặt.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 19,
-   "code": "VIL-SP-001",
-   "slug": "sapa-unique-villa",
-   "name": "Sapa Unique Villa",
-   "type": "Villa",
-   "stars": 4,
-   "rating": 3,
-   "ratingMax": 5,
-   "reviews": 17,
-   "booked": 0,
-   "city": "Sa Pa",
-   "address": "Xóm 1A, Sa Pa, Lào Cai",
-   "description": "Villa riêng tư tại Sa Pa, phù hợp nhóm nhỏ muốn không gian độc lập và yên tĩnh.",
-   "keywords": [
+    ],
+    "policy": "Giá tham khảo theo mức giá phòng được hiển thị; có thể phát sinh thuế và phí tùy kênh đặt. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách hạng Executive Suite được sử dụng lounge theo khung giờ quy định của khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 19,
+    "code": "VIL-SP-001",
+    "slug": "sapa-unique-villa",
+    "name": "Sapa Unique Villa",
+    "type": "Villa",
+    "stars": 4,
+    "rating": 3,
+    "ratingMax": 5,
+    "reviews": 17,
+    "booked": 0,
+    "city": "Sa Pa",
+    "address": "Xóm 1A, Sa Pa, Lào Cai",
+    "description": "Villa riêng tư tại Sa Pa, phù hợp nhóm nhỏ muốn có không gian độc lập, yên tĩnh và gần gũi thiên nhiên. Mỗi căn có ban công nhìn ra núi, sân vườn và khu bếp/khu ăn riêng để khách tự nấu bữa tối hoặc tổ chức BBQ nhỏ. Chủ villa hỗ trợ đặt tour, thuê xe và gợi ý các điểm tham quan quanh thị xã Sa Pa.",
+    "keywords": [
     "villa",
     "riêng tư",
     "núi",
     "nhóm nhỏ"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "1 Bedroom Villa",
-     "info": "45m²; 1 giường King; ban công view núi",
-     "capacity": 2,
-     "priceOriginal": 1800000,
-     "price": 1800000,
-     "discount": 0,
-     "left": 3,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "điều hòa",
-      "ban công",
-      "phòng tắm riêng"
-     ]
+    "name": "1 Bedroom Villa",
+    "info": "45m²; 1 giường King; ban công view núi",
+    "capacity": 2,
+    "priceOriginal": 1800000,
+    "price": 1800000,
+    "discount": 0,
+    "left": 3,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "ban công",
+        "phòng tắm riêng"
+    ]
+    },
+    {
+    "name": "2 Bedroom Villa",
+    "info": "80m²; 2 phòng ngủ; phòng khách và bếp riêng",
+    "capacity": 4,
+    "priceOriginal": 3200000,
+    "price": 3200000,
+    "discount": 0,
+    "left": 2,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "ban công",
+        "bếp",
+        "phòng tắm riêng"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Sân vườn",
     "bếp/khu ăn",
     "bãi đỗ xe",
     "hỗ trợ tour"
-   ],
-   "policy": "Giá tham khảo/đêm; villa nguyên căn và phụ thu người ở cần xác nhận theo ngày.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 20,
-   "code": "VIL-SP-002",
-   "slug": "hillside-mountain-view-villa-sapa",
-   "name": "Hillside Mountain View Villa Sapa",
-   "type": "Villa",
-   "stars": 4,
-   "rating": 0,
-   "ratingMax": 5,
-   "reviews": 0,
-   "booked": 0,
-   "city": "Sa Pa",
-   "address": "Xóm 1A, Sa Pa, Lào Cai",
-   "description": "Villa hướng núi với không gian riêng, phù hợp nhóm bạn hoặc gia đình nhỏ.",
-   "keywords": [
+    ],
+    "policy": "Giá tham khảo theo đêm; villa nguyên căn và phụ thu số người ở cần xác nhận theo ngày. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Mùa lạnh (tháng 11 – tháng 3) khách nên mang đủ đồ ấm; villa có thể tính phụ phí sưởi. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 20,
+    "code": "VIL-SP-002",
+    "slug": "hillside-mountain-view-villa-sapa",
+    "name": "Hillside Mountain View Villa Sapa",
+    "type": "Villa",
+    "stars": 4,
+    "rating": 0,
+    "ratingMax": 5,
+    "reviews": 0,
+    "booked": 0,
+    "city": "Sa Pa",
+    "address": "Xóm 1A, Sa Pa, Lào Cai",
+    "description": "Villa hướng núi với không gian riêng tư, phù hợp nhóm bạn hoặc gia đình nhỏ muốn tận hưởng khí hậu mát mẻ của Sa Pa. Căn villa có ban công rộng, sân vườn và khu BBQ ngoài trời để khách tự tổ chức tiệc tối. Vị trí thuận tiện di chuyển ra trung tâm, nhà ga cáp treo Fansipan và các bản làng lân cận.",
+    "keywords": [
     "villa",
     "mountain view",
     "gia đình",
     "riêng tư"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Mountain View Villa",
-     "info": "55m²; 1 giường King + sofa bed; ban công",
-     "capacity": 4,
-     "priceOriginal": 2500000,
-     "price": 2500000,
-     "discount": 0,
-     "left": 2,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "điều hòa",
-      "ban công",
-      "ấm đun nước"
-     ]
+    "name": "Standard Garden Villa",
+    "info": "40m²; 1 giường đôi; view sân vườn",
+    "capacity": 2,
+    "priceOriginal": 1900000,
+    "price": 1900000,
+    "discount": 0,
+    "left": 3,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "ấm đun nước"
+    ]
+    },
+    {
+    "name": "Mountain View Villa",
+    "info": "55m²; 1 giường King + sofa bed; ban công",
+    "capacity": 4,
+    "priceOriginal": 2500000,
+    "price": 2500000,
+    "discount": 0,
+    "left": 2,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "ban công",
+        "ấm đun nước"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Sân vườn",
     "khu BBQ",
     "bãi đỗ xe",
     "hỗ trợ tour"
-   ],
-   "policy": "Giá tham khảo/đêm; giá villa thay đổi theo số khách và ngày cuối tuần.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 21,
-   "code": "VIL-SP-003",
-   "slug": "ville-de-mont-mountain-resort",
-   "name": "Ville De Mont Mountain Resort",
-   "type": "Villa",
-   "stars": 5,
-   "rating": 4.8,
-   "ratingMax": 5,
-   "reviews": 8,
-   "booked": 0,
-   "city": "Sa Pa",
-   "address": "Khu nghỉ dưỡng Ville De Mont, Sa Pa, Lào Cai",
-   "description": "Khu biệt thự trên núi với tầm nhìn thung lũng Mường Hoa và Fansipan.",
-   "keywords": [
+    ],
+    "policy": "Giá tham khảo theo đêm; giá villa thay đổi theo số khách và ngày cuối tuần. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Khu BBQ cần đặt trước và có thể tính phí than, dụng cụ; vui lòng dọn dẹp và tắt lửa sau khi sử dụng. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 21,
+    "code": "VIL-SP-003",
+    "slug": "ville-de-mont-mountain-resort",
+    "name": "Ville De Mont Mountain Resort",
+    "type": "Villa",
+    "stars": 5,
+    "rating": 4.8,
+    "ratingMax": 5,
+    "reviews": 8,
+    "booked": 0,
+    "city": "Sa Pa",
+    "address": "Khu nghỉ dưỡng Ville De Mont, Sa Pa, Lào Cai",
+    "description": "Khu biệt thự trên núi cao cấp với tầm nhìn bao quát thung lũng Mường Hoa và dãy Fansipan. Mỗi villa được thiết kế sang trọng, có bồn tắm, ban công riêng và không gian sinh hoạt rộng rãi. Resort có nhà hàng, spa, lớp yoga, hồ bơi và khu vui chơi, đồng thời cung cấp dịch vụ đưa đón phù hợp cho kỳ nghỉ riêng tư hoặc dịp đặc biệt.",
+    "keywords": [
     "villa",
     "luxury",
     "Mường Hoa",
     "Fansipan",
     "núi"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Executive Villa One Bedroom",
-     "info": "90m²; 1 phòng ngủ; 1 giường Queen/King; view thung lũng",
-     "capacity": 2,
-     "priceOriginal": 7620000,
-     "price": 7620000,
-     "discount": 0,
-     "left": 1,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "bồn tắm",
-      "ban công",
-      "minibar"
-     ]
+    "name": "Executive Villa One Bedroom",
+    "info": "90m²; 1 phòng ngủ; 1 giường Queen/King; view thung lũng",
+    "capacity": 2,
+    "priceOriginal": 7620000,
+    "price": 7620000,
+    "discount": 0,
+    "left": 1,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "bồn tắm",
+        "ban công",
+        "minibar"
+    ]
+    },
+    {
+    "name": "Two Bedroom Villa",
+    "info": "150m²; 2 phòng ngủ; phòng khách và bếp riêng; view thung lũng",
+    "capacity": 4,
+    "priceOriginal": 12800000,
+    "price": 12800000,
+    "discount": 0,
+    "left": 1,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "bồn tắm",
+        "ban công",
+        "minibar",
+        "bếp"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Nhà hàng",
     "spa",
     "yoga",
     "hồ bơi",
     "khu vui chơi",
     "dịch vụ đưa đón"
-   ],
-   "policy": "Mức tham khảo từ website đặt phòng; giá thay đổi theo ngày và chương trình ưu đãi.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 22,
-   "code": "RST-SP-001",
-   "slug": "the-mong-village-resort-spa",
-   "name": "The Mong Village Resort & Spa",
-   "type": "Resort",
-   "stars": 4,
-   "rating": 4.2,
-   "ratingMax": 5,
-   "reviews": 553,
-   "booked": 0,
-   "city": "Sa Pa",
-   "address": "Cầu Mây, Tổ 1, Sa Pa, Lào Cai",
-   "description": "Resort mang phong cách bản địa, phù hợp nghỉ dưỡng giữa cảnh quan núi rừng Sa Pa.",
-   "keywords": [
+    ],
+    "policy": "Mức giá tham khảo từ website đặt phòng; giá thay đổi theo ngày và chương trình ưu đãi. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Dịch vụ đưa đón và các hoạt động yoga, spa cần đặt trước với resort. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 22,
+    "code": "RST-SP-001",
+    "slug": "the-mong-village-resort-spa",
+    "name": "The Mong Village Resort & Spa",
+    "type": "Resort",
+    "stars": 4,
+    "rating": 4.2,
+    "ratingMax": 5,
+    "reviews": 553,
+    "booked": 0,
+    "city": "Sa Pa",
+    "address": "Cầu Mây, Tổ 1, Sa Pa, Lào Cai",
+    "description": "Resort mang phong cách bản địa của người H'Mông, hòa mình giữa cảnh quan núi rừng Sa Pa. Khách lưu trú trong các căn bungalow gỗ ấm cúng với ban công nhìn ra núi, thưởng thức món ăn địa phương tại nhà hàng và thư giãn ở spa. Resort có hồ bơi, sân vườn và tổ chức tour trải nghiệm bản làng cho khách muốn tìm hiểu văn hóa vùng cao.",
+    "keywords": [
     "resort",
     "bản địa",
     "spa",
     "núi",
     "bungalow"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Deluxe Bungalow",
-     "info": "35m²; 1 giường King; ban công view núi",
-     "capacity": 2,
-     "priceOriginal": 2000000,
-     "price": 2000000,
-     "discount": 0,
-     "left": 4,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "điều hòa",
-      "minibar",
-      "ban công"
-     ]
+    "name": "Superior Garden",
+    "info": "28m²; 1 giường đôi; view sân vườn",
+    "capacity": 2,
+    "priceOriginal": 1600000,
+    "price": 1600000,
+    "discount": 0,
+    "left": 4,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar"
+    ]
+    },
+    {
+    "name": "Deluxe Bungalow",
+    "info": "35m²; 1 giường King; ban công view núi",
+    "capacity": 2,
+    "priceOriginal": 2000000,
+    "price": 2000000,
+    "discount": 0,
+    "left": 4,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "ban công"
+    ]
+    },
+    {
+    "name": "Family Bungalow",
+    "info": "55m²; 1 giường King + 2 giường đơn; ban công",
+    "capacity": 4,
+    "priceOriginal": 3100000,
+    "price": 3100000,
+    "discount": 0,
+    "left": 2,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "điều hòa",
+        "minibar",
+        "ban công"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Spa",
     "nhà hàng",
     "hồ bơi",
     "sân vườn",
     "tour",
     "bãi đỗ xe"
-   ],
-   "policy": "Giá tham khảo/đêm; chính sách hủy và phụ thu tùy rate.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 23,
-   "code": "RST-SP-002",
-   "slug": "laxsik-ecolodge",
-   "name": "Laxsik Ecolodge",
-   "type": "Resort",
-   "stars": 4,
-   "rating": 4.6,
-   "ratingMax": 5,
-   "reviews": 819,
-   "booked": 0,
-   "city": "Sa Pa",
-   "address": "Lý Hamlet, Sa Pa, Lào Cai",
-   "description": "Ecolodge giữa thung lũng với không gian gần thiên nhiên, phù hợp nghỉ dưỡng và trải nghiệm bản địa.",
-   "keywords": [
+    ],
+    "policy": "Giá tham khảo theo đêm; chính sách hủy và phụ thu tùy loại giá. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Mùa cao điểm (dịp lễ, Tết, mùa lúa chín) resort có thể yêu cầu đặt tối thiểu 2 đêm. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 23,
+    "code": "RST-SP-002",
+    "slug": "laxsik-ecolodge",
+    "name": "Laxsik Ecolodge",
+    "type": "Resort",
+    "stars": 4,
+    "rating": 4.6,
+    "ratingMax": 5,
+    "reviews": 819,
+    "booked": 0,
+    "city": "Sa Pa",
+    "address": "Lý Hamlet, Sa Pa, Lào Cai",
+    "description": "Ecolodge giữa thung lũng với không gian gần gũi thiên nhiên, phù hợp nghỉ dưỡng và trải nghiệm đời sống bản địa. Các bungalow xây bằng vật liệu thân thiện môi trường, có ban công nhìn thung lũng ruộng bậc thang. Khách có thể tham gia tour trekking, tắm lá thuốc hoặc thư giãn tại hồ bơi và spa của khu nghỉ.",
+    "keywords": [
     "ecolodge",
     "bungalow",
     "núi",
     "spa",
     "bản địa"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Valley View Bungalow",
-     "info": "32m²; 1 giường King; view thung lũng",
-     "capacity": 2,
-     "priceOriginal": 2900000,
-     "price": 2900000,
-     "discount": 0,
-     "left": 3,
-     "amenities": [
-      "WiFi",
-      "điều hòa",
-      "ban công",
-      "minibar",
-      "vòi sen"
-     ]
+    "name": "Valley View Bungalow",
+    "info": "32m²; 1 giường King; view thung lũng",
+    "capacity": 2,
+    "priceOriginal": 2900000,
+    "price": 2900000,
+    "discount": 0,
+    "left": 3,
+    "amenities": [
+        "WiFi",
+        "điều hòa",
+        "ban công",
+        "minibar",
+        "vòi sen"
+    ]
+    },
+    {
+    "name": "Family Bungalow",
+    "info": "50m²; 1 giường King + 2 giường đơn; view thung lũng",
+    "capacity": 4,
+    "priceOriginal": 4200000,
+    "price": 4200000,
+    "discount": 0,
+    "left": 2,
+    "amenities": [
+        "WiFi",
+        "điều hòa",
+        "ban công",
+        "minibar",
+        "vòi sen"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Hồ bơi",
     "nhà hàng",
     "spa",
     "sân vườn",
     "tour",
     "xe đưa đón"
-   ],
-   "policy": "Giá tham khảo/đêm; mức giá thay đổi theo mùa và hạng phòng.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 24,
-   "code": "RST-SP-003",
-   "slug": "sapa-jade-hill-resort-spa",
-   "name": "Sapa Jade Hill Resort & Spa",
-   "type": "Resort",
-   "stars": 5,
-   "rating": 0,
-   "ratingMax": 5,
-   "reviews": 0,
-   "booked": 0,
-   "city": "Sa Pa",
-   "address": "Đồi Ham Rong, Sa Pa, Lào Cai",
-   "description": "Boutique mountain resort với bungalow và villa hướng thung lũng Mường Hoa.",
-   "keywords": [
+    ],
+    "policy": "Giá tham khảo theo đêm; mức giá thay đổi theo mùa và hạng phòng. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Khu nghỉ ưu tiên bảo vệ môi trường: vui lòng hạn chế đồ nhựa dùng một lần và tiết kiệm nước, điện. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 24,
+    "code": "RST-SP-003",
+    "slug": "sapa-jade-hill-resort-spa",
+    "name": "Sapa Jade Hill Resort & Spa",
+    "type": "Resort",
+    "stars": 5,
+    "rating": 0,
+    "ratingMax": 5,
+    "reviews": 0,
+    "booked": 0,
+    "city": "Sa Pa",
+    "address": "Đồi Ham Rong, Sa Pa, Lào Cai",
+    "description": "Boutique mountain resort với các căn bungalow và villa hướng thung lũng Mường Hoa, nằm trên đồi Hàm Rồng. Không gian nghỉ dưỡng sang trọng, yên tĩnh với ban công lớn, bồn tắm và nội thất gỗ ấm áp. Resort có spa, nhà hàng, hồ bơi, sân vườn và khu vui chơi, phù hợp cho kỳ nghỉ lãng mạn hoặc gia đình.",
+    "keywords": [
     "resort",
     "5 sao",
     "bungalow",
     "Mường Hoa",
     "spa"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Deluxe Bungalow",
-     "info": "40m²; 1 giường đôi hoặc 2 giường đơn; view núi",
-     "capacity": 2,
-     "priceOriginal": 4400000,
-     "price": 4400000,
-     "discount": 0,
-     "left": 2,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "bồn tắm",
-      "ban công",
-      "minibar"
-     ]
+    "name": "Deluxe Bungalow",
+    "info": "40m²; 1 giường đôi hoặc 2 giường đơn; view núi",
+    "capacity": 2,
+    "priceOriginal": 4400000,
+    "price": 4400000,
+    "discount": 0,
+    "left": 2,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "bồn tắm",
+        "ban công",
+        "minibar"
+    ]
+    },
+    {
+    "name": "Premier Villa Valley View",
+    "info": "80m²; 2 phòng ngủ; view thung lũng Mường Hoa",
+    "capacity": 4,
+    "priceOriginal": 6800000,
+    "price": 6800000,
+    "discount": 0,
+    "left": 1,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "bồn tắm",
+        "ban công",
+        "minibar"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Spa",
     "nhà hàng",
     "hồ bơi",
     "sân vườn",
     "tour",
     "khu vui chơi"
-   ],
-   "policy": "Giá niêm yết tham khảo; các hạng cao hơn có thể vượt mức này; giá thay đổi theo thời gian.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 25,
-   "code": "VIL-DL-001",
-   "slug": "ana-mandara-villas-dalat",
-   "name": "Ana Mandara Villas Dalat Resort & Spa",
-   "type": "Villa",
-   "stars": 5,
-   "rating": 0,
-   "ratingMax": 5,
-   "reviews": 0,
-   "booked": 0,
-   "city": "Đà Lạt",
-   "address": "Lê Lai, Phường 5, Đà Lạt, Lâm Đồng",
-   "description": "Quần thể villa Pháp cổ giữa đồi thông, có spa, hồ bơi và không gian nghỉ dưỡng riêng tư.",
-   "keywords": [
+    ],
+    "policy": "Giá niêm yết tham khảo; các hạng phòng cao hơn có thể vượt mức này; giá thay đổi theo thời gian. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 25,
+    "code": "VIL-DL-001",
+    "slug": "ana-mandara-villas-dalat",
+    "name": "Ana Mandara Villas Dalat Resort & Spa",
+    "type": "Villa",
+    "stars": 5,
+    "rating": 0,
+    "ratingMax": 5,
+    "reviews": 0,
+    "booked": 0,
+    "city": "Đà Lạt",
+    "address": "Lê Lai, Phường 5, Đà Lạt, Lâm Đồng",
+    "description": "Quần thể villa Pháp cổ giữa đồi thông Đà Lạt với kiến trúc thập niên 1920, mang đến không khí hoài cổ và lãng mạn. Mỗi villa có lò sưởi, ban công nhìn ra vườn và nội thất sang trọng; khu nghỉ còn có spa, hồ bơi ngoài trời, nhà hàng và sân vườn rộng. Phù hợp cho cặp đôi, kỳ trăng mật hoặc gia đình muốn không gian riêng tư.",
+    "keywords": [
     "villa",
     "Pháp cổ",
     "đồi thông",
     "spa",
     "hồ bơi"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Garden Suite Villa",
-     "info": "50m²; 1 giường đôi; view vườn",
-     "capacity": 2,
-     "priceOriginal": 4500000,
-     "price": 4500000,
-     "discount": 0,
-     "left": 3,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "minibar",
-      "lò sưởi",
-      "ban công"
-     ]
+    "name": "Deluxe Room",
+    "info": "35m²; 1 giường đôi; view vườn",
+    "capacity": 2,
+    "priceOriginal": 3200000,
+    "price": 3200000,
+    "discount": 0,
+    "left": 4,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "minibar",
+        "lò sưởi"
+    ]
+    },
+    {
+    "name": "Garden Suite Villa",
+    "info": "50m²; 1 giường đôi; view vườn",
+    "capacity": 2,
+    "priceOriginal": 4500000,
+    "price": 4500000,
+    "discount": 0,
+    "left": 3,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "minibar",
+        "lò sưởi",
+        "ban công"
+    ]
+    },
+    {
+    "name": "Two Bedroom Villa",
+    "info": "110m²; 2 phòng ngủ; phòng khách riêng",
+    "capacity": 4,
+    "priceOriginal": 7800000,
+    "price": 7800000,
+    "discount": 0,
+    "left": 1,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "minibar",
+        "lò sưởi",
+        "ban công"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Spa",
     "hồ bơi ngoài trời",
     "gym",
     "nhà hàng",
     "sân vườn",
     "xe đưa đón"
-   ],
-   "policy": "Giá tham khảo theo mức phòng công bố; phụ thuộc villa và ngày lưu trú.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 26,
-   "code": "VIL-DL-002",
-   "slug": "binh-an-village-dalat",
-   "name": "Bình An Village Dalat",
-   "type": "Villa",
-   "stars": 4,
-   "rating": 0,
-   "ratingMax": 5,
-   "reviews": 0,
-   "booked": 0,
-   "city": "Đà Lạt",
-   "address": "Tuyền Lâm, Đà Lạt, Lâm Đồng",
-   "description": "Khu nghỉ dưỡng boutique bên hồ Tuyền Lâm với villa và suite mang phong cách Pháp kết hợp bản địa.",
-   "keywords": [
+    ],
+    "policy": "Giá tham khảo theo mức phòng công bố, phụ thuộc loại villa và ngày lưu trú. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Villa Pháp cổ có cầu thang và địa hình dốc, khách có người lớn tuổi hoặc xe lăn nên báo trước để được xếp phòng phù hợp. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 26,
+    "code": "VIL-DL-002",
+    "slug": "binh-an-village-dalat",
+    "name": "Bình An Village Dalat",
+    "type": "Villa",
+    "stars": 4,
+    "rating": 0,
+    "ratingMax": 5,
+    "reviews": 0,
+    "booked": 0,
+    "city": "Đà Lạt",
+    "address": "Tuyền Lâm, Đà Lạt, Lâm Đồng",
+    "description": "Khu nghỉ dưỡng boutique bên hồ Tuyền Lâm với villa và suite mang phong cách Pháp kết hợp nét bản địa. Mỗi căn có ban công nhìn hồ hoặc vườn, lò sưởi ấm áp cho những đêm lạnh Đà Lạt. Nhà hàng, sân vườn, hoạt động ngoài trời như chèo thuyền, đạp xe và đi bộ giúp du khách tận hưởng nhịp sống chậm.",
+    "keywords": [
     "villa",
     "Tuyền Lâm",
     "hồ",
     "boutique",
     "riêng tư"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Lake View Villa",
-     "info": "50m²; 1 giường King; view hồ",
-     "capacity": 2,
-     "priceOriginal": 4000000,
-     "price": 4000000,
-     "discount": 0,
-     "left": 2,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "minibar",
-      "ban công",
-      "lò sưởi"
-     ]
+    "name": "Garden Suite",
+    "info": "40m²; 1 giường đôi; view vườn",
+    "capacity": 2,
+    "priceOriginal": 3100000,
+    "price": 3100000,
+    "discount": 0,
+    "left": 3,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "minibar",
+        "lò sưởi"
+    ]
+    },
+    {
+    "name": "Lake View Villa",
+    "info": "50m²; 1 giường King; view hồ",
+    "capacity": 2,
+    "priceOriginal": 4000000,
+    "price": 4000000,
+    "discount": 0,
+    "left": 2,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "minibar",
+        "ban công",
+        "lò sưởi"
+    ]
+    },
+    {
+    "name": "Family Villa",
+    "info": "95m²; 2 phòng ngủ; phòng khách riêng; view hồ",
+    "capacity": 4,
+    "priceOriginal": 6500000,
+    "price": 6500000,
+    "discount": 0,
+    "left": 1,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "minibar",
+        "ban công",
+        "lò sưởi"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Nhà hàng",
     "sân vườn",
     "hồ",
     "hoạt động ngoài trời",
     "bãi đỗ xe"
-   ],
-   "policy": "Giá tham khảo/đêm; villa nhiều phòng có thể cao hơn; xác nhận phụ thu và hủy.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 27,
-   "code": "VIL-DL-003",
-   "slug": "dalat-wonder-resort-villa",
-   "name": "Dalat Wonder Resort - Villa",
-   "type": "Villa",
-   "stars": 4,
-   "rating": 0,
-   "ratingMax": 5,
-   "reviews": 0,
-   "booked": 0,
-   "city": "Đà Lạt",
-   "address": "Phường 4, Đà Lạt, Lâm Đồng",
-   "description": "Khu nghỉ dưỡng ven hồ Tuyền Lâm có villa và nhiều lựa chọn phòng cho gia đình.",
-   "keywords": [
+    ],
+    "policy": "Giá tham khảo theo đêm; villa nhiều phòng có thể cao hơn; vui lòng xác nhận phụ thu và điều kiện hủy. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Khu nghỉ nằm xa trung tâm, khách nên chủ động phương tiện di chuyển hoặc đặt xe đưa đón trước. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 27,
+    "code": "VIL-DL-003",
+    "slug": "dalat-wonder-resort-villa",
+    "name": "Dalat Wonder Resort - Villa",
+    "type": "Villa",
+    "stars": 4,
+    "rating": 0,
+    "ratingMax": 5,
+    "reviews": 0,
+    "booked": 0,
+    "city": "Đà Lạt",
+    "address": "Phường 4, Đà Lạt, Lâm Đồng",
+    "description": "Khu nghỉ dưỡng ven hồ Tuyền Lâm với nhiều lựa chọn từ phòng tiêu chuẩn đến villa riêng, đáp ứng nhu cầu của gia đình và nhóm bạn. Villa có ban công nhìn hồ, không gian sinh hoạt rộng rãi, thuận tiện cho kỳ nghỉ dài ngày. Resort có hồ bơi, spa, nhà hàng, sân vườn và các hoạt động ngoài trời để cả nhà cùng tham gia.",
+    "keywords": [
     "villa",
     "Tuyền Lâm",
     "hồ",
     "gia đình",
     "resort"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Lake View Villa",
-     "info": "60m²; 1 phòng ngủ; ban công view hồ",
-     "capacity": 4,
-     "priceOriginal": 5500000,
-     "price": 5500000,
-     "discount": 0,
-     "left": 2,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "minibar",
-      "ban công",
-      "điều hòa"
-     ]
+    "name": "Deluxe Room",
+    "info": "30m²; 1 giường đôi hoặc 2 giường đơn; view vườn",
+    "capacity": 2,
+    "priceOriginal": 1900000,
+    "price": 1900000,
+    "discount": 0,
+    "left": 5,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "minibar",
+        "điều hòa"
+    ]
+    },
+    {
+    "name": "Lake View Villa",
+    "info": "60m²; 1 phòng ngủ; ban công view hồ",
+    "capacity": 4,
+    "priceOriginal": 5500000,
+    "price": 5500000,
+    "discount": 0,
+    "left": 2,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "minibar",
+        "ban công",
+        "điều hòa"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Hồ bơi",
     "nhà hàng",
     "spa",
     "sân vườn",
     "hoạt động ngoài trời"
-   ],
-   "policy": "Giá tham khảo/đêm; villa nhiều phòng có thể cao hơn mức này.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 28,
-   "code": "RST-DL-001",
-   "slug": "dalat-edensee-lake-resort-spa",
-   "name": "Dalat Edensee Lake Resort & Spa",
-   "type": "Resort",
-   "stars": 5,
-   "rating": 0,
-   "ratingMax": 5,
-   "reviews": 0,
-   "booked": 0,
-   "city": "Đà Lạt",
-   "address": "Hồ Tuyền Lâm, Đà Lạt, Lâm Đồng",
-   "description": "Resort ven hồ Tuyền Lâm với phong cách nghỉ dưỡng châu Âu, phòng nhìn vườn/núi/hồ.",
-   "keywords": [
+    ],
+    "policy": "Giá tham khảo theo đêm; villa nhiều phòng có thể cao hơn mức này. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 28,
+    "code": "RST-DL-001",
+    "slug": "dalat-edensee-lake-resort-spa",
+    "name": "Dalat Edensee Lake Resort & Spa",
+    "type": "Resort",
+    "stars": 5,
+    "rating": 0,
+    "ratingMax": 5,
+    "reviews": 0,
+    "booked": 0,
+    "city": "Đà Lạt",
+    "address": "Hồ Tuyền Lâm, Đà Lạt, Lâm Đồng",
+    "description": "Resort 5 sao ven hồ Tuyền Lâm mang phong cách nghỉ dưỡng châu Âu, với phòng nhìn ra vườn, núi hoặc hồ. Không gian được chăm chút tinh tế, có bồn tắm, hệ thống sưởi và nhiều tiện ích như spa, hồ bơi, sân tennis, phòng gym và khu vui chơi. Đây là lựa chọn phù hợp cho gia đình, cặp đôi hoặc đoàn công ty muốn kết hợp nghỉ dưỡng và sự kiện.",
+    "keywords": [
     "resort",
     "hồ Tuyền Lâm",
     "5 sao",
     "spa",
     "golf"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Luxury Garden View",
-     "info": "32m²; 1 giường đôi hoặc 2 giường đơn; view vườn",
-     "capacity": 2,
-     "priceOriginal": 5556096,
-     "price": 5556096,
-     "discount": 0,
-     "left": 3,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "minibar",
-      "bồn tắm",
-      "sưởi"
-     ]
+    "name": "Luxury Garden View",
+    "info": "32m²; 1 giường đôi hoặc 2 giường đơn; view vườn",
+    "capacity": 2,
+    "priceOriginal": 5556096,
+    "price": 5556096,
+    "discount": 0,
+    "left": 3,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "minibar",
+        "bồn tắm",
+        "sưởi"
+    ]
+    },
+    {
+    "name": "Luxury Lake View",
+    "info": "36m²; 1 giường King; ban công view hồ",
+    "capacity": 3,
+    "priceOriginal": 6400000,
+    "price": 6400000,
+    "discount": 0,
+    "left": 2,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "minibar",
+        "bồn tắm",
+        "sưởi",
+        "ban công"
+    ]
+    },
+    {
+    "name": "Family Suite",
+    "info": "80m²; 2 phòng ngủ; phòng khách riêng",
+    "capacity": 4,
+    "priceOriginal": 8900000,
+    "price": 8900000,
+    "discount": 0,
+    "left": 1,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "minibar",
+        "bồn tắm",
+        "sưởi"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Hồ",
     "spa",
     "hồ bơi",
@@ -1633,115 +2323,164 @@
     "gym",
     "nhà hàng",
     "khu vui chơi"
-   ],
-   "policy": "Mức tham khảo theo giá hiển thị 2026; có thể thay đổi theo ngày và ưu đãi.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 29,
-   "code": "RST-DL-002",
-   "slug": "terracotta-hotel-resort-dalat",
-   "name": "Terracotta Hotel & Resort Dalat",
-   "type": "Resort",
-   "stars": 4,
-   "rating": 0,
-   "ratingMax": 5,
-   "reviews": 0,
-   "booked": 0,
-   "city": "Đà Lạt",
-   "address": "Khu du lịch Hồ Tuyền Lâm, Đà Lạt, Lâm Đồng",
-   "description": "Resort lớn bên hồ Tuyền Lâm với phòng nghỉ và nhiều căn villa, phù hợp nhóm gia đình.",
-   "keywords": [
+    ],
+    "policy": "Mức tham khảo theo giá hiển thị năm 2026; có thể thay đổi theo ngày và ưu đãi. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 29,
+    "code": "RST-DL-002",
+    "slug": "terracotta-hotel-resort-dalat",
+    "name": "Terracotta Hotel & Resort Dalat",
+    "type": "Resort",
+    "stars": 4,
+    "rating": 0,
+    "ratingMax": 5,
+    "reviews": 0,
+    "booked": 0,
+    "city": "Đà Lạt",
+    "address": "Khu du lịch Hồ Tuyền Lâm, Đà Lạt, Lâm Đồng",
+    "description": "Resort lớn bên hồ Tuyền Lâm với phòng nghỉ khách sạn và nhiều căn villa riêng, phù hợp nhóm gia đình đông người. Khuôn viên rộng có sân vườn, hồ bơi, sân tennis, spa và nhà hàng phục vụ ẩm thực đa dạng. Khách có thể đi dạo quanh hồ, đạp xe hoặc tham gia các hoạt động ngoài trời do resort tổ chức.",
+    "keywords": [
     "resort",
     "villa",
     "hồ Tuyền Lâm",
     "gia đình",
     "spa"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Deluxe Room",
-     "info": "30m²; 1 giường đôi hoặc 2 giường đơn; view vườn",
-     "capacity": 2,
-     "priceOriginal": 2280000,
-     "price": 2280000,
-     "discount": 0,
-     "left": 4,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "minibar",
-      "ban công",
-      "vòi sen"
-     ]
+    "name": "Deluxe Room",
+    "info": "30m²; 1 giường đôi hoặc 2 giường đơn; view vườn",
+    "capacity": 2,
+    "priceOriginal": 2280000,
+    "price": 2280000,
+    "discount": 0,
+    "left": 4,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "minibar",
+        "ban công",
+        "vòi sen"
+    ]
+    },
+    {
+    "name": "Family Room",
+    "info": "50m²; 1 giường đôi + 2 giường đơn; view vườn",
+    "capacity": 4,
+    "priceOriginal": 3400000,
+    "price": 3400000,
+    "discount": 0,
+    "left": 3,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "minibar",
+        "ban công",
+        "vòi sen"
+    ]
+    },
+    {
+    "name": "Two Bedroom Villa",
+    "info": "120m²; 2 phòng ngủ; phòng khách riêng",
+    "capacity": 4,
+    "priceOriginal": 6200000,
+    "price": 6200000,
+    "discount": 0,
+    "left": 2,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "minibar",
+        "ban công",
+        "bếp"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Nhà hàng",
     "spa",
     "gym",
     "hồ bơi",
     "sân tennis",
     "sân vườn"
-   ],
-   "policy": "Giá tham khảo/đêm cho phòng khách sạn; villa nhiều phòng có giá cao hơn.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  },
-  {
-   "id": 30,
-   "code": "RST-DL-003",
-   "slug": "swiss-belresort-tuyen-lam",
-   "name": "Swiss-Belresort Tuyen Lam",
-   "type": "Resort",
-   "stars": 4,
-   "rating": 0,
-   "ratingMax": 5,
-   "reviews": 0,
-   "booked": 0,
-   "city": "Đà Lạt",
-   "address": "Phân khu 7&8, Khu du lịch Hồ Tuyền Lâm, Đà Lạt, Lâm Đồng",
-   "description": "Resort giữa đồi thông với không gian yên tĩnh, có hồ bơi và sân golf lân cận.",
-   "keywords": [
+    ],
+    "policy": "Giá tham khảo theo đêm cho phòng khách sạn; villa nhiều phòng có giá cao hơn. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    },
+    {
+    "id": 30,
+    "code": "RST-DL-003",
+    "slug": "swiss-belresort-tuyen-lam",
+    "name": "Swiss-Belresort Tuyen Lam",
+    "type": "Resort",
+    "stars": 4,
+    "rating": 0,
+    "ratingMax": 5,
+    "reviews": 0,
+    "booked": 0,
+    "city": "Đà Lạt",
+    "address": "Phân khu 7&8, Khu du lịch Hồ Tuyền Lâm, Đà Lạt, Lâm Đồng",
+    "description": "Resort nằm giữa đồi thông với không gian yên tĩnh, có hồ bơi và sân golf lân cận, thích hợp để nghỉ ngơi xa náo nhiệt. Phòng nghỉ thoáng, nhìn ra núi hoặc rừng thông, có ban công đón gió mát. Resort có nhà hàng, spa, phòng gym và bãi đỗ xe rộng, thuận tiện cho khách tự lái.",
+    "keywords": [
     "resort",
     "Tuyền Lâm",
     "đồi thông",
     "golf",
     "hồ bơi"
-   ],
-   "rooms": [
+    ],
+    "rooms": [
     {
-     "name": "Deluxe Mountain View",
-     "info": "34m²; 1 giường King hoặc 2 giường đơn; view núi",
-     "capacity": 2,
-     "priceOriginal": 1945000,
-     "price": 1945000,
-     "discount": 0,
-     "left": 4,
-     "amenities": [
-      "WiFi",
-      "TV",
-      "minibar",
-      "ban công",
-      "điều hòa"
-     ]
+    "name": "Deluxe Mountain View",
+    "info": "34m²; 1 giường King hoặc 2 giường đơn; view núi",
+    "capacity": 2,
+    "priceOriginal": 1945000,
+    "price": 1945000,
+    "discount": 0,
+    "left": 4,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "minibar",
+        "ban công",
+        "điều hòa"
+    ]
+    },
+    {
+    "name": "Family Room",
+    "info": "52m²; 1 giường King + 2 giường đơn; view rừng thông",
+    "capacity": 4,
+    "priceOriginal": 2900000,
+    "price": 2900000,
+    "discount": 0,
+    "left": 3,
+    "amenities": [
+        "WiFi",
+        "TV",
+        "minibar",
+        "ban công",
+        "điều hòa"
+    ]
     }
-   ],
-   "amenities": [
+    ],
+    "amenities": [
     "Hồ bơi",
     "gym",
     "spa",
     "nhà hàng",
     "sân golf lân cận",
     "bãi đỗ xe"
-   ],
-   "policy": "Giá tham khảo/đêm; giá và điều kiện hủy thay đổi theo ngày.",
-   "checkIn": "14:00",
-   "checkOut": "12:00",
-   "images": []
-  }
- ]
+    ],
+    "policy": "Giá tham khảo theo đêm; giá và điều kiện hủy thay đổi theo ngày. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Chi phí chơi golf tại sân lân cận không bao gồm trong giá phòng. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+    "checkIn": "14:00",
+    "checkOut": "12:00",
+    "images": []
+    }
+    ]
 }
+    
