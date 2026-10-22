@@ -566,8 +566,12 @@ function getCheapestRoom(hotel) {
 }
  
 // Có ảnh thì hiện ảnh, chưa có thì hiện khung sọc xanh
+const HOTEL_IMG_PATH = "../../assest/images/hotels/";
 function imageHTML(hotel, index, label) {
-  const img = hotel.images[index] ? `<img src="${hotel.images[index]}" alt="${hotel.name}">` : "";
+  const file = hotel.images[index];
+  const img = file
+    ? `<img src="${HOTEL_IMG_PATH}${file}" alt="${hotel.name}" onerror="this.remove()">`
+    : "";
   return `<div class="media-placeholder" data-label="${label}">${img}</div>`;
 }
  
@@ -675,9 +679,9 @@ function renderHotels() {
  
   grid.innerHTML = list.length
     ? list.map(hotelCardHTML).join("")
-    : '<div class="car-empty">Không tìm thấy khách sạn phù hợp. Hãy thử bộ lọc khác.</div>';
+    : '<div class="car-empty">Không tìm thấy kết quả phù hợp. Hãy thử bộ lọc khác.</div>';
  
-  document.getElementById("resultCount").textContent = `Tìm thấy ${list.length} khách sạn phù hợp`;
+  document.getElementById("resultCount").textContent = `Tìm thấy ${list.length} kết quả phù hợp`;
 }
  
 /* ---------- 5. POPUP CHI TIẾT KHÁCH SẠN ---------- */
@@ -686,21 +690,28 @@ function openHotelDetail(hotelId) {
   if (!hotel) return;
   currentHotel = hotel;
 
- 
   const roomsHTML = hotel.rooms.map((room, index) => {
-    const oldPrice = room.discount ? `<span class="old-price">${money(room.priceOriginal)}</span>` : "";
-    const amenities = room.amenities.map(a => `<span class="tag-chip">${a}</span>`).join("");
+    const oldPrice = room.discount
+      ? `<span class="old-price">${money(room.priceOriginal)}</span>` : "";
+    const amenities = room.amenities
+      .map(a => `<span class="tag-chip">${a}</span>`).join("");
+    const roomImg = room.image
+      ? `<img src="${HOTEL_IMG_PATH}${room.image}" alt="${room.name}" onerror="this.remove()">`
+      : "";
+
     return `
       <div class="room-row">
-        <div class="media-placeholder" data-label="Ảnh phòng"></div>
+        <div class="media-placeholder" data-label="Ảnh phòng">${roomImg}</div>
+
         <div>
           <div class="room-name">${room.name}</div>
           <div class="room-info">${room.info} · Tối đa ${room.capacity} người</div>
           <div class="tag-row">${amenities}</div>
         </div>
+
         <div class="room-side">
           ${oldPrice}
-           <div class="room-price-line">
+          <div class="room-price-line">
             <span class="room-price">${money(room.price)}</span>
             <span class="room-note">/đêm</span>
           </div>
@@ -708,12 +719,12 @@ function openHotelDetail(hotelId) {
         </div>
       </div>`;
   }).join("");
- 
+
   const hotelAmenities = hotel.amenities.map(a => `<li>${a}</li>`).join("");
- 
+
   document.getElementById("detailModal").innerHTML = `
     <button type="button" class="modal-close" onclick="closeModal('detailModalOverlay')">×</button>
- 
+
     <div class="detail-top">
       <div>
         <h2>${hotel.name}</h2>
@@ -721,14 +732,14 @@ function openHotelDetail(hotelId) {
         <p class="hotel-meta">${hotel.description}</p>
       </div>
     </div>
- 
+
     <div class="detail-body" style="padding-top:14px">
       <div class="hotel-gallery" style="padding:0">
         ${imageHTML(hotel, 0, "Ảnh minh họa")}
         ${imageHTML(hotel, 1, "Ảnh minh họa")}
         ${imageHTML(hotel, 2, "Ảnh minh họa")}
       </div>
- 
+
       <div class="tab-bar" style="margin-top:14px">
         <button type="button" class="tab-btn is-active" onclick="switchTab(this, 'tabRooms')">Danh sách phòng</button>
         <button type="button" class="tab-btn" onclick="switchTab(this, 'tabInfo1')">Chi tiết tiện ích</button>
@@ -749,13 +760,14 @@ function openHotelDetail(hotelId) {
         <ul class="inc-list-hotel">
           <li>Khách sạn nhận phòng từ <strong>${hotel.checkIn}</strong> và trả phòng trước <strong>${hotel.checkOut}</strong></li>
           <li>${hotel.policy}</li>
-          </ul>
+        </ul>
       </div>
     </div>`;
- 
+
   document.getElementById("detailModal").scrollTop = 0;
   openModal("detailModalOverlay");
 }
+
 function switchTab(btn, panelId) {
   const modal = document.getElementById("detailModal");
   modal.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("is-active"));

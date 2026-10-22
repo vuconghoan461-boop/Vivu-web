@@ -27,6 +27,7 @@
    "rooms": [
     {
      "name": "Deluxe Room",
+     "image":"hotel1.jpg",
      "info": "32m²; 1 giường King; view thành phố",
      "capacity": 2,
      "priceOriginal": 4200000,
@@ -43,6 +44,7 @@
     },
     {
      "name": "Premium Room",
+     "image":"hotel12.jpg",
      "info": "38m²; 1 giường King; view thành phố",
      "capacity": 2,
      "priceOriginal": 5000000,
@@ -60,6 +62,7 @@
     },
     {
      "name": "Family Room",
+     "image":"hotel123.jpg",
      "info": "55m²; 1 giường King + 2 giường đơn; view thành phố",
      "capacity": 4,
      "priceOriginal": 6500000,
@@ -95,7 +98,11 @@
    "policy": "Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. \nChính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. \nTrẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
    "checkIn": "14:00",
    "checkOut": "12:00",
-   "images": []
+   "images":  [
+    "hotel1.jpg",
+    "hotel12.jpg",
+    "hotel123.jpg"
+  ]
 },
   {
    "id": 2,
@@ -110,7 +117,7 @@
    "booked": 0,
    "city": "Hà Nội",
    "address": "15 Ngô Quyền, Hoàn Kiếm, Hà Nội",
-   "description": "Khách sạn mang tính biểu tượng từ năm 1901, kết hợp Heritage Wing và Opera Wing, nằm cạnh Nhà hát Lớn và khu phố cổ.",
+   "description": "Sofitel Legend Metropole Hanoi là khách sạn sang trọng mang đậm dấu ấn lịch sử từ năm 1901, nổi bật với kiến trúc Pháp cổ điển, không gian tinh tế và dịch vụ đẳng cấp. Khách sạn kết hợp hài hòa giữa Heritage Wing giàu giá trị di sản và Opera Wing mang phong cách hiện đại, tạo nên nét quyến rũ riêng biệt. Tọa lạc tại trung tâm Hà Nội, ngay gần Nhà hát Lớn và khu phố cổ, khách sạn là điểm dừng chân lý tưởng để du khách trải nghiệm vẻ đẹp văn hóa, lịch sử và nhịp sống của thủ đô.",
    "keywords": [
     "Di sản 1901",
     "French Quarter",
@@ -122,6 +129,7 @@
    "rooms": [
     {
      "name": "Premium Room - Opera Wing",
+     "image": "hotel1234.jpg",
      "info": "32m²; King hoặc Twin; view vườn/hồ bơi/thành phố",
      "capacity": 2,
      "priceOriginal": 9659713,
@@ -140,6 +148,7 @@
     },
     {
      "name": "Grand Premium Room - Opera Wing",
+     "image": "hotel1.jpg",
      "info": "48m²; King; Club Metropole; Club Lounge",
      "capacity": 2,
      "priceOriginal": 14492761,
@@ -184,7 +193,7 @@
    "policy": "Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. \nChính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. \nTrẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
    "checkIn": "14:00–00:00",
    "checkOut": "12:00",
-   "images": []
+   "images": ["hotel12.jpg","hotel1.jpg","hotel123.jpg"]
   },
   {
    "id": 3,
@@ -199,7 +208,7 @@
    "booked": 0,
    "city": "Hà Nội",
    "address": "1 Thanh Niên, Ba Đình, Hà Nội",
-   "description": "Khách sạn 5 sao nhìn ra Hồ Tây và Hồ Trúc Bạch, gần khu phố cổ; có phòng nghỉ, suite và serviced suite.",
+   "description": "Pan Pacific Hanoi là khách sạn 5 sao cao cấp sở hữu tầm nhìn ấn tượng hướng ra Hồ Tây và Hồ Trúc Bạch, mang đến không gian nghỉ dưỡng sang trọng giữa lòng thủ đô. Khách sạn cung cấp đa dạng lựa chọn lưu trú, từ phòng nghỉ hiện đại, suite cao cấp đến serviced suite tiện nghi, đáp ứng nhu cầu của cả khách du lịch và khách lưu trú dài ngày. Với vị trí thuận lợi gần khu phố cổ cùng hệ thống tiện ích và dịch vụ chuyên nghiệp, đây là điểm dừng chân lý tưởng để khám phá Hà Nội và tận hưởng kỳ nghỉ thoải mái.",
    "keywords": [
     "Hồ Tây",
     "Hồ Trúc Bạch",
@@ -211,6 +220,7 @@
    "rooms": [
     {
      "name": "Double Room - Opera Wing",
+     "image":"hotel21.jpg",
      "info": "32m²; King hoặc Twin; view vườn/hồ bơi/thành phố",
      "capacity": 2,
      "priceOriginal": 9659713,
@@ -227,6 +237,7 @@
     },
     {
      "name": "Deluxe Room",
+     "image": "hotel213.jpg",
      "info": "35m²; King hoặc Twin; view thành phố",
      "capacity": 2,
      "priceOriginal": 9700000,
@@ -250,6 +261,7 @@
     },
     {
      "name": "Premier Lakeview Room",
+     "image":"hotel212.jpg",
      "info": "35m²; King; view Hồ Tây; phòng tắm có bồn tắm và vòi sen",
      "capacity": 2,
      "priceOriginal": 13523400,
@@ -289,7 +301,7 @@
    "policy": "Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. \nChính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. \nTrẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
    "checkIn": "14:00",
    "checkOut": "12:00",
-   "images": []
+   "images": ["hotel211.jpg", "hotel2.jpg", "hotel21.jpg"]
   },
   {
    "id": 4,
@@ -304,7 +316,7 @@
    "booked": 0,
    "city": "Hà Nội",
    "address": "136 Hàng Trống, Hoàn Kiếm, Hà Nội",
-   "description": "Khách sạn nghệ thuật phong cách tân cổ điển ngay cạnh Hồ Hoàn Kiếm, có phòng và suite thiết kế nghệ thuật, hồ bơi rooftop và phòng gym nhìn toàn cảnh.",
+   "description": "Apricot Hotel là khách sạn boutique cao cấp mang phong cách tân cổ điển kết hợp nghệ thuật tinh tế, tọa lạc ngay bên Hồ Hoàn Kiếm, giữa trung tâm thủ đô Hà Nội. Khách sạn gây ấn tượng với không gian sang trọng, các phòng nghỉ và suite được thiết kế độc đáo, điểm xuyết những tác phẩm nghệ thuật giàu tính thẩm mỹ. Bên cạnh trải nghiệm lưu trú đẳng cấp, du khách còn có thể thư giãn tại hồ bơi trên tầng thượng, rèn luyện sức khỏe tại phòng gym với tầm nhìn toàn cảnh thành phố và dễ dàng khám phá các điểm tham quan nổi tiếng quanh khu vực phố cổ.",
    "keywords": [
     "Hồ Hoàn Kiếm",
     "nghệ thuật",
@@ -316,6 +328,7 @@
    "rooms": [
     {
      "name": "Deluxe Double Room",
+     "image": "hotel31.jpg",
      "info": "Diện tích theo loại phòng; 1 Queen",
      "capacity": 2,
      "priceOriginal": 4300000,
@@ -339,6 +352,7 @@
     },
      {
      "name": "Deluxe Double Room - Sketch",
+     "image": "hotel32.jpg",
      "info": "Diện tích theo loại phòng; 1 Queen; thiết kế nghệ thuật Sketch",
      "capacity": 2,
      "priceOriginal": 5600000,
@@ -362,6 +376,7 @@
     },    
     {
      "name": "Deluxe Room",
+     "image": "hotel33.jpg",
      "info": "35m²; King hoặc Twin; view thành phố",
      "capacity": 2,
      "priceOriginal": 9700000,
@@ -406,7 +421,7 @@
    "policy": "Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. \nChính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. \nTrẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
    "checkIn": "15:00",
    "checkOut": "13:00",
-   "images": []
+   "images": ["hotel3.jpg", "hotel31.jpg", "hotel32.jpg"]
   },
   {
    "id": 5,
@@ -421,7 +436,7 @@
    "booked": 0,
    "city": "Hà Nội",
    "address": "33 Đường Thành, Hoàn Kiếm, Hà Nội",
-   "description": "Khách sạn boutique 5 sao ở khu phố cổ, nổi bật với hồ bơi vô cực trên cao, nhà hàng, sky bar, spa và các phòng/suite có thiết kế sang trọng.",
+   "description": "Peridot Grand Luxury Boutique Hotel là khách sạn boutique 5 sao cao cấp nằm tại trung tâm Hà Nội, nổi bật với phong cách thiết kế sang trọng, kết hợp hài hòa giữa nét hiện đại và vẻ đẹp tinh tế của kiến trúc Đông Dương. Khách sạn cung cấp hệ thống phòng nghỉ và suite được trang bị tiện nghi hiện đại, mang đến không gian thư giãn riêng tư và thoải mái cho du khách. Bên cạnh dịch vụ lưu trú chuyên nghiệp, khách sạn còn sở hữu nhà hàng ẩm thực đặc sắc, hồ bơi vô cực trên tầng thượng và khu vực thư giãn cao cấp. Với vị trí thuận lợi gần khu phố cổ và các điểm tham quan nổi tiếng, đây là lựa chọn lý tưởng cho du khách muốn tận hưởng kỳ nghỉ sang trọng và khám phá nét đẹp văn hóa của Hà Nội.",
    "keywords": [
     "Phố cổ",
     "boutique",
@@ -434,6 +449,7 @@
    "rooms": [
     {
      "name": "Grand Deluxe",
+     "image": "hotel1.jpg",
      "info": "28–32m²; King hoặc Twin; view thành phố; không hút thuốc",
      "capacity": 2,
      "priceOriginal": 5000000,
@@ -456,8 +472,9 @@
       "room service"
      ]
     },
-        {
+    {
      "name": "Deluxe Room",
+     "image": "hotel12.jpg",
      "info": "35m²; King hoặc Twin; view thành phố",
      "capacity": 2,
      "priceOriginal": 9700000,
@@ -498,13 +515,12 @@
     "airport/city transportation",
     "visa arrangement",
     "bakery shop",
-    "concierge",
-    "currency exchange. Trẻ dưới 15 tuổi phải có phụ huynh/người lớn giám sát khi sử dụng hồ bơi, fitness, Jacuzzi, steam & sauna."
+    "concierge"
    ],
    "policy": "Nhận phòng/trả phòng cần xác nhận theo điều kiện đặt phòng của từng loại giá. Khách sạn không nhận vật nuôi. Bữa sáng buffet được khách sạn công bố tại 1968 Restaurant; breakfast box có thể yêu cầu trước. Dịch vụ đưa đón sân bay có tính phí; giá vận chuyển được niêm yết theo loại xe và đã bao gồm service charge/VAT theo trang dịch vụ. Hủy/trả trước và giường phụ phụ thuộc loại phòng/giá. Các khu wellness có giới hạn giám sát trẻ em.",
    "checkIn": "14:00",
    "checkOut": "12:00",
-   "images": []
+   "images": ["hotel4.jpg", "hotel1.jpg", "hotel12.jpg"]
   },
   {
    "id": 6,
@@ -518,8 +534,8 @@
    "reviews": 630,
    "booked": 650000,
    "city": "Hà Nội",
-   "address": "Khách sạn 3 sao tại Bùi Thị Xuân, Hai Bà Trưng; phù hợp khách công tác và du lịch cần lưu trú tiết kiệm gần trung tâm.",
-   "description": "Khách sạn bình dân tại Hà Nội, tập trung vào mức giá hợp lý, vị trí thuận tiện và các tiện nghi cơ bản như WiFi, TV, điều hòa, phòng tắm riêng và dịch vụ dọn phòng.",
+   "address": "Bùi Thị Xuân, Hai Bà Trưng",
+   "description": "Khách sạn bình dân tại Hà Nội, tập trung vào mức giá hợp lý, vị trí thuận tiện và các tiện nghi cơ bản như WiFi, TV, điều hòa, phòng tắm riêng và dịch vụ dọn phòng. Night Hotel mang đến không gian lưu trú hiện đại với phong cách thiết kế tinh tế, chú trọng sự thoải mái và tiện nghi cho du khách. Khách sạn cung cấp các phòng nghỉ được trang bị đầy đủ tiện ích cần thiết, phù hợp cho cả khách du lịch khám phá thành phố và khách lưu trú ngắn ngày. Với không gian riêng tư, dịch vụ chu đáo và vị trí thuận tiện cho việc di chuyển đến các điểm tham quan, ăn uống và mua sắm, Night Hotel là lựa chọn phù hợp cho những ai đang tìm kiếm một nơi nghỉ ngơi thoải mái trong hành trình của mình.",
    "keywords": [
     "Giá bình dân",
     "Hai Bà Trưng",
@@ -530,6 +546,7 @@
    "rooms": [
     {
      "name": "Standard Room",
+     "image":"hotel5.jpg",
      "info": "Khoảng 24m²; 1 giường King; phòng không hút thuốc; phòng tắm riêng; TV màn hình phẳng; minibar; ấm đun nước; bàn làm việc",
      "capacity": 2,
      "priceOriginal": 750000,
@@ -553,6 +570,7 @@
     },
      {
      "name": "High Room",
+     "image":"hotel41.jpg",
      "info": "Khoảng 24m²; 1 giường King; phòng không hút thuốc; phòng tắm riêng; TV màn hình phẳng; minibar; ấm đun nước; bàn làm việc",
      "capacity": 2,
      "priceOriginal": 850000,
@@ -590,7 +608,7 @@
    "policy": "Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. \nChính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. \nTrẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
    "checkIn": "14:00",
    "checkOut": "12:00",
-   "images": []
+   "images": ["hotel41.jpg", "hotel5.jpg", "hotel21.jpg"]
   },
   {
    "id": 7,
@@ -604,8 +622,8 @@
    "reviews": 74,
    "booked": 790000,
    "city": "Hà Nội",
-   "address": "Khách sạn phổ thông tại 83/10 Xã Đàn, Đống Đa, có nhiều hạng phòng và các tiện nghi cơ bản cho khách du lịch, công tác.",
-   "description": "Khách sạn bình dân tại Hà Nội, tập trung vào mức giá hợp lý, vị trí thuận tiện và các tiện nghi cơ bản như WiFi, TV, điều hòa, phòng tắm riêng và dịch vụ dọn phòng.",
+   "address": "83/10 Xã Đàn, Đống Đa",
+   "description": "Khách sạn bình dân tại Hà Nội, tập trung vào mức giá hợp lý, vị trí thuận tiện và các tiện nghi cơ bản như WiFi, TV, điều hòa, phòng tắm riêng và dịch vụ dọn phòng. Với không gian riêng tư, dịch vụ chu đáo và vị trí thuận tiện cho việc di chuyển đến các điểm tham quan, ăn uống và mua sắm, đây là lựa chọn phù hợp cho những ai đang tìm kiếm một nơi nghỉ ngơi thoải mái trong hành trình của mình.",
    "keywords": [
     "Giá bình dân",
     "Đống Đa",
@@ -616,6 +634,7 @@
    "rooms": [
     {
      "name": "Superior Single",
+     "image":"hotel5.jpg",
      "info": "Phòng 1 khách; giường đơn; điều hòa; WiFi; TV; phòng tắm riêng; đồ vệ sinh cá nhân",
      "capacity": 2,
      "priceOriginal": 650000,
@@ -637,6 +656,7 @@
     },
     {
      "name": "Superior Double",
+     "image":"hotel42.jpg",
      "info": "Phòng 2 khách; giường đôi; điều hòa; WiFi; TV; phòng tắm riêng; đồ vệ sinh cá nhân",
      "capacity": 2,
      "priceOriginal": 850000,
@@ -671,7 +691,7 @@
    "policy": "Nhận phòng và yêu cầu đặc biệt theo chính sách tại thời điểm đặt. Yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. Chính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Có thể yêu cầu giấy tờ tùy thân và thẻ/tiền đặt cọc cho chi phí phát sinh. Chỉ khách đã đăng ký được lưu trú. Khách sạn không hút thuốc; bữa sáng có thể tính phí. Chỗ đỗ xe chủ yếu dành cho xe máy.",
    "checkIn": "14:00",
    "checkOut": "12:00",
-   "images": []
+   "images": ["hotel42.jpg", "hotel5.jpg", "hotel21.jpg"]
   },
   {
    "id": 8,
@@ -685,8 +705,8 @@
    "reviews": 142,
    "booked": 890000,
    "city": "Hà Nội",
-   "address": "Khách sạn quy mô nhỏ tại 235 Phố Huế, Hai Bà Trưng, gần Vincom Center Bà Triệu và thuận tiện vào khu trung tâm.",
-   "description": "Khách sạn bình dân tại Hà Nội, tập trung vào mức giá hợp lý, vị trí thuận tiện và các tiện nghi cơ bản như WiFi, TV, điều hòa, phòng tắm riêng và dịch vụ dọn phòng.",
+   "address": "235 Phố Huế, Hai Bà Trưng",
+   "description": "Khách sạn bình dân tại Hà Nội, tập trung vào mức giá hợp lý, vị trí thuận tiện và các tiện nghi cơ bản như WiFi, TV, điều hòa, phòng tắm riêng và dịch vụ dọn phòng. Khách sạn cung cấp các phòng nghỉ được trang bị đầy đủ tiện ích cần thiết, phù hợp cho cả khách du lịch khám phá thành phố và khách lưu trú ngắn ngày. Với không gian riêng tư, dịch vụ chu đáo và vị trí thuận tiện cho việc di chuyển đến các điểm tham quan, ăn uống và mua sắm, đây là lựa chọn phù hợp cho những ai đang tìm kiếm một nơi nghỉ ngơi thoải mái trong hành trình của mình.",
    "keywords": [
     "Giá bình dân",
     "Phố Huế",
@@ -697,6 +717,7 @@
    "rooms": [
     {
      "name": "Standard Single",
+     "image":"hotel9.jpg",
      "info": "Phòng tiêu chuẩn; giường đơn; điều hòa; WiFi; TV; phòng tắm riêng; đồ vệ sinh cá nhân",
      "capacity": 2,
      "priceOriginal": 750000,
@@ -717,6 +738,7 @@
     },
     {
      "name": "Standard Double",
+     "image":"hotel91.jpg",
      "info": "Phòng tiêu chuẩn; giường đôi; điều hòa; WiFi; TV; phòng tắm riêng; đồ vệ sinh cá nhân",
      "capacity": 2,
      "priceOriginal": 950000,
@@ -751,7 +773,7 @@
    "policy": "Nhận phòng sau 14:00, trả phòng trước 12:00; lễ tân 24/7. Trẻ em mọi độ tuổi được chào đón; có thể phát sinh phí khi sử dụng giường hiện có. Không kê thêm cũi/giường phụ. Thú cưng không được phép. Khách chính nhận phòng phải từ 18 tuổi. Bữa sáng phục vụ khoảng 06:00-09:00 và có thể tính phí riêng.",
    "checkIn": "14:00",
    "checkOut": "12:00",
-   "images": []
+   "images": ["hotel92.jpg", "hotel9.jpg", "vhotel91.jpg"]
   },
   {
    "id": 9,
@@ -765,8 +787,8 @@
    "reviews": 183,
    "booked": 0,
    "city": "Hạ Long",
-   "address": "2 25 Tháng 4, Hồng Gai, Hạ Long, Quảng Ninh",
-   "description": "Khách sạn đô thị phân khúc tiết kiệm tại khu Hồng Gai, phù hợp lưu trú ngắn ngày.",
+   "address": "Hồng Gai, Hạ Long, Quảng Ninh",
+   "description": "Diamond Luxury Hotel Hạ Long mang đến không gian lưu trú hiện đại và tiện nghi, phù hợp cho du khách muốn nghỉ dưỡng và khám phá vẻ đẹp của thành phố biển Hạ Long. Khách sạn cung cấp các phòng nghỉ được thiết kế tinh tế, trang bị đầy đủ tiện ích cần thiết, đáp ứng nhu cầu lưu trú của cả khách cá nhân, cặp đôi và gia đình. Với không gian thoải mái, dịch vụ thân thiện và vị trí thuận tiện để di chuyển đến các điểm tham quan, khu vui chơi và địa điểm ẩm thực địa phương, khách sạn là lựa chọn đáng cân nhắc cho chuyến du lịch Hạ Long.",
    "keywords": [
     "giá tiết kiệm",
     "Hồng Gai",
@@ -776,6 +798,7 @@
    "rooms": [
       {
      "name": "Deluxe Single",
+     "image":"hotel51.jpg",
      "info": "25m²; 1 giường đơn; view thành phố",
      "capacity": 2,
      "priceOriginal": 500000,
@@ -792,6 +815,7 @@
     },
     {
      "name": "Deluxe Double",
+     "image":"hotel52.jpg",
      "info": "25m²; 1 giường đôi; view thành phố",
      "capacity": 2,
      "priceOriginal": 550000,
@@ -817,7 +841,7 @@
    "policy": "Theo quy định, yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. Chính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
    "checkIn": "14:00",
    "checkOut": "12:00",
-   "images": []
+   "images": ["hotel51.jpg", "hotel52.jpg", "hotel53.jpg"]
   },
   {
    "id": 10,
@@ -832,7 +856,7 @@
    "booked": 0,
    "city": "Hạ Long",
    "address": "51 Huỳnh Thúc Kháng, Hạ Long, Quảng Ninh",
-   "description": "Khách sạn phổ thông, phù hợp khách cần mức giá thấp và vị trí thuận tiện trong thành phố.",
+   "description": "Khách sạn mang đến lựa chọn lưu trú tiết kiệm với không gian nghỉ ngơi thoải mái, đáp ứng các nhu cầu cơ bản của du khách. Với mức giá hợp lý, hệ thống phòng nghỉ tiện nghi và vị trí thuận tiện trong thành phố, khách sạn phù hợp cho khách du lịch tự túc, khách công tác hoặc những ai muốn tối ưu chi phí lưu trú mà vẫn đảm bảo sự thuận tiện trong quá trình di chuyển và khám phá các địa điểm xung quanh.",
    "keywords": [
     "giá tốt",
     "phổ thông",
@@ -842,6 +866,7 @@
    "rooms": [
        {
      "name": "Standard Room",
+     "image":"hotel5.jpg",
      "info": "20m²; 1 giường đơn; view thành phố",
      "capacity": 2,
      "priceOriginal": 550000,
@@ -857,6 +882,7 @@
     },
     {
      "name": "Superior Single",
+     "image":"hotel51.jpg",
      "info": "28m²; 1 giường đơn; view thành phố",
      "capacity": 2,
      "priceOriginal": 650000,
@@ -872,6 +898,7 @@
     },
     {
      "name": "Superior Double",
+     "image":"hotel5.jpg",
      "info": "28m²; 1 giường đôi; view thành phố",
      "capacity": 2,
      "priceOriginal": 700000,
@@ -896,7 +923,7 @@
    "policy": "Giá tham khảo/đêm; kiểm tra chính sách hủy, thuế phí và phụ thu theo ngày lưu trú. Chính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. Trẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
    "checkIn": "14:00",
    "checkOut": "12:00",
-   "images": []
+   "images": ["hotel52.jpg", "hotel53.jpg", "hotel5.jpg"]
   },
   {
     "id": 11,
@@ -922,10 +949,11 @@
     "rooms": [
     {
     "name": "Deluxe City View",
+    "image":"hotel61.jpg",
     "info": "30m²; 1 giường King; view thành phố",
     "capacity": 2,
-    "priceOriginal": 900000,
-    "price": 900000,
+    "priceOriginal": 5000000,
+    "price": 5000000,
     "discount": 0,
     "left": 4,
     "amenities": [
@@ -938,10 +966,11 @@
     },
     {
     "name": "Deluxe Ocean View",
+    "image":"hotel62.jpg",
     "info": "32m²; 1 giường King hoặc 2 giường đơn; view biển",
     "capacity": 3,
-    "priceOriginal": 1350000,
-    "price": 1150000,
+    "priceOriginal": 6000000,
+    "price": 6000000,
     "discount": 15,
     "left": 3,
     "amenities": [
@@ -955,10 +984,11 @@
     },
     {
     "name": "Family Suite",
+    "image":"hotel63.jpg",
     "info": "55m²; 1 giường King + 1 giường đơn; phòng khách riêng",
     "capacity": 4,
-    "priceOriginal": 1800000,
-    "price": 1800000,
+    "priceOriginal": 7500000,
+    "price": 7500000,
     "discount": 0,
     "left": 2,
     "amenities": [
@@ -984,7 +1014,7 @@
     "policy": "Giá tham khảo theo đêm, dịch vụ và ưu đãi thay đổi theo ngày và mùa du lịch. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 48 giờ so với ngày nhận phòng; hủy muộn hơn hoặc không đến nhận phòng sẽ bị tính phí 01 đêm đầu tiên. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["hotel6.jpg", "hotel61.jpg","hotel62.jpg"]
     },
     {
     "id": 12,
@@ -1010,6 +1040,7 @@
     "rooms": [
     {
     "name": "Deluxe Golf View",
+    "image":"hotel61.jpg",
     "info": "48m²; 1 giường King; view sân golf",
     "capacity": 2,
     "priceOriginal": 4250000,
@@ -1026,6 +1057,7 @@
     },
     {
     "name": "Premier Sea View",
+    "image":"hotel62.jpg",
     "info": "52m²; 1 giường King; view biển, ban công riêng",
     "capacity": 3,
     "priceOriginal": 4800000,
@@ -1044,6 +1076,7 @@
     },
     {
     "name": "Family Suite",
+    "image":"hotel63.jpg",
     "info": "85m²; 2 phòng ngủ; phòng khách riêng",
     "capacity": 4,
     "priceOriginal": 6500000,
@@ -1073,7 +1106,7 @@
     "policy": "Giá tham khảo theo mức đặt phòng được công bố, thay đổi theo ngày và chương trình ưu đãi. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Giá có thể chưa gồm phí chơi golf, xe điện và dịch vụ caddie; vui lòng đặt riêng với khách sạn. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["hotel64.jpg", "hotel62.jpg", "hotel63.jpg"]
     },
     {
     "id": 13,
@@ -1099,6 +1132,7 @@
     "rooms": [
     {
     "name": "Deluxe Ocean View",
+    "image":"hotel67.jpg",
     "info": "38m²; 1 giường đôi; view biển",
     "capacity": 4,
     "priceOriginal": 3222000,
@@ -1116,6 +1150,7 @@
     },
     {
     "name": "Premier Ocean View Balcony",
+    "image":"hotel68.jpg",
     "info": "45m²; 1 giường King; ban công lớn nhìn vịnh",
     "capacity": 3,
     "priceOriginal": 3950000,
@@ -1133,6 +1168,7 @@
     },
     {
     "name": "Family Suite",
+    "image":"hotel69.jpg",
     "info": "75m²; 2 giường đôi; phòng khách riêng",
     "capacity": 4,
     "priceOriginal": 5600000,
@@ -1161,7 +1197,7 @@
     "policy": "Giá tham khảo theo đêm; giá thay đổi theo mùa và chương trình ưu đãi. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Cano đưa đón đất liền – đảo hoạt động theo lịch của resort; khách nên đến bến trước giờ khởi hành ít nhất 30 phút. Thời tiết xấu có thể làm thay đổi lịch cano. Vui lòng giữ yên tĩnh sau 22:00 để không ảnh hưởng khách lưu trú khác; hư hỏng hoặc mất mát tài sản trong phòng sẽ được tính theo giá bồi thường của đơn vị. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["hotel65.jpg", "hotel67.jpg", "hotel68.jpg"]
     },
     {
     "id": 14,
@@ -1186,10 +1222,11 @@
     "rooms": [
     {
     "name": "Deluxe Twin",
+    "image":"hotel67.jpg",
     "info": "32m²; 2 giường đơn; view thành phố",
     "capacity": 2,
-    "priceOriginal": 900000,
-    "price": 900000,
+    "priceOriginal": 4500000,
+    "price": 4500000,
     "discount": 0,
     "left": 5,
     "amenities": [
@@ -1202,10 +1239,11 @@
     },
     {
     "name": "Deluxe Double",
+    "image":"hotel68.jpg",
     "info": "32m²; 1 giường đôi lớn; view thành phố",
     "capacity": 2,
-    "priceOriginal": 950000,
-    "price": 950000,
+    "priceOriginal": 6500000,
+    "price": 6500000,
     "discount": 0,
     "left": 4,
     "amenities": [
@@ -1218,10 +1256,11 @@
     },
     {
     "name": "Family Room",
+    "image":"hotel69.jpg",
     "info": "45m²; 1 giường đôi + 2 giường đơn",
     "capacity": 4,
-    "priceOriginal": 1450000,
-    "price": 1450000,
+    "priceOriginal": 7450000,
+    "price": 7450000,
     "discount": 0,
     "left": 3,
     "amenities": [
@@ -1245,7 +1284,7 @@
     "policy": "Giá tham khảo theo đêm, giá thực tế thay đổi theo ngày và điều kiện đặt phòng. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 48 giờ so với ngày nhận phòng; hủy muộn hơn hoặc không đến nhận phòng sẽ bị tính phí 01 đêm đầu tiên. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["hotel7.jpg", "hotel69.jpg", "hotel68.jpg"]
     },
     {
     "id": 15,
@@ -1271,10 +1310,11 @@
     "rooms": [
     {
     "name": "Superior Twin",
+    "image":"hotel67.jpg",
     "info": "33m²; 1 giường đơn + 1 giường King; view thành phố",
     "capacity": 2,
-    "priceOriginal": 1853100,
-    "price": 1853100,
+    "priceOriginal": 2800000,
+    "price": 2800000,
     "discount": 0,
     "left": 4,
     "amenities": [
@@ -1287,10 +1327,11 @@
     },
     {
     "name": "Deluxe Ocean View",
+    "image":"hotel68.jpg",
     "info": "38m²; 1 giường King; view biển, ban công",
     "capacity": 3,
-    "priceOriginal": 2350000,
-    "price": 2350000,
+    "priceOriginal": 4350000,
+    "price": 4350000,
     "discount": 0,
     "left": 3,
     "amenities": [
@@ -1304,10 +1345,11 @@
     },
     {
     "name": "Executive Suite",
+    "image":"hotel69.jpg",
     "info": "65m²; 1 giường King; phòng khách riêng; view biển",
     "capacity": 3,
-    "priceOriginal": 3900000,
-    "price": 3900000,
+    "priceOriginal": 5900000,
+    "price": 5900000,
     "discount": 0,
     "left": 2,
     "amenities": [
@@ -1332,7 +1374,7 @@
     "policy": "Giá tham khảo theo mức công bố, thay đổi theo ngày và chương trình ưu đãi. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Vào dịp lễ, Tết và pháo hoa quốc tế, khách sạn có thể áp dụng chính sách đặt cọc và không hoàn hủy. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["hotel71.jpg", "hotel69.jpg", "hotel68.jpg"]
     },
     {
     "id": 16,
@@ -1357,6 +1399,7 @@
     "rooms": [
     {
     "name": "Deluxe City View",
+    "image":"hotel81.jpg",
     "info": "30m²; 1 giường đôi; view thành phố",
     "capacity": 2,
     "priceOriginal": 1250000,
@@ -1373,7 +1416,8 @@
     },
     {
     "name": "Deluxe Ocean View",
-    "info": "35m²; 1 giường King; view biển",
+    "image":"hotel82.jpg",
+    "info": "35m²; 2 giường King; view biển",
     "capacity": 2,
     "priceOriginal": 1300000,
     "price": 1300000,
@@ -1389,6 +1433,7 @@
     },
     {
     "name": "Family Ocean Suite",
+    "image":"hotel83.jpg",
     "info": "60m²; 1 giường King + 2 giường đơn; view biển",
     "capacity": 4,
     "priceOriginal": 2100000,
@@ -1417,7 +1462,7 @@
     "policy": "Giá tham khảo theo đêm; thuế, phí và chính sách hủy tùy theo loại giá đã chọn. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 48 giờ so với ngày nhận phòng; hủy muộn hơn hoặc không đến nhận phòng sẽ bị tính phí 01 đêm đầu tiên. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Vui lòng giữ yên tĩnh sau 22:00 để không ảnh hưởng khách lưu trú khác; hư hỏng hoặc mất mát tài sản trong phòng sẽ được tính theo giá bồi thường của đơn vị. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["hotel8.jpg", "hotel81.jpg", "hotel82.jpg"]
     },
     {
     "id": 17,
@@ -1443,6 +1488,7 @@
     "rooms": [
     {
     "name": "Deluxe Ocean View",
+    "image":"hotel81.jpg",
     "info": "36m²; 1 giường King; view biển",
     "capacity": 2,
     "priceOriginal": 3150000,
@@ -1459,6 +1505,7 @@
     },
     {
     "name": "Premier Corner Ocean View",
+    "image":"hotel82.jpg",
     "info": "48m²; 1 giường King; góc phòng view biển 2 hướng",
     "capacity": 3,
     "priceOriginal": 3900000,
@@ -1476,6 +1523,7 @@
     },
     {
     "name": "Family Suite",
+    "image":"hotel83.jpg",
     "info": "70m²; 2 giường đôi; phòng khách riêng",
     "capacity": 4,
     "priceOriginal": 5200000,
@@ -1504,7 +1552,7 @@
     "policy": "Giá tham khảo theo đêm; một số mức giá có ưu đãi theo mùa, vui lòng kiểm tra điều kiện hủy trước khi đặt. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["hotel84.jpg", "hotel81.jpg", "hotel83.jpg"]
     },
     {
     "id": 18,
@@ -1530,6 +1578,7 @@
     "rooms": [
     {
     "name": "Superior Room",
+    "image":"hotel67.jpg",
     "info": "28m²; 1 giường King; view sông/thành phố",
     "capacity": 2,
     "priceOriginal": 6400000,
@@ -1546,6 +1595,7 @@
     },
     {
     "name": "Deluxe River View",
+    "image":"hotel68.jpg",
     "info": "35m²; 1 giường King; view sông Hàn",
     "capacity": 2,
     "priceOriginal": 7200000,
@@ -1563,6 +1613,7 @@
     },
     {
     "name": "Executive Suite",
+    "image":"hotel69.jpg",
     "info": "70m²; 1 giường King; phòng khách riêng; đặc quyền lounge",
     "capacity": 3,
     "priceOriginal": 10500000,
@@ -1592,7 +1643,7 @@
     "policy": "Giá tham khảo theo mức giá phòng được hiển thị; có thể phát sinh thuế và phí tùy kênh đặt. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách hạng Executive Suite được sử dụng lounge theo khung giờ quy định của khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["hotel85.jpg", "hotel67.jpg", "hotel68.jpg"]
     },
     {
     "id": 19,
@@ -1617,6 +1668,7 @@
     "rooms": [
     {
     "name": "1 Bedroom Villa",
+    "image":"villa2.jpg",
     "info": "45m²; 1 giường King; ban công view núi",
     "capacity": 2,
     "priceOriginal": 1800000,
@@ -1633,6 +1685,7 @@
     },
     {
     "name": "2 Bedroom Villa",
+    "image":"villa3.jpg",
     "info": "80m²; 2 phòng ngủ; phòng khách và bếp riêng",
     "capacity": 4,
     "priceOriginal": 3200000,
@@ -1658,7 +1711,7 @@
     "policy": "Giá tham khảo theo đêm; villa nguyên căn và phụ thu số người ở cần xác nhận theo ngày. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Mùa lạnh (tháng 11 – tháng 3) khách nên mang đủ đồ ấm; villa có thể tính phụ phí sưởi. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["villa1.jpg", "villa5.jpg", "villa4.jpg"]
     },
     {
     "id": 20,
@@ -1683,6 +1736,7 @@
     "rooms": [
     {
     "name": "Standard Garden Villa",
+    "image":"villa2.jpg",
     "info": "40m²; 1 giường đôi; view sân vườn",
     "capacity": 2,
     "priceOriginal": 1900000,
@@ -1698,6 +1752,7 @@
     },
     {
     "name": "Mountain View Villa",
+    "image":"villa3.jpg",
     "info": "55m²; 1 giường King + sofa bed; ban công",
     "capacity": 4,
     "priceOriginal": 2500000,
@@ -1722,7 +1777,7 @@
     "policy": "Giá tham khảo theo đêm; giá villa thay đổi theo số khách và ngày cuối tuần. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Khu BBQ cần đặt trước và có thể tính phí than, dụng cụ; vui lòng dọn dẹp và tắt lửa sau khi sử dụng. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["villa2.jpg", "villa3.jpg", "villa4.jpg"]
     },
     {
     "id": 21,
@@ -1791,7 +1846,7 @@
     "policy": "Mức giá tham khảo từ website đặt phòng; giá thay đổi theo ngày và chương trình ưu đãi. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Dịch vụ đưa đón và các hoạt động yoga, spa cần đặt trước với resort. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["villa4.jpg", "villa5.jpg", "villa6.jpg"]
     },
     {
     "id": 22,
@@ -1817,6 +1872,7 @@
     "rooms": [
     {
     "name": "Superior Garden",
+    "image":"hotel67.jpg",
     "info": "28m²; 1 giường đôi; view sân vườn",
     "capacity": 2,
     "priceOriginal": 1600000,
@@ -1831,23 +1887,8 @@
     ]
     },
     {
-    "name": "Deluxe Bungalow",
-    "info": "35m²; 1 giường King; ban công view núi",
-    "capacity": 2,
-    "priceOriginal": 2000000,
-    "price": 2000000,
-    "discount": 0,
-    "left": 4,
-    "amenities": [
-        "WiFi",
-        "TV",
-        "điều hòa",
-        "minibar",
-        "ban công"
-    ]
-    },
-    {
     "name": "Family Bungalow",
+    "image":"hotel68.jpg",
     "info": "55m²; 1 giường King + 2 giường đơn; ban công",
     "capacity": 4,
     "priceOriginal": 3100000,
@@ -1874,7 +1915,7 @@
     "policy": "Giá tham khảo theo đêm; chính sách hủy và phụ thu tùy loại giá. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Mùa cao điểm (dịp lễ, Tết, mùa lúa chín) resort có thể yêu cầu đặt tối thiểu 2 đêm. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["villa7.jpg", "villa8.jpg", "villa9.jpg"]
     },
     {
     "id": 23,
@@ -1900,6 +1941,7 @@
     "rooms": [
     {
     "name": "Valley View Bungalow",
+    "image":"villa10.jpg",
     "info": "32m²; 1 giường King; view thung lũng",
     "capacity": 2,
     "priceOriginal": 2900000,
@@ -1916,6 +1958,7 @@
     },
     {
     "name": "Family Bungalow",
+    "image":"villa11.jpg",
     "info": "50m²; 1 giường King + 2 giường đơn; view thung lũng",
     "capacity": 4,
     "priceOriginal": 4200000,
@@ -1942,7 +1985,7 @@
     "policy": "Giá tham khảo theo đêm; mức giá thay đổi theo mùa và hạng phòng. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Khu nghỉ ưu tiên bảo vệ môi trường: vui lòng hạn chế đồ nhựa dùng một lần và tiết kiệm nước, điện. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["villa8.jpg", "villa9.jpg", "villa5.jpg"]
     },
     {
     "id": 24,
@@ -1968,6 +2011,7 @@
     "rooms": [
     {
     "name": "Deluxe Bungalow",
+    "image":"villa10.jpg",
     "info": "40m²; 1 giường đôi hoặc 2 giường đơn; view núi",
     "capacity": 2,
     "priceOriginal": 4400000,
@@ -1984,6 +2028,7 @@
     },
     {
     "name": "Premier Villa Valley View",
+    "image":"villa11.jpg",
     "info": "80m²; 2 phòng ngủ; view thung lũng Mường Hoa",
     "capacity": 4,
     "priceOriginal": 6800000,
@@ -2010,7 +2055,7 @@
     "policy": "Giá niêm yết tham khảo; các hạng phòng cao hơn có thể vượt mức này; giá thay đổi theo thời gian. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["villa12.jpg", "villa13.jpg", "villa1.jpg"]
     },
     {
     "id": 25,
@@ -2036,6 +2081,7 @@
     "rooms": [
     {
     "name": "Deluxe Room",
+    "image":"villa14.jpg",
     "info": "35m²; 1 giường đôi; view vườn",
     "capacity": 2,
     "priceOriginal": 3200000,
@@ -2051,28 +2097,13 @@
     },
     {
     "name": "Garden Suite Villa",
+    "image": "villa16.jpg",
     "info": "50m²; 1 giường đôi; view vườn",
     "capacity": 2,
     "priceOriginal": 4500000,
     "price": 4500000,
     "discount": 0,
     "left": 3,
-    "amenities": [
-        "WiFi",
-        "TV",
-        "minibar",
-        "lò sưởi",
-        "ban công"
-    ]
-    },
-    {
-    "name": "Two Bedroom Villa",
-    "info": "110m²; 2 phòng ngủ; phòng khách riêng",
-    "capacity": 4,
-    "priceOriginal": 7800000,
-    "price": 7800000,
-    "discount": 0,
-    "left": 1,
     "amenities": [
         "WiFi",
         "TV",
@@ -2093,7 +2124,7 @@
     "policy": "Giá tham khảo theo mức phòng công bố, phụ thuộc loại villa và ngày lưu trú. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Villa Pháp cổ có cầu thang và địa hình dốc, khách có người lớn tuổi hoặc xe lăn nên báo trước để được xếp phòng phù hợp. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["villa14.jpg", "villa15.jpg", "villa16.jpg"]
     },
     {
     "id": 26,
@@ -2119,6 +2150,7 @@
     "rooms": [
     {
     "name": "Garden Suite",
+    "image":"villa14.jpg",
     "info": "40m²; 1 giường đôi; view vườn",
     "capacity": 2,
     "priceOriginal": 3100000,
@@ -2134,28 +2166,13 @@
     },
     {
     "name": "Lake View Villa",
+    "image":"villa16.jpg",
     "info": "50m²; 1 giường King; view hồ",
     "capacity": 2,
     "priceOriginal": 4000000,
     "price": 4000000,
     "discount": 0,
     "left": 2,
-    "amenities": [
-        "WiFi",
-        "TV",
-        "minibar",
-        "ban công",
-        "lò sưởi"
-    ]
-    },
-    {
-    "name": "Family Villa",
-    "info": "95m²; 2 phòng ngủ; phòng khách riêng; view hồ",
-    "capacity": 4,
-    "priceOriginal": 6500000,
-    "price": 6500000,
-    "discount": 0,
-    "left": 1,
     "amenities": [
         "WiFi",
         "TV",
@@ -2175,7 +2192,7 @@
     "policy": "Giá tham khảo theo đêm; villa nhiều phòng có thể cao hơn; vui lòng xác nhận phụ thu và điều kiện hủy. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Khu nghỉ nằm xa trung tâm, khách nên chủ động phương tiện di chuyển hoặc đặt xe đưa đón trước. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["villa17.jpg", "villa16.jpg", "villa15.jpg"]
     },
     {
     "id": 27,
@@ -2184,10 +2201,10 @@
     "name": "Dalat Wonder Resort - Villa",
     "type": "Villa",
     "stars": 4,
-    "rating": 0,
+    "rating": 4.5,
     "ratingMax": 5,
-    "reviews": 0,
-    "booked": 0,
+    "reviews": 1000,
+    "booked": 2500,
     "city": "Đà Lạt",
     "address": "Phường 4, Đà Lạt, Lâm Đồng",
     "description": "Khu nghỉ dưỡng ven hồ Tuyền Lâm với nhiều lựa chọn từ phòng tiêu chuẩn đến villa riêng, đáp ứng nhu cầu của gia đình và nhóm bạn. Villa có ban công nhìn hồ, không gian sinh hoạt rộng rãi, thuận tiện cho kỳ nghỉ dài ngày. Resort có hồ bơi, spa, nhà hàng, sân vườn và các hoạt động ngoài trời để cả nhà cùng tham gia.",
@@ -2241,7 +2258,7 @@
     "policy": "Giá tham khảo theo đêm; villa nhiều phòng có thể cao hơn mức này. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["villa18.jpg", "villa19.jpg", "villa20.jpg"]
     },
     {
     "id": 28,
@@ -2266,23 +2283,8 @@
     ],
     "rooms": [
     {
-    "name": "Luxury Garden View",
-    "info": "32m²; 1 giường đôi hoặc 2 giường đơn; view vườn",
-    "capacity": 2,
-    "priceOriginal": 5556096,
-    "price": 5556096,
-    "discount": 0,
-    "left": 3,
-    "amenities": [
-        "WiFi",
-        "TV",
-        "minibar",
-        "bồn tắm",
-        "sưởi"
-    ]
-    },
-    {
     "name": "Luxury Lake View",
+    "image":"hotel67.jpg",
     "info": "36m²; 1 giường King; ban công view hồ",
     "capacity": 3,
     "priceOriginal": 6400000,
@@ -2300,6 +2302,7 @@
     },
     {
     "name": "Family Suite",
+    "image":"hotel68.jpg",
     "info": "80m²; 2 phòng ngủ; phòng khách riêng",
     "capacity": 4,
     "priceOriginal": 8900000,
@@ -2327,7 +2330,7 @@
     "policy": "Mức tham khảo theo giá hiển thị năm 2026; có thể thay đổi theo ngày và ưu đãi. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["villa21.jpg", "villa17.jpg", "villa6.jpg"]
     },
     {
     "id": 29,
@@ -2353,6 +2356,7 @@
     "rooms": [
     {
     "name": "Deluxe Room",
+    "image":"hotel68.jpg",
     "info": "30m²; 1 giường đôi hoặc 2 giường đơn; view vườn",
     "capacity": 2,
     "priceOriginal": 2280000,
@@ -2369,6 +2373,7 @@
     },
     {
     "name": "Family Room",
+    "image":"hotel67.jpg",
     "info": "50m²; 1 giường đôi + 2 giường đơn; view vườn",
     "capacity": 4,
     "priceOriginal": 3400000,
@@ -2385,6 +2390,7 @@
     },
     {
     "name": "Two Bedroom Villa",
+    "image":"hotel69.jpg",
     "info": "120m²; 2 phòng ngủ; phòng khách riêng",
     "capacity": 4,
     "priceOriginal": 6200000,
@@ -2411,7 +2417,7 @@
     "policy": "Giá tham khảo theo đêm cho phòng khách sạn; villa nhiều phòng có giá cao hơn. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["villa22.jpg", "villa15.jpg", "villa16.jpg"]
     },
     {
     "id": 30,
@@ -2437,6 +2443,7 @@
     "rooms": [
     {
     "name": "Deluxe Mountain View",
+    "image":"hotel67.jpg",
     "info": "34m²; 1 giường King hoặc 2 giường đơn; view núi",
     "capacity": 2,
     "priceOriginal": 1945000,
@@ -2453,6 +2460,7 @@
     },
     {
     "name": "Family Room",
+    "image":"hotel68.jpg",
     "info": "52m²; 1 giường King + 2 giường đơn; view rừng thông",
     "capacity": 4,
     "priceOriginal": 2900000,
@@ -2479,7 +2487,7 @@
     "policy": "Giá tham khảo theo đêm; giá và điều kiện hủy thay đổi theo ngày. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Chi phí chơi golf tại sân lân cận không bao gồm trong giá phòng. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
     "checkIn": "14:00",
     "checkOut": "12:00",
-    "images": []
+    "images": ["villa23.jpg", "villa24.jpg", "villa17.jpg"]
     }
     ]
 }
