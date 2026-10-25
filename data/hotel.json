@@ -1,0 +1,1747 @@
+{
+ "promoCodes": [
+  {
+   "code": "VIVUGO10",
+   "percent": 10,
+   "note": "Mã mẫu - thay bằng mã thật"
+  }
+ ],
+ "hotels": [
+  {
+   "id": 1,
+   "code": "HTL-HN-001",
+   "slug": "melia-hanoi",
+   "name": "Meliá Hanoi",
+   "type": "Hotel",
+   "stars": 5,
+   "rating": 9,
+   "ratingMax": 10,
+   "reviews": 1320,
+   "booked": 1200,
+   "city": "Hà Nội",
+   "address": "44B Lý Thường Kiệt, Hoàn Kiếm, Hà Nội",
+   "description": "Khách sạn 5 sao này nằm ở vị trí thuận lợi để đến các địa điểm tham quan chính và các phòng ở đây được thiết kế để mang đến cho du khách cảm giác thoải mái nhất sau một ngày thăm thú Hà Nội. Thưởng thức những món ăn ngon miệng đầy mới lạ tại hai nhà hàng Mosaico và Cham. Còn nếu bạn muốn khám phá thành phố, đội ngũ nhân viên của khách sạn luôn sẵn lòng gợi ý mọi thông tin cần thiết để giúp bạn có chuyến thăm Hà Nội thật trọn vẹn.",
+   "keywords": [
+    "Trung tâm Hoàn Kiếm",
+    "5 sao",
+    "hồ bơi",
+    "nhà hàng"
+   ],
+   "rooms": [
+    {
+     "name": "Deluxe Room",
+     "info": "32m²; 1 giường King; view thành phố",
+     "capacity": 2,
+     "priceOriginal": 4200000,
+     "price": 3600000,
+     "discount": 14,
+     "left": 4,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "minibar",
+      "két an toàn"
+     ]
+    },
+    {
+     "name": "Premium Room",
+     "info": "38m²; 1 giường King; view thành phố",
+     "capacity": 2,
+     "priceOriginal": 5000000,
+     "price": 4250000,
+     "discount": 15,
+     "left": 3,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "minibar",
+      "két an toàn",
+      "bồn tắm"
+     ]
+    },
+    {
+     "name": "Family Room",
+     "info": "55m²; 1 giường King + 2 giường đơn; view thành phố",
+     "capacity": 4,
+     "priceOriginal": 6500000,
+     "price": 5525000,
+     "discount": 15,
+     "left": 2,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "minibar",
+      "két an toàn",
+      "bồn tắm"
+     ]
+    }
+   ],
+   "amenities": [
+    "WiFi miễn phí toàn khách sạn",
+    "hồ bơi ngoài trời",
+    "spa & wellness",
+    "Jacuzzi",
+    "massage",
+    "phòng gym",
+    "lễ tân 24/7",
+    "sân thượng/sân phơi nắng",
+    "2 nhà hàng Mosaico và Cham",
+    "room service",
+    "bãi đỗ xe",
+    "phòng không hút thuốc",
+    "tiện nghi cho khách khuyết tật",
+    "dịch vụ đưa đón sân bay theo yêu cầu."
+   ],
+   "policy": "Nhận phòng từ 14:00, trả phòng đến 12:00. Khi nhận phòng cần xuất trình giấy tờ tùy thân có ảnh và thẻ tín dụng. Trẻ em được chào đón; chính sách hủy/trả trước thay đổi theo từng loại giá/phòng. Có thể yêu cầu dịch vụ/giường phụ tùy hạng phòng và tình trạng. Khách nên thông báo trước giờ đến dự kiến.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 2,
+   "code": "HTL-HN-002",
+   "slug": "sofitel-legend-metropole-hanoi",
+   "name": "Sofitel Legend Metropole Hanoi",
+   "type": "Hotel",
+   "stars": 5,
+   "rating": 9.4,
+   "ratingMax": 10,
+   "reviews": 731,
+   "booked": 0,
+   "city": "Hà Nội",
+   "address": "15 Ngô Quyền, Hoàn Kiếm, Hà Nội",
+   "description": "Khách sạn mang tính biểu tượng từ năm 1901, kết hợp Heritage Wing và Opera Wing, nằm cạnh Nhà hát Lớn và khu phố cổ.",
+   "keywords": [
+    "Di sản 1901",
+    "French Quarter",
+    "5 sao",
+    "Heritage Wing",
+    "Opera Wing",
+    "Club Metropole"
+   ],
+   "rooms": [
+    {
+     "name": "Premium Room - Opera Wing",
+     "info": "32m²; King hoặc Twin; view vườn/hồ bơi/thành phố",
+     "capacity": 2,
+     "priceOriginal": 9659713,
+     "price": 9659713,
+     "discount": 0,
+     "left": 2,
+     "amenities": [
+      "Điều hòa",
+      "TV màn hình phẳng",
+      "máy pha cà phê",
+      "minibar",
+      "WiFi",
+      "phòng tắm riêng",
+      "đồ vệ sinh cao cấp"
+     ]
+    },
+    {
+     "name": "Grand Premium Room - Opera Wing",
+     "info": "48m²; King; Club Metropole; Club Lounge",
+     "capacity": 2,
+     "priceOriginal": 14492761,
+     "price": 14492761,
+     "discount": 0,
+     "left": 1,
+     "amenities": [
+      "Sofitel MyBed",
+      "bồn tắm kiểu Pháp",
+      "vòi sen riêng",
+      "TV",
+      "máy pha espresso",
+      "WiFi",
+      "Club Lounge",
+      "ăn sáng",
+      "trà chiều",
+      "cocktail tối",
+      "Majordome 24/7"
+     ]
+    }
+   ],
+   "amenities": [
+    "WiFi miễn phí",
+    "hồ bơi ngoài trời có sưởi",
+    "Le Spa du Metropole",
+    "trung tâm thể dục",
+    "vườn",
+    "phòng họp",
+    "room service",
+    "xe đưa đón sân bay",
+    "6 nhà hàng/bar",
+    "Bamboo Bar cạnh hồ bơi",
+    "Le Club Bar",
+    "Le Beaulieu",
+    "Spice Garden",
+    "Angelina",
+    "La Terrasse",
+    "cửa hàng La Boutique",
+    "L'Epicerie",
+    "tour Path of History & Bomb Shelter."
+   ],
+   "policy": "Nhận phòng 14:00–00:00, trả phòng đến 12:00. Yêu cầu giấy tờ tùy thân có ảnh và thẻ tín dụng. Trẻ em được chào đón; nôi 0–2 tuổi miễn phí theo yêu cầu và tình trạng; giường phụ từ 12 tuổi có thể tính 2.400.000 VND/người/đêm. Vật nuôi không được phép. Hủy/trả trước phụ thuộc loại phòng/giá. Opera Wing có thông báo thi công từ giữa tháng 6 đến cuối tháng 9/2026, cần kiểm tra khi đặt.",
+   "checkIn": "14:00–00:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 3,
+   "code": "HTL-HN-004",
+   "slug": "pan-pacific-hanoi",
+   "name": "Pan Pacific Hanoi",
+   "type": "Hotel",
+   "stars": 5,
+   "rating": 8.3,
+   "ratingMax": 10,
+   "reviews": 345,
+   "booked": 0,
+   "city": "Hà Nội",
+   "address": "1 Thanh Niên, Ba Đình, Hà Nội",
+   "description": "Khách sạn 5 sao nhìn ra Hồ Tây và Hồ Trúc Bạch, gần khu phố cổ; có phòng nghỉ, suite và serviced suite.",
+   "keywords": [
+    "Hồ Tây",
+    "Hồ Trúc Bạch",
+    "5 sao",
+    "Pacific Club",
+    "hồ bơi",
+    "serviced suite"
+   ],
+   "rooms": [
+    {
+     "name": "Deluxe Room",
+     "info": "35m²; King hoặc Twin; view thành phố",
+     "capacity": 2,
+     "priceOriginal": 9700000,
+     "price": 9700000,
+     "discount": 0,
+     "left": 3,
+     "amenities": [
+      "WiFi",
+      "điều hòa",
+      "bàn làm việc",
+      "TV LCD",
+      "phòng tắm riêng",
+      "bồn tắm/vòi sen",
+      "minibar",
+      "két sắt",
+      "trà/cà phê",
+      "nước đóng chai",
+      "áo choàng",
+      "máy sấy"
+     ]
+    },
+    {
+     "name": "Premier Lakeview Room",
+     "info": "35m²; King; view Hồ Tây; phòng tắm có bồn tắm và vòi sen",
+     "capacity": 2,
+     "priceOriginal": 13523400,
+     "price": 13523400,
+     "discount": 0,
+     "left": 3,
+     "amenities": [
+      "WiFi",
+      "điều hòa",
+      "TV",
+      "minibar",
+      "bàn làm việc",
+      "bồn tắm + vòi sen",
+      "máy sấy",
+      "két sắt",
+      "trà/cà phê",
+      "view Hồ Tây"
+     ]
+    }
+   ],
+   "amenities": [
+    "WiFi miễn phí",
+    "hồ bơi trong nhà/all-season có mái che thu hồi",
+    "spa",
+    "trung tâm thể dục 24 giờ",
+    "Jacuzzi",
+    "sauna",
+    "Pacific Club Lounge",
+    "room service",
+    "bãi đỗ xe miễn phí theo tình trạng",
+    "2 nhà hàng chính Pacifica và Ming",
+    "Song Hong Bar",
+    "Summit Rooftop Bar",
+    "Pastry Corner",
+    "trung tâm dịch vụ doanh nhân."
+   ],
+   "policy": "Nhận phòng từ 14:00, trả phòng 12:00. Giá có thể chịu 5% phí phục vụ và thuế Chính phủ theo chính sách khách sạn. Trẻ em dưới 12 tuổi có thể ở cùng cha mẹ với giường hiện hữu theo chính sách; tối đa một trẻ/phòng hoặc hai trẻ/suite. Nôi miễn phí theo yêu cầu và tình trạng; giường phụ có phụ phí. Khách sạn không cho phép vật nuôi. Không hút thuốc trong phòng và khu vực cấm; có khu vực hút thuốc chỉ định. Bãi đỗ xe miễn phí theo tình trạng.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 4,
+   "code": "HTL-HN-005",
+   "slug": "apricot-hotel-hanoi",
+   "name": "Apricot Hotel",
+   "type": "Hotel",
+   "stars": 5,
+   "rating": 8.7,
+   "ratingMax": 10,
+   "reviews": 408,
+   "booked": 0,
+   "city": "Hà Nội",
+   "address": "136 Hàng Trống, Hoàn Kiếm, Hà Nội",
+   "description": "Khách sạn nghệ thuật phong cách tân cổ điển ngay cạnh Hồ Hoàn Kiếm, có phòng và suite thiết kế nghệ thuật, hồ bơi rooftop và phòng gym nhìn toàn cảnh.",
+   "keywords": [
+    "Hồ Hoàn Kiếm",
+    "nghệ thuật",
+    "tân cổ điển",
+    "rooftop pool",
+    "spa",
+    "Old Quarter"
+   ],
+   "rooms": [
+    {
+     "name": "Deluxe Double Room - Sketch",
+     "info": "Diện tích theo loại phòng; 1 Queen; thiết kế nghệ thuật Sketch",
+     "capacity": 2,
+     "priceOriginal": 4300000,
+     "price": 4300000,
+     "discount": 0,
+     "left": 2,
+     "amenities": [
+      "Điều hòa",
+      "TV cáp",
+      "WiFi",
+      "minibar",
+      "két sắt",
+      "bàn làm việc",
+      "khu vực ngồi",
+      "ấm đun nước",
+      "bàn là",
+      "phòng tắm riêng",
+      "áo choàng",
+      "máy sấy"
+     ]
+    }
+   ],
+   "amenities": [
+    "WiFi miễn phí toàn khuôn viên",
+    "hồ bơi trên tầng mái/indoor pool",
+    "fitness center nhìn toàn cảnh",
+    "spa & wellness",
+    "airport shuttle",
+    "bãi đỗ xe miễn phí",
+    "lễ tân 24 giờ",
+    "room service",
+    "bar",
+    "nhà hàng L'Artiste và Palette",
+    "One36 Bar",
+    "thư viện tầng 9",
+    "giặt là",
+    "thu đổi ngoại tệ",
+    "phòng họp/tiệc",
+    "thuê xe",
+    "đặt vé và tour."
+   ],
+   "policy": "Nhận phòng từ 14:00, trả phòng đến 12:00. Khách cần xuất trình giấy tờ tùy thân có ảnh và thẻ tín dụng khi nhận phòng, đồng thời thông báo trước giờ đến dự kiến. Trẻ em mọi độ tuổi được chào đón; trẻ từ 13 tuổi tính như người lớn. Trẻ 0–12 tuổi có thể yêu cầu giường phụ 1.475.000 VND/trẻ/đêm, tùy tình trạng và loại phòng. Không có nôi/cũi theo thông tin hiện tại. Vật nuôi không được phép. Hủy/trả trước tùy loại giá.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 5,
+   "code": "HTL-HN-006",
+   "slug": "peridot-grand-luxury-boutique-hotel",
+   "name": "Peridot Grand Luxury Boutique Hotel",
+   "type": "Hotel",
+   "stars": 5,
+   "rating": 9.5,
+   "ratingMax": 10,
+   "reviews": 3115,
+   "booked": 0,
+   "city": "Hà Nội",
+   "address": "33 Đường Thành, Hoàn Kiếm, Hà Nội",
+   "description": "Khách sạn boutique 5 sao ở khu phố cổ, nổi bật với hồ bơi vô cực trên cao, nhà hàng, sky bar, spa và các phòng/suite có thiết kế sang trọng.",
+   "keywords": [
+    "Phố cổ",
+    "boutique",
+    "5 sao",
+    "infinity pool",
+    "rooftop",
+    "spa",
+    "Old Quarter"
+   ],
+   "rooms": [
+    {
+     "name": "Grand Deluxe",
+     "info": "28–32m²; King hoặc Twin; view thành phố; không hút thuốc",
+     "capacity": 2,
+     "priceOriginal": 6900000,
+     "price": 6900000,
+     "discount": 0,
+     "left": 3,
+     "amenities": [
+      "Sealy Posturepedic",
+      "WiFi tốc độ cao",
+      "két sắt",
+      "ổ cắm đa năng",
+      "điều hòa",
+      "phòng tắm marble",
+      "bồn tắm + rain shower",
+      "áo choàng",
+      "dép",
+      "TV 43”",
+      "minibar",
+      "housekeeping",
+      "room service"
+     ]
+    }
+   ],
+   "amenities": [
+    "WiFi miễn phí",
+    "hồ bơi vô cực ngoài trời",
+    "fitness center",
+    "Peridot Spa",
+    "Jacuzzi",
+    "steam & sauna",
+    "1968 Restaurant",
+    "Olivine Restaurant rooftop",
+    "Ignite Sky Bar 360°",
+    "Lobby Lounge",
+    "in-room dining",
+    "business center",
+    "tour services",
+    "cooking class",
+    "airport/city transportation",
+    "visa arrangement",
+    "bakery shop",
+    "concierge",
+    "currency exchange. Trẻ dưới 15 tuổi phải có phụ huynh/người lớn giám sát khi sử dụng hồ bơi, fitness, Jacuzzi, steam & sauna."
+   ],
+   "policy": "Nhận phòng/trả phòng cần xác nhận theo điều kiện đặt phòng của từng loại giá. Khách sạn không nhận vật nuôi. Bữa sáng buffet được khách sạn công bố tại 1968 Restaurant; breakfast box có thể yêu cầu trước. Dịch vụ đưa đón sân bay có tính phí; giá vận chuyển được niêm yết theo loại xe và đã bao gồm service charge/VAT theo trang dịch vụ. Hủy/trả trước và giường phụ phụ thuộc loại phòng/giá. Các khu wellness có giới hạn giám sát trẻ em.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 6,
+   "code": "HTL-HN-002",
+   "slug": "night-hotel",
+   "name": "Night Hotel",
+   "type": "Hotel",
+   "stars": 3,
+   "rating": 3.9,
+   "ratingMax": 5,
+   "reviews": 630,
+   "booked": 650000,
+   "city": "Hà Nội",
+   "address": "Khách sạn 3 sao tại Bùi Thị Xuân, Hai Bà Trưng; phù hợp khách công tác và du lịch cần lưu trú tiết kiệm gần trung tâm.",
+   "description": "Khách sạn bình dân tại Hà Nội, tập trung vào mức giá hợp lý, vị trí thuận tiện và các tiện nghi cơ bản như WiFi, TV, điều hòa, phòng tắm riêng và dịch vụ dọn phòng.",
+   "keywords": [
+    "Giá bình dân",
+    "Hai Bà Trưng",
+    "gần trung tâm",
+    "WiFi",
+    "lễ tân 24h"
+   ],
+   "rooms": [
+    {
+     "name": "Standard Room",
+     "info": "Khoảng 24m²; 1 giường King; phòng không hút thuốc; phòng tắm riêng; TV màn hình phẳng; minibar; ấm đun nước; bàn làm việc",
+     "capacity": 2,
+     "priceOriginal": 750000,
+     "price": 650000,
+     "discount": 13,
+     "left": 3,
+     "amenities": [
+      "WiFi miễn phí",
+      "điều hòa",
+      "TV màn hình phẳng",
+      "truyền hình cáp",
+      "minibar",
+      "ấm đun nước",
+      "trà/cà phê",
+      "máy sấy tóc",
+      "đồ vệ sinh cá nhân",
+      "rèm cản sáng",
+      "bàn làm việc",
+      "dọn phòng hằng ngày"
+     ]
+    }
+   ],
+   "amenities": [
+    "WiFi",
+    "lễ tân 24h",
+    "giữ hành lý",
+    "phòng gym",
+    "giặt khô/giặt là",
+    "snack bar",
+    "dịch vụ phòng",
+    "hỗ trợ tour/vé",
+    "đưa đón sân bay có phụ phí",
+    "bãi đỗ xe có phụ phí"
+   ],
+   "policy": "Nhận phòng từ 14:00. Trả phòng trước 12:00. Khách phải xuất trình giấy tờ tùy thân; có thể yêu cầu đặt cọc/thẻ cho chi phí phát sinh. Chỉ khách đã đăng ký được lưu trú trong phòng. Yêu cầu đặc biệt tùy tình trạng phòng và có thể phát sinh phí. Thú cưng không được phép.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 7,
+   "code": "HTL-HN-003",
+   "slug": "hanoi-a83-hotel",
+   "name": "Hanoi A83 Hotel",
+   "type": "Hotel",
+   "stars": 2,
+   "rating": 7.2,
+   "ratingMax": 10,
+   "reviews": 74,
+   "booked": 790000,
+   "city": "Hà Nội",
+   "address": "Khách sạn phổ thông tại 83/10 Xã Đàn, Đống Đa, có nhiều hạng phòng và các tiện nghi cơ bản cho khách du lịch, công tác.",
+   "description": "Khách sạn bình dân tại Hà Nội, tập trung vào mức giá hợp lý, vị trí thuận tiện và các tiện nghi cơ bản như WiFi, TV, điều hòa, phòng tắm riêng và dịch vụ dọn phòng.",
+   "keywords": [
+    "Giá bình dân",
+    "Đống Đa",
+    "Xã Đàn",
+    "WiFi",
+    "lễ tân 24h"
+   ],
+   "rooms": [
+    {
+     "name": "Superior Double",
+     "info": "Phòng 2 khách; giường đôi; điều hòa; WiFi; TV; phòng tắm riêng; đồ vệ sinh cá nhân",
+     "capacity": 2,
+     "priceOriginal": 850000,
+     "price": 790000,
+     "discount": 7,
+     "left": 3,
+     "amenities": [
+      "WiFi miễn phí",
+      "điều hòa",
+      "TV",
+      "bàn làm việc",
+      "phòng tắm riêng",
+      "đồ vệ sinh cá nhân",
+      "máy sấy tóc",
+      "thang máy",
+      "dọn phòng",
+      "lễ tân 24h"
+     ]
+    }
+   ],
+   "amenities": [
+    "WiFi",
+    "lễ tân 24h",
+    "thang máy",
+    "nhà hàng",
+    "giữ hành lý",
+    "giặt là",
+    "đưa đón sân bay có phụ phí",
+    "bãi đỗ xe máy",
+    "khách sạn không hút thuốc"
+   ],
+   "policy": "Nhận phòng và yêu cầu đặc biệt theo chính sách tại thời điểm đặt. Có thể yêu cầu giấy tờ tùy thân và thẻ/tiền đặt cọc cho chi phí phát sinh. Chỉ khách đã đăng ký được lưu trú. Khách sạn không hút thuốc; bữa sáng có thể tính phí. Chỗ đỗ xe chủ yếu dành cho xe máy.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 8,
+   "code": "HTL-HN-004",
+   "slug": "bay-luxury-chariot-hotel",
+   "name": "Bay Luxury Chariot Hotel",
+   "type": "Hotel",
+   "stars": 2,
+   "rating": 8.4,
+   "ratingMax": 10,
+   "reviews": 142,
+   "booked": 890000,
+   "city": "Hà Nội",
+   "address": "Khách sạn quy mô nhỏ tại 235 Phố Huế, Hai Bà Trưng, gần Vincom Center Bà Triệu và thuận tiện vào khu trung tâm.",
+   "description": "Khách sạn bình dân tại Hà Nội, tập trung vào mức giá hợp lý, vị trí thuận tiện và các tiện nghi cơ bản như WiFi, TV, điều hòa, phòng tắm riêng và dịch vụ dọn phòng.",
+   "keywords": [
+    "Giá bình dân",
+    "Phố Huế",
+    "Hai Bà Trưng",
+    "gần trung tâm",
+    "WiFi"
+   ],
+   "rooms": [
+    {
+     "name": "Standard Double",
+     "info": "Phòng tiêu chuẩn; giường đôi; điều hòa; WiFi; TV; phòng tắm riêng; đồ vệ sinh cá nhân",
+     "capacity": 2,
+     "priceOriginal": 950000,
+     "price": 850000,
+     "discount": 11,
+     "left": 3,
+     "amenities": [
+      "WiFi miễn phí",
+      "điều hòa",
+      "TV",
+      "phòng tắm riêng",
+      "máy sấy tóc",
+      "đồ vệ sinh cá nhân",
+      "bàn làm việc",
+      "dọn phòng",
+      "thang máy"
+     ]
+    }
+   ],
+   "amenities": [
+    "WiFi",
+    "lễ tân 24h",
+    "nhà hàng",
+    "bar",
+    "đưa đón sân bay",
+    "giữ hành lý",
+    "dịch vụ tour",
+    "thuê xe đạp",
+    "phòng gia đình",
+    "thang máy"
+   ],
+   "policy": "Nhận phòng sau 14:00, trả phòng trước 12:00; lễ tân 24/7. Trẻ em mọi độ tuổi được chào đón; có thể phát sinh phí khi sử dụng giường hiện có. Không kê thêm cũi/giường phụ. Thú cưng không được phép. Khách chính nhận phòng phải từ 18 tuổi. Bữa sáng phục vụ khoảng 06:00-09:00 và có thể tính phí riêng.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 9,
+   "code": "HTL-HL-001",
+   "slug": "diamond-luxury-hotel-ha-long",
+   "name": "Diamond Luxury Hotel Hạ Long",
+   "type": "Hotel",
+   "stars": 3,
+   "rating": 4,
+   "ratingMax": 5,
+   "reviews": 183,
+   "booked": 0,
+   "city": "Hạ Long",
+   "address": "2 25 Tháng 4, Hồng Gai, Hạ Long, Quảng Ninh",
+   "description": "Khách sạn đô thị phân khúc tiết kiệm tại khu Hồng Gai, phù hợp lưu trú ngắn ngày.",
+   "keywords": [
+    "giá tiết kiệm",
+    "Hồng Gai",
+    "trung tâm",
+    "WiFi"
+   ],
+   "rooms": [
+    {
+     "name": "Deluxe Double",
+     "info": "25m²; 1 giường đôi; view thành phố",
+     "capacity": 2,
+     "priceOriginal": 550000,
+     "price": 550000,
+     "discount": 0,
+     "left": 5,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "minibar",
+      "vòi sen"
+     ]
+    }
+   ],
+   "amenities": [
+    "WiFi",
+    "lễ tân",
+    "thang máy",
+    "nhà hàng",
+    "bãi đỗ xe"
+   ],
+   "policy": "Giá tham khảo/đêm; chính sách hủy và phụ thu tùy ngày/hạng phòng; cần xác nhận khi đặt.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 10,
+   "code": "HTL-HL-002",
+   "slug": "golden-sea-hotel-ha-long",
+   "name": "Golden Sea Hotel Hạ Long",
+   "type": "Hotel",
+   "stars": 3,
+   "rating": 3.8,
+   "ratingMax": 5,
+   "reviews": 43,
+   "booked": 0,
+   "city": "Hạ Long",
+   "address": "51 Huỳnh Thúc Kháng, Hạ Long, Quảng Ninh",
+   "description": "Khách sạn phổ thông, phù hợp khách cần mức giá thấp và vị trí thuận tiện trong thành phố.",
+   "keywords": [
+    "giá tốt",
+    "phổ thông",
+    "Hạ Long",
+    "WiFi"
+   ],
+   "rooms": [
+    {
+     "name": "Superior Double",
+     "info": "28m²; 1 giường đôi; view thành phố",
+     "capacity": 2,
+     "priceOriginal": 700000,
+     "price": 700000,
+     "discount": 0,
+     "left": 6,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "tủ lạnh mini"
+     ]
+    }
+   ],
+   "amenities": [
+    "Lễ tân 24/7",
+    "WiFi",
+    "thang máy",
+    "nhà hàng",
+    "bãi đỗ xe"
+   ],
+   "policy": "Giá tham khảo/đêm; kiểm tra chính sách hủy, thuế phí và phụ thu theo ngày lưu trú.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 11,
+   "code": "HTL-HL-003",
+   "slug": "paddington-hotel-ha-long",
+   "name": "Paddington Hotel Hạ Long",
+   "type": "Hotel",
+   "stars": 5,
+   "rating": 4.6,
+   "ratingMax": 5,
+   "reviews": 546,
+   "booked": 0,
+   "city": "Hạ Long",
+   "address": "Lô dịch vụ 02, Cột 5–Cột 8 mở rộng, đường Điện Biên Phủ, Hạ Long, Quảng Ninh",
+   "description": "Khách sạn 5 sao hướng biển với phân khúc giá trung cấp, phù hợp nghỉ dưỡng và công tác.",
+   "keywords": [
+    "5 sao",
+    "biển",
+    "hồ bơi",
+    "nhà hàng",
+    "spa"
+   ],
+   "rooms": [
+    {
+     "name": "Deluxe City View",
+     "info": "30m²; 1 giường King; view thành phố",
+     "capacity": 2,
+     "priceOriginal": 900000,
+     "price": 900000,
+     "discount": 0,
+     "left": 4,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "minibar",
+      "két an toàn"
+     ]
+    }
+   ],
+   "amenities": [
+    "Hồ bơi",
+    "gym",
+    "spa",
+    "nhà hàng",
+    "bar",
+    "lễ tân 24/7",
+    "bãi đỗ xe"
+   ],
+   "policy": "Giá tham khảo/đêm; dịch vụ và ưu đãi thay đổi theo ngày; xác nhận điều kiện hủy trước khi đặt.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 12,
+   "code": "HTL-HL-004",
+   "slug": "flc-grand-hotel-ha-long",
+   "name": "FLC Grand Hotel Hạ Long",
+   "type": "Hotel",
+   "stars": 5,
+   "rating": 4.4,
+   "ratingMax": 5,
+   "reviews": 2023,
+   "booked": 0,
+   "city": "Hạ Long",
+   "address": "Nguyễn Văn Cừ, Hạ Long, Quảng Ninh",
+   "description": "Khách sạn nghỉ dưỡng 5 sao cạnh sân golf, có nhiều hạng phòng và tiện ích phù hợp gia đình.",
+   "keywords": [
+    "5 sao",
+    "golf",
+    "hồ bơi",
+    "spa",
+    "biển"
+   ],
+   "rooms": [
+    {
+     "name": "Deluxe Golf View",
+     "info": "48m²; 1 giường King; view sân golf",
+     "capacity": 2,
+     "priceOriginal": 4250000,
+     "price": 3195500,
+     "discount": 25,
+     "left": 3,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "bồn tắm",
+      "két an toàn"
+     ]
+    }
+   ],
+   "amenities": [
+    "Hồ bơi",
+    "spa",
+    "gym",
+    "sân golf",
+    "nhà hàng",
+    "bar",
+    "phòng hội nghị"
+   ],
+   "policy": "Giá tham khảo theo một mức đặt phòng được công bố; giá thay đổi theo ngày và ưu đãi.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 13,
+   "code": "HTL-HL-005",
+   "slug": "vinpearl-resort-spa-ha-long",
+   "name": "Vinpearl Resort & Spa Hạ Long",
+   "type": "Hotel",
+   "stars": 5,
+   "rating": 4.6,
+   "ratingMax": 5,
+   "reviews": 0,
+   "booked": 0,
+   "city": "Hạ Long",
+   "address": "Đảo Rều, Bãi Cháy, Hạ Long, Quảng Ninh",
+   "description": "Khu nghỉ dưỡng 5 sao trên đảo với bãi biển riêng, hồ bơi và nhiều hạng phòng nhìn vịnh.",
+   "keywords": [
+    "5 sao",
+    "đảo Rều",
+    "biển riêng",
+    "hồ bơi",
+    "spa"
+   ],
+   "rooms": [
+    {
+     "name": "Deluxe Ocean View",
+     "info": "38m²; 1 giường đôi; view biển",
+     "capacity": 4,
+     "priceOriginal": 3222000,
+     "price": 3222000,
+     "discount": 0,
+     "left": 3,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "minibar",
+      "bồn tắm",
+      "ban công"
+     ]
+    }
+   ],
+   "amenities": [
+    "3 bãi biển riêng",
+    "hồ bơi",
+    "spa",
+    "nhà hàng",
+    "bar",
+    "sân tennis",
+    "cano đưa đón"
+   ],
+   "policy": "Giá tham khảo/đêm; giá theo mùa và ưu đãi; cano đất liền–đảo theo chính sách resort.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 14,
+   "code": "HTL-DN-001",
+   "slug": "muong-thanh-grand-da-nang",
+   "name": "Mường Thanh Grand Đà Nẵng Hotel",
+   "type": "Hotel",
+   "stars": 4,
+   "rating": 4.2,
+   "ratingMax": 5,
+   "reviews": 2175,
+   "booked": 0,
+   "city": "Đà Nẵng",
+   "address": "962 Ngô Quyền, An Hải, Đà Nẵng",
+   "description": "Khách sạn 4 sao gần sông Hàn, có nhiều hạng phòng từ tiêu chuẩn đến suite.",
+   "keywords": [
+    "4 sao",
+    "sông Hàn",
+    "gia đình",
+    "giá tốt"
+   ],
+   "rooms": [
+    {
+     "name": "Deluxe Twin",
+     "info": "32m²; 2 giường đơn; view thành phố",
+     "capacity": 2,
+     "priceOriginal": 900000,
+     "price": 900000,
+     "discount": 0,
+     "left": 5,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "minibar",
+      "két an toàn"
+     ]
+    }
+   ],
+   "amenities": [
+    "Hồ bơi",
+    "gym",
+    "spa",
+    "nhà hàng",
+    "bar",
+    "lễ tân 24/7"
+   ],
+   "policy": "Giá tham khảo/đêm; giá thực tế thay đổi theo ngày và điều kiện đặt phòng.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 15,
+   "code": "HTL-DN-002",
+   "slug": "muong-thanh-luxury-da-nang",
+   "name": "Mường Thanh Luxury Đà Nẵng",
+   "type": "Hotel",
+   "stars": 5,
+   "rating": 4.3,
+   "ratingMax": 5,
+   "reviews": 6574,
+   "booked": 0,
+   "city": "Đà Nẵng",
+   "address": "270 Võ Nguyên Giáp, Ngũ Hành Sơn, Đà Nẵng",
+   "description": "Khách sạn 5 sao đối diện biển Mỹ Khê, có phòng hướng biển và suite.",
+   "keywords": [
+    "5 sao",
+    "Mỹ Khê",
+    "biển",
+    "hồ bơi",
+    "spa"
+   ],
+   "rooms": [
+    {
+     "name": "Superior Twin",
+     "info": "33m²; 1 giường đơn + 1 giường King; view thành phố",
+     "capacity": 2,
+     "priceOriginal": 1853100,
+     "price": 1853100,
+     "discount": 0,
+     "left": 4,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "minibar",
+      "két an toàn"
+     ]
+    }
+   ],
+   "amenities": [
+    "Hồ bơi",
+    "gym",
+    "spa",
+    "nhà hàng",
+    "bar",
+    "phòng hội nghị"
+   ],
+   "policy": "Giá tham khảo theo mức công bố; giá thay đổi theo ngày và chương trình ưu đãi.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 16,
+   "code": "HTL-DN-003",
+   "slug": "nalod-da-nang-hotel",
+   "name": "NALOD Đà Nẵng",
+   "type": "Hotel",
+   "stars": 4,
+   "rating": 4.7,
+   "ratingMax": 5,
+   "reviews": 4426,
+   "booked": 0,
+   "city": "Đà Nẵng",
+   "address": "192 Võ Nguyên Giáp, An Hải, Đà Nẵng",
+   "description": "Khách sạn nghỉ dưỡng ven biển Mỹ Khê, phù hợp khách du lịch và nhóm gia đình.",
+   "keywords": [
+    "biển Mỹ Khê",
+    "4 sao",
+    "hồ bơi",
+    "hội nghị"
+   ],
+   "rooms": [
+    {
+     "name": "Deluxe Ocean View",
+     "info": "35m²; 1 giường King; view biển",
+     "capacity": 2,
+     "priceOriginal": 1300000,
+     "price": 1300000,
+     "discount": 0,
+     "left": 4,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "minibar",
+      "két an toàn"
+     ]
+    }
+   ],
+   "amenities": [
+    "Hồ bơi",
+    "gym",
+    "nhà hàng",
+    "bar",
+    "phòng hội nghị",
+    "bãi đỗ xe"
+   ],
+   "policy": "Giá tham khảo/đêm; thuế phí và chính sách hủy tùy rate.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 17,
+   "code": "HTL-DN-004",
+   "slug": "dlg-hotel-danang",
+   "name": "DLG Hotel Danang",
+   "type": "Hotel",
+   "stars": 5,
+   "rating": 4.6,
+   "ratingMax": 5,
+   "reviews": 2777,
+   "booked": 0,
+   "city": "Đà Nẵng",
+   "address": "258 Võ Nguyên Giáp, An Hải, Đà Nẵng",
+   "description": "Khách sạn 5 sao ven biển với phòng nhìn biển và hồ bơi, phù hợp nghỉ dưỡng.",
+   "keywords": [
+    "5 sao",
+    "biển",
+    "hồ bơi",
+    "spa",
+    "gia đình"
+   ],
+   "rooms": [
+    {
+     "name": "Deluxe Ocean View",
+     "info": "36m²; 1 giường King; view biển",
+     "capacity": 2,
+     "priceOriginal": 3150000,
+     "price": 3150000,
+     "discount": 0,
+     "left": 3,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "minibar",
+      "bồn tắm"
+     ]
+    }
+   ],
+   "amenities": [
+    "Hồ bơi",
+    "gym",
+    "spa",
+    "nhà hàng",
+    "bar",
+    "hội nghị",
+    "bãi đỗ xe"
+   ],
+   "policy": "Giá tham khảo/đêm; một số rate có ưu đãi theo mùa; kiểm tra điều kiện hủy.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 18,
+   "code": "HTL-DN-005",
+   "slug": "novotel-danang-premier-han-river",
+   "name": "Novotel Danang Premier Han River",
+   "type": "Hotel",
+   "stars": 5,
+   "rating": 4.6,
+   "ratingMax": 5,
+   "reviews": 8685,
+   "booked": 0,
+   "city": "Đà Nẵng",
+   "address": "36 Bạch Đằng, Hải Châu, Đà Nẵng",
+   "description": "Khách sạn 5 sao bên sông Hàn với phòng và suite cao cấp, phù hợp khách công tác và nghỉ dưỡng.",
+   "keywords": [
+    "5 sao",
+    "sông Hàn",
+    "rooftop",
+    "suite",
+    "trung tâm"
+   ],
+   "rooms": [
+    {
+     "name": "Superior Room",
+     "info": "28m²; 1 giường King; view sông/thành phố",
+     "capacity": 2,
+     "priceOriginal": 6400000,
+     "price": 6400000,
+     "discount": 0,
+     "left": 2,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "minibar",
+      "két an toàn"
+     ]
+    }
+   ],
+   "amenities": [
+    "Hồ bơi",
+    "gym",
+    "spa",
+    "nhà hàng",
+    "bar",
+    "rooftop",
+    "phòng hội nghị"
+   ],
+   "policy": "Giá tham khảo theo giá phòng được hiển thị; có thể phát sinh thuế phí tùy kênh đặt.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 19,
+   "code": "VIL-SP-001",
+   "slug": "sapa-unique-villa",
+   "name": "Sapa Unique Villa",
+   "type": "Villa",
+   "stars": 4,
+   "rating": 3,
+   "ratingMax": 5,
+   "reviews": 17,
+   "booked": 0,
+   "city": "Sa Pa",
+   "address": "Xóm 1A, Sa Pa, Lào Cai",
+   "description": "Villa riêng tư tại Sa Pa, phù hợp nhóm nhỏ muốn không gian độc lập và yên tĩnh.",
+   "keywords": [
+    "villa",
+    "riêng tư",
+    "núi",
+    "nhóm nhỏ"
+   ],
+   "rooms": [
+    {
+     "name": "1 Bedroom Villa",
+     "info": "45m²; 1 giường King; ban công view núi",
+     "capacity": 2,
+     "priceOriginal": 1800000,
+     "price": 1800000,
+     "discount": 0,
+     "left": 3,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "ban công",
+      "phòng tắm riêng"
+     ]
+    }
+   ],
+   "amenities": [
+    "Sân vườn",
+    "bếp/khu ăn",
+    "bãi đỗ xe",
+    "hỗ trợ tour"
+   ],
+   "policy": "Giá tham khảo/đêm; villa nguyên căn và phụ thu người ở cần xác nhận theo ngày.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 20,
+   "code": "VIL-SP-002",
+   "slug": "hillside-mountain-view-villa-sapa",
+   "name": "Hillside Mountain View Villa Sapa",
+   "type": "Villa",
+   "stars": 4,
+   "rating": 0,
+   "ratingMax": 5,
+   "reviews": 0,
+   "booked": 0,
+   "city": "Sa Pa",
+   "address": "Xóm 1A, Sa Pa, Lào Cai",
+   "description": "Villa hướng núi với không gian riêng, phù hợp nhóm bạn hoặc gia đình nhỏ.",
+   "keywords": [
+    "villa",
+    "mountain view",
+    "gia đình",
+    "riêng tư"
+   ],
+   "rooms": [
+    {
+     "name": "Mountain View Villa",
+     "info": "55m²; 1 giường King + sofa bed; ban công",
+     "capacity": 4,
+     "priceOriginal": 2500000,
+     "price": 2500000,
+     "discount": 0,
+     "left": 2,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "ban công",
+      "ấm đun nước"
+     ]
+    }
+   ],
+   "amenities": [
+    "Sân vườn",
+    "khu BBQ",
+    "bãi đỗ xe",
+    "hỗ trợ tour"
+   ],
+   "policy": "Giá tham khảo/đêm; giá villa thay đổi theo số khách và ngày cuối tuần.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 21,
+   "code": "VIL-SP-003",
+   "slug": "ville-de-mont-mountain-resort",
+   "name": "Ville De Mont Mountain Resort",
+   "type": "Villa",
+   "stars": 5,
+   "rating": 4.8,
+   "ratingMax": 5,
+   "reviews": 8,
+   "booked": 0,
+   "city": "Sa Pa",
+   "address": "Khu nghỉ dưỡng Ville De Mont, Sa Pa, Lào Cai",
+   "description": "Khu biệt thự trên núi với tầm nhìn thung lũng Mường Hoa và Fansipan.",
+   "keywords": [
+    "villa",
+    "luxury",
+    "Mường Hoa",
+    "Fansipan",
+    "núi"
+   ],
+   "rooms": [
+    {
+     "name": "Executive Villa One Bedroom",
+     "info": "90m²; 1 phòng ngủ; 1 giường Queen/King; view thung lũng",
+     "capacity": 2,
+     "priceOriginal": 7620000,
+     "price": 7620000,
+     "discount": 0,
+     "left": 1,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "bồn tắm",
+      "ban công",
+      "minibar"
+     ]
+    }
+   ],
+   "amenities": [
+    "Nhà hàng",
+    "spa",
+    "yoga",
+    "hồ bơi",
+    "khu vui chơi",
+    "dịch vụ đưa đón"
+   ],
+   "policy": "Mức tham khảo từ website đặt phòng; giá thay đổi theo ngày và chương trình ưu đãi.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 22,
+   "code": "RST-SP-001",
+   "slug": "the-mong-village-resort-spa",
+   "name": "The Mong Village Resort & Spa",
+   "type": "Resort",
+   "stars": 4,
+   "rating": 4.2,
+   "ratingMax": 5,
+   "reviews": 553,
+   "booked": 0,
+   "city": "Sa Pa",
+   "address": "Cầu Mây, Tổ 1, Sa Pa, Lào Cai",
+   "description": "Resort mang phong cách bản địa, phù hợp nghỉ dưỡng giữa cảnh quan núi rừng Sa Pa.",
+   "keywords": [
+    "resort",
+    "bản địa",
+    "spa",
+    "núi",
+    "bungalow"
+   ],
+   "rooms": [
+    {
+     "name": "Deluxe Bungalow",
+     "info": "35m²; 1 giường King; ban công view núi",
+     "capacity": 2,
+     "priceOriginal": 2000000,
+     "price": 2000000,
+     "discount": 0,
+     "left": 4,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "điều hòa",
+      "minibar",
+      "ban công"
+     ]
+    }
+   ],
+   "amenities": [
+    "Spa",
+    "nhà hàng",
+    "hồ bơi",
+    "sân vườn",
+    "tour",
+    "bãi đỗ xe"
+   ],
+   "policy": "Giá tham khảo/đêm; chính sách hủy và phụ thu tùy rate.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 23,
+   "code": "RST-SP-002",
+   "slug": "laxsik-ecolodge",
+   "name": "Laxsik Ecolodge",
+   "type": "Resort",
+   "stars": 4,
+   "rating": 4.6,
+   "ratingMax": 5,
+   "reviews": 819,
+   "booked": 0,
+   "city": "Sa Pa",
+   "address": "Lý Hamlet, Sa Pa, Lào Cai",
+   "description": "Ecolodge giữa thung lũng với không gian gần thiên nhiên, phù hợp nghỉ dưỡng và trải nghiệm bản địa.",
+   "keywords": [
+    "ecolodge",
+    "bungalow",
+    "núi",
+    "spa",
+    "bản địa"
+   ],
+   "rooms": [
+    {
+     "name": "Valley View Bungalow",
+     "info": "32m²; 1 giường King; view thung lũng",
+     "capacity": 2,
+     "priceOriginal": 2900000,
+     "price": 2900000,
+     "discount": 0,
+     "left": 3,
+     "amenities": [
+      "WiFi",
+      "điều hòa",
+      "ban công",
+      "minibar",
+      "vòi sen"
+     ]
+    }
+   ],
+   "amenities": [
+    "Hồ bơi",
+    "nhà hàng",
+    "spa",
+    "sân vườn",
+    "tour",
+    "xe đưa đón"
+   ],
+   "policy": "Giá tham khảo/đêm; mức giá thay đổi theo mùa và hạng phòng.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 24,
+   "code": "RST-SP-003",
+   "slug": "sapa-jade-hill-resort-spa",
+   "name": "Sapa Jade Hill Resort & Spa",
+   "type": "Resort",
+   "stars": 5,
+   "rating": 0,
+   "ratingMax": 5,
+   "reviews": 0,
+   "booked": 0,
+   "city": "Sa Pa",
+   "address": "Đồi Ham Rong, Sa Pa, Lào Cai",
+   "description": "Boutique mountain resort với bungalow và villa hướng thung lũng Mường Hoa.",
+   "keywords": [
+    "resort",
+    "5 sao",
+    "bungalow",
+    "Mường Hoa",
+    "spa"
+   ],
+   "rooms": [
+    {
+     "name": "Deluxe Bungalow",
+     "info": "40m²; 1 giường đôi hoặc 2 giường đơn; view núi",
+     "capacity": 2,
+     "priceOriginal": 4400000,
+     "price": 4400000,
+     "discount": 0,
+     "left": 2,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "bồn tắm",
+      "ban công",
+      "minibar"
+     ]
+    }
+   ],
+   "amenities": [
+    "Spa",
+    "nhà hàng",
+    "hồ bơi",
+    "sân vườn",
+    "tour",
+    "khu vui chơi"
+   ],
+   "policy": "Giá niêm yết tham khảo; các hạng cao hơn có thể vượt mức này; giá thay đổi theo thời gian.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 25,
+   "code": "VIL-DL-001",
+   "slug": "ana-mandara-villas-dalat",
+   "name": "Ana Mandara Villas Dalat Resort & Spa",
+   "type": "Villa",
+   "stars": 5,
+   "rating": 0,
+   "ratingMax": 5,
+   "reviews": 0,
+   "booked": 0,
+   "city": "Đà Lạt",
+   "address": "Lê Lai, Phường 5, Đà Lạt, Lâm Đồng",
+   "description": "Quần thể villa Pháp cổ giữa đồi thông, có spa, hồ bơi và không gian nghỉ dưỡng riêng tư.",
+   "keywords": [
+    "villa",
+    "Pháp cổ",
+    "đồi thông",
+    "spa",
+    "hồ bơi"
+   ],
+   "rooms": [
+    {
+     "name": "Garden Suite Villa",
+     "info": "50m²; 1 giường đôi; view vườn",
+     "capacity": 2,
+     "priceOriginal": 4500000,
+     "price": 4500000,
+     "discount": 0,
+     "left": 3,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "minibar",
+      "lò sưởi",
+      "ban công"
+     ]
+    }
+   ],
+   "amenities": [
+    "Spa",
+    "hồ bơi ngoài trời",
+    "gym",
+    "nhà hàng",
+    "sân vườn",
+    "xe đưa đón"
+   ],
+   "policy": "Giá tham khảo theo mức phòng công bố; phụ thuộc villa và ngày lưu trú.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 26,
+   "code": "VIL-DL-002",
+   "slug": "binh-an-village-dalat",
+   "name": "Bình An Village Dalat",
+   "type": "Villa",
+   "stars": 4,
+   "rating": 0,
+   "ratingMax": 5,
+   "reviews": 0,
+   "booked": 0,
+   "city": "Đà Lạt",
+   "address": "Tuyền Lâm, Đà Lạt, Lâm Đồng",
+   "description": "Khu nghỉ dưỡng boutique bên hồ Tuyền Lâm với villa và suite mang phong cách Pháp kết hợp bản địa.",
+   "keywords": [
+    "villa",
+    "Tuyền Lâm",
+    "hồ",
+    "boutique",
+    "riêng tư"
+   ],
+   "rooms": [
+    {
+     "name": "Lake View Villa",
+     "info": "50m²; 1 giường King; view hồ",
+     "capacity": 2,
+     "priceOriginal": 4000000,
+     "price": 4000000,
+     "discount": 0,
+     "left": 2,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "minibar",
+      "ban công",
+      "lò sưởi"
+     ]
+    }
+   ],
+   "amenities": [
+    "Nhà hàng",
+    "sân vườn",
+    "hồ",
+    "hoạt động ngoài trời",
+    "bãi đỗ xe"
+   ],
+   "policy": "Giá tham khảo/đêm; villa nhiều phòng có thể cao hơn; xác nhận phụ thu và hủy.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 27,
+   "code": "VIL-DL-003",
+   "slug": "dalat-wonder-resort-villa",
+   "name": "Dalat Wonder Resort - Villa",
+   "type": "Villa",
+   "stars": 4,
+   "rating": 0,
+   "ratingMax": 5,
+   "reviews": 0,
+   "booked": 0,
+   "city": "Đà Lạt",
+   "address": "Phường 4, Đà Lạt, Lâm Đồng",
+   "description": "Khu nghỉ dưỡng ven hồ Tuyền Lâm có villa và nhiều lựa chọn phòng cho gia đình.",
+   "keywords": [
+    "villa",
+    "Tuyền Lâm",
+    "hồ",
+    "gia đình",
+    "resort"
+   ],
+   "rooms": [
+    {
+     "name": "Lake View Villa",
+     "info": "60m²; 1 phòng ngủ; ban công view hồ",
+     "capacity": 4,
+     "priceOriginal": 5500000,
+     "price": 5500000,
+     "discount": 0,
+     "left": 2,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "minibar",
+      "ban công",
+      "điều hòa"
+     ]
+    }
+   ],
+   "amenities": [
+    "Hồ bơi",
+    "nhà hàng",
+    "spa",
+    "sân vườn",
+    "hoạt động ngoài trời"
+   ],
+   "policy": "Giá tham khảo/đêm; villa nhiều phòng có thể cao hơn mức này.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 28,
+   "code": "RST-DL-001",
+   "slug": "dalat-edensee-lake-resort-spa",
+   "name": "Dalat Edensee Lake Resort & Spa",
+   "type": "Resort",
+   "stars": 5,
+   "rating": 0,
+   "ratingMax": 5,
+   "reviews": 0,
+   "booked": 0,
+   "city": "Đà Lạt",
+   "address": "Hồ Tuyền Lâm, Đà Lạt, Lâm Đồng",
+   "description": "Resort ven hồ Tuyền Lâm với phong cách nghỉ dưỡng châu Âu, phòng nhìn vườn/núi/hồ.",
+   "keywords": [
+    "resort",
+    "hồ Tuyền Lâm",
+    "5 sao",
+    "spa",
+    "golf"
+   ],
+   "rooms": [
+    {
+     "name": "Luxury Garden View",
+     "info": "32m²; 1 giường đôi hoặc 2 giường đơn; view vườn",
+     "capacity": 2,
+     "priceOriginal": 5556096,
+     "price": 5556096,
+     "discount": 0,
+     "left": 3,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "minibar",
+      "bồn tắm",
+      "sưởi"
+     ]
+    }
+   ],
+   "amenities": [
+    "Hồ",
+    "spa",
+    "hồ bơi",
+    "sân tennis",
+    "gym",
+    "nhà hàng",
+    "khu vui chơi"
+   ],
+   "policy": "Mức tham khảo theo giá hiển thị 2026; có thể thay đổi theo ngày và ưu đãi.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 29,
+   "code": "RST-DL-002",
+   "slug": "terracotta-hotel-resort-dalat",
+   "name": "Terracotta Hotel & Resort Dalat",
+   "type": "Resort",
+   "stars": 4,
+   "rating": 0,
+   "ratingMax": 5,
+   "reviews": 0,
+   "booked": 0,
+   "city": "Đà Lạt",
+   "address": "Khu du lịch Hồ Tuyền Lâm, Đà Lạt, Lâm Đồng",
+   "description": "Resort lớn bên hồ Tuyền Lâm với phòng nghỉ và nhiều căn villa, phù hợp nhóm gia đình.",
+   "keywords": [
+    "resort",
+    "villa",
+    "hồ Tuyền Lâm",
+    "gia đình",
+    "spa"
+   ],
+   "rooms": [
+    {
+     "name": "Deluxe Room",
+     "info": "30m²; 1 giường đôi hoặc 2 giường đơn; view vườn",
+     "capacity": 2,
+     "priceOriginal": 2280000,
+     "price": 2280000,
+     "discount": 0,
+     "left": 4,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "minibar",
+      "ban công",
+      "vòi sen"
+     ]
+    }
+   ],
+   "amenities": [
+    "Nhà hàng",
+    "spa",
+    "gym",
+    "hồ bơi",
+    "sân tennis",
+    "sân vườn"
+   ],
+   "policy": "Giá tham khảo/đêm cho phòng khách sạn; villa nhiều phòng có giá cao hơn.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  },
+  {
+   "id": 30,
+   "code": "RST-DL-003",
+   "slug": "swiss-belresort-tuyen-lam",
+   "name": "Swiss-Belresort Tuyen Lam",
+   "type": "Resort",
+   "stars": 4,
+   "rating": 0,
+   "ratingMax": 5,
+   "reviews": 0,
+   "booked": 0,
+   "city": "Đà Lạt",
+   "address": "Phân khu 7&8, Khu du lịch Hồ Tuyền Lâm, Đà Lạt, Lâm Đồng",
+   "description": "Resort giữa đồi thông với không gian yên tĩnh, có hồ bơi và sân golf lân cận.",
+   "keywords": [
+    "resort",
+    "Tuyền Lâm",
+    "đồi thông",
+    "golf",
+    "hồ bơi"
+   ],
+   "rooms": [
+    {
+     "name": "Deluxe Mountain View",
+     "info": "34m²; 1 giường King hoặc 2 giường đơn; view núi",
+     "capacity": 2,
+     "priceOriginal": 1945000,
+     "price": 1945000,
+     "discount": 0,
+     "left": 4,
+     "amenities": [
+      "WiFi",
+      "TV",
+      "minibar",
+      "ban công",
+      "điều hòa"
+     ]
+    }
+   ],
+   "amenities": [
+    "Hồ bơi",
+    "gym",
+    "spa",
+    "nhà hàng",
+    "sân golf lân cận",
+    "bãi đỗ xe"
+   ],
+   "policy": "Giá tham khảo/đêm; giá và điều kiện hủy thay đổi theo ngày.",
+   "checkIn": "14:00",
+   "checkOut": "12:00",
+   "images": []
+  }
+ ]
+}

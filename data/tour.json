@@ -1,0 +1,372 @@
+{
+ "policy": "Hoàn tiền đầy đủ nếu huỷ ít nhất 24 giờ trước giờ bắt đầu; có thể đổi lịch đến 24 giờ trước; nhà điều hành có quyền huỷ khi thời tiết xấu hoặc không đủ người tối thiểu (được hoàn tiền hoặc đổi ngày). Chính sách trẻ em và phụ thu ngày lễ/Tết khác nhau theo tour, xem trang tour.",
+ "promoCodes": [
+  {
+   "code": "VIVUGO10",
+   "percent": 10,
+   "note": "Mã mẫu - thay bằng mã thật"
+  }
+ ],
+ "tours": [
+  {
+   "id": 1,
+   "name": "Tour Ninh Bình trong ngày từ Hà Nội",
+   "priceOriginal": 1025000,
+   "price": 871000,
+   "discount": 15,
+   "from": "Hà Nội",
+   "to": "Ninh Bình",
+   "category": "Khám phá",
+   "types": [
+    "Tour trong ngày"
+   ],
+   "highlights": [
+    "Ưu đãi giảm 15% cho tour Ninh Bình trong ngày, được Klook chọn lọc",
+    "Hơn 40.000 lượt đặt, đánh giá 4.8/5 từ 3.035 khách",
+    "Khám phá cố đô Hoa Lư – kinh đô xưa của các triều Đinh, Tiền Lê",
+    "Ngồi thuyền len qua hang động và núi đá vôi thơ mộng ở Tràng An",
+    "Leo Hang Múa để ngắm toàn cảnh Tam Cốc từ trên cao",
+    "Thưởng thức buffet trưa món Việt, đi cùng hướng dẫn viên tiếng Anh, huỷ miễn phí"
+   ],
+   "meta": "Ninh Bình · Xe đưa đón + Bữa trưa buffet · Tiếng Anh",
+   "tags": [
+    "Đặt trước cho ngày mai",
+    "Huỷ miễn phí (Gửi yêu cầu trước 24 giờ)",
+    "Xác nhận tức thời"
+   ],
+   "includes": [
+    "Xe đưa đón khứ hồi Hà Nội – Ninh Bình",
+    "Hướng dẫn viên nói tiếng Anh",
+    "Vé vào cửa các điểm tham quan trong chương trình",
+    "Vé thuyền tham quan",
+    "Bữa trưa buffet món Việt",
+    "Nước suối"
+   ],
+   "excludes": [
+    "Chi phí cá nhân khác",
+    "Tiền típ",
+    "Thức uống ngoài bữa ăn"
+   ],
+   "pickup": "Điểm hẹn tại Hà Nội. Giờ và địa điểm tập trung có trong email xác nhận/voucher sau khi đặt; vui lòng có mặt trước giờ khởi hành 10 phút.",
+   "notes": [
+    "Leo khoảng 500 bậc thang tại Hang Múa, nên mang giày thể thao",
+    "Nên mang theo: mũ nón, kem chống nắng, áo mưa, tiền mặt, giấy tờ tuỳ thân",
+    "Lịch trình có thể thay đổi tuỳ giao thông và thời tiết"
+   ],
+   "itinerary": [
+    {
+     "time": "08:00",
+     "title": "Khởi hành",
+     "desc": "Đón khách tại Hà Nội, di chuyển đến Ninh Bình (khoảng 2 tiếng)"
+    },
+    {
+     "time": "10:00",
+     "title": "Cố đô Hoa Lư (1 tiếng)",
+     "desc": "Thăm đền vua Đinh, vua Lê – kinh đô xưa của Việt Nam"
+    },
+    {
+     "time": "11:30",
+     "title": "Bữa trưa",
+     "desc": "Buffet món Việt"
+    },
+    {
+     "time": "12:45",
+     "title": "Thuyền Tràng An (1 tiếng 30 phút)",
+     "desc": "Ngồi thuyền len qua hang động, núi đá vôi và sông nước"
+    },
+    {
+     "time": "14:30",
+     "title": "Hang Múa (1 tiếng)",
+     "desc": "Leo khoảng 500 bậc lên đỉnh ngắm toàn cảnh Tam Cốc – Bích Động"
+    },
+    {
+     "time": "16:00",
+     "title": "Quay về Hà Nội",
+     "desc": ""
+    },
+    {
+     "time": "18:00",
+     "title": "Kết thúc",
+     "desc": "Trả khách tại Hà Nội"
+    }
+   ],
+   "itineraryNote": "Lịch trình dự kiến, có thể thay đổi tuỳ điều kiện giao thông và thời tiết",
+   "duration": "10 tiếng",
+   "vehicle": [
+    "Xe đưa đón khứ hồi Hà Nội – Ninh Bình; thuyền tham quan Tràng An",
+    "Khoảng 2 tiếng mỗi chiều (Hà Nội – Ninh Bình)",
+    "Tập trung tại điểm hẹn ở Hà Nội (có mặt trước giờ đi 10 phút)"
+   ],
+   "departures": [
+    {
+     "date": "2026-09-22",
+     "time": "08:00",
+     "endTime": "18:00",
+     "slots": 16
+    }
+   ],
+   "rating": 4.8,
+   "reviews": 3035,
+   "booked": 40000,
+   "url": "https://www.klook.com/vi/activity/843-ha-noi-ninh-binh-day-tour-luxury-d-car/",
+   "images": []
+  },
+  {
+   "id": 2,
+   "name": "Vé Xe Buýt Hop On Hop Off Hà Nội",
+   "priceOriginal": 151000,
+   "price": 143000,
+   "discount": 5,
+   "from": "Hà Nội",
+   "to": "Hà Nội",
+   "category": "Tham quan",
+   "types": [
+    "Xe buýt tham quan"
+   ],
+   "highlights": [
+    "Lên xuống tự do quanh trung tâm Hà Nội, chỉ từ khoảng 5 USD",
+    "Giảm 5%, hơn 50.000 lượt đặt, đánh giá 4.3/5 từ 1.389 khách",
+    "Ngắm phố cổ, Hồ Hoàn Kiếm và các điểm nổi bật ngay từ trên xe",
+    "Chủ động lịch trình: dừng lâu nơi thích, đi tiếp khi muốn",
+    "Đặt được ngay trong ngày, xác nhận tức thời"
+   ],
+   "meta": "Hà Nội · Vé xe buýt Hop On Hop Off · Lên xuống tự do",
+   "tags": [
+    "Đặt ngay hôm nay",
+    "Xác nhận tức thời"
+   ],
+   "includes": [
+    "Vé xe buýt Hop On Hop Off",
+    "Lên xuống không giới hạn trong thời hạn vé"
+   ],
+   "excludes": [
+    "Vé vào cửa các điểm tham quan",
+    "Chi phí cá nhân khác",
+    "Tiền típ"
+   ],
+   "pickup": "Lên xe tại các điểm dừng. Thông tin điểm dừng và cách đổi vé có trong voucher sau khi đặt.",
+   "notes": [
+    "Vé chỉ có hiệu lực theo thời hạn ghi trên voucher",
+    "Lịch chạy có thể thay đổi tuỳ thời tiết và giao thông"
+   ],
+   "itinerary": [
+    {
+     "time": "Bước 1",
+     "title": "Lên xe tại điểm dừng gần nhất",
+     "desc": ""
+    },
+    {
+     "time": "Bước 2",
+     "title": "Xuống tham quan bất kỳ điểm dừng nào bạn thích",
+     "desc": ""
+    },
+    {
+     "time": "Bước 3",
+     "title": "Lên chuyến kế tiếp và lặp lại đến hết thời hạn vé",
+     "desc": ""
+    }
+   ],
+   "itineraryNote": "Lịch trình dự kiến, có thể thay đổi tuỳ điều kiện giao thông và thời tiết",
+   "duration": "1 giờ / 4 giờ / 24 giờ (tuỳ loại vé)",
+   "vehicle": [
+    "Xe buýt tham quan Hop On Hop Off, lên xuống tự do tại các điểm dừng",
+    "Có thuyết minh (audio guide) đa ngôn ngữ",
+    "Tự đến điểm dừng gần nhất để lên xe"
+   ],
+   "departures": [
+    {
+     "date": "2026-09-21",
+     "time": "09:00",
+     "endTime": "17:00",
+     "slots": 80
+    }
+   ],
+   "rating": 4.3,
+   "reviews": 1389,
+   "booked": 50000,
+   "url": "https://www.klook.com/vi/activity/101358-ha-noi-hop-on-hop-off-pass/",
+   "images": []
+  },
+  {
+   "id": 3,
+   "name": "Vé Xe Bus 2 Tầng Hà Nội từ City Sightseeing",
+   "priceOriginal": 150000,
+   "price": 135000,
+   "discount": 10,
+   "from": "Hà Nội",
+   "to": "Hà Nội",
+   "category": "Tham quan",
+   "types": [
+    "Xe buýt tham quan"
+   ],
+   "highlights": [
+    "Giảm 10%, hơn 70.000 lượt đặt, đánh giá 4.3/5 từ 2.599 khách",
+    "Xe buýt 2 tầng mui trần ngắm Hà Nội thoáng đãng",
+    "Đi qua Hoàng thành Thăng Long, Lăng Chủ tịch Hồ Chí Minh, Chùa Trấn Quốc",
+    "11 điểm dừng để lên xuống linh hoạt, thuyết minh đa ngôn ngữ qua tai nghe",
+    "Có vé ngày và vé đêm để ngắm Hà Nội lên đèn",
+    "Huỷ miễn phí, xác nhận tức thời"
+   ],
+   "meta": "Hà Nội · Xe buýt 2 tầng City Sightseeing · Thuyết minh đa ngôn ngữ",
+   "tags": [
+    "Đặt ngay hôm nay",
+    "Huỷ miễn phí (Gửi yêu cầu trước 24 giờ)",
+    "Xác nhận tức thời"
+   ],
+   "includes": [
+    "Vé xe buýt 2 tầng City Sightseeing (vé ngày 4 giờ không giới hạn hoặc vé đêm)",
+    "Thuyết minh đa ngôn ngữ qua tai nghe"
+   ],
+   "excludes": [
+    "Vé vào cửa các điểm tham quan",
+    "Chi phí cá nhân khác",
+    "Tiền típ"
+   ],
+   "pickup": "Lên xe tại các điểm dừng của tuyến. Điểm dừng và giờ chạy có trong voucher sau khi đặt.",
+   "notes": [
+    "Nên đi vào sáng sớm hoặc chiều muộn để tránh nắng gắt",
+    "Lịch chạy có thể thay đổi tuỳ thời tiết và giao thông"
+   ],
+   "itinerary": [
+    {
+     "time": "Bước 1",
+     "title": "Lên xe tại một trong 11 điểm dừng",
+     "desc": ""
+    },
+    {
+     "time": "",
+     "title": "Điểm nổi bật trên tuyến",
+     "desc": "Hoàng thành Thăng Long · Lăng Chủ tịch Hồ Chí Minh · Chùa Trấn Quốc"
+    },
+    {
+     "time": "Bước 2",
+     "title": "Xuống/lên tự do tại các điểm dừng trong thời hạn vé",
+     "desc": ""
+    }
+   ],
+   "itineraryNote": "Lịch trình dự kiến, có thể thay đổi tuỳ điều kiện giao thông và thời tiết",
+   "duration": "4 giờ (vé ngày 4 giờ hoặc vé đêm)",
+   "vehicle": [
+    "Xe buýt 2 tầng mui trần City Sightseeing, 11 điểm dừng, lên xuống tự do",
+    "Thuyết minh đa ngôn ngữ qua tai nghe",
+    "Tự đến một trong các điểm dừng để lên xe"
+   ],
+   "departures": [
+    {
+     "date": "2026-09-21",
+     "time": "09:00",
+     "endTime": "17:00",
+     "slots": 80
+    }
+   ],
+   "rating": 4.3,
+   "reviews": 2599,
+   "booked": 70000,
+   "url": "https://www.klook.com/vi/activity/87164-hanoi-hop-on-off-sightseeing-tour/",
+   "images": []
+  },
+  {
+   "id": 4,
+   "name": "Tour Ninh Bình trong ngày từ Hà Nội: Hoa Lư, Tràng An & Hang Múa",
+   "priceOriginal": 1280000,
+   "price": 1088000,
+   "discount": 15,
+   "from": "Hà Nội",
+   "to": "Ninh Bình",
+   "category": "Khám phá",
+   "types": [
+    "Tour trong ngày"
+   ],
+   "highlights": [
+    "Ưu đãi giảm 15%, được Klook chọn lọc, đánh giá tuyệt đối 5.0/5",
+    "Đủ 3 điểm “must-see” Ninh Bình chỉ trong một ngày",
+    "Cố đô Hoa Lư – nơi lưu dấu kinh đô xưa nhà Đinh, Tiền Lê",
+    "Thuyền Tràng An – di sản thế giới với hang động và núi đá vôi soi bóng nước",
+    "Hang Múa – check-in đỉnh Ngọa Long ngắm trọn cảnh sắc Ninh Bình",
+    "Bữa trưa buffet, xe đưa đón khứ hồi, huỷ miễn phí"
+   ],
+   "meta": "Ninh Bình · Hoa Lư – Tràng An – Hang Múa · Tiếng Anh",
+   "tags": [
+    "Đặt trước cho ngày mai",
+    "Huỷ miễn phí (Gửi yêu cầu trước 24 giờ)",
+    "Xác nhận tức thời"
+   ],
+   "includes": [
+    "Xe đưa đón khứ hồi Hà Nội – Ninh Bình",
+    "Hướng dẫn viên nói tiếng Anh",
+    "Vé vào cửa các điểm tham quan trong chương trình",
+    "Vé thuyền tham quan",
+    "Bữa trưa buffet món Việt",
+    "Nước suối"
+   ],
+   "excludes": [
+    "Chi phí cá nhân khác",
+    "Tiền típ",
+    "Thức uống ngoài bữa ăn"
+   ],
+   "pickup": "Điểm hẹn tại Hà Nội. Giờ và địa điểm tập trung có trong email xác nhận/voucher sau khi đặt; vui lòng có mặt trước giờ khởi hành 10 phút.",
+   "notes": [
+    "Leo khoảng 500 bậc thang tại Hang Múa, nên mang giày thể thao",
+    "Nên mang theo: mũ nón, kem chống nắng, áo mưa, tiền mặt, giấy tờ tuỳ thân",
+    "Lịch trình có thể thay đổi tuỳ giao thông và thời tiết"
+   ],
+   "itinerary": [
+    {
+     "time": "08:00",
+     "title": "Khởi hành",
+     "desc": "Đón khách tại Hà Nội, di chuyển đến Ninh Bình (khoảng 2 tiếng)"
+    },
+    {
+     "time": "10:00",
+     "title": "Cố đô Hoa Lư (1 tiếng)",
+     "desc": "Thăm đền vua Đinh, vua Lê – kinh đô xưa của Việt Nam"
+    },
+    {
+     "time": "11:30",
+     "title": "Bữa trưa",
+     "desc": "Buffet món Việt"
+    },
+    {
+     "time": "12:45",
+     "title": "Thuyền Tràng An (1 tiếng 30 phút)",
+     "desc": "Ngồi thuyền len qua hang động, núi đá vôi và sông nước"
+    },
+    {
+     "time": "14:30",
+     "title": "Hang Múa (1 tiếng)",
+     "desc": "Leo khoảng 500 bậc lên đỉnh ngắm toàn cảnh Tam Cốc – Bích Động"
+    },
+    {
+     "time": "16:00",
+     "title": "Quay về Hà Nội",
+     "desc": ""
+    },
+    {
+     "time": "18:00",
+     "title": "Kết thúc",
+     "desc": "Trả khách tại Hà Nội"
+    }
+   ],
+   "itineraryNote": "Lịch trình dự kiến, có thể thay đổi tuỳ điều kiện giao thông và thời tiết",
+   "duration": "10 tiếng",
+   "vehicle": [
+    "Xe đưa đón khứ hồi Hà Nội – Ninh Bình; thuyền tham quan Tràng An",
+    "Khoảng 2 tiếng mỗi chiều (Hà Nội – Ninh Bình)",
+    "Tập trung tại điểm hẹn ở Hà Nội (có mặt trước giờ đi 10 phút)"
+   ],
+   "departures": [
+    {
+     "date": "2026-09-22",
+     "time": "08:00",
+     "endTime": "18:00",
+     "slots": 12
+    }
+   ],
+   "rating": 5,
+   "reviews": 297,
+   "booked": 1000,
+   "url": "https://www.klook.com/vi/activity/221960-ninh-binh-day-tour-from-hanoi-hoa-lu-trang-an-mua-cave/",
+   "images": []
+  }
+ ]
+}
