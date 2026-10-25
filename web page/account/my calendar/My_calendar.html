@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Calendar</title>
+<link rel="stylesheet" href="My_calendar.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div class="banner">
+  <div class="hero">
+    <button class="new-trip-btn" data-action="open-modal">✈ Tạo chuyến đi</button>
+    <div class="hero-inner">
+      <h1>Lịch của tôi</h1>
+      <p>Quản lý và lên kế hoạch cho những chuyến đi sắp tới của bạn</p>
+    </div>
+  </div>
+
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <div>
+      <div class="panel panel-gap">
+        <ul class="nav-list" id="navList">
+          <li class="active" data-filter="all" data-title="Tất cả chuyến đi" data-label="Tất cả"><span class="dot"><i class="fa-solid fa-border-all"></i></span> Tất cả <span class="count"></span></li>
+          <li data-filter="upcoming" data-title="Chuyến đi sắp tới" data-label="Sắp tới"><span class="dot"><i class="fa-solid fa-calendar-days"></i></span> Sắp tới <span class="count"></span></li>
+          <li data-filter="ongoing" data-title="Chuyến đi đang diễn ra" data-label="Đang diễn ra"><span class="dot"><i class="fa-solid fa-globe"></i></span> Đang diễn ra <span class="count"></span></li>
+          <li data-filter="completed" data-title="Chuyến đi đã hoàn thành" data-label="Đã hoàn thành"><span class="dot"><i class="fa-solid fa-check-circle"></i></span> Đã hoàn thành <span class="count"></span></li>
+        </ul>
+        <div class="section-title" id="listTitle">Chuyến đi</div>
+        <div id="tripList"></div>
+        <div id="listEmpty" class="empty-note no-border" hidden>Chưa có chuyến đi nào ở mục này</div>
+        <div id="listError" class="empty-note no-border" hidden>Chưa tải được dữ liệu chuyến đi</div>
+        <div class="empty-note">Mỗi chuyến đi<br>là một câu chuyện đáng nhớ</div>
+      </div>
+      <div class="panel">
+        <div class="section-title">Thêm nhanh vào lịch</div>
+        <div class="quick-grid" id="quickGrid"></div>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="panel">
+      <div id="loadError" class="empty-note no-border" hidden>
+        Không tải được data.json.<br>Hãy mở trang qua máy chủ cục bộ (ví dụ <b>python -m http.server</b>) thay vì mở trực tiếp file.
+      </div>
+      <div id="emptyMain" class="empty-note no-border" hidden>
+        Chưa có chuyến đi nào để hiển thị.<br>Hãy chọn mục khác hoặc tạo chuyến đi mới.
+      </div>
+
+      <div id="tripView" hidden>
+        <div class="trip-hero">
+          <button class="share-btn">⋯</button>
+          <div class="trip-hero-inner">
+            <h2 id="tripName"></h2>
+            <div class="trip-hero-meta">
+              <span id="tripDate"></span>
+              <span id="tripPlace"></span>
+              <span id="tripStatus" class="status-tag"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabs">
+          <div class="tab active" data-tab="itinerary">Lịch trình</div>
+          <div class="tab" data-tab="info">Thông tin chuyến đi</div>
+        </div>
+
+        <!-- TAB: LỊCH TRÌNH -->
+        <div data-panel="itinerary">
+          <div class="day-row" id="dayRow"></div>
+          <div id="days"></div>
+          <div id="daysEmpty" class="empty-note" hidden>
+            Chuyến đi này chưa có lịch trình.<br>Bấm “Tạo chuyến đi” hoặc thêm hoạt động để bắt đầu.
+          </div>
+        </div>
+
+        <!-- TAB: THÔNG TIN CHUYẾN ĐI -->
+        <div data-panel="info" hidden>
+          <div id="infoEmpty" class="empty-note no-border" hidden>
+            Chuyến đi này chưa có thông tin đặt chỗ.<br>Thêm mục “info” cho chuyến đi trong data.json để hiển thị.
+          </div>
+
+          <div id="infoBody">
+            <div class="card" id="infoBookings" hidden>
+              <div class="card-head"><h3>Mã đặt chỗ &amp; vé</h3></div>
+              <div class="kv-row">
+                <div class="kv"><small>Trạng thái xác nhận</small><b class="ok" data-f="status"></b></div>
+                <div class="kv"><small>Ngày khởi hành</small><b data-f="departure"></b></div>
+                <div class="kv"><small>Mã đặt chỗ</small><b data-f="code"></b></div>
+              </div>
+              <div class="booking">
+                <div class="booking-list" data-slot="rows"></div>
+              </div>
+            </div>
+
+            <div class="info-grid" id="infoGrid">
+              <div class="card" id="infoHotel" hidden>
+                <div class="card-head"><h3>Lưu trú</h3></div>
+                <div class="hotel">
+                  <div class="hotel-thumb thumb-hotel" data-thumb></div>
+                  <div>
+                    <b data-f="name"></b>
+                    <p>📍 <span data-f="address"></span></p>
+                    <p>🛏 <span data-f="room"></span></p>
+                  </div>
+                </div>
+                <div class="kv-row">
+                  <div class="kv"><small>Nhận phòng</small><b data-f="checkIn"></b></div>
+                  <div class="kv"><small>Trả phòng</small><b data-f="checkOut"></b></div>
+                </div>
+              </div>
+
+              <div class="card" id="infoTransport" hidden>
+                <div class="card-head"><h3 data-f="title"></h3></div>
+                <div data-slot="rows"></div>
+              </div>
+            </div>
+
+            <div class="card" id="infoCosts" hidden>
+              <div class="card-head"><h3>Chi phí chuyến đi</h3></div>
+              <div class="invoice-head">
+                <span>Khoản chi</span>
+                <span>Ngày</span>
+                <span>Số tiền</span>
+              </div>
+              <div data-slot="rows"></div>
+              <div class="invoice-total">
+                <span>Tổng cộng</span>
+                <b data-f="total"></b>
+              </div>
+            </div>
+
+            <div class="card" id="infoNotes" hidden>
+              <div data-slot="rows"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="modal-head"><h3>Thêm hoạt động</h3><button data-action="close-modal">✕</button></div>
+    <div class="type-row" id="typeRow"></div>
+    <div class="field"><label>Tên hoạt động</label><input type="text" placeholder="Ví dụ: Ăn tối tại nhà hàng..."></div>
+    <div class="field-row">
+      <div class="field"><label>Ngày</label><input type="date" id="inputDate"></div>
+      <div class="field"><label>Thời gian</label><input type="time" id="inputTime"></div>
+    </div>
+    <div class="field"><label>Ghi chú</label><textarea placeholder="Thêm ghi chú, địa chỉ..."></textarea></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" data-action="close-modal">Hủy</button>
+      <button class="btn btn-primary" data-action="close-modal">Lưu</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TEMPLATES =====================
+     Khuôn HTML cho các phần được lặp lại. JS chỉ nhân bản (clone)
+     và điền dữ liệu vào các chỗ có data-f / data-icon / data-slot. -->
+
+<!-- Sidebar: thẻ chuyến đi + nút xem -->
+<template id="tpl-trip-item">
+  <div class="trip-card" data-trip>
+    <div class="trip-thumb"></div>
+    <div class="trip-info">
+      <h4 data-f="name"></h4>
+      <div class="trip-meta">
+        <span>📅 <span data-f="dates"></span></span>
+        <span>📍 <span data-f="place"></span></span>
+        <span><span class="status-tag" data-f="status"></span></span>
+      </div>
+    </div>
+  </div>
+  <button class="view-btn" data-trip>Xem lịch trình</button>
+</template>
+
+<!-- Sidebar: thêm nhanh -->
+<template id="tpl-quick">
+  <div class="quick-item">
+    <div class="qi-icon qi-blue"><i class="fa-solid" data-icon></i></div>
+    <b data-f="title"></b>
+    <small data-f="desc"></small>
+  </div>
+</template>
+
+<!-- Chip chọn ngày -->
+<template id="tpl-day-chip-all">
+  <div class="day-chip"><div class="dnum">Tất cả</div></div>
+</template>
+<template id="tpl-day-chip">
+  <div class="day-chip">
+    <div class="dnum">Ngày <span data-f="num"></span></div>
+    <div class="ddate" data-f="date"></div>
+  </div>
+</template>
+
+<!-- Khối một ngày + hoạt động -->
+<template id="tpl-day-block">
+  <div class="day-block">
+    <div class="day-block-head">
+      <h3>
+        <span class="day-badge" data-f="badge"></span>
+        <span class="day-title">Ngày <span data-f="num"></span> · <span data-f="title"></span></span>
+      </h3>
+      <button class="add-act" data-action="open-modal">＋ Thêm hoạt động</button>
+    </div>
+    <div data-slot="activities"></div>
+  </div>
+</template>
+<template id="tpl-activity">
+  <div class="activity">
+    <div class="time" data-f="time"></div>
+    <div class="content"><h4 data-f="title"></h4><p data-f="note"></p></div>
+    <div class="thumb" data-thumb hidden></div>
+  </div>
+</template>
+
+<!-- Tab thông tin: các dòng con -->
+<template id="tpl-booking-row">
+  <div class="booking-row">
+    <i class="fa-solid" data-icon></i>
+    <span data-f="title"></span>
+    <span class="pill ok" data-f="state"></span>
+  </div>
+</template>
+<template id="tpl-kv-line">
+  <div class="kv line"><small data-f="label"></small><b data-f="value"></b></div>
+</template>
+<template id="tpl-cost-row">
+  <div class="cost-row">
+    <div class="cost-main"><b data-f="label"></b><small data-f="note"></small></div>
+    <span class="cost-date" data-f="date"></span>
+    <span class="cost-amount" data-f="amount"></span>
+  </div>
+</template>
+<template id="tpl-note">
+  <div class="note"><b data-f="title"></b><p data-f="text"></p></div>
+</template>
+
+<!-- Modal: loại hoạt động -->
+<template id="tpl-type-chip">
+  <div class="type-chip"><span class="ti" data-f="icon"></span><span data-f="label"></span></div>
+</template>
+
+<script src="app.js"></script>
+</body>
+</html>
