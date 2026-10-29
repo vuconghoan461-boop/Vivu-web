@@ -1564,52 +1564,88 @@ input:focus-visible {
 /*--  MODULE CON: TOUR---*/
 /* tour.css — chỉ phần BỔ SUNG cho css.css (dùng lại .car-grid, .car-card, .rental-*, .cat-tab, .seat-pill, .modal-*, .booking-*, .success-*) */
 
-/* Badge card */
-.car-badge.hot { background: rgba(226,135,10,.95); }
-.car-badge.sale { background: rgba(0,143,229,.95); }
-.car-card { cursor: pointer; }
-.tour-route { font-size: 12.5px; color: #6B7280; }
-.form-error { color: #DC2626; font-size: 12.5px; }
-.booking-form input.is-invalid { border-color: #DC2626; }
-
+.tour-page .form-error { color: #DC2626; font-size: 12.5px; min-height: 0; }
+.tour-page .booking-form .is-invalid { border-color: #DC2626; }
+.tour-page .promo-msg { font-size: 12px; }
+.tour-page .promo-msg.ok  { color: #16A34A; }
+.tour-page .promo-msg.bad { color: #DC2626; }
+.tour-page .summary-line.discount { color: #16A34A; }
+ 
 /* Popup chi tiết */
-.booking-modal.detail-modal { max-width: 860px; position: relative; }
-.gallery { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 6px; padding: 14px 14px 0; height: 300px; }
-.gallery .media-placeholder { aspect-ratio: auto; height: 100%; border-radius: 10px; overflow: hidden; }
-.gallery .media-placeholder:first-child { grid-row: span 2; }
-.gallery img, .car-media img { width: 100%; height: 100%; object-fit: cover; }
-.detail-price { font-size: 24px; font-weight: 800; color: #D97706; margin-top: 8px; }
-.detail-price small { font-size: 12px; font-weight: 500; color: #6B7280; }
-.detail-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 16px 22px 0; flex-wrap: wrap; }
-.detail-top h2 { font-size: 20px; }
-.detail-modal .modal-close { position: absolute; top: 14px; right: 14px; z-index: 5; }
-.panel-h { font-size: 14px; font-weight: 700; margin: 14px 0 6px; }
-.old-price { display: block; font-size: 12px; color: #6B7280; text-decoration: line-through; }
-.hl-list li, .inc-list li, .exc-list li, .note-list li { position: relative; padding: 4px 0 4px 20px; font-size: 13.5px; }
-.hl-list li::before, .inc-list li::before { content: "✓"; position: absolute; left: 0; color: #008FE5; font-weight: 700; }
-.exc-list li::before { content: "✕"; position: absolute; left: 0; color: #DC2626; font-weight: 700; }
-.note-list li::before { content: "•"; position: absolute; left: 6px; color: #FF9D16; }
-.badge-row { position: absolute; top: 10px; left: 10px; display: flex; gap: 6px; z-index: 2; }
-.badge-row .car-badge { position: static; }
-.quick-info { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #E5E7EB; border-radius: 10px; margin: 16px 22px; }
-.quick-info div { padding: 10px 12px; border-right: 1px solid #E5E7EB; font-size: 12.5px; }
-.quick-info div:last-child { border-right: none; }
-.quick-info span { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .04em; color: #6B7280; }
-.detail-body { padding: 0 22px 22px; }
-.detail-body .tab-bar { margin-bottom: 16px; }
-.panel-h { font-size: 14px; font-weight: 700; margin: 14px 0 6px; }
-.acc-head { width: 100%; display: flex; justify-content: space-between; border: none; border-radius: 8px; background: #F3FAFF; padding: 11px 14px; font-weight: 700; font-size: 13.5px; cursor: pointer; }
-.timeline li { display: grid; grid-template-columns: 70px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px dashed #E5E7EB; font-size: 13.5px; }
-.timeline .t-time { font-weight: 700; color: #008FE5; }
-.timeline .t-desc { display: block; font-size: 12.5px; color: #6B7280; }
-.price-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-.price-table th, .price-table td { padding: 9px 10px; border-bottom: 1px solid #E5E7EB; text-align: left; }
-.price-table th { font-size: 12px; color: #6B7280; }
-.detail-cta { position: sticky; bottom: 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; background: #FFFFFF; border-top: 1px solid #E5E7EB; padding: 12px 22px; }
-
+.tour-page .booking-modal.detail-modal { max-width: 860px; position: relative; }
+.tour-page .detail-modal .modal-close { position: absolute; top: 14px; right: 14px; z-index: 6; }
+.tour-page .gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 6px;
+  padding: 14px 14px 0;
+  height: 300px; }
+.tour-page .gallery > * { border-radius: 10px; overflow: hidden; min-height: 0; }
+.tour-page .gallery > :first-child { grid-row: span 2; }
+.tour-page .gallery .media-placeholder { aspect-ratio: auto; height: 100%; }
+.tour-page .detail-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 22px 0;
+  flex-wrap: wrap; }
+.tour-page .detail-top h2 { font-size: 20px; color: #000000; }
+.tour-page .detail-price { font-size: 24px; font-weight: 800; color: #D97706; margin-top: 8px; }
+.tour-page .detail-price small { font-size: 12px; font-weight: 500; color: #6B7280; }
+.tour-page .quick-info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  margin: 16px 22px; }
+.tour-page .quick-info div { padding: 10px 12px; border-right: 1px solid #E5E7EB; font-size: 12.5px; }
+.tour-page .quick-info div:last-child { border-right: none; }
+.tour-page .quick-info span { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .04em; color: #6B7280; }
+.tour-page .detail-body { padding: 0 22px 22px; }
+.tour-page .detail-body .tab-bar { margin-bottom: 16px; }
+.tour-page .panel-h { font-size: 14px; font-weight: 700; margin: 14px 0 6px; color: #000000; }
+.tour-page .panel-text { font-size: 13.5px; color: #374151; line-height: 1.6; }
+.tour-page .panel-empty { font-size: 13.5px; color: #6B7280; padding: 8px 0; }
+.tour-page .source-link { display: inline-block; margin-top: 14px; font-size: 13px; font-weight: 600; color: #008FE5; }
+.tour-page .hl-list li,
+.tour-page .inc-list li,
+.tour-page .exc-list li,
+.tour-page .note-list li { position: relative; padding: 4px 0 4px 20px; font-size: 13.5px; }
+.tour-page .hl-list li::before,
+.tour-page .inc-list li::before { content: "✓"; position: absolute; left: 0; color: #008FE5; font-weight: 700; }
+.tour-page .exc-list li::before { content: "✕"; position: absolute; left: 0; color: #DC2626; font-weight: 700; }
+.tour-page .note-list li::before { content: "•"; position: absolute; left: 6px; color: #FF9D16; }
+.tour-page .timeline li {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px dashed #E5E7EB;
+  font-size: 13.5px; }
+.tour-page .timeline .t-time { font-weight: 700; color: #008FE5; }
+.tour-page .timeline .t-desc { display: block; font-size: 12.5px; color: #6B7280; }
+.tour-page .price-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.tour-page .price-table th,
+.tour-page .price-table td { padding: 9px 10px; border-bottom: 1px solid #E5E7EB; text-align: left; }
+.tour-page .price-table th { font-size: 12px; color: #6B7280; }
+.tour-page .detail-cta {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: #FFFFFF;
+  border-top: 1px solid #E5E7EB;
+  padding: 12px 22px; }
+ 
 @media (max-width: 768px) {
-  .gallery { grid-template-columns: 1fr 1fr; height: 220px; }
-  .gallery .media-placeholder:nth-child(n+4) { display: none; }
-  .quick-info { grid-template-columns: 1fr 1fr; }
+  .tour-page .gallery { grid-template-columns: 1fr 1fr; height: 220px; }
+  .tour-page .gallery > :nth-child(n+4) { display: none; }
+  .tour-page .quick-info { grid-template-columns: 1fr 1fr; }
+  .tour-page .quick-info div:nth-child(2) { border-right: none; }
+  .tour-page .quick-info div:nth-child(-n+2) { border-bottom: 1px solid #E5E7EB; }
 }
-
+ 
