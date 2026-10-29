@@ -1,372 +1,1787 @@
 {
- "policy": "Hoàn tiền đầy đủ nếu huỷ ít nhất 24 giờ trước giờ bắt đầu; có thể đổi lịch đến 24 giờ trước; nhà điều hành có quyền huỷ khi thời tiết xấu hoặc không đủ người tối thiểu (được hoàn tiền hoặc đổi ngày). Chính sách trẻ em và phụ thu ngày lễ/Tết khác nhau theo tour, xem trang tour.",
- "promoCodes": [
-  {
-   "code": "VIVUGO10",
-   "percent": 10,
-   "note": "Mã mẫu - thay bằng mã thật"
-  }
- ],
- "tours": [
-  {
-   "id": 1,
-   "name": "Tour Ninh Bình trong ngày từ Hà Nội",
-   "priceOriginal": 1025000,
-   "price": 871000,
-   "discount": 15,
-   "from": "Hà Nội",
-   "to": "Ninh Bình",
-   "category": "Khám phá",
-   "types": [
-    "Tour trong ngày"
-   ],
-   "highlights": [
-    "Ưu đãi giảm 15% cho tour Ninh Bình trong ngày, được Klook chọn lọc",
-    "Hơn 40.000 lượt đặt, đánh giá 4.8/5 từ 3.035 khách",
-    "Khám phá cố đô Hoa Lư – kinh đô xưa của các triều Đinh, Tiền Lê",
-    "Ngồi thuyền len qua hang động và núi đá vôi thơ mộng ở Tràng An",
-    "Leo Hang Múa để ngắm toàn cảnh Tam Cốc từ trên cao",
-    "Thưởng thức buffet trưa món Việt, đi cùng hướng dẫn viên tiếng Anh, huỷ miễn phí"
-   ],
-   "meta": "Ninh Bình · Xe đưa đón + Bữa trưa buffet · Tiếng Anh",
-   "tags": [
-    "Đặt trước cho ngày mai",
-    "Huỷ miễn phí (Gửi yêu cầu trước 24 giờ)",
-    "Xác nhận tức thời"
-   ],
-   "includes": [
-    "Xe đưa đón khứ hồi Hà Nội – Ninh Bình",
-    "Hướng dẫn viên nói tiếng Anh",
-    "Vé vào cửa các điểm tham quan trong chương trình",
-    "Vé thuyền tham quan",
-    "Bữa trưa buffet món Việt",
-    "Nước suối"
-   ],
-   "excludes": [
-    "Chi phí cá nhân khác",
-    "Tiền típ",
-    "Thức uống ngoài bữa ăn"
-   ],
-   "pickup": "Điểm hẹn tại Hà Nội. Giờ và địa điểm tập trung có trong email xác nhận/voucher sau khi đặt; vui lòng có mặt trước giờ khởi hành 10 phút.",
-   "notes": [
-    "Leo khoảng 500 bậc thang tại Hang Múa, nên mang giày thể thao",
-    "Nên mang theo: mũ nón, kem chống nắng, áo mưa, tiền mặt, giấy tờ tuỳ thân",
-    "Lịch trình có thể thay đổi tuỳ giao thông và thời tiết"
-   ],
-   "itinerary": [
+  "promoCodes": [
     {
-     "time": "08:00",
-     "title": "Khởi hành",
-     "desc": "Đón khách tại Hà Nội, di chuyển đến Ninh Bình (khoảng 2 tiếng)"
+      "code": "VIVU10",
+      "percent": 10
     },
     {
-     "time": "10:00",
-     "title": "Cố đô Hoa Lư (1 tiếng)",
-     "desc": "Thăm đền vua Đinh, vua Lê – kinh đô xưa của Việt Nam"
-    },
-    {
-     "time": "11:30",
-     "title": "Bữa trưa",
-     "desc": "Buffet món Việt"
-    },
-    {
-     "time": "12:45",
-     "title": "Thuyền Tràng An (1 tiếng 30 phút)",
-     "desc": "Ngồi thuyền len qua hang động, núi đá vôi và sông nước"
-    },
-    {
-     "time": "14:30",
-     "title": "Hang Múa (1 tiếng)",
-     "desc": "Leo khoảng 500 bậc lên đỉnh ngắm toàn cảnh Tam Cốc – Bích Động"
-    },
-    {
-     "time": "16:00",
-     "title": "Quay về Hà Nội",
-     "desc": ""
-    },
-    {
-     "time": "18:00",
-     "title": "Kết thúc",
-     "desc": "Trả khách tại Hà Nội"
+      "code": "VIVUGO20",
+      "percent": 20
     }
-   ],
-   "itineraryNote": "Lịch trình dự kiến, có thể thay đổi tuỳ điều kiện giao thông và thời tiết",
-   "duration": "10 tiếng",
-   "vehicle": [
-    "Xe đưa đón khứ hồi Hà Nội – Ninh Bình; thuyền tham quan Tràng An",
-    "Khoảng 2 tiếng mỗi chiều (Hà Nội – Ninh Bình)",
-    "Tập trung tại điểm hẹn ở Hà Nội (có mặt trước giờ đi 10 phút)"
-   ],
-   "departures": [
+  ],
+  "policy": "Hoàn tiền đầy đủ nếu huỷ ít nhất 24 giờ trước giờ bắt đầu; có thể đổi lịch đến 24 giờ trước; nhà điều hành có quyền huỷ khi thời tiết xấu hoặc không đủ người tối thiểu (được hoàn tiền hoặc đổi ngày). Chính sách trẻ em và phụ thu ngày lễ/Tết khác nhau theo tour, xem trang tour.",
+  "Tours": [
     {
-     "date": "2026-09-22",
-     "time": "08:00",
-     "endTime": "18:00",
-     "slots": 16
+      "id": 1,
+      "code": "TUR-NB-001",
+      "slug": "tour-ninh-binh-trong-ngay-tu-ha-noi",
+      "name": "Tour Ninh Bình trong ngày từ Hà Nội",
+      "type": "Tour trong ngày",
+      "stars": 5,
+      "rating": 4.8,
+      "ratingMax": 5,
+      "reviews": 3035,
+      "booked": 40000,
+      "city": "Ninh Bình",
+      "address": "Khởi hành từ Hà Nội → Tràng An, Hoa Lư, Hang Múa, Ninh Bình",
+      "description": "Ưu đãi giảm 15% cho tour Ninh Bình trong ngày được VivuGo chọn lọc. Khám phá cố đô Hoa Lư kinh đô xưa của các triều Đinh, Tiền Lê; ngồi thuyền nan len qua hang động và núi đá vôi kỳ vĩ ở Tràng An; chinh phục 500 bậc thang Hang Múa ngắm trọn cảnh sắc Tam Cốc từ trên cao.",
+      "keywords": [
+        "Ninh Bình",
+        "Tràng An",
+        "Hang Múa",
+        "Hoa Lư",
+        "Trong ngày",
+        "Limousine"
+      ],
+      "priceOriginal": 1025000,
+      "price": 871000,
+      "discount": 15,
+      "from": "Hà Nội",
+      "to": "Ninh Bình",
+      "category": "Khám phá",
+      "types": [
+        "Tour trong ngày"
+      ],
+      "duration": "10 tiếng",
+      "meta": "Ninh Bình · Xe đưa đón + Bữa trưa buffet · Tiếng Anh/Việt",
+      "tags": [
+        "Đặt trước cho ngày mai",
+        "Huỷ miễn phí (Gửi yêu cầu trước 24 giờ)",
+        "Xác nhận tức thời"
+      ],
+      "highlights": [
+        "Ưu đãi giảm 15% cho tour Ninh Bình trong ngày, được VivuGo chọn lọc",
+        "Hơn 40.000 lượt đặt, đánh giá 4.8/5 từ 3.035 khách hàng",
+        "Khám phá cố đô Hoa Lư – kinh đô xưa của các triều Đinh, Tiền Lê",
+        "Ngồi thuyền len qua hang động và núi đá vôi thơ mộng ở Tràng An",
+        "Leo Hang Múa để ngắm toàn cảnh Tam Cốc từ trên cao",
+        "Thưởng thức buffet trưa món Việt, đi cùng hướng dẫn viên nhiệt tình, huỷ miễn phí"
+      ],
+      "includes": [
+        "Xe đưa đón khứ hồi Hà Nội – Ninh Bình đời mới máy lạnh",
+        "Hướng dẫn viên chuyên nghiệp nói tiếng Việt / tiếng Anh",
+        "Vé vào cửa các điểm tham quan trong chương trình",
+        "Vé thuyền tham quan danh thắng Tràng An",
+        "Bữa trưa buffet đặc sản món Việt phong phú",
+        "Nước suối đóng chai phục vụ trên xe"
+      ],
+      "excludes": [
+        "Chi phí cá nhân ngoài chương trình",
+        "Tiền típ cho hướng dẫn viên và tài xế (tuỳ tâm)",
+        "Đồ uống gọi thêm trong bữa ăn trưa"
+      ],
+      "pickup": "Điểm hẹn tại khu vực Phố Cổ Hà Nội. Giờ và địa điểm đón chi tiết sẽ được gửi qua email/SMS xác nhận; vui lòng có mặt trước giờ khởi hành 15 phút.",
+      "notes": [
+        "Leo khoảng 500 bậc thang tại Hang Múa, nên đi giày thể thao hoặc giày bệt",
+        "Nên mang theo: mũ nón, kem chống nắng, kính râm, áo mưa mỏng, giấy tờ tuỳ thân",
+        "Lịch trình có thể điều chỉnh linh hoạt tuỳ thuộc vào điều kiện giao thông và thời tiết"
+      ],
+      "itinerary": [
+        {
+          "time": "08:00",
+          "title": "Khởi hành đón khách",
+          "desc": "Đón khách tại các khách sạn khu vực Phố Cổ Hà Nội, khởi hành đi Ninh Bình (khoảng 2 tiếng)."
+        },
+        {
+          "time": "10:00",
+          "title": "Cố đô Hoa Lư",
+          "desc": "Tham quan đền vua Đinh Tiên Hoàng và đền vua Lê Đại Hành, tìm hiểu lịch sử thời kỳ dựng nước."
+        },
+        {
+          "time": "11:30",
+          "title": "Bữa trưa buffet",
+          "desc": "Thưởng thức bữa trưa buffet đặc sản dê núi Ninh Bình và các món ăn dân dã truyền thống."
+        },
+        {
+          "time": "12:45",
+          "title": "Khu du lịch sinh thái Tràng An",
+          "desc": "Lên thuyền nan truyền thống xuôi dòng Sào Khê qua các hang động kỳ thú và núi đá vôi sừng sững."
+        },
+        {
+          "time": "14:30",
+          "title": "Chinh phục Hang Múa",
+          "desc": "Thử thách leo gần 500 bậc đá lên đỉnh Ngọa Long ngắm toàn cảnh dòng sông Ngô Đồng uốn lượn."
+        },
+        {
+          "time": "16:00",
+          "title": "Lên xe về Hà Nội",
+          "desc": "Nghỉ ngơi trên xe Limousine thư giãn sau một ngày trải nghiệm thú vị."
+        },
+        {
+          "time": "18:00",
+          "title": "Trả khách tại Hà Nội",
+          "desc": "Về tới điểm đón ban đầu tại Hà Nội, hướng dẫn viên chia tay và hẹn gặp lại."
+        }
+      ],
+      "itineraryNote": "Lịch trình dự kiến, có thể thay đổi linh hoạt tuỳ điều kiện giao thông và thời tiết.",
+      "vehicle": [
+        "Xe Limousine / xe du lịch đời mới đưa đón khứ hồi Hà Nội – Ninh Bình",
+        "Thuyền nan tham quan danh thắng Tràng An",
+        "Thời gian di chuyển khoảng 2 tiếng mỗi chiều"
+      ],
+      "departures": [
+        {
+          "date": "2026-11-03",
+          "time": "08:00",
+          "endTime": "18:00",
+          "slots": 16
+        },
+        {
+          "date": "2026-11-06",
+          "time": "08:00",
+          "endTime": "18:00",
+          "slots": 16
+        },
+        {
+          "date": "2026-11-10",
+          "time": "08:00",
+          "endTime": "18:00",
+          "slots": 16
+        },
+        {
+          "date": "2026-11-14",
+          "time": "08:00",
+          "endTime": "18:00",
+          "slots": 16
+        },
+        {
+          "date": "2026-11-17",
+          "time": "08:00",
+          "endTime": "18:00",
+          "slots": 16
+        }
+      ],
+      "policy": "Hoàn tiền 100% nếu thông báo huỷ trước 24 giờ khởi hành; được đổi ngày khởi hành miễn phí trước 24 giờ; hỗ trợ huỷ hoàn trong trường hợp thời tiết xấu bất khả kháng.",
+      "images": [
+        "../../assest/images/tours/tour1_1.jpg",
+        "../../assest/images/tours/tour1_2.jpg",
+        "../../assest/images/tours/tour1_3.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "code": "TUR-HN-003",
+      "slug": "tour-thanh-pho-ha-noi-trong-ngay",
+      "name": "Tour Thành phố Hà Nội trong ngày: Điểm nổi bật",
+      "type": "Tour trong ngày",
+      "stars": 5,
+      "rating": 4.7,
+      "ratingMax": 5,
+      "reviews": 420,
+      "booked": 8500,
+      "city": "Hà Nội",
+      "address": "Khắp các di tích danh thắng nội thành Hà Nội",
+      "description": "Hành trình trọn vẹn khám phá thủ đô nghìn năm văn hiến: Lăng Bác, Chùa Một Cột, Văn Miếu Quốc Tử Giám, Bảo tàng Dân tộc học và Hồ Hoàn Kiếm linh thiêng.",
+      "keywords": [
+        "Hà Nội",
+        "Văn Miếu",
+        "Lăng Bác",
+        "Chùa Một Cột",
+        "City Tour"
+      ],
+      "priceOriginal": 742000,
+      "price": 680000,
+      "discount": 8,
+      "from": "Hà Nội",
+      "to": "Hà Nội",
+      "category": "Khám phá",
+      "types": [
+        "Tour trong ngày"
+      ],
+      "duration": "1 ngày (8 tiếng)",
+      "meta": "Hà Nội · Xe du lịch máy lạnh · 1 ngày",
+      "tags": [
+        "Đặt trước cho ngày mai",
+        "Xác nhận tức thời"
+      ],
+      "highlights": [
+        "Khám phá trọn vẹn nét văn hóa, lịch sử và con người thủ đô Hà Nội",
+        "Viếng Lăng Chủ tịch Hồ Chí Minh, tham quan Phủ Chủ tịch và nhà sàn Bác Hồ",
+        "Chiêm ngưỡng Văn Miếu - trường đại học đầu tiên của Việt Nam",
+        "Tìm hiểu nét đặc sắc của 54 dân tộc anh em tại Bảo tàng Dân tộc học",
+        "Thưởng thức bữa trưa đậm đà phong vị ẩm thực Hà Thành"
+      ],
+      "includes": [
+        "Xe ô tô du lịch máy lạnh đời mới đưa đón",
+        "Hướng dẫn viên nhiệt tình, am hiểu lịch sử",
+        "Vé vào cửa tất cả các điểm tham quan theo chương trình",
+        "Bữa trưa đặc sản tại nhà hàng Hà Nội",
+        "Nước uống đóng chai"
+      ],
+      "excludes": [
+        "Đồ uống ngoài bữa ăn",
+        "Chi phí mua sắm cá nhân",
+        "Tiền bồi dưỡng hướng dẫn viên"
+      ],
+      "pickup": "Đón khách tại các khách sạn khu vực Phố Cổ hoặc Nhà Hát Lớn Hà Nội lúc 08:00.",
+      "notes": [
+        "Lăng Bác đóng cửa thứ Hai và thứ Sáu hàng tuần (chỉ tham quan bên ngoài)",
+        "Trang phục lịch sự, kín đáo (áo có tay, quần/váy qua gối)"
+      ],
+      "itinerary": [
+        {
+          "time": "08:00",
+          "title": "Đón khách",
+          "desc": "Xe và hướng dẫn viên đón quý khách khởi hành tour."
+        },
+        {
+          "time": "08:30",
+          "title": "Cụm di tích Lăng Bác",
+          "desc": "Viếng Lăng Chủ tịch Hồ Chí Minh, nhà sàn Bác Hồ, vườn cây ao cá và Chùa Một Cột."
+        },
+        {
+          "time": "10:30",
+          "title": "Văn Miếu – Quốc Tử Giám",
+          "desc": "Tham quan trường đại học đầu tiên của Việt Nam với các bia Tiến sĩ danh giá."
+        },
+        {
+          "time": "12:00",
+          "title": "Bữa trưa",
+          "desc": "Thưởng thức ẩm thực Hà Nội truyền thống tại nhà hàng phố cổ."
+        },
+        {
+          "time": "13:30",
+          "title": "Bảo tàng Dân tộc học",
+          "desc": "Khám phá kiến trúc nhà ở và văn hóa đặc sắc của 54 dân tộc Việt Nam."
+        },
+        {
+          "time": "16:00",
+          "title": "Hồ Hoàn Kiếm & Đền Ngọc Sơn",
+          "desc": "Dạo bước ngắm Cầu Thê Húc, Tháp Bút và Tháp Rùa biểu tượng."
+        },
+        {
+          "time": "17:00",
+          "title": "Kết thúc tour",
+          "desc": "Xe đưa quý khách về điểm đón ban đầu."
+        }
+      ],
+      "itineraryNote": "Thứ Hai và thứ Sáu tham quan Làng gốm Bát Tràng thay cho Bảo tàng Dân tộc học.",
+      "vehicle": [
+        "Xe du lịch đời mới 16 - 29 chỗ sạch sẽ tiện nghi"
+      ],
+      "departures": [
+        {
+          "date": "2026-11-03",
+          "time": "08:00",
+          "endTime": "17:00",
+          "slots": 20
+        },
+        {
+          "date": "2026-11-05",
+          "time": "08:00",
+          "endTime": "17:00",
+          "slots": 20
+        },
+        {
+          "date": "2026-11-08",
+          "time": "08:00",
+          "endTime": "17:00",
+          "slots": 20
+        }
+      ],
+      "policy": "Huỷ miễn phí trước 24 giờ so với giờ khởi hành.",
+      "images": [
+        "../../assest/images/tours/tour5_1.jpg",
+        "../../assest/images/tours/tour5_2.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "code": "TUR-SP-001",
+      "slug": "tour-sa-pa-3-ngay-2-dem-tu-ha-noi",
+      "name": "Tour Sa Pa 3 ngày 2 đêm từ Hà Nội",
+      "type": "Tour nhiều ngày",
+      "stars": 5,
+      "rating": 4.9,
+      "ratingMax": 5,
+      "reviews": 1150,
+      "booked": 9800,
+      "city": "Sa Pa",
+      "address": "Sa Pa, Lào Cai (Khởi hành từ Hà Nội)",
+      "description": "Trải nghiệm núi rừng Tây Bắc hùng vĩ, thăm bản làng Cát Cát thơ mộng, chinh phục đỉnh Fansipan Nóc nhà Đông Dương bằng cáp treo kỷ lục và thưởng thức đặc sản lẩu cá hồi.",
+      "keywords": [
+        "Sa Pa",
+        "Fansipan",
+        "Bản Cát Cát",
+        "Núi Hàm Rồng",
+        "Tây Bắc"
+      ],
+      "priceOriginal": 4532000,
+      "price": 3950000,
+      "discount": 12,
+      "from": "Hà Nội",
+      "to": "Sa Pa",
+      "category": "Khám phá",
+      "types": [
+        "Tour nhiều ngày"
+      ],
+      "duration": "3 ngày 2 đêm",
+      "meta": "Sa Pa, Lào Cai · Xe cabin giường nằm · 3 ngày 2 đêm",
+      "tags": [
+        "Bán chạy",
+        "Bao gồm khách sạn 4 sao",
+        "Huỷ miễn phí trước 48 giờ"
+      ],
+      "highlights": [
+        "Khám phá bản Cát Cát của người H'Mông với thác nước Tiên Sa tuyệt đẹp",
+        "Chinh phục đỉnh Fansipan 3.143m ngắm biển mây ngút ngàn",
+        "Khách sạn 4 sao trung tâm Sa Pa view thung lũng Mường Hoa",
+        "Thưởng thức các bữa ăn đặc sản Tây Bắc: thắng cố, lẩu cá hồi, gà đồi",
+        "Xe cabin đôi/đơn êm ái di chuyển trên cao tốc Nội Bài - Lào Cai"
+      ],
+      "includes": [
+        "Xe giường nằm cabin cao cấp khứ hồi Hà Nội – Sa Pa",
+        "2 đêm lưu trú tại khách sạn 4 sao trung tâm Sa Pa (2 khách/phòng)",
+        "Các bữa ăn theo lịch trình (2 bữa sáng buffet, 5 bữa chính)",
+        "Hướng dẫn viên bản địa am hiểu văn hóa vùng cao",
+        "Vé tham quan bản Cát Cát và các điểm trong chương trình",
+        "Bảo hiểm du lịch tối đa 50.000.000đ/vụ"
+      ],
+      "excludes": [
+        "Vé cáp treo và tàu hỏa leo núi Fansipan",
+        "Chi phí cá nhân và đồ uống trong các bữa ăn",
+        "Tiền típ cho HDV và lái xe"
+      ],
+      "pickup": "Đón khách tại trung tâm Hà Nội hoặc sân bay Nội Bài lúc 06:30 sáng.",
+      "notes": [
+        "Nên mang theo áo ấm dày vì ban đêm tại Sa Pa nhiệt độ hạ thấp",
+        "Mang giày đi bộ/leo núi êm chân để đi dạo bản làng"
+      ],
+      "itinerary": [
+        {
+          "time": "Ngày 1",
+          "title": "Hà Nội – Sa Pa – Bản Cát Cát",
+          "desc": "Xe đưa quý khách lên Sa Pa nhận phòng khách sạn, chiều trekking thăm bản Cát Cát ngắm suối Mường Hoa."
+        },
+        {
+          "time": "Ngày 2",
+          "title": "Chinh phục đỉnh Fansipan – Moana",
+          "desc": "Sáng đi cáp treo lên đỉnh Fansipan săn mây bồng bềnh, chiều check-in quần thể Moana Sa Pa."
+        },
+        {
+          "time": "Ngày 3",
+          "title": "Chợ tình Sa Pa – Núi Hàm Rồng – Hà Nội",
+          "desc": "Khám phá Nhà thờ Đá, mua đặc sản địa phương tại chợ Sa Pa, chiều lên xe về lại Hà Nội."
+        }
+      ],
+      "itineraryNote": "Lịch trình có thể thay đổi thứ tự các điểm để đảm bảo trải nghiệm tốt nhất.",
+      "vehicle": [
+        "Xe cabin limousine cao tốc Hà Nội - Lào Cai",
+        "Xe du lịch phục vụ tại Sa Pa"
+      ],
+      "departures": [
+        {
+          "date": "2026-11-06",
+          "time": "06:30",
+          "endTime": "20:00",
+          "slots": 14
+        },
+        {
+          "date": "2026-11-13",
+          "time": "06:30",
+          "endTime": "20:00",
+          "slots": 14
+        },
+        {
+          "date": "2026-11-20",
+          "time": "06:30",
+          "endTime": "20:00",
+          "slots": 14
+        }
+      ],
+      "policy": "Miễn phí huỷ hoặc đổi ngày trước 48 giờ so với ngày khởi hành.",
+      "images": [
+        "../../assest/images/tours/tour6_1.jpg",
+        "../../assest/images/tours/tour6_2.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "code": "TUR-HL-001",
+      "slug": "du-thuyen-hercules-grand-vinh-ha-long",
+      "name": "Du thuyền Hercules Grand – Vịnh Hạ Long",
+      "type": "Du thuyền",
+      "stars": 5,
+      "rating": 4.8,
+      "ratingMax": 5,
+      "reviews": 890,
+      "booked": 12000,
+      "city": "Vịnh Hạ Long",
+      "address": "Cảng quốc tế Tuần Châu, Hạ Long, Quảng Ninh",
+      "description": "Hải trình khám phá Di sản Thiên nhiên Thế giới Vịnh Hạ Long trên du thuyền sang trọng: thăm Hang Sửng Sốt kỳ ảo, chèo thuyền kayak qua Hang Luồn và tắm biển tại đảo Titop.",
+      "keywords": [
+        "Vịnh Hạ Long",
+        "Du thuyền",
+        "Hang Sửng Sốt",
+        "Đảo Titop",
+        "Kayak"
+      ],
+      "priceOriginal": 1070588,
+      "price": 950000,
+      "discount": 11,
+      "from": "Hà Nội / Hạ Long",
+      "to": "Vịnh Hạ Long",
+      "category": "Khám phá",
+      "types": [
+        "Du thuyền"
+      ],
+      "duration": "Trong ngày (6 tiếng trên vịnh)",
+      "meta": "Vịnh Hạ Long, Quảng Ninh · Du thuyền 5 sao · Trong ngày",
+      "tags": [
+        "Buffet hải sản",
+        "Bao gồm chèo kayak",
+        "Xác nhận tức thời"
+      ],
+      "highlights": [
+        "Du thuyền hiện đại với boong tàu tắm nắng ngắm toàn cảnh 360 độ",
+        "Khám phá Hang Sửng Sốt - hang động rộng lớn và đẹp nhất Vịnh Hạ Long",
+        "Trải nghiệm tự chèo thuyền kayak hoặc ngồi thuyền nan qua Hang Luồn",
+        "Leo đỉnh Titop ngắm trọn vẹn cảnh sắc vịnh từ trên cao hoặc đắm mình ở bãi tắm cát trắng",
+        "Thưởng thức tiệc buffet trưa hải sản tươi sống và trà chiều hoàng hôn (Sunset Party)"
+      ],
+      "includes": [
+        "Vé thắng cảnh và tham quan Vịnh Hạ Long tuyến 2",
+        "6 tiếng du ngoạn trên du thuyền cao cấp Hercules Grand",
+        "Bữa trưa buffet hải sản phong phú trên tàu",
+        "Thuyền kayak hoặc thuyền nan qua Hang Luồn",
+        "Tiệc trà chiều, hoa quả tươi ngắm hoàng hôn",
+        "Hướng dẫn viên song ngữ Việt - Anh suốt chuyến đi"
+      ],
+      "excludes": [
+        "Xe đưa đón khứ hồi Hà Nội – Hạ Long (có thể đặt thêm)",
+        "Đồ uống quầy bar trên du thuyền",
+        "Thuế VAT và tiền tip tuỳ ý"
+      ],
+      "pickup": "Cảng tàu khách quốc tế Tuần Châu lúc 11:30 (hoặc xe đón tại Phố Cổ Hà Nội lúc 08:30).",
+      "notes": [
+        "Mang theo đồ bơi, khăn tắm, kính râm và kem chống nắng",
+        "Không mang đồ nhựa dùng một lần lên vịnh theo quy định bảo vệ môi trường"
+      ],
+      "itinerary": [
+        {
+          "time": "11:45",
+          "title": "Lên du thuyền",
+          "desc": "Check-in du thuyền Hercules Grand, thưởng thức nước uống chào mừng."
+        },
+        {
+          "time": "12:15",
+          "title": "Bữa trưa buffet",
+          "desc": "Thưởng thức buffet hải sản tươi ngon trong khi tàu lướt qua Hòn Gà Chọi, Hòn Đỉnh Hương."
+        },
+        {
+          "time": "13:30",
+          "title": "Hang Sửng Sốt",
+          "desc": "Khám phá hang động kỳ vĩ với hàng ngàn nhũ đá lung linh muôn hình vạn trạng."
+        },
+        {
+          "time": "14:45",
+          "title": "Chèo Kayak Hang Luồn",
+          "desc": "Tự tay chèo thuyền kayak hoặc ngồi thuyền nan ngắm những chú khỉ hoang dã."
+        },
+        {
+          "time": "15:45",
+          "title": "Đảo Titop",
+          "desc": "Tắm biển hoặc chinh phục đỉnh núi Titop chụp ảnh toàn cảnh vịnh."
+        },
+        {
+          "time": "16:45",
+          "title": "Sunset Party",
+          "desc": "Tiệc trà chiều hoàng hôn, thư giãn trên sundeck với âm nhạc êm dịu."
+        },
+        {
+          "time": "17:45",
+          "title": "Cập cảng Tuần Châu",
+          "desc": "Du thuyền về bến, kết thúc chuyến hải trình đáng nhớ."
+        }
+      ],
+      "itineraryNote": "Hải trình có thể điều chỉnh theo sự sắp xếp của Ban Quản Lý Vịnh Hạ Long.",
+      "vehicle": [
+        "Du thuyền Hercules Grand vỏ thép hiện đại, sức chứa 99 khách"
+      ],
+      "departures": [
+        {
+          "date": "2026-11-03",
+          "time": "11:30",
+          "endTime": "18:00",
+          "slots": 30
+        },
+        {
+          "date": "2026-11-05",
+          "time": "11:30",
+          "endTime": "18:00",
+          "slots": 30
+        },
+        {
+          "date": "2026-11-08",
+          "time": "11:30",
+          "endTime": "18:00",
+          "slots": 30
+        }
+      ],
+      "policy": "Huỷ miễn phí trước 24 giờ khởi hành; đổi ngày linh hoạt.",
+      "images": [
+        "../../assest/images/tours/tour7_1.jpg",
+        "../../assest/images/tours/tour7_2.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "code": "TUR-HG-001",
+      "slug": "tour-ha-giang-3-ngay-ma-pi-leng-song-nho-que",
+      "name": "Tour Hà Giang 3 ngày – Mã Pí Lèng, sông Nho Quế",
+      "type": "Tour nhiều ngày",
+      "stars": 5,
+      "rating": 4.9,
+      "ratingMax": 5,
+      "reviews": 850,
+      "booked": 7200,
+      "city": "Hà Giang",
+      "address": "Cao nguyên đá Đồng Văn, Hà Giang",
+      "description": "Chinh phục Tứ đại đỉnh đèo Mã Pí Lèng hùng vĩ bậc nhất Việt Nam, đi thuyền ngắm hẻm vực Tu Sản sâu nhất Đông Nam Á trên dòng sông Nho Quế xanh biếc như ngọc bích.",
+      "keywords": [
+        "Hà Giang",
+        "Mã Pí Lèng",
+        "Sông Nho Quế",
+        "Hẻm Tu Sản",
+        "Đồng Văn"
+      ],
+      "priceOriginal": 4455000,
+      "price": 3890000,
+      "discount": 13,
+      "from": "Hà Nội",
+      "to": "Hà Giang",
+      "category": "Khám phá",
+      "types": [
+        "Tour nhiều ngày"
+      ],
+      "duration": "3 ngày 2 đêm",
+      "meta": "Hà Giang · Xe du lịch / xe máy dẫn đoàn · 3 ngày",
+      "tags": [
+        "Trải nghiệm đỉnh cao",
+        "Đi thuyền Nho Quế",
+        "Homestay bản địa"
+      ],
+      "highlights": [
+        "Chiêm ngưỡng Cổng trời Quản Bạ và Núi Đôi Cô Tiên huyền thoại",
+        "Dạo bước trên Cao nguyên đá Đồng Văn - Công viên địa chất toàn cầu UNESCO",
+        "Chinh phục Đèo Mã Pí Lèng kỳ vĩ và đi thuyền hẻm Tu Sản trên sông Nho Quế",
+        "Thăm Dinh thự Vua Mèo Vương Chính Đức và Cột cờ Lũng Cú cực Bắc Tổ quốc",
+        "Thưởng thức thắng dền, cháo ấu tẩu, thịt trâu gác bếp và bánh tam giác mạch"
+      ],
+      "includes": [
+        "Xe ô tô đưa đón khứ hồi Hà Nội – Hà Giang",
+        "2 đêm nghỉ tại khách sạn / homestay tiêu chuẩn tại Đồng Văn & Mèo Vạc",
+        "Các bữa ăn chính mang đậm phong vị miền sơn cước",
+        "Vé tham quan tất cả các điểm trong lộ trình",
+        "Vé thuyền ngắm hẻm Tu Sản trên sông Nho Quế",
+        "Hướng dẫn viên am hiểu phong tục tập quán địa phương"
+      ],
+      "excludes": [
+        "Tiền típ cho tài xế và HDV",
+        "Thuê xe máy tự lái (nếu chọn gói xe máy)"
+      ],
+      "pickup": "Đón khách lúc 06:00 sáng tại Nhà hát Lớn Hà Nội hoặc bến xe Mỹ Đình.",
+      "notes": [
+        "Đường đèo uốn lượn, du khách dễ say xe nên chuẩn bị sẵn thuốc",
+        "Mang trang phục giữ ấm và sạc dự phòng cho máy ảnh"
+      ],
+      "itinerary": [
+        {
+          "time": "Ngày 1",
+          "title": "Hà Nội – Quản Bạ – Yên Minh – Đồng Văn",
+          "desc": "Check-in Cổng Trời, Núi Đôi Cô Tiên, dốc Thẩm Mã huyền thoại và phố cổ Đồng Văn."
+        },
+        {
+          "time": "Ngày 2",
+          "title": "Cột cờ Lũng Cú – Đèo Mã Pí Lèng – Sông Nho Quế",
+          "desc": "Chạm tay vào lá cờ Tổ quốc tại Lũng Cú, đi thuyền đáy kính hẻm Tu Sản sông Nho Quế."
+        },
+        {
+          "time": "Ngày 3",
+          "title": "Dinh Vua Mèo – Hà Giang – Hà Nội",
+          "desc": "Khám phá kiến trúc độc đáo Dinh họ Vương, lên xe về lại thủ đô Hà Nội."
+        }
+      ],
+      "itineraryNote": "Chuyến đi đem lại những xúc cảm thăng hoa khó quên trong đời.",
+      "vehicle": [
+        "Xe du lịch đời mới điều hòa hoặc xe máy có xế cứng kèm theo"
+      ],
+      "departures": [
+        {
+          "date": "2026-11-06",
+          "time": "06:00",
+          "endTime": "22:00",
+          "slots": 16
+        },
+        {
+          "date": "2026-11-13",
+          "time": "06:00",
+          "endTime": "22:00",
+          "slots": 16
+        },
+        {
+          "date": "2026-11-20",
+          "time": "06:00",
+          "endTime": "22:00",
+          "slots": 16
+        }
+      ],
+      "policy": "Huỷ miễn phí trước 48 giờ. Hỗ trợ bảo hiểm du lịch trọn gói.",
+      "images": [
+        "../../assest/images/tours/tour9_1.jpg",
+        "../../assest/images/tours/tour9_2.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "code": "TUR-MT-001",
+      "slug": "da-nang-ba-na-hills-hoi-an-hue-phong-nha",
+      "name": "Đà Nẵng – Bà Nà Hills – Hội An – Huế – Phong Nha",
+      "type": "Tour theo gói",
+      "stars": 5,
+      "rating": 4.9,
+      "ratingMax": 5,
+      "reviews": 1420,
+      "booked": 15000,
+      "city": "Đà Nẵng",
+      "address": "Đà Nẵng – Hội An – Huế – Quảng Bình",
+      "description": "Chuyến du hành Di sản Miền Trung trọn vẹn 5 ngày 4 đêm: Check-in Cầu Vàng Bà Nà Hills, dạo phố cổ Hội An rực rỡ đèn lồng, viếng Đại Nội kinh thành Huế và thám hiểm Động Phong Nha kỳ vĩ.",
+      "keywords": [
+        "Miền Trung",
+        "Bà Nà Hills",
+        "Hội An",
+        "Cố đô Huế",
+        "Động Phong Nha"
+      ],
+      "priceOriginal": 5250000,
+      "price": 4790000,
+      "discount": 9,
+      "from": "Đà Nẵng",
+      "to": "Đà Nẵng",
+      "category": "Khám phá",
+      "types": [
+        "Tour theo gói"
+      ],
+      "duration": "5 ngày 4 đêm",
+      "meta": "Đà Nẵng, Hội An, Huế, Phong Nha · Xe du lịch · Trọn gói",
+      "tags": [
+        "Tour di sản",
+        "Khách sạn 4 sao",
+        "Bao gồm buffet Bà Nà"
+      ],
+      "highlights": [
+        "Bà Nà Hills: Cầu Vàng Bàn Tay Khổng Lồ vang danh quốc tế",
+        "Phố cổ Hội An: Thả hoa đăng sông Hoài, chùa Cầu và hội quán cổ",
+        "Huế mộng mơ: Đại Nội Hoàng Cung, Chùa Thiên Mụ, Lăng Khải Định",
+        "Vườn quốc gia Phong Nha Kẻ Bàng: Du thuyền vào đệ nhất động ướt",
+        "Khách sạn 4 sao trung tâm, xe đưa đón riêng chu đáo suốt hành trình"
+      ],
+      "includes": [
+        "Xe ô tô du lịch chất lượng cao phục vụ xuyên suốt",
+        "4 đêm khách sạn 4 sao (2 khách/phòng)",
+        "Các bữa ăn chính đặc sản miền Trung + 01 bữa buffet Bà Nà Hills",
+        "Vé cáp treo Bà Nà Hills và vé tham quan toàn bộ di sản",
+        "Thuyền rồng sông Hương và thuyền tham quan Động Phong Nha",
+        "Hướng dẫn viên nhiệt tình, tận tâm theo đoàn",
+        "Bảo hiểm du lịch tối đa 100.000.000đ/vụ"
+      ],
+      "excludes": [
+        "Vé máy bay khứ hồi đến Đà Nẵng",
+        "Chi tiêu cá nhân ngoài chương trình"
+      ],
+      "pickup": "Đón khách tại Sân bay Đà Nẵng hoặc ga tàu theo giờ hạ cánh của quý khách.",
+      "notes": [
+        "Lịch trình phù hợp cho cả gia đình có người cao tuổi và trẻ nhỏ"
+      ],
+      "itinerary": [
+        {
+          "time": "Ngày 1",
+          "title": "Đón sân bay Đà Nẵng – Phố cổ Hội An",
+          "desc": "Đón khách, thăm Ngũ Hành Sơn, chiều dạo chơi phố cổ Hội An lung linh đèn lồng."
+        },
+        {
+          "time": "Ngày 2",
+          "title": "Đà Nẵng – Khu du lịch Bà Nà Hills",
+          "desc": "Trải nghiệm cáp treo, check-in Cầu Vàng, làng Pháp và khu vui chơi Fantasy Park."
+        },
+        {
+          "time": "Ngày 3",
+          "title": "Đà Nẵng – Cố đô Huế",
+          "desc": "Qua hầm Hải Vân đến Huế, thăm Đại Nội Hoàng Thành, Lăng Khải Định, nghe ca Huế trên sông Hương."
+        },
+        {
+          "time": "Ngày 4",
+          "title": "Huế – Vườn quốc gia Phong Nha – Quảng Bình",
+          "desc": "Ngồi thuyền ngược dòng sông Son khám phá hệ thống thạch nhũ lung linh Động Phong Nha."
+        },
+        {
+          "time": "Ngày 5",
+          "title": "Thánh địa La Vang – Tiễn sân bay Đà Nẵng",
+          "desc": "Viếng Thánh địa La Vang, ghé chợ Hàn mua đặc sản và tiễn khách tại sân bay Đà Nẵng."
+        }
+      ],
+      "itineraryNote": "Tour trọn gói cam kết không phát sinh phụ phí ẩn.",
+      "vehicle": [
+        "Xe du lịch chất lượng cao Univer / Ford Transit đời mới"
+      ],
+      "departures": [
+        {
+          "date": "2026-11-04",
+          "time": "08:00",
+          "endTime": "18:00",
+          "slots": 20
+        },
+        {
+          "date": "2026-11-11",
+          "time": "08:00",
+          "endTime": "18:00",
+          "slots": 20
+        },
+        {
+          "date": "2026-11-18",
+          "time": "08:00",
+          "endTime": "18:00",
+          "slots": 20
+        }
+      ],
+      "policy": "Huỷ miễn phí trước 5 ngày so với ngày khởi hành.",
+      "images": [
+        "../../assest/images/tours/tour11_1.jpg",
+        "../../assest/images/tours/tour11_2.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "code": "TUR-MT-002",
+      "slug": "da-nang-hue-hoi-an-ba-na-hills-4n3d",
+      "name": "Đà Nẵng – Huế – Hội An – Bà Nà Hills",
+      "type": "Tour theo gói",
+      "stars": 4,
+      "rating": 4.6,
+      "ratingMax": 5,
+      "reviews": 980,
+      "booked": 11200,
+      "city": "Đà Nẵng",
+      "address": "Đà Nẵng – Huế – Hội An",
+      "description": "Lịch trình 4 ngày 3 đêm gọn gàng, trọn vẹn khám phá 3 vùng đất du lịch hấp dẫn nhất dải đất miền Trung: Thành phố biển Đà Nẵng, Cố đô Huế trầm mặc và Phố cổ Hội An hoài niệm.",
+      "keywords": [
+        "Đà Nẵng",
+        "Huế",
+        "Hội An",
+        "Bà Nà Hills",
+        "4 ngày 3 đêm"
+      ],
+      "priceOriginal": 3650000,
+      "price": 3290000,
+      "discount": 10,
+      "from": "Đà Nẵng",
+      "to": "Đà Nẵng",
+      "category": "Khám phá",
+      "types": [
+        "Tour theo gói"
+      ],
+      "duration": "4 ngày 3 đêm",
+      "meta": "Đà Nẵng, Huế, Hội An · Xe du lịch · Trọn gói",
+      "tags": [
+        "Giá tốt",
+        "Ăn uống đặc sản",
+        "Khởi hành hàng tuần"
+      ],
+      "highlights": [
+        "Check-in Cầu Rồng phun lửa, bán đảo Sơn Trà và Chùa Linh Ứng",
+        "Dạo bước phố cổ Hội An thưởng thức cao lầu, chè bắp, cơm gà",
+        "Tham quan Đại Nội Huế, Chùa Thiên Mụ cổ kính bên bờ sông Hương",
+        "Một ngày trọn vẹn vui chơi tại Bà Nà Hills và Cầu Vàng"
+      ],
+      "includes": [
+        "Xe máy lạnh đời mới đưa đón suốt hành trình",
+        "Khách sạn 3-4 sao tiện nghi (2 khách/phòng)",
+        "Các bữa ăn tiêu chuẩn theo chương trình",
+        "Vé vào cửa các điểm tham quan",
+        "Hướng dẫn viên chuyên nghiệp chu đáo"
+      ],
+      "excludes": [
+        "Vé cáp treo Bà Nà Hills (có thể đăng ký mua thêm)",
+        "Vé máy bay khứ hồi",
+        "Chi phí cá nhân"
+      ],
+      "pickup": "Đón tại Sân bay quốc tế Đà Nẵng lúc sáng hoặc đầu giờ chiều.",
+      "notes": [
+        "Mang trang phục đẹp chụp ảnh phố cổ và Bà Nà Hills"
+      ],
+      "itinerary": [
+        {
+          "time": "Ngày 1",
+          "title": "Đà Nẵng – Bán đảo Sơn Trà – Ngũ Hành Sơn – Hội An",
+          "desc": "Đón sân bay, chiêm bái tượng Phật Bà 67m, dạo phố cổ Hội An."
+        },
+        {
+          "time": "Ngày 2",
+          "title": "Đà Nẵng – Thiên đường Bà Nà Hills",
+          "desc": "Lên đỉnh Bà Nà, trải nghiệm 4 mùa trong 1 ngày, check-in Cầu Vàng."
+        },
+        {
+          "time": "Ngày 3",
+          "title": "Đà Nẵng – Đèo Hải Vân – Cố đô Huế",
+          "desc": "Vượt đèo ngắm vịnh Lăng Cô, tham quan Đại Nội, Chùa Thiên Mụ."
+        },
+        {
+          "time": "Ngày 4",
+          "title": "Lăng Khải Định – Chợ Hàn – Tiễn khách",
+          "desc": "Tham quan lăng tẩm tinh xảo, mua sắm đặc sản chả bò chợ Hàn và ra sân bay."
+        }
+      ],
+      "itineraryNote": "Lịch trình linh hoạt điều chỉnh theo giờ bay của khách.",
+      "vehicle": [
+        "Xe ô tô du lịch 16 đến 35 chỗ máy lạnh"
+      ],
+      "departures": [
+        {
+          "date": "2026-11-05",
+          "time": "09:00",
+          "endTime": "17:00",
+          "slots": 20
+        },
+        {
+          "date": "2026-11-12",
+          "time": "09:00",
+          "endTime": "17:00",
+          "slots": 20
+        },
+        {
+          "date": "2026-11-19",
+          "time": "09:00",
+          "endTime": "17:00",
+          "slots": 20
+        }
+      ],
+      "policy": "Huỷ miễn phí trước 72 giờ so với ngày khởi hành.",
+      "images": [
+        "../../assest/images/tours/tour12_1.jpg",
+        "../../assest/images/tours/tour12_2.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "code": "TUR-DN-001",
+      "slug": "da-nang-hoi-an-cu-lao-cham-bien-dao",
+      "name": "Đà Nẵng – Hội An – Cù Lao Chàm",
+      "type": "Tour theo gói",
+      "stars": 4,
+      "rating": 4.5,
+      "ratingMax": 5,
+      "reviews": 512,
+      "booked": 6400,
+      "city": "Đà Nẵng",
+      "address": "Đà Nẵng – Hội An – Cù Lao Chàm",
+      "description": "Kết hợp hoàn hảo giữa thành phố biển hiện đại Đà Nẵng, nét thâm trầm của di sản Hội An và trải nghiệm cano cao tốc lướt sóng ra đảo ngọc Cù Lao Chàm lặn ngắm san hô.",
+      "keywords": [
+        "Đà Nẵng",
+        "Hội An",
+        "Cù Lao Chàm",
+        "Cano cao tốc",
+        "San hô"
+      ],
+      "priceOriginal": 1950000,
+      "price": 1750000,
+      "discount": 10,
+      "from": "Đà Nẵng",
+      "to": "Đà Nẵng",
+      "category": "Khám phá",
+      "types": [
+        "Tour theo gói"
+      ],
+      "duration": "2 ngày 1 đêm",
+      "meta": "Đà Nẵng, Hội An, Cù Lao Chàm · Cano & xe · 2N1Đ",
+      "tags": [
+        "Lặn ngắm san hô",
+        "Cano cao tốc",
+        "Hải sản tươi sống"
+      ],
+      "highlights": [
+        "Cano cao tốc lướt sóng biển Đông chỉ 20 phút ra đảo Cù Lao Chàm",
+        "Lặn ngắm rạn san hô tự nhiên đa sắc màu tại Bãi Xếp hoặc Hòn Dài",
+        "Thưởng thức bữa trưa hải sản tươi sống và ốc vú nàng đặc sản",
+        "Dạo phố cổ Hội An đêm ngắm hoa đăng rực rỡ"
+      ],
+      "includes": [
+        "Xe đưa đón khách sạn khứ hồi",
+        "Cano cao tốc khứ hồi Cửa Đại – Cù Lao Chàm",
+        "Vé tham quan đảo và phí bảo tồn sinh thái biển",
+        "Dụng cụ lặn nông (áo phao, kính lặn, ống thở)",
+        "Bữa trưa hải sản thịnh soạn trên đảo"
+      ],
+      "excludes": [
+        "Dịch vụ đi bộ dưới đáy biển (Seawalker)",
+        "Chi phí riêng của khách"
+      ],
+      "pickup": "Đón tại các khách sạn ven biển Đà Nẵng lúc 07:30 sáng.",
+      "notes": [
+        "Không dùng túi nilon trên đảo Cù Lao Chàm",
+        "Người có tiền sử tim mạch hoặc say sóng nặng nên chuẩn bị chu đáo"
+      ],
+      "itinerary": [
+        {
+          "time": "Ngày 1",
+          "title": "Đà Nẵng – Cano ra Đảo Cù Lao Chàm – Lặn san hô",
+          "desc": "Cano rẽ sóng ra đảo, thăm giếng cổ Chăm, chùa Hải Tạng, lặn ngắm san hô Bãi Chồng."
+        },
+        {
+          "time": "Ngày 2",
+          "title": "Cù Lao Chàm – Phố cổ Hội An – Trả khách",
+          "desc": "Vào đất liền, ghé dạo phố cổ Hội An mua lồng đèn và trở về Đà Nẵng."
+        }
+      ],
+      "itineraryNote": "Chuyến đi biển đảo tuyệt vời trong những ngày hè ngập nắng.",
+      "vehicle": [
+        "Cano cao tốc an toàn hiện đại",
+        "Xe ô tô đưa đón đất liền"
+      ],
+      "departures": [
+        {
+          "date": "2026-11-03",
+          "time": "07:30",
+          "endTime": "17:00",
+          "slots": 22
+        },
+        {
+          "date": "2026-11-06",
+          "time": "07:30",
+          "endTime": "17:00",
+          "slots": 22
+        },
+        {
+          "date": "2026-11-09",
+          "time": "07:30",
+          "endTime": "17:00",
+          "slots": 22
+        }
+      ],
+      "policy": "Huỷ miễn phí trước 24 giờ. Đổi ngày nếu biển động cano cấm xuất bến.",
+      "images": [
+        "../../assest/images/tours/tour13_1.jpg",
+        "../../assest/images/tours/tour13_2.jpg"
+      ]
+    },
+    {
+      "id": 9,
+      "code": "TUR-HA-001",
+      "slug": "tour-hoi-an-1-ngay-pho-co-di-san",
+      "name": "Tour Hội An 1 ngày – Phố cổ di sản",
+      "type": "Tour trong ngày",
+      "stars": 5,
+      "rating": 4.8,
+      "ratingMax": 5,
+      "reviews": 680,
+      "booked": 9500,
+      "city": "Hội An",
+      "address": "Phố cổ Hội An, Quảng Nam",
+      "description": "Thả mình vào không gian êm đềm của phố cổ Hội An: ngắm những ngôi nhà mái ngói rêu phong, Chùa Cầu trăm năm tuổi, nhà cổ Tấn Ký, xem làm lồng đèn truyền thống và thả đèn hoa đăng.",
+      "keywords": [
+        "Hội An",
+        "Chùa Cầu",
+        "Hoa đăng",
+        "Nhà cổ",
+        "Phố đi bộ"
+      ],
+      "priceOriginal": 500000,
+      "price": 450000,
+      "discount": 10,
+      "from": "Đà Nẵng",
+      "to": "Phố cổ Hội An",
+      "category": "Khám phá",
+      "types": [
+        "Tour trong ngày"
+      ],
+      "duration": "1 ngày (chiều - tối)",
+      "meta": "Phố cổ Hội An, Quảng Nam · Xe đưa đón · Chiều tối",
+      "tags": [
+        "Đèn lồng rực rỡ",
+        "Thả hoa đăng",
+        "Khởi hành hàng ngày"
+      ],
+      "highlights": [
+        "Tham quan Chùa Cầu Nhật Bản - biểu tượng hơn 400 năm tuổi",
+        "Khám phá Nhà cổ Phùng Hưng / Tấn Ký và Hội quán Phúc Kiến",
+        "Thưởng thức bữa tối ẩm thực Hội An: Cao lầu, hoành thánh, bánh hoa hồng trắng",
+        "Ngồi thuyền gỗ thả hoa đăng cầu may mắn trên dòng sông Hoài thơ mộng"
+      ],
+      "includes": [
+        "Xe ô tô đưa đón khứ hồi từ Đà Nẵng",
+        "Vé tham quan quần thể phố cổ Hội An",
+        "Bữa tối đặc sản tại nhà hàng phố cổ",
+        "Thuyền thả hoa đăng sông Hoài",
+        "Hướng dẫn viên suốt tuyến"
+      ],
+      "excludes": [
+        "Chi tiêu cá nhân và quà lưu niệm"
+      ],
+      "pickup": "Đón tại các khách sạn Đà Nẵng từ 14:30 chiều.",
+      "notes": [
+        "Đi bộ trong phố cổ nên mang giày thấp êm chân"
+      ],
+      "itinerary": [
+        {
+          "time": "15:00",
+          "title": "Đón khách từ Đà Nẵng",
+          "desc": "Xe đón quý khách di chuyển khoảng 40 phút về Hội An."
+        },
+        {
+          "time": "16:00",
+          "title": "Thăm nhà cổ & Hội quán",
+          "desc": "Hướng dẫn viên đưa đoàn qua Chùa Cầu, nhà cổ Phùng Hưng, Hội quán Triều Châu."
+        },
+        {
+          "time": "18:00",
+          "title": "Bữa tối đặc sản",
+          "desc": "Thưởng thức Cao Lầu, Bánh Bao, Bánh Vạc trứ danh."
+        },
+        {
+          "time": "19:00",
+          "title": "Thả đèn hoa đăng sông Hoài",
+          "desc": "Lên thuyền ngắm phố lên đèn rực rỡ, thả hoa đăng lung linh mặt nước."
+        },
+        {
+          "time": "20:30",
+          "title": "Về lại Đà Nẵng",
+          "desc": "Xe đưa quý khách trở lại khách sạn tại Đà Nẵng nghỉ ngơi."
+        }
+      ],
+      "itineraryNote": "Tour đặc biệt lãng mạn vào các buổi chiều tối.",
+      "vehicle": [
+        "Xe ô tô du lịch đời mới máy lạnh"
+      ],
+      "departures": [
+        {
+          "date": "2026-11-03",
+          "time": "15:00",
+          "endTime": "21:00",
+          "slots": 25
+        },
+        {
+          "date": "2026-11-04",
+          "time": "15:00",
+          "endTime": "21:00",
+          "slots": 25
+        },
+        {
+          "date": "2026-11-05",
+          "time": "15:00",
+          "endTime": "21:00",
+          "slots": 25
+        }
+      ],
+      "policy": "Huỷ miễn phí trước 12 giờ trước khi khởi hành.",
+      "images": [
+        "../../assest/images/tours/tour14_1.jpg",
+        "../../assest/images/tours/tour14_2.jpg"
+      ]
+    },
+    {
+      "id": 10,
+      "code": "TUR-DL-001",
+      "slug": "da-lat-thac-prenn-puppy-farm-thien-vien-truc-lam",
+      "name": "Đà Lạt – thác Prenn – Puppy Farm – Thiền viện Trúc Lâm",
+      "type": "Tour trong ngày",
+      "stars": 5,
+      "rating": 4.7,
+      "ratingMax": 5,
+      "reviews": 730,
+      "booked": 8900,
+      "city": "Đà Lạt",
+      "address": "TP. Đà Lạt, Lâm Đồng",
+      "description": "Một ngày khám phá thành phố ngàn hoa với những điểm đến yêu thích: ngắm thác Prenn hùng vĩ, vui đùa cùng các chú cún đáng yêu tại Puppy Farm và tìm về bình yên tại Thiền Viện Trúc Lâm ven hồ Tuyền Lâm.",
+      "keywords": [
+        "Đà Lạt",
+        "Puppy Farm",
+        "Thác Prenn",
+        "Trúc Lâm",
+        "Hồ Tuyền Lâm"
+      ],
+      "priceOriginal": 990000,
+      "price": 850000,
+      "discount": 14,
+      "from": "Đà Lạt",
+      "to": "Đà Lạt",
+      "category": "Khám phá",
+      "types": [
+        "Tour trong ngày"
+      ],
+      "duration": "1 ngày (8 tiếng)",
+      "meta": "Đà Lạt, Lâm Đồng · Xe du lịch · 1 ngày",
+      "tags": [
+        "Trang trại cún",
+        "Thác nước đẹp",
+        "Khởi hành hàng ngày"
+      ],
+      "highlights": [
+        "Chiêm ngưỡng Thác Prenn hùng vĩ ngay cửa ngõ đèo vào Đà Lạt",
+        "Ghé thăm nông trại cún cưng Puppy Farm với hàng chục giống cún thân thiện",
+        "Tham quan vườn dâu tây công nghệ cao, vườn cà chua bi và bí ngô khổng lồ",
+        "Thanh tịnh tâm hồn tại Thiền Viện Trúc Lâm giữa đồi thông xanh ngát"
+      ],
+      "includes": [
+        "Xe ô tô đưa đón tận nơi tại các khách sạn nội thành Đà Lạt",
+        "Vé vào cổng tất cả các điểm du lịch trong chương trình",
+        "Bữa trưa đặc sản lẩu gà lá é hoặc lẩu rau Đà Lạt",
+        "Hướng dẫn viên vui vẻ, nhiệt tình chụp ảnh cho khách",
+        "Nước uống đóng chai"
+      ],
+      "excludes": [
+        "Cáp treo đồi Robin (tuỳ chọn)",
+        "Chi phí hái dâu mang về"
+      ],
+      "pickup": "Đón khách tại khách sạn trung tâm Đà Lạt lúc 08:15 sáng.",
+      "notes": [
+        "Thời tiết Đà Lạt se lạnh, nên mang áo khoác nhẹ"
+      ],
+      "itinerary": [
+        {
+          "time": "08:30",
+          "title": "Khởi hành",
+          "desc": "Xe đón quý khách bắt đầu hành trình khám phá phố núi."
+        },
+        {
+          "time": "09:00",
+          "title": "Thác Prenn",
+          "desc": "Thăm thác nước hoang sơ, đi bộ dưới lòng thác mát rượi."
+        },
+        {
+          "time": "10:30",
+          "title": "Thiền Viện Trúc Lâm – Hồ Tuyền Lâm",
+          "desc": "Vãn cảnh thiền viện thanh bình ngắm hồ nước xanh biếc."
+        },
+        {
+          "time": "12:00",
+          "title": "Bữa trưa",
+          "desc": "Thưởng thức ẩm thực cao nguyên tươi ngon."
+        },
+        {
+          "time": "13:30",
+          "title": "Nông trại Puppy Farm",
+          "desc": "Chụp hình cùng các chú cún Corgi, Alaska, ngắm vườn sen đá rực rỡ."
+        },
+        {
+          "time": "16:00",
+          "title": "Kết thúc tour",
+          "desc": "Đưa khách về lại khách sạn hoặc chợ đêm Đà Lạt."
+        }
+      ],
+      "itineraryNote": "Tour nhẹ nhàng, ngập tràn góc ảnh check-in sống ảo.",
+      "vehicle": [
+        "Xe 16 chỗ Ford Transit hoặc 29 chỗ Hyundai County"
+      ],
+      "departures": [
+        {
+          "date": "2026-11-03",
+          "time": "08:15",
+          "endTime": "16:30",
+          "slots": 16
+        },
+        {
+          "date": "2026-11-05",
+          "time": "08:15",
+          "endTime": "16:30",
+          "slots": 16
+        },
+        {
+          "date": "2026-11-07",
+          "time": "08:15",
+          "endTime": "16:30",
+          "slots": 16
+        }
+      ],
+      "policy": "Huỷ miễn phí trước 24 giờ. Đổi ngày linh hoạt.",
+      "images": [
+        "../../assest/images/tours/tour16_1.jpg",
+        "../../assest/images/tours/tour16_2.jpg"
+      ]
+    },
+    {
+      "id": 11,
+      "code": "TUR-SG-001",
+      "slug": "tour-nua-ngay-kham-pha-dia-dao-cu-chi",
+      "name": "Tour nửa ngày khám phá Địa đạo Củ Chi",
+      "type": "Tour nửa ngày",
+      "stars": 5,
+      "rating": 4.8,
+      "ratingMax": 5,
+      "reviews": 1820,
+      "booked": 35000,
+      "city": "Địa đạo Củ Chi",
+      "address": "Phú Hiệp, Củ Chi, TP. Hồ Chí Minh",
+      "description": "Khám phá thành phố ngầm kỳ diệu dài hơn 250km dưới lòng đất từng làm kinh ngạc cả thế giới, tìm hiểu hệ thống hầm hào, bẫy chông, bếp Hoàng Cầm và thưởng thức khoai mì luộc chấm muối mè.",
+      "keywords": [
+        "Củ Chi",
+        "Địa đạo",
+        "Lịch sử",
+        "Hầm ngầm",
+        "Nửa ngày"
+      ],
+      "priceOriginal": 450000,
+      "price": 380000,
+      "discount": 15,
+      "from": "TP. Hồ Chí Minh",
+      "to": "Địa đạo Củ Chi",
+      "category": "Khám phá",
+      "types": [
+        "Tour nửa ngày"
+      ],
+      "duration": "Nửa ngày (khoảng 5 tiếng)",
+      "meta": "Địa đạo Củ Chi · Xe máy lạnh · Sáng hoặc Chiều",
+      "tags": [
+        "Di tích lịch sử",
+        "Trải nghiệm chui hầm",
+        "Thưởng thức khoai mì"
+      ],
+      "highlights": [
+        "Xem phim tư liệu lịch sử sống động về vùng đất thép Củ Chi kiên cường",
+        "Trực tiếp trải nghiệm cảm giác chui thử các đoạn hầm ngầm nguyên bản",
+        "Khám phá hệ thống thông gió ngụy trang tổ mối và bếp không khói Hoàng Cầm",
+        "Thưởng thức món củ mì nóng hổi chấm muối vừng đậm vị chiến khu xưa",
+        "Trải nghiệm trường bắn súng thể thao quốc phòng (chi phí đạn tự túc)"
+      ],
+      "includes": [
+        "Xe du lịch máy lạnh đưa đón khứ hồi trung tâm Quận 1",
+        "Vé vào cổng di tích lịch sử Địa đạo Củ Chi (Bến Dược / Bến Đình)",
+        "Hướng dẫn viên chuyên nghiệp thuyết minh tiếng Việt / tiếng Anh",
+        "Khoai mì luộc và trà nóng phục vụ tại khu căn cứ",
+        "Nước suối và khăn lạnh"
+      ],
+      "excludes": [
+        "Chi phí thử bắn súng tại trường bắn Củ Chi",
+        "Chi phí cá nhân ngoài chương trình"
+      ],
+      "pickup": "Đón tại khu vực Phố Tây Bùi Viện / Phạm Ngũ Lão Quận 1 lúc 07:30 hoặc 12:30.",
+      "notes": [
+        "Trang phục gọn gàng, giày thể thao dễ vận động"
+      ],
+      "itinerary": [
+        {
+          "time": "08:00",
+          "title": "Khởi hành",
+          "desc": "Xe rời trung tâm Sài Gòn đi Củ Chi (khoảng 1 tiếng 30 phút)."
+        },
+        {
+          "time": "09:30",
+          "title": "Khám phá địa đạo",
+          "desc": "Xem phim tài liệu, tham quan cửa hầm bí mật, bẫy chông, hầm giải phẫu, hầm chỉ huy."
+        },
+        {
+          "time": "11:00",
+          "title": "Chui hầm & ăn khoai mì",
+          "desc": "Trải nghiệm chui hầm ngầm, thưởng thức khoai mì luộc chấm muối mè."
+        },
+        {
+          "time": "12:00",
+          "title": "Lên xe về lại Sài Gòn",
+          "desc": "Xe đưa quý khách về điểm đón ban đầu tại Quận 1."
+        }
+      ],
+      "itineraryNote": "Tour có hai khung giờ: ca sáng (07:30 - 13:00) hoặc ca chiều (12:30 - 18:00).",
+      "vehicle": [
+        "Xe du lịch máy lạnh 16 - 29 chỗ đời mới"
+      ],
+      "departures": [
+        {
+          "date": "2026-11-03",
+          "time": "08:00",
+          "endTime": "13:30",
+          "slots": 25
+        },
+        {
+          "date": "2026-11-04",
+          "time": "08:00",
+          "endTime": "13:30",
+          "slots": 25
+        },
+        {
+          "date": "2026-11-05",
+          "time": "08:00",
+          "endTime": "13:30",
+          "slots": 25
+        }
+      ],
+      "policy": "Huỷ miễn phí trước 24 giờ. Xác nhận vé tức thời.",
+      "images": [
+        "../../assest/images/tours/tour17_1.jpg",
+        "../../assest/images/tours/tour17_2.jpg"
+      ]
+    },
+    {
+      "id": 12,
+      "code": "TUR-MT-003",
+      "slug": "tour-dong-bang-song-cuu-long-my-tho-ben-tre",
+      "name": "Tour Đồng bằng sông Cửu Long – Mỹ Tho, Bến Tre",
+      "type": "Tour trong ngày",
+      "stars": 5,
+      "rating": 4.7,
+      "ratingMax": 5,
+      "reviews": 1540,
+      "booked": 28000,
+      "city": "Mỹ Tho",
+      "address": "Mỹ Tho (Tiền Giang) & Bến Tre",
+      "description": "Về miền Tây sông nước êm đềm: du thuyền trên sông Tiền ngắm 4 cù lao Long - Lân - Quy - Phụng, ngồi xuồng ba lá len lỏi rạch dừa nước rợp bóng, nghe đờn ca tài tử và thưởng thức kẹo dừa ngọt bùi.",
+      "keywords": [
+        "Miền Tây",
+        "Mỹ Tho",
+        "Bến Tre",
+        "Xuồng ba lá",
+        "Đờn ca tài tử"
+      ],
+      "priceOriginal": 550000,
+      "price": 480000,
+      "discount": 12,
+      "from": "TP. Hồ Chí Minh",
+      "to": "Mỹ Tho",
+      "category": "Khám phá",
+      "types": [
+        "Tour trong ngày"
+      ],
+      "duration": "1 ngày (8 tiếng)",
+      "meta": "Mỹ Tho, Bến Tre · Thuyền lớn + xuồng chèo · 1 ngày",
+      "tags": [
+        "Sông nước miệt vườn",
+        "Xuồng chèo ba lá",
+        "Ăn trưa cá tai tượng"
+      ],
+      "highlights": [
+        "Du ngoạn sông Tiền ngắm nhìn cầu Rạch Miễu và 4 cồn tứ linh",
+        "Ngồi xuồng chèo ba lá len lỏi trong rạch dừa nước rợp bóng mát rượi",
+        "Tham quan lò kẹo dừa truyền thống, thưởng thức trà mật ong hoa nhãn",
+        "Giao lưu nghệ nhân nghe đờn ca tài tử Nam Bộ và ăn trái cây bốn mùa",
+        "Bữa trưa đặc sản miền Tây với món cá tai tượng chiên xù cuốn bánh tráng"
+      ],
+      "includes": [
+        "Xe du lịch máy lạnh đưa đón khứ hồi TP. Hồ Chí Minh",
+        "Thuyền máy tham quan sông Tiền và xuồng chèo ba lá",
+        "Vé tham quan các cồn theo chương trình",
+        "Bữa trưa đậm đà phong vị miền Tây sông nước",
+        "Trái cây miệt vườn, trà mật ong, kẹo dừa nếm thử",
+        "Hướng dẫn viên chuyên nghiệp vui vẻ"
+      ],
+      "excludes": [
+        "Chi phí mua sắm kẹo dừa, rượu dừa mang về",
+        "Tiền típ cho người chèo xuồng và HDV"
+      ],
+      "pickup": "Đón tại văn phòng Quận 1 hoặc khách sạn trung tâm lúc 07:45 sáng.",
+      "notes": [
+        "Nên mang theo nón lá hoặc mũ rộng vành che nắng"
+      ],
+      "itinerary": [
+        {
+          "time": "08:00",
+          "title": "Rời Sài Gòn",
+          "desc": "Xe lăn bánh theo cao tốc Trung Lương về thành phố Mỹ Tho."
+        },
+        {
+          "time": "09:30",
+          "title": "Du thuyền sông Tiền",
+          "desc": "Lên thuyền lớn ngắm nhìn cồn Long, Lân, Quy, Phụng và bè cá nổi."
+        },
+        {
+          "time": "10:30",
+          "title": "Cồn Thới Sơn",
+          "desc": "Thưởng thức trà mật ong, nghe đờn ca tài tử, ăn trái cây miệt vườn."
+        },
+        {
+          "time": "11:30",
+          "title": "Chèo xuồng ba lá",
+          "desc": "Len lỏi dưới rặng dừa nước Bến Tre thanh bình."
+        },
+        {
+          "time": "12:30",
+          "title": "Bữa trưa miệt vườn",
+          "desc": "Thưởng thức cá tai tượng chiên xù giòn rụm cuốn rau sống chấm mắm nêm."
+        },
+        {
+          "time": "14:30",
+          "title": "Thăm Chùa Vĩnh Tràng",
+          "desc": "Chiêm ngưỡng ngôi chùa cổ nổi tiếng kết hợp kiến trúc Á - Âu lộng lẫy."
+        },
+        {
+          "time": "17:00",
+          "title": "Về lại Sài Gòn",
+          "desc": "Xe đưa quý khách về điểm đón ban đầu tại trung tâm Quận 1."
+        }
+      ],
+      "itineraryNote": "Tour trọn vẹn khám phá nét mộc mạc chân chất của đồng bằng sông Cửu Long.",
+      "vehicle": [
+        "Xe ô tô du lịch + Thuyền du lịch sông + Xuồng chèo ba lá"
+      ],
+      "departures": [
+        {
+          "date": "2026-11-03",
+          "time": "08:00",
+          "endTime": "17:30",
+          "slots": 30
+        },
+        {
+          "date": "2026-11-04",
+          "time": "08:00",
+          "endTime": "17:30",
+          "slots": 30
+        },
+        {
+          "date": "2026-11-05",
+          "time": "08:00",
+          "endTime": "17:30",
+          "slots": 30
+        }
+      ],
+      "policy": "Huỷ miễn phí trước 24 giờ. Khởi hành hàng ngày.",
+      "images": [
+        "../../assest/images/tours/tour18_1.jpg",
+        "../../assest/images/tours/tour18_2.jpg"
+      ]
+    },
+    {
+      "id": 13,
+      "code": "TUR-PQ-001",
+      "slug": "ve-cap-treo-hon-thom-va-cong-vien-nuoc-aquatopia",
+      "name": "Vé cáp treo Hòn Thơm và công viên nước Aquatopia",
+      "type": "Vé tham quan",
+      "stars": 5,
+      "rating": 4.8,
+      "ratingMax": 5,
+      "reviews": 3200,
+      "booked": 60000,
+      "city": "Hòn Thơm",
+      "address": "Ga cáp treo An Thới, Nam Phú Quốc, Kiên Giang",
+      "description": "Trải nghiệm tuyến cáp treo 3 dây vượt biển dài nhất thế giới ngắm trọn quần đảo An Thới từ trên không trung, thỏa sức vui chơi tại công viên nước chủ đề Aquatopia hiện đại hàng đầu Đông Nam Á.",
+      "keywords": [
+        "Phú Quốc",
+        "Hòn Thơm",
+        "Cáp treo",
+        "Aquatopia",
+        "Công viên nước"
+      ],
+      "priceOriginal": 700000,
+      "price": 630000,
+      "discount": 10,
+      "from": "Ga cáp treo An Thới",
+      "to": "Hòn Thơm",
+      "category": "Tham quan",
+      "types": [
+        "Vé tham quan"
+      ],
+      "duration": "1 ngày (tự do theo giờ mở cửa)",
+      "meta": "Hòn Thơm, Phú Quốc · Cáp treo vượt biển · Theo loại vé",
+      "tags": [
+        "Kỷ lục thế giới",
+        "Công viên nước",
+        "Xác nhận tức thời"
+      ],
+      "highlights": [
+        "Chinh phục cáp treo 3 dây vượt biển dài gần 7.899m được Guinness vinh danh",
+        "Ngắm trọn vẹn bức tranh biển đảo Nam Phú Quốc kỳ vĩ từ cabin kính 360 độ",
+        "Vui chơi không giới hạn hơn 20 trò chơi cảm giác mạnh tại Aquatopia Water Park",
+        "Thư giãn tại bãi tắm Bãi Trào cát trắng mịn, chèo kayak và tắm biển"
+      ],
+      "includes": [
+        "Vé cáp treo Hòn Thơm khứ hồi (2 chiều)",
+        "Vé vào cửa công viên nước Aquatopia Water Park",
+        "Các trò chơi bãi biển tại Sun World Hon Thom",
+        "Tủ gửi đồ và phao bơi tại công viên nước"
+      ],
+      "excludes": [
+        "Buffet trưa tại nhà hàng Hòn Thơm (có thể chọn mua kèm gói Combo)",
+        "Dịch vụ lặn biển ngắm san hô bằng bình khí"
+      ],
+      "pickup": "Tự túc đến Ga An Thới (có xe buýt miễn phí của Sun World từ thị trấn Dương Đông).",
+      "notes": [
+        "Mang đồ bơi và kem chống nắng",
+        "Không mang đồ ăn thức uống bên ngoài vào khu du lịch"
+      ],
+      "itinerary": [
+        {
+          "time": "09:00",
+          "title": "Lên cáp treo tại Ga An Thới",
+          "desc": "Bay lướt trên mặt biển trong xanh ngắm làng chài và tàu thuyền tấp nập."
+        },
+        {
+          "time": "09:30",
+          "title": "Đến đảo Hòn Thơm",
+          "desc": "Khám phá bãi biển Bãi Trào tuyệt đẹp với hàng dừa nghiêng bóng."
+        },
+        {
+          "time": "10:30",
+          "title": "Công viên nước Aquatopia",
+          "desc": "Thử thách trượt ống nước mạo hiểm và thư giãn tại dòng sông lười."
+        },
+        {
+          "time": "12:30",
+          "title": "Bữa trưa ẩm thực",
+          "desc": "Thưởng thức buffet món ngon ba miền hoặc nhà hàng hải sản ven biển."
+        },
+        {
+          "time": "15:00",
+          "title": "Cáp treo về lại An Thới",
+          "desc": "Đi cáp treo ngắm hoàng hôn ráng vàng trên biển Tây Nam Tổ quốc."
+        }
+      ],
+      "itineraryNote": "Trải nghiệm không thể bỏ lỡ khi ghé thăm Đảo Ngọc Phú Quốc.",
+      "vehicle": [
+        "Hệ thống cáp treo 3 dây hiện đại của tập đoàn Doppelmayr"
+      ],
+      "departures": [
+        {
+          "date": "2026-11-02",
+          "time": "08:30",
+          "endTime": "17:30",
+          "slots": 100
+        },
+        {
+          "date": "2026-11-03",
+          "time": "08:30",
+          "endTime": "17:30",
+          "slots": 100
+        },
+        {
+          "date": "2026-11-04",
+          "time": "08:30",
+          "endTime": "17:30",
+          "slots": 100
+        }
+      ],
+      "policy": "Vé quét mã QR vào cổng trực tiếp. Huỷ miễn phí trước 24 giờ.",
+      "images": [
+        "../../assest/images/tours/tour20_1.jpg",
+        "../../assest/images/tours/tour20_2.jpg"
+      ]
+    },
+    {
+      "id": 14,
+      "code": "TUR-CT-001",
+      "slug": "tour-cho-noi-cai-rang-can-tho-buoi-sang",
+      "name": "Tour chợ nổi Cái Răng – Cần Thơ buổi sáng",
+      "type": "Tour nửa ngày",
+      "stars": 5,
+      "rating": 4.8,
+      "ratingMax": 5,
+      "reviews": 890,
+      "booked": 14000,
+      "city": "Chợ nổi Cái Răng",
+      "address": "Bến Ninh Kiều, Cần Thơ",
+      "description": "Thức dậy sớm đón bình minh trên sông Hậu, hòa vào không khí tấp nập của chợ nổi Cái Răng lớn nhất Tây Đô: thưởng thức tô hủ tiếu nóng hổi ngay trên ghe chèo và nhâm nhi ly cà phê sáng bồng bềnh sóng nước.",
+      "keywords": [
+        "Cần Thơ",
+        "Chợ nổi Cái Răng",
+        "Bến Ninh Kiều",
+        "Hủ tiếu sông",
+        "Lò hủ tiếu"
+      ],
+      "priceOriginal": 150000,
+      "price": 120000,
+      "discount": 20,
+      "from": "Bến Ninh Kiều, Cần Thơ",
+      "to": "Chợ nổi Cái Răng",
+      "category": "Khám phá",
+      "types": [
+        "Tour nửa ngày"
+      ],
+      "duration": "Khoảng 3 giờ (05:30 - 08:30 sáng)",
+      "meta": "Chợ nổi Cái Răng, Cần Thơ · Tàu/ghe du lịch · Sáng sớm",
+      "tags": [
+        "Đón bình minh sông Hậu",
+        "Ăn sáng trên ghe",
+        "Trải nghiệm bản địa"
+      ],
+      "highlights": [
+        "Ngắm bình minh rực rỡ ló dạng trên dòng sông Hậu hiền hòa",
+        "Tìm hiểu nét văn hóa “Cây bẹo” độc nhất vô nhị của chợ nổi miền Tây",
+        "Thưởng thức hủ tiếu gõ hoặc bún riêu nấu trực tiếp trên thuyền bập bềnh",
+        "Tham quan lò hủ tiếu truyền thống, thử làm sợi hủ tiếu và ăn bánh pizza hủ tiếu",
+        "Ghé thăm vườn trái cây miệt vườn thưởng thức dứa chín ngọt lịm"
+      ],
+      "includes": [
+        "Tàu du lịch an toàn có mái che và áo phao suốt tuyến",
+        "Hướng dẫn viên địa phương dẫn đường vui tính",
+        "Vé tham quan lò hủ tiếu truyền thống",
+        "Nước suối và khăn lạnh"
+      ],
+      "excludes": [
+        "Tô hủ tiếu hoặc cà phê ăn sáng trên chợ nổi (khoảng 35k - 45k/tô)",
+        "Trái cây mua về làm quà"
+      ],
+      "pickup": "Tập trung tại Tượng đài Bác Hồ – Bến Ninh Kiều lúc 05:30 sáng.",
+      "notes": [
+        "Đi sớm không khí mát mẻ và chợ họp đông vui nhất (từ 06:00 đến 07:30)"
+      ],
+      "itinerary": [
+        {
+          "time": "05:30",
+          "title": "Xuất bến Ninh Kiều",
+          "desc": "Tàu rời bến khi mặt trời bắt đầu rạng ngời trên sông Hậu."
+        },
+        {
+          "time": "06:15",
+          "title": "Khám phá Chợ Nổi Cái Răng",
+          "desc": "Tàu len lỏi giữa hàng trăm ghe thuyền chở đầy hoa trái, thưởng thức bữa sáng bồng bềnh."
+        },
+        {
+          "time": "07:30",
+          "title": "Lò hủ tiếu truyền thống",
+          "desc": "Thử làm sợi hủ tiếu nhiều màu sắc tự nhiên từ hoa đậu biếc, gấc, lá cẩm."
+        },
+        {
+          "time": "08:30",
+          "title": "Về lại Bến Ninh Kiều",
+          "desc": "Tàu đưa quý khách cập bến, kết thúc hành trình buổi sớm tràn đầy năng lượng."
+        }
+      ],
+      "itineraryNote": "Tour buổi sáng đem lại những khoảnh khắc đời thường bình dị tuyệt đẹp.",
+      "vehicle": [
+        "Tàu du lịch sông nước miền Tây"
+      ],
+      "departures": [
+        {
+          "date": "2026-11-03",
+          "time": "05:30",
+          "endTime": "08:30",
+          "slots": 25
+        },
+        {
+          "date": "2026-11-04",
+          "time": "05:30",
+          "endTime": "08:30",
+          "slots": 25
+        },
+        {
+          "date": "2026-11-05",
+          "time": "05:30",
+          "endTime": "08:30",
+          "slots": 25
+        }
+      ],
+      "policy": "Huỷ miễn phí trước 12 giờ. Khởi hành đều đặn mỗi sáng.",
+      "images": [
+        "../../assest/images/tours/tour21_1.jpg",
+        "../../assest/images/tours/tour21_2.jpg"
+      ]
+    },
+    {
+      "id": 15,
+      "code": "TUR-TN-001",
+      "slug": "tour-nui-ba-den-toa-thanh-cao-dai-tay-ninh",
+      "name": "Tour Núi Bà Đen – Tòa Thánh Cao Đài Tây Ninh",
+      "type": "Tour trong ngày",
+      "stars": 5,
+      "rating": 4.9,
+      "ratingMax": 5,
+      "reviews": 920,
+      "booked": 16500,
+      "city": "Núi Bà Đen",
+      "address": "Núi Bà Đen & Tòa Thánh Tây Ninh",
+      "description": "Hành trình tâm linh chiêm bái Nóc nhà Đông Nam Bộ: đi tuyến cáp treo hiện đại lên đỉnh Núi Bà Đen viếng tượng Phật Bà Tây Bổ Đà Sơn bằng đồng cao nhất châu Á, ngắm vườn hoa rực rỡ và thăm Tòa Thánh Cao Đài tráng lệ.",
+      "keywords": [
+        "Tây Ninh",
+        "Núi Bà Đen",
+        "Phật Bà đồng",
+        "Tòa Thánh Cao Đài",
+        "Cáp treo"
+      ],
+      "priceOriginal": 1380000,
+      "price": 1242000,
+      "discount": 10,
+      "from": "TP. Hồ Chí Minh",
+      "to": "Núi Bà Đen",
+      "category": "Khám phá",
+      "types": [
+        "Tour trong ngày"
+      ],
+      "duration": "1 ngày (10 tiếng)",
+      "meta": "Núi Bà Đen, Tây Ninh · Xe du lịch + Cáp treo Sun World · 1 ngày",
+      "tags": [
+        "Nóc nhà Đông Nam Bộ",
+        "Tượng Phật Bà kỷ lục",
+        "Buffet đỉnh núi"
+      ],
+      "highlights": [
+        "Cáp treo Sun World đưa du khách lên đỉnh Núi Bà Đen độ cao 986m săn mây",
+        "Chiêm bái tượng Phật Bà Tây Bổ Đà Sơn bằng đồng cao 72m uy nghiêm",
+        "Thưởng ngoạn biển hoa rực rỡ và quần thể tâm linh tráng lệ trên đỉnh núi",
+        "Thưởng thức tiệc buffet ẩm thực đỉnh núi phong phú hơn 80 món",
+        "Tham quan Tòa Thánh Cao Đài - kiệt tác kiến trúc tôn giáo độc nhất vô nhị"
+      ],
+      "includes": [
+        "Xe du lịch đời mới máy lạnh khứ hồi TP. Hồ Chí Minh – Tây Ninh",
+        "Vé cáp treo Sun World tuyến đỉnh Vân Sơn khứ hồi",
+        "Tiệc buffet trưa đỉnh núi phong phú",
+        "Vé tham quan Tòa Thánh Tây Ninh",
+        "Hướng dẫn viên chuyên nghiệp thuyết minh văn hóa tâm linh",
+        "Nước suối và bảo hiểm du lịch"
+      ],
+      "excludes": [
+        "Tuyến cáp treo Chùa Bà (tuỳ chọn nếu muốn viếng thêm chùa cổ)",
+        "Chi phí riêng và đồ cúng lễ cá nhân"
+      ],
+      "pickup": "Đón tại Quận 1, Quận 3 hoặc Ngã tư An Sương lúc 06:45 sáng.",
+      "notes": [
+        "Mặc trang phục kín đáo trang nghiêm khi viếng tượng Phật và Tòa Thánh",
+        "Nên mang áo khoác vì gió trên đỉnh núi khá mát lạnh"
+      ],
+      "itinerary": [
+        {
+          "time": "07:00",
+          "title": "Khởi hành",
+          "desc": "Xe khởi hành từ Sài Gòn theo Quốc lộ 22 đi Tây Ninh."
+        },
+        {
+          "time": "09:30",
+          "title": "Cáp treo lên đỉnh Núi Bà Đen",
+          "desc": "Lên cabin ngắm nhìn đồng bằng trù phú, chiêm ngưỡng tượng Phật Bà bằng đồng sừng sững giữa mây trời."
+        },
+        {
+          "time": "11:30",
+          "title": "Buffet trưa đỉnh núi",
+          "desc": "Thưởng thức ẩm thực đa dạng tại nhà hàng Năm Châu trên đỉnh núi."
+        },
+        {
+          "time": "13:30",
+          "title": "Xuống núi – Thăm Tòa Thánh Cao Đài",
+          "desc": "Chiêm ngưỡng kiến trúc độc đáo và tìm hiểu về đạo Cao Đài."
+        },
+        {
+          "time": "15:30",
+          "title": "Về lại TP. Hồ Chí Minh",
+          "desc": "Ghé mua đặc sản bánh tráng phơi sương, muối tôm Tây Ninh và lên xe về Sài Gòn."
+        },
+        {
+          "time": "18:00",
+          "title": "Trả khách",
+          "desc": "Về đến điểm đón ban đầu, kết thúc chuyến hành hương ý nghĩa."
+        }
+      ],
+      "itineraryNote": "Tour tâm linh hấp dẫn quanh năm, cầu bình an tài lộc.",
+      "vehicle": [
+        "Xe du lịch chất lượng cao và hệ thống cáp treo Sun World"
+      ],
+      "departures": [
+        {
+          "date": "2026-11-04",
+          "time": "07:00",
+          "endTime": "18:00",
+          "slots": 20
+        },
+        {
+          "date": "2026-11-07",
+          "time": "07:00",
+          "endTime": "18:00",
+          "slots": 20
+        },
+        {
+          "date": "2026-11-08",
+          "time": "07:00",
+          "endTime": "18:00",
+          "slots": 20
+        }
+      ],
+      "policy": "Huỷ miễn phí trước 24 giờ. Đổi ngày linh hoạt.",
+      "images": [
+        "../../assest/images/tours/tour23_1.jpg",
+        "../../assest/images/tours/tour23_2.jpg"
+      ]
     }
-   ],
-   "rating": 4.8,
-   "reviews": 3035,
-   "booked": 40000,
-   "url": "https://www.klook.com/vi/activity/843-ha-noi-ninh-binh-day-tour-luxury-d-car/",
-   "images": []
-  },
-  {
-   "id": 2,
-   "name": "Vé Xe Buýt Hop On Hop Off Hà Nội",
-   "priceOriginal": 151000,
-   "price": 143000,
-   "discount": 5,
-   "from": "Hà Nội",
-   "to": "Hà Nội",
-   "category": "Tham quan",
-   "types": [
-    "Xe buýt tham quan"
-   ],
-   "highlights": [
-    "Lên xuống tự do quanh trung tâm Hà Nội, chỉ từ khoảng 5 USD",
-    "Giảm 5%, hơn 50.000 lượt đặt, đánh giá 4.3/5 từ 1.389 khách",
-    "Ngắm phố cổ, Hồ Hoàn Kiếm và các điểm nổi bật ngay từ trên xe",
-    "Chủ động lịch trình: dừng lâu nơi thích, đi tiếp khi muốn",
-    "Đặt được ngay trong ngày, xác nhận tức thời"
-   ],
-   "meta": "Hà Nội · Vé xe buýt Hop On Hop Off · Lên xuống tự do",
-   "tags": [
-    "Đặt ngay hôm nay",
-    "Xác nhận tức thời"
-   ],
-   "includes": [
-    "Vé xe buýt Hop On Hop Off",
-    "Lên xuống không giới hạn trong thời hạn vé"
-   ],
-   "excludes": [
-    "Vé vào cửa các điểm tham quan",
-    "Chi phí cá nhân khác",
-    "Tiền típ"
-   ],
-   "pickup": "Lên xe tại các điểm dừng. Thông tin điểm dừng và cách đổi vé có trong voucher sau khi đặt.",
-   "notes": [
-    "Vé chỉ có hiệu lực theo thời hạn ghi trên voucher",
-    "Lịch chạy có thể thay đổi tuỳ thời tiết và giao thông"
-   ],
-   "itinerary": [
-    {
-     "time": "Bước 1",
-     "title": "Lên xe tại điểm dừng gần nhất",
-     "desc": ""
-    },
-    {
-     "time": "Bước 2",
-     "title": "Xuống tham quan bất kỳ điểm dừng nào bạn thích",
-     "desc": ""
-    },
-    {
-     "time": "Bước 3",
-     "title": "Lên chuyến kế tiếp và lặp lại đến hết thời hạn vé",
-     "desc": ""
-    }
-   ],
-   "itineraryNote": "Lịch trình dự kiến, có thể thay đổi tuỳ điều kiện giao thông và thời tiết",
-   "duration": "1 giờ / 4 giờ / 24 giờ (tuỳ loại vé)",
-   "vehicle": [
-    "Xe buýt tham quan Hop On Hop Off, lên xuống tự do tại các điểm dừng",
-    "Có thuyết minh (audio guide) đa ngôn ngữ",
-    "Tự đến điểm dừng gần nhất để lên xe"
-   ],
-   "departures": [
-    {
-     "date": "2026-09-21",
-     "time": "09:00",
-     "endTime": "17:00",
-     "slots": 80
-    }
-   ],
-   "rating": 4.3,
-   "reviews": 1389,
-   "booked": 50000,
-   "url": "https://www.klook.com/vi/activity/101358-ha-noi-hop-on-hop-off-pass/",
-   "images": []
-  },
-  {
-   "id": 3,
-   "name": "Vé Xe Bus 2 Tầng Hà Nội từ City Sightseeing",
-   "priceOriginal": 150000,
-   "price": 135000,
-   "discount": 10,
-   "from": "Hà Nội",
-   "to": "Hà Nội",
-   "category": "Tham quan",
-   "types": [
-    "Xe buýt tham quan"
-   ],
-   "highlights": [
-    "Giảm 10%, hơn 70.000 lượt đặt, đánh giá 4.3/5 từ 2.599 khách",
-    "Xe buýt 2 tầng mui trần ngắm Hà Nội thoáng đãng",
-    "Đi qua Hoàng thành Thăng Long, Lăng Chủ tịch Hồ Chí Minh, Chùa Trấn Quốc",
-    "11 điểm dừng để lên xuống linh hoạt, thuyết minh đa ngôn ngữ qua tai nghe",
-    "Có vé ngày và vé đêm để ngắm Hà Nội lên đèn",
-    "Huỷ miễn phí, xác nhận tức thời"
-   ],
-   "meta": "Hà Nội · Xe buýt 2 tầng City Sightseeing · Thuyết minh đa ngôn ngữ",
-   "tags": [
-    "Đặt ngay hôm nay",
-    "Huỷ miễn phí (Gửi yêu cầu trước 24 giờ)",
-    "Xác nhận tức thời"
-   ],
-   "includes": [
-    "Vé xe buýt 2 tầng City Sightseeing (vé ngày 4 giờ không giới hạn hoặc vé đêm)",
-    "Thuyết minh đa ngôn ngữ qua tai nghe"
-   ],
-   "excludes": [
-    "Vé vào cửa các điểm tham quan",
-    "Chi phí cá nhân khác",
-    "Tiền típ"
-   ],
-   "pickup": "Lên xe tại các điểm dừng của tuyến. Điểm dừng và giờ chạy có trong voucher sau khi đặt.",
-   "notes": [
-    "Nên đi vào sáng sớm hoặc chiều muộn để tránh nắng gắt",
-    "Lịch chạy có thể thay đổi tuỳ thời tiết và giao thông"
-   ],
-   "itinerary": [
-    {
-     "time": "Bước 1",
-     "title": "Lên xe tại một trong 11 điểm dừng",
-     "desc": ""
-    },
-    {
-     "time": "",
-     "title": "Điểm nổi bật trên tuyến",
-     "desc": "Hoàng thành Thăng Long · Lăng Chủ tịch Hồ Chí Minh · Chùa Trấn Quốc"
-    },
-    {
-     "time": "Bước 2",
-     "title": "Xuống/lên tự do tại các điểm dừng trong thời hạn vé",
-     "desc": ""
-    }
-   ],
-   "itineraryNote": "Lịch trình dự kiến, có thể thay đổi tuỳ điều kiện giao thông và thời tiết",
-   "duration": "4 giờ (vé ngày 4 giờ hoặc vé đêm)",
-   "vehicle": [
-    "Xe buýt 2 tầng mui trần City Sightseeing, 11 điểm dừng, lên xuống tự do",
-    "Thuyết minh đa ngôn ngữ qua tai nghe",
-    "Tự đến một trong các điểm dừng để lên xe"
-   ],
-   "departures": [
-    {
-     "date": "2026-09-21",
-     "time": "09:00",
-     "endTime": "17:00",
-     "slots": 80
-    }
-   ],
-   "rating": 4.3,
-   "reviews": 2599,
-   "booked": 70000,
-   "url": "https://www.klook.com/vi/activity/87164-hanoi-hop-on-off-sightseeing-tour/",
-   "images": []
-  },
-  {
-   "id": 4,
-   "name": "Tour Ninh Bình trong ngày từ Hà Nội: Hoa Lư, Tràng An & Hang Múa",
-   "priceOriginal": 1280000,
-   "price": 1088000,
-   "discount": 15,
-   "from": "Hà Nội",
-   "to": "Ninh Bình",
-   "category": "Khám phá",
-   "types": [
-    "Tour trong ngày"
-   ],
-   "highlights": [
-    "Ưu đãi giảm 15%, được Klook chọn lọc, đánh giá tuyệt đối 5.0/5",
-    "Đủ 3 điểm “must-see” Ninh Bình chỉ trong một ngày",
-    "Cố đô Hoa Lư – nơi lưu dấu kinh đô xưa nhà Đinh, Tiền Lê",
-    "Thuyền Tràng An – di sản thế giới với hang động và núi đá vôi soi bóng nước",
-    "Hang Múa – check-in đỉnh Ngọa Long ngắm trọn cảnh sắc Ninh Bình",
-    "Bữa trưa buffet, xe đưa đón khứ hồi, huỷ miễn phí"
-   ],
-   "meta": "Ninh Bình · Hoa Lư – Tràng An – Hang Múa · Tiếng Anh",
-   "tags": [
-    "Đặt trước cho ngày mai",
-    "Huỷ miễn phí (Gửi yêu cầu trước 24 giờ)",
-    "Xác nhận tức thời"
-   ],
-   "includes": [
-    "Xe đưa đón khứ hồi Hà Nội – Ninh Bình",
-    "Hướng dẫn viên nói tiếng Anh",
-    "Vé vào cửa các điểm tham quan trong chương trình",
-    "Vé thuyền tham quan",
-    "Bữa trưa buffet món Việt",
-    "Nước suối"
-   ],
-   "excludes": [
-    "Chi phí cá nhân khác",
-    "Tiền típ",
-    "Thức uống ngoài bữa ăn"
-   ],
-   "pickup": "Điểm hẹn tại Hà Nội. Giờ và địa điểm tập trung có trong email xác nhận/voucher sau khi đặt; vui lòng có mặt trước giờ khởi hành 10 phút.",
-   "notes": [
-    "Leo khoảng 500 bậc thang tại Hang Múa, nên mang giày thể thao",
-    "Nên mang theo: mũ nón, kem chống nắng, áo mưa, tiền mặt, giấy tờ tuỳ thân",
-    "Lịch trình có thể thay đổi tuỳ giao thông và thời tiết"
-   ],
-   "itinerary": [
-    {
-     "time": "08:00",
-     "title": "Khởi hành",
-     "desc": "Đón khách tại Hà Nội, di chuyển đến Ninh Bình (khoảng 2 tiếng)"
-    },
-    {
-     "time": "10:00",
-     "title": "Cố đô Hoa Lư (1 tiếng)",
-     "desc": "Thăm đền vua Đinh, vua Lê – kinh đô xưa của Việt Nam"
-    },
-    {
-     "time": "11:30",
-     "title": "Bữa trưa",
-     "desc": "Buffet món Việt"
-    },
-    {
-     "time": "12:45",
-     "title": "Thuyền Tràng An (1 tiếng 30 phút)",
-     "desc": "Ngồi thuyền len qua hang động, núi đá vôi và sông nước"
-    },
-    {
-     "time": "14:30",
-     "title": "Hang Múa (1 tiếng)",
-     "desc": "Leo khoảng 500 bậc lên đỉnh ngắm toàn cảnh Tam Cốc – Bích Động"
-    },
-    {
-     "time": "16:00",
-     "title": "Quay về Hà Nội",
-     "desc": ""
-    },
-    {
-     "time": "18:00",
-     "title": "Kết thúc",
-     "desc": "Trả khách tại Hà Nội"
-    }
-   ],
-   "itineraryNote": "Lịch trình dự kiến, có thể thay đổi tuỳ điều kiện giao thông và thời tiết",
-   "duration": "10 tiếng",
-   "vehicle": [
-    "Xe đưa đón khứ hồi Hà Nội – Ninh Bình; thuyền tham quan Tràng An",
-    "Khoảng 2 tiếng mỗi chiều (Hà Nội – Ninh Bình)",
-    "Tập trung tại điểm hẹn ở Hà Nội (có mặt trước giờ đi 10 phút)"
-   ],
-   "departures": [
-    {
-     "date": "2026-09-22",
-     "time": "08:00",
-     "endTime": "18:00",
-     "slots": 12
-    }
-   ],
-   "rating": 5,
-   "reviews": 297,
-   "booked": 1000,
-   "url": "https://www.klook.com/vi/activity/221960-ninh-binh-day-tour-from-hanoi-hoa-lu-trang-an-mua-cave/",
-   "images": []
-  }
- ]
+  ]
 }
