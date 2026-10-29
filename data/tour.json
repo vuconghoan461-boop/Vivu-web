@@ -155,9 +155,12 @@
       "images": [
         "../../assest/images/tours/tour1_1.jpg",
         "../../assest/images/tours/tour1_2.jpg",
-        "../../assest/images/tours/tour1_3.jpg"
+        "../../assest/images/tours/tour1_3.jpg",
+        "../../assest/images/tours/tour1_4.jpg",
+        "../../assest/images/tours/tour1_5.jpg"
       ]
     },
+
     {
       "id": 2,
       "code": "TUR-HN-003",
@@ -281,10 +284,14 @@
       ],
       "policy": "Huỷ miễn phí trước 24 giờ so với giờ khởi hành.",
       "images": [
-        "../../assest/images/tours/tour5_1.jpg",
-        "../../assest/images/tours/tour5_2.jpg"
+        "../../assest/images/tours/tour2_1.jpg",
+        "../../assest/images/tours/tour2_2.jpg",
+        "../../assest/images/tours/tour2_3.jpg",
+        "../../assest/images/tours/tour2_4.jpg",
+        "../../assest/images/tours/tour2_5.jpg"
       ]
     },
+
     {
       "id": 3,
       "code": "TUR-SP-001",
@@ -391,8 +398,11 @@
       ],
       "policy": "Miễn phí huỷ hoặc đổi ngày trước 48 giờ so với ngày khởi hành.",
       "images": [
-        "../../assest/images/tours/tour6_1.jpg",
-        "../../assest/images/tours/tour6_2.jpg"
+        "../../assest/images/tours/tour3_1.jpg",
+        "../../assest/images/tours/tour3_2.jpg",
+        "../../assest/images/tours/tour3_3.jpg",
+        "../../assest/images/tours/tour3_4.jpg",
+        "../../assest/images/tours/tour3_5.jpg"
       ]
     },
     {
@@ -520,8 +530,11 @@
       ],
       "policy": "Huỷ miễn phí trước 24 giờ khởi hành; đổi ngày linh hoạt.",
       "images": [
-        "../../assest/images/tours/tour7_1.jpg",
-        "../../assest/images/tours/tour7_2.jpg"
+        "../../assest/images/tours/tour4_1.jpg",
+        "../../assest/images/tours/tour4_2.jpg",
+        "../../assest/images/tours/tour4_3.jpg",
+        "../../assest/images/tours/tour4_4.jpg",
+        "../../assest/images/tours/tour4_5.jpg"
       ]
     },
     {
@@ -628,8 +641,11 @@
       ],
       "policy": "Huỷ miễn phí trước 48 giờ. Hỗ trợ bảo hiểm du lịch trọn gói.",
       "images": [
-        "../../assest/images/tours/tour9_1.jpg",
-        "../../assest/images/tours/tour9_2.jpg"
+        "../../assest/images/tours/tour5_1.jpg",
+        "../../assest/images/tours/tour5_2.jpg",
+        "../../assest/images/tours/tour5_3.jpg",
+        "../../assest/images/tours/tour5_4.jpg",  
+        "../../assest/images/tours/tour5_5.jpg"
       ]
     },
     {
@@ -746,8 +762,11 @@
       ],
       "policy": "Huỷ miễn phí trước 5 ngày so với ngày khởi hành.",
       "images": [
-        "../../assest/images/tours/tour11_1.jpg",
-        "../../assest/images/tours/tour11_2.jpg"
+        "../../assest/images/tours/tour6_1.jpg",
+        "../../assest/images/tours/tour6_2.jpg",
+        "../../assest/images/tours/tour6_3.jpg",
+        "../../assest/images/tours/tour6_4.jpg",
+        "../../assest/images/tours/tour6_5.jpg"
       ]
     },
     {
@@ -857,8 +876,11 @@
       ],
       "policy": "Huỷ miễn phí trước 72 giờ so với ngày khởi hành.",
       "images": [
-        "../../assest/images/tours/tour12_1.jpg",
-        "../../assest/images/tours/tour12_2.jpg"
+        "../../assest/images/tours/tour7_1.jpg",
+        "../../assest/images/tours/tour7_2.jpg",
+        "../../assest/images/tours/tour7_3.jpg",
+        "../../assest/images/tours/tour7_4.jpg",
+        "../../assest/images/tours/tour7_5.jpg"
       ]
     },
     {
@@ -959,8 +981,11 @@
       ],
       "policy": "Huỷ miễn phí trước 24 giờ. Đổi ngày nếu biển động cano cấm xuất bến.",
       "images": [
-        "../../assest/images/tours/tour13_1.jpg",
-        "../../assest/images/tours/tour13_2.jpg"
+        "../../assest/images/tours/tour8_1.jpg",
+        "../../assest/images/tours/tour8_2.jpg",
+        "../../assest/images/tours/tour8_3.jpg",
+        "../../assest/images/tours/tour8_4.jpg",
+        "../../assest/images/tours/tour8_5.jpg"
       ]
     },
     {
@@ -1073,8 +1098,11 @@
       ],
       "policy": "Huỷ miễn phí trước 12 giờ trước khi khởi hành.",
       "images": [
-        "../../assest/images/tours/tour14_1.jpg",
-        "../../assest/images/tours/tour14_2.jpg"
+        "../../assest/images/tours/tour9_1.jpg",
+        "../../assest/images/tours/tour9_2.jpg",
+        "../../assest/images/tours/tour9_3.jpg",
+        "../../assest/images/tours/tour9_4.jpg",
+        "../../assest/images/tours/tour9_5.jpg"
       ]
     },
     {
@@ -1193,8 +1221,11 @@
       ],
       "policy": "Huỷ miễn phí trước 24 giờ. Đổi ngày linh hoạt.",
       "images": [
-        "../../assest/images/tours/tour16_1.jpg",
-        "../../assest/images/tours/tour16_2.jpg"
+        "../../assest/images/tours/tour10_1.jpg",
+        "../../assest/images/tours/tour10_2.jpg",
+        "../../assest/images/tours/tour10_3.jpg",
+        "../../assest/images/tours/tour10_4.jpg",
+        "../../assest/images/tours/tour10_5.jpg"
       ]
     },
     {
@@ -1304,8 +1335,11 @@
       ],
       "policy": "Huỷ miễn phí trước 24 giờ. Xác nhận vé tức thời.",
       "images": [
-        "../../assest/images/tours/tour17_1.jpg",
-        "../../assest/images/tours/tour17_2.jpg"
+        "../../assest/images/tours/tour11_1.jpg",
+        "../../assest/images/tours/tour11_2.jpg",
+        "../../assest/images/tours/tour11_3.jpg",
+        "../../assest/images/tours/tour11_4.jpg",
+        "../../assest/images/tours/tour11_5.jpg"
       ]
     },
     {
@@ -1431,8 +1465,11 @@
       ],
       "policy": "Huỷ miễn phí trước 24 giờ. Khởi hành hàng ngày.",
       "images": [
-        "../../assest/images/tours/tour18_1.jpg",
-        "../../assest/images/tours/tour18_2.jpg"
+        "../../assest/images/tours/tour12_1.jpg",
+        "../../assest/images/tours/tour12_2.jpg",
+        "../../assest/images/tours/tour12_3.jpg",
+        "../../assest/images/tours/tour12_4.jpg",
+        "../../assest/images/tours/tour12_5.jpg"
       ]
     },
     {
@@ -1546,8 +1583,11 @@
       ],
       "policy": "Vé quét mã QR vào cổng trực tiếp. Huỷ miễn phí trước 24 giờ.",
       "images": [
-        "../../assest/images/tours/tour20_1.jpg",
-        "../../assest/images/tours/tour20_2.jpg"
+        "../../assest/images/tours/tour13_1.jpg",
+        "../../assest/images/tours/tour13_2.jpg",
+        "../../assest/images/tours/tour13_3.jpg",
+        "../../assest/images/tours/tour13_4.jpg",
+        "../../assest/images/tours/tour13_5.jpg"
       ]
     },
     {
@@ -1656,8 +1696,11 @@
       ],
       "policy": "Huỷ miễn phí trước 12 giờ. Khởi hành đều đặn mỗi sáng.",
       "images": [
-        "../../assest/images/tours/tour21_1.jpg",
-        "../../assest/images/tours/tour21_2.jpg"
+        "../../assest/images/tours/tour14_1.jpg",
+        "../../assest/images/tours/tour14_2.jpg",
+        "../../assest/images/tours/tour14_3.jpg",
+        "../../assest/images/tours/tour14_4.jpg",
+        "../../assest/images/tours/tour14_5.jpg"
       ]
     },
     {
@@ -1779,8 +1822,11 @@
       ],
       "policy": "Huỷ miễn phí trước 24 giờ. Đổi ngày linh hoạt.",
       "images": [
-        "../../assest/images/tours/tour23_1.jpg",
-        "../../assest/images/tours/tour23_2.jpg"
+        "../../assest/images/tours/tour15_1.jpg",
+        "../../assest/images/tours/tour15_2.jpg",
+        "../../assest/images/tours/tour15_3.jpg",
+        "../../assest/images/tours/tour15_4.jpg",
+        "../../assest/images/tours/tour15_5.jpg"
       ]
     }
   ]
