@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khám phá điểm đến | VivuGo</title>
+    <meta name="description" content="Cẩm nang, lịch trình và kinh nghiệm du lịch khắp Việt Nam — đọc bài, chọn điểm đến và đặt tour cùng VivuGo." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Dùng chung: header, footer, logo -->
+    <link rel="stylesheet" href="../../assest/css.css" />
+    <script src="../../assest/js.js" defer></script>
+
+    <!-- Riêng trang Khám phá điểm đến -->
+    <link rel="stylesheet" href="../../assest/kpdd.css" />
+  </head>
+  <body class="site-body kp-body">
+
+    <div id="site-header"></div>
+
+    <main class="kp-main" id="kpMain">
+
+      <!-- ============ MÀN HÌNH 1: DANH SÁCH BÀI VIẾT ============ -->
+      <div id="kpList">
+        <div class="kp-wrap">
+          <section class="kp-hero">
+            <p class="kp-hero__kicker">CẨM NANG DU LỊCH VIVUGO</p>
+            <h1>KHÁM PHÁ ĐIỂM ĐẾN</h1>
+            <p class="kp-hero__lead" id="kpLead">Đọc kinh nghiệm thực tế, chọn điểm đến yêu thích rồi đặt tour ngay trong một hành trình.</p>
+          </section>
+
+          <!-- Tìm kiếm + nút Bộ lọc -->
+          <div class="kp-searchbox">
+            <form class="kp-search" id="kpSearchForm" role="search" autocomplete="off">
+              <span class="kp-search__icon" aria-hidden="true">🔍</span>
+              <input type="search" id="kpQuery" placeholder="Bạn muốn đi đâu? Hà Giang, Hội An, Phú Quốc..." aria-label="Tìm điểm đến hoặc bài viết" />
+              <button type="button" class="kp-filter-btn" id="kpFilterBtn" aria-expanded="false" aria-controls="kpFilterPanel">
+                <span class="kp-filter-btn__label">Bộ lọc</span>
+                <span class="kp-filter-btn__count" id="kpFilterCount" hidden>0</span>
+                <span class="kp-filter-btn__arrow" aria-hidden="true">▾</span>
+              </button>
+              <button type="submit" class="kp-btn kp-btn--primary">Tìm kiếm</button>
+
+              <div class="kp-filter-panel" id="kpFilterPanel" role="dialog" aria-label="Bộ lọc bài viết" hidden>
+                <div class="kp-filter-panel__head">
+                  <h2>Bộ lọc</h2>
+                  <button type="button" class="kp-filter-close" id="kpFilterClose" aria-label="Đóng bộ lọc">×</button>
+                </div>
+                <div id="kpFilterBody"></div>
+                <div class="kp-filter-panel__foot">
+                  <button type="button" class="kp-btn kp-btn--ghost kp-btn--sm" id="kpFilterClear">Xóa bộ lọc</button>
+                  <button type="button" class="kp-btn kp-btn--primary kp-btn--sm" id="kpFilterDone">Xem kết quả</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="kp-active" id="kpActive" hidden></div>
+
+          <!-- Bài viết nổi bật -->
+          <section class="kp-section" id="kpFeatured" hidden>
+            <div class="kp-section__head">
+              <div>
+                <h2>Bài viết nổi bật</h2>
+                <p>Những điểm đến được đọc và yêu thích nhiều nhất.</p>
+              </div>
+            </div>
+            <div class="kp-grid" id="kpFeaturedGrid"></div>
+          </section>
+
+          <!-- Mới nhất / Kết quả -->
+          <section class="kp-section" id="kpLatest">
+            <div class="kp-section__head">
+              <div>
+                <h2 id="kpLatestTitle">Mới nhất</h2>
+                <p id="kpLatestSub">Cập nhật những cẩm nang và lịch trình mới.</p>
+              </div>
+              <span class="kp-count" id="kpCount"></span>
+            </div>
+            <div class="kp-grid" id="kpGrid" aria-live="polite">
+              <div class="kp-loading">Đang tải bài viết...</div>
+            </div>
+            <div class="kp-more" id="kpMoreBox" hidden>
+              <button type="button" class="kp-btn kp-btn--ghost" id="kpMore">Xem thêm bài viết</button>
+            </div>
+          </section>
+
+          <!-- Không có kết quả -->
+          <section class="kp-empty" id="kpEmpty" hidden>
+            <h2>Không tìm thấy bài viết phù hợp</h2>
+            <p>Hãy thử từ khóa khác hoặc bỏ bớt bộ lọc để xem thêm điểm đến.</p>
+            <button type="button" class="kp-btn kp-btn--primary" id="kpEmptyClear">Xóa bộ lọc</button>
+          </section>
+
+          <p class="kp-note" id="kpNote"></p>
+        </div>
+      </div>
+
+      <!-- ============ MÀN HÌNH 2: ĐỌC BÀI VIẾT ============ -->
+      <div id="kpRead" hidden>
+        <div class="kp-wrap">
+          <div class="kp-reader">
+            <button type="button" class="kp-back" id="kpBack">← Quay lại Khám phá điểm đến</button>
+            <article class="kp-article" id="kpArticle"></article>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <div id="site-footer"></div>
+    <div class="kp-toast" id="kpToast" role="status" aria-live="polite"></div>
+
+    <noscript>
+      <p style="padding:24px;text-align:center">Trang cần bật JavaScript để hiển thị bài viết.</p>
+    </noscript>
+
+    <script src="../../assest/kpdd.js"></script>
+
+  </body>
+</html>
