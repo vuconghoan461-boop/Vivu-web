@@ -1,0 +1,1675 @@
+{
+  "meta": {
+    "description": "Dữ liệu mẫu module Phương tiện VivuGo: máy bay, tàu hỏa, xe khách",
+    "currency": "VND",
+    "schemaVersion": 1,
+    "note": "Mỗi chuyến có trường categories để phục vụ bộ lọc. Định nghĩa giá trị ở categoryDefinitions."
+  },
+  "categoryDefinitions": {
+    "flight": {
+      "carrierType": {
+        "label": "Loại hãng",
+        "options": [
+          {
+            "value": "full-service",
+            "label": "Hãng truyền thống"
+          },
+          {
+            "value": "low-cost",
+            "label": "Giá rẻ"
+          },
+          {
+            "value": "hybrid",
+            "label": "Lai (hybrid)"
+          }
+        ]
+      },
+      "timeSlot": {
+        "label": "Giờ khởi hành",
+        "options": [
+          {
+            "value": "early",
+            "label": "Sáng sớm (00:00 - 06:00)"
+          },
+          {
+            "value": "morning",
+            "label": "Buổi sáng (06:00 - 12:00)"
+          },
+          {
+            "value": "afternoon",
+            "label": "Buổi chiều (12:00 - 18:00)"
+          },
+          {
+            "value": "evening",
+            "label": "Buổi tối (18:00 - 24:00)"
+          }
+        ]
+      },
+      "priceTier": {
+        "label": "Mức giá (hạng phổ thông)",
+        "options": [
+          {
+            "value": "budget",
+            "label": "Tiết kiệm (dưới 1.000.000đ)"
+          },
+          {
+            "value": "standard",
+            "label": "Tầm trung (1.000.000đ - 1.500.000đ)"
+          },
+          {
+            "value": "premium",
+            "label": "Cao cấp (trên 1.500.000đ)"
+          }
+        ]
+      },
+      "baggage": {
+        "label": "Hành lý",
+        "options": [
+          {
+            "value": "carry-on-only",
+            "label": "Chỉ xách tay"
+          },
+          {
+            "value": "carry-on-and-checked",
+            "label": "Có hành lý ký gửi"
+          }
+        ]
+      },
+      "aircraftType": {
+        "label": "Loại máy bay",
+        "options": [
+          {
+            "value": "wide-body",
+            "label": "Thân rộng"
+          },
+          {
+            "value": "narrow-body",
+            "label": "Thân hẹp"
+          }
+        ]
+      },
+      "stopType": {
+        "label": "Điểm dừng",
+        "options": [
+          {
+            "value": "direct",
+            "label": "Bay thẳng"
+          },
+          {
+            "value": "connecting",
+            "label": "Có nối chuyến"
+          }
+        ]
+      },
+      "routeRegion": {
+        "label": "Vùng miền (đi-đến)",
+        "format": "<vùng đi>-<vùng đến>",
+        "options": [
+          {
+            "value": "north",
+            "label": "Miền Bắc"
+          },
+          {
+            "value": "central",
+            "label": "Miền Trung"
+          },
+          {
+            "value": "south",
+            "label": "Miền Nam"
+          }
+        ]
+      }
+    },
+    "train": {
+      "serviceType": {
+        "label": "Loại tàu",
+        "options": [
+          {
+            "value": "express",
+            "label": "Tàu nhanh"
+          }
+        ]
+      },
+      "coachClass": {
+        "label": "Loại toa/chỗ",
+        "multiple": true,
+        "options": [
+          {
+            "value": "soft-seat",
+            "label": "Ghế ngồi mềm điều hòa"
+          },
+          {
+            "value": "berth-6",
+            "label": "Giường nằm khoang 6"
+          },
+          {
+            "value": "berth-4",
+            "label": "Giường nằm khoang 4"
+          },
+          {
+            "value": "vip-2",
+            "label": "Giường nằm VIP khoang 2"
+          }
+        ]
+      },
+      "timeSlot": {
+        "label": "Giờ khởi hành",
+        "options": [
+          {
+            "value": "early",
+            "label": "Sáng sớm (00:00 - 06:00)"
+          },
+          {
+            "value": "morning",
+            "label": "Buổi sáng (06:00 - 12:00)"
+          },
+          {
+            "value": "afternoon",
+            "label": "Buổi chiều (12:00 - 18:00)"
+          },
+          {
+            "value": "evening",
+            "label": "Buổi tối (18:00 - 24:00)"
+          }
+        ]
+      },
+      "priceTier": {
+        "label": "Mức giá (từ rẻ nhất)",
+        "options": [
+          {
+            "value": "budget",
+            "label": "Tiết kiệm (dưới 500.000đ)"
+          },
+          {
+            "value": "standard",
+            "label": "Tầm trung (500.000đ - 1.000.000đ)"
+          },
+          {
+            "value": "premium",
+            "label": "Cao cấp (trên 1.000.000đ)"
+          }
+        ]
+      },
+      "tripLength": {
+        "label": "Thời gian di chuyển",
+        "options": [
+          {
+            "value": "short",
+            "label": "Dưới 6 giờ"
+          },
+          {
+            "value": "medium",
+            "label": "6 - 12 giờ"
+          },
+          {
+            "value": "long",
+            "label": "Trên 12 giờ"
+          }
+        ]
+      },
+      "overnight": {
+        "label": "Tàu đêm",
+        "type": "boolean"
+      },
+      "direction": {
+        "label": "Hướng đi",
+        "options": [
+          {
+            "value": "southbound",
+            "label": "Hướng Nam"
+          },
+          {
+            "value": "northbound",
+            "label": "Hướng Bắc"
+          }
+        ]
+      },
+      "routeRegion": {
+        "label": "Vùng miền (đi-đến)",
+        "format": "<vùng đi>-<vùng đến>",
+        "options": [
+          {
+            "value": "north",
+            "label": "Miền Bắc"
+          },
+          {
+            "value": "central",
+            "label": "Miền Trung"
+          },
+          {
+            "value": "south",
+            "label": "Miền Nam"
+          }
+        ]
+      }
+    },
+    "bus": {
+      "busType": {
+        "label": "Loại xe",
+        "options": [
+          {
+            "value": "sleeper",
+            "label": "Giường nằm"
+          },
+          {
+            "value": "limousine",
+            "label": "Limousine"
+          },
+          {
+            "value": "seat",
+            "label": "Ghế ngồi"
+          },
+          {
+            "value": "minibus",
+            "label": "Xe 16 chỗ"
+          }
+        ]
+      },
+      "capacityGroup": {
+        "label": "Sức chứa",
+        "options": [
+          {
+            "value": "small",
+            "label": "Nhỏ (tối đa 9 chỗ)"
+          },
+          {
+            "value": "medium",
+            "label": "Vừa (10 - 20 chỗ)"
+          },
+          {
+            "value": "large",
+            "label": "Lớn (trên 20 chỗ)"
+          }
+        ]
+      },
+      "bookingMode": {
+        "label": "Hình thức đặt",
+        "options": [
+          {
+            "value": "standard",
+            "label": "Vé xe thường"
+          },
+          {
+            "value": "shared",
+            "label": "Xe ghép"
+          }
+        ]
+      },
+      "timeSlot": {
+        "label": "Giờ khởi hành",
+        "options": [
+          {
+            "value": "early",
+            "label": "Sáng sớm (00:00 - 06:00)"
+          },
+          {
+            "value": "morning",
+            "label": "Buổi sáng (06:00 - 12:00)"
+          },
+          {
+            "value": "afternoon",
+            "label": "Buổi chiều (12:00 - 18:00)"
+          },
+          {
+            "value": "evening",
+            "label": "Buổi tối (18:00 - 24:00)"
+          }
+        ]
+      },
+      "priceTier": {
+        "label": "Mức giá",
+        "options": [
+          {
+            "value": "budget",
+            "label": "Tiết kiệm (dưới 150.000đ)"
+          },
+          {
+            "value": "standard",
+            "label": "Tầm trung (150.000đ - 300.000đ)"
+          },
+          {
+            "value": "premium",
+            "label": "Cao cấp (trên 300.000đ)"
+          }
+        ]
+      },
+      "tripLength": {
+        "label": "Thời gian di chuyển",
+        "options": [
+          {
+            "value": "short",
+            "label": "Đến 3 giờ"
+          },
+          {
+            "value": "medium",
+            "label": "3 - 6 giờ"
+          },
+          {
+            "value": "long",
+            "label": "Trên 6 giờ"
+          }
+        ]
+      },
+      "overnight": {
+        "label": "Chạy đêm",
+        "type": "boolean"
+      },
+      "routeRegion": {
+        "label": "Vùng miền (đi-đến)",
+        "format": "<vùng đi>-<vùng đến>",
+        "options": [
+          {
+            "value": "north",
+            "label": "Miền Bắc"
+          },
+          {
+            "value": "central",
+            "label": "Miền Trung"
+          },
+          {
+            "value": "south",
+            "label": "Miền Nam"
+          }
+        ]
+      }
+    }
+  },
+  "airports": [
+    {
+      "code": "HAN",
+      "city": "Hà Nội",
+      "name": "Sân bay Quốc tế Nội Bài",
+      "region": "north"
+    },
+    {
+      "code": "SGN",
+      "city": "TP. Hồ Chí Minh",
+      "name": "Sân bay Quốc tế Tân Sơn Nhất",
+      "region": "south"
+    },
+    {
+      "code": "DAD",
+      "city": "Đà Nẵng",
+      "name": "Sân bay Quốc tế Đà Nẵng",
+      "region": "central"
+    },
+    {
+      "code": "PQC",
+      "city": "Phú Quốc",
+      "name": "Sân bay Quốc tế Phú Quốc",
+      "region": "south"
+    },
+    {
+      "code": "CXR",
+      "city": "Nha Trang (Cam Ranh)",
+      "name": "Sân bay Quốc tế Cam Ranh",
+      "region": "central"
+    },
+    {
+      "code": "HUI",
+      "city": "Huế",
+      "name": "Sân bay Quốc tế Phú Bài",
+      "region": "central"
+    },
+    {
+      "code": "DLI",
+      "city": "Đà Lạt",
+      "name": "Sân bay Liên Khương",
+      "region": "central"
+    },
+    {
+      "code": "HPH",
+      "city": "Hải Phòng",
+      "name": "Sân bay Quốc tế Cát Bi",
+      "region": "north"
+    },
+    {
+      "code": "VCA",
+      "city": "Cần Thơ",
+      "name": "Sân bay Quốc tế Cần Thơ",
+      "region": "south"
+    }
+  ],
+  "airlines": [
+    {
+      "name": "Vietnam Airlines",
+      "code": "VN",
+      "logoColor": "#00558F",
+      "carrierType": "full-service"
+    },
+    {
+      "name": "Vietjet Air",
+      "code": "VJ",
+      "logoColor": "#EC1C24",
+      "carrierType": "low-cost"
+    },
+    {
+      "name": "Bamboo Airways",
+      "code": "QH",
+      "logoColor": "#00703C",
+      "carrierType": "full-service"
+    },
+    {
+      "name": "Vietravel Airlines",
+      "code": "VU",
+      "logoColor": "#FFCC00",
+      "carrierType": "hybrid"
+    }
+  ],
+  "stations": [
+    {
+      "code": "HNO",
+      "city": "Hà Nội",
+      "name": "Ga Hà Nội",
+      "region": "north"
+    },
+    {
+      "code": "SGO",
+      "city": "TP. Hồ Chí Minh",
+      "name": "Ga Sài Gòn",
+      "region": "south"
+    },
+    {
+      "code": "DNG",
+      "city": "Đà Nẵng",
+      "name": "Ga Đà Nẵng",
+      "region": "central"
+    },
+    {
+      "code": "NTR",
+      "city": "Nha Trang",
+      "name": "Ga Nha Trang",
+      "region": "central"
+    },
+    {
+      "code": "HUE",
+      "city": "Huế",
+      "name": "Ga Huế",
+      "region": "central"
+    }
+  ],
+  "flights": [
+    {
+      "id": "vn-240-han-sgn",
+      "flightNumber": "VN 240",
+      "airline": "Vietnam Airlines",
+      "airlineCode": "VN",
+      "airlineLogoColor": "#00558F",
+      "fromCity": "Hà Nội",
+      "fromCode": "HAN",
+      "fromAirport": "Sân bay Quốc tế Nội Bài",
+      "toCity": "TP. Hồ Chí Minh",
+      "toCode": "SGN",
+      "toAirport": "Sân bay Quốc tế Tân Sơn Nhất",
+      "departureTime": "07:00",
+      "arrivalTime": "09:15",
+      "duration": "2h 15m",
+      "durationMinutes": 135,
+      "priceEconomy": 1450000,
+      "priceBusiness": 4800000,
+      "baggageIncluded": "12kg xách tay + 23kg ký gửi",
+      "aircraft": "Boeing 787-9 Dreamliner",
+      "stops": 0,
+      "categories": {
+        "carrierType": "full-service",
+        "timeSlot": "morning",
+        "priceTier": "standard",
+        "routeRegion": "north-south",
+        "baggage": "carry-on-and-checked",
+        "aircraftType": "wide-body",
+        "stopType": "direct"
+      }
+    },
+    {
+      "id": "vj-128-han-sgn",
+      "flightNumber": "VJ 128",
+      "airline": "Vietjet Air",
+      "airlineCode": "VJ",
+      "airlineLogoColor": "#EC1C24",
+      "fromCity": "Hà Nội",
+      "fromCode": "HAN",
+      "fromAirport": "Sân bay Quốc tế Nội Bài",
+      "toCity": "TP. Hồ Chí Minh",
+      "toCode": "SGN",
+      "toAirport": "Sân bay Quốc tế Tân Sơn Nhất",
+      "departureTime": "08:30",
+      "arrivalTime": "10:45",
+      "duration": "2h 15m",
+      "durationMinutes": 135,
+      "priceEconomy": 920000,
+      "priceBusiness": 2900000,
+      "baggageIncluded": "7kg xách tay",
+      "aircraft": "Airbus A321 Neo",
+      "stops": 0,
+      "categories": {
+        "carrierType": "low-cost",
+        "timeSlot": "morning",
+        "priceTier": "budget",
+        "routeRegion": "north-south",
+        "baggage": "carry-on-only",
+        "aircraftType": "narrow-body",
+        "stopType": "direct"
+      }
+    },
+    {
+      "id": "qh-201-han-sgn",
+      "flightNumber": "QH 201",
+      "airline": "Bamboo Airways",
+      "airlineCode": "QH",
+      "airlineLogoColor": "#00703C",
+      "fromCity": "Hà Nội",
+      "fromCode": "HAN",
+      "fromAirport": "Sân bay Quốc tế Nội Bài",
+      "toCity": "TP. Hồ Chí Minh",
+      "toCode": "SGN",
+      "toAirport": "Sân bay Quốc tế Tân Sơn Nhất",
+      "departureTime": "13:45",
+      "arrivalTime": "16:00",
+      "duration": "2h 15m",
+      "durationMinutes": 135,
+      "priceEconomy": 1250000,
+      "priceBusiness": 3950000,
+      "baggageIncluded": "7kg xách tay + 20kg ký gửi",
+      "aircraft": "Airbus A320 Neo",
+      "stops": 0,
+      "categories": {
+        "carrierType": "full-service",
+        "timeSlot": "afternoon",
+        "priceTier": "standard",
+        "routeRegion": "north-south",
+        "baggage": "carry-on-and-checked",
+        "aircraftType": "narrow-body",
+        "stopType": "direct"
+      }
+    },
+    {
+      "id": "vn-161-han-dad",
+      "flightNumber": "VN 161",
+      "airline": "Vietnam Airlines",
+      "airlineCode": "VN",
+      "airlineLogoColor": "#00558F",
+      "fromCity": "Hà Nội",
+      "fromCode": "HAN",
+      "fromAirport": "Sân bay Quốc tế Nội Bài",
+      "toCity": "Đà Nẵng",
+      "toCode": "DAD",
+      "toAirport": "Sân bay Quốc tế Đà Nẵng",
+      "departureTime": "09:00",
+      "arrivalTime": "10:20",
+      "duration": "1h 20m",
+      "durationMinutes": 80,
+      "priceEconomy": 1120000,
+      "priceBusiness": 3200000,
+      "baggageIncluded": "12kg xách tay + 23kg ký gửi",
+      "aircraft": "Airbus A350-900",
+      "stops": 0,
+      "categories": {
+        "carrierType": "full-service",
+        "timeSlot": "morning",
+        "priceTier": "standard",
+        "routeRegion": "north-central",
+        "baggage": "carry-on-and-checked",
+        "aircraftType": "wide-body",
+        "stopType": "direct"
+      }
+    },
+    {
+      "id": "vj-511-han-dad",
+      "flightNumber": "VJ 511",
+      "airline": "Vietjet Air",
+      "airlineCode": "VJ",
+      "airlineLogoColor": "#EC1C24",
+      "fromCity": "Hà Nội",
+      "fromCode": "HAN",
+      "fromAirport": "Sân bay Quốc tế Nội Bài",
+      "toCity": "Đà Nẵng",
+      "toCode": "DAD",
+      "toAirport": "Sân bay Quốc tế Đà Nẵng",
+      "departureTime": "11:15",
+      "arrivalTime": "12:35",
+      "duration": "1h 20m",
+      "durationMinutes": 80,
+      "priceEconomy": 690000,
+      "priceBusiness": 2100000,
+      "baggageIncluded": "7kg xách tay",
+      "aircraft": "Airbus A321",
+      "stops": 0,
+      "categories": {
+        "carrierType": "low-cost",
+        "timeSlot": "morning",
+        "priceTier": "budget",
+        "routeRegion": "north-central",
+        "baggage": "carry-on-only",
+        "aircraftType": "narrow-body",
+        "stopType": "direct"
+      }
+    },
+    {
+      "id": "vn-1233-han-pqc",
+      "flightNumber": "VN 1233",
+      "airline": "Vietnam Airlines",
+      "airlineCode": "VN",
+      "airlineLogoColor": "#00558F",
+      "fromCity": "Hà Nội",
+      "fromCode": "HAN",
+      "fromAirport": "Sân bay Quốc tế Nội Bài",
+      "toCity": "Phú Quốc",
+      "toCode": "PQC",
+      "toAirport": "Sân bay Quốc tế Phú Quốc",
+      "departureTime": "06:45",
+      "arrivalTime": "08:55",
+      "duration": "2h 10m",
+      "durationMinutes": 130,
+      "priceEconomy": 1680000,
+      "priceBusiness": 4900000,
+      "baggageIncluded": "12kg xách tay + 23kg ký gửi",
+      "aircraft": "Boeing 787-9",
+      "stops": 0,
+      "categories": {
+        "carrierType": "full-service",
+        "timeSlot": "morning",
+        "priceTier": "premium",
+        "routeRegion": "north-south",
+        "baggage": "carry-on-and-checked",
+        "aircraftType": "wide-body",
+        "stopType": "direct"
+      }
+    },
+    {
+      "id": "vj-453-han-pqc",
+      "flightNumber": "VJ 453",
+      "airline": "Vietjet Air",
+      "airlineCode": "VJ",
+      "airlineLogoColor": "#EC1C24",
+      "fromCity": "Hà Nội",
+      "fromCode": "HAN",
+      "fromAirport": "Sân bay Quốc tế Nội Bài",
+      "toCity": "Phú Quốc",
+      "toCode": "PQC",
+      "toAirport": "Sân bay Quốc tế Phú Quốc",
+      "departureTime": "10:10",
+      "arrivalTime": "12:20",
+      "duration": "2h 10m",
+      "durationMinutes": 130,
+      "priceEconomy": 1190000,
+      "priceBusiness": 3400000,
+      "baggageIncluded": "7kg xách tay",
+      "aircraft": "Airbus A321",
+      "stops": 0,
+      "categories": {
+        "carrierType": "low-cost",
+        "timeSlot": "morning",
+        "priceTier": "standard",
+        "routeRegion": "north-south",
+        "baggage": "carry-on-only",
+        "aircraftType": "narrow-body",
+        "stopType": "direct"
+      }
+    },
+    {
+      "id": "vn-1342-sgn-cxr",
+      "flightNumber": "VN 1342",
+      "airline": "Vietnam Airlines",
+      "airlineCode": "VN",
+      "airlineLogoColor": "#00558F",
+      "fromCity": "TP. Hồ Chí Minh",
+      "fromCode": "SGN",
+      "fromAirport": "Sân bay Quốc tế Tân Sơn Nhất",
+      "toCity": "Nha Trang (Cam Ranh)",
+      "toCode": "CXR",
+      "toAirport": "Sân bay Quốc tế Cam Ranh",
+      "departureTime": "08:20",
+      "arrivalTime": "09:25",
+      "duration": "1h 05m",
+      "durationMinutes": 65,
+      "priceEconomy": 890000,
+      "priceBusiness": 2400000,
+      "baggageIncluded": "12kg xách tay + 23kg ký gửi",
+      "aircraft": "Airbus A321",
+      "stops": 0,
+      "categories": {
+        "carrierType": "full-service",
+        "timeSlot": "morning",
+        "priceTier": "budget",
+        "routeRegion": "south-central",
+        "baggage": "carry-on-and-checked",
+        "aircraftType": "narrow-body",
+        "stopType": "direct"
+      }
+    },
+    {
+      "id": "vj-322-sgn-pqc",
+      "flightNumber": "VJ 322",
+      "airline": "Vietjet Air",
+      "airlineCode": "VJ",
+      "airlineLogoColor": "#EC1C24",
+      "fromCity": "TP. Hồ Chí Minh",
+      "fromCode": "SGN",
+      "fromAirport": "Sân bay Quốc tế Tân Sơn Nhất",
+      "toCity": "Phú Quốc",
+      "toCode": "PQC",
+      "toAirport": "Sân bay Quốc tế Phú Quốc",
+      "departureTime": "09:40",
+      "arrivalTime": "10:40",
+      "duration": "1h 00m",
+      "durationMinutes": 60,
+      "priceEconomy": 590000,
+      "priceBusiness": 1850000,
+      "baggageIncluded": "7kg xách tay",
+      "aircraft": "Airbus A320",
+      "stops": 0,
+      "categories": {
+        "carrierType": "low-cost",
+        "timeSlot": "morning",
+        "priceTier": "budget",
+        "routeRegion": "south-south",
+        "baggage": "carry-on-only",
+        "aircraftType": "narrow-body",
+        "stopType": "direct"
+      }
+    },
+    {
+      "id": "vu-682-sgn-dad",
+      "flightNumber": "VU 682",
+      "airline": "Vietravel Airlines",
+      "airlineCode": "VU",
+      "airlineLogoColor": "#FFCC00",
+      "fromCity": "TP. Hồ Chí Minh",
+      "fromCode": "SGN",
+      "fromAirport": "Sân bay Quốc tế Tân Sơn Nhất",
+      "toCity": "Đà Nẵng",
+      "toCode": "DAD",
+      "toAirport": "Sân bay Quốc tế Đà Nẵng",
+      "departureTime": "15:20",
+      "arrivalTime": "16:40",
+      "duration": "1h 20m",
+      "durationMinutes": 80,
+      "priceEconomy": 780000,
+      "priceBusiness": 2200000,
+      "baggageIncluded": "7kg xách tay + 20kg ký gửi",
+      "aircraft": "Airbus A321",
+      "stops": 0,
+      "categories": {
+        "carrierType": "hybrid",
+        "timeSlot": "afternoon",
+        "priceTier": "budget",
+        "routeRegion": "south-central",
+        "baggage": "carry-on-and-checked",
+        "aircraftType": "narrow-body",
+        "stopType": "direct"
+      }
+    },
+    {
+      "id": "vn-1540-dad-han",
+      "flightNumber": "VN 1540",
+      "airline": "Vietnam Airlines",
+      "airlineCode": "VN",
+      "airlineLogoColor": "#00558F",
+      "fromCity": "Đà Nẵng",
+      "fromCode": "DAD",
+      "fromAirport": "Sân bay Quốc tế Đà Nẵng",
+      "toCity": "Hà Nội",
+      "toCode": "HAN",
+      "toAirport": "Sân bay Quốc tế Nội Bài",
+      "departureTime": "18:10",
+      "arrivalTime": "19:30",
+      "duration": "1h 20m",
+      "durationMinutes": 80,
+      "priceEconomy": 1180000,
+      "priceBusiness": 3300000,
+      "baggageIncluded": "12kg xách tay + 23kg ký gửi",
+      "aircraft": "Airbus A321",
+      "stops": 0,
+      "categories": {
+        "carrierType": "full-service",
+        "timeSlot": "evening",
+        "priceTier": "standard",
+        "routeRegion": "central-north",
+        "baggage": "carry-on-and-checked",
+        "aircraftType": "narrow-body",
+        "stopType": "direct"
+      }
+    }
+  ],
+  "trains": [
+    {
+      "id": "tr-se1",
+      "trainCode": "SE1",
+      "trainName": "Tàu SE1",
+      "company": "Đường Sắt Việt Nam",
+      "fromCity": "Hà Nội",
+      "fromCode": "HNO",
+      "fromStation": "Ga Hà Nội",
+      "toCity": "TP. Hồ Chí Minh",
+      "toCode": "SGO",
+      "toStation": "Ga Sài Gòn",
+      "departureTime": "19:00",
+      "arrivalTime": "03:30",
+      "arrivalDayOffset": 2,
+      "duration": "32h 30m",
+      "durationMinutes": 1950,
+      "stops": 6,
+      "stopsLabel": "6 điểm dừng",
+      "seatsLeft": 40,
+      "priceFrom": 790000,
+      "currency": "VND",
+      "coachTypes": [
+        {
+          "id": "soft-seat",
+          "label": "Ghế ngồi mềm điều hòa",
+          "priceFrom": 790000,
+          "seatsLeft": 12,
+          "default": true
+        },
+        {
+          "id": "berth-6",
+          "label": "Giường nằm khoang 6",
+          "priceFrom": 1190000,
+          "seatsLeft": 18,
+          "default": false
+        },
+        {
+          "id": "berth-4",
+          "label": "Giường nằm khoang 4",
+          "priceFrom": 1490000,
+          "seatsLeft": 8,
+          "default": false
+        },
+        {
+          "id": "vip-2",
+          "label": "Giường nằm VIP khoang 2",
+          "priceFrom": 2290000,
+          "seatsLeft": 2,
+          "default": false
+        }
+      ],
+      "categories": {
+        "serviceType": "express",
+        "coachClass": [
+          "soft-seat",
+          "berth-6",
+          "berth-4",
+          "vip-2"
+        ],
+        "timeSlot": "evening",
+        "priceTier": "standard",
+        "tripLength": "long",
+        "overnight": true,
+        "direction": "southbound",
+        "routeRegion": "north-south"
+      }
+    },
+    {
+      "id": "tr-se2",
+      "trainCode": "SE2",
+      "trainName": "Tàu SE2",
+      "company": "Đường Sắt Việt Nam",
+      "fromCity": "TP. Hồ Chí Minh",
+      "fromCode": "SGO",
+      "fromStation": "Ga Sài Gòn",
+      "toCity": "Hà Nội",
+      "toCode": "HNO",
+      "toStation": "Ga Hà Nội",
+      "departureTime": "19:00",
+      "arrivalTime": "03:30",
+      "arrivalDayOffset": 2,
+      "duration": "32h 30m",
+      "durationMinutes": 1950,
+      "stops": 6,
+      "stopsLabel": "6 điểm dừng",
+      "seatsLeft": 45,
+      "priceFrom": 790000,
+      "currency": "VND",
+      "coachTypes": [
+        {
+          "id": "soft-seat",
+          "label": "Ghế ngồi mềm điều hòa",
+          "priceFrom": 790000,
+          "seatsLeft": 15,
+          "default": true
+        },
+        {
+          "id": "berth-6",
+          "label": "Giường nằm khoang 6",
+          "priceFrom": 1190000,
+          "seatsLeft": 20,
+          "default": false
+        },
+        {
+          "id": "berth-4",
+          "label": "Giường nằm khoang 4",
+          "priceFrom": 1490000,
+          "seatsLeft": 6,
+          "default": false
+        },
+        {
+          "id": "vip-2",
+          "label": "Giường nằm VIP khoang 2",
+          "priceFrom": 2290000,
+          "seatsLeft": 4,
+          "default": false
+        }
+      ],
+      "categories": {
+        "serviceType": "express",
+        "coachClass": [
+          "soft-seat",
+          "berth-6",
+          "berth-4",
+          "vip-2"
+        ],
+        "timeSlot": "evening",
+        "priceTier": "standard",
+        "tripLength": "long",
+        "overnight": true,
+        "direction": "northbound",
+        "routeRegion": "south-north"
+      }
+    },
+    {
+      "id": "tr-se3",
+      "trainCode": "SE3",
+      "trainName": "Tàu SE3",
+      "company": "Đường Sắt Việt Nam",
+      "fromCity": "Hà Nội",
+      "fromCode": "HNO",
+      "fromStation": "Ga Hà Nội",
+      "toCity": "Đà Nẵng",
+      "toCode": "DNG",
+      "toStation": "Ga Đà Nẵng",
+      "departureTime": "19:30",
+      "arrivalTime": "10:30",
+      "arrivalDayOffset": 1,
+      "duration": "15h 00m",
+      "durationMinutes": 900,
+      "stops": 3,
+      "stopsLabel": "3 điểm dừng",
+      "seatsLeft": 54,
+      "priceFrom": 520000,
+      "currency": "VND",
+      "coachTypes": [
+        {
+          "id": "soft-seat",
+          "label": "Ghế ngồi mềm điều hòa",
+          "priceFrom": 520000,
+          "seatsLeft": 20,
+          "default": true
+        },
+        {
+          "id": "berth-6",
+          "label": "Giường nằm khoang 6",
+          "priceFrom": 720000,
+          "seatsLeft": 24,
+          "default": false
+        },
+        {
+          "id": "berth-4",
+          "label": "Giường nằm khoang 4",
+          "priceFrom": 920000,
+          "seatsLeft": 10,
+          "default": false
+        }
+      ],
+      "categories": {
+        "serviceType": "express",
+        "coachClass": [
+          "soft-seat",
+          "berth-6",
+          "berth-4"
+        ],
+        "timeSlot": "evening",
+        "priceTier": "standard",
+        "tripLength": "long",
+        "overnight": true,
+        "direction": "southbound",
+        "routeRegion": "north-central"
+      }
+    },
+    {
+      "id": "tr-se4",
+      "trainCode": "SE4",
+      "trainName": "Tàu SE4",
+      "company": "Đường Sắt Việt Nam",
+      "fromCity": "Đà Nẵng",
+      "fromCode": "DNG",
+      "fromStation": "Ga Đà Nẵng",
+      "toCity": "Hà Nội",
+      "toCode": "HNO",
+      "toStation": "Ga Hà Nội",
+      "departureTime": "18:30",
+      "arrivalTime": "09:30",
+      "arrivalDayOffset": 1,
+      "duration": "15h 00m",
+      "durationMinutes": 900,
+      "stops": 3,
+      "stopsLabel": "3 điểm dừng",
+      "seatsLeft": 46,
+      "priceFrom": 520000,
+      "currency": "VND",
+      "coachTypes": [
+        {
+          "id": "soft-seat",
+          "label": "Ghế ngồi mềm điều hòa",
+          "priceFrom": 520000,
+          "seatsLeft": 18,
+          "default": true
+        },
+        {
+          "id": "berth-6",
+          "label": "Giường nằm khoang 6",
+          "priceFrom": 720000,
+          "seatsLeft": 16,
+          "default": false
+        },
+        {
+          "id": "berth-4",
+          "label": "Giường nằm khoang 4",
+          "priceFrom": 920000,
+          "seatsLeft": 12,
+          "default": false
+        }
+      ],
+      "categories": {
+        "serviceType": "express",
+        "coachClass": [
+          "soft-seat",
+          "berth-6",
+          "berth-4"
+        ],
+        "timeSlot": "evening",
+        "priceTier": "standard",
+        "tripLength": "long",
+        "overnight": true,
+        "direction": "northbound",
+        "routeRegion": "central-north"
+      }
+    },
+    {
+      "id": "tr-se7",
+      "trainCode": "SE7",
+      "trainName": "Tàu SE7",
+      "company": "Đường Sắt Việt Nam",
+      "fromCity": "Hà Nội",
+      "fromCode": "HNO",
+      "fromStation": "Ga Hà Nội",
+      "toCity": "Huế",
+      "toCode": "HUE",
+      "toStation": "Ga Huế",
+      "departureTime": "06:00",
+      "arrivalTime": "19:05",
+      "arrivalDayOffset": 0,
+      "duration": "13h 05m",
+      "durationMinutes": 785,
+      "stops": 5,
+      "stopsLabel": "5 điểm dừng",
+      "seatsLeft": 47,
+      "priceFrom": 450000,
+      "currency": "VND",
+      "coachTypes": [
+        {
+          "id": "soft-seat",
+          "label": "Ghế ngồi mềm điều hòa",
+          "priceFrom": 450000,
+          "seatsLeft": 35,
+          "default": true
+        },
+        {
+          "id": "berth-6",
+          "label": "Giường nằm khoang 6",
+          "priceFrom": 650000,
+          "seatsLeft": 12,
+          "default": false
+        }
+      ],
+      "categories": {
+        "serviceType": "express",
+        "coachClass": [
+          "soft-seat",
+          "berth-6"
+        ],
+        "timeSlot": "morning",
+        "priceTier": "budget",
+        "tripLength": "long",
+        "overnight": false,
+        "direction": "southbound",
+        "routeRegion": "north-central"
+      }
+    },
+    {
+      "id": "tr-se22",
+      "trainCode": "SE22",
+      "trainName": "Tàu SE22",
+      "company": "Đường Sắt Việt Nam",
+      "fromCity": "Đà Nẵng",
+      "fromCode": "DNG",
+      "fromStation": "Ga Đà Nẵng",
+      "toCity": "Nha Trang",
+      "toCode": "NTR",
+      "toStation": "Ga Nha Trang",
+      "departureTime": "13:20",
+      "arrivalTime": "22:10",
+      "arrivalDayOffset": 0,
+      "duration": "8h 50m",
+      "durationMinutes": 530,
+      "stops": 2,
+      "stopsLabel": "2 điểm dừng",
+      "seatsLeft": 21,
+      "priceFrom": 390000,
+      "currency": "VND",
+      "coachTypes": [
+        {
+          "id": "soft-seat",
+          "label": "Ghế ngồi mềm điều hòa",
+          "priceFrom": 390000,
+          "seatsLeft": 15,
+          "default": true
+        },
+        {
+          "id": "berth-4",
+          "label": "Giường nằm khoang 4",
+          "priceFrom": 690000,
+          "seatsLeft": 6,
+          "default": false
+        }
+      ],
+      "categories": {
+        "serviceType": "express",
+        "coachClass": [
+          "soft-seat",
+          "berth-4"
+        ],
+        "timeSlot": "afternoon",
+        "priceTier": "budget",
+        "tripLength": "medium",
+        "overnight": false,
+        "direction": "southbound",
+        "routeRegion": "central-central"
+      }
+    },
+    {
+      "id": "tr-se8",
+      "trainCode": "SE8",
+      "trainName": "Tàu SE8",
+      "company": "Đường Sắt Việt Nam",
+      "fromCity": "TP. Hồ Chí Minh",
+      "fromCode": "SGO",
+      "fromStation": "Ga Sài Gòn",
+      "toCity": "Nha Trang",
+      "toCode": "NTR",
+      "toStation": "Ga Nha Trang",
+      "departureTime": "21:30",
+      "arrivalTime": "05:30",
+      "arrivalDayOffset": 1,
+      "duration": "8h 00m",
+      "durationMinutes": 480,
+      "stops": 2,
+      "stopsLabel": "2 điểm dừng",
+      "seatsLeft": 41,
+      "priceFrom": 390000,
+      "currency": "VND",
+      "coachTypes": [
+        {
+          "id": "soft-seat",
+          "label": "Ghế ngồi mềm điều hòa",
+          "priceFrom": 390000,
+          "seatsLeft": 22,
+          "default": true
+        },
+        {
+          "id": "berth-6",
+          "label": "Giường nằm khoang 6",
+          "priceFrom": 590000,
+          "seatsLeft": 14,
+          "default": false
+        },
+        {
+          "id": "berth-4",
+          "label": "Giường nằm khoang 4",
+          "priceFrom": 790000,
+          "seatsLeft": 5,
+          "default": false
+        }
+      ],
+      "categories": {
+        "serviceType": "express",
+        "coachClass": [
+          "soft-seat",
+          "berth-6",
+          "berth-4"
+        ],
+        "timeSlot": "evening",
+        "priceTier": "budget",
+        "tripLength": "medium",
+        "overnight": true,
+        "direction": "northbound",
+        "routeRegion": "south-central"
+      }
+    },
+    {
+      "id": "tr-se6",
+      "trainCode": "SE6",
+      "trainName": "Tàu SE6",
+      "company": "Đường Sắt Việt Nam",
+      "fromCity": "Nha Trang",
+      "fromCode": "NTR",
+      "fromStation": "Ga Nha Trang",
+      "toCity": "TP. Hồ Chí Minh",
+      "toCode": "SGO",
+      "toStation": "Ga Sài Gòn",
+      "departureTime": "06:10",
+      "arrivalTime": "14:10",
+      "arrivalDayOffset": 0,
+      "duration": "8h 00m",
+      "durationMinutes": 480,
+      "stops": 2,
+      "stopsLabel": "2 điểm dừng",
+      "seatsLeft": 35,
+      "priceFrom": 390000,
+      "currency": "VND",
+      "coachTypes": [
+        {
+          "id": "soft-seat",
+          "label": "Ghế ngồi mềm điều hòa",
+          "priceFrom": 390000,
+          "seatsLeft": 25,
+          "default": true
+        },
+        {
+          "id": "berth-6",
+          "label": "Giường nằm khoang 6",
+          "priceFrom": 590000,
+          "seatsLeft": 10,
+          "default": false
+        }
+      ],
+      "categories": {
+        "serviceType": "express",
+        "coachClass": [
+          "soft-seat",
+          "berth-6"
+        ],
+        "timeSlot": "morning",
+        "priceTier": "budget",
+        "tripLength": "medium",
+        "overnight": false,
+        "direction": "southbound",
+        "routeRegion": "central-south"
+      }
+    }
+  ],
+  "buses": [
+    {
+      "id": "bus-hn-sapa-sleeper",
+      "operator": "Sao Việt",
+      "vehicleType": "Xe khách giường nằm",
+      "seatCapacity": 34,
+      "isSharedRide": false,
+      "fromCity": "Hà Nội",
+      "toCity": "Sa Pa",
+      "pickupPoint": "Bến xe Mỹ Đình",
+      "dropoffPoint": "Trung tâm Sa Pa",
+      "departureTime": "22:00",
+      "arrivalTime": "03:30",
+      "arrivalDayOffset": 1,
+      "duration": "5h 30m",
+      "durationMinutes": 330,
+      "priceFrom": 259000,
+      "currency": "VND",
+      "priceUnit": "vé",
+      "seatsLeft": 12,
+      "rating": 4.5,
+      "reviewCount": 512,
+      "driverVerified": true,
+      "amenities": [
+        "Giường nằm",
+        "Chăn gối",
+        "Điều hòa"
+      ],
+      "categories": {
+        "busType": "sleeper",
+        "capacityGroup": "large",
+        "bookingMode": "standard",
+        "timeSlot": "evening",
+        "priceTier": "standard",
+        "tripLength": "medium",
+        "overnight": true,
+        "routeRegion": "north-north"
+      }
+    },
+    {
+      "id": "bus-hn-sapa-limo",
+      "operator": "Sapa Express",
+      "vehicleType": "Limousine 9 chỗ",
+      "seatCapacity": 9,
+      "isSharedRide": true,
+      "fromCity": "Hà Nội",
+      "toCity": "Sa Pa",
+      "pickupPoint": "Đón tận nơi nội thành",
+      "dropoffPoint": "Trung tâm Sa Pa",
+      "departureTime": "07:00",
+      "arrivalTime": "12:30",
+      "arrivalDayOffset": 0,
+      "duration": "5h 30m",
+      "durationMinutes": 330,
+      "priceFrom": 289000,
+      "currency": "VND",
+      "priceUnit": "vé",
+      "seatsLeft": 5,
+      "rating": 4.8,
+      "reviewCount": 326,
+      "driverVerified": true,
+      "amenities": [
+        "Đón tận nơi",
+        "Wifi",
+        "Nước suối miễn phí"
+      ],
+      "categories": {
+        "busType": "limousine",
+        "capacityGroup": "small",
+        "bookingMode": "shared",
+        "timeSlot": "morning",
+        "priceTier": "standard",
+        "tripLength": "medium",
+        "overnight": false,
+        "routeRegion": "north-north"
+      }
+    },
+    {
+      "id": "bus-hn-halong-limo",
+      "operator": "Hạ Long Limo",
+      "vehicleType": "Limousine 9 chỗ",
+      "seatCapacity": 9,
+      "isSharedRide": true,
+      "fromCity": "Hà Nội",
+      "toCity": "Hạ Long",
+      "pickupPoint": "Đón tận nơi nội thành",
+      "dropoffPoint": "Bến tàu Tuần Châu",
+      "departureTime": "13:00",
+      "arrivalTime": "15:30",
+      "arrivalDayOffset": 0,
+      "duration": "2h 30m",
+      "durationMinutes": 150,
+      "priceFrom": 210000,
+      "currency": "VND",
+      "priceUnit": "vé",
+      "seatsLeft": 6,
+      "rating": 4.9,
+      "reviewCount": 412,
+      "driverVerified": true,
+      "amenities": [
+        "Wifi",
+        "Cổng sạc USB",
+        "Nước suối miễn phí"
+      ],
+      "categories": {
+        "busType": "limousine",
+        "capacityGroup": "small",
+        "bookingMode": "shared",
+        "timeSlot": "afternoon",
+        "priceTier": "standard",
+        "tripLength": "short",
+        "overnight": false,
+        "routeRegion": "north-north"
+      }
+    },
+    {
+      "id": "bus-hn-halong-seat",
+      "operator": "Quảng Ninh Express",
+      "vehicleType": "Xe ghế ngồi 29 chỗ",
+      "seatCapacity": 29,
+      "isSharedRide": false,
+      "fromCity": "Hà Nội",
+      "toCity": "Hạ Long",
+      "pickupPoint": "Bến xe Giáp Bát",
+      "dropoffPoint": "Bến xe Bãi Cháy",
+      "departureTime": "06:00",
+      "arrivalTime": "09:00",
+      "arrivalDayOffset": 0,
+      "duration": "3h 00m",
+      "durationMinutes": 180,
+      "priceFrom": 120000,
+      "currency": "VND",
+      "priceUnit": "vé",
+      "seatsLeft": 18,
+      "rating": 4.2,
+      "reviewCount": 230,
+      "driverVerified": true,
+      "amenities": [
+        "Điều hòa",
+        "Nước suối miễn phí"
+      ],
+      "categories": {
+        "busType": "seat",
+        "capacityGroup": "large",
+        "bookingMode": "standard",
+        "timeSlot": "morning",
+        "priceTier": "budget",
+        "tripLength": "short",
+        "overnight": false,
+        "routeRegion": "north-north"
+      }
+    },
+    {
+      "id": "bus-hn-ninhbinh-limo",
+      "operator": "Tràng An Limo",
+      "vehicleType": "Limousine 9 chỗ",
+      "seatCapacity": 9,
+      "isSharedRide": true,
+      "fromCity": "Hà Nội",
+      "toCity": "Ninh Bình",
+      "pickupPoint": "Đón tận nơi nội thành",
+      "dropoffPoint": "Trung tâm Ninh Bình",
+      "departureTime": "07:30",
+      "arrivalTime": "09:30",
+      "arrivalDayOffset": 0,
+      "duration": "2h 00m",
+      "durationMinutes": 120,
+      "priceFrom": 150000,
+      "currency": "VND",
+      "priceUnit": "vé",
+      "seatsLeft": 4,
+      "rating": 4.7,
+      "reviewCount": 188,
+      "driverVerified": true,
+      "amenities": [
+        "Đón tận nơi",
+        "Wifi"
+      ],
+      "categories": {
+        "busType": "limousine",
+        "capacityGroup": "small",
+        "bookingMode": "shared",
+        "timeSlot": "morning",
+        "priceTier": "standard",
+        "tripLength": "short",
+        "overnight": false,
+        "routeRegion": "north-north"
+      }
+    },
+    {
+      "id": "bus-hn-haiphong-seat",
+      "operator": "Hoàng Long",
+      "vehicleType": "Xe ghế ngồi 45 chỗ",
+      "seatCapacity": 45,
+      "isSharedRide": false,
+      "fromCity": "Hà Nội",
+      "toCity": "Hải Phòng",
+      "pickupPoint": "Bến xe Gia Lâm",
+      "dropoffPoint": "Bến xe Niệm Nghĩa",
+      "departureTime": "08:00",
+      "arrivalTime": "10:00",
+      "arrivalDayOffset": 0,
+      "duration": "2h 00m",
+      "durationMinutes": 120,
+      "priceFrom": 100000,
+      "currency": "VND",
+      "priceUnit": "vé",
+      "seatsLeft": 25,
+      "rating": 4.3,
+      "reviewCount": 640,
+      "driverVerified": true,
+      "amenities": [
+        "Điều hòa"
+      ],
+      "categories": {
+        "busType": "seat",
+        "capacityGroup": "large",
+        "bookingMode": "standard",
+        "timeSlot": "morning",
+        "priceTier": "budget",
+        "tripLength": "short",
+        "overnight": false,
+        "routeRegion": "north-north"
+      }
+    },
+    {
+      "id": "bus-sg-dalat-sleeper",
+      "operator": "Phương Trang",
+      "vehicleType": "Xe khách giường nằm",
+      "seatCapacity": 40,
+      "isSharedRide": false,
+      "fromCity": "TP. Hồ Chí Minh",
+      "toCity": "Đà Lạt",
+      "pickupPoint": "Bến xe Miền Đông",
+      "dropoffPoint": "Bến xe Đà Lạt",
+      "departureTime": "23:00",
+      "arrivalTime": "06:00",
+      "arrivalDayOffset": 1,
+      "duration": "7h 00m",
+      "durationMinutes": 420,
+      "priceFrom": 290000,
+      "currency": "VND",
+      "priceUnit": "vé",
+      "seatsLeft": 8,
+      "rating": 4.4,
+      "reviewCount": 1250,
+      "driverVerified": true,
+      "amenities": [
+        "Giường nằm",
+        "Wifi",
+        "Chăn gối"
+      ],
+      "categories": {
+        "busType": "sleeper",
+        "capacityGroup": "large",
+        "bookingMode": "standard",
+        "timeSlot": "evening",
+        "priceTier": "standard",
+        "tripLength": "long",
+        "overnight": true,
+        "routeRegion": "south-central"
+      }
+    },
+    {
+      "id": "bus-sg-dalat-limo",
+      "operator": "Đà Lạt Xanh",
+      "vehicleType": "Limousine 9 chỗ",
+      "seatCapacity": 9,
+      "isSharedRide": true,
+      "fromCity": "TP. Hồ Chí Minh",
+      "toCity": "Đà Lạt",
+      "pickupPoint": "Đón tận nơi nội thành",
+      "dropoffPoint": "Trung tâm Đà Lạt",
+      "departureTime": "08:00",
+      "arrivalTime": "14:30",
+      "arrivalDayOffset": 0,
+      "duration": "6h 30m",
+      "durationMinutes": 390,
+      "priceFrom": 320000,
+      "currency": "VND",
+      "priceUnit": "vé",
+      "seatsLeft": 4,
+      "rating": 4.8,
+      "reviewCount": 289,
+      "driverVerified": true,
+      "amenities": [
+        "Đón tận nơi",
+        "Wifi",
+        "Ghế massage"
+      ],
+      "categories": {
+        "busType": "limousine",
+        "capacityGroup": "small",
+        "bookingMode": "shared",
+        "timeSlot": "morning",
+        "priceTier": "premium",
+        "tripLength": "long",
+        "overnight": false,
+        "routeRegion": "south-central"
+      }
+    },
+    {
+      "id": "bus-sg-vungtau-mini",
+      "operator": "Biển Xanh",
+      "vehicleType": "Xe 16 chỗ ghép",
+      "seatCapacity": 16,
+      "isSharedRide": true,
+      "fromCity": "TP. Hồ Chí Minh",
+      "toCity": "Vũng Tàu",
+      "pickupPoint": "Đón tận nơi nội thành",
+      "dropoffPoint": "Bãi Trước, Vũng Tàu",
+      "departureTime": "06:30",
+      "arrivalTime": "09:00",
+      "arrivalDayOffset": 0,
+      "duration": "2h 30m",
+      "durationMinutes": 150,
+      "priceFrom": 150000,
+      "currency": "VND",
+      "priceUnit": "vé",
+      "seatsLeft": 2,
+      "rating": 4.5,
+      "reviewCount": 97,
+      "driverVerified": false,
+      "amenities": [
+        "Nước suối miễn phí"
+      ],
+      "categories": {
+        "busType": "minibus",
+        "capacityGroup": "medium",
+        "bookingMode": "shared",
+        "timeSlot": "morning",
+        "priceTier": "standard",
+        "tripLength": "short",
+        "overnight": false,
+        "routeRegion": "south-south"
+      }
+    },
+    {
+      "id": "bus-dn-hoian-shuttle",
+      "operator": "Hội An Shuttle",
+      "vehicleType": "Xe 16 chỗ ghép",
+      "seatCapacity": 16,
+      "isSharedRide": true,
+      "fromCity": "Đà Nẵng",
+      "toCity": "Hội An",
+      "pickupPoint": "Sân bay Đà Nẵng",
+      "dropoffPoint": "Phố cổ Hội An",
+      "departureTime": "09:00",
+      "arrivalTime": "10:00",
+      "arrivalDayOffset": 0,
+      "duration": "1h 00m",
+      "durationMinutes": 60,
+      "priceFrom": 80000,
+      "currency": "VND",
+      "priceUnit": "vé",
+      "seatsLeft": 10,
+      "rating": 4.6,
+      "reviewCount": 305,
+      "driverVerified": true,
+      "amenities": [
+        "Đón theo giờ chuyến bay",
+        "Điều hòa"
+      ],
+      "categories": {
+        "busType": "minibus",
+        "capacityGroup": "medium",
+        "bookingMode": "shared",
+        "timeSlot": "morning",
+        "priceTier": "budget",
+        "tripLength": "short",
+        "overnight": false,
+        "routeRegion": "central-central"
+      }
+    }
+  ]
+}
