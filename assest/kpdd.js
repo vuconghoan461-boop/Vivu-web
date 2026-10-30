@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  /* ===== CẤU HÌNH ===== */
+  /* ===== CẤU HÌNH ĐƯỜNG DẪN ===== */
   var DATA_URL = "../../data/kpdd.json";
   var IMG_BASE = "../../assest/images/Khamphadd/";
   var TOUR_URL = "../service/tour.html";
@@ -20,13 +20,13 @@
   function fold(s) {
     return String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[đĐ]/g, "d").toLowerCase();
   }
-  function fmt(n) { return Number(n).toLocaleString("vi-VN") + "đ"; }
-  function rate(n) { return Number(n).toFixed(1).replace(".", ","); }
+  function fmt(n) { return Number(n || 0).toLocaleString("vi-VN") + "đ"; }
+  function rate(n) { return n ? Number(n).toFixed(1).replace(".", ",") : "5,0"; }
   function avatar(name, large) {
     var w = String(name || "?").trim().split(/\s+/);
     var ini = (w.length > 1 ? w[w.length - 2][0] + w[w.length - 1][0] : w[0][0]).toUpperCase();
     var h = 0;
-    for (var i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) % 4;
+    for (var i = 0; i < (name || "").length; i++) h = (h * 31 + name.charCodeAt(i)) % 4;
     return '<span class="kp-avatar' + (large ? " kp-avatar--lg" : "") + '" data-tone="' + h + '" aria-hidden="true">' + esc(ini) + "</span>";
   }
 
@@ -38,11 +38,11 @@
   var toastTimer = null;
   var scrim = null;
 
-  /* ===== ẢNH BÌA (ảnh lỗi thì ẩn, hiện khung màu) ===== */
+  /* ===== ẢNH BÌA THẺ BÀI VIẾT ===== */
   function coverHtml(a) {
     return '<div class="kp-cover" data-region="' + esc(a.region) + '">' +
       '<div class="kp-cover__ph"><span>' + esc(a.dest) + "</span><small>" + esc(a.region) + "</small></div>" +
-      '<img class="kp-img" src="' + esc(IMG_BASE + encodeURIComponent(a.image)) + '" alt="' + esc(a.title) + '" loading="lazy" />' +
+      '<img class="kp-img" src="' + esc(IMG_BASE + encodeURIComponent(a.image || "")) + '" alt="' + esc(a.title) + '" loading="lazy" />' +
       "</div>";
   }
   document.addEventListener("error", function (e) {
@@ -56,20 +56,26 @@
   function filtered() {
     var q = fold(state.q.trim());
     return articles.filter(function (a) {
+      var aTypes = a.types || [];
       if (state.region && a.region !== state.region) return false;
-      if (state.type && a.types.indexOf(state.type) === -1) return false;
+      if (state.type && aTypes.indexOf(state.type) === -1) return false;
       if (state.cat && a.cat !== state.cat) return false;
       if (q) {
-        var hay = fold([a.title, a.dest, a.region, a.cat, a.excerpt, a.tour.name].concat(a.types).join(" "));
+        var tourName = (a.tour && a.tour.name) || "";
+        var hay = fold([a.title, a.dest, a.region, a.cat, a.excerpt, tourName].concat(aTypes).join(" "));
         if (hay.indexOf(q) === -1) return false;
       }
       return true;
-    }).sort(function (x, y) { return y.published.localeCompare(x.published); });
+    }).sort(function (x, y) { return (y.published || "").localeCompare(x.published || ""); });
   }
 
   /* ===== THẺ BÀI VIẾT ===== */
   function cardHtml(a, feature) {
-    var tags = a.types.slice(0, 3).map(function (t) { return '<span class="kp-tag">' + esc(t) + "</span>"; }).join("");
+    var aTypes = a.types || [];
+    var tags = aTypes.slice(0, 3).map(function (t) { return '<span class="kp-tag">' + esc(t) + "</span>"; }).join("");
+    var authorName = (a.author && a.author.name) || "VivuGo";
+    var tourPrice = (a.tour && a.tour.price) ? fmt(a.tour.price) : "Liên hệ";
+
     return '<a class="kp-card' + (feature ? " kp-card--feature" : "") + '" href="' + ROUTE + encodeURIComponent(a.id) + '" aria-label="Đọc bài: ' + esc(a.title) + '">' +
       (feature ? '<span class="kp-card__flag">★ NỔI BẬT</span>' : "") +
       coverHtml(a) +
@@ -78,38 +84,45 @@
         "<h3>" + esc(a.title) + "</h3>" +
         '<div class="kp-loc"><span aria-hidden="true">📍</span>' + esc(a.dest) + " · " + esc(a.region) + "</div>" +
         '<p class="kp-card__ex">' + esc(a.excerpt) + "</p>" +
-        '<div class="kp-tags">' + tags + "</div>" +
-        '<div class="kp-byline">' + avatar(a.author.name) + "<strong>" + esc(a.author.name) + '</strong><span class="kp-dot">·</span><span>' + esc(a.read) + " phút đọc</span></div>" +
-        '<div class="kp-card__foot"><span>Tour từ <b>' + fmt(a.tour.price) + '</b></span><span class="kp-card__go">ĐỌC BÀI VIẾT →</span></div>' +
+        (tags ? '<div class="kp-tags">' + tags + "</div>" : "") +
+        '<div class="kp-byline">' + avatar(authorName) + "<strong>" + esc(authorName) + '</strong><span class="kp-dot">·</span><span>' + esc(a.read || 5) + " phút đọc</span></div>" +
+        '<div class="kp-card__foot"><span>Tour từ <b>' + tourPrice + '</b></span><span class="kp-card__go">ĐỌC BÀI VIẾT →</span></div>' +
       "</div></a>";
   }
 
-  /* ===== DANH SÁCH ===== */
+  /* ===== DANH SÁCH BÀI VIẾT ===== */
   function renderActive() {
     var chips = ["region", "type", "cat"].filter(function (k) { return state[k]; });
     var box = $("kpActive");
-    $("kpFilterCount").hidden = !chips.length;
-    $("kpFilterCount").textContent = chips.length;
-    box.hidden = !chips.length;
-    box.innerHTML = chips.length
-      ? chips.map(function (k) {
-          return '<span class="kp-chip">' + esc(state[k]) + '<button type="button" data-clear="' + k + '" aria-label="Bỏ lọc ' + esc(state[k]) + '">×</button></span>';
-        }).join("") + '<button type="button" class="kp-link-btn" data-clear="all">Xóa bộ lọc</button>'
-      : "";
+    if ($("kpFilterCount")) {
+      $("kpFilterCount").hidden = !chips.length;
+      $("kpFilterCount").textContent = chips.length;
+    }
+    if (box) {
+      box.hidden = !chips.length;
+      box.innerHTML = chips.length
+        ? chips.map(function (k) {
+            return '<span class="kp-chip">' + esc(state[k]) + '<button type="button" data-clear="' + k + '" aria-label="Bỏ lọc ' + esc(state[k]) + '">×</button></span>';
+          }).join("") + '<button type="button" class="kp-link-btn" data-clear="all">Xóa bộ lọc</button>'
+        : "";
+    }
   }
 
   function renderFilterPanel() {
     function group(title, key, items) {
+      if (!items || !items.length) return "";
       return '<div class="kp-fgroup"><h3>' + title + '</h3><div class="kp-pills">' +
         '<button type="button" class="kp-pill' + (!state[key] ? " is-active" : "") + '" data-f="' + key + '" data-v="">Tất cả</button>' +
         items.map(function (v) {
           return '<button type="button" class="kp-pill' + (state[key] === v ? " is-active" : "") + '" data-f="' + key + '" data-v="' + esc(v) + '">' + esc(v) + "</button>";
         }).join("") + "</div></div>";
     }
-    $("kpFilterBody").innerHTML =
-      group("Vùng miền", "region", data.regions) +
-      group("Trải nghiệm", "type", data.experienceTypes) +
-      group("Chuyên mục", "cat", data.categories);
+    if ($("kpFilterBody")) {
+      $("kpFilterBody").innerHTML =
+        group("Vùng miền", "region", data.regions) +
+        group("Trải nghiệm", "type", data.experienceTypes) +
+        group("Chuyên mục", "cat", data.categories);
+    }
   }
 
   function renderList() {
@@ -118,43 +131,48 @@
     var rest = items;
 
     renderActive();
-    $("kpEmpty").hidden = items.length > 0;
-    $("kpLatest").hidden = items.length === 0;
-    $("kpCount").textContent = items.length + " bài viết";
-    if (!items.length) { $("kpFeatured").hidden = true; $("kpMoreBox").hidden = true; return; }
+    if ($("kpEmpty")) $("kpEmpty").hidden = items.length > 0;
+    if ($("kpLatest")) $("kpLatest").hidden = items.length === 0;
+    if ($("kpCount")) $("kpCount").textContent = items.length + " bài viết";
+    if (!items.length) { 
+      if ($("kpFeatured")) $("kpFeatured").hidden = true; 
+      if ($("kpMoreBox")) $("kpMoreBox").hidden = true; 
+      return; 
+    }
 
     if (!filtering) {
       var feat = items.filter(function (a) { return a.featured; }).slice(0, FEATURED_MAX);
       rest = items.filter(function (a) { return feat.indexOf(a) === -1; });
-      $("kpFeatured").hidden = !feat.length;
-      $("kpFeaturedGrid").innerHTML = feat.map(function (a) { return cardHtml(a, true); }).join("");
-      $("kpLatestTitle").textContent = "Mới nhất";
-      $("kpLatestSub").textContent = "Cập nhật những cẩm nang và lịch trình mới.";
+      if ($("kpFeatured")) {
+        $("kpFeatured").hidden = !feat.length;
+        if ($("kpFeaturedGrid")) $("kpFeaturedGrid").innerHTML = feat.map(function (a) { return cardHtml(a, true); }).join("");
+      }
+      if ($("kpLatestTitle")) $("kpLatestTitle").textContent = "Mới nhất";
+      if ($("kpLatestSub")) $("kpLatestSub").textContent = "Cập nhật những cẩm nang và lịch trình mới.";
     } else {
-      $("kpFeatured").hidden = true;
-      $("kpLatestTitle").textContent = "Kết quả phù hợp";
-      $("kpLatestSub").textContent = state.q.trim() ? 'Kết quả cho "' + state.q.trim() + '"' : "Bài viết khớp với bộ lọc của bạn.";
+      if ($("kpFeatured")) $("kpFeatured").hidden = true;
+      if ($("kpLatestTitle")) $("kpLatestTitle").textContent = "Kết quả phù hợp";
+      if ($("kpLatestSub")) $("kpLatestSub").textContent = state.q.trim() ? 'Kết quả cho "' + state.q.trim() + '"' : "Bài viết khớp với bộ lọc của bạn.";
     }
 
     var visible = rest.slice(0, state.shown);
-    $("kpGrid").innerHTML = visible.map(function (a) { return cardHtml(a, false); }).join("");
-    $("kpMoreBox").hidden = rest.length <= visible.length;
+    if ($("kpGrid")) $("kpGrid").innerHTML = visible.map(function (a) { return cardHtml(a, false); }).join("");
+    if ($("kpMoreBox")) $("kpMoreBox").hidden = rest.length <= visible.length;
   }
 
   function refresh() { state.shown = PAGE_SIZE; renderFilterPanel(); renderList(); }
 
   function resetFilters() {
     state.q = ""; state.region = ""; state.type = ""; state.cat = "";
-    $("kpQuery").value = "";
+    if ($("kpQuery")) $("kpQuery").value = "";
     refresh();
   }
 
-  /* ===== BỘ LỌC: popover (desktop) / drawer (mobile) ===== */
   function isMobile() { return window.matchMedia("(max-width: 720px)").matches; }
 
   function openPanel() {
-    $("kpFilterPanel").hidden = false;
-    $("kpFilterBtn").setAttribute("aria-expanded", "true");
+    if ($("kpFilterPanel")) $("kpFilterPanel").hidden = false;
+    if ($("kpFilterBtn")) $("kpFilterBtn").setAttribute("aria-expanded", "true");
     if (isMobile()) {
       scrim = document.createElement("div");
       scrim.className = "kp-scrim";
@@ -164,28 +182,28 @@
     }
   }
   function closePanel() {
-    $("kpFilterPanel").hidden = true;
-    $("kpFilterBtn").setAttribute("aria-expanded", "false");
+    if ($("kpFilterPanel")) $("kpFilterPanel").hidden = true;
+    if ($("kpFilterBtn")) $("kpFilterBtn").setAttribute("aria-expanded", "false");
     if (scrim) { scrim.remove(); scrim = null; }
     document.body.classList.remove("kp-lock");
   }
 
-  /* ===== TRANG ĐỌC BÀI ===== */
+  /* ===== TRANG ĐỌC BÀI VIẾT ===== */
   function getReviews() {
     try { return JSON.parse(localStorage.getItem(REVIEW_KEY) || "{}"); } catch (e) { return {}; }
   }
 
   function reviewHtml(r, mine) {
     return '<div class="kp-review"><div class="kp-review__top"><div class="kp-review__who">' + avatar(r.user) +
-      '<div><div class="kp-review__name">' + esc(r.user) + '<span class="kp-sample">' + (mine ? "Mới gửi" : "Đánh giá mẫu") + "</span></div>" +
+      '<div><div class="kp-review__name">' + esc(r.user) + '<span class="kp-sample">' + (mine ? "Mới gửi" : "Đánh giá") + "</span></div>" +
       '<div class="kp-review__meta">' + esc(r.date) + (r.tag ? " · " + esc(r.tag) : "") + "</div></div></div>" +
       '<div class="kp-review__stars">★ ' + esc(r.rating) + "/5</div></div><p>" + esc(r.comment) + "</p></div>";
   }
 
-  // Bài liên quan: ưu tiên cùng tour, rồi cùng vùng, cùng chuyên mục
   function related(a) {
     return articles.filter(function (x) { return x.id !== a.id; }).map(function (x) {
-      return { a: x, s: (x.tour.id === a.tour.id ? 3 : 0) + (x.region === a.region ? 1 : 0) + (x.cat === a.cat ? 0.5 : 0) };
+      var sameTour = (x.tour && a.tour && x.tour.id === a.tour.id) ? 3 : 0;
+      return { a: x, s: sameTour + (x.region === a.region ? 1 : 0) + (x.cat === a.cat ? 0.5 : 0) };
     }).sort(function (p, q) { return q.s - p.s; }).slice(0, 2).map(function (p) { return p.a; });
   }
 
@@ -193,34 +211,64 @@
     var a = articles.filter(function (x) { return x.id === id; })[0];
     if (!a) return false;
     var mine = getReviews()[a.id] || [];
-    var count = a.reviewsCount + mine.length;
-    var price = fmt(a.tour.price) + "/" + esc(a.tour.unit);
+    var sampleReviews = a.reviews || [];
+    var count = (a.reviewsCount || sampleReviews.length) + mine.length;
+    var tourName = (a.tour && a.tour.name) || "Tour du lịch";
+    var tourPrice = (a.tour && a.tour.price) ? fmt(a.tour.price) : "Liên hệ";
+    var tourUnit = (a.tour && a.tour.unit) || "khách";
+    var priceStr = tourPrice + "/" + esc(tourUnit);
+    var tourLink = (a.tour && a.tour.url) ? esc(a.tour.url) : esc(TOUR_URL);
 
-    var cta = '<div class="kp-cta"><div><b>Gợi ý tour: ' + esc(a.tour.name) + "</b><small>Từ " + price +
-      " · Khách sạn gợi ý từ " + fmt(a.hotel) + '/đêm</small></div>' +
-      '<a class="kp-btn kp-btn--primary" href="' + esc(TOUR_URL) + '">Xem tour →</a></div>';
+    var authorName = (a.author && a.author.name) || "VivuGo";
+    var authorDate = (a.author && a.author.date) || a.published || "";
 
-    var body = a.sections.map(function (s, i) {
-      return "<h2>" + esc(s.h) + "</h2><p>" + esc(s.p) + "</p>" + (i === 0 ? cta : "");
+    // Render ảnh bìa chính
+    var mainImageHtml = a.image 
+      ? '<div class="kp-section-image"><img src="' + esc(IMG_BASE + encodeURIComponent(a.image)) + '" alt="' + esc(a.title) + '" /></div>' 
+      : coverHtml(a);
+
+    // Render các section nội dung và ảnh đính kèm
+    var body = (a.sections || []).map(function (s) {
+      var imgHtml = s.image 
+        ? '<figure class="kp-section-image"><img src="' + esc(IMG_BASE + encodeURIComponent(s.image)) + '" alt="' + esc(s.imageCaption || s.h) + '" /><figcaption>' + esc(s.imageCaption || "") + '</figcaption></figure>' 
+        : "";
+      return '<div class="kp-content-section">' +
+        "<h2>" + esc(s.h) + "</h2>" +
+        "<p>" + esc(s.p) + "</p>" +
+        imgHtml +
+      '</div>';
     }).join("");
 
     var more = related(a);
 
+    // Render giao diện đọc bài với Tác giả, Ngày đăng và Sao đánh giá bên dưới tiêu đề
     $("kpArticle").innerHTML =
       '<span class="kp-kicker">📍 ' + esc(a.dest) + " · " + esc(a.cat) + " · " + esc(a.region) + "</span>" +
-      "<h1>" + esc(a.title) + "</h1>" +
-      '<div class="kp-authorbar"><div class="kp-authorbar__who">' + avatar(a.author.name, true) +
-        '<div><div class="kp-authorbar__name">' + esc(a.author.name) + '<span class="kp-sample">Tác giả mẫu</span></div>' +
-        '<div class="kp-authorbar__meta">' + esc(a.author.role) + " · " + a.published.split("-").reverse().join("/") + " · " + esc(a.read) + " phút đọc</div></div></div>" +
-        '<div class="kp-authorbar__score">★ ' + rate(a.rating) + " / 5,0 (" + count + " đánh giá)</div></div>" +
-      coverHtml(a) +
-      '<p class="kp-lead">' + esc(a.excerpt) + "</p>" +
+      '<h1 class="kp-article-title">' + esc(a.title) + '</h1>' +
+      
+      '<div class="kp-byline" style="margin-bottom: 20px; font-size: 15px;">' + 
+        avatar(authorName) + 
+        '<strong>' + esc(authorName) + '</strong>' +
+        '<span class="kp-dot">·</span>' +
+        '<span>' + esc(authorDate) + '</span>' +
+        '<span class="kp-dot">·</span>' +
+        '<span class="kp-rate" style="color: #f59e0b; font-weight: 600;">★ ' + rate(a.rating) + '</span>' +
+        '<span style="color: #6b7280; font-size: 14px;"> (' + count + ' đánh giá)</span>' +
+      '</div>' +
+
+      mainImageHtml +
+      
+      '<p class="kp-lead-plain">' + esc(a.excerpt) + "</p>" +
+      
       '<div class="kp-body-text">' + body + "</div>" +
-      '<div class="kp-cta kp-cta--end"><div><b>Sẵn sàng cho chuyến đi này?</b><small>' + esc(a.tour.name) + " · từ " + price + "</small></div>" +
-        '<a class="kp-btn kp-btn--cta" href="' + esc(TOUR_URL) + '">XEM TOUR &amp; ĐẶT TOUR →</a></div>' +
+      
+      '<h3>Gợi ý tour</h3>' +
+      '<div class="kp-cta kp-cta--end"><div><b>Sẵn sàng cho chuyến đi này?</b><small>' + esc(tourName) + " · từ " + priceStr + "</small></div>" +
+        '<a class="kp-btn kp-btn--cta" href="' + tourLink + '">XEM TOUR &amp; ĐẶT TOUR →</a></div>' +
+        
       '<section class="kp-reviews" id="kpReviews">' +
         '<div class="kp-reviews__head"><h2>Đánh giá</h2><button type="button" class="kp-btn kp-btn--ghost kp-btn--sm" id="kpToggleForm">+ Viết đánh giá</button></div>' +
-        '<div class="kp-score"><strong>★ ' + rate(a.rating) + "</strong><span>Điểm đánh giá mẫu cho " + esc(a.dest) + ".<br>" + count + " lượt đánh giá (dữ liệu demo).</span></div>" +
+        '<div class="kp-score"><strong>★ ' + rate(a.rating) + "</strong><span>Đánh giá từ du khách về " + esc(a.dest) + ".<br>" + count + " lượt đánh giá.</span></div>" +
         '<form class="kp-form" id="kpReviewForm" novalidate hidden>' +
           "<h3>Gửi đánh giá cho " + esc(a.dest) + "</h3>" +
           '<div class="kp-field"><label for="kpRevName">Họ và tên</label><input id="kpRevName" type="text" maxlength="60" placeholder="VD: Nguyễn Văn A" /></div>' +
@@ -230,13 +278,13 @@
           '<button type="submit" class="kp-btn kp-btn--primary">Gửi đánh giá</button>' +
         "</form>" +
         '<div id="kpReviewList">' + mine.map(function (r) { return reviewHtml(r, true); }).join("") +
-          a.reviews.map(function (r) { return reviewHtml(r, false); }).join("") + "</div>" +
+          sampleReviews.map(function (r) { return reviewHtml(r, false); }).join("") + "</div>" +
       "</section>" +
       (more.length ? '<section class="kp-related"><h2>Bài viết cùng chủ đề</h2><div class="kp-grid">' + more.map(function (x) { return cardHtml(x, false); }).join("") + "</div></section>" : "");
 
     bindReviewForm(a);
-    $("kpList").hidden = true;
-    $("kpRead").hidden = false;
+    if ($("kpList")) $("kpList").hidden = true;
+    if ($("kpRead")) $("kpRead").hidden = false;
     document.title = a.title + " | VivuGo";
     window.scrollTo(0, 0);
     return true;
@@ -244,44 +292,48 @@
 
   function bindReviewForm(a) {
     var form = $("kpReviewForm");
-    $("kpToggleForm").addEventListener("click", function () {
-      form.hidden = !form.hidden;
-      if (!form.hidden) $("kpRevName").focus();
-    });
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var name = $("kpRevName").value.trim();
-      var text = $("kpRevText").value.trim();
-      var bad = name.length < 2 ? "kpRevName" : text.length < 5 ? "kpRevText" : "";
-      $("kpRevName").classList.remove("is-invalid");
-      $("kpRevText").classList.remove("is-invalid");
-      if (bad) {
-        $("kpRevErr").textContent = bad === "kpRevName" ? "Vui lòng nhập họ tên." : "Vui lòng nhập cảm nhận của bạn.";
-        $(bad).classList.add("is-invalid");
-        $(bad).focus();
-        return;
-      }
-      $("kpRevErr").textContent = "";
-      var review = { user: name, rating: parseInt($("kpRevStars").value, 10) || 5, date: "Vừa xong", tag: "", comment: text };
-      try {
-        var all = getReviews();
-        all[a.id] = [review].concat(all[a.id] || []);
-        localStorage.setItem(REVIEW_KEY, JSON.stringify(all));
-      } catch (err) { /* bị chặn lưu trữ: vẫn hiện trên trang */ }
-      $("kpReviewList").insertAdjacentHTML("afterbegin", reviewHtml(review, true));
-      $("kpRevName").value = ""; $("kpRevText").value = ""; form.hidden = true;
-      toast("Cảm ơn bạn! Đánh giá đã được ghi nhận.");
-    });
+    if ($("kpToggleForm")) {
+      $("kpToggleForm").addEventListener("click", function () {
+        form.hidden = !form.hidden;
+        if (!form.hidden && $("kpRevName")) $("kpRevName").focus();
+      });
+    }
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var name = $("kpRevName").value.trim();
+        var text = $("kpRevText").value.trim();
+        var bad = name.length < 2 ? "kpRevName" : text.length < 5 ? "kpRevText" : "";
+        if ($("kpRevName")) $("kpRevName").classList.remove("is-invalid");
+        if ($("kpRevText")) $("kpRevText").classList.remove("is-invalid");
+        if (bad) {
+          if ($("kpRevErr")) $("kpRevErr").textContent = bad === "kpRevName" ? "Vui lòng nhập họ tên." : "Vui lòng nhập cảm nhận của bạn.";
+          if ($(bad)) { $(bad).classList.add("is-invalid"); $(bad).focus(); }
+          return;
+        }
+        if ($("kpRevErr")) $("kpRevErr").textContent = "";
+        var review = { user: name, rating: parseInt($("kpRevStars").value, 10) || 5, date: "Vừa xong", tag: "", comment: text };
+        try {
+          var all = getReviews();
+          all[a.id] = [review].concat(all[a.id] || []);
+          localStorage.setItem(REVIEW_KEY, JSON.stringify(all));
+        } catch (err) {}
+        if ($("kpReviewList")) $("kpReviewList").insertAdjacentHTML("afterbegin", reviewHtml(review, true));
+        if ($("kpRevName")) $("kpRevName").value = ""; 
+        if ($("kpRevText")) $("kpRevText").value = ""; 
+        form.hidden = true;
+        toast("Cảm ơn bạn! Đánh giá đã được ghi nhận.");
+      });
+    }
   }
 
   function showList() {
-    $("kpRead").hidden = true;
-    $("kpList").hidden = false;
+    if ($("kpRead")) $("kpRead").hidden = true;
+    if ($("kpList")) $("kpList").hidden = false;
     document.title = "Khám phá điểm đến | VivuGo";
     window.requestAnimationFrame(function () { window.scrollTo(0, listScroll); });
   }
 
-  /* ===== ĐIỀU HƯỚNG (hash: #bai-viet/<id>) ===== */
   function route() {
     var h = decodeURIComponent(location.hash || "");
     if (h.indexOf(ROUTE) === 0 && openArticle(h.slice(ROUTE.length))) return;
@@ -291,13 +343,13 @@
 
   function toast(msg) {
     var t = $("kpToast");
+    if (!t) return;
     t.textContent = msg;
     t.classList.add("is-show");
     clearTimeout(toastTimer);
     toastTimer = setTimeout(function () { t.classList.remove("is-show"); }, 3200);
   }
 
-  // Header trang chủ là "fixed": đẩy nội dung xuống đúng bằng phần bị che
   function fixHeaderOffset() {
     var hd = document.querySelector(".site-header");
     var main = $("kpMain");
@@ -310,54 +362,61 @@
 
   /* ===== SỰ KIỆN ===== */
   function bindEvents() {
-    $("kpSearchForm").addEventListener("submit", function (e) { e.preventDefault(); closePanel(); });
-    $("kpQuery").addEventListener("input", function () { state.q = this.value; state.shown = PAGE_SIZE; renderList(); });
-    $("kpQuery").addEventListener("focus", closePanel);
+    if ($("kpSearchForm")) $("kpSearchForm").addEventListener("submit", function (e) { e.preventDefault(); closePanel(); });
+    if ($("kpQuery")) {
+      $("kpQuery").addEventListener("input", function () { state.q = this.value; state.shown = PAGE_SIZE; renderList(); });
+      $("kpQuery").addEventListener("focus", closePanel);
+    }
 
-    $("kpFilterBtn").addEventListener("click", function () { $("kpFilterPanel").hidden ? openPanel() : closePanel(); });
-    $("kpFilterClose").addEventListener("click", closePanel);
-    $("kpFilterDone").addEventListener("click", function () {
-      closePanel();
-      window.scrollTo({ top: Math.max(0, $("kpLatest").getBoundingClientRect().top + window.pageYOffset - 90), behavior: "smooth" });
-    });
-    $("kpFilterClear").addEventListener("click", resetFilters);
-    $("kpEmptyClear").addEventListener("click", resetFilters);
+    if ($("kpFilterBtn")) $("kpFilterBtn").addEventListener("click", function () { $("kpFilterPanel").hidden ? openPanel() : closePanel(); });
+    if ($("kpFilterClose")) $("kpFilterClose").addEventListener("click", closePanel);
+    if ($("kpFilterDone")) {
+      $("kpFilterDone").addEventListener("click", function () {
+        closePanel();
+        if ($("kpLatest")) window.scrollTo({ top: Math.max(0, $("kpLatest").getBoundingClientRect().top + window.pageYOffset - 90), behavior: "smooth" });
+      });
+    }
+    if ($("kpFilterClear")) $("kpFilterClear").addEventListener("click", resetFilters);
+    if ($("kpEmptyClear")) $("kpEmptyClear").addEventListener("click", resetFilters);
 
-    $("kpFilterBody").addEventListener("click", function (e) {
-      var b = e.target.closest("[data-f]");
-      if (!b) return;
-      state[b.getAttribute("data-f")] = b.getAttribute("data-v");
-      refresh();
-    });
+    if ($("kpFilterBody")) {
+      $("kpFilterBody").addEventListener("click", function (e) {
+        var b = e.target.closest("[data-f]");
+        if (!b) return;
+        state[b.getAttribute("data-f")] = b.getAttribute("data-v");
+        refresh();
+      });
+    }
 
-    $("kpActive").addEventListener("click", function (e) {
-      var b = e.target.closest("[data-clear]");
-      if (!b) return;
-      var k = b.getAttribute("data-clear");
-      if (k === "all") { state.region = ""; state.type = ""; state.cat = ""; } else state[k] = "";
-      refresh();
-    });
+    if ($("kpActive")) {
+      $("kpActive").addEventListener("click", function (e) {
+        var b = e.target.closest("[data-clear]");
+        if (!b) return;
+        var k = b.getAttribute("data-clear");
+        if (k === "all") { state.region = ""; state.type = ""; state.cat = ""; } else state[k] = "";
+        refresh();
+      });
+    }
 
-    $("kpMore").addEventListener("click", function () { state.shown += PAGE_SIZE; renderList(); });
+    if ($("kpMore")) $("kpMore").addEventListener("click", function () { state.shown += PAGE_SIZE; renderList(); });
 
-    // Đóng popover khi bấm ra ngoài / nhấn Esc (desktop)
     document.addEventListener("click", function (e) {
-      if ($("kpFilterPanel").hidden || isMobile() || !e.target.isConnected) return;
+      if (!$("kpFilterPanel") || $("kpFilterPanel").hidden || isMobile() || !e.target.isConnected) return;
       if (!e.target.closest("#kpFilterPanel") && !e.target.closest("#kpFilterBtn")) closePanel();
     });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") closePanel(); });
 
-    // Nhớ vị trí cuộn trước khi vào bài để quay lại đúng chỗ
-    $("kpMain").addEventListener("click", function (e) {
-      if (e.target.closest("a.kp-card") && !$("kpList").hidden) listScroll = window.pageYOffset;
-    });
-    $("kpBack").addEventListener("click", function () { location.hash = ""; });
+    if ($("kpMain")) {
+      $("kpMain").addEventListener("click", function (e) {
+        if (e.target.closest("a.kp-card") && $("kpList") && !$("kpList").hidden) listScroll = window.pageYOffset;
+      });
+    }
+    if ($("kpBack")) $("kpBack").addEventListener("click", function () { location.hash = ""; });
 
     window.addEventListener("hashchange", route);
     window.addEventListener("resize", fixHeaderOffset);
     window.addEventListener("load", fixHeaderOffset);
 
-    // Header dùng chung được nạp sau -> chỉnh lại khi nó xuất hiện
     var hdBox = $("site-header");
     if (hdBox && window.MutationObserver) new MutationObserver(fixHeaderOffset).observe(hdBox, { childList: true, subtree: true });
   }
@@ -365,8 +424,15 @@
   /* ===== KHỞI TẠO ===== */
   function init(d) {
     data = d;
-    articles = d.articles;
-    $("kpNote").textContent = (d.meta && d.meta.note) || "";
+    articles = d.articles || [];
+    if ($("kpNote")) $("kpNote").textContent = (d.meta && d.meta.note) || "";
+    
+    var heroElem = document.querySelector('.kp-hero');
+    if (heroElem && d.meta && d.meta.bannerImage) {
+      var bannerUrl = IMG_BASE + encodeURIComponent(d.meta.bannerImage);
+      heroElem.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url("' + bannerUrl + '")';
+    }
+
     bindEvents();
     renderFilterPanel();
     renderList();
@@ -375,9 +441,11 @@
   }
 
   function showError(err) {
-    $("kpGrid").innerHTML = '<div class="kp-loading">' + (location.protocol === "file:"
-      ? "Không đọc được kpdd.json khi mở trực tiếp từ file. Hãy mở bằng Live Server."
-      : "Không đọc được dữ liệu. Kiểm tra file data/kpdd.json và đường dẫn DATA_URL.") + "</div>";
+    if ($("kpGrid")) {
+      $("kpGrid").innerHTML = '<div class="kp-loading">' + (location.protocol === "file:"
+        ? "Không đọc được kpdd.json khi mở trực tiếp từ file. Hãy mở bằng Live Server."
+        : "Không đọc được dữ liệu. Kiểm tra file data/kpdd.json và đường dẫn DATA_URL.") + "</div>";
+    }
     console.error("Lỗi nạp dữ liệu Khám phá điểm đến:", err);
   }
 

@@ -10,11 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <!-- Dùng chung: header, footer, logo -->
+    <!-- Đường dẫn chuẩn dựa theo ảnh cây thư mục -->
     <link rel="stylesheet" href="../../assest/css.css" />
     <script src="../../assest/js.js" defer></script>
-
-    <!-- Riêng trang Khám phá điểm đến -->
     <link rel="stylesheet" href="../../assest/kpdd.css" />
   </head>
   <body class="site-body kp-body">
@@ -26,22 +24,25 @@
       <!-- ============ MÀN HÌNH 1: DANH SÁCH BÀI VIẾT ============ -->
       <div id="kpList">
         <div class="kp-wrap">
+          <!-- Hero Banner -->
           <section class="kp-hero">
-            <p class="kp-hero__kicker">CẨM NANG DU LỊCH VIVUGO</p>
+            <p class="kp-hero__kicker">cẩm nang du lịch VivuGo</p>
             <h1>KHÁM PHÁ ĐIỂM ĐẾN</h1>
-            <p class="kp-hero__lead" id="kpLead">Đọc kinh nghiệm thực tế, chọn điểm đến yêu thích rồi đặt tour ngay trong một hành trình.</p>
+            <p class="kp-hero__lead" id="kpLead">Đọc kinh nghiệm thực tế, chọn điểm đến yêu thích rồi bắt đầu hành trình của bạn!</p>
           </section>
 
-          <!-- Tìm kiếm + nút Bộ lọc -->
+          <!-- Tìm kiếm + Nút bộ lọc -->
           <div class="kp-searchbox">
             <form class="kp-search" id="kpSearchForm" role="search" autocomplete="off">
               <span class="kp-search__icon" aria-hidden="true">🔍</span>
               <input type="search" id="kpQuery" placeholder="Bạn muốn đi đâu? Hà Giang, Hội An, Phú Quốc..." aria-label="Tìm điểm đến hoặc bài viết" />
+              
               <button type="button" class="kp-filter-btn" id="kpFilterBtn" aria-expanded="false" aria-controls="kpFilterPanel">
                 <span class="kp-filter-btn__label">Bộ lọc</span>
                 <span class="kp-filter-btn__count" id="kpFilterCount" hidden>0</span>
                 <span class="kp-filter-btn__arrow" aria-hidden="true">▾</span>
               </button>
+              
               <button type="submit" class="kp-btn kp-btn--primary">Tìm kiếm</button>
 
               <div class="kp-filter-panel" id="kpFilterPanel" role="dialog" aria-label="Bộ lọc bài viết" hidden>
@@ -71,7 +72,7 @@
             <div class="kp-grid" id="kpFeaturedGrid"></div>
           </section>
 
-          <!-- Mới nhất / Kết quả -->
+          <!-- Danh sách bài viết -->
           <section class="kp-section" id="kpLatest">
             <div class="kp-section__head">
               <div>
@@ -88,7 +89,6 @@
             </div>
           </section>
 
-          <!-- Không có kết quả -->
           <section class="kp-empty" id="kpEmpty" hidden>
             <h2>Không tìm thấy bài viết phù hợp</h2>
             <p>Hãy thử từ khóa khác hoặc bỏ bớt bộ lọc để xem thêm điểm đến.</p>
@@ -99,7 +99,7 @@
         </div>
       </div>
 
-      <!-- ============ MÀN HÌNH 2: ĐỌC BÀI VIẾT ============ -->
+      <!-- ============ MÀN HÌNH 2: ĐỌC BÀI VIẾT CHI TIẾT ============ -->
       <div id="kpRead" hidden>
         <div class="kp-wrap">
           <div class="kp-reader">
@@ -114,11 +114,7 @@
     <div id="site-footer"></div>
     <div class="kp-toast" id="kpToast" role="status" aria-live="polite"></div>
 
-    <noscript>
-      <p style="padding:24px;text-align:center">Trang cần bật JavaScript để hiển thị bài viết.</p>
-    </noscript>
-
+    <!-- Script xử lý chính -->
     <script src="../../assest/kpdd.js"></script>
-
   </body>
 </html>
