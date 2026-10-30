@@ -128,12 +128,12 @@
   function renderList() {
     var items = filtered();
     var filtering = hasFilter();
-    var rest = items;
 
     renderActive();
     if ($("kpEmpty")) $("kpEmpty").hidden = items.length > 0;
     if ($("kpLatest")) $("kpLatest").hidden = items.length === 0;
     if ($("kpCount")) $("kpCount").textContent = items.length + " bài viết";
+
     if (!items.length) { 
       if ($("kpFeatured")) $("kpFeatured").hidden = true; 
       if ($("kpMoreBox")) $("kpMoreBox").hidden = true; 
@@ -141,23 +141,36 @@
     }
 
     if (!filtering) {
+      // 1. MỤC NỔI BẬT: Lấy đúng 3 bài viết có featured = true
       var feat = items.filter(function (a) { return a.featured; }).slice(0, FEATURED_MAX);
-      rest = items.filter(function (a) { return feat.indexOf(a) === -1; });
+
       if ($("kpFeatured")) {
         $("kpFeatured").hidden = !feat.length;
         if ($("kpFeaturedGrid")) $("kpFeaturedGrid").innerHTML = feat.map(function (a) { return cardHtml(a, true); }).join("");
       }
-      if ($("kpLatestTitle")) $("kpLatestTitle").textContent = "Mới nhất";
-      if ($("kpLatestSub")) $("kpLatestSub").textContent = "Cập nhật những cẩm nang và lịch trình mới.";
+
+      if ($("kpLatestTitle")) $("kpLatestTitle").textContent = "Tất cả bài viết";
+      // 2. MỤC DƯỚI: LOẠI TRỪ 3 BÀI BÀI NỔI BẬT ĐÃ XUẤT HIỆN Ở TRÊN (Để tránh trùng lặp)
+      var remainingArticles = items.filter(function (a) {
+        return !feat.some(function (f) { return f.id === a.id; });
+      }).sort(function (x, y) {
+        return (y.published || "").localeCompare(x.published || "");
+      });
+
+      var visible = remainingArticles.slice(0, state.shown);
+      if ($("kpGrid")) $("kpGrid").innerHTML = visible.map(function (a) { return cardHtml(a, false); }).join("");
+      if ($("kpMoreBox")) $("kpMoreBox").hidden = remainingArticles.length <= visible.length;
+
     } else {
+      // KHI TÌM KIẾM / LỌC: Ẩn mục nổi bật, hiển thị toàn bộ bài viết khớp lọc
       if ($("kpFeatured")) $("kpFeatured").hidden = true;
       if ($("kpLatestTitle")) $("kpLatestTitle").textContent = "Kết quả phù hợp";
       if ($("kpLatestSub")) $("kpLatestSub").textContent = state.q.trim() ? 'Kết quả cho "' + state.q.trim() + '"' : "Bài viết khớp với bộ lọc của bạn.";
-    }
 
-    var visible = rest.slice(0, state.shown);
-    if ($("kpGrid")) $("kpGrid").innerHTML = visible.map(function (a) { return cardHtml(a, false); }).join("");
-    if ($("kpMoreBox")) $("kpMoreBox").hidden = rest.length <= visible.length;
+      var visibleSearch = items.slice(0, state.shown);
+      if ($("kpGrid")) $("kpGrid").innerHTML = visibleSearch.map(function (a) { return cardHtml(a, false); }).join("");
+      if ($("kpMoreBox")) $("kpMoreBox").hidden = items.length <= visibleSearch.length;
+    }
   }
 
   function refresh() { state.shown = PAGE_SIZE; renderFilterPanel(); renderList(); }
@@ -246,7 +259,7 @@
       '<span class="kp-kicker">📍 ' + esc(a.dest) + " · " + esc(a.cat) + " · " + esc(a.region) + "</span>" +
       '<h1 class="kp-article-title">' + esc(a.title) + '</h1>' +
       
-      '<div class="kp-byline" style="margin-bottom: 20px; font-size: 15px;">' + 
+      '<div class="kp-byline" style="margin-bottom: 20px; font-size: 15px; display: flex; align-items: center; gap: 8px;">' + 
         avatar(authorName) + 
         '<strong>' + esc(authorName) + '</strong>' +
         '<span class="kp-dot">·</span>' +
