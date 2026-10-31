@@ -11,7 +11,14 @@
     "fuel": "Điện",
     "category": "oto",
     "city": "Hà Nội",
-    "badge": "🍃 Xe Điện Xanh",
+    "locations": [
+      "Cầu Giấy",
+      "Hoàn Kiếm",
+      "Ba Đình",
+      "Nam Từ Liêm",
+      "Sân bay Nội Bài"
+    ],
+    "image": "xe3.jpg",
     "features": [
       "Hệ thống ADAS lái thông minh",
       "Sạc pin miễn phí tại trạm VinFast",
@@ -32,7 +39,14 @@
     "fuel": "Dầu",
     "category": "oto",
     "city": "Hà Nội",
-    "badge": "",
+    "locations": [
+      "Hoàn Kiếm",
+      "Ba Đình",
+      "Tây Hồ",
+      "Cầu Giấy",
+      "Sân bay Nội Bài"
+    ],
+    "image": "xe4.jpg",
     "features": [
       "Ghế cơ trưởng massage chỉnh điện",
       "Cửa trượt điện 2 bên",
@@ -43,7 +57,7 @@
   },
   {
     "id": 3,
-    "name": "DCar Limousine 9 Chỗ Hạng Thương Gia",
+    "name": "DCar 9 Chỗ Hạng Thương Gia",
     "provider": "Eco Travel Limousine VIP",
     "perks": "Đón trả tận nơi trong nội thành, đổi/hủy vé linh hoạt",
     "rating": 4.9,
@@ -51,9 +65,15 @@
     "seats": 9,
     "transmission": "Tự động",
     "fuel": "Dầu",
-    "category": "limo",
+    "category": "oto",
     "city": "Hà Nội",
-    "badge": "",
+    "locations": [
+      "Hoàn Kiếm",
+      "Ba Đình",
+      "Tây Hồ",
+      "Sân bay Nội Bài"
+    ],
+    "image": "xe2.jpg",
     "features": [
       "Đón trả tận nơi tại khách sạn/nhà riêng",
       "Ghế ngả 180 độ massage",
@@ -72,9 +92,15 @@
     "seats": 7,
     "transmission": "Tự động",
     "fuel": "Hybrid",
-    "category": "airport",
+    "category": "oto",
     "city": "Hà Nội",
-    "badge": "",
+    "locations": [
+      "Sân bay Nội Bài",
+      "Hoàn Kiếm",
+      "Cầu Giấy",
+      "Hà Đông"
+    ],
+    "image": "xe1.jpg",
     "features": [
       "Đón tận cửa ra sân bay Nội Bài",
       "Tài xế mặc đồng phục, biển tên khách",
@@ -95,7 +121,13 @@
     "fuel": "Xăng",
     "category": "oto",
     "city": "Hà Nội",
-    "badge": "",
+    "locations": [
+      "Cầu Giấy",
+      "Hà Đông",
+      "Nam Từ Liêm",
+      "Hoàn Kiếm"
+    ],
+    "image": "xe2.jpg",
     "features": [
       "Camera hành trình 2 kênh",
       "Cảm biến lùi 4 điểm",
@@ -116,7 +148,14 @@
     "fuel": "Xăng",
     "category": "oto",
     "city": "TP.HCM",
-    "badge": "",
+    "locations": [
+      "Sân bay Tân Sơn Nhất",
+      "Quận 1",
+      "Quận 3",
+      "Bình Thạnh",
+      "Tân Bình"
+    ],
+    "image": "xe5.jpg",
     "features": [
       "Giao xe tận sân bay Tân Sơn Nhất",
       "Camera 360 độ",
@@ -137,13 +176,603 @@
     "fuel": "Xăng",
     "category": "xemay",
     "city": "Đà Lạt",
-    "badge": "",
+    "locations": [
+      "Trung tâm Đà Lạt",
+      "Hồ Xuân Hương",
+      "Chợ Đà Lạt",
+      "Sân bay Liên Khương"
+    ],
+    "image": "xe6.jpg",
     "features": [
       "Cốp rộng 25L",
       "Bình xăng đầy khi giao xe",
       "Bảo hiểm tai nạn đi kèm"
     ],
     "price": 180000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 8,
+    "name": "Honda Vision 2023 (Xe máy tay ga)",
+    "provider": "Hà Nội Bike Rental",
+    "perks": "Kèm 2 mũ bảo hiểm, giao xe tận khách sạn",
+    "rating": 4.6,
+    "reviews": 310,
+    "seats": 2,
+    "transmission": "Tay ga",
+    "fuel": "Xăng",
+    "category": "xemay",
+    "city": "Hà Nội",
+    "locations": [
+      "Hoàn Kiếm",
+      "Ba Đình",
+      "Tây Hồ",
+      "Cầu Giấy"
+    ],
+    "image": "xe7.jpg",
+    "features": [
+      "Tiết kiệm xăng, dễ lái",
+      "Giao nhận tại khách sạn khu phố cổ",
+      "Hỗ trợ sự cố 24/7"
+    ],
+    "price": 130000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 9,
+    "name": "Yamaha Exciter 155 (Xe côn tay thể thao)",
+    "provider": "Phượt Hà Nội Bike",
+    "perks": "Kèm mũ bảo hiểm, áo mưa; hỗ trợ cứu hộ",
+    "rating": 4.7,
+    "reviews": 180,
+    "seats": 2,
+    "transmission": "Côn tay",
+    "fuel": "Xăng",
+    "category": "xemay",
+    "city": "Hà Nội",
+    "locations": [
+      "Cầu Giấy",
+      "Nam Từ Liêm",
+      "Hà Đông",
+      "Sân bay Nội Bài"
+    ],
+    "image": "xe8.jpg",
+    "features": [
+      "Động cơ 155cc mạnh mẽ",
+      "Phù hợp đi phượt ngoại thành",
+      "Bình xăng đầy khi giao xe"
+    ],
+    "price": 220000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 10,
+    "name": "Toyota Vios 2022 (Ô tô tự lái 4 chỗ)",
+    "provider": "Sài Gòn Self-Drive",
+    "perks": "Bảo hiểm vật chất cơ bản, hỗ trợ 24/7",
+    "rating": 4.65,
+    "reviews": 210,
+    "seats": 4,
+    "transmission": "Tự động",
+    "fuel": "Xăng",
+    "category": "oto",
+    "city": "TP.HCM",
+    "locations": [
+      "Quận 1",
+      "Quận 3",
+      "Tân Bình",
+      "Sân bay Tân Sơn Nhất"
+    ],
+    "image": "xe9.jpg",
+    "features": [
+      "Camera hành trình",
+      "Cảm biến lùi",
+      "Tiết kiệm nhiên liệu"
+    ],
+    "price": 620000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 11,
+    "name": "Hyundai SantaFe 2023 (SUV 7 chỗ)",
+    "provider": "Sài Gòn Luxury Car",
+    "perks": "Bảo hiểm vật chất 2 chiều, giao xe tận nơi",
+    "rating": 4.85,
+    "reviews": 128,
+    "seats": 7,
+    "transmission": "Tự động",
+    "fuel": "Dầu",
+    "category": "oto",
+    "city": "TP.HCM",
+    "locations": [
+      "Quận 1",
+      "Quận 7",
+      "Bình Thạnh",
+      "Sân bay Tân Sơn Nhất"
+    ],
+    "image": "xe10.jpg",
+    "features": [
+      "Ghế da, 7 chỗ rộng rãi",
+      "Cửa sổ trời toàn cảnh",
+      "Camera 360 độ"
+    ],
+    "price": 1450000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 12,
+    "name": "Honda SH Mode 125 (Xe máy cao cấp)",
+    "provider": "Sài Gòn Bike Rental",
+    "perks": "Kèm mũ bảo hiểm, bảo hiểm tai nạn đi kèm",
+    "rating": 4.8,
+    "reviews": 175,
+    "seats": 2,
+    "transmission": "Tay ga",
+    "fuel": "Xăng",
+    "category": "xemay",
+    "city": "TP.HCM",
+    "locations": [
+      "Quận 1",
+      "Quận 3",
+      "Bình Thạnh",
+      "Thủ Đức"
+    ],
+    "image": "xe11.jpg",
+    "features": [
+      "Khóa thông minh Smart Key",
+      "Cốp rộng 18L",
+      "Giao xe tận nơi nội thành"
+    ],
+    "price": 280000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 13,
+    "name": "Honda Lead 125 (Xe máy tay ga)",
+    "provider": "Sài Gòn Bike Rental",
+    "perks": "Kèm 2 mũ bảo hiểm, giao xe tại khách sạn",
+    "rating": 4.7,
+    "reviews": 260,
+    "seats": 2,
+    "transmission": "Tay ga",
+    "fuel": "Xăng",
+    "category": "xemay",
+    "city": "TP.HCM",
+    "locations": [
+      "Quận 1",
+      "Quận 3",
+      "Tân Bình",
+      "Thủ Đức"
+    ],
+    "image": "xe12.jpg",
+    "features": [
+      "Cốp siêu rộng 37L",
+      "Tiết kiệm xăng",
+      "Dễ lái cho mọi người"
+    ],
+    "price": 160000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 14,
+    "name": "VinFast VF6 (Xe điện 5 chỗ)",
+    "provider": "GreenSM Đà Nẵng",
+    "perks": "Bảo hiểm vật chất 2 chiều, sạc miễn phí tại trạm VinFast",
+    "rating": 4.85,
+    "reviews": 64,
+    "seats": 5,
+    "transmission": "Tự động",
+    "fuel": "Điện",
+    "category": "oto",
+    "city": "Đà Nẵng",
+    "locations": [
+      "Sân bay Đà Nẵng",
+      "Hải Châu",
+      "Sơn Trà",
+      "Bãi biển Mỹ Khê"
+    ],
+    "image": "xe3.jpg",
+    "features": [
+      "Vận hành êm, không tiếng ồn",
+      "Camera 360 độ",
+      "Sạc miễn phí tại trạm VinFast"
+    ],
+    "price": 850000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 15,
+    "name": "Toyota Innova 2022 (Ô tô 7 chỗ gia đình)",
+    "provider": "Đà Nẵng Travel Car",
+    "perks": "Giao xe tại sân bay Đà Nẵng, hỗ trợ tài xế nếu cần",
+    "rating": 4.75,
+    "reviews": 120,
+    "seats": 7,
+    "transmission": "Tự động",
+    "fuel": "Xăng",
+    "category": "oto",
+    "city": "Đà Nẵng",
+    "locations": [
+      "Sân bay Đà Nẵng",
+      "Hải Châu",
+      "Ngũ Hành Sơn",
+      "Cầu Rồng"
+    ],
+    "image": "xe13.jpg",
+    "features": [
+      "Rộng rãi cho 7 người",
+      "Cốp chứa nhiều hành lý",
+      "Phù hợp đi Sơn Trà, Bà Nà"
+    ],
+    "price": 1000000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 16,
+    "name": "Hyundai Accent 2022 (Ô tô tự lái 4 chỗ)",
+    "provider": "Biển Xanh Car Rental",
+    "perks": "Bảo hiểm vật chất cơ bản, hỗ trợ 24/7",
+    "rating": 4.6,
+    "reviews": 95,
+    "seats": 4,
+    "transmission": "Tự động",
+    "fuel": "Xăng",
+    "category": "oto",
+    "city": "Đà Nẵng",
+    "locations": [
+      "Hải Châu",
+      "Sơn Trà",
+      "Bãi biển Mỹ Khê",
+      "Sân bay Đà Nẵng"
+    ],
+    "image": "xe14.jpg",
+    "features": [
+      "Cảm biến lùi",
+      "Màn hình giải trí Android",
+      "Tiết kiệm nhiên liệu"
+    ],
+    "price": 600000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 17,
+    "name": "Honda Vision (Xe máy tay ga)",
+    "provider": "Biển Xanh Bike Đà Nẵng",
+    "perks": "Kèm mũ bảo hiểm, giao xe tại khách sạn ven biển",
+    "rating": 4.65,
+    "reviews": 200,
+    "seats": 2,
+    "transmission": "Tay ga",
+    "fuel": "Xăng",
+    "category": "xemay",
+    "city": "Đà Nẵng",
+    "locations": [
+      "Hải Châu",
+      "Sơn Trà",
+      "Ngũ Hành Sơn",
+      "Bãi biển Mỹ Khê"
+    ],
+    "image": "xe15.jpg",
+    "features": [
+      "Giao xe tận khách sạn",
+      "Xăng đầy bình khi nhận",
+      "Hỗ trợ sự cố 24/7"
+    ],
+    "price": 120000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 18,
+    "name": "Honda Winner X (Xe côn tay đi đèo)",
+    "provider": "Phượt Đà Nẵng",
+    "perks": "Kèm mũ fullface, áo mưa; phù hợp đi đèo Hải Vân",
+    "rating": 4.8,
+    "reviews": 140,
+    "seats": 2,
+    "transmission": "Côn tay",
+    "fuel": "Xăng",
+    "category": "xemay",
+    "city": "Đà Nẵng",
+    "locations": [
+      "Sơn Trà",
+      "Ngũ Hành Sơn",
+      "Cầu Rồng",
+      "Sân bay Đà Nẵng"
+    ],
+    "image": "xe16.jpg",
+    "features": [
+      "Chạy ổn định trên đèo Hải Vân",
+      "Kèm mũ fullface",
+      "Hỗ trợ sự cố 24/7"
+    ],
+    "price": 250000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 19,
+    "name": "Toyota Fortuner 2022 (SUV 7 chỗ địa hình)",
+    "provider": "Tây Bắc Car Rental",
+    "perks": "Bảo hiểm vật chất 2 chiều, hỗ trợ cứu hộ vùng núi",
+    "rating": 4.9,
+    "reviews": 73,
+    "seats": 7,
+    "transmission": "Tự động",
+    "fuel": "Dầu",
+    "category": "oto",
+    "city": "Sa Pa",
+    "locations": [
+      "Trung tâm Sa Pa",
+      "Ga Lào Cai",
+      "Bản Cát Cát",
+      "Ga Sa Pa"
+    ],
+    "image": "xe17.jpg",
+    "features": [
+      "Gầm cao, phù hợp đường đèo",
+      "Dẫn động mạnh mẽ",
+      "Giao xe tại ga Lào Cai"
+    ],
+    "price": 1500000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 20,
+    "name": "Ford Ranger Wildtrak (Bán tải 5 chỗ)",
+    "provider": "Sa Pa Off-road Rental",
+    "perks": "Bảo hiểm vật chất, hỗ trợ cứu hộ 24/7",
+    "rating": 4.8,
+    "reviews": 58,
+    "seats": 5,
+    "transmission": "Tự động",
+    "fuel": "Dầu",
+    "category": "oto",
+    "city": "Sa Pa",
+    "locations": [
+      "Trung tâm Sa Pa",
+      "Ga Lào Cai",
+      "Bản Cát Cát"
+    ],
+    "image": "xe18.jpg",
+    "features": [
+      "Dẫn động 2 cầu vượt đường xấu",
+      "Thùng sau chở hành lý",
+      "Phù hợp cung đường Tây Bắc"
+    ],
+    "price": 1300000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 21,
+    "name": "Honda 9 Chỗ Hạng Thương Gia",
+    "provider": "Sa Pa Limousine VIP",
+    "perks": "Đón trả tận nơi, đổi/hủy linh hoạt",
+    "rating": 4.85,
+    "reviews": 320,
+    "seats": 9,
+    "transmission": "Tự động",
+    "fuel": "Dầu",
+    "category": "oto",
+    "city": "Sa Pa",
+    "locations": [
+      "Trung tâm Sa Pa",
+      "Ga Sa Pa",
+      "Ga Lào Cai"
+    ],
+    "image": "xe1.jpg",
+    "features": [
+      "Ghế ngả massage",
+      "Cổng sạc USB từng ghế",
+      "Đón trả tại khách sạn"
+    ],
+    "price": 2500000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 22,
+    "name": "Honda Winner X (Xe côn tay phượt)",
+    "provider": "Phượt Tây Bắc",
+    "perks": "Kèm mũ fullface, áo mưa, dụng cụ vá lốp",
+    "rating": 4.8,
+    "reviews": 142,
+    "seats": 2,
+    "transmission": "Côn tay",
+    "fuel": "Xăng",
+    "category": "xemay",
+    "city": "Sa Pa",
+    "locations": [
+      "Trung tâm Sa Pa",
+      "Bản Cát Cát",
+      "Ga Lào Cai"
+    ],
+    "image": "xe21.jpg",
+    "features": [
+      "Phù hợp cung đường đèo",
+      "Kèm mũ fullface",
+      "Hỗ trợ sự cố 24/7"
+    ],
+    "price": 250000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 23,
+    "name": "Honda XR150L (Xe địa hình phượt)",
+    "provider": "Phượt Tây Bắc",
+    "perks": "Kèm mũ fullface, bảo hiểm tai nạn đi kèm",
+    "rating": 4.75,
+    "reviews": 96,
+    "seats": 2,
+    "transmission": "Số sàn",
+    "fuel": "Xăng",
+    "category": "xemay",
+    "city": "Sa Pa",
+    "locations": [
+      "Trung tâm Sa Pa",
+      "Bản Cát Cát",
+      "Ga Sa Pa"
+    ],
+    "image": "xe8.jpg",
+    "features": [
+      "Gầm cao, đi đường xấu tốt",
+      "Phuộc hành trình dài",
+      "Bình xăng đầy khi giao xe"
+    ],
+    "price": 280000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 24,
+    "name": "Honda CB500X (Moto phượt phân khối lớn)",
+    "provider": "Tây Bắc Moto Adventure",
+    "perks": "Cần bằng lái A2; kèm đồ bảo hộ, đặt cọc theo quy định",
+    "rating": 4.9,
+    "reviews": 45,
+    "seats": 2,
+    "transmission": "Số sàn",
+    "fuel": "Xăng",
+    "category": "xemay",
+    "city": "Sa Pa",
+    "locations": [
+      "Trung tâm Sa Pa",
+      "Ga Lào Cai"
+    ],
+    "image": "xe16.jpg",
+    "features": [
+      "Động cơ 500cc cho đường dài",
+      "Kèm áo giáp và mũ fullface",
+      "Cần bằng lái A2"
+    ],
+    "price": 900000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 25,
+    "name": "Toyota Innova 2022 (Ô tô 7 chỗ gia đình)",
+    "provider": "Đà Lạt Travel Car",
+    "perks": "Giao xe tại sân bay Liên Khương, hỗ trợ tài xế nếu cần",
+    "rating": 4.75,
+    "reviews": 120,
+    "seats": 7,
+    "transmission": "Số sàn",
+    "fuel": "Xăng",
+    "category": "oto",
+    "city": "Đà Lạt",
+    "locations": [
+      "Sân bay Liên Khương",
+      "Trung tâm Đà Lạt",
+      "Hồ Xuân Hương",
+      "Chợ Đà Lạt"
+    ],
+    "image": "xe9.jpg",
+    "features": [
+      "Rộng rãi cho 7 người",
+      "Cốp chứa nhiều hành lý",
+      "Phù hợp đường đèo Đà Lạt"
+    ],
+    "price": 1000000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 26,
+    "name": "Toyota Vios 2022 (Ô tô tự lái 4 chỗ)",
+    "provider": "Đà Lạt Self-Drive",
+    "perks": "Bảo hiểm vật chất cơ bản, hỗ trợ 24/7",
+    "rating": 4.6,
+    "reviews": 88,
+    "seats": 4,
+    "transmission": "Tự động",
+    "fuel": "Xăng",
+    "category": "oto",
+    "city": "Đà Lạt",
+    "locations": [
+      "Trung tâm Đà Lạt",
+      "Hồ Xuân Hương",
+      "Chợ Đà Lạt"
+    ],
+    "image": "xe17.jpg",
+    "features": [
+      "Nhỏ gọn, dễ đi phố đồi",
+      "Camera hành trình",
+      "Tiết kiệm nhiên liệu"
+    ],
+    "price": 620000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 27,
+    "name": "Xe Ford Chỗ Hạng Thương Gia",
+    "provider": "Đà Lạt Ford VIP",
+    "perks": "Đón trả tận nơi, đổi/hủy linh hoạt",
+    "rating": 4.85,
+    "reviews": 210,
+    "seats": 9,
+    "transmission": "Tự động",
+    "fuel": "Dầu",
+    "category": "oto",
+    "city": "Đà Lạt",
+    "locations": [
+      "Sân bay Liên Khương",
+      "Trung tâm Đà Lạt",
+      "Hồ Xuân Hương"
+    ],
+    "image": "xe18.jpg",
+    "features": [
+      "Ghế ngả massage",
+      "Cổng sạc USB từng ghế",
+      "Đón trả tại khách sạn"
+    ],
+    "price": 2300000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 28,
+    "name": "Honda Winner X (Xe côn tay phượt)",
+    "provider": "Phượt Đà Lạt",
+    "perks": "Kèm mũ fullface, áo mưa; bảo hiểm tai nạn đi kèm",
+    "rating": 4.8,
+    "reviews": 160,
+    "seats": 2,
+    "transmission": "Côn tay",
+    "fuel": "Xăng",
+    "category": "xemay",
+    "city": "Đà Lạt",
+    "locations": [
+      "Trung tâm Đà Lạt",
+      "Đồi chè Cầu Đất",
+      "Hồ Xuân Hương"
+    ],
+    "image": "xe20.jpg",
+    "features": [
+      "Phù hợp đèo Prenn, Tà Nung",
+      "Kèm mũ fullface",
+      "Hỗ trợ sự cố 24/7"
+    ],
+    "price": 250000,
+    "priceUnit": "/ngày"
+  },
+  {
+    "id": 29,
+    "name": "Honda Vision (Xe máy tay ga)",
+    "provider": "Đà Lạt Bike Rental",
+    "perks": "Kèm 2 mũ bảo hiểm, giao xe tại khách sạn",
+    "rating": 4.6,
+    "reviews": 230,
+    "seats": 2,
+    "transmission": "Tay ga",
+    "fuel": "Xăng",
+    "category": "xemay",
+    "city": "Đà Lạt",
+    "locations": [
+      "Trung tâm Đà Lạt",
+      "Hồ Xuân Hương",
+      "Chợ Đà Lạt"
+    ],
+    "image": "xe21.jpg",
+    "features": [
+      "Nhẹ, dễ lái trên dốc",
+      "Giao xe tận khách sạn",
+      "Xăng đầy bình khi nhận"
+    ],
+    "price": 130000,
     "priceUnit": "/ngày"
   }
 ]
