@@ -9,9 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link rel="stylesheet" href="../../assest/css.css" />
-    <script src="../../assest/js.js" defer></script>
+    <link rel="stylesheet" href="../../css/CarrentAndHotel.css"/>
+    <script src="../../js/CarrentAndHotel.js" defer></script>
   </head>
   <body class="site-body">
 
@@ -56,6 +57,7 @@
             </div>
 
            <div class="rental-toolbar-hotel">
+              <p class="result-count" id="resultCount"></p>
               <select class="sort-select" id="Sort">
                 <option value="popular">Phổ biến nhất</option>
                 <option value="priceAsc">Giá tăng dần</option>
@@ -66,7 +68,6 @@
             </div>
 
           <!--Load trang kết quả tìm-->
-          <p class="result-count" id="resultCount"></p>
           <div class="hotel-grid" id="hotelGrid"></div>
       </div>
     </main>
@@ -128,17 +129,17 @@
 
           <div class="form-group">
             <label>Họ và tên khách *</label>
-            <input type="text" id="renterName" required />
+            <input type="text" id="renterName"  placeholder="Nhập họ tên" />
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label>Số điện thoại *</label>
-              <input type="tel" id="renterPhone" required />
+              <input type="tel" id="renterPhone" placeholder="Nhập số điện thoại" required />
             </div>
             <div class="form-group">
               <label>CCCD (tuỳ chọn)</label>
-              <input type="text" id="renterId"/>
+              <input type="text" id="renterId" placeholder="Nhập số CCCD" />
             </div>
           </div>
 
@@ -177,7 +178,7 @@
             </div>
           </div>
 
-          <button type="submit" class="btn-confirm" id="confirmBtn">Hoàn Tất Đặt Chỗ</button>
+          <button type="submit" class="btn-confirm" id="confirmBtn">Hoàn tất đặt chỗ</button>
         </form>
       </div>
     </div>
@@ -186,9 +187,9 @@
     <div class="modal-overlay" id="successModalOverlay">
       <div class="success-modal">
         <div class="success-head">
-          <span class="success-icon-sm">🏨</span>
+          <span class="success-icon-sm"><i class="fa-solid fa-hotel" style="color: rgb(0, 143, 229);"></i></span>
           <div>
-            <strong>Đặt Chỗ Thành Công</strong>
+            <strong>Đặt chỗ thành công</strong>
             <p>Bảo mật thông tin và xác nhận tức thì</p>
           </div>
           <button type="button" class="modal-close" id="closeSuccessModal">×</button>
