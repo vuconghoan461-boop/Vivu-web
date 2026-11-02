@@ -1,20 +1,3 @@
-/**
- * Vehicles.js
- * Đọc dữ liệu phương tiện (máy bay, tàu hỏa, xe khách)
- * từ file JSON, render các thẻ .route-card vào các danh sách [data-list]
- * và xử lý form tìm chuyến bay (một chiều/khứ hồi, nơi đi, nơi đến, ngày bay, hãng, hạng ghế),
- * thẻ chuyến bay và hộp thoại đặt vé hộ + chọn ghế + nhập thông tin hành khách;
- * tương tự cho tàu hỏa (tìm chuyến, loại khoang, sơ đồ chỗ, mã ưu đãi, hóa đơn).
- *
- * Cách dùng trong HTML:
- *   <section data-tab-group data-vehicles-src="../../data/Vehicles.json"> ... </section>
- *   <div class="route-list" data-list="all|flight|train|bus"></div>
- *   <form data-flight-filter> ... </form>    (form tìm chuyến bay, xem transportation.html)
- *   <script src="../../assest/Vehicles.js" defer></script>
- *
- * Lưu ý: đường dẫn trong data-vehicles-src được tính từ trang HTML đang mở,
- * không phải từ vị trí file Vehicles.js.
- */
 (function () {
   'use strict';
 
@@ -1100,9 +1083,9 @@
       '<button type="button" class="btn-confirm btn-block" data-tk-close>Đóng</button></div>';
   }
 
-  /* =====================================================================
+  /* 
    * XE KHÁCH: bộ lọc (loại xe, nhà xe) + tìm chuyến (điểm đi, điểm đến, ngày đi)
-   * ===================================================================== */
+    */
 
   var allBuses = [];
   var busCities = [];
