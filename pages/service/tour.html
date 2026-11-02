@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tour du lịch | VivuGo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assest/css.css" />
+    <script src="../../assest/js.js" defer></script>
+  </head>
+  <body class="site-body tour-page">
+    <div id="site-header"></div>
+    <main class="site-main">
+      <!-- 1.SLIDER BANNER -->
+      <section class="slider-hotel" style="background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
+       url('../../assest/images/slider-tour.jpg') center/cover no-repeat;">
+        <div class="slider-inner">
+          <h1 class="page-title">BOOKING TOUR DU LỊCH</h1>
+          <p class="page-desc" id="pageDesc">Khám phá vẻ đẹp Việt Nam, trải nghiệm hành trình đáng nhớ với những tour du lịch hấp dẫn.</p>
+        </div>
+      </section>
+      <div class="vivugo-container">
+        <!-- BỘ LỌC TÌM KIẾM -->
+        <div class="rental-filter-bar">
+          <div class="rental-filter-grid">
+            <div class="rental-field">
+              <label for="keyword">Tìm địa điểm hoặc tên tour</label>
+              <input type="search" id="keyword" placeholder="Ví dụ: Ninh Bình, Hà Nội..." autocomplete="off" />
+            </div>
+            <div class="rental-field"><label for="fFrom">Từ ngày</label><input type="date" id="fFrom" /></div>
+            <div class="rental-field"><label for="fTo">Đến ngày</label><input type="date" id="fTo" /></div>
+            <button type="button" class="btn-cta rental-search-btn" id="searchBtn">Tìm kiếm</button>
+            <button type="button" class="btn-ghost rental-search-btn" id="resetBtn">Xoá lọc</button>
+          </div>
+        </div>
+        <!-- LỌC PILL (ĐỊA ĐIỂM + DANH MỤC) -->
+        <!-- <div class="filter-row">
+          <div class="seat-filter" id="destFilter"></div>
+          <div class="seat-filter" id="categoryTabs"></div>
+        </div> -->
+        <div class="rental-toolbar-hotel">
+          <select class="sort-select" id="fSort">
+            <option value="popular">Phổ biến nhất</option>
+            <option value="az">Tên A-Z</option>
+            <option value="priceAsc">Giá thấp → cao</option>
+            <option value="priceDesc">Giá cao → thấp</option>
+            <option value="rating">Đánh giá cao nhất</option>
+            <option value="soon">Sắp khởi hành</option>
+          </select>
+        </div>
+        <!-- hiển thị kết quả danh sách tour và chính sách tour sau khi người dùng thực hiện lọc hoặc tìm kiếm. -->
+        <p class="result-count" id="resultCount"></p>
+        <div class="car-grid" id="tourGrid"></div>
+        <p class="tour-policy" id="policyNote" hidden></p>
+    <!-- FOOTER DÙNG CHUNG TOÀN WEBSITE -->
+    <div id="site-footer"></div>
+    <!-- POPUP XEM CHI TIẾT TOUR (ID đồng bộ với js.js) -->
+    <div class="modal-overlay" id="detailModalOverlay">
+      <div class="booking-modal detail-modal" id="detailModal" role="dialog" aria-modal="true"></div>
+    </div>
+
+    <!-- FORM ĐẶT TOUR (ID đồng bộ với js.js) -->
+    <div class="modal-overlay" id="bookingModalOverlay">
+      <div class="booking-modal" role="dialog" aria-modal="true">
+        <div class="booking-modal-head">
+          <div><span class="modal-kicker">Đặt tour</span><h3 id="bookingTourName">Tên tour</h3></div>
+          <button type="button" class="modal-close" id="closeBookingModal">×</button>
+        </div>
+        <div class="booking-provider-bar">
+          <div><strong id="bookingRoute">Điểm khởi hành → Điểm đến</strong><p id="bookingMeta">Thời lượng</p></div>
+          <div class="booking-price" id="bookingPrice">0đ<small>/khách</small></div>
+        </div>
+        <form id="bookingForm" class="booking-form" novalidate>
+          <div class="form-row">
+            <div class="form-group"><label for="departureDate">Ngày khởi hành</label><select id="departureDate"></select></div>
+            <div class="form-group"><label for="ticketQty">Số lượng vé</label><input type="number" id="ticketQty" min="1" value="1" /></div>
+          </div>
+          <div class="form-group"><label for="renterName">Họ và tên *</label><input type="text" id="renterName" placeholder="Nguyễn Văn A" required /></div>
+          <div class="form-row">
+            <div class="form-group"><label for="renterPhone">Số điện thoại *</label><input type="tel" id="renterPhone" placeholder="0912 345 678" required /></div>
+            <div class="form-group"><label for="renterEmail">Email *</label><input type="email" id="renterEmail" placeholder="email@example.com" required /></div>
+          </div>
+          <div class="form-group"><label for="renterNote">Ghi chú (tuỳ chọn)</label><input type="text" id="renterNote" placeholder="Ăn chay, đón khách sạn..." /></div>
+          <div class="form-group">
+            <label for="payMethod">Thanh toán</label>
+            <select id="payMethod"><option>VietQR - Quét mã</option><option>Thẻ Visa / Master</option><option>Ví MoMo</option><option>Thanh toán sau</option></select>
+          </div>
+          <div class="booking-summary">
+            <span>Mã ưu đãi</span>
+            <div class="promo-row">
+              <input type="text" id="promoCode" placeholder="Mã ưu đãi (VIVU10, VIVUGO20...)" />
+              <button type="button" class="btn-ghost btn-sm" id="applyPromo">Áp dụng</button>
+            </div>
+            <div class="promo-msg" id="promoMsg"></div>
+            <div class="summary-line"><span>Đơn giá</span><span id="sumBase">0đ</span></div>
+            <div class="summary-line discount" id="sumPromoRow" style="display:none;"><span>Giảm giá</span><span id="sumPromo">-0đ</span></div>
+            <div class="summary-total"><span id="totalLabel">Tổng tiền</span><strong id="totalAmount">0đ</strong></div>
+          </div>
+          <div class="form-error" id="formError"></div>
+          <button type="submit" class="btn-confirm" id="confirmBtn">Xác Nhận Đặt Tour</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL THÀNH CÔNG (ID đồng bộ với js.js) -->
+    <div class="modal-overlay" id="successModalOverlay">
+      <div class="success-modal" role="dialog" aria-modal="true">
+        <div class="success-head">
+          <span class="success-icon-sm">🎫</span>
+          <div><strong>Đặt Chỗ Thành Công</strong><p>Xác nhận tức thì</p></div>
+          <button type="button" class="modal-close" id="closeSuccessModal">×</button>
+        </div>
+        <div class="success-body">
+          <div class="success-check">✓</div>
+          <h3>Chúc mừng bạn đã đặt chỗ thành công!</h3>
+          <div class="order-code" id="orderCode">TOUR-000000</div>
+          <div class="success-info">
+            <div class="info-row"><span>Khách hàng:</span><strong id="infoName"></strong></div>
+            <div class="info-row"><span>Email:</span><strong id="infoEmail"></strong></div>
+            <div class="info-row"><span>Dịch vụ:</span><strong id="infoService"></strong></div>
+            <div class="info-row"><span>Ngày khởi hành:</span><strong id="infoDate"></strong></div>
+            <div class="info-row"><span>Tổng thanh toán:</span><strong class="amount" id="infoTotal"></strong></div>
+            <div class="info-row"><span>Hình thức:</span><strong id="infoPay"></strong></div>
+          </div>
+          <button type="button" class="btn-primary btn-block" id="goToMyTrips">Xem vé trong "Kế hoạch của tôi"</button>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

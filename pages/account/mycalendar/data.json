@@ -1,0 +1,443 @@
+{
+  "quickAdds": [
+    {
+      "icon": "fa-location-dot",
+      "title": "Thêm điểm đến",
+      "desc": "Nơi bạn muốn khám phá"
+    },
+    {
+      "icon": "fa-hotel",
+      "title": "Thêm khách sạn",
+      "desc": "Nơi bạn sẽ nghỉ"
+    },
+    {
+      "icon": "fa-car",
+      "title": "Thêm phương tiện",
+      "desc": "Máy bay, tàu, xe"
+    },
+    {
+      "icon": "fa-map-location-dot",
+      "title": "Thêm tour",
+      "desc": "Trải nghiệm đặt sẵn"
+    }
+  ],
+  "activityTypes": [
+    {
+      "icon": "🍜",
+      "label": "Ăn uống",
+      "active": true
+    },
+    {
+      "icon": "📍",
+      "label": "Điểm đến"
+    },
+    {
+      "icon": "🏨",
+      "label": "Khách sạn"
+    },
+    {
+      "icon": "🚗",
+      "label": "Di chuyển"
+    }
+  ],
+  "modalDefaults": {
+    "date": "2026-10-21",
+    "time": "19:00"
+  },
+  "trips": [
+    {
+      "id": "danang",
+      "name": "Đà Nẵng – Hội An",
+      "sidebarName": "Đà Nẵng",
+      "thumbClass": "thumb-danang",
+      "place": "Đà Nẵng, Hội An",
+      "startDate": "2026-10-20",
+      "endDate": "2026-10-24",
+      "days": [
+        {
+          "activities": [
+            {
+              "time": "08:00",
+              "title": "Hà Nội → Đà Nẵng",
+              "note": "✈ Bay VN162"
+            },
+            {
+              "time": "12:00",
+              "title": "Nhận phòng khách sạn",
+              "note": "🏨 Đà Nẵng"
+            },
+            {
+              "time": "14:00",
+              "title": "Tham quan Cầu Rồng",
+              "note": "📍 Đà Nẵng",
+              "thumb": "thumb-bridge"
+            },
+            {
+              "time": "19:00",
+              "title": "Ăn tối",
+              "note": "🍜 Hải sản Bé Mặn"
+            }
+          ]
+        },
+        {
+          "activities": [
+            {
+              "time": "09:00",
+              "title": "Bà Nà Hills",
+              "note": "🚡 Cáp treo"
+            },
+            {
+              "time": "17:00",
+              "title": "Ăn tối",
+              "note": "🍽 Chợ Đêm"
+            },
+            {
+              "time": "18:30",
+              "title": "Phố cổ Hội An",
+              "note": "🏮 Đèn lồng Hội An",
+              "thumb": "thumb-lantern"
+            }
+          ]
+        },
+        {
+          "activities": [
+            {
+              "time": "08:00",
+              "title": "Hội An",
+              "note": "🚶 Phố cổ ban ngày"
+            },
+            {
+              "time": "12:00",
+              "title": "Ăn trưa",
+              "note": "🍲 Cao Lầu"
+            },
+            {
+              "time": "18:30",
+              "title": "Chèo thúng",
+              "note": "🛶 Rừng dừa Bảy Mẫu",
+              "thumb": "thumb-boat"
+            }
+          ]
+        },
+        {
+          "activities": [
+            {
+              "time": "09:00",
+              "title": "Biển Mỹ Khê",
+              "note": "🏖 Nghỉ dưỡng"
+            }
+          ]
+        },
+        {
+          "activities": [
+            {
+              "time": "10:00",
+              "title": "Đà Nẵng → Hà Nội",
+              "note": "✈ Bay VN177"
+            }
+          ]
+        }
+      ],
+      "info": {
+        "status": "Đã xác nhận",
+        "bookingCode": "DN2610-8F3K2",
+        "bookings": [
+          {
+            "type": "flight",
+            "title": "Chuyến bay VN162 (HAN → DAD) · 20/10",
+            "status": "Đã xác nhận"
+          },
+          {
+            "type": "hotel",
+            "title": "Khách sạn Diamond Sea Hotel (4 đêm)",
+            "status": "Đã xác nhận"
+          },
+          {
+            "type": "flight",
+            "title": "Chuyến bay VN177 (DAD → HAN) · 24/10",
+            "status": "Đã xác nhận"
+          }
+        ],
+        "hotel": {
+          "name": "Diamond Sea Hotel",
+          "address": "Đường Võ Nguyên Giáp, Sơn Trà, Đà Nẵng",
+          "room": "Phòng 23 · Deluxe hướng biển",
+          "checkIn": "12:00 · 20/10",
+          "checkOut": "12:00 · 24/10",
+          "thumbClass": "thumb-hotel"
+        },
+        "transport": {
+          "title": "Tóm tắt phương tiện",
+          "rows": [
+            {
+              "label": "Chuyến bay",
+              "value": "VN162"
+            },
+            {
+              "label": "Số ghế",
+              "value": "S7"
+            },
+            {
+              "label": "Cổng lên máy bay",
+              "value": "12"
+            },
+            {
+              "label": "Hành lý",
+              "value": "7 kg xách tay · 20 kg ký gửi"
+            }
+          ]
+        },
+        "notes": [
+          {
+            "title": "Bảo hiểm du lịch",
+            "text": "Bảo hiểm có hiệu lực suốt chuyến đi. Mang theo giấy tờ tùy thân khi làm thủ tục."
+          },
+          {
+            "title": "Lưu ý khi đi",
+            "text": "Có mặt tại sân bay trước giờ bay 2 tiếng. Tháng 10 là mùa mưa, nên mang áo mưa nhẹ."
+          }
+        ],
+        "costs": [
+          {
+            "label": "Vé máy bay",
+            "note": "VN162 và VN177 khứ hồi",
+            "amount": 3200000,
+            "date": "2026-09-15"
+          },
+          {
+            "label": "Khách sạn",
+            "note": "Diamond Sea Hotel · 4 đêm",
+            "amount": 4800000,
+            "date": "2026-09-15"
+          },
+          {
+            "label": "Thuê xe",
+            "note": "Xe 7 chỗ có tài xế · 2 ngày",
+            "amount": 2400000,
+            "date": "2026-10-21"
+          },
+          {
+            "label": "Tour & vé tham quan",
+            "note": "Bà Nà Hills, chèo thúng Bảy Mẫu",
+            "amount": 1500000,
+            "date": "2026-10-21"
+          },
+          {
+            "label": "Ăn uống",
+            "note": "Dự kiến cả chuyến",
+            "amount": 2000000,
+            "date": "2026-10-20"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dalat",
+      "name": "Đà Lạt",
+      "sidebarName": "Đà Lạt",
+      "thumbClass": "thumb-dalat",
+      "place": "Đà Lạt",
+      "startDate": "2026-12-20",
+      "endDate": "2026-12-24",
+      "days": []
+    },
+    {
+      "id": "phuquoc",
+      "name": "Phú Quốc",
+      "sidebarName": "Phú Quốc",
+      "thumbClass": "thumb-phuquoc",
+      "place": "Phú Quốc",
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-07",
+      "days": [
+        {
+          "activities": [
+            {
+              "time": "07:30",
+              "title": "Hà Nội → Phú Quốc",
+              "note": "✈ Chuyến bay buổi sáng"
+            },
+            {
+              "time": "14:00",
+              "title": "Nhận phòng resort",
+              "note": "🏨 Bãi Dài"
+            },
+            {
+              "time": "18:30",
+              "title": "Ăn tối",
+              "note": "🦀 Chợ đêm Dinh Cậu"
+            }
+          ]
+        },
+        {
+          "activities": [
+            {
+              "time": "08:00",
+              "title": "Tour 4 đảo",
+              "note": "🏝 Cano khám phá Nam đảo"
+            },
+            {
+              "time": "12:30",
+              "title": "Ăn trưa",
+              "note": "🐟 Hải sản trên đảo"
+            },
+            {
+              "time": "16:00",
+              "title": "Lặn ngắm san hô",
+              "note": "🤿 Hòn Thơm"
+            }
+          ]
+        },
+        {
+          "activities": [
+            {
+              "time": "09:00",
+              "title": "VinWonders",
+              "note": "🎢 Vui chơi cả ngày"
+            },
+            {
+              "time": "18:00",
+              "title": "Ngắm hoàng hôn",
+              "note": "🌅 Bãi Sao"
+            }
+          ]
+        },
+        {
+          "activities": [
+            {
+              "time": "08:30",
+              "title": "Nhà tù Phú Quốc",
+              "note": "📍 Tham quan"
+            },
+            {
+              "time": "15:00",
+              "title": "Cơ sở nước mắm",
+              "note": "🛍 Mua quà"
+            }
+          ]
+        },
+        {
+          "activities": [
+            {
+              "time": "11:00",
+              "title": "Phú Quốc → Hà Nội",
+              "note": "✈ Chuyến bay về"
+            }
+          ]
+        }
+      ],
+      "info": {
+        "status": "Đã xác nhận",
+        "bookingCode": "PQ2610-7H1D9",
+        "bookings": [
+          {
+            "type": "flight",
+            "title": "Hà Nội → Phú Quốc · 03/10",
+            "status": "Đã xác nhận"
+          },
+          {
+            "type": "hotel",
+            "title": "Resort Bãi Dài (4 đêm)",
+            "status": "Đã xác nhận"
+          }
+        ],
+        "hotel": {
+          "name": "Resort Bãi Dài",
+          "address": "Bãi Dài, Gành Dầu, Phú Quốc",
+          "room": "Villa 08",
+          "checkIn": "14:00 · 03/10",
+          "checkOut": "12:00 · 07/10",
+          "thumbClass": "thumb-phuquoc"
+        },
+        "costs": [
+          {
+            "label": "Vé máy bay",
+            "note": "Hà Nội ⇄ Phú Quốc",
+            "amount": 3600000,
+            "date": "2026-09-01"
+          },
+          {
+            "label": "Khách sạn",
+            "note": "Resort Bãi Dài · 4 đêm",
+            "amount": 8000000,
+            "date": "2026-09-01"
+          },
+          {
+            "label": "Thuê xe",
+            "note": "Xe máy · 4 ngày",
+            "amount": 600000,
+            "date": "2026-10-03"
+          },
+          {
+            "label": "Tour & vé tham quan",
+            "note": "Tour 4 đảo, VinWonders",
+            "amount": 1200000,
+            "date": "2026-10-04"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sapa",
+      "name": "Sa Pa",
+      "sidebarName": "Sa Pa",
+      "thumbClass": "thumb-sapa",
+      "place": "Sa Pa, Lào Cai",
+      "startDate": "2026-08-14",
+      "endDate": "2026-08-17",
+      "days": [
+        {
+          "activities": [
+            {
+              "time": "06:00",
+              "title": "Hà Nội → Sa Pa",
+              "note": "🚌 Xe giường nằm"
+            },
+            {
+              "time": "14:00",
+              "title": "Nhận phòng",
+              "note": "🏨 Thị trấn Sa Pa"
+            }
+          ]
+        },
+        {
+          "activities": [
+            {
+              "time": "08:00",
+              "title": "Bản Cát Cát",
+              "note": "🚶 Đi bộ trải nghiệm"
+            },
+            {
+              "time": "12:00",
+              "title": "Ăn trưa",
+              "note": "🍲 Thắng cố"
+            }
+          ]
+        },
+        {
+          "activities": [
+            {
+              "time": "07:00",
+              "title": "Fansipan",
+              "note": "🚡 Cáp treo lên đỉnh"
+            }
+          ]
+        },
+        {
+          "activities": [
+            {
+              "time": "09:00",
+              "title": "Chợ Sa Pa",
+              "note": "🛍 Mua đặc sản"
+            },
+            {
+              "time": "13:00",
+              "title": "Sa Pa → Hà Nội",
+              "note": "🚌 Xe về"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
