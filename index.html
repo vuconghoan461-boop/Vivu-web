@@ -1,1 +1,39 @@
-
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VivuGo | Du lịch theo cách của bạn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#explore" class="brand-logo" data-page="explore" aria-label="VivuGo - Khám phá"><img src="modules/services/assest/images/logo_noback.png" alt="VivuGo" class="logo-image"></a>
+      <nav class="main-nav" id="nav">
+        <div class="nav-dropdown"><button class="nav-link" data-page="services">Dịch vụ<span class="dropdown-arrow"></span></button><div class="service-dropdown"><button data-service="hotel.html">Khách sạn</button><button data-service="tour.html">Tour du lịch</button><button data-service="CarRent.html">Thuê xe</button><button data-service="transportation.html">Di chuyển</button></div></div>
+        <button class="nav-link" data-page="explore">Khám phá điểm đến</button><button class="nav-link" data-page="calendar">Lịch của tôi</button><button class="nav-link" data-page="ai">Trợ lý AI</button><button class="nav-link" data-page="account">Tài khoản</button>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="btn-icon" title="Lịch của tôi" aria-label="Mở lịch của tôi" data-page="calendar"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21 12 3l2 10 7 2-18 6Z"/><path d="m14 13 4 4"/></svg><span class="badge">1</span></button>
+        <div class="account-actions"><button class="btn-primary" data-page="account" data-auth="login">Đăng nhập</button><button class="btn-primary" data-page="account" data-auth="register">Đăng ký</button></div>
+        <button type="button" class="nav-toggle" id="menu" aria-label="Mở menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+  <main class="workspace"><iframe id="module" title="Nội dung VivuGo" src="modules/explore/index.html"></iframe></main>
+  <footer class="footer">
+    <div class="newsletter-bar"><div class="container newsletter-content"><span>Săn vé rẻ &amp; Deal độc quyền hàng tuần!</span><form class="input-group" action="#"><input type="email" placeholder="Nhập email của bạn..." aria-label="Email của bạn"><button type="submit">Đăng ký</button></form></div></div>
+    <div class="container footer-grid">
+      <div class="footer-col"><img src="assets/images/footer/LogoVivugo.png" alt="VivuGo Logo" class="footer-logo"><p class="footer-slogan">Khám phá thế giới, không lo tài chính.</p><div class="social-icons"><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></div></div>
+      <div class="footer-col"><h4>LIÊN HỆ &amp; THÔNG TIN</h4><ul class="footer-links"><li><i class="fa-solid fa-location-dot footer-icon"></i><span>12 Chùa Bộc, Đống Đa, Hà Nội</span></li><li><i class="fa-solid fa-phone footer-icon"></i><a href="tel:19001234">1900 1234</a></li><li><i class="fa-solid fa-envelope footer-icon"></i><a href="mailto:support@vivugo.vn">support@vivugo.vn</a></li></ul></div>
+      <div class="footer-col"><h4>TRỢ GIÚP &amp; CHÍNH SÁCH</h4><ul class="footer-links"><li><a href="#">Hướng dẫn đặt vé</a></li><li><a href="#">Quy định hoàn/hủy tour</a></li><li><a href="#">Câu hỏi thường gặp (FAQ)</a></li><li><a href="#">Chính sách bảo mật</a></li></ul></div>
+    </div>
+    <div class="bottom-bar container"><p>&copy; 2026 Nhóm VivuGo - HVNH. Đã đăng ký bản quyền.</p><div class="payment-logos" aria-label="Các phương thức thanh toán"><i class="fa-brands fa-cc-visa"></i><i class="fa-brands fa-cc-mastercard"></i><i class="fa-brands fa-cc-paypal"></i></div></div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
