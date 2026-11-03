@@ -11,20 +11,12 @@
     "fuel": "Điện",
     "category": "oto",
     "city": "Hà Nội",
-    "locations": [
-      "Cầu Giấy",
-      "Hoàn Kiếm",
-      "Ba Đình",
-      "Nam Từ Liêm",
-      "Sân bay Nội Bài"
-    ],
+    "pickupLocations": ["Cầu Giấy", "Hoàn Kiếm", "Ba Đình", "Nam Từ Liêm", "Sân bay Nội Bài"],
+    "dropoffLocations": ["Cầu Giấy", "Hoàn Kiếm", "Ba Đình", "Nam Từ Liêm", "Sân bay Nội Bài"],
     "image": "xe3.jpg",
-    "features": [
-      "Hệ thống ADAS lái thông minh",
-      "Sạc pin miễn phí tại trạm VinFast",
-      "Màn hình 15.6 inch"
-    ],
-    "price": 950000,
+    "features": ["Hệ thống ADAS lái thông minh", "Sạc pin miễn phí tại trạm VinFast", "Màn hình 15.6 inch"],
+    "priceOriginal": 950000,
+    "discount": 10,
     "priceUnit": "/ngày"
   },
   {
@@ -39,20 +31,12 @@
     "fuel": "Dầu",
     "category": "oto",
     "city": "Hà Nội",
-    "locations": [
-      "Hoàn Kiếm",
-      "Ba Đình",
-      "Tây Hồ",
-      "Cầu Giấy",
-      "Sân bay Nội Bài"
-    ],
+    "pickupLocations": ["Hoàn Kiếm", "Ba Đình", "Tây Hồ", "Cầu Giấy", "Sân bay Nội Bài"],
+    "dropoffLocations": ["Hoàn Kiếm", "Ba Đình", "Tây Hồ", "Cầu Giấy", "Sân bay Nội Bài"],
     "image": "xe4.jpg",
-    "features": [
-      "Ghế cơ trưởng massage chỉnh điện",
-      "Cửa trượt điện 2 bên",
-      "Cốp điện thông minh"
-    ],
-    "price": 1650000,
+    "features": ["Ghế cơ trưởng massage chỉnh điện", "Cửa trượt điện 2 bên", "Cốp điện thông minh"],
+    "priceOriginal": 1650000,
+    "discount": 0,
     "priceUnit": "/ngày"
   },
   {
@@ -67,19 +51,12 @@
     "fuel": "Dầu",
     "category": "oto",
     "city": "Hà Nội",
-    "locations": [
-      "Hoàn Kiếm",
-      "Ba Đình",
-      "Tây Hồ",
-      "Sân bay Nội Bài"
-    ],
+    "pickupLocations": ["Hoàn Kiếm", "Ba Đình", "Tây Hồ", "Sân bay Nội Bài"],
+    "dropoffLocations": ["Hoàn Kiếm", "Ba Đình", "Tây Hồ", "Sân bay Nội Bài"],
     "image": "xe2.jpg",
-    "features": [
-      "Đón trả tận nơi tại khách sạn/nhà riêng",
-      "Ghế ngả 180 độ massage",
-      "Cổng sạc USB từng ghế"
-    ],
-    "price": 280000,
+    "features": ["Đón trả tận nơi tại khách sạn/nhà riêng", "Ghế ngả 180 độ massage", "Cổng sạc USB từng ghế"],
+    "priceOriginal": 280000,
+    "discount": 5,
     "priceUnit": "/ghế"
   },
   {
@@ -94,19 +71,12 @@
     "fuel": "Hybrid",
     "category": "oto",
     "city": "Hà Nội",
-    "locations": [
-      "Sân bay Nội Bài",
-      "Hoàn Kiếm",
-      "Cầu Giấy",
-      "Hà Đông"
-    ],
+    "pickupLocations": ["Sân bay Nội Bài"],
+    "dropoffLocations": ["Hoàn Kiếm", "Cầu Giấy", "Hà Đông", "Sân bay Nội Bài"],
     "image": "xe1.jpg",
-    "features": [
-      "Đón tận cửa ra sân bay Nội Bài",
-      "Tài xế mặc đồng phục, biển tên khách",
-      "Nước suối miễn phí"
-    ],
-    "price": 890000,
+    "features": ["Đón tận cửa ra sân bay Nội Bài", "Tài xế mặc đồng phục, biển tên khách", "Nước suối miễn phí"],
+    "priceOriginal": 890000,
+    "discount": 0,
     "priceUnit": "/lượt"
   },
   {
@@ -121,19 +91,12 @@
     "fuel": "Xăng",
     "category": "oto",
     "city": "Hà Nội",
-    "locations": [
-      "Cầu Giấy",
-      "Hà Đông",
-      "Nam Từ Liêm",
-      "Hoàn Kiếm"
-    ],
+    "pickupLocations": ["Cầu Giấy", "Hà Đông", "Nam Từ Liêm", "Hoàn Kiếm"],
+    "dropoffLocations": ["Cầu Giấy", "Hà Đông", "Nam Từ Liêm", "Hoàn Kiếm"],
     "image": "xe2.jpg",
-    "features": [
-      "Camera hành trình 2 kênh",
-      "Cảm biến lùi 4 điểm",
-      "Bảo hiểm vật chất cơ bản đi kèm"
-    ],
-    "price": 650000,
+    "features": ["Camera hành trình 2 kênh", "Cảm biến lùi 4 điểm", "Bảo hiểm vật chất cơ bản đi kèm"],
+    "priceOriginal": 650000,
+    "discount": 15,
     "priceUnit": "/ngày"
   },
   {
@@ -148,20 +111,12 @@
     "fuel": "Xăng",
     "category": "oto",
     "city": "TP.HCM",
-    "locations": [
-      "Sân bay Tân Sơn Nhất",
-      "Quận 1",
-      "Quận 3",
-      "Bình Thạnh",
-      "Tân Bình"
-    ],
+    "pickupLocations": ["Sân bay Tân Sơn Nhất", "Quận 1", "Quận 3", "Bình Thạnh", "Tân Bình"],
+    "dropoffLocations": ["Sân bay Tân Sơn Nhất", "Quận 1", "Quận 3", "Bình Thạnh", "Tân Bình"],
     "image": "xe5.jpg",
-    "features": [
-      "Giao xe tận sân bay Tân Sơn Nhất",
-      "Camera 360 độ",
-      "Bảo hiểm vật chất 2 chiều"
-    ],
-    "price": 890000,
+    "features": ["Giao xe tận sân bay Tân Sơn Nhất", "Camera 360 độ", "Bảo hiểm vật chất 2 chiều"],
+    "priceOriginal": 890000,
+    "discount": 10,
     "priceUnit": "/ngày"
   },
   {
@@ -176,19 +131,12 @@
     "fuel": "Xăng",
     "category": "xemay",
     "city": "Đà Lạt",
-    "locations": [
-      "Trung tâm Đà Lạt",
-      "Hồ Xuân Hương",
-      "Chợ Đà Lạt",
-      "Sân bay Liên Khương"
-    ],
+    "pickupLocations": ["Trung tâm Đà Lạt", "Hồ Xuân Hương", "Chợ Đà Lạt", "Sân bay Liên Khương"],
+    "dropoffLocations": ["Trung tâm Đà Lạt", "Hồ Xuân Hương", "Chợ Đà Lạt", "Sân bay Liên Khương"],
     "image": "xe6.jpg",
-    "features": [
-      "Cốp rộng 25L",
-      "Bình xăng đầy khi giao xe",
-      "Bảo hiểm tai nạn đi kèm"
-    ],
-    "price": 180000,
+    "features": ["Cốp rộng 25L", "Bình xăng đầy khi giao xe", "Bảo hiểm tai nạn đi kèm"],
+    "priceOriginal": 180000,
+    "discount": 0,
     "priceUnit": "/ngày"
   },
   {
@@ -203,19 +151,12 @@
     "fuel": "Xăng",
     "category": "xemay",
     "city": "Hà Nội",
-    "locations": [
-      "Hoàn Kiếm",
-      "Ba Đình",
-      "Tây Hồ",
-      "Cầu Giấy"
-    ],
+    "pickupLocations": ["Hoàn Kiếm", "Ba Đình", "Tây Hồ", "Cầu Giấy"],
+    "dropoffLocations": ["Hoàn Kiếm", "Ba Đình", "Tây Hồ", "Cầu Giấy"],
     "image": "xe7.jpg",
-    "features": [
-      "Tiết kiệm xăng, dễ lái",
-      "Giao nhận tại khách sạn khu phố cổ",
-      "Hỗ trợ sự cố 24/7"
-    ],
-    "price": 130000,
+    "features": ["Tiết kiệm xăng, dễ lái", "Giao nhận tại khách sạn khu phố cổ", "Hỗ trợ sự cố 24/7"],
+    "priceOriginal": 130000,
+    "discount": 5,
     "priceUnit": "/ngày"
   },
   {
@@ -230,19 +171,12 @@
     "fuel": "Xăng",
     "category": "xemay",
     "city": "Hà Nội",
-    "locations": [
-      "Cầu Giấy",
-      "Nam Từ Liêm",
-      "Hà Đông",
-      "Sân bay Nội Bài"
-    ],
+    "pickupLocations": ["Cầu Giấy", "Nam Từ Liêm", "Hà Đông", "Sân bay Nội Bài"],
+    "dropoffLocations": ["Cầu Giấy", "Nam Từ Liêm", "Hà Đông", "Sân bay Nội Bài"],
     "image": "xe8.jpg",
-    "features": [
-      "Động cơ 155cc mạnh mẽ",
-      "Phù hợp đi phượt ngoại thành",
-      "Bình xăng đầy khi giao xe"
-    ],
-    "price": 220000,
+    "features": ["Động cơ 155cc mạnh mẽ", "Phù hợp đi phượt ngoại thành", "Bình xăng đầy khi giao xe"],
+    "priceOriginal": 220000,
+    "discount": 0,
     "priceUnit": "/ngày"
   },
   {
@@ -257,19 +191,12 @@
     "fuel": "Xăng",
     "category": "oto",
     "city": "TP.HCM",
-    "locations": [
-      "Quận 1",
-      "Quận 3",
-      "Tân Bình",
-      "Sân bay Tân Sơn Nhất"
-    ],
+    "pickupLocations": ["Quận 1", "Quận 3", "Tân Bình", "Sân bay Tân Sơn Nhất"],
+    "dropoffLocations": ["Quận 1", "Quận 3", "Tân Bình", "Sân bay Tân Sơn Nhất"],
     "image": "xe9.jpg",
-    "features": [
-      "Camera hành trình",
-      "Cảm biến lùi",
-      "Tiết kiệm nhiên liệu"
-    ],
-    "price": 620000,
+    "features": ["Camera hành trình", "Cảm biến lùi", "Tiết kiệm nhiên liệu"],
+    "priceOriginal": 620000,
+    "discount": 12,
     "priceUnit": "/ngày"
   },
   {
@@ -284,19 +211,12 @@
     "fuel": "Dầu",
     "category": "oto",
     "city": "TP.HCM",
-    "locations": [
-      "Quận 1",
-      "Quận 7",
-      "Bình Thạnh",
-      "Sân bay Tân Sơn Nhất"
-    ],
+    "pickupLocations": ["Quận 1", "Quận 7", "Bình Thạnh", "Sân bay Tân Sơn Nhất"],
+    "dropoffLocations": ["Quận 1", "Quận 7", "Bình Thạnh", "Sân bay Tân Sơn Nhất"],
     "image": "xe10.jpg",
-    "features": [
-      "Ghế da, 7 chỗ rộng rãi",
-      "Cửa sổ trời toàn cảnh",
-      "Camera 360 độ"
-    ],
-    "price": 1450000,
+    "features": ["Ghế da, 7 chỗ rộng rãi", "Cửa sổ trời toàn cảnh", "Camera 360 độ"],
+    "priceOriginal": 1450000,
+    "discount": 8,
     "priceUnit": "/ngày"
   },
   {
@@ -311,19 +231,12 @@
     "fuel": "Xăng",
     "category": "xemay",
     "city": "TP.HCM",
-    "locations": [
-      "Quận 1",
-      "Quận 3",
-      "Bình Thạnh",
-      "Thủ Đức"
-    ],
+    "pickupLocations": ["Quận 1", "Quận 3", "Bình Thạnh", "Thủ Đức"],
+    "dropoffLocations": ["Quận 1", "Quận 3", "Bình Thạnh", "Thủ Đức"],
     "image": "xe11.jpg",
-    "features": [
-      "Khóa thông minh Smart Key",
-      "Cốp rộng 18L",
-      "Giao xe tận nơi nội thành"
-    ],
-    "price": 280000,
+    "features": ["Khóa thông minh Smart Key", "Cốp rộng 18L", "Giao xe tận nơi nội thành"],
+    "priceOriginal": 280000,
+    "discount": 0,
     "priceUnit": "/ngày"
   },
   {
@@ -338,19 +251,12 @@
     "fuel": "Xăng",
     "category": "xemay",
     "city": "TP.HCM",
-    "locations": [
-      "Quận 1",
-      "Quận 3",
-      "Tân Bình",
-      "Thủ Đức"
-    ],
+    "pickupLocations": ["Quận 1", "Quận 3", "Tân Bình", "Thủ Đức"],
+    "dropoffLocations": ["Quận 1", "Quận 3", "Tân Bình", "Thủ Đức"],
     "image": "xe12.jpg",
-    "features": [
-      "Cốp siêu rộng 37L",
-      "Tiết kiệm xăng",
-      "Dễ lái cho mọi người"
-    ],
-    "price": 160000,
+    "features": ["Cốp siêu rộng 37L", "Tiết kiệm xăng", "Dễ lái cho mọi người"],
+    "priceOriginal": 160000,
+    "discount": 10,
     "priceUnit": "/ngày"
   },
   {
@@ -365,19 +271,12 @@
     "fuel": "Điện",
     "category": "oto",
     "city": "Đà Nẵng",
-    "locations": [
-      "Sân bay Đà Nẵng",
-      "Hải Châu",
-      "Sơn Trà",
-      "Bãi biển Mỹ Khê"
-    ],
+    "pickupLocations": ["Sân bay Đà Nẵng", "Hải Châu", "Sơn Trà", "Bãi biển Mỹ Khê"],
+    "dropoffLocations": ["Sân bay Đà Nẵng", "Hải Châu", "Sơn Trà", "Bãi biển Mỹ Khê"],
     "image": "xe3.jpg",
-    "features": [
-      "Vận hành êm, không tiếng ồn",
-      "Camera 360 độ",
-      "Sạc miễn phí tại trạm VinFast"
-    ],
-    "price": 850000,
+    "features": ["Vận hành êm, không tiếng ồn", "Camera 360 độ", "Sạc miễn phí tại trạm VinFast"],
+    "priceOriginal": 850000,
+    "discount": 15,
     "priceUnit": "/ngày"
   },
   {
@@ -392,19 +291,12 @@
     "fuel": "Xăng",
     "category": "oto",
     "city": "Đà Nẵng",
-    "locations": [
-      "Sân bay Đà Nẵng",
-      "Hải Châu",
-      "Ngũ Hành Sơn",
-      "Cầu Rồng"
-    ],
+    "pickupLocations": ["Sân bay Đà Nẵng", "Hải Châu", "Ngũ Hành Sơn", "Cầu Rồng"],
+    "dropoffLocations": ["Sân bay Đà Nẵng", "Hải Châu", "Ngũ Hành Sơn", "Cầu Rồng"],
     "image": "xe13.jpg",
-    "features": [
-      "Rộng rãi cho 7 người",
-      "Cốp chứa nhiều hành lý",
-      "Phù hợp đi Sơn Trà, Bà Nà"
-    ],
-    "price": 1000000,
+    "features": ["Rộng rãi cho 7 người", "Cốp chứa nhiều hành lý", "Phù hợp đi Sơn Trà, Bà Nà"],
+    "priceOriginal": 1000000,
+    "discount": 0,
     "priceUnit": "/ngày"
   },
   {
@@ -419,19 +311,12 @@
     "fuel": "Xăng",
     "category": "oto",
     "city": "Đà Nẵng",
-    "locations": [
-      "Hải Châu",
-      "Sơn Trà",
-      "Bãi biển Mỹ Khê",
-      "Sân bay Đà Nẵng"
-    ],
+    "pickupLocations": ["Hải Châu", "Sơn Trà", "Bãi biển Mỹ Khê", "Sân bay Đà Nẵng"],
+    "dropoffLocations": ["Hải Châu", "Sơn Trà", "Bãi biển Mỹ Khê", "Sân bay Đà Nẵng"],
     "image": "xe14.jpg",
-    "features": [
-      "Cảm biến lùi",
-      "Màn hình giải trí Android",
-      "Tiết kiệm nhiên liệu"
-    ],
-    "price": 600000,
+    "features": ["Cảm biến lùi", "Màn hình giải trí Android", "Tiết kiệm nhiên liệu"],
+    "priceOriginal": 600000,
+    "discount": 10,
     "priceUnit": "/ngày"
   },
   {
@@ -446,19 +331,12 @@
     "fuel": "Xăng",
     "category": "xemay",
     "city": "Đà Nẵng",
-    "locations": [
-      "Hải Châu",
-      "Sơn Trà",
-      "Ngũ Hành Sơn",
-      "Bãi biển Mỹ Khê"
-    ],
+    "pickupLocations": ["Hải Châu", "Sơn Trà", "Ngũ Hành Sơn", "Bãi biển Mỹ Khê"],
+    "dropoffLocations": ["Hải Châu", "Sơn Trà", "Ngũ Hành Sơn", "Bãi biển Mỹ Khê"],
     "image": "xe15.jpg",
-    "features": [
-      "Giao xe tận khách sạn",
-      "Xăng đầy bình khi nhận",
-      "Hỗ trợ sự cố 24/7"
-    ],
-    "price": 120000,
+    "features": ["Giao xe tận khách sạn", "Xăng đầy bình khi nhận", "Hỗ trợ sự cố 24/7"],
+    "priceOriginal": 120000,
+    "discount": 0,
     "priceUnit": "/ngày"
   },
   {
@@ -473,19 +351,12 @@
     "fuel": "Xăng",
     "category": "xemay",
     "city": "Đà Nẵng",
-    "locations": [
-      "Sơn Trà",
-      "Ngũ Hành Sơn",
-      "Cầu Rồng",
-      "Sân bay Đà Nẵng"
-    ],
+    "pickupLocations": ["Sơn Trà", "Ngũ Hành Sơn", "Cầu Rồng", "Sân bay Đà Nẵng"],
+    "dropoffLocations": ["Sơn Trà", "Ngũ Hành Sơn", "Cầu Rồng", "Sân bay Đà Nẵng"],
     "image": "xe16.jpg",
-    "features": [
-      "Chạy ổn định trên đèo Hải Vân",
-      "Kèm mũ fullface",
-      "Hỗ trợ sự cố 24/7"
-    ],
-    "price": 250000,
+    "features": ["Chạy ổn định trên đèo Hải Vân", "Kèm mũ fullface", "Hỗ trợ sự cố 24/7"],
+    "priceOriginal": 250000,
+    "discount": 5,
     "priceUnit": "/ngày"
   },
   {
@@ -500,19 +371,12 @@
     "fuel": "Dầu",
     "category": "oto",
     "city": "Sa Pa",
-    "locations": [
-      "Trung tâm Sa Pa",
-      "Ga Lào Cai",
-      "Bản Cát Cát",
-      "Ga Sa Pa"
-    ],
+    "pickupLocations": ["Trung tâm Sa Pa", "Ga Lào Cai", "Bản Cát Cát", "Ga Sa Pa"],
+    "dropoffLocations": ["Trung tâm Sa Pa", "Ga Lào Cai", "Bản Cát Cát", "Ga Sa Pa"],
     "image": "xe17.jpg",
-    "features": [
-      "Gầm cao, phù hợp đường đèo",
-      "Dẫn động mạnh mẽ",
-      "Giao xe tại ga Lào Cai"
-    ],
-    "price": 1500000,
+    "features": ["Gầm cao, phù hợp đường đèo", "Dẫn động mạnh mẽ", "Giao xe tại ga Lào Cai"],
+    "priceOriginal": 1500000,
+    "discount": 0,
     "priceUnit": "/ngày"
   },
   {
@@ -527,18 +391,12 @@
     "fuel": "Dầu",
     "category": "oto",
     "city": "Sa Pa",
-    "locations": [
-      "Trung tâm Sa Pa",
-      "Ga Lào Cai",
-      "Bản Cát Cát"
-    ],
+    "pickupLocations": ["Trung tâm Sa Pa", "Ga Lào Cai", "Bản Cát Cát"],
+    "dropoffLocations": ["Trung tâm Sa Pa", "Ga Lào Cai", "Bản Cát Cát"],
     "image": "xe18.jpg",
-    "features": [
-      "Dẫn động 2 cầu vượt đường xấu",
-      "Thùng sau chở hành lý",
-      "Phù hợp cung đường Tây Bắc"
-    ],
-    "price": 1300000,
+    "features": ["Dẫn động 2 cầu vượt đường xấu", "Thùng sau chở hành lý", "Phù hợp cung đường Tây Bắc"],
+    "priceOriginal": 1300000,
+    "discount": 10,
     "priceUnit": "/ngày"
   },
   {
@@ -553,18 +411,12 @@
     "fuel": "Dầu",
     "category": "oto",
     "city": "Sa Pa",
-    "locations": [
-      "Trung tâm Sa Pa",
-      "Ga Sa Pa",
-      "Ga Lào Cai"
-    ],
+    "pickupLocations": ["Trung tâm Sa Pa", "Ga Sa Pa", "Ga Lào Cai"],
+    "dropoffLocations": ["Trung tâm Sa Pa", "Ga Sa Pa", "Ga Lào Cai"],
     "image": "xe1.jpg",
-    "features": [
-      "Ghế ngả massage",
-      "Cổng sạc USB từng ghế",
-      "Đón trả tại khách sạn"
-    ],
-    "price": 2500000,
+    "features": ["Ghế ngả massage", "Cổng sạc USB từng ghế", "Đón trả tại khách sạn"],
+    "priceOriginal": 2500000,
+    "discount": 0,
     "priceUnit": "/ngày"
   },
   {
@@ -579,18 +431,12 @@
     "fuel": "Xăng",
     "category": "xemay",
     "city": "Sa Pa",
-    "locations": [
-      "Trung tâm Sa Pa",
-      "Bản Cát Cát",
-      "Ga Lào Cai"
-    ],
+    "pickupLocations": ["Trung tâm Sa Pa", "Bản Cát Cát", "Ga Lào Cai"],
+    "dropoffLocations": ["Trung tâm Sa Pa", "Bản Cát Cát", "Ga Lào Cai"],
     "image": "xe21.jpg",
-    "features": [
-      "Phù hợp cung đường đèo",
-      "Kèm mũ fullface",
-      "Hỗ trợ sự cố 24/7"
-    ],
-    "price": 250000,
+    "features": ["Phù hợp cung đường đèo", "Kèm mũ fullface", "Hỗ trợ sự cố 24/7"],
+    "priceOriginal": 250000,
+    "discount": 8,
     "priceUnit": "/ngày"
   },
   {
@@ -605,18 +451,12 @@
     "fuel": "Xăng",
     "category": "xemay",
     "city": "Sa Pa",
-    "locations": [
-      "Trung tâm Sa Pa",
-      "Bản Cát Cát",
-      "Ga Sa Pa"
-    ],
+    "pickupLocations": ["Trung tâm Sa Pa", "Bản Cát Cát", "Ga Sa Pa"],
+    "dropoffLocations": ["Trung tâm Sa Pa", "Bản Cát Cát", "Ga Sa Pa"],
     "image": "xe8.jpg",
-    "features": [
-      "Gầm cao, đi đường xấu tốt",
-      "Phuộc hành trình dài",
-      "Bình xăng đầy khi giao xe"
-    ],
-    "price": 280000,
+    "features": ["Gầm cao, đi đường xấu tốt", "Phuộc hành trình dài", "Bình xăng đầy khi giao xe"],
+    "priceOriginal": 280000,
+    "discount": 0,
     "priceUnit": "/ngày"
   },
   {
@@ -631,17 +471,12 @@
     "fuel": "Xăng",
     "category": "xemay",
     "city": "Sa Pa",
-    "locations": [
-      "Trung tâm Sa Pa",
-      "Ga Lào Cai"
-    ],
+    "pickupLocations": ["Trung tâm Sa Pa", "Ga Lào Cai"],
+    "dropoffLocations": ["Trung tâm Sa Pa", "Ga Lào Cai"],
     "image": "xe16.jpg",
-    "features": [
-      "Động cơ 500cc cho đường dài",
-      "Kèm áo giáp và mũ fullface",
-      "Cần bằng lái A2"
-    ],
-    "price": 900000,
+    "features": ["Động cơ 500cc cho đường dài", "Kèm áo giáp và mũ fullface", "Cần bằng lái A2"],
+    "priceOriginal": 900000,
+    "discount": 0,
     "priceUnit": "/ngày"
   },
   {
@@ -656,19 +491,12 @@
     "fuel": "Xăng",
     "category": "oto",
     "city": "Đà Lạt",
-    "locations": [
-      "Sân bay Liên Khương",
-      "Trung tâm Đà Lạt",
-      "Hồ Xuân Hương",
-      "Chợ Đà Lạt"
-    ],
+    "pickupLocations": ["Sân bay Liên Khương", "Trung tâm Đà Lạt", "Hồ Xuân Hương", "Chợ Đà Lạt"],
+    "dropoffLocations": ["Sân bay Liên Khương", "Trung tâm Đà Lạt", "Hồ Xuân Hương", "Chợ Đà Lạt"],
     "image": "xe9.jpg",
-    "features": [
-      "Rộng rãi cho 7 người",
-      "Cốp chứa nhiều hành lý",
-      "Phù hợp đường đèo Đà Lạt"
-    ],
-    "price": 1000000,
+    "features": ["Rộng rãi cho 7 người", "Cốp chứa nhiều hành lý", "Phù hợp đường đèo Đà Lạt"],
+    "priceOriginal": 1000000,
+    "discount": 10,
     "priceUnit": "/ngày"
   },
   {
@@ -683,18 +511,12 @@
     "fuel": "Xăng",
     "category": "oto",
     "city": "Đà Lạt",
-    "locations": [
-      "Trung tâm Đà Lạt",
-      "Hồ Xuân Hương",
-      "Chợ Đà Lạt"
-    ],
+    "pickupLocations": ["Trung tâm Đà Lạt", "Hồ Xuân Hương", "Chợ Đà Lạt"],
+    "dropoffLocations": ["Trung tâm Đà Lạt", "Hồ Xuân Hương", "Chợ Đà Lạt"],
     "image": "xe17.jpg",
-    "features": [
-      "Nhỏ gọn, dễ đi phố đồi",
-      "Camera hành trình",
-      "Tiết kiệm nhiên liệu"
-    ],
-    "price": 620000,
+    "features": ["Nhỏ gọn, dễ đi phố đồi", "Camera hành trình", "Tiết kiệm nhiên liệu"],
+    "priceOriginal": 620000,
+    "discount": 15,
     "priceUnit": "/ngày"
   },
   {
@@ -709,18 +531,12 @@
     "fuel": "Dầu",
     "category": "oto",
     "city": "Đà Lạt",
-    "locations": [
-      "Sân bay Liên Khương",
-      "Trung tâm Đà Lạt",
-      "Hồ Xuân Hương"
-    ],
+    "pickupLocations": ["Sân bay Liên Khương", "Trung tâm Đà Lạt", "Hồ Xuân Hương"],
+    "dropoffLocations": ["Sân bay Liên Khương", "Trung tâm Đà Lạt", "Hồ Xuân Hương"],
     "image": "xe18.jpg",
-    "features": [
-      "Ghế ngả massage",
-      "Cổng sạc USB từng ghế",
-      "Đón trả tại khách sạn"
-    ],
-    "price": 2300000,
+    "features": ["Ghế ngả massage", "Cổng sạc USB từng ghế", "Đón trả tại khách sạn"],
+    "priceOriginal": 2300000,
+    "discount": 0,
     "priceUnit": "/ngày"
   },
   {
@@ -735,18 +551,12 @@
     "fuel": "Xăng",
     "category": "xemay",
     "city": "Đà Lạt",
-    "locations": [
-      "Trung tâm Đà Lạt",
-      "Đồi chè Cầu Đất",
-      "Hồ Xuân Hương"
-    ],
+    "pickupLocations": ["Trung tâm Đà Lạt", "Đồi chè Cầu Đất", "Hồ Xuân Hương"],
+    "dropoffLocations": ["Trung tâm Đà Lạt", "Đồi chè Cầu Đất", "Hồ Xuân Hương"],
     "image": "xe20.jpg",
-    "features": [
-      "Phù hợp đèo Prenn, Tà Nung",
-      "Kèm mũ fullface",
-      "Hỗ trợ sự cố 24/7"
-    ],
-    "price": 250000,
+    "features": ["Phù hợp đèo Prenn, Tà Nung", "Kèm mũ fullface", "Hỗ trợ sự cố 24/7"],
+    "priceOriginal": 250000,
+    "discount": 5,
     "priceUnit": "/ngày"
   },
   {
@@ -761,18 +571,12 @@
     "fuel": "Xăng",
     "category": "xemay",
     "city": "Đà Lạt",
-    "locations": [
-      "Trung tâm Đà Lạt",
-      "Hồ Xuân Hương",
-      "Chợ Đà Lạt"
-    ],
+    "pickupLocations": ["Trung tâm Đà Lạt", "Hồ Xuân Hương", "Chợ Đà Lạt"],
+    "dropoffLocations": ["Trung tâm Đà Lạt", "Hồ Xuân Hương", "Chợ Đà Lạt"],
     "image": "xe21.jpg",
-    "features": [
-      "Nhẹ, dễ lái trên dốc",
-      "Giao xe tận khách sạn",
-      "Xăng đầy bình khi nhận"
-    ],
-    "price": 130000,
+    "features": ["Nhẹ, dễ lái trên dốc", "Giao xe tận khách sạn", "Xăng đầy bình khi nhận"],
+    "priceOriginal": 130000,
+    "discount": 10,
     "priceUnit": "/ngày"
   }
 ]
