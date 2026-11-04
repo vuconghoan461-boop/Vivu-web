@@ -1,0 +1,10 @@
+# AI Usage Log
+
+## Entry 0
+- Công cụ: Chat Gpt
+- Ngày: 04.11
+- Mục đích: Sửa lại logic của AI planner đã demo
+- Tóm tắt prompt: Hiện tại luồng của AI planner đang hơi loạn, tóm tắt lại luồng và giúp tôi gợi ý Css mới theo nhận diện. Sau đó gợi ý cách sửa theo định hướng của tôi 
+- Đầu ra đã dùng: module AI planner 
+- Cách kiểm chứng: review bởi cả nhóm trong buổi họp
+- File/commit liên quan: commnit 04.11 AI planner
