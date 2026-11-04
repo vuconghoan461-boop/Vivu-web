@@ -1,0 +1,10 @@
+# AI Usage Log
+
+Entry 0
+Công cụ: ChatGPT
+Ngày: 04/11/2026
+Mục đích: Hỗ trợ khởi tạo backend cho AI Planner.
+Tóm tắt prompt: Tạo backend nhận tiêu chí chuyến đi, gọi Gemini API và trả gợi ý điểm đến/lịch trình.
+Đầu ra đã dùng: server.js với các API /api/ai/recommend, /api/ai/itinerary, /api/ai/customize; API key cấu hình qua .env.
+Cách kiểm chứng: Chạy server local và gửi yêu cầu từ form AI Planner; khi Gemini quá tải, hệ thống báo lỗi và hiển thị dữ liệu mẫu.
+File liên quan: server.js, js/AI.js, .env.example, README.md.
