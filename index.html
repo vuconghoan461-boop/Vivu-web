@@ -8,23 +8,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/footer.css">
 </head>
 <body>
   <header class="site-header">
-    <div class="header-inner">
+    <div class="vivugo-container header-inner">
+
       <a href="#explore" class="brand-logo" data-page="explore" aria-label="VivuGo - Khám phá">
         <img src="./assets/LogoVivugo.png" alt="VivuGo" class="logo-image">
       </a>
 
       <nav class="main-nav" id="nav">
         <div class="nav-dropdown">
-          <button class="nav-link" data-page="services">Dịch vụ<span class="dropdown-arrow"></span></button>
+          <button class="nav-link nav-service" data-page="services">
+            Dịch vụ
+            <span class="dropdown-arrow"></span>
+          </button>
           <div class="service-dropdown">
-            <button data-service="hotel">Khách sạn</button>
-            <button data-service="tour">Tour du lịch</button>
-            <button data-service="carrent">Thuê xe</button>
-            <button data-service="transportation">Di chuyển</button>
+            <button data-service="hotel"><span>Khách sạn</span></button>
+            <button data-service="tour"><span>Tour du lịch</span></button>
+            <button data-service="carrent"><span>Thuê xe</span></button>
+            <button data-service="transportation"><span>Di chuyển</span></button>
           </div>
         </div>
         <button class="nav-link" data-page="explore">Khám phá điểm đến</button>
@@ -35,18 +40,27 @@
 
       <div class="header-actions">
         <button type="button" class="btn-icon" title="Lịch của tôi" aria-label="Mở lịch của tôi" data-page="calendar">
-          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 21 12 3l2 10 7 2-18 6Z"/>
             <path d="m14 13 4 4"/>
           </svg>
           <span class="badge">1</span>
         </button>
+
         <div class="account-actions">
           <button class="btn-primary" data-page="account" data-auth="login">Đăng nhập</button>
           <button class="btn-primary" data-page="account" data-auth="register">Đăng ký</button>
         </div>
-        <button type="button" class="nav-toggle" id="menu" aria-label="Mở menu" aria-expanded="false">☰</button>
+
+        <button type="button" class="nav-toggle" id="menu" aria-label="Mở menu" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
       </div>
+
     </div>
   </header>
 
