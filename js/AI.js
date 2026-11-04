@@ -1,33 +1,38 @@
 'use strict';
 const $ = (id) => document.getElementById(id);
-const MODELS = ['gemini-flash-latest', 'gemini-3.1-flash-lite']; // thử lần lượt nếu model quá tải
+const MODEL = 'gemini-3.5-flash-lite';
 const PREFS = ['Thiên nhiên', 'Ẩm thực', 'Check-in', 'Biển đảo', 'Săn mây', 'Văn hóa', 'Nghỉ dưỡng', 'Khám phá'];
 const state = { prefs: ['Thiên nhiên', 'Ẩm thực'], dest: null, itin: null, inputs: null };
 const money = (n) => Number(n || 0).toLocaleString('vi-VN') + 'đ';
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const getKey = () => localStorage.getItem('GEMINI_API_KEY') || '';
-
-/* ---------- Gemini (gọi trực tiếp từ trình duyệt) ---------- */
-async function askGemini(prompt) {
-  const key = getKey();
-  if (!key) return null;
-  for (const model of MODELS) {
-    try {
-      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { responseMimeType: 'application/json', temperature: 0.7 },
-        }),
-      });
-      if (!res.ok) { console.warn('Gemini', model, res.status); continue; }
-      const data = await res.json();
-      const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-      if (text) return JSON.parse(text.trim().replace(/^```(?:json)?\s*|\s*```$/gi, ''));
-    } catch (e) { console.warn('Gemini lỗi', model, e); }
+/* ---------- Gọi Gemini trực tiếp cho bản demo ---------- */
+function getKey() {
+  let key = localStorage.getItem('') || '';
+  if (!key) {
+    key = window.prompt('Nhập Gemini API key để dùng AI trong bản demo:') || '';
+    key = key.trim();
+    if (key) localStorage.setItem('', key);
   }
-  return null;
+  return key;
+}
+
+async function askGemini(promptText) {
+  const key = getKey();
+  if (!key) throw new Error('Chưa nhập Gemini API key.');
+  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: promptText }] }],
+      generationConfig: { responseMimeType: 'application/json', temperature: 0.7 },
+    }),
+  });
+  const result = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(result?.error?.message || `Gemini trả về lỗi HTTP ${response.status}.`);
+  const text = result?.candidates?.[0]?.content?.parts?.map((part) => part.text || '').join('');
+  if (!text) throw new Error('Gemini không trả về nội dung.');
+  try { return JSON.parse(text.trim().replace(/^```(?:json)?\s*|\s*```$/gi, '')); }
+  catch { throw new Error('Gemini trả về dữ liệu không đúng định dạng JSON.'); }
 }
 
 /* ---------- Dữ liệu mẫu (fallback khi không có key / AI lỗi) ---------- */
@@ -94,40 +99,48 @@ async function suggest(e) {
   const i = state.inputs = readInputs(), btn = e.submitter; btn.disabled = true;
   setStatus('AI đang chọn điểm đến phù hợp...');
   $('stepTrip').hidden = true;
-  const prompt = `Bạn là chuyên gia tư vấn du lịch của VivuGo. Người dùng: sở thích ${i.prefs.join(', ') || 'Thiên nhiên'}; ${i.duration}; ngân sách ${i.budget}/người; đi cùng ${i.companions}; phương tiện ${i.transport}; xuất phát ${i.departure}.${i.notes ? ' Yêu cầu đặc biệt: ' + i.notes : ''}
-Gợi ý đúng 3 điểm đến tại Việt Nam. Trả về JSON array, mỗi phần tử: {"id","name","tagline","badge","matchScores":[{"label","percent"}x3],"estimatedCost":"~3.7 triệu / người","costNumber":3700000,"highlights":[4 chuỗi],"imageUrl":"https://images.unsplash.com/...","reasoning":"2-3 câu"}`;
-  const ai = await askGemini(prompt);
-  const ok = Array.isArray(ai) && ai.length;
-  renderDest(ok ? ai : MOCK_DEST(i));
-  setStatus(ok ? '' : (getKey() ? 'AI đang bận, đã dùng dữ liệu mẫu.' : 'Chưa có API key, đang dùng dữ liệu mẫu.'), !ok && !!getKey());
-  btn.disabled = false;
+  try {
+    const prompt = `Bạn là chuyên gia tư vấn du lịch của VivuGo. Dựa trên tiêu chí sau, gợi ý đúng 3 điểm đến thực tế tại Việt Nam. Ước tính chi phí, không khẳng định giá theo thời gian thực. Chỉ trả về JSON array.\nTiêu chí: ${JSON.stringify(i)}\nMỗi phần tử gồm: {"id":"slug","name":"tên","tagline":"mô tả ngắn","badge":"nhãn","matchScores":[{"label":"tiêu chí","percent":90}],"estimatedCost":"~3.7 triệu / người","costNumber":3700000,"highlights":["4 điểm nổi bật"],"imageUrl":"URL ảnh https://images.unsplash.com/...","reasoning":"lý do phù hợp"}.`;
+    const ai = await askGemini(prompt);
+    if (!Array.isArray(ai) || ai.length < 1) throw new Error('Gemini chưa trả về danh sách điểm đến.');
+    renderDest(ai);
+    setStatus('');
+  } catch (error) {
+    console.error(error);
+    renderDest(MOCK_DEST(i));
+    setStatus(`${error.message} Đang hiển thị dữ liệu mẫu.`, true);
+  } finally { btn.disabled = false; }
 }
 async function pickDest(d) {
   const i = state.inputs || readInputs(); state.dest = d;
   setStatus(`AI đang thiết kế lịch trình ${d.name}...`);
-  const prompt = `Bạn là chuyên gia thiết kế lịch trình của VivuGo. Tạo lịch trình chi tiết: điểm đến ${d.name}; ${i.duration}; ngân sách ${i.budget}/người; sở thích ${i.prefs.join(', ')}; đi cùng ${i.companions}; phương tiện ${i.transport}; xuất phát ${i.departure}.
-Trả về JSON object: {"destinationName","duration","estimatedCostPerPerson":number,"overview":{"summary","bestTimeToVisit","suitableFor","packingTips":[4]},"costBreakdown":[{"category","amount":number,"details"}],"days":[{"dayNumber":number,"title","summary","activities":[{"id","time":"06:30","title","description","location","cost","tag"}]}]}`;
-  const ai = await askGemini(prompt);
-  const ok = ai && Array.isArray(ai.days);
-  state.itin = ok ? ai : mockItinerary(d, i);
-  renderTrip(state.itin); setStatus(ok ? '' : 'Đang dùng lịch trình mẫu.');
+  try {
+    const prompt = `Bạn là chuyên gia thiết kế lịch trình du lịch Việt Nam. Tạo lịch trình phù hợp với dữ liệu sau, không khẳng định giá/lịch mở cửa theo thời gian thực. Chỉ trả về JSON object.\nTiêu chí chuyến đi: ${JSON.stringify(i)}\nĐiểm đến đã chọn: ${JSON.stringify(d)}\nCấu trúc: {"destinationName":"","duration":"","estimatedCostPerPerson":0,"overview":{"summary":"","bestTimeToVisit":"","suitableFor":"","packingTips":["4 gợi ý"]},"costBreakdown":[{"category":"","amount":0,"details":""}],"days":[{"dayNumber":1,"title":"","summary":"","activities":[{"id":"","time":"06:30","title":"","description":"","location":"","cost":"","tag":""}]}]}.`;
+    state.itin = await askGemini(prompt);
+    if (!Array.isArray(state.itin.days)) throw new Error('Gemini chưa trả về lịch trình hợp lệ.');
+    renderTrip(state.itin); setStatus('');
+  } catch (error) {
+    console.error(error);
+    state.itin = mockItinerary(d, i);
+    renderTrip(state.itin); setStatus(`${error.message} Đang hiển thị lịch trình mẫu.`, true);
+  }
   $('stepTrip').scrollIntoView({ behavior: 'smooth' });
 }
 async function customize() {
   const btn = $('customBtn'), v = (id) => +$(id).value, up = $('userPrompt').value.trim();
   btn.disabled = true; setStatus('AI đang điều chỉnh lịch trình...');
-  const prompt = `Bạn là AI Trip Designer của VivuGo. Điều chỉnh lịch trình "${state.itin.destinationName}".
-Phong cách: ${v('sStyle') > 60 ? 'khám phá, vận động' : v('sStyle') < 40 ? 'chill thư giãn' : 'cân bằng'}. Chi tiêu: ${v('sSpend') > 60 ? 'thoải mái' : v('sSpend') < 40 ? 'tiết kiệm tối đa' : 'cân bằng'}. Mật độ: ${v('sPace') > 60 ? 'dày đặc' : v('sPace') < 40 ? 'thư thả' : 'vừa phải'}. Yêu cầu thêm: "${up || 'Tối ưu theo các thanh điều chỉnh'}".
-Lịch trình hiện tại: ${JSON.stringify(state.itin)}
-Trả về JSON: {"updatedItinerary":{cùng cấu trúc},"summaryBullets":[3 chuỗi],"aiMessage":"1 câu thân thiện"}`;
-  const ai = await askGemini(prompt);
   let bullets, msg;
-  if (ai && ai.updatedItinerary) { state.itin = ai.updatedItinerary; bullets = ai.summaryBullets; msg = ai.aiMessage; setStatus(''); }
-  else {
+  try {
+    const prompt = `Bạn là AI Trip Designer của VivuGo. Điều chỉnh lịch trình theo các thanh và yêu cầu, giữ cấu trúc JSON. Phong cách=${v('sStyle')}, chi tiêu=${v('sSpend')}, nhịp độ=${v('sPace')}, yêu cầu thêm=${JSON.stringify(up)}.\nLịch trình hiện tại: ${JSON.stringify(state.itin)}\nTrả về JSON object: {"updatedItinerary":{"destinationName":"","duration":"","estimatedCostPerPerson":0,"overview":{"summary":"","bestTimeToVisit":"","suitableFor":"","packingTips":[]},"costBreakdown":[{"category":"","amount":0,"details":""}],"days":[{"dayNumber":1,"title":"","summary":"","activities":[{"id":"","time":"","title":"","description":"","location":"","cost":"","tag":""}]}]},"summaryBullets":["3 thay đổi"],"aiMessage":"một câu thân thiện"}.`;
+    const ai = await askGemini(prompt);
+    if (!ai.updatedItinerary) throw new Error('Gemini chưa trả về lịch trình đã điều chỉnh.');
+    state.itin = ai.updatedItinerary; bullets = ai.summaryBullets; msg = ai.aiMessage; setStatus('');
+  } catch (error) {
+    console.error(error);
     const t = state.itin;
     if (/tiết kiệm/i.test(up) || v('sSpend') < 40) t.estimatedCostPerPerson = Math.max(2500000, (t.estimatedCostPerPerson || 3700000) - 500000);
     bullets = ['Điều chỉnh nhịp độ chuyến đi', 'Cập nhật gợi ý ăn uống phù hợp', 'Tối ưu thời gian nghỉ ngơi']; msg = 'Đã áp dụng điều chỉnh cơ bản (chưa dùng được AI).';
-    setStatus(getKey() ? 'AI đang bận, đã dùng điều chỉnh cơ bản.' : 'Chưa có API key, chỉ điều chỉnh cơ bản.');
+    setStatus(`${error.message} Đã áp dụng điều chỉnh cơ bản.`, true);
   }
   renderTrip(state.itin);
   $('changes').innerHTML = `<p><b>${esc(msg)}</b></p><ul>${(bullets || []).map((b) => `<li>${esc(b)}</li>`).join('')}</ul>`;
@@ -137,18 +150,11 @@ Trả về JSON: {"updatedItinerary":{cùng cấu trúc},"summaryBullets":[3 chu
 /* ---------- Sự kiện ---------- */
 $('prefs').addEventListener('click', (e) => {
   const p = e.target.dataset.p; if (!p) return;
-  state.prefs = state.prefs.includes(p) ? state.prefs.filter((x) => x !== p) : [...state.prefs, p]; $('embedBtn').addEventListener('click', () => {
-  $('embedCode').value = `<iframe src="${location.href.split('#')[0]}" width="100%" height="800" style="border:0;border-radius:16px" title="VivuGo"></iframe>`;
-  $('embedDialog').showModal();
-});
-$('embedCopy').addEventListener('click', async (e) => {
-  try { await navigator.clipboard.writeText($('embedCode').value); e.target.textContent = 'Đã sao chép'; } catch { $('embedCode').select(); }
-});
-renderPrefs();
+  state.prefs = state.prefs.includes(p) ? state.prefs.filter((x) => x !== p) : [...state.prefs, p];
+  renderPrefs();
 });
 $('form').addEventListener('submit', suggest);
 $('destList').addEventListener('click', (e) => { const b = e.target.closest('button[data-i]'); if (b) pickDest(state.list[+b.dataset.i]); });
 $('customBtn').addEventListener('click', customize);
-$('keyBtn').addEventListener('click', () => { $('keyInput').value = getKey(); $('keyDialog').showModal(); });
-$('keySave').addEventListener('click', () => { const k = $('keyInput').value.trim(); k ? localStorage.setItem('GEMINI_API_KEY', k) : localStorage.removeItem('GEMINI_API_KEY'); });
+
 renderPrefs();
