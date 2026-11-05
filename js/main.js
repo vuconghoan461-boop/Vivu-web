@@ -1,214 +1,305 @@
-// ======================================
-// 0. CẤU HÌNH TRANG
-// Đường dẫn tính từ file index.html (không phải từ file JS)
-// ======================================
 
 const pages = {
-    explore: {
-        title: 'Khám phá điểm đến',
-        kicker: 'CẨM NANG DU LỊCH',
-        src: './pages/explore.html'
-    },
-    services: {
-        title: 'Dịch vụ du lịch',
-        kicker: 'TOUR · KHÁCH SẠN · THUÊ XE',
-        src: './pages/service/servicepage.html'
-    },
-    ai: {
-        title: 'Trợ lý AI',
-        kicker: 'AI TRIP DESIGNER',
-        src: './pages/AI planner/AI.html'
-    },
-    calendar: {
-        title: 'Lịch của tôi',
-        kicker: 'QUẢN LÝ HÀNH TRÌNH',
-        src: './pages/account/mycalendar/mycalendar.html'
-    },
-    account: {
-        title: 'Tài khoản',
-        kicker: 'HỒ SƠ · ĐẶT CHỖ · HỖ TRỢ',
-        src: './pages/account/account.html'
-    }
+  explore: {
+    title: 'Khám phá điểm đến',
+    kicker: 'CẨM NANG DU LỊCH',
+    src: 'pages/explore.html'
+  },
+
+  services: {
+    title: 'Dịch vụ du lịch',
+    kicker: 'TOUR · KHÁCH SẠN · THUÊ XE',
+    src: 'pages/service/servicepage.html'
+  },
+
+  ai: {
+    title: 'Trợ lý AI',
+    kicker: 'AI TRIP DESIGNER',
+    src: 'pages/AI planner/AI.html'
+  },
+
+  calendar: {
+    title: 'Lịch của tôi',
+    kicker: 'QUẢN LÝ HÀNH TRÌNH',
+    src: 'pages/account/mycalendar/mycalendar.html'
+  },
+
+  account: {
+    title: 'Tài khoản',
+    kicker: 'HỒ SƠ · ĐẶT CHỖ · HỖ TRỢ',
+    src: 'pages/account/login.html'
+  }
 };
 
-// Các trang con trong dropdown "Dịch vụ"
-const servicePages = {
-    hotel: './pages/service/hotel.html',
-    tour: './pages/service/tour.html',
-    carrent: './pages/service/CarRent.html',
-    transportation: './pages/service/transportation.html'
-};
-
-const buttons = [...document.querySelectorAll('[data-page]')];
 const frame = document.querySelector('#module');
 const nav = document.querySelector('#nav');
 const menu = document.querySelector('#menu');
+const buttons = [...document.querySelectorAll('[data-page]')];
 
+if (!frame) {
+  throw new Error('Không tìm thấy iframe #module');
+}
 
-// ======================================
-// 1. TỰ ĐỘNG ĐIỀU CHỈNH CHIỀU CAO IFRAME
+// Cập nhật tiêu đề nếu HTML có khai báo hai ID này
+function updateModuleInfo(page) {
+  const title = document.querySelector('#module-title');
+  const kicker = document.querySelector('#module-kicker');
 
-function fitModuleHeight() {
+  if (title) title.textContent = page.title;
+  if (kicker) kicker.textContent = page.kicker;
+}
+
+// Đánh dấu menu đang hoạt động
+function updateActiveMenu(name) {
+  buttons.forEach(button => {
+    const isActive =
+      button.dataset.page === name &&
+      button.classList.contains('nav-link');
+
+    button.classList.toggle('active', isActive);
+  });
+}
+
+// Đóng menu mobile
+function closeMobileMenu() {
+  nav?.classList.remove('open');
+  menu?.setAttribute('aria-expanded', 'false');
+}
+
+// Để trang ngoài là nơi cuộn duy nhất, iframe tự cao theo nội dung module.
+function autoResizeIframe() {
+  let resizeObserver;
+
+  const updateVisibleModalArea = () => {
     try {
-        const doc = frame.contentDocument;
+      const doc = frame.contentDocument;
+      if (!doc?.documentElement) return;
 
-        if (!doc || !doc.body) return;
+      const rect = frame.getBoundingClientRect();
+      const visibleTop = Math.max(0, -rect.top);
+      const visibleBottom = Math.min(rect.height, window.innerHeight - rect.top);
+      const visibleHeight = Math.max(0, visibleBottom - visibleTop);
 
-        const update = () => {
-            requestAnimationFrame(() => {
-                const height = Math.max(
-                    doc.documentElement.scrollHeight,
-                    doc.body.scrollHeight,
-                    doc.documentElement.offsetHeight,
-                    doc.body.offsetHeight
-                );
-
-                frame.style.height = height + 'px';
-            });
-        };
-
-        if (frame._fitObserver) frame._fitObserver.disconnect();
-        if (frame._fitMutations) frame._fitMutations.disconnect();
-
-        frame._fitObserver = new ResizeObserver(update);
-        frame._fitObserver.observe(doc.documentElement);
-        frame._fitObserver.observe(doc.body);
-
-        frame._fitMutations = new MutationObserver(update);
-        frame._fitMutations.observe(doc.body, {
-            childList: true,
-            subtree: true,
-            attributes: true,
-            characterData: true
-        });
-
-        doc.querySelectorAll('img').forEach(img => {
-            img.addEventListener('load', update, { once: true });
-        });
-
-        update();
-
+      doc.documentElement.style.setProperty('--outer-visible-top', `${visibleTop}px`);
+      doc.documentElement.style.setProperty('--outer-visible-height', `${visibleHeight}px`);
     } catch (error) {
-        console.error('Không thể điều chỉnh chiều cao iframe:', error);
+      console.warn('Không thể cập nhật vị trí hộp thoại:', error);
     }
-}
+  };
 
-frame.addEventListener('load', fitModuleHeight);
+  const update = () => {
+    try {
+      const doc = frame.contentDocument;
+      if (!doc?.body || !doc.documentElement) return;
 
+      const body = doc.body;
+      const root = doc.documentElement;
+      const height = Math.max(
+        body.scrollHeight,
+        body.offsetHeight,
+        root.scrollHeight,
+        root.offsetHeight
+      );
 
-// ======================================
-// 2. HÀM DÙNG CHUNG
-// ======================================
-
-function updateHeader(page) {
-    const title = document.querySelector('#module-title');
-    const kicker = document.querySelector('#module-kicker');
-
-    if (title) title.textContent = page.title;
-    if (kicker) kicker.textContent = page.kicker;
-}
-
-function setActive(name) {
-    buttons.forEach(button => {
-        button.classList.toggle(
-            'active',
-            button.dataset.page === name &&
-            button.classList.contains('nav-link')
-        );
-    });
-}
-
-function closeMenu() {
-    if (nav) nav.classList.remove('open');
-    if (menu) menu.setAttribute('aria-expanded', 'false');
-}
-
-
-// ======================================
-// 3. HÀM ĐIỀU HƯỚNG TRANG
-// ======================================
-
-function openPage(name, auth = '') {
-    const page = pages[name];
-
-    if (!page) {
-        console.error('Không tìm thấy trang:', name);
-        return;
+      frame.style.height = `${height}px`;
+      updateVisibleModalArea();
+    } catch (error) {
+      console.warn('Không thể tự động điều chỉnh iframe:', error);
     }
+  };
 
-    frame.src = page.src + (auth ? '#' + auth : '');
+  const handleLoad = () => {
+    try {
+      const doc = frame.contentDocument;
+      if (!doc?.documentElement || !doc.body) return;
 
-    updateHeader(page);
-    setActive(name);
-    closeMenu();
+      // Bỏ chiều cao của module trước để trang ngắn (như AI) đo lại được.
+      frame.style.height = '1px';
+      resizeObserver?.disconnect();
+      resizeObserver = new ResizeObserver(update);
+      resizeObserver.observe(doc.documentElement);
+      resizeObserver.observe(doc.body);
 
-    history.replaceState(null, '', '#' + name + (auth ? '-' + auth : ''));
+      if (!doc.querySelector('#outer-modal-viewport-style')) {
+        const style = doc.createElement('style');
+        style.id = 'outer-modal-viewport-style';
+        style.textContent = `
+          .modal-overlay {
+            position: absolute !important;
+            top: var(--outer-visible-top, 0px) !important;
+            right: 0 !important;
+            bottom: auto !important;
+            left: 0 !important;
+            height: var(--outer-visible-height, 100vh) !important;
+            min-height: var(--outer-visible-height, 100vh) !important;
+          }
+          .booking-modal,
+          .success-modal {
+            max-height: calc(var(--outer-visible-height, 100vh) - 40px) !important;
+          }
+        `;
+        doc.head.append(style);
+      }
+
+      doc.querySelectorAll('img').forEach(img => {
+        if (!img.complete) {
+          img.addEventListener('load', update, { once: true });
+          img.addEventListener('error', update, { once: true });
+}
+      });
+
+      doc.fonts?.ready.then(update).catch(() => {});
+      update();
+    } catch (error) {
+      console.warn('Không thể tự động điều chỉnh iframe:', error);
+    }
+  };
+
+  frame.addEventListener('load', handleLoad);
+  window.addEventListener('resize', update);
+  window.addEventListener('scroll', updateVisibleModalArea, { passive: true });
+
+  if (frame.contentDocument?.readyState === 'complete') handleLoad();
 }
 
+autoResizeIframe();
 
-// ======================================
-// 4. XỬ LÝ CÁC NÚT DATA-PAGE
-// ======================================
+// Điều hướng module chính
+function openPage(name, auth = '', saveHistory = true) {
+  const page = pages[name];
 
+  if (!page) {
+    console.warn('Không tìm thấy module:', name);
+    return;
+  }
+
+  frame.src = page.src + (auth ? '#' + auth : '');
+
+  updateModuleInfo(page);
+  updateActiveMenu(name);
+  closeMobileMenu();
+
+  if (saveHistory) {
+    history.pushState(
+      { page: name, auth },
+      '',
+      '#' + name + (auth ? '-' + auth : '')
+    );
+  }
+}
+
+// Điều hướng dịch vụ con
+function openService(filename) {
+  const page = pages.services;
+
+  if (!page) return;
+
+  const serviceFiles = [
+    'hotel.html',
+    'tour.html',
+    'CarRent.html',
+    'transportation.html'
+  ];
+
+  if (!serviceFiles.includes(filename)) {
+    console.warn('Tên dịch vụ không hợp lệ:', filename);
+    return;
+  }
+
+  frame.src = page.src.replace('servicepage.html', filename);
+
+  updateModuleInfo(page);
+  updateActiveMenu('services');
+  closeMobileMenu();
+
+  history.pushState(
+    { page: 'services', service: filename },
+    '',
+    '#services'
+  );
+}
+
+// Click menu chính
 buttons.forEach(button => {
-    button.addEventListener('click', function (event) {
-        event.preventDefault();
+  button.addEventListener('click', event => {
+    event.preventDefault();
 
-        const name = this.dataset.page;
-        const auth = this.dataset.auth || '';
+    const name = button.dataset.page;
+    const auth = button.dataset.auth || '';
 
-        openPage(name, auth);
-    });
+    openPage(name, auth);
+  });
 });
 
-
-// ======================================
-// 5. XỬ LÝ MENU DROPDOWN DỊCH VỤ
-// ======================================
-
+// Click dropdown dịch vụ
 document.querySelectorAll('[data-service]').forEach(button => {
-    button.addEventListener('click', function () {
-        const target = servicePages[this.dataset.service];
-
-        if (!target) {
-            console.error('Không tìm thấy trang dịch vụ:', this.dataset.service);
-            return;
-        }
-
-        frame.src = target;
-
-        updateHeader(pages.services);
-        setActive('services');
-        closeMenu();
-
-        history.replaceState(null, '', '#services-' + this.dataset.service);
-    });
+  button.addEventListener('click', () => {
+    openService(button.dataset.service);
+  });
 });
 
+// Menu mobile
+menu?.addEventListener('click', () => {
+  const opened = nav.classList.toggle('open');
 
-// ======================================
-// 6. MENU MOBILE
-// ======================================
+  menu.setAttribute('aria-expanded', String(opened));
+});
 
-if (menu && nav) {
-    menu.addEventListener('click', () => {
-        const opened = nav.classList.toggle('open');
-        menu.setAttribute('aria-expanded', String(opened));
-    });
+// Khôi phục trang khi bấm Back / Forward
+window.addEventListener('popstate', event => {
+  const state = event.state;
+
+  if (state?.service) {
+    openServiceFromHistory(state.service);
+    return;
+  }
+
+  if (state?.page && pages[state.page]) {
+    openPage(state.page, state.auth || '', false);
+    return;
+  }
+
+  const name = location.hash.slice(1).split('-')[0];
+
+  if (pages[name]) {
+    const auth = location.hash.includes('-login')
+      ? 'login'
+      : location.hash.includes('-register')
+        ? 'register'
+        : '';
+
+    openPage(name, auth, false);
+  }
+});
+
+// Khôi phục trang dịch vụ từ lịch sử
+function openServiceFromHistory(filename) {
+  const page = pages.services;
+
+  frame.src = page.src.replace('servicepage.html', filename);
+
+  updateModuleInfo(page);
+  updateActiveMenu('services');
+  closeMobileMenu();
 }
 
+// Khởi tạo module ban đầu
+function initializeApp() {
+  const hash = location.hash.slice(1);
+  const name = hash.split('-')[0];
 
-// 7. KHÔI PHỤC TRANG THEO URL HASH
+  const auth = hash.includes('-login')
+    ? 'login'
+    : hash.includes('-register')
+      ? 'register'
+      : '';
 
-const [initial, sub = ''] = location.hash.slice(1).split('-');
-
-if (initial === 'services' && servicePages[sub]) {
-    frame.src = servicePages[sub];
-    updateHeader(pages.services);
-    setActive('services');
-} else if (pages[initial]) {
-    const auth = (sub === 'login' || sub === 'register') ? sub : '';
-    openPage(initial, auth);
-} else {
-    openPage('explore');
+  if (pages[name]) {
+    openPage(name, auth, false);
+  } else {
+    updateModuleInfo(pages.explore);
+    updateActiveMenu('explore');
+  }
 }
+
+initializeApp();
