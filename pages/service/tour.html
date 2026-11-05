@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="vi">
   <head>
+    <!-- [KEY: META_HEADER] Thẻ Meta, Fonts & Tiêu đề trang -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tour du lịch | VivuGo</title>
+    <title>Tour Du Lịch | VivuGo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     
-    <!-- CSS Header, Footer, CarrentAndHotel và Tour (Thư mục tour.html nằm ở pages/service -> đi ra 2 cấp '../../') -->
+    <!-- [KEY: STYLESHEETS] Nạp các file CSS -->
     <link rel="stylesheet" href="../../css/header.css"/>
     <link rel="stylesheet" href="../../css/footer.css"/>
     <link rel="stylesheet" href="../../css/CarrentAndHotel.css"/>
     <link rel="stylesheet" href="../../css/tour.css"/>
 
-    <!-- JavaScript chung và JS riêng của module Tour -->
+    <!-- [KEY: SCRIPTS] Nạp các file JavaScript -->
     <script src="../../js/CarrentAndHotel.js" defer></script>
     <script src="../../js/tour.js" defer></script>
   </head>
   <body class="site-body tour-page">
-    <!-- Header dùng chung -->
+    <!-- [KEY: SITE_HEADER] Header dùng chung -->
     <div id="site-header"></div>
 
     <main class="site-main">
-      <!-- 1. SLIDER BANNER -->
-      <section class="slider-hotel" style="background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
-       url('../../assets/tours/slider-tour.jpg') center/cover no-repeat;">
+      <!-- [KEY: BANNER] Khung Banner Đầu Trang -->
+      <section class="slider-hotel" style="background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../../assets/tours/slider-tour.jpg') center/cover no-repeat;">
         <div class="slider-inner">
           <h1 class="page-title">BOOKING TOUR DU LỊCH</h1>
           <p class="page-desc" id="pageDesc">Khám phá vẻ đẹp Việt Nam, trải nghiệm hành trình đáng nhớ với những tour du lịch hấp dẫn.</p>
@@ -33,7 +33,7 @@
       </section>
 
       <div class="vivugo-container">
-        <!-- BỘ LỌC TÌM KIẾM TỔNG HỢP -->
+        <!-- [KEY: SEARCH_BAR] Bộ Lọc Tìm Kiếm Tổng Hợp -->
         <div class="rental-filter-bar">
           <div class="rental-filter-grid">
             <div class="rental-field">
@@ -42,9 +42,7 @@
             </div>
             <div class="rental-field">
               <label for="fType">Loại tour</label>
-              <select id="fType">
-                <option value="">Tất cả loại chi tiết</option>
-              </select>
+              <select id="fType"><option value="">Tất cả loại chi tiết</option></select>
             </div>
             <div class="rental-field"><label for="fFrom">Từ ngày</label><input type="date" id="fFrom" /></div>
             <div class="rental-field"><label for="fTo">Đến ngày</label><input type="date" id="fTo" /></div>
@@ -53,13 +51,13 @@
           </div>
         </div>
 
-        <!-- LỌC PILL (ĐỊA ĐIỂM + DANH MỤC) -->
+        <!-- [KEY: FILTER_PILLS] Nút Lọc Danh Mục & Điểm Đến -->
         <div class="filter-row">
           <div class="seat-filter" id="destFilter"></div>
           <div class="seat-filter" id="categoryTabs"></div>
         </div>
 
-        <!-- THANH SẮP XẾP -->
+        <!-- [KEY: SORT_BAR] Thanh Sắp Xếp Danh Sách -->
         <div class="rental-toolbar-hotel">
           <select class="sort-select" id="fSort">
             <option value="popular">Phổ biến nhất</option>
@@ -71,22 +69,21 @@
           </select>
         </div>
 
-        <!-- HIỂN THỊ KẾT QUẢ DANH SÁCH TOUR -->
+        <!-- [KEY: TOUR_GRID] Lưới Hiển Thị Danh Sách Tour -->
         <p class="result-count" id="resultCount"></p>
         <div class="car-grid" id="tourGrid"></div>
-        <p class="tour-policy" id="policyNote" hidden></p>
       </div>
     </main>
 
-    <!-- Footer dùng chung -->
+    <!-- [KEY: SITE_FOOTER] Footer dùng chung -->
     <div id="site-footer"></div>
 
-    <!-- POPUP XEM CHI TIẾT TOUR -->
+    <!-- [KEY: POPUP_DETAIL] Popup Xem Chi Tiết Lịch Trình Tour -->
     <div class="modal-overlay" id="detailModalOverlay">
       <div class="booking-modal detail-modal" id="detailModal" role="dialog" aria-modal="true"></div>
     </div>
 
-    <!-- FORM ĐẶT TOUR (Bao gồm đầy đủ các trường nhập liệu & mã giảm giá) -->
+    <!-- [KEY: BOOKING_MODAL] Form Đặt Tour & Nhập Mã Giảm Giá -->
     <div class="modal-overlay" id="bookingModalOverlay">
       <div class="booking-modal" role="dialog" aria-modal="true">
         <div class="booking-modal-head">
@@ -123,18 +120,16 @@
               <input type="text" id="promoCode" placeholder="Mã ưu đãi (VIVU10, VIVUGO20...)" />
               <button type="button" class="btn-ghost btn-sm" id="applyPromo">Áp dụng</button>
             </div>
-            <div class="promo-msg" id="promoMsg"></div>
             <div class="summary-line"><span>Đơn giá</span><span id="sumBase">0đ</span></div>
             <div class="summary-line discount" id="sumPromoRow" style="display:none;"><span>Giảm giá</span><span id="sumPromo">-0đ</span></div>
             <div class="summary-total"><span id="totalLabel">Tổng tiền</span><strong id="totalAmount">0đ</strong></div>
           </div>
-          <div class="form-error" id="formError"></div>
           <button type="submit" class="btn-confirm" id="confirmBtn">Xác Nhận Đặt Tour</button>
         </form>
       </div>
     </div>
 
-    <!-- MODAL ĐẶT CHỖ THÀNH CÔNG -->
+    <!-- [KEY: SUCCESS_MODAL] Popup Đặt Chỗ Thành Công -->
     <div class="modal-overlay" id="successModalOverlay">
       <div class="success-modal" role="dialog" aria-modal="true">
         <div class="success-head">

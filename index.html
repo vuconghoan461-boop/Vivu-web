@@ -1,65 +1,104 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>VivuGo | Du lịch theo cách của bạn</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/footer.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khám phá điểm đến | VivuGo</title>
+    <meta name="description" content="Cẩm nang, lịch trình và kinh nghiệm du lịch khắp Việt Nam — VivuGo." />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-</head>
-<body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="#explore" class="brand-logo" data-page="explore" aria-label="VivuGo - Khám phá">
-        <img src="../assets/images/logoVivugo.png" alt="VivuGo" class="logo-image">
-      </a>
-      <nav class="main-nav" id="nav">
-        <div class="nav-dropdown">
-          <button class="nav-link" data-page="services">Dịch vụ<span class="dropdown-arrow"></span>
-          </button>
-          <div class="service-dropdown">
-            <button data-service="../pages/service/hotel.html">Khách sạn</button>
-            <button data-service="../pages/service/tour.html">Tour du lịch</button>
-            <button data-service="../pages/service/CarRent.html">Thuê xe</button>
-            <button data-service="../pages/service/transportation.html">Di chuyển</button>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/explore.css" />
+  </head>
+  <body class="site-body kp-body">
+
+    <div id="site-header"></div>
+
+    <main class="kp-main" id="kpMain">
+      <!-- DANH SÁCH BÀI VIẾT -->
+      <div id="kpList">
+        <div class="kp-wrap">
+          <section class="kp-hero">
+            <p class="kp-hero__kicker">cẩm nang du lịch VivuGo</p>
+            <h1>KHÁM PHÁ ĐIỂM ĐẾN</h1>
+            <p class="kp-hero__lead" id="kpLead">Đọc kinh nghiệm thực tế, chọn điểm đến yêu thích rồi bắt đầu hành trình của bạn!</p>
+          </section>
+
+          <div class="kp-searchbox">
+            <form class="kp-search" id="kpSearchForm" role="search" autocomplete="off">
+              <span class="kp-search__icon" aria-hidden="true">🔍</span>
+              <input type="search" id="kpQuery" placeholder="Bạn muốn đi đâu? Hà Giang, Hội An, Phú Quốc..." aria-label="Tìm điểm đến" />
+              
+              <button type="button" class="kp-filter-btn" id="kpFilterBtn" aria-expanded="false" aria-controls="kpFilterPanel">
+                <span>Bộ lọc</span>
+                <span class="kp-filter-btn__count" id="kpFilterCount" hidden>0</span>
+                <span class="kp-filter-btn__arrow" aria-hidden="true">▾</span>
+              </button>
+              
+              <button type="submit" class="kp-btn kp-btn--primary">Tìm kiếm</button>
+
+              <div class="kp-filter-panel" id="kpFilterPanel" role="dialog" aria-label="Bộ lọc bài viết" hidden>
+                <div class="kp-filter-panel__head">
+                  <h2>Bộ lọc</h2>
+                  <button type="button" class="kp-filter-close" id="kpFilterClose" aria-label="Đóng">×</button>
+                </div>
+                <div id="kpFilterBody"></div>
+                <div class="kp-filter-panel__foot">
+                  <button type="button" class="kp-btn kp-btn--ghost kp-btn--sm" id="kpFilterClear">Xóa bộ lọc</button>
+                  <button type="button" class="kp-btn kp-btn--primary kp-btn--sm" id="kpFilterDone">Xem kết quả</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="kp-active" id="kpActive" hidden></div>
+
+          <section class="kp-section" id="kpFeatured" hidden>
+            <div class="kp-section__head"><h2>Bài viết nổi bật</h2></div>
+            <div class="kp-grid" id="kpFeaturedGrid"></div>
+          </section>
+
+          <section class="kp-section" id="kpLatest">
+            <div class="kp-section__head">
+              <h2 id="kpLatestTitle">Tất cả bài viết</h2>
+              <span class="kp-count" id="kpCount"></span>
+            </div>
+            <div class="kp-grid" id="kpGrid" aria-live="polite">
+              <div class="kp-loading">Đang tải bài viết...</div>
+            </div>
+            <div class="kp-more" id="kpMoreBox" hidden>
+              <button type="button" class="kp-btn kp-btn--ghost" id="kpMore">Xem thêm bài viết</button>
+            </div>
+          </section>
+
+          <section class="kp-empty" id="kpEmpty" hidden>
+            <h2>Không tìm thấy bài viết phù hợp</h2>
+            <p>Hãy thử từ khóa khác hoặc bỏ bớt bộ lọc để xem thêm điểm đến.</p>
+            <button type="button" class="kp-btn kp-btn--primary" id="kpEmptyClear">Xóa bộ lọc</button>
+          </section>
+
+          <p class="kp-note" id="kpNote"></p>
+        </div>
+      </div>
+
+      <!-- ĐỌC BÀI VIẾT CHI TIẾT -->
+      <div id="kpRead" hidden>
+        <div class="kp-wrap">
+          <div class="kp-reader">
+            <button type="button" class="kp-back" id="kpBack">← Quay lại Khám phá điểm đến</button>
+            <article class="kp-article" id="kpArticle"></article>
           </div>
         </div>
-        <button class="nav-link" data-page="../pages/service/explore">Khám phá điểm đến</button>
-        <button class="nav-link" data-page="../pages/account/mycalendar/mycalendar.html">Lịch của tôi</button>
-        <button class="nav-link" data-page="../pages/AI planner/AI.html">Trợ lý AI</button>
-        <button class="nav-link" data-page="../pages/service/account">Tài khoản</button>
-      </nav>
-      <div class="header-actions">
-        <button type="button" class="btn-icon" title="Lịch của tôi" aria-label="Mở lịch của tôi" data-page="calendar">
-          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 21 12 3l2 10 7 2-18 6Z"/>
-            <path d="m14 13 4 4"/>
-          </svg>
-          <span class="badge">1</span>
-        </button>
-        <div class="account-actions">
-          <button class="btn-primary" data-page="../pages/account/login.html" data-auth="login">Đăng nhập</button>
-          <button class="btn-primary" data-page="../pages/account/register.html" data-auth="register">Đăng ký</button>
-        </div>
-        <button type="button" class="nav-toggle" id="menu" aria-label="Mở menu" aria-expanded="false">☰</button>
       </div>
-    </div>
-  </header> 
-  <main class="workspace"><iframe id="module" title="Nội dung VivuGo" src="pages/explore"></iframe></main>
-  <footer class="footer">
-    <div class="newsletter-bar"><div class="container newsletter-content"><span>Săn vé rẻ &amp; Deal độc quyền hàng tuần!</span><form class="input-group" action="#"><input type="email" placeholder="Nhập email của bạn..." aria-label="Email của bạn"><button type="submit">Đăng ký</button></form></div></div>
-    <div class="container footer-grid">
-      <div class="footer-col"><img src="assets/images/footer/LogoVivugo.png" alt="VivuGo Logo" class="footer-logo"><p class="footer-slogan">Khám phá thế giới, không lo tài chính.</p><div class="social-icons"><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></div></div>
-      <div class="footer-col"><h4>LIÊN HỆ &amp; THÔNG TIN</h4><ul class="footer-links"><li><i class="fa-solid fa-location-dot footer-icon"></i><span>12 Chùa Bộc, Đống Đa, Hà Nội</span></li><li><i class="fa-solid fa-phone footer-icon"></i><a href="tel:19001234">1900 1234</a></li><li><i class="fa-solid fa-envelope footer-icon"></i><a href="mailto:support@vivugo.vn">support@vivugo.vn</a></li></ul></div>
-      <div class="footer-col"><h4>TRỢ GIÚP &amp; CHÍNH SÁCH</h4><ul class="footer-links"><li><a href="#">Hướng dẫn đặt vé</a></li><li><a href="#">Quy định hoàn/hủy tour</a></li><li><a href="#">Câu hỏi thường gặp (FAQ)</a></li><li><a href="#">Chính sách bảo mật</a></li></ul></div>
-    </div>
-    <div class="bottom-bar container"><p>&copy; 2026 Nhóm VivuGo - HVNH. Đã đăng ký bản quyền.</p><div class="payment-logos" aria-label="Các phương thức thanh toán"><i class="fa-brands fa-cc-visa"></i><i class="fa-brands fa-cc-mastercard"></i><i class="fa-brands fa-cc-paypal"></i></div></div>
-  </footer>
-  <script src="app.js"></script>
-</body>
+    </main>
+
+    <div id="site-footer"></div>
+    <div class="kp-toast" id="kpToast" role="status" aria-live="polite"></div>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/explore.js" defer></script>
+  </body>
 </html>
