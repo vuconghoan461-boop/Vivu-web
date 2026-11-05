@@ -40,7 +40,7 @@
     const T = DATA.tours, uniq = a => [...new Set(a)];
 
     if ($('fType')) {
-      $('fType').innerHTML = '<option value="">Tất cả loại chi tiết</option>' + 
+      $('fType').innerHTML = '<option value="">Tất cả các loại tour</option>' + 
         uniq(T.flatMap(t => t.types || [])).map(v => `<option>${v}</option>`).join('');
     }
 
