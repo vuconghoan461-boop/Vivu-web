@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>My Calendar</title>
-<link rel="stylesheet" href="../css/mycalendar.css">
-<link rel="stylesheet" href="../../css/main.css" />
+<link rel="stylesheet" href="../../css/mycalendar.css">
+<link rel="stylesheet" href="../../css/main.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+<script src="../../js/mycalendar.js"></script>
 <body>
 <div class="banner">
   <div class="hero">
@@ -23,11 +24,8 @@
     <div>
       <div class="panel panel-gap">
         <ul class="nav-list" id="navList">
-          <li class="active" data-filter="all" data-title="Tất cả chuyến đi" data-label="Tất cả">
-            <span class="dot"><i class="fa-solid fa-border-all"></i>
-            </span> Tất cả <span class="count"></span></li>
-          <li data-filter="upcoming" data-title="Chuyến đi sắp tới" data-label="Sắp tới">
-            <span class="dot"><i class="fa-solid fa-calendar-days"></i></span> Sắp tới <span class="count"></span></li>
+          <li class="active" data-filter="all" data-title="Tất cả chuyến đi" data-label="Tất cả"><span class="dot"><i class="fa-solid fa-border-all"></i></span> Tất cả <span class="count"></span></li>
+          <li data-filter="upcoming" data-title="Chuyến đi sắp tới" data-label="Sắp tới"><span class="dot"><i class="fa-solid fa-calendar-days"></i></span> Sắp tới <span class="count"></span></li>
           <li data-filter="ongoing" data-title="Chuyến đi đang diễn ra" data-label="Đang diễn ra"><span class="dot"><i class="fa-solid fa-globe"></i></span> Đang diễn ra <span class="count"></span></li>
           <li data-filter="completed" data-title="Chuyến đi đã hoàn thành" data-label="Đã hoàn thành"><span class="dot"><i class="fa-solid fa-check-circle"></i></span> Đã hoàn thành <span class="count"></span></li>
         </ul>
@@ -251,7 +249,5 @@
 <template id="tpl-type-chip">
   <div class="type-chip"><span class="ti" data-f="icon"></span><span data-f="label"></span></div>
 </template>
-
-<script src="app.js"></script>
 </body>
 </html>

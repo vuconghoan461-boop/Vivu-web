@@ -218,6 +218,35 @@ input:focus-visible {
 .page-title { font-size: 34px; font-weight: 700; max-width: 620px; margin-bottom: 12px; }
 .page-desc { font-size: 15.5px; color: #E4F3FD; max-width: 560px; }
 
+/* ----------Thanh tìm kiếm---------- */
+.search-bar {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) auto;
+  gap: 0;
+  box-shadow: 0 1px 3px rgba(31,41,55,0.06), 0 1px 2px rgba(31,41,55,0.04); }
+.search-field {
+  padding: 4px 18px;
+  border-right: 1px solid #E5E7EB;
+  display: flex;
+  flex-direction: column;
+  gap: 4px; }
+.search-field:first-child { padding-left: 4px; }
+.search-field:last-of-type { border-right: none; }
+.search-field label { font-size: 11.5px; font-weight: 600; color: #6B7280; }
+.search-field select,
+.search-field input {
+  border: none;
+  background: transparent;
+  font-size: 14.5px;
+  color: #1F2937;
+  padding: 2px 0; }
+.search-submit { display: flex; align-items: center; padding-left: 18px; }
+
 /* ---------- 8. SECTION HEADING ---------- */
 .section {
   padding: 56px 0;

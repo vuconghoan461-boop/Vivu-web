@@ -1,0 +1,57 @@
+{
+  "_note": "Quản lý mã giảm giá VivuGo. service: car | hotel | tour | all. percent là % giảm. Đặt active=false để tắt mã mà không cần xóa.",
+  "vouchers": [
+    {
+      "code": "VIVU10",
+      "service": "all",
+      "title": "Giảm 10% cho mọi dịch vụ",
+      "description": "Áp dụng cho thuê xe, khách sạn và tour.",
+      "type": "percent",
+      "percent": 10,
+      "maxDiscount": 300000,
+      "minOrder": 0,
+      "startDate": "2026-11-01",
+      "endDate": "2026-12-31",
+      "active": true
+    },
+    {
+      "code": "CAR15",
+      "service": "car",
+      "title": "Giảm 15% thuê xe tự lái",
+      "description": "Áp dụng cho đơn thuê từ 2 ngày trở lên.",
+      "type": "percent",
+      "percent": 15,
+      "maxDiscount": 500000,
+      "minOrder": 1000000,
+      "startDate": "2026-11-01",
+      "endDate": "2026-12-15",
+      "active": true
+    },
+    {
+      "code": "STAY20",
+      "service": "hotel",
+      "title": "Giảm 20% đặt phòng khách sạn",
+      "description": "Áp dụng cho đơn từ 2 đêm trở lên.",
+      "type": "percent",
+      "percent": 20,
+      "maxDiscount": 800000,
+      "minOrder": 1500000,
+      "startDate": "2026-11-01",
+      "endDate": "2026-12-31",
+      "active": true
+    },
+    {
+      "code": "TOUR8",
+      "service": "tour",
+      "title": "Giảm 8% tour trong nước",
+      "description": "Áp dụng cho mọi tour khởi hành trước 31/12.",
+      "type": "percent",
+      "percent": 8,
+      "maxDiscount": 400000,
+      "minOrder": 0,
+      "startDate": "2026-11-01",
+      "endDate": "2026-12-31",
+      "active": true
+    }
+  ]
+}
