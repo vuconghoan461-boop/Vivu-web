@@ -1,5 +1,8 @@
-// ===== LOGIC: đọc data.json, xử lý dữ liệu rồi điền vào các khuôn HTML =====
-// Giao diện nằm ở My_calendar.html (khung + <template>), kiểu dáng nằm ở My_calendar.css.
+const HERO_SLIDES = [
+  "../../assets/slicer/pic2.jpg",
+  "../../assets/slicer/pic1.jpg",
+  "../../assets/slicer/pic3.jpg"
+];
 
 let QUICK_ADDS = [], ACTIVITY_TYPES = [], MODAL_DEFAULTS = {}, TRIPS = [];
 let currentFilter = "all";
