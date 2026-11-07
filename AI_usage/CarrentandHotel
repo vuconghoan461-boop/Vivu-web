@@ -2,7 +2,7 @@ Entry 01 – Lên ý tưởng thiết kế module Service
 - Công cụ: ChatGPT, Google Studio
 - Ngày: 15/09/2026
 - Mục đích: Hỗ trợ hình thành ý tưởng và định hướng thiết kế giao diện module Service của website du lịch.
-- Tóm tắt prompt: Yêu cầu AI đề xuất bố cục tổng thể cho trang dịch vụ du lịch, bao gồm các nhóm dịch vụ Hotel, Tour du lịch, Thuê xe và Di chuyển. Đề xuất cách tổ chức các danh mục, thanh điều hướng, khu vực giới thiệu dịch vụ, bộ lọc và danh sách sản phẩm.
+- Tóm tắt prompt: Hãy giúp tôi demo bố cục tổng thể cho trang dịch vụ du lịch, bao gồm các nhóm dịch vụ Hotel, Tour du lịch, Thuê xe và Di chuyển. Đề xuất cách tổ chức các danh mục, thanh điều hướng, khu vực giới thiệu dịch vụ, bộ lọc và danh sách sản phẩm.
 - Đầu ra đã dùng: Tham khảo phương án thiết kế các module con dịch vụ.
 - Cách kiểm chứng: Đối chiếu với yêu cầu của đề tài, nhờ AI demo thử web trên Google Studio.
 
@@ -10,7 +10,7 @@ Entry 02 – Xây dựng giao diện trang Car Rental
 - Công cụ: Claude, Copilot
 - Ngày: 17/09/2026
 - Mục đích: thiết kế giao diện tĩnh cho chức năng thuê xe.
-- Tóm tắt prompt: Yêu cầu AI gợi ý thiết kế trang thuê xe trực tuyến với các thành phần: banner giới thiệu, form tìm kiếm xe, bộ lọc theo địa điểm, loại xe, mức giá và khu vực hiển thị danh sách xe.
+- Tóm tắt prompt: Hay giúp tôi demo trang thuê xe trực tuyến với các thành phần: banner giới thiệu, form tìm kiếm xe, bộ lọc theo địa điểm, loại xe, mức giá và khu vực hiển thị danh sách xe.
 - Đầu ra đã dùng: Tham khảo cách bố trí khu vực tìm kiếm ở đầu trang, danh sách xe dạng lưới (Grid Layout), các thẻ thông tin xe và khu vực bộ lọc.
 - Cách kiểm chứng: Chạy trang trên Live Server, kiểm tra sự cân đối giữa hình ảnh và nội dung, thử thay đổi kích thước cửa sổ trình duyệt.
 - File/commit liên quan: CarRent.html, css
@@ -19,7 +19,7 @@ Entry 03 – Xây dựng giao diện trang Hotel
 - Công cụ: Claude, Copilot
 - Ngày: 20/09/2026
 - Mục đích: thiết kế giao diện tĩnh cho chức năng thuê xe.
-- Tóm tắt prompt: Yêu cầu AI đề xuất giao diện trang khách sạn có form tìm kiếm theo địa điểm, ngày nhận phòng, ngày trả phòng và số lượng khách. Gợi ý bố cục danh sách khách sạn, bộ lọc theo thành phố, mức giá, số sao, đánh giá và tiện ích.
+- Tóm tắt prompt: hãy giúp tôi demo các đặc điểm cơ bản của một trang khách sạn. Gợi ý bố cục danh sách khách sạn, bộ lọc theo tiêu chí nên có.
 - Đầu ra đã dùng: Sử dụng các gợi ý về bố cục tìm kiếm, bộ lọc bên cạnh danh sách khách sạn và cách tổ chức thông tin trên từng thẻ khách sạn.
 - Cách kiểm chứng: Chạy Liver Server để kiểm tra sự đồng nhất giữa trang Hotel và Car Rental.
 - File/commit liên quan: hotel.html, css
@@ -33,16 +33,7 @@ Entry 04 – Thiết kế các form đăng ký dịch vụ
 - Cách kiểm chứng: Chạy Live Server và thử nhập thông tin vào các trường, kiểm tra khả năng hiển thị của form và kiểm tra tình trạng tràn nội dung khi thay đổi kích thước màn hình.
 - File/commit liên quan: CarRent.html, .html, và file css.
 
-Entry 05 – Sửa lỗi trên giao diện tĩnh của hotel và carrent
-- Công cụ: Claude
-- Ngày: 26/09/2026
-- Mục đích: sửa các lỗi hiển thị không biết và đồng bộ nhất có thể trong giao diện hai trang Hotel và Car Rental.
-- Tóm tắt prompt: Cung cấp các đoạn HTML/CSS hiện tại và yêu cầu AI hỗ trợ điều chỉnh màu sắc, font chữ, kích thước chữ, khoảng cách giữa các thành phần, bo góc, đổ bóng và hiệu ứng hover. Yêu cầu giữ nguyên cấu trúc HTML và chỉ thay đổi những thuộc tính CSS cần thiết.
-- Đầu ra đã dùng: Một số đoạn CSS điều chỉnh margin, padding, gap, border-radius, box-shadow, font-size, font-weight, display, align-items và justify-content.
-- Cách kiểm chứng: Các thành viên xem web chạy thử và duyệt
-- File/commit liên quan: CarRent.html, hotel.html và file css.
-
-Entry 06 – Sửa lỗi căn chỉnh và định dạng giao diện
+Entry 05 – Sửa lỗi căn chỉnh và định dạng giao diện
 - Công cụ: Claude
 - Ngày: 28/09/2026
 - Mục đích: Khắc phục các lỗi trình bày phát sinh trong quá trình hoàn thiện giao diện.
@@ -51,7 +42,7 @@ Entry 06 – Sửa lỗi căn chỉnh và định dạng giao diện
 - Cách kiểm chứng: chạy thử và đối chiếu phù hợp.
 - File/commit liên quan: file css.
 
-Entry 07 – Chỉnh sửa lỗi hiển thị Banner đầu trang
+Entry 06 – Chỉnh sửa lỗi hiển thị Banner đầu trang
 - Công cụ: Claude
 - Ngày: 15/10/2026
 - Mục đích: Hoàn thiện khu vực slider/banner giới thiệu dịch vụ ở đầu trang.
@@ -60,7 +51,7 @@ Entry 07 – Chỉnh sửa lỗi hiển thị Banner đầu trang
 - Cách kiểm chứng: Xem banner hiển thị trên trang
 - File/commit liên quan: CarRent.html, hotel.html, file css.
 
-Entry 08 – Xây dựng hàm, event cho trang thuê xe 
+Entry 07 – Xây dựng hàm, event cho trang thuê xe 
 - Công cụ: Claude, ChatGPT, Copilot
 - Ngày: 15/10/2026
 - Mục đích: Hỗ trợ xây dựng logic thao tác trên trang Car Rental.
@@ -75,7 +66,7 @@ Entry 08 – Xây dựng hàm, event cho trang thuê xe
 - Cách kiểm chứng: Test các chức năng có trên page đó của web
 - File/commit liên quan: CarRent.js, CarRent.html, CarRent.json và file css.
 
-Entry 09 – Xây dựng hàm, event cho trang khách sạn
+Entry 08 – Xây dựng hàm, event cho trang khách sạn
 - Công cụ: ChatGPT, Claude
 - Ngày: 20/10/2026
 - Mục đích: Xây dựng logic thao tác trên trang hotel.
@@ -88,7 +79,7 @@ Entry 09 – Xây dựng hàm, event cho trang khách sạn
 - Cách kiểm chứng: Test và thấy các thao tác ổn định.
 - File/commit liên quan: hotel.js, hotel.html, css, hotel.json.
 
-Entry 10 – Khắc phục lỗi không tải được dữ liệu trang Car Rental và Hotel
+Entry 09 – Khắc phục lỗi không tải được dữ liệu trang Car Rental và Hotel
 - Công cụ: Claude
 - Ngày: 30/10/2026
 - Mục đích: Xác định và sửa lỗi khiến dữ liệu không được tải hoặc không hiển thị trên hai trang dịch vụ.
@@ -97,7 +88,7 @@ Entry 10 – Khắc phục lỗi không tải được dữ liệu trang Car Ren
 - Cách kiểm chứng: Chạy website bằng Live Server, kiểm tra trạng thái tải các file JSON trong Network, kiểm tra lỗi trong Console và xác nhận danh sách xe/khách sạn hiển thị bình thường.
 - File/commit liên quan: CarRent.js, hotel.js, các file JSON liên quan.
 
-Entry 11 – Sửa lỗi không kết hợp chức năng tìm kiếm, lọc
+Entry 10 – Sửa lỗi không kết hợp đa tác vụ vừa tìm kiếm vừa lọc
 - Công cụ: Claude
 - Ngày: 02/11/2026
 - Mục đích: Hoàn thiện hoạt động của các chức năng tìm kiếm, lọc và hiển thị dữ liệu.
@@ -106,16 +97,16 @@ Entry 11 – Sửa lỗi không kết hợp chức năng tìm kiếm, lọc
 - Cách kiểm chứng: Thử nhiều tình huống kết hợp tìm kiếm và lọc, thay đổi lựa chọn thành phố liên tục, kiểm tra kết quả có bị trùng lặp hay không và kiểm tra thông báo khi không có dữ liệu.
 - File/commit liên quan: CarRent.js, hotel.js, CarRent.html, hotel.html.
 
-Entry 12 – Nhờ AI sắp xếp lại các class, id và loại bỏ code thừa.
+Entry 11 – Nhờ AI sắp xếp lại các class, id và loại bỏ code thừa.
 - Công cụ: Claude
 - Ngày: 06/11/2026
 - Mục đích: Đơn giản hóa dữ liệu và giao diện tab “Chính sách” trong popup chi tiết khách sạn.
 - Tóm tắt prompt: Gửi ảnh chụp popup đang hiển thị và yêu cầu đổi tab Chính sách thành đoạn văn liền, bỏ gạch đầu dòng, bỏ trường giờ nhận/trả phòng riêng và gộp vào đoạn chính sách. Yêu cầu trả lại file hotel.json và đoạn JS cần sửa. Sau đó yêu cầu căn đều hai bên cho đoạn chính sách.
 - Đầu ra đã dùng: Bản hotel.json đã bỏ checkIn/checkOut, thông tin giờ được thêm vào đầu policy (khách sạn nào đã có sẵn câu giờ nhận/trả phòng thì giữ nguyên để tránh lặp); đoạn JS dùng <p class="policy-text"> với text-align: justify.
-- Cách kiểm chứng: Mở popup của nhiều khách sạn ở các thành phố khác nhau, kiểm tra giờ nhận/trả phòng hiển thị đúng và không bị lặp, đoạn văn căn đều và vẫn xuống dòng đúng ở các khách sạn có ký tự.
+- Cách kiểm chứng: Test ại Liver Service
 - File/commit liên quan: hotel.json, CarrentAndHotel.js, CarrentAndHotel.css
 
-Entry 13 – Thiết kế popup chi tiết thuê xe
+Entry 12 – Thiết kế popup chi tiết thuê xe
 - Công cụ: Claude
 - Ngày: 06/11/2026
 - Mục đích: Tạo popup chi tiết cho dịch vụ thuê xe, hoạt động giống cơ chế popup khách sạn.
@@ -124,7 +115,7 @@ Entry 13 – Thiết kế popup chi tiết thuê xe
 - Cách kiểm chứng: Bấm vào thẻ xe và nút “Đặt xe nhanh” để kiểm tra hai hành vi tách biệt, kiểm tra nút đặt trong popup mở đúng form với đúng xe, đóng popup bằng nút × và bằng cách bấm ra vùng tối, xem xe chưa có policy hiển thị thế nào.
 - File/commit liên quan: CarRent.html, CarrentAndHotel.js, CarrentAndHotel.css, CarRent.json
 
-Entry 15 – Tìm lỗi popup xe không hiện và nhãn giảm giá hiện sai vị trí
+Entry 13 – Tìm lỗi popup xe không hiện và nhãn giảm giá hiện sai vị trí
 - Công cụ: Claude (Anthropic)
 - Ngày: 06/11/2026
 - Mục đích: Tìm nguyên nhân popup chi tiết xe không mở và nhãn “GIẢM” nhảy lên slider.
@@ -133,7 +124,7 @@ Entry 15 – Tìm lỗi popup xe không hiện và nhãn giảm giá hiện sai 
 - Cách kiểm chứng: Sửa lại dấu ", tải lại trang, kiểm tra bấm vào thẻ xe mở được popup, nhãn giảm giá nằm trong ảnh của thẻ xe chứ không nằm ở slider, và xe chưa có chính sách không hiện chữ undefined.
 - File/commit liên quan: CarrentAndHotel.js
 
-Entry 16 – Hướng dẫn xử lý xung đột khi git pull --rebase và đẩy nhánh
+Entry 14 – Hướng dẫn xử lý xung đột khi git pull --rebase và đẩy nhánh
 - Công cụ: Claude
 - Ngày: 06/11/2026
 - Mục đích: Giải quyết xung đột Git khi đồng bộ nhánh Module_service_Lan với main mà không làm hỏng phần việc của module khác.
