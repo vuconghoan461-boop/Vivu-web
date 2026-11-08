@@ -1,0 +1,1111 @@
+{
+ "meta": {
+  "site": "VivuGo",
+  "title": "Khám phá điểm đến",
+  "imageFolder": "../assets/explore/",
+  "bannerImage": "banner-bg.jpg"
+ },
+ "regions": [
+  "Miền Bắc",
+  "Miền Trung",
+  "Miền Nam"
+ ],
+ "categories": [
+  "Lịch trình",
+  "Cẩm nang",
+  "Ẩm thực",
+  "Mẹo hay",
+  "Trải nghiệm"
+ ],
+ "articles": [
+  {
+   "id": "ninh-binh-trong-ngay-tu-ha-noi",
+   "title": "Một ngày trốn phố về Ninh Bình: Ngồi thuyền Tràng An, leo Hang Múa ngắm Tam Cốc",
+   "dest": "Ninh Bình",
+   "region": "Miền Bắc",
+   "cat": "Trải nghiệm",
+   "featured": false,
+   "published": "2026-10-29",
+   "read": 10,
+   "rating": 4.9,
+   "reviewsCount": 3,
+   "image": "kpdd1.jpg",
+   "excerpt": "Có những ngày chỉ muốn tạm gác lại nhịp sống vội vã của Hà Nội để tìm về một nơi thật xanh. Ninh Bình là nơi như thế. Buổi sáng dạo bước giữa cố đô Hoa Lư, buổi trưa ngồi thuyền len qua những hang núi ở Tràng An, rồi chiều leo gần 500 bậc đá Hang Múa để thu trọn Tam Cốc vào tầm mắt.",
+   "tour": {
+    "id": 1,
+    "slug": "tour-ninh-binh-trong-ngay-tu-ha-noi",
+    "name": "Tour Ninh Bình trong ngày từ Hà Nội",
+    "price": 871000,
+    "priceOriginal": 1025000,
+    "discount": 15,
+    "unit": "khách",
+    "duration": "10 tiếng",
+    "url": "./service/tour.html?id=1"
+   },
+   "hotel": 480000,
+   "sections": [
+    {
+     "h": "Có một Ninh Bình xanh đến nao lòng, chỉ cách Hà Nội một chuyến đi",
+     "p": "Sáng cuối tuần, thử rời Hà Nội sớm hơn thường lệ một chút. Khi những con phố còn chưa quá đông, bạn đã có thể bắt đầu hành trình về Ninh Bình – vùng đất chỉ cách thủ đô khoảng 90–100 km nhưng mang đến một khung cảnh hoàn toàn khác. Không còn tiếng còi xe dồn dập hay khói bụi thường nhật, thay vào đó là những dãy núi đá vôi uốn lượn nối tiếp nhau, những cánh đồng lúa xanh mướt trải dài tắp tắp và những dòng sông nhỏ êm đềm len lỏi giữa thung lũng. Khung cảnh bình yên nơi đây chắc chắn sẽ giúp bạn giải tỏa mọi áp lực sau những ngày làm việc mệt mỏi."
+    },
+    {
+     "h": "Dạo bước giữa cố đô Hoa Lư – nơi thời gian dường như chậm lại",
+     "p": "Điểm dừng chân đầu tiên là cố đô Hoa Lư, vùng đất từng là kinh đô của nước Đại Cồ Việt dưới hai triều Đinh và Tiền Lê vào thế kỷ X. Vừa bước qua cổng đền, cảm giác đầu tiên có lẽ là sự yên bình và không khí tôn nghiêm thoang thoảng mùi hương trầm. Những mái ngói cổ phủ màu thời gian, con đường lát đá phẳng rợp bóng mát, hàng cây xanh cùng những dãy núi đá vôi bao quanh tạo nên một không gian vô cùng trầm mặc. Hãy dành chút thời gian dạo quanh đền thờ vua Đinh và vua Lê để lắng nghe những câu chuyện lịch sử hào hùng của dân tộc.",
+     "image": "kpdd1_hoalu.jpg",
+     "imageCaption": "Những mái đền cổ kính tại cố đô Hoa Lư, nơi lưu giữ dấu ấn của một thời kinh đô xưa"
+    },
+    {
+     "h": "Ngồi thuyền ở Tràng An – trải nghiệm mà bạn sẽ muốn kéo dài thêm một chút",
+     "p": "Nếu phải chọn một trải nghiệm đặc trưng nhất khi đến Ninh Bình, có lẽ đó chính là ngồi thuyền khám phá danh thắng Tràng An. Hãy tưởng tượng bạn ngồi trên chiếc thuyền nhỏ rẽ nước, trước mặt là mặt nước xanh trong soi bóng mây trời, hai bên là những vách núi đá vôi cao sừng sững rợp bóng cây cổ thụ. Người lái đò địa phương nhẹ nhàng đưa thuyền lướt qua những hang động tự nhiên mát lạnh, mở ra từng thung nước kì vĩ miên man khiến ai nấy cũng phải trầm ồ thán phục.",
+     "image": "kpdd1_trangan.jpg",
+     "imageCaption": "Ngồi thuyền khám phá Tràng An, len qua những hang động và thung nước giữa núi non trùng điệp"
+    },
+    {
+     "h": "Chinh phục Hang Múa – leo gần 500 bậc đá để đổi lấy một khung cảnh tuyệt đẹp",
+     "p": "Từ chân núi, con đường đá dẫn lên đỉnh Ngọa Long hiện ra với gần 500 bậc thang uốn lượn uốn quanh sườn núi hệt như vạn lý trường thành thu nhỏ. Mặc dù hành trình di chuyển hơi tốn sức, nhưng khi đã đặt chân lên tới đỉnh núi, mọi mệt mỏi dường như tan biến tức thì. Trước mắt bạn sẽ là bức tranh Tam Cốc thu trọn vào tầm mắt với dòng sông Ngô Đồng uốn lượn mộc mạc qua những dải lúa vàng hay cánh đồng xanh thẫm bạt ngàn.",
+     "image": "kpdd1_hangmua.jpg",
+     "imageCaption": "Từ đỉnh Ngọa Long, toàn cảnh Tam Cốc và dòng sông Ngô Đồng hiện ra giữa những dãy núi đá vôi"
+    }
+   ],
+   "author": {
+    "name": "Lê Hương",
+    "date": "Tháng 9/2025"
+   },
+   "reviews": [
+    {
+     "user": "Trần Hoàng Nam",
+     "rating": 5,
+     "date": "28/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Chuyến đi Ninh Bình 1 ngày rất tuyệt vời! Cảnh Tràng An thơ mộng, trưa ăn dê núi ngon tuyệt."
+    },
+    {
+     "user": "Phạm Thu Thảo",
+     "rating": 5,
+     "date": "25/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Leo Hang Múa mệt nhưng cảnh Tam Cốc từ trên cao thực sự đáng đồng tiền bát gạo."
+    }
+   ]
+  },
+  {
+   "id": "an-gi-o-ninh-binh",
+   "title": "Khám phá ẩm thực Ninh Bình: Dê núi, cơm cháy và hương vị đặc sản cố đô",
+   "dest": "Ninh Bình",
+   "region": "Miền Bắc",
+   "cat": "Ẩm thực",
+   "featured": false,
+   "published": "2026-10-28",
+   "read": 8,
+   "rating": 5.0,
+   "reviewsCount": 2,
+   "image": "kpdd2.jpg",
+   "excerpt": "Đến Ninh Bình, đừng bỏ lỡ cơ hội thưởng thức dê núi thơm mềm, cơm cháy vàng giòn cùng nhiều món ăn dân dã mang đậm hương vị vùng đất cố đô.",
+   "tour": {
+    "id": 1,
+    "slug": "tour-ninh-binh-trong-ngay-tu-ha-noi",
+    "name": "Tour Ninh Bình trong ngày từ Hà Nội",
+    "price": 871000,
+    "priceOriginal": 1025000,
+    "discount": 15,
+    "unit": "khách",
+    "duration": "10 tiếng",
+    "url": "./service/tour.html?id=1"
+   },
+   "hotel": 480000,
+   "sections": [
+    {
+     "h": "Dê núi Ninh Bình – Hương vị đặc trưng của vùng đất cố đô",
+     "p": "Nhắc đến ẩm thực Ninh Bình, dê núi luôn là một trong những món đặc sản hàng đầu mà bất kỳ du khách nào cũng thèm thèm thưởng thức. Nhờ được thả rông và chăn thả tự nhiên trên các bãi núi đá vôi nên thịt dê ở đây vô cùng săn chắc, dai ngọt tự nhiên và không bị mỡ. Các nhà hàng địa phương chế biến dê thành hàng chục món ăn hấp dẫn như dê tái chanh thanh mát, dê nướng tảng thơm lừng hay dê xào sả ớt đậm đà ăn kèm lá mơ và tương gừng ngon quên lối về.",
+     "image": "kpdd2_de.jpg",
+     "imageCaption": "Dê núi Ninh Bình nướng vàng thơm ngon, ăn kèm nước chấm đậm vị"
+    },
+    {
+     "h": "Cơm cháy Ninh Bình – Món ngon giòn rụm không thể bỏ qua",
+     "p": "Bên cạnh dê núi, cơm cháy cũng là niềm tự hào ẩm thực gắn liền với tên tuổi đất Ninh Bình. Cơm cháy chuẩn vị thường được ép từ gạo nếp hương dẻo thơm, chiên ngập dầu cho đến khi từng hạt nở bung vàng ruộm giòn tan. Sự đặc biệt nằm ở bát nước sốt tim cật hoặc sốt dê sánh mịn đậm đà rưới lên trên, mang đến vị béo ngậy thơm ngon kích thích vị giác vô cùng.",
+     "image": "kpdd2_comchay.jpg",
+     "imageCaption": "Cơm cháy Ninh Bình giòn rụm kết hợp cùng nước sốt tim cật"
+    },
+    {
+     "h": "Kết hợp thưởng thức đặc sản trong hành trình khám phá Ninh Bình",
+     "p": "Một chuyến hành trình khám phá Ninh Bình sẽ thêm phần trọn vẹn khi bạn biết cách kết hợp linh hoạt giữa việc thưởng ngoạn danh lam thắng cảnh và thưởng thức ẩm thực. Sau buổi sáng chèo thuyền ngắm cảnh Tràng An và Cố đô, tạt vào một nhà hàng ven đường dùng bữa trưa đậm chất miền quê sẽ giúp bạn nạp năng lượng tràn trề sẵn sàng cho chuyến chinh phục Hang Múa vào buổi chiều.",
+     "image": "kpdd2.jpg",
+     "imageCaption": "Thưởng thức mâm cỗ ẩm thực đặc sản Ninh Bình"
+    }
+   ],
+   "author": {
+    "name": "Nguyễn Minh Anh",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Đỗ Hoàng Long",
+     "rating": 5,
+     "date": "28/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Dê tái chanh thơm nức vị sả, cơm cháy sốt tim cật giòn rụm rất ngon!"
+    }
+   ]
+  },
+  {
+   "id": "ha-noi-mot-ngay-di-san",
+   "title": "Hà Nội trong một ngày: Lăng Bác, Văn Miếu, Bảo tàng Dân tộc học và hồ Hoàn Kiếm",
+   "dest": "Hà Nội",
+   "region": "Miền Bắc",
+   "cat": "Lịch trình",
+   "featured": false,
+   "published": "2026-10-27",
+   "read": 9,
+   "rating": 4.8,
+   "reviewsCount": 2,
+   "image": "kpdd3.jpg",
+   "excerpt": "Hành trình 8 tiếng đắm mình giữa lòng Hà Nội ngàn năm văn hiến, đưa bạn từ không gian lắng đọng của Lăng Bác đến nét cổ kính Văn Miếu và vẹn tròn cảm xúc bên Hồ Gươm.",
+   "tour": {
+    "id": 2,
+    "slug": "tour-thanh-pho-ha-noi-trong-ngay",
+    "name": "Tour Thành phố Hà Nội trong ngày: Điểm nổi bật",
+    "price": 680000,
+    "priceOriginal": 742000,
+    "discount": 8,
+    "unit": "khách",
+    "duration": "1 ngày (8 tiếng)",
+    "url": "./service/tour.html?id=2"
+   },
+   "hotel": 550000,
+   "sections": [
+    {
+     "h": "08:00–10:30: Lắng đọng tâm hồn tại Lăng Bác và cổ kính Văn Miếu",
+     "p": "Hành trình khám phá thủ đô ngàn năm văn hiến bắt đầu từ sớm mai dịu nhẹ tại quảng trường Ba Đình lịch sử. Bạn sẽ dạo bước qua Phủ Chủ tịch rực rỡ, vào thăm Nhà sàn đơn sơ giữa vườn cây xanh mát và ngắm nhìn Chùa Một Cột với kiến trúc đài hoa sen độc đáo. Tiếp sau đó, đoàn di chuyển ghé thăm Văn Miếu – Quốc Tử Giám để cảm nhận tinh thần hiếu học và lắng nghe câu chuyện về 82 tấm bia Tiến sĩ rêu phong qua bao thời kỳ.",
+     "image": "kpdd3_langbac.jpg",
+     "imageCaption": "Không gian trang nghiêm và cổ kính tại Chùa Một Cột"
+    },
+    {
+     "h": "12:00–15:30: Thưởng thức ẩm thực Hà Thành và sắc màu 54 dân tộc",
+     "p": "Sau bữa trưa thưởng thức các món ăn mang trọn hương vị Hà Nội truyền thống tại nhà hàng phố cổ, chuyến đi tiếp nối tại Bảo tàng Dân tộc học Việt Nam. Nơi đây hiện lưu giữ hàng ngàn hiện vật quý giá cùng các mô hình nhà sàn, nhà rông nguyên mẫu của 54 dân tộc anh em. Đây sẽ là trải nghiệm vô cùng phong phú cho những ai muốn tìm hiểu nét văn hóa đa dạng của đất nước.",
+     "image": "kpdd3_vanmieu.jpg",
+     "imageCaption": "Khuôn viên Văn Miếu - Quốc Tử Giám ngàn năm văn hiến"
+    },
+    {
+     "h": "16:00: Hoàng hôn dịu dàng bên Hồ Hoàn Kiếm và đặt tour trọn gói",
+     "p": "Khép lại ngày dài khám phá là những phút giây thong dong dạo quanh Hồ Hoàn Kiếm khi chiều tà buông xuống. Đi qua Cầu Thê Húc đỏ thắm nối vào Đền Ngọc Sơn cổ kính và ngắm Tháp Rùa chập chờn trên làn nước xanh trong sẽ đọng lại nhiều cảm xúc hoài niệm. Hãy chọn City Tour Hà Nội của VivuGo để có chuyến đi thảnh thơi trọn vẹn nhất nhé.",
+     "image": "kpdd3_hoguom.jpg",
+     "imageCaption": "Tháp Rùa trầm mặc giữa làn nước xanh trong Hồ Hoàn Kiếm"
+    }
+   ],
+   "author": {
+    "name": "Thanh Mai",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Bùi Mai Anh",
+     "rating": 5,
+     "date": "28/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Tour Hà Nội 1 ngày rất đáng trải nghiệm cho người lần đầu đến Thủ đô."
+    }
+   ]
+  },
+  {
+   "id": "meo-di-lang-bac-van-mieu",
+   "title": "Mẹo đi Lăng Bác và Văn Miếu: ngày nào mở cửa, mặc gì cho phù hợp",
+   "dest": "Hà Nội",
+   "region": "Miền Bắc",
+   "cat": "Mẹo hay",
+   "featured": false,
+   "published": "2026-10-26",
+   "read": 7,
+   "rating": 4.7,
+   "reviewsCount": 1,
+   "image": "kpdd4.jpg",
+   "excerpt": "Cẩm nang dắt túi cực kỳ quan trọng giúp chuyến du ngoạn di sản Hà Nội diễn ra suôn sẻ, tránh những bất tiện về thời gian và trang phục.",
+   "tour": {
+    "id": 2,
+    "slug": "tour-thanh-pho-ha-noi-trong-ngay",
+    "name": "Tour Thành phố Hà Nội trong ngày: Điểm nổi bật",
+    "price": 680000,
+    "priceOriginal": 742000,
+    "discount": 8,
+    "unit": "khách",
+    "duration": "1 ngày (8 tiếng)",
+    "url": "./service/tour.html?id=2"
+   },
+   "hotel": 550000,
+   "sections": [
+    {
+     "h": "Lưu ý lịch mở cửa Lăng Bác và phương án thay thế Bát Tràng",
+     "p": "Một điểm cực kỳ quan trọng mà du khách lần đầu ghé thăm Hà Nội rất dễ quên: Lăng Chủ tịch Hồ Chí Minh thường đóng cửa không đón khách viếng vào thứ Hai và thứ Sáu hàng tuần (trừ các ngày lễ lớn). Nếu lịch trình của bạn lỡ trùng vào hai ngày này, các tour của VivuGo sẽ linh hoạt đổi hướng đưa bạn ghé thăm làng gốm Bát Tràng để tự tay nặn gốm trải nghiệm vô cùng thú vị.",
+     "image": "kpdd4_langbac.jpg",
+     "imageCaption": "Trang phục lịch sự khi viếng Lăng Bác"
+    },
+    {
+     "h": "Quy tắc trang phục tôn nghiêm và đặt tour thảnh thơi",
+     "p": "Vì Lăng Bác và Văn Miếu là những địa điểm tâm linh lịch sử tôn nghiêm, bạn cần chuẩn bị trang phục kín đáo: áo có tay, quần hoặc váy dài quá gối. Đừng quên mang theo một đôi giày thể thao nhẹ êm chân cùng chiếc mũ rộng vành vì bạn sẽ phải đi bộ di chuyển tham quan khá nhiều trong khuôn viên.",
+     "image": "kpdd4_battrang.jpg",
+     "imageCaption": "Trải nghiệm xoay gốm tại làng Bát Tràng"
+    }
+   ],
+   "author": {
+    "name": "Thu Thảo",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Phạm Đức Thắng",
+     "rating": 5,
+     "date": "27/10/2026",
+     "tag": "Đã đọc",
+     "comment": "Thông tin rất hữu ích, nhờ bài viết mình tránh đi Lăng Bác vào thứ 2."
+    }
+   ]
+  },
+  {
+   "id": "sa-pa-3n2d-tu-ha-noi",
+   "title": "Sa Pa 3 ngày 2 đêm từ Hà Nội: bản Cát Cát, đỉnh Fansipan và Núi Hàm Rồng",
+   "dest": "Sa Pa",
+   "region": "Miền Bắc",
+   "cat": "Lịch trình",
+   "featured": false,
+   "published": "2026-10-25",
+   "read": 11,
+   "rating": 4.9,
+   "reviewsCount": 2,
+   "image": "kpdd5.jpg",
+   "excerpt": "Tận hưởng 3 ngày 2 đêm thư thái tại thị trấn sương mờ, đi xe cabin đôi cao cấp, nghỉ khách sạn 4 sao view thung lũng.",
+   "tour": {
+    "id": 3,
+    "slug": "tour-sa-pa-3-ngay-2-dem-tu-ha-noi",
+    "name": "Tour Sa Pa 3 ngày 2 đêm từ Hà Nội",
+    "price": 3950000,
+    "priceOriginal": 4532000,
+    "discount": 12,
+    "unit": "khách",
+    "duration": "3 ngày 2 đêm",
+    "url": "./service/tour.html?id=3"
+   },
+   "hotel": 520000,
+   "sections": [
+    {
+     "h": "Ngày 1–2: Rảo bước bản Cát Cát và chinh phục Nóc nhà Đông Dương",
+     "p": "Chuyến đi mở đầu bằng xe giường nằm cabin VIP êm ái lướt trên cao tốc Nội Bài – Lào Cai. Đến Sa Pa, bạn sẽ tản bộ ghé thăm bản Cát Cát rực rỡ sắc màu thổ cẩm và băng qua những nhịp cầu treo rủ xuống suối Mường Hoa. Sang ngày thứ hai, chuyến cáp treo kỷ lục sẽ đưa bạn đặt chân lên đỉnh Fansipan ở độ cao 3.143m ngắm biển mây cuồn cuộn vờn quanh chân núi.",
+     "image": "kpdd5_catcat.jpg",
+     "imageCaption": "Bản Cát Cát bình yên giữa thung lũng Mường Hoa"
+    },
+    {
+     "h": "Ngày 3: Dạo quanh Nhà thờ Đá và đặt tour Sa Pa trọn gói",
+     "p": "Dành buổi sáng cuối cùng dạo quanh khu vực Nhà thờ Đá cổ kính, nhâm nhi tách cà phê ấm bên góc phố sương mù và chọn mua vài món quà thổ cẩm làm kỷ niệm. Trước khi lên xe về Hà Nội, bữa trưa thưởng thức lẩu cá hồi bốc khói nghi ngút thơm ngon sẽ khép lại hành trình Sa Pa đầy cảm xúc.",
+     "image": "kpdd5_fansipan.jpg",
+     "imageCaption": "Biển mây bồng bềnh trên Nóc nhà Đông Dương Fansipan"
+    }
+   ],
+   "author": {
+    "name": "Minh Quân",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Hoàng Anh Tuấn",
+     "rating": 5,
+     "date": "26/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Xe cabin nằm rất êm, cáp treo Fansipan ngắm biển mây đẹp mê hồn."
+    }
+   ]
+  },
+  {
+   "id": "san-may-fansipan-meo-chuan-bi",
+   "title": "Săn mây Fansipan: canh thời tiết, chuẩn bị đồ và những lưu ý để không về tay trắng",
+   "dest": "Sa Pa",
+   "region": "Miền Bắc",
+   "cat": "Mẹo hay",
+   "featured": false,
+   "published": "2026-10-24",
+   "read": 8,
+   "rating": 5.0,
+   "reviewsCount": 1,
+   "image": "kpdd6.jpg",
+   "excerpt": "Bí kíp xương máu giúp bạn bắt trọn khoảnh khắc biển mây bồng bềnh trên đỉnh Fansipan mà không gặp sương mù.",
+   "tour": {
+    "id": 3,
+    "slug": "tour-sa-pa-3-ngay-2-dem-tu-ha-noi",
+    "name": "Tour Sa Pa 3 ngày 2 đêm từ Hà Nội",
+    "price": 3950000,
+    "priceOriginal": 4532000,
+    "discount": 12,
+    "unit": "khách",
+    "duration": "3 ngày 2 đêm",
+    "url": "./service/tour.html?id=3"
+   },
+   "hotel": 520000,
+   "sections": [
+    {
+     "h": "Bí quyết canh thời tiết và nguyên tắc phối trang phục",
+     "p": "Biển mây Fansipan xuất hiện ấn tượng nhất vào những buổi sáng tạnh ráo từ 7h30 đến 10h sau những đêm độ ẩm cao. Do nhiệt độ trên đỉnh thường thấp hơn thị trấn từ 8-10 độ C, bạn nên chuẩn bị áo khoác gió chống nước, mũ len và chọn trang phục sắc đỏ, vàng để nổi bật rực rỡ giữa nền biển mây bồng bềnh.",
+     "image": "kpdd6_may.jpg",
+     "imageCaption": "Biển mây cuồn cuộn xuất hiện rực rỡ vào buổi sáng sớm"
+    },
+    {
+     "h": "Bảo vệ sức khỏe và đặt tour săn mây VivuGo",
+     "p": "Do cáp treo đưa bạn lên độ cao hơn 3.000m trong thời gian ngắn, hãy di chuyển nhẹ nhàng từ tốn để tránh gặp hiện tượng thiếu oxy gây chóng mặt. Đừng quên mang theo sạc dự phòng vì nhiệt độ lạnh trên đỉnh Fansipan rất dễ làm điện thoại sụt pin nhanh chóng.",
+     "image": "kpdd6_trangphuc.jpg",
+     "imageCaption": "Trang phục màu nổi bật giúp bạn bắt trọn khoảnh khắc săn mây"
+    }
+   ],
+   "author": {
+    "name": "Trần Khang",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Lê Hải Yến",
+     "rating": 5,
+     "date": "25/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Nhờ mẹo mặc áo đỏ nổi bật mà mình có bộ ảnh săn mây Fansipan xuất sắc!"
+    }
+   ]
+  },
+  {
+   "id": "du-thuyen-hercules-grand-trong-ngay",
+   "title": "Du thuyền Hercules Grand trong ngày: Hang Sửng Sốt, kayak Hang Luồn và tiệc hoàng hôn",
+   "dest": "Vịnh Hạ Long",
+   "region": "Miền Bắc",
+   "cat": "Cẩm nang",
+   "featured": true,
+   "published": "2026-10-23",
+   "read": 9,
+   "rating": 4.9,
+   "reviewsCount": 2,
+   "image": "kpdd7.jpg",
+   "excerpt": "Trải nghiệm 6 tiếng đắt giá trên du thuyền Hercules Grand sang trọng: thưởng thức buffet hải sản tươi ngon và chèo kayak Hang Luồn.",
+   "tour": {
+    "id": 4,
+    "slug": "du-thuyen-hercules-grand-vinh-ha-long",
+    "name": "Du thuyền Hercules Grand – Vịnh Hạ Long",
+    "price": 950000,
+    "priceOriginal": 1070588,
+    "discount": 11,
+    "unit": "khách",
+    "duration": "Trong ngày (6 tiếng trên vịnh)",
+    "url": "./service/tour.html?id=4"
+   },
+   "hotel": 850000,
+   "sections": [
+    {
+     "h": "Hải trình đẳng cấp 6 tiếng lướt trên di sản Hạ Long",
+     "p": "Chuyến hải trình 6 tiếng đỉnh cao đưa du thuyền Hercules Grand lướt qua Hòn Gà Chọi biểu tượng. Bạn sẽ được thưởng thức buffet hải sản hoành tráng trong không gian nhà hàng sang trọng, trước khi ghé thăm khung cảnh thạch nhũ huyền ảo bên trong Hang Sửng Sốt và chèo thuyền kayak khám phá Hang Luồn.",
+     "image": "kpdd7_sungsot.jpg",
+     "imageCaption": "Vẻ đẹp lộng lẫy và kỳ ảo bên trong Hang Sửng Sốt"
+    },
+    {
+     "h": "Phiêu cùng Sunset Party và đặt vé ưu đãi",
+     "p": "Thời khắc chiều muộn buông xuống cũng là lúc bữa tiệc Sunset Party khởi động trên tầng Sundeck của du thuyền. Nhâm nhi tách trà chiều ấm cùng bánh ngọt, trái cây tươi và lắng nghe giai điệu du dương ngắm mặt trời dát vàng trên Vịnh Hạ Long sẽ là khoảnh khắc nghỉ dưỡng không thể tuyệt vời hơn.",
+     "image": "kpdd7_titop.jpg",
+     "imageCaption": "Góc nhìn toàn cảnh Vịnh Hạ Long từ đỉnh núi Đảo Titop"
+    }
+   ],
+   "author": {
+    "name": "Hoàng Nam",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Nguyễn Thanh Tùng",
+     "rating": 5,
+     "date": "24/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Buffet hải sản tươi ngon, du thuyền mới đẹp sang trọng."
+    }
+   ]
+  },
+  {
+   "id": "ha-long-kayak-titop-meo",
+   "title": "Chèo kayak Hang Luồn và leo đảo Titop: kinh nghiệm cho người lần đầu đến Hạ Long",
+   "dest": "Vịnh Hạ Long",
+   "region": "Miền Bắc",
+   "cat": "Mẹo hay",
+   "featured": false,
+   "published": "2026-10-22",
+   "read": 7,
+   "rating": 4.8,
+   "reviewsCount": 1,
+   "image": "kpdd8.jpg",
+   "excerpt": "Những tuyệt chiêu chuẩn bị đồ dùng và phân bổ thời gian để có chuyến du ngoạn Vịnh Hạ Long thoải mái.",
+   "tour": {
+    "id": 4,
+    "slug": "du-thuyen-hercules-grand-vinh-ha-long",
+    "name": "Du thuyền Hercules Grand – Vịnh Hạ Long",
+    "price": 950000,
+    "priceOriginal": 1070588,
+    "discount": 11,
+    "unit": "khách",
+    "duration": "Trong ngày (6 tiếng trên vịnh)",
+    "url": "./service/tour.html?id=4"
+   },
+   "hotel": 850000,
+   "sections": [
+    {
+     "h": "Mẹo chèo Kayak an toàn và bí quyết leo đỉnh Titop",
+     "p": "Hang Luồn có mặt nước vô cùng phẳng lặng nên chèo kayak tại đây rất an toàn. Bạn nên mặc áo phao cẩn thận và cất các thiết bị điện tử vào túi chống nước trước khi xuống thuyền. Khi cập đảo Titop, hãy chinh phục 400 bậc đá để ngắm trọn vẹn góc nhìn 360 độ quanh Vịnh Hạ Long nhé.",
+     "image": "kpdd8_kayak.jpg",
+     "imageCaption": "Trải nghiệm chèo kayak an toàn tại đầm nước phẳng lặng Hang Luồn"
+    },
+    {
+     "h": "Lưu ý môi trường và đặt tour Hercules Grand",
+     "p": "Nhằm bảo vệ hệ sinh thái di sản thiên nhiên thế giới, ban quản lý vịnh nghiêm cấm mang chai nhựa hay túi nilon sử dụng một lần lên đảo. Vì vậy hãy chuẩn bị bình nước cá nhân khi lên tàu để chuyến đi thêm phần văn minh.",
+     "image": "kpdd8_titop.jpg",
+     "imageCaption": "Bãi tắm vầng trăng ôm trọn chân núi đảo Titop"
+    }
+   ],
+   "author": {
+    "name": "Hoàng Nam",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Trần Thị Kim",
+     "rating": 5,
+     "date": "23/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Bài viết hướng dẫn chi tiết, chèo kayak rất vui!"
+    }
+   ]
+  },
+  {
+   "id": "ha-giang-3-ngay-ma-pi-leng",
+   "title": "Hà Giang 3 ngày: Cổng trời Quản Bạ, Lũng Cú, đèo Mã Pí Lèng và sông Nho Quế",
+   "dest": "Hà Giang",
+   "region": "Miền Bắc",
+   "cat": "Lịch trình",
+   "featured": false,
+   "published": "2026-10-21",
+   "read": 11,
+   "rating": 5.0,
+   "reviewsCount": 2,
+   "image": "kpdd9.jpg",
+   "excerpt": "Hành trình 3 ngày 2 đêm vượt đèo Mã Pí Lèng ngoạn mục, chạm tay vào cờ Lũng Cú và đi thuyền sông Nho Quế.",
+   "tour": {
+    "id": 5,
+    "slug": "tour-ha-giang-3-ngay-ma-pi-leng-song-nho-que",
+    "name": "Tour Hà Giang 3 ngày – Mã Pí Lèng, sông Nho Quế",
+    "price": 3890000,
+    "priceOriginal": 4455000,
+    "discount": 13,
+    "unit": "khách",
+    "duration": "3 ngày 2 đêm",
+    "url": "./service/tour.html?id=5"
+   },
+   "hotel": 350000,
+   "sections": [
+    {
+     "h": "Ngày 1–2: Vượt đèo Mã Pí Lèng và xuôi dòng Nho Quế",
+     "p": "Chuyến hành trình vươn tới cực Bắc đưa bạn vượt qua Dốc Thẩm Mã uốn lượn để dừng chân tại Phố cổ Đồng Văn. Hôm sau, đoàn đứng dưới lá cờ Tổ quốc tại Cột cờ Lũng Cú kiêu hãnh rồi tiếp tục chinh phục một trong tứ đại đỉnh đèo Mã Pí Lèng, xuống thuyền lướt nhẹ trên dòng sông Nho Quế xanh ngắt xuyên qua Hẻm Tu Sản kỳ vĩ.",
+     "image": "kpdd9_mapileng.jpg",
+     "imageCaption": "Đèo Mã Pí Lèng hiểm trở uốn lượn lưng chừng vách đá"
+    },
+    {
+     "h": "Ngày 3: Tham quan Dinh Vua Mèo và đặt tour Hà Giang",
+     "p": "Trước khi chào tạm biệt vùng đất đá xám, du khách ghé thăm Dinh thự Họ Vương độc đáo với kiến trúc kết hợp giữa nghệ thuật H'Mông và Trung Hoa cổ. Đặt tour Hà Giang trọn gói của VivuGo để có chuyến xe an toàn cùng hướng dẫn viên bản địa am hiểu tuyến đường.",
+     "image": "kpdd9_nhoque.jpg",
+     "imageCaption": "Xuôi thuyền trên dòng sông Nho Quế xanh ngắt qua Hẻm Tu Sản"
+    }
+   ],
+   "author": {
+    "name": "Minh Quân",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Đặng Minh Trí",
+     "rating": 5,
+     "date": "22/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Sông Nho Quế xanh ngắt cực đẹp, chuyến đi tuyệt vời!"
+    }
+   ]
+  },
+  {
+   "id": "an-gi-o-ha-giang",
+   "title": "Ăn gì ở Hà Giang: thắng dền, cháo ấu tẩu, thịt trâu gác bếp và bánh tam giác mạch",
+   "dest": "Hà Giang",
+   "region": "Miền Bắc",
+   "cat": "Ẩm thực",
+   "featured": false,
+   "published": "2026-10-20",
+   "read": 8,
+   "rating": 4.8,
+   "reviewsCount": 1,
+   "image": "kpdd10.jpg",
+   "excerpt": "Thưởng thức những món ăn đặc sản ấm nóng đậm đà làm say lòng du khách giữa không gian núi rừng đá xám.",
+   "tour": {
+    "id": 5,
+    "slug": "tour-ha-giang-3-ngay-ma-pi-leng-song-nho-que",
+    "name": "Tour Hà Giang 3 ngày – Mã Pí Lèng, sông Nho Quế",
+    "price": 3890000,
+    "priceOriginal": 4455000,
+    "discount": 13,
+    "unit": "khách",
+    "duration": "3 ngày 2 đêm",
+    "url": "./service/tour.html?id=5"
+   },
+   "hotel": 350000,
+   "sections": [
+    {
+     "h": "Thắng dền ngọt ấm và Cháo ấu tẩu bổ dưỡng",
+     "p": "Trong cái lạnh giá lạnh đêm Phố cổ Đồng Văn, nhâm nhi bát thắng dền dẻo quánh ngập trong nước đường gừng cay ấm ngọt ngào là cảm giác vô cùng thi vị. Đừng quên thử bát cháo ấu tẩu ninh nhừ chân giò, tuy ban đầu có vị đắng nhẹ nhưng hậu vị ngọt bùi sẽ giúp xua tan mệt mỏi sau quãng đường đi đèo.",
+     "image": "kpdd10_thangden.jpg",
+     "imageCaption": "Thắng dền Phố cổ Đồng Văn ngọt ngào sưởi ấm đêm lạnh"
+    },
+    {
+     "h": "Thịt trâu gác bếp, Bánh tam giác mạch và đặt tour VivuGo",
+     "p": "Những dải thịt trâu đậm đà thơm nức mùi hạt mắc khén gác bếp xé nhỏ vắt chanh, ăn kèm chiếc bánh tam giác mạch nướng giòn rụm sẽ khiến trải nghiệm ẩm thực miền biên viễn trở nên vô cùng khó quên.",
+     "image": "kpdd10_traugacbep.jpg",
+     "imageCaption": "Thịt trâu gác bếp thơm nức mùi mắc khén và khói núi"
+    }
+   ],
+   "author": {
+    "name": "Lê Hương",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Phạm Quốc Bảo",
+     "rating": 5,
+     "date": "21/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Cháo ấu tẩu mới đầu hơi đắng nhưng ăn xong rất nhẹ người."
+    }
+   ]
+  },
+  {
+   "id": "mien-trung-5-ngay-4-dem",
+   "title": "Hành trình di sản miền Trung 5 ngày 4 đêm: Bà Nà Hills, Hội An, Huế và Phong Nha",
+   "dest": "Đà Nẵng",
+   "region": "Miền Trung",
+   "cat": "Lịch trình",
+   "featured": true,
+   "published": "2026-10-19",
+   "read": 12,
+   "rating": 5.0,
+   "reviewsCount": 3,
+   "image": "kpdd11.jpg",
+   "excerpt": "Hành trình nối liền Cầu Vàng Bà Nà Hills, Phố cổ Hội An, Đại Nội Huế và kỳ quan Động Phong Nha.",
+   "tour": {
+    "id": 6,
+    "slug": "da-nang-ba-na-hills-hoi-an-hue-phong-nha",
+    "name": "Đà Nẵng – Bà Nà Hills – Hội An – Huế – Phong Nha",
+    "price": 4790000,
+    "priceOriginal": 5250000,
+    "discount": 9,
+    "unit": "khách",
+    "duration": "5 ngày 4 đêm",
+    "url": "./service/tour.html?id=6"
+   },
+   "hotel": 550000,
+   "sections": [
+    {
+     "h": "Trải nghiệm Cầu Vàng Bà Nà Hills và trầm mặc Cố đô Huế",
+     "p": "Chuyến đi đưa bạn dạo chơi phố cổ Hội An rực rỡ sắc lồng đèn ban đêm và dành ngày hôm sau vui chơi trọn vẹn trên tiên cảnh Bà Nà Hills với công trình Cầu Vàng nổi tiếng. Tiến về đất Cố đô Huế, đoàn tham quan Đại Nội Hoàng Thành tôn nghiêm và ngồi thuyền rồng thưởng thức ca Huế trên sông Hương lãng mạn.",
+     "image": "kpdd11_cauvang.jpg",
+     "imageCaption": "Tuyệt tác Cầu Vàng nâng đỡ bởi bàn tay rêu phong trên đỉnh Bà Nà"
+    },
+    {
+     "h": "Khám phá kỳ quan Động Phong Nha và đặt tour trọn gói",
+     "p": "Điểm nhấn chặng cuối là chuyến thuyền xuôi dòng sông Son đi sâu vào Động Phong Nha kỳ vĩ, ngắm nhìn vô số khối thạch nhũ lung linh tuyệt tác do thiên nhiên kiến tạo qua hàng triệu năm.",
+     "image": "kpdd11_hue.jpg",
+     "imageCaption": "Ngàn năm hoài niệm Cố đô Huế bên sông Hương thơ mộng"
+    }
+   ],
+   "author": {
+    "name": "Thanh Mai",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Vũ Thùy Linh",
+     "rating": 5,
+     "date": "20/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Tour dài ngày nhưng thiết kế hợp lý không mệt chút nào."
+    }
+   ]
+  },
+  {
+   "id": "ba-na-hills-cau-vang-meo-hay",
+   "title": "Bà Nà Hills và Cầu Vàng: đi giờ nào, chụp ở đâu và tránh đông ra sao",
+   "dest": "Đà Nẵng",
+   "region": "Miền Trung",
+   "cat": "Mẹo hay",
+   "featured": false,
+   "published": "2026-10-18",
+   "read": 7,
+   "rating": 4.9,
+   "reviewsCount": 1,
+   "image": "kpdd12.jpg",
+   "excerpt": "Bí kíp chụp ảnh không dính người tại Cầu Vàng và lịch trình vui chơi tối ưu trên đỉnh Bà Nà.",
+   "tour": {
+    "id": 6,
+    "slug": "da-nang-ba-na-hills-hoi-an-hue-phong-nha",
+    "name": "Đà Nẵng – Bà Nà Hills – Hội An – Huế – Phong Nha",
+    "price": 4790000,
+    "priceOriginal": 5250000,
+    "discount": 9,
+    "unit": "khách",
+    "duration": "5 ngày 4 đêm",
+    "url": "./service/tour.html?id=6"
+   },
+   "hotel": 550000,
+   "sections": [
+    {
+     "h": "Bí quyết canh giờ chụp Cầu Vàng và gu trang phục Làng Pháp",
+     "p": "Để bắt trọn vẻ đẹp của Cầu Vàng mà không bị đám đông che khuất, hãy đi chuyến cáp treo sớm nhất mở lúc 7h30 sáng hoặc nán lại sau 16h chiều. Trang phục tông màu đỏ, trắng hoặc vàng rực rỡ sẽ tôn lên vẻ đẹp cổ kính khi check-in tại làng Pháp.",
+     "image": "kpdd12_cauvang.jpg",
+     "imageCaption": "Chụp ảnh Cầu Vàng sáng sớm để tránh đám đông du khách"
+    },
+    {
+     "h": "Lộ trình thông minh và đặt tour tiện lợi",
+     "p": "Phân bổ thời gian tham quan Cầu Vàng cùng vườn hoa D'Amour vào buổi sáng, dành buổi chiều thưởng thức buffet trưa và trải nghiệm hàng trăm trò chơi miễn phí hấp dẫn tại Fantasy Park.",
+     "image": "kpdd12_langphap.jpg",
+     "imageCaption": "Kiến trúc Lâu đài Làng Pháp cổ kính thơ mộng"
+    }
+   ],
+   "author": {
+    "name": "Hoàng Nam",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Phan Việt Cường",
+     "rating": 5,
+     "date": "19/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Mẹo đi sáng sớm cực chuẩn, chụp hình không dính ai cả!"
+    }
+   ]
+  },
+  {
+   "id": "da-nang-hue-hoi-an-4n3d",
+   "title": "Đà Nẵng – Huế – Hội An 4 ngày 3 đêm: lịch trình gọn, giá tốt cho người đi lần đầu",
+   "dest": "Đà Nẵng",
+   "region": "Miền Trung",
+   "cat": "Lịch trình",
+   "featured": false,
+   "published": "2026-10-17",
+   "read": 10,
+   "rating": 4.8,
+   "reviewsCount": 2,
+   "image": "kpdd13.jpg",
+   "excerpt": "Hành trình tối ưu thời gian kết nối biển xanh Đà Nẵng, Phố cổ Hội An và di sản Cố đô Huế.",
+   "tour": {
+    "id": 7,
+    "slug": "da-nang-hue-hoi-an-ba-na-hills-4n3d",
+    "name": "Đà Nẵng – Huế – Hội An – Bà Nà Hills",
+    "price": 3290000,
+    "priceOriginal": 3650000,
+    "discount": 10,
+    "unit": "khách",
+    "duration": "4 ngày 3 đêm",
+    "url": "./service/tour.html?id=7"
+   },
+   "hotel": 550000,
+   "sections": [
+    {
+     "h": "Lịch trình gọn gàng nối liền biển xanh và di sản",
+     "p": "Tour đứt đoạn khoa học kết nối bán đảo Sơn Trà, làng đá Ngũ Hành Sơn, dạo quanh Hội An hoài cổ và trải nghiệm Bà Nà Hills. Tiếp sau đó vượt đèo Hải Vân ngoạn mục sang đất Cố đô Huế thăm Đại Nội trầm mặc.",
+     "image": "kpdd13_hoian.jpg",
+     "imageCaption": "Phố cổ Hội An thơ mộng rực rỡ ánh đèn lồng"
+    },
+    {
+     "h": "Đặt tour tiết kiệm cùng VivuGo",
+     "p": "Chuyến đi 4 ngày 3 đêm được chuẩn bị trọn gói từ dịch vụ xe đưa đón máy lạnh, khách sạn 3-4 sao trung tâm gần biển Mỹ Khê đến bữa ăn đặc sản miền Trung đa dạng.",
+     "image": "kpdd13_banahills.jpg",
+     "imageCaption": "Toàn cảnh Bà Nà Hills giữa mây trời Đà Nẵng"
+    }
+   ],
+   "author": {
+    "name": "Minh Quân",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Tạ Phương Thảo",
+     "rating": 5,
+     "date": "18/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Giá tốt, khách sạn gần biển Mỹ Khê rất tiện lợi."
+    }
+   ]
+  },
+  {
+   "id": "an-gi-o-da-nang-hoi-an-hue",
+   "title": "Ăn gì khi đi Đà Nẵng, Hội An, Huế: cao lầu, cơm gà, bún bò và chả bò chợ Hàn",
+   "dest": "Hội An",
+   "region": "Miền Trung",
+   "cat": "Ẩm thực",
+   "featured": false,
+   "published": "2026-10-16",
+   "read": 8,
+   "rating": 5.0,
+   "reviewsCount": 2,
+   "image": "kpdd14.jpg",
+   "excerpt": "Khám phá thiên đường ẩm thực miền Trung: mì cao lầu, bún bò Huế đậm đà và chả bò Chợ Hàn.",
+   "tour": {
+    "id": 7,
+    "slug": "da-nang-hue-hoi-an-ba-na-hills-4n3d",
+    "name": "Đà Nẵng – Huế – Hội An – Bà Nà Hills",
+    "price": 3290000,
+    "priceOriginal": 3650000,
+    "discount": 10,
+    "unit": "khách",
+    "duration": "4 ngày 3 đêm",
+    "url": "./service/tour.html?id=7"
+   },
+   "hotel": 550000,
+   "sections": [
+    {
+     "h": "Cao lầu Hội An và Bún bò xứ Huế đậm đà",
+     "p": "Đừng bỏ qua tô mì Cao lầu vàng óng với sợi mì dai ngậy ăn kèm xá xíu đậm đà xứ Hội. Đến đất Cố đô, tô bún bò nghi ngút khói thơm lừng mùi mắm ruốc và sả đập dập cùng khay bánh bèo nậm lọc dẻo mát sẽ chiều lòng bất cứ thực khách khó tính nào.",
+     "image": "kpdd14_caolau.jpg",
+     "imageCaption": "Món mì Cao lầu trứ danh đậm đà xứ Hội"
+    },
+    {
+     "h": "Mì Quảng Đà Nẵng và đặt tour thưởng thức đặc sản",
+     "p": "Thưởng thức mì Quảng tôm thịt đậm vị tại Đà Nẵng và nhớ mua vài đòn chả bò Chợ Hàn thơm ngon giòn ngọt về làm quà biếu người thân sau chuyến đi.",
+     "image": "kpdd14_bunbo.jpg",
+     "imageCaption": "Bún bò Huế cay nồng thơm mùi sả và mắm ruốc"
+    }
+   ],
+   "author": {
+    "name": "Lê Hương",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Lương Thế Vinh",
+     "rating": 5,
+     "date": "17/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Mì Cao lầu ăn rất vừa miệng, bún bò Huế chuẩn vị củ sả."
+    }
+   ]
+  },
+  {
+   "id": "cu-lao-cham-2n1d-tu-da-nang",
+   "title": "Cù Lao Chàm 2 ngày 1 đêm: cano rẽ sóng ra đảo, lặn san hô và về phố cổ Hội An",
+   "dest": "Cù Lao Chàm",
+   "region": "Miền Trung",
+   "cat": "Cẩm nang",
+   "featured": false,
+   "published": "2026-10-15",
+   "read": 8,
+   "rating": 4.9,
+   "reviewsCount": 1,
+   "image": "kpdd15.jpg",
+   "excerpt": "Lướt cano siêu tốc ra đảo hoang sơ, lặn ngắm san hô Hòn Dài và thưởng thức hải sản tươi ngon.",
+   "tour": {
+    "id": 8,
+    "slug": "da-nang-hoi-an-cu-lao-cham-bien-dao",
+    "name": "Đà Nẵng – Hội An – Cù Lao Chàm",
+    "price": 1750000,
+    "priceOriginal": 1950000,
+    "discount": 10,
+    "unit": "khách",
+    "duration": "2 ngày 1 đêm",
+    "url": "./service/tour.html?id=8"
+   },
+   "hotel": 450000,
+   "sections": [
+    {
+     "h": "Trải nghiệm cano rẽ sóng và lặn ngắm san hô Hòn Dài",
+     "p": "Chỉ mất khoảng 20 phút lướt cano cao tốc vượt sóng từ biển Cửa Đại, đảo Cù Lao Chàm hoang sơ bừng sáng giữa ngàn mây. Bạn sẽ được hòa mình lặn ngắm những rạn san hô tự nhiên rực rỡ sắc màu tại Hòn Dài và thưởng thức bữa tiệc hải sản tươi rói.",
+     "image": "kpdd15_cano.jpg",
+     "imageCaption": "Cano cao tốc rẽ sóng đưa du khách ra đảo Cù Lao Chàm"
+    },
+    {
+     "h": "Chào bình minh đảo ngọc và đặt tour ưu đãi",
+     "p": "Đón bình minh êm đềm bên bờ biển cát trắng mịn, tận hưởng làn gió mát lành từ khơi xa trước khi trở về đất liền tản bộ khám phá phố cổ Hội An lãng mạn.",
+     "image": "kpdd15_sanho.jpg",
+     "imageCaption": "Trải nghiệm lặn ngắm rạn san hô rực rỡ tại Hòn Dài"
+    }
+   ],
+   "author": {
+    "name": "Thu Thảo",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Bùi Văn Nam",
+     "rating": 5,
+     "date": "16/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "San hô ở Hòn Dài rất đẹp, hải sản đảo tươi ngon cực kỳ."
+    }
+   ]
+  },
+  {
+   "id": "hoi-an-chieu-toi-hoa-dang",
+   "title": "Hội An chiều tối: nhà cổ, Chùa Cầu và thả hoa đăng trên sông Hoài",
+   "dest": "Hội An",
+   "region": "Miền Trung",
+   "cat": "Lịch trình",
+   "featured": false,
+   "published": "2026-10-13",
+   "read": 8,
+   "rating": 5.0,
+   "reviewsCount": 2,
+   "image": "kpdd16.jpg",
+   "excerpt": "Dạo bước qua Chùa Cầu 400 năm tuổi và tự tay thả hoa đăng lung linh lãng mạn trên dòng sông Hoài.",
+   "tour": {
+    "id": 9,
+    "slug": "tour-hoi-an-1-ngay-pho-co-di-san",
+    "name": "Tour Hội An 1 ngày – Phố cổ di sản",
+    "price": 450000,
+    "priceOriginal": 500000,
+    "discount": 10,
+    "unit": "khách",
+    "duration": "1 ngày (chiều - tối)",
+    "url": "./service/tour.html?id=9"
+   },
+   "hotel": 650000,
+   "sections": [
+    {
+     "h": "Khám phá di sản hoài cổ và khoảnh khắc thả hoa đăng",
+     "p": "Khởi hành chiều từ Đà Nẵng về Hội An, bạn sẽ ghé thăm Chùa Cầu 400 năm tuổi và nhà cổ Tấn Ký trầm mặc. Khi màn đêm buông xuống, phố cổ lung linh hiện lên rực rỡ với muôn vàn sắc đèn lồng. Đừng quên bước lên chiếc thuyền gỗ nhỏ để tự tay thả chiếc hoa đăng cầu may trên sông Hoài.",
+     "image": "kpdd16_chuacau.jpg",
+     "imageCaption": "Chùa Cầu Nhật Bản cổ kính dưới ánh chiều tà"
+    },
+    {
+     "h": "Đặt tour Hội An chiều tối trọn gói",
+     "p": "Tour chiều tối Hội An của VivuGo có giá cực ưu đãi, trọn gói bao gồm xe đưa đón hai chiều, vé di sản, bữa tối đặc sản và thuyền thả hoa đăng thơ mộng.",
+     "image": "kpdd16_hoadang.jpg",
+     "imageCaption": "Thả hoa đăng lung linh lãng mạn trên dòng sông Hoài"
+    }
+   ],
+   "author": {
+    "name": "Lê Hương",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Phùng Ngọc Trinh",
+     "rating": 5,
+     "date": "14/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Trải nghiệm thả hoa đăng trên sông Hoài vô cùng lãng mạn."
+    }
+   ]
+  },
+  {
+   "id": "da-lat-1-ngay-thac-prenn-puppy-farm",
+   "title": "Đà Lạt một ngày: thác Prenn, Thiền viện Trúc Lâm và Puppy Farm đáng yêu",
+   "dest": "Đà Lạt",
+   "region": "Miền Trung",
+   "cat": "Lịch trình",
+   "featured": false,
+   "published": "2026-10-11",
+   "read": 9,
+   "rating": 4.9,
+   "reviewsCount": 2,
+   "image": "kpdd17.jpg",
+   "excerpt": "Hòa mình cùng thiên nhiên thác Prenn, Thiền viện Trúc Lâm và chơi đùa cùng cún cưng tại Puppy Farm.",
+   "tour": {
+    "id": 10,
+    "slug": "da-lat-thac-prenn-puppy-farm-thien-vien-truc-lam",
+    "name": "Đà Lạt – thác Prenn – Puppy Farm – Thiền viện Trúc Lâm",
+    "price": 850000,
+    "priceOriginal": 990000,
+    "discount": 14,
+    "unit": "khách",
+    "duration": "1 ngày (8 tiếng)",
+    "url": "./service/tour.html?id=10"
+   },
+   "hotel": 450000,
+   "sections": [
+    {
+     "h": "Sáng mát rượi Thác Prenn và chốn thanh tịnh Trúc Lâm",
+     "p": "Đón buổi sáng trong lành tại ngọn thác Prenn dịu êm giữa rừng thông reo và không gian thanh tịnh của Thiền viện Trúc Lâm soi bóng Hồ Tuyền Lâm. Sau bữa trưa thưởng thức lẩu rau tươi ngon, đoàn ghé nông trại Puppy Farm chơi đùa cùng dàn cún Corgi, Alaska đốn tim du khách.",
+     "image": "kpdd17_prenn.jpg",
+     "imageCaption": "Dòng Thác Prenn dịu êm giữa không gian núi rừng Đà Lạt"
+    },
+    {
+     "h": "Đặt tour Đà Lạt 1 ngày siêu ưu đãi",
+     "p": "Lịch trình 8 tiếng tham quan nhẹ nhàng đáp ứng nhu cầu trải nghiệm của mọi gia đình, tích hợp dịch vụ xe đưa đón chất lượng cao tận nơi.",
+     "image": "kpdd17_puppy.jpg",
+     "imageCaption": "Dàn cún Corgi đáng yêu tại nông trại Puppy Farm"
+    }
+   ],
+   "author": {
+    "name": "Thanh Mai",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Đỗ Thu Hà",
+     "rating": 5,
+     "date": "12/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Dàn cún Puppy Farm cưng xỉu, chụp ảnh sống ảo cháy máy."
+    }
+   ]
+  },
+  {
+   "id": "dia-dao-cu-chi-nua-ngay",
+   "title": "Địa đạo Củ Chi nửa ngày: chui hầm, bếp Hoàng Cầm và củ mì chấm muối mè",
+   "dest": "Củ Chi",
+   "region": "Miền Nam",
+   "cat": "Cẩm nang",
+   "featured": false,
+   "published": "2026-10-09",
+   "read": 8,
+   "rating": 4.8,
+   "reviewsCount": 1,
+   "image": "kpdd18.jpg",
+   "excerpt": "Khám phá mê cung dưới lòng đất Củ Chi, tìm hiểu bếp Hoàng Cầm và thưởng thức khoai mì luộc.",
+   "tour": {
+    "id": 11,
+    "slug": "tour-nua-ngay-kham-pha-dia-dao-cu-chi",
+    "name": "Tour nửa ngày khám phá Địa đạo Củ Chi",
+    "price": 380000,
+    "priceOriginal": 450000,
+    "discount": 15,
+    "unit": "khách",
+    "duration": "Nửa ngày (khoảng 5 tiếng)",
+    "url": "./service/tour.html?id=11"
+   },
+   "hotel": 650000,
+   "sections": [
+    {
+     "h": "Thành phố trong lòng đất và trải nghiệm chui hầm",
+     "p": "Chỉ cách trung tâm Sài Gòn 1.5 tiếng di chuyển, Củ Chi được coi là công trình du kích kỳ tích dài hơn 250km trong lòng đất. Du khách sẽ có cơ hội chui hầm nguyên bản, tìm hiểu nguyên lý giấu khói của Bếp Hoàng Cầm và thưởng thức đĩa khoai mì chấm muối mè dân dã.",
+     "image": "kpdd18_diadao.jpg",
+     "imageCaption": "Trải nghiệm chui hầm địa đạo thu nhỏ dưới lòng đất"
+    },
+    {
+     "h": "Đặt tour Củ Chi nửa ngày siêu rẻ",
+     "p": "Chuyến tour nửa ngày phù hợp cho du khách muốn tìm hiểu lịch sử kiêu hãnh mà không tốn quá nhiều thời gian di chuyển.",
+     "image": "kpdd18_khoami.jpg",
+     "imageCaption": "Thưởng thức đĩa khoai mì nóng hổi chấm muối mè dân dã"
+    }
+   ],
+   "author": {
+    "name": "Minh Quân",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Trịnh Quốc Việt",
+     "rating": 5,
+     "date": "10/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Tour nửa ngày rất vừa sức, HDV giải thích lịch sử sinh động."
+    }
+   ]
+  },
+  {
+   "id": "my-tho-ben-tre-1-ngay",
+   "title": "Mỹ Tho – Bến Tre một ngày: du thuyền sông Tiền, xuồng ba lá và đờn ca tài tử",
+   "dest": "Mỹ Tho",
+   "region": "Miền Nam",
+   "cat": "Lịch trình",
+   "featured": false,
+   "published": "2026-10-07",
+   "read": 9,
+   "rating": 4.9,
+   "reviewsCount": 2,
+   "image": "kpdd19.jpg",
+   "excerpt": "Lênh đênh du thuyền sông Tiền, chèo xuồng ba lá dưới rặng dừa nước và thưởng thức đờn ca tài tử.",
+   "tour": {
+    "id": 12,
+    "slug": "tour-dong-bang-song-cuu-long-my-tho-ben-tre",
+    "name": "Tour Đồng bằng sông Cửu Long – Mỹ Tho, Bến Tre",
+    "price": 480000,
+    "priceOriginal": 550000,
+    "discount": 12,
+    "unit": "khách",
+    "duration": "1 ngày (8 tiếng)",
+    "url": "./service/tour.html?id=12"
+   },
+   "hotel": 380000,
+   "sections": [
+    {
+     "h": "Sông nước miệt vườn và ẩm thực cá tai tượng",
+     "p": "Chuyến trốn phố về miền Tây sông nước đưa bạn lên tàu du ngoạn sông Tiền ngắm nhìn 4 cồn tứ linh. Ngồi xuồng ba lá len lỏi dưới rặng dừa nước Bến Tre rợp bóng, nghe đờn ca tài tử Nam Bộ mộc mạc và thưởng thức bữa trưa cá tai tượng chiên xù xòe vây giòn rụm.",
+     "image": "kpdd19_xuongbala.jpg",
+     "imageCaption": "Chèo xuồng ba lá len lỏi dưới rặng dừa nước Bến Tre"
+    },
+    {
+     "h": "Đặt tour miền Tây 1 ngày trọn gói",
+     "p": "Một hành trình thư giãn trọn vẹn đưa bạn về với thiên nhiên yên bình và sự chất phác hỉ hả của người dân vùng đồng bằng sông Cửu Long.",
+     "image": "kpdd19_cataituong.jpg",
+     "imageCaption": "Đặc sản cá tai tượng chiên xù xòe vây giòn rụm"
+    }
+   ],
+   "author": {
+    "name": "Lê Hương",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Châu Tấn Phát",
+     "rating": 5,
+     "date": "08/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Chèo xuồng ba lá trong kênh dừa nước mát rượi, không khí miền Tây rất yên bình."
+    }
+   ]
+  },
+  {
+   "id": "hon-thom-cap-treo-aquatopia",
+   "title": "Hòn Thơm Phú Quốc: cáp treo vượt biển dài nhất thế giới và một ngày ở công viên nước Aquatopia",
+   "dest": "Phú Quốc",
+   "region": "Miền Nam",
+   "cat": "Cẩm nang",
+   "featured": true,
+   "published": "2026-10-05",
+   "read": 10,
+   "rating": 5.0,
+   "reviewsCount": 3,
+   "image": "kpdd20.jpg",
+   "excerpt": "Bay trên biển xanh cùng cáp treo Hòn Thơm kỷ lục và quẩy tung công viên nước Aquatopia đẳng cấp.",
+   "tour": {
+    "id": 13,
+    "slug": "ve-cap-treo-hon-thom-va-cong-vien-nuoc-aquatopia",
+    "name": "Vé cáp treo Hòn Thơm và công viên nước Aquatopia",
+    "price": 630000,
+    "priceOriginal": 700000,
+    "discount": 10,
+    "unit": "khách",
+    "duration": "1 ngày (tự do theo giờ mở cửa)",
+    "url": "./service/tour.html?id=13"
+   },
+   "hotel": 1100000,
+   "sections": [
+    {
+     "h": "Bay qua biển xanh và quẩy tung Aquatopia",
+     "p": "Với chiều dài kỷ lục vượt biển hơn 7.899m, cabin cáp treo Hòn Thơm sẽ mang lại cho bạn góc nhìn 360 độ ngắm trọn vẹn thiên đường biển Nam đảo An Thới. Đặt chân lên đảo, quẩy hết mình cùng hơn 20 trò chơi cảm giác mạnh hiện đại tại công viên nước Aquatopia đẳng cấp thế giới.",
+     "image": "kpdd20_captreo.jpg",
+     "imageCaption": "Cáp treo 3 dây vượt biển Hòn Thơm dài nhất thế giới"
+    },
+    {
+     "h": "Đặt vé QR trực tiếp cùng VivuGo",
+     "p": "Đặt vé Combo cáp treo và công viên nước trực tiếp trên VivuGo để nhận ngay mã QR vào cổng không cần chờ đợi xếp hàng tốn thời gian.",
+     "image": "kpdd20_aquatopia.jpg",
+     "imageCaption": "Công viên nước Aquatopia với hơn 20 trò chơi hiện đại"
+    }
+   ],
+   "author": {
+    "name": "Hoàng Nam",
+    "date": "Tháng 10/2026"
+   },
+   "reviews": [
+    {
+     "user": "Nghiêm Xuân Trường",
+     "rating": 5,
+     "date": "06/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Cáp treo view biển siêu đỉnh, công viên nước chơi rã rời cả ngày!"
+    }
+   ]
+  }
+ ]
+}

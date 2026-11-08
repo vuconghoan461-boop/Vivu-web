@@ -129,6 +129,126 @@
       : '<p>Chưa có tuyến phù hợp.</p>';
   }
 
+  /* =====================================================================
+   * THÀNH PHẦN DÙNG CHUNG cho Máy bay / Tàu hỏa / Xe ghép Limo
+   * (thẻ chuyến, khối hành khách, mã ưu đãi, thanh toán, hóa đơn, màn hình thành công)
+   * ===================================================================== */
+
+  var HOTLINE = '1900 0000'; // TODO: thay bằng số hotline thật (nút "Liên hệ trực tiếp")
+
+  function fillHotline(root) {
+    root.querySelectorAll('[data-hotline]').forEach(function (a) {
+      a.textContent = HOTLINE;
+      a.setAttribute('href', 'tel:' + HOTLINE.replace(/\s/g, ''));
+    });
+  }
+
+  // o: { mode, id, logo(html), title, sub(html), dep:{time,label}, arr:{time,label,off}, dur, stop,
+  //      chips(html), best, priceLabel, price, btnAttrs, note }
+  function vtCardHtml(o) {
+    function pt(p) {
+      return '<div class="vt-pt"><b>' + esc(p.time) + (p.off ? '<sup class="vt-off">+' + p.off + '</sup>' : '') + '</b><small>' + esc(p.label) + '</small></div>';
+    }
+    return '<article class="vt-card vivugo-card" data-id="' + esc(o.id) + '" data-mode="' + esc(o.mode) + '">' +
+      '<div class="vt-stub">' + o.logo + '</div>' +
+      '<div class="vt-main">' +
+        '<div class="vt-info">' +
+          '<h3 class="vt-title">' + esc(o.title) + '</h3>' +
+          '<p class="vt-sub">' + o.sub + '</p>' +
+          '<div class="vt-times">' + pt(o.dep) +
+            '<div class="vt-route"><span>' + esc(o.dur) + '</span><div class="vt-line"></div><span class="vt-stop">' + esc(o.stop) + '</span></div>' +
+            pt(o.arr) + '</div>' +
+          (o.chips ? '<div class="tag-row vt-chips">' + o.chips + '</div>' : '') +
+        '</div>' +
+      '</div>' +
+      '<div class="vt-buy">' + (o.best ? '<span class="vt-best">Giá tốt nhất</span>' : '') +
+        '<div class="price"><span class="from">' + esc(o.priceLabel) + '</span><span class="amount">' + money(o.price) + '</span></div>' +
+        '<button type="button" class="btn-primary btn-block" ' + o.btnAttrs + '>Chọn đặt vé</button>' +
+        (o.note ? '<small>' + esc(o.note) + '</small>' : '') +
+      '</div>' +
+    '</article>';
+  }
+
+  function logoHtml(src, alt, fallback) {
+    return src
+      ? '<img class="vt-logo-img" src="' + esc(src) + '" alt="' + esc(alt) + '" data-t="' + esc(fallback) + '" />'
+      : esc(fallback);
+  }
+
+  function dotJoin(parts) {
+    return parts.filter(Boolean).join(' <span class="vt-dot">•</span> ');
+  }
+
+  // Tính tiền: tiền vé − ưu đãi + phí dịch vụ
+  function pricing(n, unit, promo) {
+    var sub = unit * n;
+    var p = promo ? PROMOS[promo] : null;
+    var disc = p ? (p.pct ? Math.round(sub * p.pct / 100) : Math.min(p.flat, sub)) : 0;
+    var fee = SERVICE_FEE * n;
+    return { n: n, price: unit, sub: sub, disc: disc, fee: fee, total: sub - disc + fee };
+  }
+
+  function billHtml(b, promo) {
+    return '<div class="summary-line"><span>Tiền vé (' + b.n + ' × ' + money(b.price) + ')</span><span>' + money(b.sub) + '</span></div>' +
+      '<div class="summary-line"><span>Mã ưu đãi' + (promo ? ' (' + esc(promo) + ')' : '') + '</span><span>' + (b.disc ? '− ' + money(b.disc) : 'Chưa áp dụng') + '</span></div>' +
+      '<div class="summary-line"><span>Phí dịch vụ (' + b.n + ' × ' + money(SERVICE_FEE) + ')</span><span>' + money(b.fee) + '</span></div>' +
+      '<div class="summary-total"><span>Tổng thanh toán</span><strong>' + money(b.total) + '</strong></div>';
+  }
+
+  function promoHtml() {
+    return '<h4 class="panel-h">MÃ ƯU ĐÃI</h4>' +
+      '<div class="promo-row"><input type="text" data-promo-input placeholder="Nhập mã (VD: VIVUGO10, GIAM50K)" autocomplete="off" />' +
+        '<button type="button" class="btn-outline btn-sm" data-promo-apply>Áp dụng</button></div>' +
+      '<p class="section-sub" data-promo-msg></p>';
+  }
+
+  // Đọc ô nhập mã trong hộp thoại `root`, ghi kết quả vào state.promo
+  function applyPromo(root, state) {
+    var code = root.querySelector('[data-promo-input]').value.trim().toUpperCase();
+    var pm = root.querySelector('[data-promo-msg]');
+    if (!code) { state.promo = ''; pm.textContent = ''; }
+    else if (PROMOS[code]) { state.promo = code; pm.textContent = '✓ ' + PROMOS[code].text; }
+    else { state.promo = ''; pm.textContent = 'Mã ưu đãi không hợp lệ hoặc đã hết hạn.'; }
+  }
+
+  function payHtml(name) {
+    return '<div class="filter-group"><h4>Phương thức thanh toán</h4>' +
+      '<label class="filter-option"><input type="radio" name="' + name + '" value="Chuyển khoản / QR" checked /> Chuyển khoản / QR</label>' +
+      '<label class="filter-option"><input type="radio" name="' + name + '" value="Thẻ Visa / Mastercard" /> Thẻ Visa / Mastercard</label>' +
+      '<label class="filter-option"><input type="radio" name="' + name + '" value="Ví điện tử" /> Ví điện tử</label></div>';
+  }
+
+  function contactHtml() {
+    return '<p class="vt-contact">Cần hỗ trợ? Liên hệ trực tiếp qua hotline <a data-hotline href="#"></a></p>';
+  }
+
+  // Thẻ thông tin một hành khách. attr = tên thuộc tính định danh (data-pax / data-lmp), key = ghế hoặc số thứ tự
+  function paxCardHtml(attr, key, heading, p, opt) {
+    function fg(k, label, ph, type) {
+      return '<div class="form-group"><label>' + label + '</label><input type="' + (type || 'text') + '" ' + attr + '="' + esc(key) + '" data-k="' + k +
+        '" placeholder="' + ph + '" value="' + esc(p[k] || '') + '" autocomplete="off" /></div>';
+    }
+    return '<div class="bk-pax"><h4 class="panel-h">' + heading + '</h4><div class="vt-pax-grid">' +
+      fg('name', 'Họ và tên (IN HOA không dấu) *', 'NGUYEN VAN A') +
+      fg('id', opt.idLabel, '012345678901') +
+      fg('phone', 'Số điện thoại *', '0912 345 678', 'tel') +
+      (opt.email ? fg('email', 'Email nhận vé điện tử *', 'passenger@gmail.com', 'email') : '') +
+      '</div></div>';
+  }
+
+  // o: { sub, code, rows:[[nhãn, giá trị, laTien?]], policy:[...], close:'data-xx-close' }
+  function successHtml(o) {
+    return '<div class="success-body"><div class="success-check">✓</div><h3>Đặt vé thành công</h3>' +
+      '<p class="success-sub">' + o.sub + '</p>' +
+      '<div class="order-code">' + o.code + '</div>' +
+      '<div class="success-info">' + o.rows.map(function (r) {
+        return '<div class="info-row"><span>' + r[0] + '</span><strong' + (r[2] ? ' class="amount"' : '') + '>' + r[1] + '</strong></div>';
+      }).join('') + '</div>' +
+      '<div class="bk-policy"><b>Chính sách hủy / đổi vé (demo)</b><ul>' +
+        o.policy.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul></div>' +
+      '<button type="button" class="btn-confirm btn-block" ' + o.close + '>Đóng</button></div>';
+  }
+
   /* ---------- Thẻ chuyến bay (tab Máy bay) ---------- */
 
   function lum(hex) {
@@ -147,54 +267,34 @@
     });
   })();
 
-  // Ảnh logo lỗi (404...) thì tự quay về ô màu + mã hãng thay vì hiện icon ảnh vỡ
+  // Ảnh logo lỗi (404...) thì quay về chữ viết tắt thay vì hiện icon ảnh vỡ
   document.addEventListener('error', function (e) {
     var i = e.target;
-    if (!i || !i.classList || !i.classList.contains('fl-logo-img')) return;
-    var s = document.createElement('span');
-    s.className = 'fl-logo';
-    s.style.background = i.getAttribute('data-c');
-    s.style.color = i.getAttribute('data-fg');
-    s.textContent = i.getAttribute('data-t');
-    i.replaceWith(s);
+    if (!i || !i.classList || !i.classList.contains('vt-logo-img')) return;
+    i.replaceWith(document.createTextNode(i.getAttribute('data-t') || ''));
   }, true);
 
-  var PLANE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>';
-
-  // Thẻ chuyến bay dạng vé: [logo + hãng] ┆ [giờ đi → giờ đến] ┆ [giá + nút]
-  // Dùng lại class của css.css: vivugo-card, route-track, tag-row/tag-chip, price, btn-primary.
+  // Thẻ chuyến bay: cùng bố cục với thẻ tàu hỏa / xe ghép Limo (vtCardHtml)
   function flightCardHtml(f, cls, date, best) {
     var biz = cls === 'business';
-    var price = biz ? f.priceBusiness : f.priceEconomy;
-    var c = f.airlineLogoColor || '#008FE5';
     var code = f.airlineCode || f.airline.slice(0, 2);
-    var logo = LOGOS[f.airlineCode]
-      ? '<img class="fl-logo-img" src="' + esc(LOGOS[f.airlineCode]) + '" alt="' + esc(f.airline) + '" data-c="' + esc(c) +
-        '" data-fg="' + (lum(c) > 170 ? '#0f172a' : '#fff') + '" data-t="' + esc(code) + '" />'
-      : '<span class="fl-logo" style="background:' + esc(c) + ';color:' + (lum(c) > 170 ? '#0f172a' : '#fff') + '">' + esc(code) + '</span>';
-    var chips = [];
-    if (date) chips.push('Ngày ' + showDate(date));
-    if (f.aircraft) chips.push(f.aircraft);
-    if (f.baggageIncluded) chips.push(f.baggageIncluded);
-
-    return '<article class="fl-card vivugo-card" style="--ac:' + esc(c) + '" data-id="' + esc(f.id) + '" data-mode="flight">' +
-      '<div class="fl-stub">' + logo + '<b>' + esc(f.airline) + '</b><small>Chuyến ' + esc(f.flightNumber) + '</small></div>' +
-      '<div class="fl-main">' +
-        '<div class="fl-row">' +
-          '<div class="fl-pt"><b>' + esc(f.departureTime) + '</b><span>' + esc(f.fromCode) + '</span><small>' + esc(f.fromCity) + '</small></div>' +
-          '<div class="fl-route"><span>' + esc(duration(f.durationMinutes)) + '</span>' +
-            '<div class="route-track">' + PLANE + '</div>' +
-            '<span>' + (f.stops === 0 ? 'Bay thẳng' : f.stops + ' điểm dừng') + '</span></div>' +
-          '<div class="fl-pt"><b>' + esc(f.arrivalTime) + '</b><span>' + esc(f.toCode) + '</span><small>' + esc(f.toCity) + '</small></div>' +
-        '</div>' +
-        (chips.length ? '<div class="tag-row">' + chips.map(function (t) { return '<span class="tag-chip">' + esc(t) + '</span>'; }).join('') + '</div>' : '') +
-      '</div>' +
-      '<div class="fl-buy">' + (best ? '<span class="fl-best">Giá tốt nhất</span>' : '') +
-        '<div class="price"><span class="from">Giá / khách · ' + (biz ? 'Thương gia' : 'Phổ thông') + '</span>' +
-          '<span class="amount">' + money(price) + '</span></div>' +
-        '<button type="button" class="btn-primary btn-block" data-book="' + esc(f.id) + '" data-cls="' + cls + '" data-date="' + esc(date || '') + '">Chọn đặt vé</button>' +
-      '</div>' +
-    '</article>';
+    var clsLabel = biz ? 'Thương gia' : 'Phổ thông';
+    return vtCardHtml({
+      mode: 'flight',
+      id: f.id,
+      logo: logoHtml(LOGOS[f.airlineCode], f.airline, code),
+      title: f.airline + ' (' + f.flightNumber + ')',
+      sub: dotJoin([esc(clsLabel), date ? 'Ngày ' + esc(showDate(date)) : '', f.aircraft ? esc(f.aircraft) : '']),
+      dep: { time: f.departureTime, label: f.fromCity + ' (' + f.fromCode + ')' },
+      arr: { time: f.arrivalTime, label: f.toCity + ' (' + f.toCode + ')' },
+      dur: duration(f.durationMinutes),
+      stop: f.stops === 0 ? 'Bay thẳng' : f.stops + ' điểm dừng',
+      chips: f.baggageIncluded ? '<span class="tag-chip">' + esc(f.baggageIncluded) + '</span>' : '',
+      best: best,
+      priceLabel: 'Giá 1 vé · ' + clsLabel,
+      price: biz ? f.priceBusiness : f.priceEconomy,
+      btnAttrs: 'data-book="' + esc(f.id) + '" data-cls="' + cls + '" data-date="' + esc(date || '') + '"'
+    });
   }
 
   /* ---------- Đặt vé hộ & chọn ghế ---------- */
@@ -260,20 +360,12 @@
       return;
     }
     box.innerHTML = B.seats.map(function (s, i) {
-      var p = B.pax[s] || {};
-      function fg(k, label, ph, type) {
-        return '<div class="form-group"><label>' + label + '</label><input type="' + (type || 'text') +
-          '" data-pax="' + s + '" data-k="' + k + '" placeholder="' + ph + '" value="' + esc(p[k] || '') + '" autocomplete="off" /></div>';
-      }
-      return '<div class="bk-pax"><h4 class="panel-h">Hành khách ' + (i + 1) + ' · Ghế ' + s + '</h4>' +
-        '<div class="form-row">' + fg('name', 'Họ và tên (IN HOA không dấu) *', 'NGUYEN VAN A') + fg('id', 'Số CCCD / Hộ chiếu *', '012345678901') + '</div>' +
-        '<div class="form-row">' + fg('phone', 'Số điện thoại nhận SMS *', '0912 345 678', 'tel') + fg('email', 'Gmail nhận vé điện tử *', 'passenger@gmail.com', 'email') + '</div></div>';
+      return paxCardHtml('data-pax', s, 'Hành khách ' + (i + 1) + ' · Ghế ' + s, B.pax[s] || {}, { email: true, idLabel: 'Số CCCD / Hộ chiếu *' });
     }).join('');
   }
 
   function renderTotal() {
-    q('total').textContent = money(seatPrice() * B.seats.length);
-    q('count').textContent = B.seats.length + ' ghế × ' + money(seatPrice());
+    q('bill').innerHTML = billHtml(pricing(B.seats.length, seatPrice(), B.promo), B.promo);
   }
 
   function refreshAll() { renderInfo(); renderSeats(); renderPax(); renderTotal(); q('msg').textContent = ''; }
@@ -302,7 +394,7 @@
   function openBooking(id, cls, date) {
     var f = allFlights.filter(function (x) { return x.id === id; })[0];
     if (!f) return;
-    B = { f: f, cls: cls === 'business' ? 'business' : 'economy', date: date, seats: [], pax: {} };
+    B = { f: f, cls: cls === 'business' ? 'business' : 'economy', date: date, seats: [], pax: {}, promo: '' };
     ensureModal();
     dlg.innerHTML =
       '<div class="booking-modal-head"><div><span class="modal-kicker">Đặt vé máy bay &amp; chọn ghế</span>' +
@@ -318,15 +410,12 @@
         '<div class="bk-cabin"><p class="bk-front">Buồng lái · Phía đầu máy bay</p><div data-bk="seats"></div>' +
           '<div class="bk-legend"><span><i></i>Còn trống</span><span><i class="on"></i>Đang chọn</span><span><i class="off"></i>Đã có người</span></div></div>' +
         '<h4 class="panel-h">THÔNG TIN HÀNH KHÁCH</h4><div data-bk="pax"></div>' +
-        '<div class="filter-group"><h4>Phương thức thanh toán</h4>' +
-          '<label class="filter-option"><input type="radio" name="bk-pay" value="Chuyển khoản / QR" checked /> Chuyển khoản / QR</label>' +
-          '<label class="filter-option"><input type="radio" name="bk-pay" value="Thẻ Visa / Mastercard" /> Thẻ Visa / Mastercard</label>' +
-          '<label class="filter-option"><input type="radio" name="bk-pay" value="Ví điện tử" /> Ví điện tử</label></div>' +
-        '<div class="booking-summary"><div class="summary-line"><span>Số ghế</span><span data-bk="count"></span></div>' +
-          '<div class="summary-total"><span>Tổng thanh toán vé</span><strong data-bk="total"></strong></div></div>' +
+        promoHtml() + payHtml('bk-pay') +
+        '<div class="booking-summary" data-bk="bill"></div>' + contactHtml() +
         '<p class="form-error" data-bk="msg" role="alert"></p>' +
         '<button type="button" class="btn-confirm" data-bk-submit>Hoàn tất đặt vé</button>' +
       '</div>';
+    fillHotline(dlg);
     refreshAll();
     modal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
@@ -356,6 +445,8 @@
       refreshAll();
       return;
     }
+
+    if (t.closest('[data-promo-apply]')) { applyPromo(modal, B); renderTotal(); return; }
 
     if (t.closest('[data-bk-submit]')) submitBooking();
   }
@@ -389,20 +480,27 @@
     msg.textContent = '';
 
     var pay = modal.querySelector('input[name="bk-pay"]:checked');
+    var bill = pricing(B.seats.length, seatPrice(), B.promo);
     var code = 'VG-' + (100000 + hash(B.f.id + Date.now()) % 900000);
-    function row(k, v, amount) { return '<div class="info-row"><span>' + k + '</span><strong' + (amount ? ' class="amount"' : '') + '>' + v + '</strong></div>'; }
-    dlg.innerHTML =
-      '<div class="success-body"><div class="success-check">✓</div><h3>Đã gửi yêu cầu đặt vé</h3>' +
-      '<p class="success-sub">VivuGo sẽ đặt vé hộ bạn và gửi vé điện tử qua email của từng hành khách sau khi xác nhận thanh toán.</p>' +
-      '<div class="order-code">' + code + '</div>' +
-      '<div class="success-info">' +
-        row('Chuyến bay', esc(B.f.airline) + ' ' + esc(B.f.flightNumber)) +
-        row('Hành trình', esc(B.f.fromCode) + ' → ' + esc(B.f.toCode) + (B.date ? ' · ' + esc(showDate(B.date)) : '')) +
-        row('Hạng ghế', clsName()) +
-        row('Ghế', B.seats.join(', ')) +
-        row('Thanh toán', esc(pay ? pay.value : '')) +
-        row('Tổng tiền', money(seatPrice() * B.seats.length), true) +
-      '</div><button type="button" class="btn-confirm btn-block" data-bk-close>Đóng</button></div>';
+    dlg.innerHTML = successHtml({
+      sub: 'VivuGo sẽ đặt vé hộ bạn và gửi vé điện tử qua email của từng hành khách sau khi xác nhận thanh toán.',
+      code: code,
+      rows: [
+        ['Chuyến bay', esc(B.f.airline) + ' ' + esc(B.f.flightNumber)],
+        ['Hành trình', esc(B.f.fromCode) + ' → ' + esc(B.f.toCode) + (B.date ? ' · ' + esc(showDate(B.date)) : '')],
+        ['Hạng ghế', clsName()],
+        ['Ghế', B.seats.join(', ')],
+        ['Thanh toán', esc(pay ? pay.value : '')],
+        ['Tổng tiền', money(bill.total), true]
+      ],
+      policy: [
+        'Hủy / đổi trước giờ bay từ 24 giờ: phí theo quy định của hãng (tối thiểu 10% giá vé).',
+        'Từ 3 đến dưới 24 giờ: phí 30% giá vé.',
+        'Dưới 3 giờ hoặc không có mặt: không hoàn, không đổi.',
+        'Mang theo CCCD / hộ chiếu trùng với thông tin đã đặt khi làm thủ tục.'
+      ],
+      close: 'data-bk-close'
+    });
   }
 
   /* ---------- Tìm chuyến bay ---------- */
@@ -436,6 +534,16 @@
       .sort(function (a, b) {
         return flightState.cls === 'business' ? a.priceBusiness - b.priceBusiness : a.priceEconomy - b.priceEconomy;
       });
+  }
+
+  // '' = để trống (không lọc), null = không tìm thấy sân bay
+  function findAirport(txt) {
+    var t = normTxt(txt);
+    if (!t) return '';
+    var list = Object.keys(airportMap).map(function (c) { return { code: c, city: airportMap[c].city, name: airportMap[c].name }; });
+    var m = list.filter(function (a) { return normTxt(a.city) === t || normTxt(a.name) === t || a.code.toLowerCase() === t; });
+    if (!m.length) m = list.filter(function (a) { return normTxt(a.city).indexOf(t) > -1 || normTxt(a.name).indexOf(t) > -1; });
+    return m.length ? m[0].code : null;
   }
 
   function placeName(code) {
@@ -496,6 +604,8 @@
   }
 
   function validateQuery(q) {
+    if (q.from === null) return 'Không tìm thấy điểm đi "' + q.fromTxt + '". Hãy chọn từ danh sách gợi ý.';
+    if (q.to === null) return 'Không tìm thấy điểm đến "' + q.toTxt + '". Hãy chọn từ danh sách gợi ý.';
     if (q.from && q.to && q.from === q.to) return 'Điểm khởi hành và điểm đến phải khác nhau.';
     if (!q.date) return 'Vui lòng chọn ngày bay.';
     if (q.date < todayStr()) return 'Ngày bay không được ở trong quá khứ.';
@@ -523,14 +633,8 @@
     // Danh sách sân bay
     var airports = data.airports || [];
     airports.forEach(function (a) { airportMap[a.code] = { city: a.city, name: a.name }; });
-    var airportOpts = airports.map(function (a) {
-      return { value: a.code, label: a.city + ' (' + a.code + ')' };
-    });
-    var anyOpt = [{ value: '', label: 'Tất cả sân bay' }];
-    addOptions(fromSel, anyOpt.concat(airportOpts));
-    addOptions(toSel, anyOpt.concat(airportOpts));
-    fromSel.value = '';
-    toSel.value = '';
+    var dl = document.getElementById('flight-airports');
+    if (dl) dl.innerHTML = airports.map(function (a) { return '<option value="' + esc(a.city) + '">' + esc(a.name) + '</option>'; }).join('');
 
     // Danh sách hãng
     if (airSel) {
@@ -555,8 +659,10 @@
     function readForm() {
       return {
         trip: currentTrip(),
-        from: fromSel.value,
-        to: toSel.value,
+        from: findAirport(fromSel.value),
+        to: findAirport(toSel.value),
+        fromTxt: fromSel.value,
+        toTxt: toSel.value,
         date: dateInp.value,
         returnDate: retInp.value
       };
@@ -642,7 +748,6 @@
   var allTrains = [];
   var stations = [];
   var trQuery = null; // null = chưa lọc (hiện tất cả chuyến tàu)
-  var TR_GREEN = '#2E7D4F';
   var SERVICE_FEE = 15000; // phí dịch vụ mỗi vé (demo)
   var PROMOS = {           // mã ưu đãi demo
     VIVUGO10: { pct: 10, text: 'Giảm 10% tiền vé' },
@@ -695,30 +800,22 @@
   function trainCardHtml(t, date, best) {
     var cc = cheapestCoach(t);
     var typeName = (t.categories && t.categories.serviceType === 'express') ? 'Tàu Nhanh' : 'Tàu Thường';
-    var logo = LOGOS.DSVN
-      ? '<img src="' + esc(LOGOS.DSVN) + '" alt="' + esc(t.company) + '" />'
-      : TRAIN_ICON;
-    var off = t.arrivalDayOffset ? '<sup class="tt-off">+' + t.arrivalDayOffset + '</sup>' : '';
-    return '<article class="tt-card vivugo-card" data-id="' + esc(t.id) + '" data-mode="train">' +
-      '<div class="tt-main">' +
-        '<div class="tt-logo">' + logo + '</div>' +
-        '<div class="tt-info">' +
-          '<h3 class="tt-title">' + esc(t.company) + ' (' + esc(t.trainCode) + ' ' + typeName + ')</h3>' +
-          '<p class="tt-sub">Tàu ' + esc(t.trainCode) + ' • ' + esc(cc.label) + (date ? ' • Ngày ' + esc(showDate(date)) : '') + '</p>' +
-          '<div class="tt-times">' +
-            '<div class="tt-pt"><b>' + esc(t.departureTime) + '</b><small>' + esc(t.fromStation) + '</small></div>' +
-            '<div class="tt-route"><span>' + esc(t.duration || duration(t.durationMinutes)) + '</span><div class="tt-line"></div>' +
-              '<span class="tt-stop">' + (t.stops === 0 ? 'Không dừng' : esc(t.stopsLabel || t.stops + ' điểm dừng')) + '</span></div>' +
-            '<div class="tt-pt"><b>' + esc(t.arrivalTime) + off + '</b><small>' + esc(t.toStation) + '</small></div>' +
-          '</div>' +
-        '</div>' +
-      '</div>' +
-      '<div class="fl-buy">' + (best ? '<span class="fl-best">Giá tốt nhất</span>' : '') +
-        '<div class="price"><span class="from">Giá 1 vé từ</span><span class="amount">' + money(t.priceFrom) + '</span></div>' +
-        '<button type="button" class="btn-primary btn-block" data-book-train="' + esc(t.id) + '" data-date="' + esc(date || '') + '">Chọn vé</button>' +
-        '<small>Còn ' + cc.seatsLeft + ' ghế trống</small>' +
-      '</div>' +
-    '</article>';
+    return vtCardHtml({
+      mode: 'train',
+      id: t.id,
+      logo: LOGOS.DSVN ? logoHtml(LOGOS.DSVN, t.company, 'VN') : TRAIN_ICON,
+      title: t.company + ' (' + t.trainCode + ' ' + typeName + ')',
+      sub: dotJoin(['Tàu ' + esc(t.trainCode), esc(cc.label), date ? 'Ngày ' + esc(showDate(date)) : '']),
+      dep: { time: t.departureTime, label: t.fromStation },
+      arr: { time: t.arrivalTime, label: t.toStation, off: t.arrivalDayOffset },
+      dur: t.duration || duration(t.durationMinutes),
+      stop: t.stops === 0 ? 'Không dừng' : (t.stopsLabel || t.stops + ' điểm dừng'),
+      best: best,
+      priceLabel: 'Giá 1 vé từ',
+      price: t.priceFrom,
+      btnAttrs: 'data-book-train="' + esc(t.id) + '" data-date="' + esc(date || '') + '"',
+      note: 'Còn ' + cc.seatsLeft + ' ghế trống'
+    });
   }
 
   /* ---------- Danh sách kết quả ---------- */
@@ -851,12 +948,7 @@
   function tPrice() { return coachNow().priceFrom; }
 
   function calcBill() {
-    var n = T.seats.length;
-    var sub = tPrice() * n;
-    var p = T.promo ? PROMOS[T.promo] : null;
-    var disc = p ? (p.pct ? Math.round(sub * p.pct / 100) : Math.min(p.flat, sub)) : 0;
-    var fee = SERVICE_FEE * n;
-    return { n: n, sub: sub, disc: disc, fee: fee, total: sub - disc + fee };
+    return pricing(T.seats.length, tPrice(), T.promo);
   }
 
   // Chỗ "đã đặt" giả lập cố định theo chuyến tàu + loại khoang (demo)
@@ -905,24 +997,12 @@
     var box = tq('pax');
     if (!T.seats.length) { box.innerHTML = '<p class="section-sub">Hãy chọn chỗ trên sơ đồ để nhập thông tin hành khách (mỗi chỗ một hành khách).</p>'; return; }
     box.innerHTML = T.seats.map(function (s, i) {
-      var p = T.pax[s] || {};
-      function fg(k, label, ph, type) {
-        return '<div class="form-group"><label>' + label + '</label><input type="' + (type || 'text') + '" data-pax="' + s + '" data-k="' + k +
-          '" placeholder="' + ph + '" value="' + esc(p[k] || '') + '" autocomplete="off" /></div>';
-      }
-      return '<div class="bk-pax"><h4 class="panel-h">Hành khách ' + (i + 1) + ' · Chỗ ' + s + '</h4>' +
-        '<div class="form-row">' + fg('name', 'Họ và tên *', 'NGUYEN VAN A') + fg('id', 'Số CCCD / Hộ chiếu *', '012345678901') + '</div>' +
-        '<div class="form-row">' + fg('phone', 'Số điện thoại *', '0912 345 678', 'tel') + fg('email', 'Email nhận vé điện tử *', 'passenger@gmail.com', 'email') + '</div></div>';
+      return paxCardHtml('data-pax', s, 'Hành khách ' + (i + 1) + ' · Chỗ ' + s, T.pax[s] || {}, { email: true, idLabel: 'Số CCCD / Hộ chiếu *' });
     }).join('');
   }
 
   function trRenderBill() {
-    var b = calcBill();
-    tq('bill').innerHTML =
-      '<div class="summary-line"><span>Tiền vé (' + b.n + ' × ' + money(tPrice()) + ')</span><span>' + money(b.sub) + '</span></div>' +
-      '<div class="summary-line"><span>Mã ưu đãi' + (T.promo ? ' (' + esc(T.promo) + ')' : '') + '</span><span>' + (b.disc ? '− ' + money(b.disc) : 'Chưa áp dụng') + '</span></div>' +
-      '<div class="summary-line"><span>Phí dịch vụ (' + b.n + ' × ' + money(SERVICE_FEE) + ')</span><span>' + money(b.fee) + '</span></div>' +
-      '<div class="summary-total"><span>Tổng thanh toán</span><strong>' + money(b.total) + '</strong></div>';
+    tq('bill').innerHTML = billHtml(calcBill(), T.promo);
   }
 
   function trRefresh(keepPax) {
@@ -976,18 +1056,12 @@
             '<div class="tr-map" data-tk="map"></div></div>' +
           '<p class="tr-note">ⓘ Bản đồ sơ đồ khoang có thể thay đổi theo loại toa.</p></div>' +
         '<h4 class="panel-h">THÔNG TIN HÀNH KHÁCH</h4><div data-tk="pax"></div>' +
-        '<h4 class="panel-h">MÃ ƯU ĐÃI</h4>' +
-        '<div class="promo-row"><input type="text" data-tk="promo" placeholder="Nhập mã (VD: VIVUGO10, GIAM50K)" autocomplete="off" />' +
-          '<button type="button" class="btn-outline btn-sm" data-tk-apply>Áp dụng</button></div>' +
-        '<p class="section-sub" data-tk="promomsg"></p>' +
-        '<div class="filter-group"><h4>Phương thức thanh toán</h4>' +
-          '<label class="filter-option"><input type="radio" name="tk-pay" value="Chuyển khoản / QR" checked /> Chuyển khoản / QR</label>' +
-          '<label class="filter-option"><input type="radio" name="tk-pay" value="Thẻ Visa / Mastercard" /> Thẻ Visa / Mastercard</label>' +
-          '<label class="filter-option"><input type="radio" name="tk-pay" value="Ví điện tử" /> Ví điện tử</label></div>' +
-        '<div class="booking-summary" data-tk="bill"></div>' +
+        promoHtml() + payHtml('tk-pay') +
+        '<div class="booking-summary" data-tk="bill"></div>' + contactHtml() +
         '<p class="form-error" data-tk="msg" role="alert"></p>' +
         '<button type="button" class="btn-confirm" data-tk-submit>Hoàn tất đặt vé</button>' +
       '</div>';
+    fillHotline(tdlg);
     trRefresh();
     tmodal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
@@ -1018,15 +1092,7 @@
       return;
     }
 
-    if (t.closest('[data-tk-apply]')) {
-      var code = tq('promo').value.trim().toUpperCase();
-      var pm = tq('promomsg');
-      if (!code) { T.promo = ''; pm.textContent = ''; }
-      else if (PROMOS[code]) { T.promo = code; pm.textContent = '✓ ' + PROMOS[code].text; }
-      else { T.promo = ''; pm.textContent = 'Mã ưu đãi không hợp lệ hoặc đã hết hạn.'; }
-      trRenderBill();
-      return;
-    }
+    if (t.closest('[data-promo-apply]')) { applyPromo(tmodal, T); trRenderBill(); return; }
 
     if (t.closest('[data-tk-submit]')) submitTrainBooking();
   }
@@ -1062,35 +1128,36 @@
     var pay = tmodal.querySelector('input[name="tk-pay"]:checked');
     var b = calcBill();
     var code = 'VT-' + (100000 + hash(T.t.id + Date.now()) % 900000);
-    function row(k, v, amount) { return '<div class="info-row"><span>' + k + '</span><strong' + (amount ? ' class="amount"' : '') + '>' + v + '</strong></div>'; }
-    tdlg.innerHTML =
-      '<div class="success-body"><div class="success-check">✓</div><h3>Đặt vé thành công</h3>' +
-      '<p class="success-sub">Vé điện tử sẽ được gửi qua email (và Zalo theo số điện thoại đã đăng ký) sau khi VivuGo xác nhận thanh toán.</p>' +
-      '<div class="order-code">' + code + '</div>' +
-      '<div class="success-info">' +
-        row('Chuyến tàu', esc(T.t.trainCode) + ' · ' + esc(T.t.fromCity) + ' → ' + esc(T.t.toCity)) +
-        row('Khởi hành', esc(T.t.departureTime) + (T.date ? ' · ' + esc(showDate(T.date)) : '')) +
-        row('Hạng chỗ', esc(coachNow().label)) +
-        row('Chỗ ngồi', T.seats.join(', ')) +
-        row('Thanh toán', esc(pay ? pay.value : '')) +
-        row('Tổng tiền', money(b.total), true) +
-      '</div>' +
-      '<div class="bk-policy"><b>Chính sách hủy / đổi vé (demo)</b><ul>' +
-        '<li>Hủy / đổi trước giờ tàu chạy từ 24 giờ: phí 10% giá vé.</li>' +
-        '<li>Từ 4 đến dưới 24 giờ: phí 20% giá vé.</li>' +
-        '<li>Dưới 4 giờ: không hoàn, không đổi.</li>' +
-        '<li>Mang theo CCCD / hộ chiếu trùng với thông tin đã đặt khi lên tàu.</li></ul></div>' +
-      '<button type="button" class="btn-confirm btn-block" data-tk-close>Đóng</button></div>';
+    tdlg.innerHTML = successHtml({
+      sub: 'Vé điện tử sẽ được gửi qua email (và Zalo theo số điện thoại đã đăng ký) sau khi VivuGo xác nhận thanh toán.',
+      code: code,
+      rows: [
+        ['Chuyến tàu', esc(T.t.trainCode) + ' · ' + esc(T.t.fromCity) + ' → ' + esc(T.t.toCity)],
+        ['Khởi hành', esc(T.t.departureTime) + (T.date ? ' · ' + esc(showDate(T.date)) : '')],
+        ['Hạng chỗ', esc(coachNow().label)],
+        ['Chỗ ngồi', T.seats.join(', ')],
+        ['Thanh toán', esc(pay ? pay.value : '')],
+        ['Tổng tiền', money(b.total), true]
+      ],
+      policy: [
+        'Hủy / đổi trước giờ tàu chạy từ 24 giờ: phí 10% giá vé.',
+        'Từ 4 đến dưới 24 giờ: phí 20% giá vé.',
+        'Dưới 4 giờ: không hoàn, không đổi.',
+        'Mang theo CCCD / hộ chiếu trùng với thông tin đã đặt khi lên tàu.'
+      ],
+      close: 'data-tk-close'
+    });
   }
 
-  /* 
-   * XE KHÁCH: bộ lọc (loại xe, nhà xe) + tìm chuyến (điểm đi, điểm đến, ngày đi)
-    */
+  /* =====================================================================
+   * XE GHÉP LIMO: tìm chuyến (một chiều / khứ hồi), thẻ chuyến, biểu mẫu đăng ký đặt vé
+   * ===================================================================== */
 
   var allBuses = [];
   var busCities = [];
-  var busQuery = null; // null = chưa tìm (hiện tất cả chuyến xe)
-  var busState = { type: 'all', operator: 'all' };
+  var busQuery = null; // null = chưa tìm (hiện tất cả chuyến xe ghép)
+
+  function isLimo(b) { return !!b.isSharedRide; }
 
   // '' = để trống (không lọc), null = không tìm thấy thành phố
   function findCity(txt) {
@@ -1103,96 +1170,388 @@
 
   function searchBuses(from, to) {
     return allBuses
-      .filter(function (b) {
-        return (!from || b.fromCity === from) && (!to || b.toCity === to) &&
-          (busState.type === 'all' || b.vehicleType === busState.type) &&
-          (busState.operator === 'all' || b.operator === busState.operator);
-      })
+      .filter(function (b) { return isLimo(b) && (!from || b.fromCity === from) && (!to || b.toCity === to); })
       .sort(function (a, b) { return a.priceFrom - b.priceFrom; });
   }
 
-  function busFiltered() {
-    return !!busQuery || busState.type !== 'all' || busState.operator !== 'all';
+  function initials(name) {
+    var w = String(name).trim().split(/\s+/);
+    return (w.length > 1 ? w[0].charAt(0) + w[w.length - 1].charAt(0) : w[0].slice(0, 2)).toUpperCase();
+  }
+
+  function stars(r) {
+    return '<span class="lm-rate"><i class="fa-solid fa-star"></i> ' + Number(r).toFixed(1) + '</span>';
+  }
+
+  /* ---------- Thẻ chuyến xe ghép ---------- */
+
+  function limoCardHtml(b, date, best) {
+    var chips = [];
+    if (b.driverVerified) chips.push('<span class="lm-chip lm-ok"><i class="fa-solid fa-shield-halved"></i> Tài xế đã xác minh</span>');
+    (b.amenities || []).slice(0, 3).forEach(function (a) { chips.push('<span class="tag-chip">' + esc(a) + '</span>'); });
+    return vtCardHtml({
+      mode: 'bus',
+      id: b.id,
+      logo: b.logo ? logoHtml(b.logo, b.operator, initials(b.operator)) : esc(initials(b.operator)),
+      title: b.operator,
+      sub: dotJoin([esc(b.vehicleType), 'Ghế ghép', date ? 'Ngày ' + esc(showDate(date)) : '',
+        stars(b.rating) + ' <span class="lm-rv">(' + b.reviewCount + ' đánh giá)</span>']),
+      dep: { time: b.departureTime, label: b.pickupPoint || b.fromCity },
+      arr: { time: b.arrivalTime, label: b.dropoffPoint || b.toCity, off: b.arrivalDayOffset },
+      dur: b.duration || duration(b.durationMinutes),
+      stop: b.fromCity + ' → ' + b.toCity,
+      chips: chips.join(''),
+      best: best,
+      priceLabel: 'Giá 1 ghế từ',
+      price: b.priceFrom,
+      btnAttrs: 'data-book-limo="' + esc(b.id) + '" data-date="' + esc(date || '') + '"',
+      note: 'Còn ' + b.seatsLeft + ' ghế trống'
+    });
+  }
+
+  function limoResultHtml(label, from, to, date, buses, plain) {
+    var title = plain
+      ? esc(label)
+      : esc(label) + ' · ' + esc(from || 'Tất cả') + ' → ' + esc(to || 'Tất cả') + (date ? ' · ' + esc(showDate(date)) : '');
+    title += ' <span class="vf-result-count">— ' + buses.length + ' chuyến xe</span>';
+    var body = buses.length
+      ? '<div class="route-list">' + buses.map(function (b, i) { return limoCardHtml(b, date, i === 0 && buses.length > 1); }).join('') + '</div>'
+      : '<div class="car-empty"><p>Không có chuyến xe ghép phù hợp với tìm kiếm hiện tại trong bộ dữ liệu demo.</p>' +
+        '<button type="button" class="btn-outline btn-sm" data-reset-bus>Bỏ lọc, xem tất cả chuyến xe</button></div>';
+    return '<div class="vf-result"><h3 class="vf-result-title">' + title + '</h3>' + body + '</div>';
   }
 
   function renderBuses() {
     var list = document.querySelector('[data-list="bus"]');
     if (!list) return;
-    var from = busQuery ? busQuery.from : '';
-    var to = busQuery ? busQuery.to : '';
-    var buses = searchBuses(from, to);
-    var title = busQuery
-      ? 'Chuyến xe · ' + (from || 'Tất cả') + ' → ' + (to || 'Tất cả') + (busQuery.date ? ' · ' + showDate(busQuery.date) : '')
-      : 'Tất cả chuyến xe';
-    var clear = busFiltered() ? ' <button type="button" class="btn-ghost btn-sm vf-clear" data-reset-bus>✕ Bỏ lọc</button>' : '';
-    var body = buses.length
-      ? '<div class="route-list">' + buses.map(function (b) { return cardHtml(fromBus(b)); }).join('') + '</div>'
-      : '<div class="car-empty"><p>Không có chuyến xe phù hợp với bộ lọc hiện tại trong bộ dữ liệu demo.</p>' +
-        '<button type="button" class="btn-outline btn-sm" data-reset-bus>Bỏ lọc, xem tất cả chuyến xe</button></div>';
-    list.innerHTML = '<div class="vf-result"><h3 class="vf-result-title">' + esc(title) +
-      ' <span class="vf-result-count">— ' + buses.length + ' chuyến xe</span>' + clear + '</h3>' + body + '</div>';
+    var html;
+    if (!busQuery) {
+      html = limoResultHtml('Tất cả chuyến xe ghép', '', '', '', searchBuses('', ''), true);
+    } else {
+      var round = busQuery.trip === 'round-trip';
+      html = limoResultHtml(round ? 'Chiều đi' : 'Chuyến xe', busQuery.from, busQuery.to, busQuery.date, searchBuses(busQuery.from, busQuery.to));
+      if (round) html += limoResultHtml('Chiều về', busQuery.to, busQuery.from, busQuery.returnDate, searchBuses(busQuery.to, busQuery.from));
+      html = html.replace('</h3>', ' <button type="button" class="btn-ghost btn-sm vf-clear" data-reset-bus>✕ Bỏ lọc</button></h3>');
+    }
+    list.innerHTML = html;
   }
+
+  /* ---------- Form tìm kiếm ---------- */
 
   function setupBusFilter(data) {
     var form = document.querySelector('[data-bus-filter]');
     if (!form) return;
     allBuses = data.buses || [];
 
-    function uniq(arr) {
-      return arr.filter(function (v, i) { return v && arr.indexOf(v) === i; }).sort(function (a, b) { return a.localeCompare(b, 'vi'); });
-    }
-    busCities = uniq(allBuses.map(function (b) { return b.fromCity; }).concat(allBuses.map(function (b) { return b.toCity; })));
+    var shared = allBuses.filter(isLimo);
+    var set = {};
+    shared.forEach(function (b) { set[b.fromCity] = 1; set[b.toCity] = 1; });
+    busCities = Object.keys(set).sort(function (a, b) { return a.localeCompare(b, 'vi'); });
 
     var dl = document.getElementById('bus-cities');
     if (dl) dl.innerHTML = busCities.map(function (c) { return '<option value="' + esc(c) + '"></option>'; }).join('');
 
-    var typeSel = form.querySelector('[data-b="type"]');
-    var opSel = form.querySelector('[data-b="operator"]');
-    addOptions(typeSel, uniq(allBuses.map(function (b) { return b.vehicleType; })).map(function (v) { return { value: v, label: v }; }));
-    addOptions(opSel, uniq(allBuses.map(function (b) { return b.operator; })).map(function (v) { return { value: v, label: v }; }));
-    typeSel.addEventListener('change', function () { busState.type = typeSel.value; renderBuses(); });
-    opSel.addEventListener('change', function () { busState.operator = opSel.value; renderBuses(); });
+    fillHotline(document);
 
     var fromInp = form.querySelector('[data-b="from"]');
     var toInp = form.querySelector('[data-b="to"]');
     var dateInp = form.querySelector('[data-b="date"]');
+    var retInp = form.querySelector('[data-b="return"]');
+    var retField = form.querySelector('[data-return-field]');
     var msgEl = form.querySelector('[data-bus-msg]');
+    var radios = form.querySelectorAll('input[name="bus-trip"]');
     var today = todayStr();
     dateInp.min = today;
     dateInp.value = today;
+    retInp.min = today;
+
+    function trip() {
+      var r = form.querySelector('input[name="bus-trip"]:checked');
+      return r ? r.value : 'one-way';
+    }
+    function syncTrip() {
+      var round = trip() === 'round-trip';
+      retField.hidden = !round;
+      if (round && !retInp.value) retInp.value = dateInp.value;
+    }
+    radios.forEach(function (r) { r.addEventListener('change', syncTrip); });
+    dateInp.addEventListener('change', function () {
+      retInp.min = dateInp.value || today;
+      if (retInp.value && retInp.value < retInp.min) retInp.value = retInp.min;
+    });
+
+    function resetAll() {
+      fromInp.value = '';
+      toInp.value = '';
+      radios.forEach(function (r) { r.checked = r.value === 'one-way'; });
+      dateInp.value = today;
+      retInp.value = '';
+      retInp.min = today;
+      syncTrip();
+      if (msgEl) msgEl.textContent = '';
+      busQuery = null;
+      renderBuses();
+    }
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var f = findCity(fromInp.value);
       var t = findCity(toInp.value);
+      var q = { trip: trip(), from: f, to: t, date: dateInp.value, returnDate: retInp.value };
       var err = '';
       if (f === null) err = 'Không tìm thấy điểm đi "' + fromInp.value + '". Hãy chọn từ danh sách gợi ý.';
       else if (t === null) err = 'Không tìm thấy điểm đến "' + toInp.value + '". Hãy chọn từ danh sách gợi ý.';
       else if (f && t && f === t) err = 'Điểm đi và điểm đến phải khác nhau.';
-      else if (!dateInp.value) err = 'Vui lòng chọn ngày đi.';
-      else if (dateInp.value < todayStr()) err = 'Ngày đi không được ở trong quá khứ.';
+      else if (!q.date) err = 'Vui lòng chọn ngày đi.';
+      else if (q.date < todayStr()) err = 'Ngày đi không được ở trong quá khứ.';
+      else if (q.trip === 'round-trip' && !q.returnDate) err = 'Vui lòng chọn ngày về.';
+      else if (q.trip === 'round-trip' && q.returnDate < q.date) err = 'Ngày về không được trước ngày đi.';
       if (msgEl) msgEl.textContent = err;
       if (err) return;
-      busQuery = { from: f, to: t, date: dateInp.value };
+      busQuery = q;
       renderBuses();
     });
 
     var list = document.querySelector('[data-list="bus"]');
     if (list) {
       list.addEventListener('click', function (e) {
-        if (!e.target.closest('[data-reset-bus]')) return;
-        fromInp.value = '';
-        toInp.value = '';
-        typeSel.value = 'all';
-        opSel.value = 'all';
-        busState.type = 'all';
-        busState.operator = 'all';
-        dateInp.value = today;
-        if (msgEl) msgEl.textContent = '';
-        busQuery = null;
-        renderBuses();
+        var bk = e.target.closest('[data-book-limo]');
+        if (bk) { openLimoBooking(bk.getAttribute('data-book-limo'), bk.getAttribute('data-date') || dateInp.value); return; }
+        if (e.target.closest('[data-reset-bus]')) resetAll();
       });
     }
+    syncTrip();
+  }
+
+  /* ---------- Biểu mẫu đăng ký đặt vé xe ghép ---------- */
+  // Luồng: danh sách nhà xe cùng tuyến (lọc nhanh theo số chỗ) → số ghế → thông tin hành khách → hóa đơn → hoàn tất.
+
+  var lmodal = null;
+  var ldlg = null;
+  var L = null; // { from, to, date, trips[], tripId, cap, qty, pax[], email, promo }
+
+  function lq(name) { return lmodal.querySelector('[data-lm="' + name + '"]'); }
+  function lmTrip() {
+    for (var i = 0; i < L.trips.length; i++) if (L.trips[i].id === L.tripId) return L.trips[i];
+    return L.trips[0];
+  }
+  function lmVisible() {
+    return L.trips.filter(function (b) { return L.cap === 'all' || String(b.seatCapacity) === L.cap; });
+  }
+  function lmMaxQty() { return Math.min(lmTrip().seatsLeft, MAX_SEATS); }
+
+  function lmBill() {
+    return pricing(L.qty, lmTrip().priceFrom, L.promo);
+  }
+
+  function lmRenderInfo() {
+    var b = lmTrip();
+    var off = b.arrivalDayOffset ? ' (+' + b.arrivalDayOffset + ' ngày)' : '';
+    lq('info').innerHTML =
+      '<div><strong>' + esc(b.operator) + ' • ' + esc(b.vehicleType) + '</strong>' +
+      '<p>Khởi hành <b>' + esc(b.departureTime) + '</b> → đến ' + esc(b.arrivalTime) + off + (L.date ? ' • Ngày ' + esc(showDate(L.date)) : '') +
+        ' • Đón: ' + esc(b.pickupPoint || b.fromCity) + '</p></div>' +
+      '<div class="booking-price">' + money(b.priceFrom) + '<br><small>/ghế · Giá chia sẻ</small></div>';
+  }
+
+  function lmRenderFilter() {
+    var caps = [];
+    L.trips.forEach(function (b) { if (caps.indexOf(b.seatCapacity) < 0) caps.push(b.seatCapacity); });
+    caps.sort(function (a, b) { return a - b; });
+    if (caps.length < 2) { lq('filter').innerHTML = ''; return; } // chỉ có 1 loại xe thì ẩn lọc nhanh
+    var opts = [{ v: 'all', t: 'Tất cả' }].concat(caps.map(function (c) { return { v: String(c), t: c + ' chỗ' }; }));
+    lq('filter').innerHTML = opts.map(function (o) {
+      var on = o.v === L.cap;
+      return '<button type="button" class="seg-btn' + (on ? ' is-active' : '') + '" data-lm-cap="' + o.v + '" aria-pressed="' + on + '">' + o.t + '</button>';
+    }).join('');
+  }
+
+  function lmRenderTrips() {
+    var vis = lmVisible();
+    lq('trips').innerHTML = vis.map(function (b) {
+      var on = b.id === L.tripId;
+      return '<button type="button" class="lm-opt' + (on ? ' is-on' : '') + '" data-lm-trip="' + esc(b.id) + '" aria-pressed="' + on + '">' +
+        '<span class="lm-opt-radio"></span>' +
+        '<span class="lm-opt-main"><b>' + esc(b.operator) + '</b><small>' + esc(b.vehicleType) + ' · ' + stars(b.rating) + ' (' + b.reviewCount + ')' +
+          (b.driverVerified ? ' · <i class="fa-solid fa-shield-halved lm-ok-ic"></i> Đã xác minh' : '') + '</small></span>' +
+        '<span class="lm-opt-time"><b>' + esc(b.departureTime) + ' → ' + esc(b.arrivalTime) + '</b><small>' + esc(b.duration || duration(b.durationMinutes)) + '</small></span>' +
+        '<span class="lm-opt-price"><b>' + money(b.priceFrom) + '</b><small>Còn ' + b.seatsLeft + ' ghế</small></span>' +
+      '</button>';
+    }).join('') || '<p class="section-sub">Không có xe nào với số chỗ này.</p>';
+  }
+
+  function lmRenderQty() {
+    var max = lmMaxQty();
+    var h = '';
+    for (var i = 1; i <= max; i++) {
+      h += '<button type="button" class="seat-pill' + (i === L.qty ? ' is-active' : '') + '" data-lm-qty="' + i + '" aria-pressed="' + (i === L.qty) + '">' + i + '</button>';
+    }
+    lq('qty').innerHTML = h;
+  }
+
+  function lmRenderPax() {
+    var h = '';
+    for (var i = 0; i < L.qty; i++) {
+      h += paxCardHtml('data-lmp', i, 'Hành khách ' + (i + 1), L.pax[i] || {}, { email: false, idLabel: 'Số CCCD *' });
+    }
+    lq('pax').innerHTML = h;
+  }
+
+  function lmRenderBill() {
+    lq('bill').innerHTML = billHtml(lmBill(), L.promo);
+  }
+
+  function lmRefreshAll() {
+    lmRenderInfo(); lmRenderFilter(); lmRenderTrips(); lmRenderQty(); lmRenderPax(); lmRenderBill();
+    lq('msg').textContent = '';
+  }
+
+  function ensureLimoModal() {
+    if (lmodal) return;
+    lmodal = document.createElement('div');
+    lmodal.className = 'modal-overlay';
+    lmodal.innerHTML = '<div class="booking-modal detail-modal" role="dialog" aria-modal="true" aria-labelledby="lm-title"></div>';
+    ldlg = lmodal.firstChild;
+    document.body.appendChild(lmodal);
+    lmodal.addEventListener('click', onLimoClick);
+    lmodal.addEventListener('input', onLimoInput);
+    lmodal.addEventListener('change', onLimoChange);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lmodal.classList.contains('is-open')) closeLimoBooking();
+    });
+  }
+
+  function closeLimoBooking() {
+    if (!lmodal) return;
+    lmodal.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  function openLimoBooking(id, date) {
+    var b0 = allBuses.filter(function (x) { return x.id === id; })[0];
+    if (!b0) return;
+    var trips = allBuses
+      .filter(function (x) { return isLimo(x) && x.fromCity === b0.fromCity && x.toCity === b0.toCity; })
+      .sort(function (a, b) { return a.departureTime < b.departureTime ? -1 : 1; });
+    L = { from: b0.fromCity, to: b0.toCity, date: date, trips: trips, tripId: id, cap: 'all', qty: 1, pax: [], email: '', promo: '' };
+    ensureLimoModal();
+    ldlg.innerHTML =
+      '<div class="booking-modal-head"><div><span class="modal-kicker">Đăng ký vé xe ghép Limo</span>' +
+        '<h3 id="lm-title">' + esc(L.from) + ' → ' + esc(L.to) + '</h3>' +
+        '<p class="section-sub">' + trips.length + ' chuyến phù hợp' + (date ? ' • Ngày ' + esc(showDate(date)) : '') + '</p></div>' +
+        '<button type="button" class="modal-close" data-lm-close aria-label="Đóng">✕</button></div>' +
+      '<div class="booking-provider-bar" data-lm="info"></div>' +
+      '<div class="booking-form">' +
+        '<div class="listing-toolbar"><h4 class="panel-h">CHỌN NHÀ XE · LOẠI XE · GIỜ KHỞI HÀNH</h4>' +
+          '<div class="segmented lm-seg" role="group" aria-label="Lọc nhanh theo số chỗ" data-lm="filter"></div></div>' +
+        '<div class="lm-opts" data-lm="trips"></div>' +
+        '<h4 class="panel-h">SỐ GHẾ ĐẶT</h4><div class="seat-filter" data-lm="qty"></div>' +
+        '<h4 class="panel-h">THÔNG TIN HÀNH KHÁCH</h4><div data-lm="pax"></div>' +
+        '<div class="form-group lm-email"><label>Email nhận vé điện tử (không bắt buộc)</label>' +
+          '<input type="email" data-lm-email placeholder="passenger@gmail.com" autocomplete="off" /></div>' +
+        promoHtml() + payHtml('lm-pay') +
+        '<div class="booking-summary" data-lm="bill"></div>' + contactHtml() +
+        '<p class="form-error" data-lm="msg" role="alert"></p>' +
+        '<button type="button" class="btn-confirm" data-lm-submit>Hoàn tất đặt vé</button>' +
+      '</div>';
+    fillHotline(ldlg);
+    lmRefreshAll();
+    lmodal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    lmodal.scrollTop = 0;
+    ldlg.scrollTop = 0;
+  }
+
+  function onLimoClick(e) {
+    var t = e.target;
+    if (t === lmodal || t.closest('[data-lm-close]')) { closeLimoBooking(); return; }
+
+    var cp = t.closest('[data-lm-cap]');
+    if (cp) {
+      L.cap = cp.getAttribute('data-lm-cap');
+      var vis = lmVisible();
+      if (vis.length && vis.indexOf(lmTrip()) < 0) {
+        L.tripId = vis[0].id;
+        L.qty = Math.min(L.qty, lmMaxQty());
+        lmRenderInfo(); lmRenderQty(); lmRenderPax(); lmRenderBill();
+      }
+      lmRenderFilter(); lmRenderTrips();
+      return;
+    }
+
+    var tp = t.closest('[data-lm-trip]');
+    if (tp) {
+      L.tripId = tp.getAttribute('data-lm-trip');
+      L.qty = Math.min(L.qty, lmMaxQty());
+      lmRefreshAll();
+      return;
+    }
+
+    var q = t.closest('[data-lm-qty]');
+    if (q) {
+      L.qty = parseInt(q.getAttribute('data-lm-qty'), 10);
+      lmRenderQty(); lmRenderPax(); lmRenderBill();
+      lq('msg').textContent = '';
+      return;
+    }
+
+    if (t.closest('[data-promo-apply]')) { applyPromo(lmodal, L); lmRenderBill(); return; }
+
+    if (t.closest('[data-lm-submit]')) submitLimoBooking();
+  }
+
+  function onLimoInput(e) {
+    var el = e.target;
+    if (el.hasAttribute && el.hasAttribute('data-lm-email')) { L.email = el.value; return; }
+    var i = el.getAttribute && el.getAttribute('data-lmp');
+    if (i === null || i === undefined) return;
+    (L.pax[+i] = L.pax[+i] || {})[el.getAttribute('data-k')] = el.value;
+  }
+
+  function onLimoChange(e) {
+    var el = e.target;
+    if (el.getAttribute && el.getAttribute('data-k') === 'name') {
+      el.value = noAccent(el.value).replace(/\s+/g, ' ').trim();
+      onLimoInput(e);
+    }
+  }
+
+  function submitLimoBooking() {
+    var msg = lq('msg');
+    for (var i = 0; i < L.qty; i++) {
+      var p = L.pax[i] || {};
+      var who = 'Hành khách ' + (i + 1) + ': ';
+      if (!/^[A-Z]+( [A-Z]+)+$/.test(noAccent((p.name || '').trim()))) { msg.textContent = who + 'nhập đầy đủ họ và tên.'; return; }
+      if (!/^(\d{9}|\d{12})$/.test((p.id || '').trim())) { msg.textContent = who + 'số CCCD phải gồm 9 hoặc 12 chữ số.'; return; }
+      if (!/^(0|\+84)\d{9}$/.test((p.phone || '').replace(/[\s.-]/g, ''))) { msg.textContent = who + 'số điện thoại không hợp lệ.'; return; }
+    }
+    if (L.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(L.email.trim())) { msg.textContent = 'Email không hợp lệ.'; return; }
+    msg.textContent = '';
+
+    var b = lmTrip();
+    var bill = lmBill();
+    var pay = lmodal.querySelector('input[name="lm-pay"]:checked');
+    var code = 'VL-' + (100000 + hash(b.id + Date.now()) % 900000);
+    ldlg.innerHTML = successHtml({
+      sub: 'Vé điện tử sẽ được gửi qua Zalo theo số điện thoại hành khách' + (L.email.trim() ? ' và email ' + esc(L.email.trim()) : '') + ' sau khi VivuGo xác nhận thanh toán.',
+      code: code,
+      rows: [
+        ['Nhà xe', esc(b.operator) + ' · ' + esc(b.vehicleType)],
+        ['Hành trình', esc(b.fromCity) + ' → ' + esc(b.toCity)],
+        ['Khởi hành', esc(b.departureTime) + (L.date ? ' · ' + esc(showDate(L.date)) : '')],
+        ['Điểm đón', esc(b.pickupPoint || b.fromCity)],
+        ['Số ghế', String(L.qty)],
+        ['Thanh toán', esc(pay ? pay.value : '')],
+        ['Tổng tiền', money(bill.total), true]
+      ],
+      policy: [
+        'Hủy / đổi trước giờ xe chạy từ 24 giờ: phí 10% giá vé.',
+        'Từ 4 đến dưới 24 giờ: phí 30% giá vé.',
+        'Dưới 4 giờ: không hoàn, không đổi.',
+        'Có mặt đúng điểm đón trước giờ khởi hành 10 phút và mang theo CCCD.'
+      ],
+      close: 'data-lm-close'
+    });
   }
 
   /* ---------- Render toàn trang ---------- */
@@ -1256,7 +1615,25 @@
 
   /* ---------- Khởi chạy ---------- */
 
+  /* ---------- CSS lõi của thẻ chuyến ----------
+   * Tự chèn vào trang để thẻ luôn đúng bố cục 3 cột (logo | thông tin | giá),
+   * kể cả khi file HTML đang dùng là bản cũ chưa có các quy tắc này. */
+  function injectCardStyle() {
+    if (document.getElementById('vt-core-style')) return;
+    var st = document.createElement('style');
+    st.id = 'vt-core-style';
+    st.textContent =
+      '.vt-card{display:grid;grid-template-columns:210px minmax(0,1fr) 210px;position:relative}' +
+      '.vt-stub{position:relative;display:grid;place-items:center;min-height:150px;overflow:hidden;font-size:38px;font-weight:800;border-radius:14px 0 0 14px;background:var(--vt-soft,#F3FAFF);color:var(--vt-ac,#008FE5)}' +
+      '.vt-stub img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center}' +
+      '.vt-stub svg{width:64px;height:64px}' +
+      '.vt-main{display:flex;align-items:center;min-width:0}' +
+      '@media(max-width:760px){.vt-card{grid-template-columns:1fr}.vt-stub{min-height:120px;border-radius:14px 14px 0 0}}';
+    document.head.appendChild(st); // đặt cuối <head> để luôn thắng quy tắc cũ cùng tên trong HTML
+  }
+
   function init() {
+    injectCardStyle();
     initTabs();
     fetch(DATA_URL)
       .then(function (r) {

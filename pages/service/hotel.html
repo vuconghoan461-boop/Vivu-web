@@ -16,81 +16,80 @@
   </head>
   <body class="site-body">
 
-    <div id="site-header"></div>
-
     <main class="site-main">
-      <section class="slider-hotel">
-        <div class ="slider-inner">
+      <!-- Banner đầu trang -->
+      <section class="banner-hotel">
+        <div class="banner-content">
           <h1 class="page-title">BOOKING KHÁCH SẠN CAO CẤP</h1>
           <p class="page-desc">VivuGo cung cấp cơ hội tận hưởng không gian nghỉ dưỡng tuyệt vời tại những khách sạn, resort và villa trên khắp Việt Nam.</p>
         </div>
       </section>
 
       <div class="vivugo-container">
-        <div class = "rental-filter-bar">
-            <div class="rental-filter-grid">
-              <div class="rental-field">
-                <label>Tìm theo tên khách sạn</label>
-                <input type="text" id="keyword" placeholder="Ví dụ: Meliá, Vinpearl, Sa Pa..." />
-              </div>
-              <button type="button" class="btn-cta rental-search-btn" id="searchhotelBtn">Tìm kiếm</button>
-              <button type="button" class="btn-ghost rental-search-btn" id="resetBtn">Xoá lọc</button>
+        <!-- Thanh tìm kiếm -->
+        <div class="search-panel">
+          <div class="search-fields">
+            <div class="search-field">
+              <label>Tìm theo tên khách sạn</label>
+              <input type="text" id="keyword" placeholder="Ví dụ: Meliá, Vinpearl, Sa Pa..." />
             </div>
+            <button type="button" class="btn-cta search-btn" id="searchhotelBtn">Tìm kiếm</button>
+            <button type="button" class="btn-ghost search-btn" id="resetBtn">Xoá lọc</button>
           </div>
+        </div>
 
-          <!-- Sắp xếp + loại hình -->
-          <div class="filter-row">
-              <div class="seat-filter" id="cityFilter">
-                <button type="button" class="seat-pill is-active" data-city="all">Tất cả địa điểm</button>
-                <button type="button" class="seat-pill" data-city="Hà Nội">Hà Nội</button>
-                <button type="button" class="seat-pill" data-city="Hạ Long">Hạ Long</button>
-                <button type="button" class="seat-pill" data-city="Đà Nẵng">Đà Nẵng</button>
-                <button type="button" class="seat-pill" data-city="Sa Pa">Sa Pa</button>
-                <button type="button" class="seat-pill" data-city="Đà Lạt">Đà Lạt</button>
-              </div>
-              <div class="seat-filter" id="categoryHotels">
-                <button type="button" class="seat-pill is-active" data-category="all">Tất cả loại hình</button>
-                <button type="button" class="seat-pill" data-category="Hotel">Hotel</button>
-                <button type="button" class="seat-pill" data-category="Villa">Villa</button>
-                <button type="button" class="seat-pill" data-category="Resort">Resort</button>
-              </div>
-            </div>
+        <!-- Lọc theo thành phố + loại hình -->
+        <div class="filter-row">
+          <div class="pill-group" id="cityFilter">
+            <button type="button" class="filter-pill is-active" data-city="all">Tất cả địa điểm</button>
+            <button type="button" class="filter-pill" data-city="Hà Nội">Hà Nội</button>
+            <button type="button" class="filter-pill" data-city="Hạ Long">Hạ Long</button>
+            <button type="button" class="filter-pill" data-city="Đà Nẵng">Đà Nẵng</button>
+            <button type="button" class="filter-pill" data-city="Sa Pa">Sa Pa</button>
+            <button type="button" class="filter-pill" data-city="Đà Lạt">Đà Lạt</button>
+          </div>
+          <div class="pill-group" id="categoryHotels">
+            <button type="button" class="filter-pill is-active" data-category="all">Tất cả loại hình</button>
+            <button type="button" class="filter-pill" data-category="Hotel">Hotel</button>
+            <button type="button" class="filter-pill" data-category="Villa">Villa</button>
+            <button type="button" class="filter-pill" data-category="Resort">Resort</button>
+          </div>
+        </div>
 
-           <div class="rental-toolbar-hotel">
-              <p class="result-count" id="resultCount"></p>
-              <select class="sort-select" id="Sort">
-                <option value="popular">Phổ biến nhất</option>
-                <option value="priceAsc">Giá tăng dần</option>
-                <option value="priceDesc">Giá giảm dần</option>
-                <option value="az">Tên A → Z</option>
-                <option value="za">Tên Z → A</option>
-              </select>
-            </div>
+        <!-- Số kết quả (trái) + sắp xếp (phải) -->
+        <div class="result-bar">
+          <p class="result-count" id="resultCount"></p>
+          <select class="sort-dropdown" id="Sort">
+            <option value="popular">Phổ biến nhất</option>
+            <option value="priceAsc">Giá tăng dần</option>
+            <option value="priceDesc">Giá giảm dần</option>
+            <option value="az">Tên A → Z</option>
+            <option value="za">Tên Z → A</option>
+          </select>
+        </div>
 
-          <!--Load trang kết quả tìm-->
-          <div class="hotel-grid" id="hotelGrid"></div>
+        <!-- Danh sách khách sạn -->
+        <div class="hotel-grid" id="hotelGrid"></div>
       </div>
     </main>
 
-    <div id="site-footer"></div>
-
-   <!--Popup đặt phòng khách sạn-->
+    <!-- Popup chi tiết khách sạn -->
     <div class="modal-overlay" id="detailModalOverlay">
       <div class="booking-modal detail-modal" id="detailModal"></div>
     </div>
 
-    <!--Form đặt phòng-->
+    <!-- Form đặt phòng -->
     <div class="modal-overlay" id="bookingModalOverlay">
       <div class="booking-modal">
-        <div class="booking-modal-head">
+        <div class="modal-header">
           <div>
-            <span class="modal-kicker">Khách sạn, Resort và Villa</span>
+            <span class="modal-label">Khách sạn, Resort và Villa</span>
             <h3>Thông tin đặt phòng</h3>
           </div>
           <button type="button" class="modal-close" id="closeBookingModal">×</button>
         </div>
 
-        <div class="booking-provider-bar">
+        <div class="booking-info">
           <div>
             <strong id="bookingHotel">Tên khách sạn</strong>
             <p id="bookingRoom">Loại phòng</p>
@@ -129,7 +128,7 @@
 
           <div class="form-group">
             <label>Họ và tên khách *</label>
-            <input type="text" id="renterName"  placeholder="Nhập họ tên" />
+            <input type="text" id="renterName" placeholder="Nhập họ tên" />
           </div>
 
           <div class="form-row">
@@ -171,7 +170,7 @@
             </div>
             <div class="summary-line"><span id="sumLabel">Tạm tính</span><span id="sumBase">0đ</span></div>
             <div class="summary-line"><span>Phí dịch vụ và VAT</span><span>Đã bao gồm</span></div>
-            <div class="summary-line discount" id="sumPromoRow" style="display:none;"><span>Giảm giá</span><span id="sumPromo">-0đ</span></div>
+            <div class="summary-line" id="sumPromoRow" style="display:none;"><span>Giảm giá</span><span id="sumPromo">-0đ</span></div>
             <div class="summary-total">
               <span>Tổng thanh toán</span>
               <strong id="totalAmount">0đ</strong>
@@ -183,11 +182,11 @@
       </div>
     </div>
 
-    <!--Đặt chỗ thành công-->
+    <!-- Đặt chỗ thành công -->
     <div class="modal-overlay" id="successModalOverlay">
       <div class="success-modal">
-        <div class="success-head">
-          <span class="success-icon-sm"><i class="fa-solid fa-hotel" style="color: rgb(0, 143, 229);"></i></span>
+        <div class="success-header">
+          <span class="success-icon"><i class="fa-solid fa-hotel" style="color: rgb(0, 143, 229);"></i></span>
           <div>
             <strong>Đặt chỗ thành công</strong>
             <p>Bảo mật thông tin và xác nhận tức thì</p>

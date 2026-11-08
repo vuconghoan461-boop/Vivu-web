@@ -4,30 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>My Calendar</title>
-<link rel="stylesheet" href="../css/mycalendar.css">
-<link rel="stylesheet" href="../../css/main.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../css/mycalendar.css">
+<link rel="stylesheet" href="../../../css/main.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="../../../js/mycalendar.js" defer></script>
 </head>
 <body>
 <div class="banner">
-  <div class="hero">
+  <section class="module-hero" data-slides="../../../assets/slicer/pic2.jpg,../../../assets/slicer/pic1.jpg,../../../assets/slicer/pic3.jpg">
     <button class="new-trip-btn" data-action="open-modal">✈ Tạo chuyến đi</button>
-    <div class="hero-inner">
-      <h1>Lịch của tôi</h1>
-      <p>Quản lý và lên kế hoạch cho những chuyến đi sắp tới của bạn</p>
+    <div class="vivugo-container module-hero-inner">
+      <p class="crumb"><a href="../../../index.html">Trang chủ</a><span class="sep">/</span>Lịch của tôi</p>
+      
+      <span class="tag-pill">Quản lý chuyến đi · Lên kế hoạch</span>
+      <h1 class="page-title">Lịch của tôi</h1>
+      <p class="page-desc">Quản lý và lên kế hoạch cho những chuyến đi sắp tới của bạn.</p>
     </div>
-  </div>
+  </section>
 
   <div class="layout">
     <!-- SIDEBAR -->
     <div>
       <div class="panel panel-gap">
         <ul class="nav-list" id="navList">
-          <li class="active" data-filter="all" data-title="Tất cả chuyến đi" data-label="Tất cả">
-            <span class="dot"><i class="fa-solid fa-border-all"></i>
-            </span> Tất cả <span class="count"></span></li>
-          <li data-filter="upcoming" data-title="Chuyến đi sắp tới" data-label="Sắp tới">
-            <span class="dot"><i class="fa-solid fa-calendar-days"></i></span> Sắp tới <span class="count"></span></li>
+          <li class="active" data-filter="all" data-title="Tất cả chuyến đi" data-label="Tất cả"><span class="dot"><i class="fa-solid fa-border-all"></i></span> Tất cả <span class="count"></span></li>
+          <li data-filter="upcoming" data-title="Chuyến đi sắp tới" data-label="Sắp tới"><span class="dot"><i class="fa-solid fa-calendar-days"></i></span> Sắp tới <span class="count"></span></li>
           <li data-filter="ongoing" data-title="Chuyến đi đang diễn ra" data-label="Đang diễn ra"><span class="dot"><i class="fa-solid fa-globe"></i></span> Đang diễn ra <span class="count"></span></li>
           <li data-filter="completed" data-title="Chuyến đi đã hoàn thành" data-label="Đã hoàn thành"><span class="dot"><i class="fa-solid fa-check-circle"></i></span> Đã hoàn thành <span class="count"></span></li>
         </ul>
@@ -251,7 +255,5 @@
 <template id="tpl-type-chip">
   <div class="type-chip"><span class="ti" data-f="icon"></span><span data-f="label"></span></div>
 </template>
-
-<script src="app.js"></script>
 </body>
 </html>
