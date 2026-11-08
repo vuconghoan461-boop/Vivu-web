@@ -1,9 +1,3 @@
-const HERO_SLIDES = [
-  "../../assets/slicer/pic2.jpg",
-  "../../assets/slicer/pic1.jpg",
-  "../../assets/slicer/pic3.jpg"
-];
-
 let QUICK_ADDS = [], ACTIVITY_TYPES = [], MODAL_DEFAULTS = {}, TRIPS = [];
 let currentFilter = "all";
 let currentTrip = null;
@@ -33,6 +27,11 @@ function fill(root, values) {
 function setIcon(root, iconClass, fallback) {
   const el = root.querySelector("[data-icon]");
   if (el) el.classList.add(iconClass || fallback || "fa-circle");
+}
+
+// Gán ảnh nền (từ đường link) cho một phần tử; không có link thì giữ nền mặc định
+function setImage(el, url) {
+  el.style.backgroundImage = url ? `url(${JSON.stringify(url)})` : "";
 }
 
 // Dựng một danh sách bằng cách nhân bản template cho từng phần tử dữ liệu
@@ -119,6 +118,7 @@ function renderTripList() {
     fill(frag, { name: t.sidebarName, dates: dateRangeShort(t), place: t.place, status: statusLabel(st) });
     frag.querySelector(".status-tag").classList.add(`st-${st}`);
     frag.querySelector(".trip-thumb").classList.add(t.thumbClass);
+    setImage(frag.querySelector(".trip-thumb"), t.thumbImage || t.image);
     frag.querySelector(".trip-card").classList.toggle("selected", !!currentTrip && t.id === currentTrip.id);
     frag.querySelectorAll("[data-trip]").forEach(el => { el.dataset.trip = t.id; });
   });
@@ -138,6 +138,7 @@ function renderTripHero() {
   $("tripDate").textContent = `📅 ${fmtFull(parseDate(t.startDate))} – ${fmtFull(parseDate(t.endDate))} · ${durationText(t)}`;
   $("tripPlace").textContent = "📍 " + t.place;
   $("tripStatus").textContent = statusLabel(statusOf(t));
+  setImage(document.querySelector(".trip-hero"), t.heroImage || t.image);
 }
 
 function renderDayChips() {
@@ -168,8 +169,9 @@ function renderDays() {
     renderList(slot(frag, "activities"), "tpl-activity", d.activities, (af, a) => {
       fill(af, { time: a.time, title: a.title, note: a.note });
       const thumb = af.querySelector("[data-thumb]");
-      thumb.hidden = !a.thumb;
+      thumb.hidden = !a.thumb && !a.image;
       if (a.thumb) thumb.classList.add(a.thumb);
+      setImage(thumb, a.image);
     });
   });
 }
@@ -200,7 +202,9 @@ function renderInfo() {
 
   section("infoHotel", info.hotel, (el, h) => {
     fill(el, { name: h.name, address: h.address, room: h.room, checkIn: h.checkIn, checkOut: h.checkOut });
-    el.querySelector("[data-thumb]").className = `hotel-thumb ${h.thumbClass || "thumb-hotel"}`;
+    const hotelThumb = el.querySelector("[data-thumb]");
+    hotelThumb.className = `hotel-thumb ${h.thumbClass || "thumb-hotel"}`;
+    setImage(hotelThumb, h.image);
   });
 
   section("infoTransport", info.transport, (el, tr) => {
