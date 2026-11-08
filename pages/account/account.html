@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VivuGo - Trang cá nhân</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/account.css">
+</head>
+<body>
+    <div class="profile-container">
+        <!-- HEADER TRANG CÁ NHÂN KIỂU FACEBOOK -->
+        <div class="fb-profile-header">
+            <div class="fb-cover">
+                <span class="tier-badge">
+            </div>
+            <div class="fb-user-bar">
+                <div class="fb-avatar" id="avatarInitial">T</div>
+                <div class="fb-user-info">
+                    <h1 id="profileFullName">Phạm Anh Tú</h1>
+                    <p id="profileMeta">demo@vivugo.vn · 0 Điểm thưởng</p>
+                </div>
+                <div class="fb-actions">
+                    <button class="btn-Action-outline" data-tab-target="infoPane">
+                        <i class="fa-regular fa-pen-to-square"></i> Chỉnh sửa hồ sơ
+                    </button>
+                    <button class="btn-Action-logout" id="btnLogout">
+                        <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
+                    </button>
+                </div>
+            </div>
+
+            <!-- THANH TAB ĐIỀU HƯỚNG TRONG TRANG CÁ NHÂN -->
+            <div class="fb-nav-tabs">
+                <button class="fb-tab active" data-tab="calendarPane">
+                    <i class="fa-regular fa-calendar-check"></i> Lịch của tôi
+                </button>
+                <button class="fb-tab" data-tab="infoPane">
+                    <i class="fa-regular fa-id-card"></i> Thông tin cá nhân
+                </button>
+            </div>
+        </div>
+
+        <!-- TAB 1: LỊCH CỦA TÔI (NHÚNG NGUYÊN BẢN CỦA BẠN LINH, KHÔNG SỬA CODE CỦA LINH) -->
+        <div id="calendarPane" class="tab-pane active">
+            <iframe 
+                id="linhCalendarFrame" 
+                src="mycalendar/mycalendar.html" 
+                title="Lịch của tôi" 
+                class="calendar-iframe">
+            </iframe>
+        </div>
+
+        <!-- TAB 2: THÔNG TIN CÁ NHÂN -->
+        <div id="infoPane" class="tab-pane" hidden>
+            <div class="info-card">
+                <h3>Thông tin hồ sơ cá nhân</h3>
+                <p class="sub-text">Thông tin này được dùng để tự động điền khi bạn đặt vé máy bay, khách sạn và tour trên VivuGo.</p>
+                <form id="profileForm">
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Họ và tên</label>
+                            <input type="text" id="pName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Số điện thoại</label>
+                            <input type="tel" id="pPhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="pEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Ngày sinh</label>
+                            <input type="date" id="pDob">
+                        </div>
+                        <div class="form-group">
+                            <label>Giới tính</label>
+                            <select id="pGender">
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ">Nữ</option>
+                                <option value="Khác">Khác</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Địa chỉ</label>
+                            <input type="text" id="pAddress">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-save">Lưu thay đổi</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/account.js"></script>
+</body>
+</html>

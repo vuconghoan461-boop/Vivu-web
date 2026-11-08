@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VivuGo - Đăng ký</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/register.css">
+</head>
+
+<body>
+    <div class="auth-wrap">
+        <div class="auth-card">
+            <div class="m-left">
+                <h2>Khám phá thế giới cùng VivuGo!</h2>
+            </div>
+            <div class="m-right">
+                <div class="tabs">
+                    <a class="tab" href="login.html">ĐĂNG NHẬP</a>
+                    <a class="tab active" href="register.html">ĐĂNG KÝ</a>
+                </div>
+                <p class="sso-title">Đăng ký nhanh bằng Gmail, mạng xã hội hoặc Apple</p>
+                <div class="sso">
+                    <button type="button" title="Sẽ kết nối khi có backend"><i
+                            class="fa-brands fa-google"></i><span>Google</span></button>
+                    <button type="button" title="Sẽ kết nối khi có backend"><i
+                            class="fa-brands fa-facebook"></i><span>Facebook</span></button>
+                    <button type="button" title="Sẽ kết nối khi có backend"><i
+                            class="fa-brands fa-apple"></i><span>Apple</span></button>
+                </div>
+                <div class="or"><span>hoặc tạo tài khoản VivuGo riêng của bạn</span></div>
+                <form id="register" class="form active" novalidate>
+                    <div class="field">
+                        <input id="rName" placeholder=" " autocomplete="name">
+                        <label for="rName">Họ và tên</label>
+                        <small class="err"></small>
+                    </div>
+                    <div class="field">
+                        <input id="rEmail" type="email" placeholder=" " autocomplete="email">
+                        <label for="rEmail">Email</label>
+                        <small class="err"></small>
+                    </div>
+                    <div class="field">
+                        <input id="rPhone" type="tel" placeholder=" " autocomplete="tel">
+                        <label for="rPhone">Số điện thoại</label>
+                        <small class="err"></small>
+                    </div>
+                    <div class="field">
+                        <input id="rPass" type="password" placeholder=" " autocomplete="new-password">
+                        <label for="rPass">Mật khẩu</label>
+                        <i class="fa-regular fa-eye eye"></i>
+                        <small class="err"></small>
+                        <div class="strength" id="strength"><i></i><i></i><i></i><em></em></div>
+                    </div>
+                    <div class="field">
+                        <input id="rPass2" type="password" placeholder=" " autocomplete="new-password">
+                        <label for="rPass2">Xác nhận mật khẩu</label>
+                        <i class="fa-regular fa-eye eye"></i>
+                        <small class="err"></small>
+                    </div>
+                    <div>
+                        <label class="check"><input type="checkbox" id="agree"> Tôi đồng ý với <a href="#">Điều khoản
+                                dịch vụ</a> &amp; <a href="#">Chính sách bảo mật</a></label>
+                        <small class="err" id="agreeErr"></small>
+                    </div>
+                    <button type="submit" class="btn-full">Tạo tài khoản</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/register.js"></script>
+</body>
+
+</html>
