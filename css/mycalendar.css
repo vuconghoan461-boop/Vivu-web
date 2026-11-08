@@ -333,7 +333,7 @@ svg {
   position: relative;
   border-radius: 14px;
   overflow: hidden;
-  height: 130px;
+  height: 180px;
   margin-bottom: 14px;
   background: linear-gradient(120deg,#062f3f,#0e6ba8 55%,#3ab0a2);
 }
@@ -1100,50 +1100,77 @@ svg {
 
 /* ===== Căn banner + layout theo bề rộng header ===== */
 .banner {
-  max-width: 1200px;          /* bằng .vivugo-container của header */
-  margin: 0 auto;
-  padding: 0 16px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-/* ===== Thu nhỏ khung banner ===== */
+/* ===== Banner giống trang Dịch vụ / Khách sạn ===== */
 .banner .module-hero {
-  position: relative;         /* để nút "Tạo chuyến đi" bám theo banner */
-  padding: 20px 0 0;
-  margin: 16px 0 0;
-  border-radius: 16px;
+  position: relative;
+  --edge: max(16px, calc((100% - 1200px) / 2 + 16px));   /* lề trái/phải = lề của nội dung bên dưới */
+  width: 100%;
+  margin: 0;
+  padding: 40px 0;
+  border-radius: 0;
+  color: #fff;
+  overflow: hidden;
+  min-height: 420px;                 /* giống banner-hotel / banner-car */
+  display: flex; flex-direction: column; justify-content: center;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #0A5FA8 0%, #0079C7 100%);
 }
+.banner .module-hero > .module-hero-inner { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 2; }
 
-.banner .module-hero-inner {
-  padding: 0 24px 24px;
-}
-
-.banner .module-hero .crumb {
-  margin-bottom: 8px;
-}
+.banner .module-hero .crumb { font-size: 13.5px; color: #E4F3FD; margin-bottom: 16px; }
+.banner .module-hero .crumb a { color: #E4F3FD; }
+.banner .module-hero .crumb a:hover { color: #fff; text-decoration: underline; }
+.banner .module-hero .crumb .sep { margin: 0 6px; opacity: .6; }
 
 .banner .module-hero .tag-pill {
-  padding: 3px 12px;
-  font-size: 12px;
-  margin-bottom: 8px;
+  display: inline-block; background: none; border: none; border-radius: 0;
+  padding: 0 0 0 12px; border-left: 3px solid #FF9D16;
+  font-size: 14px; font-weight: 500; color: #E4F3FD; margin-bottom: 16px;
 }
-
 .banner .module-hero .page-title {
-  font-size: 28px;
-  line-height: 1.2;
-  margin-bottom: 4px;
-  color: #fff;                /* sửa chữ tối trên nền xanh */
+  color: #fff; font-family: "Be Vietnam Pro", "Inter", sans-serif;
+  font-size: 40px; font-weight: 700; line-height: 1.25; max-width: 100%; margin: 0 0 12px;
 }
+.banner .module-hero .page-desc { font-size: 15px; color: #E4F3FD; max-width: 560px; margin: 0; }
 
-.banner .module-hero .page-desc {
-  font-size: 14px;
-}
+.banner .new-trip-btn { top: 24px; right: var(--edge); padding: 9px 16px; font-size: 13.5px; }
 
-.banner .new-trip-btn {
-  top: 14px;
-  right: 20px;
-  padding: 7px 14px;
-  font-size: 13px;
+/* ---------- Slider ảnh trong banner ---------- */
+.banner .hero-slider { position: absolute; inset: 0; z-index: 0; }
+.banner .hero-slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+  opacity: 0; transition: opacity .9s ease;
 }
+.banner .hero-slide.is-active { opacity: 1; }
+.banner .hero-slider::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,.94) 0%, rgba(152,144,144,.225) 42%);
+}
+.banner .hero-controls {
+  position: absolute; z-index: 3; left: var(--edge); right: var(--edge); bottom: 24px;
+  display: flex; align-items: center; justify-content: space-between; pointer-events: none;
+}
+.banner .hero-controls > * { pointer-events: auto; }
+.banner .hero-dots { display: flex; align-items: center; gap: 6px; }
+.banner .hero-dot {
+  width: 28px; height: 4px; padding: 0; border: none; border-radius: 0;
+  background: rgba(255,255,255,.45); cursor: pointer; transition: background .2s ease;
+}
+.banner .hero-dot:hover { background: rgba(255,255,255,.8); }
+.banner .hero-dot.is-active { background: #FF9D16; }
+.banner .hero-arrows { display: flex; gap: 4px; }
+.banner .hero-arrow {
+  width: 38px; height: 38px; border-radius: 6px; border: none;
+  background: rgba(8,28,48,.6); color: #fff; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: background .15s ease;
+}
+.banner .hero-arrow:hover { background: #0B2740; }
 
 /* ===== Sửa tiêu đề "Đà Lạt" bị chìm trong trip-hero ===== */
 .trip-hero-inner h2 {
@@ -1152,35 +1179,37 @@ svg {
 
 /* ===== Khoảng cách dưới banner ===== */
 .banner .layout {
-  margin-top: 16px;
+  max-width: 1200px;
+  margin: 16px auto 0;
+  padding: 0 16px;
 }
 
-@media (max-width: 880px) {
-  .banner .module-hero-inner { padding: 0 16px 20px; }
+@media (max-width: 768px) {
+  .banner .module-hero { padding: 24px 0 44px; min-height: 300px; }
+  .banner .module-hero .page-title { font-size: 28px; }
+  .banner .new-trip-btn { top: 16px; }
+  .banner .hero-controls { bottom: 18px; }
+  .banner .hero-arrows { display: none; }
 }
 
 
 /* ===== ẢNH THỰC TẾ =====
-   1) Ảnh banner "Lịch của tôi": dán link ảnh vào biến --banner-image bên dưới.
-      Ví dụ: --banner-image: url("https://.../anh-banner.jpg");
-      Nếu để none thì banner giữ nền xanh như cũ.
+   1) Ảnh banner "Lịch của tôi": đổi danh sách ảnh ở thuộc tính data-slides
+      trên thẻ <section class="module-hero"> trong mycalendar.html.
    2) Ảnh banner chuyến đi, ảnh nhỏ ở danh sách, ảnh khách sạn, ảnh hoạt động:
-      thêm trường "image" (link ảnh) vào data JSON, xem hướng dẫn kèm theo. */
-.banner {
-  --banner-image: none;
-}
+      thêm trường "image" (link ảnh) vào data JSON. */
 
-.banner .module-hero {
-  /* lớp phủ xanh giúp chữ trắng dễ đọc trên ảnh */
-  background-image:
-    linear-gradient(120deg, rgba(0, 143, 229, .85) 0%, rgba(0, 116, 191, .45) 100%),
-    var(--banner-image);
-  background-size: cover;
-  background-position: center;
-}
 
 .trip-hero,
 .hotel-thumb {
   background-size: cover;
   background-position: center;
+}
+
+/* ===== Chống main.css (.section-title 28px) đè cỡ chữ tiêu đề sidebar ===== */
+.layout .section-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 4px 0 10px;
+  color: var(--ink);
 }

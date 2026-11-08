@@ -1,8 +1,3 @@
-/* ===================================================================
-   VIVUGO · SERVICE PAGE (phần dùng chung)
-   Ý tưởng: biển xanh + nắng cam. Mọi tên class giữ nguyên như cũ,
-   chỉ thay phần giao diện.
-   =================================================================== */
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap");
 
 :root {
@@ -176,21 +171,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .module-hero {
   position: relative;
   margin: 20px 0 0;
-  padding: 48px clamp(22px, 4vw, 56px) 0;
+  padding: 40px;
   border-radius: 10px;
   color: #fff;
   overflow: hidden;
-  min-height: 500px;                 /* chiều cao banner: sửa số này nếu muốn cao/thấp hơn */
+  min-height: 420px;                 /* giống banner-hotel / banner-car; sửa số này nếu muốn cao/thấp hơn */
   display: flex; flex-direction: column; justify-content: center;
   background: linear-gradient(135deg, #0A5FA8 0%, #0079C7 100%);
 }
 /* hero là flex dọc: ép phần nội dung chiếm đủ bề ngang để chữ nằm bên trái, không bị co lại và dồn ra giữa */
 .module-hero > .vivugo-container,
 .module-hero > .module-hero-inner { width: 100%; }
-.module-hero-inner { padding: 0 0 56px; }
+.module-hero-inner { padding: 0; }
 
-.crumb { font-size: 13.5px; color: rgba(255,255,255,.82); margin-bottom: 16px; }
-.crumb a { color: rgba(255,255,255,.82); }
+.crumb { font-size: 13.5px; color: #E4F3FD; margin-bottom: 16px; }
+.crumb a { color: #E4F3FD; }
 .crumb a:hover { color: #fff; text-decoration: underline; }
 .crumb .sep { margin: 0 6px; opacity: .6; }
 
@@ -202,20 +197,47 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .module-hero .tag-pill {
   background: none; border: none; border-radius: 0;
   padding: 0 0 0 12px; border-left: 3px solid var(--sun-500);
-  font-size: 14px; font-weight: 500; color: rgba(255,255,255,.92);
+  font-size: 14px; font-weight: 500; color: #E4F3FD;
 }
 .vivugo-card .tag-pill,
-.filter-panel .tag-pill { background: var(--sea-50); border-color: var(--sea-100); color: var(--sea-700); }
-
-.module-hero .page-title { color: #fff; }
-.page-title {
-  font-size: clamp(30px, 4.4vw, 46px); font-weight: 700; line-height: 1.12;
-  max-width: 640px; margin-bottom: 14px; text-wrap: balance;
+.filter-panel .tag-pill { 
+  background: var(--sea-50); 
+  border-color: var(--sea-100); 
+  color: var(--sea-700); 
 }
-.page-desc { font-size: 16px; color: rgba(255,255,255,.9); max-width: 560px; }
+
+.module-hero { 
+  font-family: "Inter", sans-serif; 
+
+}
+.module-hero .page-title {
+  color: #fff; 
+  font-family: "Be Vietnam Pro", "Inter", sans-serif;
+  font-size: 40px; 
+  font-weight: 700; 
+  line-height: 1.25; 
+  max-width: 100%; 
+  margin-bottom: 12px;
+}
+.page-title {
+  font-size: clamp(25px, 3.5vw, 30px); 
+  font-weight: 700; 
+  line-height: 1.12;
+  max-width: 640px; 
+  margin-bottom: 14px; 
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.page-desc { 
+  font-size: 15px; 
+  color: #E4F3FD; 
+  max-width: 560px; }
 
 /* ---------- Slider ảnh trong banner ---------- */
-.hero-slider { position: absolute; inset: 0; z-index: 0; }
+.hero-slider { 
+  position: absolute; 
+  inset: 0; 
+  z-index: 0; }
 .hero-slide {
   position: absolute; inset: 0;
   background-size: cover; background-position: center; background-repeat: no-repeat;
@@ -225,12 +247,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 /* lớp tối ở bên trái để chữ trắng luôn đọc được */
 .hero-slider::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(8,28,48,.72) 0%, rgba(8,28,48,.4) 55%, rgba(8,28,48,.1) 100%);
+  background: linear-gradient(90deg, rgba(0,0,0,.94) 0%, rgba(152,144,144,.225) 42%);
 }
 .module-hero-inner { position: relative; z-index: 2; }
 
 .hero-controls {
-  position: absolute; z-index: 3; left: clamp(22px, 4vw, 56px); right: clamp(22px, 4vw, 56px); bottom: 24px;
+  position: absolute; z-index: 3; left: 40px; right: 40px; bottom: 24px;
   display: flex; align-items: center; justify-content: space-between; pointer-events: none;
 }
 .hero-controls > * { pointer-events: auto; }
@@ -441,8 +463,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .main-nav { display: none; }
   .nav-toggle { display: flex; }
   .category-grid, .content-grid, .listing-grid, .listing-grid.cols-4 { grid-template-columns: 1fr; margin-top: 20px; }
-  .module-hero { padding-top: 36px; min-height: 400px; }
-  .module-hero-inner { padding-bottom: 72px; }
+  .module-hero { padding: 24px 24px 44px; min-height: 300px; }
+  .module-hero .page-title { font-size: 28px; }
+  .hero-controls { left: 24px; right: 24px; }
   .section { padding: 44px 0; }
   .footer-grid { grid-template-columns: 1fr; }
   .route-card { grid-template-columns: 1fr; }
