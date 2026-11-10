@@ -1,0 +1,168 @@
+.site-header,
+.site-header *,
+.site-header *::before,
+.site-header *::after { box-sizing: border-box; }
+:where(.site-header) a { text-decoration: none; color: inherit; }
+:where(.site-header) img { max-width: 100%; display: block; }
+:where(.site-header) button { font: inherit; color: inherit; }
+
+.site-header a:focus-visible,
+.site-header button:focus-visible {
+  outline: 2px solid #008FE5;
+  outline-offset: 2px; }
+
+/* sticky thay vì fixed: header vẫn dính trên cùng nhưng không đè lên iframe */
+.site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E5E7EB;
+  font-family: "Inter", sans-serif; }
+
+.site-header .vivugo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0; }
+
+.site-header .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: 76px; }
+
+.site-header .brand-logo { display: flex; align-items: center; gap: 10px; }
+.site-header .logo-image {
+  width: 150px;
+  height: 100px;
+  object-fit: contain;
+  display: block; }
+
+/* ---------- Nav ---------- */
+.site-header .main-nav { display: flex; align-items: center; gap: 8px; }
+.site-header .nav-link {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #6B7280;
+  padding: 11px 22px;
+  border-radius: 999px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap; }
+.site-header .nav-link:hover { color: #008FE5; }
+.site-header .nav-link.active { color: #FFFFFF; background: #008FE5; }
+
+/* ---------- Dropdown Dịch vụ ---------- */
+.site-header .nav-dropdown { position: relative; }
+.site-header .service-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 180px;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 6px;
+  z-index: 1000; }
+.site-header .service-dropdown a,
+.site-header .service-dropdown button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #1F2937;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer; }
+.site-header .service-dropdown a:hover,
+.site-header .service-dropdown button:hover { background: #F3FAFF; color: #008FE5; }
+.site-header .nav-dropdown:hover .service-dropdown,
+.site-header .nav-dropdown:focus-within .service-dropdown { display: block; }
+
+/* ---------- Actions ---------- */
+.site-header .header-actions { display: flex; align-items: center; gap: 14px; }
+.site-header .account-actions { display: flex; align-items: center; gap: 8px; }
+
+.site-header .btn-icon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #E5E7EB;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer; }
+.site-header .btn-icon .badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 3px;
+  border-radius: 50%;
+  background: #FF9D16;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.site-header .nav-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #E5E7EB;
+  background: #FFFFFF;
+  cursor: pointer; }
+
+.site-header .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14.5px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  background: #008FE5;
+  color: #FFFFFF; }
+.site-header .btn-primary:hover { background: #FF9D16; color: #FFFFFF; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .site-header .header-inner { padding: 0 16px; }
+  .site-header .main-nav { display: none; }
+  .site-header .nav-toggle { display: flex; align-items: center; justify-content: center; }
+  /* mở menu mobile: JS chỉ cần thêm class open / is-open / show vào .main-nav */
+  .site-header .main-nav.open,
+  .site-header .main-nav.is-open,
+  .site-header .main-nav.show {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E5E7EB;
+    padding: 12px 16px; }
+  .site-header .service-dropdown { position: static; width: 100%; border: none; }
+}

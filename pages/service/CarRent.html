@@ -19,9 +19,9 @@
 
     <main class="site-main">
 
-      <!--Ảnh banner đầu trang chứa tiêu đề-->
-      <section class="slider-carent">
-        <div class="slider-inner">
+      <!-- Banner đầu trang -->
+      <section class="banner-car">
+        <div class="banner-content">
           <h1 class="page-title">THUÊ XE TỰ LÁI VÀ CÓ TÀI XẾ</h1>
           <p class="page-desc">VivuGo cung cấp dịch vụ gồm: thuê xe máy,
             ô tô đời mới, giao xe tận nơi — thanh toán khi nhận xe
@@ -30,45 +30,45 @@
       </section>
 
       <div class="vivugo-container">
-        <section class="rental-section">
+        <section>
 
-          <!--Thanh tìm kiếm-->
-          <div class="rental-filter-bar" id="rentalFilterBar">
-            <label class="filter-checkbox">
+          <!-- Thanh tìm kiếm -->
+          <div class="search-panel" id="rentalFilterBar">
+            <label class="checkbox-label">
               <input type="checkbox" id="diffLocation" checked />
               Trả xe tại địa điểm khác
             </label>
 
-            <div class="rental-filter-grid">
-              <div class="rental-field">
+            <div class="search-fields">
+              <div class="search-field">
                 <label>Loại phương tiện</label>
-                <div class="segmented" id="vehicleTypeToggle">
-                  <button type="button" class="seg-btn is-active" data-type="oto">Ô tô</button>
-                  <button type="button" class="seg-btn" data-type="xemay">Xe máy</button>
+                <div class="toggle-group" id="vehicleTypeToggle">
+                  <button type="button" class="toggle-btn is-active" data-type="oto">Ô tô</button>
+                  <button type="button" class="toggle-btn" data-type="xemay">Xe máy</button>
                 </div>
               </div>
 
-              <div class="rental-field">
+              <div class="search-field">
                 <label for="pickupLocation">Địa điểm nhận xe</label>
                 <input type="text" id="pickupLocation" placeholder="Nhập địa điểm nhận xe (VD: Cầu Giấy)" />
               </div>
 
-              <div class="rental-field" id="dropoffField">
+              <div class="search-field" id="dropoffField">
                 <label for="dropoffLocation">Địa điểm trả xe</label>
                 <input type="text" id="dropoffLocation" placeholder="Nhập địa điểm trả xe (VD: Hoàn Kiếm)" />
               </div>
 
-              <button type="button" class="btn-cta rental-search-btn" id="searchCarsBtn">Tìm kiếm</button>
-              <button type="button" class="btn-ghost rental-search-btn" id="resetBtn">Xoá lọc</button>
+              <button type="button" class="btn-cta search-btn" id="searchCarsBtn">Tìm kiếm</button>
+              <button type="button" class="btn-ghost search-btn" id="resetBtn">Xoá lọc</button>
             </div>
           </div>
 
-          <!--Thanh lọc-->
+          <!-- Lọc theo thành phố + số chỗ -->
           <div class="filter-row">
-            <div class="rental-toolbar">
-              <div class="location-select" id="locationSelect">
+            <div class="city-filter">
+              <div class="city-select" id="locationSelect">
                 <span id="locationLabel">Địa điểm</span>
-                <div class="location-dropdown" id="locationDropdown">
+                <div class="city-dropdown" id="locationDropdown">
                   <button data-city="Tất cả" class="is-active">Tất cả địa điểm</button>
                   <button data-city="Hà Nội">Hà Nội</button>
                   <button data-city="TP.HCM">TP.HCM</button>
@@ -79,20 +79,20 @@
               </div>
             </div>
 
-            <div class="seat-filter" id="seatFilter">
-              <button class="seat-pill is-active" data-seat="all">Tất cả</button>
-              <button class="seat-pill" data-seat="2">2 chỗ</button>
-              <button class="seat-pill" data-seat="4">4 chỗ</button>
-              <button class="seat-pill" data-seat="5">5 chỗ</button>
-              <button class="seat-pill" data-seat="7">7 chỗ</button>
-              <button class="seat-pill" data-seat="9">9 chỗ</button>
+            <div class="pill-group" id="seatFilter">
+              <button class="filter-pill is-active" data-seat="all">Tất cả</button>
+              <button class="filter-pill" data-seat="2">2 chỗ</button>
+              <button class="filter-pill" data-seat="4">4 chỗ</button>
+              <button class="filter-pill" data-seat="5">5 chỗ</button>
+              <button class="filter-pill" data-seat="7">7 chỗ</button>
+              <button class="filter-pill" data-seat="9">9 chỗ</button>
             </div>
           </div>
 
-          <!--Số kết quả (trái) + sắp xếp (phải)-->
-          <div class="rental-toolbar-hotel">
+          <!-- Số kết quả (trái) + sắp xếp (phải) -->
+          <div class="result-bar">
             <p class="result-count" id="resultCount"></p>
-            <select class="sort-select" id="Sort">
+            <select class="sort-dropdown" id="Sort">
               <option value="popular">Phổ biến nhất</option>
               <option value="priceAsc">Giá tăng dần</option>
               <option value="priceDesc">Giá giảm dần</option>
@@ -100,25 +100,29 @@
               <option value="za">Tên Z → A</option>
             </select>
           </div>
+
           <div class="car-grid" id="carGrid"></div>
         </section>
       </div>
     </main>
 
-    <div id="site-footer"></div>
+    <!-- Popup chi tiết xe thuê -->
+    <div class="modal-overlay" id="carDetailOverlay">
+      <div class="booking-modal detail-modal" id="carDetailModal"></div>
+    </div>
 
-    <!--Form đặt xe-->
+    <!-- Form đặt xe -->
     <div class="modal-overlay" id="bookingModalOverlay">
       <div class="booking-modal">
-        <div class="booking-modal-head">
+        <div class="modal-header">
           <div>
-            <span class="modal-kicker">Đặt thuê phương tiện</span>
+            <span class="modal-label">Đặt thuê phương tiện</span>
             <h3 id="bookingCarName">Tên xe</h3>
           </div>
           <button type="button" class="modal-close" id="closeBookingModal">×</button>
         </div>
 
-        <div class="booking-provider-bar">
+        <div class="booking-info">
           <div>
             <strong id="bookingProvider">Đơn vị cung cấp</strong>
             <p id="bookingPerks">Bảo hiểm vật chất 2 chiều; Cứu hộ giao thông 24/7 đi kèm</p>
@@ -166,7 +170,7 @@
             </div>
           </div>
 
-          <label class="filter-checkbox" style="margin-bottom:0;">
+          <label class="checkbox-label" style="margin-bottom:0;">
             <input type="checkbox" id="withDriver" />
             Kèm theo tài xế chuyên nghiệp (+500.000 VNĐ/ngày)
           </label>
@@ -189,7 +193,7 @@
             </div>
             <div class="summary-line"><span>Đơn giá thuê</span><span id="sumBase">0đ</span></div>
             <div class="summary-line" id="sumDriverRow" style="display:none;"><span>Phí tài xế</span><span id="sumDriver">0đ</span></div>
-            <div class="summary-line discount" id="sumPromoRow" style="display:none;"><span>Giảm giá</span><span id="sumPromo">-0đ</span></div>
+            <div class="summary-line" id="sumPromoRow" style="display:none;"><span>Giảm giá</span><span id="sumPromo">-0đ</span></div>
             <div class="summary-total">
               <span id="totalLabel">Tổng tiền</span>
               <strong id="totalAmount">0đ</strong>
@@ -201,11 +205,11 @@
       </div>
     </div>
 
-    <!--Form xác nhận đặt chỗ thành công-->
+    <!-- Thông báo đặt chỗ thành công -->
     <div class="modal-overlay" id="successModalOverlay">
       <div class="success-modal">
-        <div class="success-head">
-          <span class="success-icon-sm"><i class="fa-solid fa-car" style="color: rgb(0, 143, 229);"></i></span>
+        <div class="success-header">
+          <span class="success-icon"><i class="fa-solid fa-car" style="color: rgb(0, 143, 229);"></i></span>
           <div>
             <strong>Đặt chỗ thành công</strong>
             <p>Bảo mật thông tin và xác nhận tức thì</p>

@@ -24,8 +24,8 @@
     <div id="site-header"></div>
 
     <main class="site-main">
-      <!-- [KEY: BANNER] Khung Banner Đầu Trang -->
-      <section class="slider-hotel" style="background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../../assets/tours/slider-tour.jpg') center/cover no-repeat;">
+      <!-- [KEY: BANNER] Khung Banner Đầu Trang (To đẹp chuẩn Khách sạn, chữ trắng) -->
+      <section class="slider-tour" style="background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('../../assets/tours/slider-tour.jpg') center/cover no-repeat;">
         <div class="slider-inner">
           <h1 class="page-title">BOOKING TOUR DU LỊCH</h1>
           <p class="page-desc" id="pageDesc">Khám phá vẻ đẹp Việt Nam, trải nghiệm hành trình đáng nhớ với những tour du lịch hấp dẫn.</p>
@@ -51,14 +51,13 @@
           </div>
         </div>
 
-        <!-- [KEY: FILTER_PILLS] Nút Lọc Danh Mục & Điểm Đến -->
+        <!-- [KEY: FILTER_PILLS] Nút Lọc Danh Mục (Đã xóa toàn bộ cụm Điểm Đến) -->
         <div class="filter-row">
-          <div class="seat-filter" id="destFilter"></div>
           <div class="seat-filter" id="categoryTabs"></div>
         </div>
 
         <!-- [KEY: SORT_BAR] Thanh Sắp Xếp Danh Sách -->
-        <div class="rental-toolbar-hotel">
+        <div class="rental-toolbar-tour">
           <select class="sort-select" id="fSort">
             <option value="popular">Phổ biến nhất</option>
             <option value="az">Tên A-Z</option>
@@ -83,7 +82,7 @@
       <div class="booking-modal detail-modal" id="detailModal" role="dialog" aria-modal="true"></div>
     </div>
 
-    <!-- [KEY: BOOKING_MODAL] Form Đặt Tour & Nhập Mã Giảm Giá -->
+    <!-- [KEY: BOOKING_MODAL] Form Đặt Tour (Đã xóa phần Mã Ưu Đãi) -->
     <div class="modal-overlay" id="bookingModalOverlay">
       <div class="booking-modal" role="dialog" aria-modal="true">
         <div class="booking-modal-head">
@@ -115,13 +114,7 @@
             </select>
           </div>
           <div class="booking-summary">
-            <span>Mã ưu đãi</span>
-            <div class="promo-row">
-              <input type="text" id="promoCode" placeholder="Mã ưu đãi (VIVU10, VIVUGO20...)" />
-              <button type="button" class="btn-ghost btn-sm" id="applyPromo">Áp dụng</button>
-            </div>
             <div class="summary-line"><span>Đơn giá</span><span id="sumBase">0đ</span></div>
-            <div class="summary-line discount" id="sumPromoRow" style="display:none;"><span>Giảm giá</span><span id="sumPromo">-0đ</span></div>
             <div class="summary-total"><span id="totalLabel">Tổng tiền</span><strong id="totalAmount">0đ</strong></div>
           </div>
           <button type="submit" class="btn-confirm" id="confirmBtn">Xác Nhận Đặt Tour</button>
@@ -134,7 +127,7 @@
       <div class="success-modal" role="dialog" aria-modal="true">
         <div class="success-head">
           <span class="success-icon-sm">🎫</span>
-          <div><strong>Đặt Chỗ Thành Công</strong><p>Xác nhận tức thì</p></div>
+          <div><strong>Đặt Chỗ Thành Công</strong><p>Xác nhận tức thời</p></div>
           <button type="button" class="modal-close" id="closeSuccessModal">×</button>
         </div>
         <div class="success-body">

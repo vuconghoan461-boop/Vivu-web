@@ -5,34 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Khám phá điểm đến | VivuGo</title>
     <meta name="description" content="Cẩm nang, lịch trình và kinh nghiệm du lịch khắp Việt Nam — VivuGo." />
-    <!-- Google Fonts -->
+
+    <link rel="stylesheet" href="../css/tour.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <!-- File CSS dùng chung và riêng (Sửa theo cây thư mục) -->
+
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/explore.css" />
   </head>
   <body class="site-body kp-body">
-    <!-- KHỐI HEADER ĐƯỢC NHÚNG ĐỘNG BẰNG JS CHUNG -->
+
     <div id="site-header"></div>
+
     <main class="kp-main" id="kpMain">
-      <!-- ============ MÀN HÌNH 1: DANH SÁCH BÀI VIẾT ============ -->
+      <!-- DANH SÁCH BÀI VIẾT -->
       <div id="kpList">
-        <div class="kp-wrap">        
-          <!-- 1.1 Hero Banner Chín (Background ảnh đặt qua JS/CSS) -->
+        <div class="kp-wrap">
           <section class="kp-hero">
             <p class="kp-hero__kicker">cẩm nang du lịch VivuGo</p>
             <h1>KHÁM PHÁ ĐIỂM ĐẾN</h1>
             <p class="kp-hero__lead" id="kpLead">Đọc kinh nghiệm thực tế, chọn điểm đến yêu thích rồi bắt đầu hành trình của bạn!</p>
           </section>
-          <!-- 1.2 Thanh Tìm Kiếm + Bộ Lọc Popover -->
+
           <div class="kp-searchbox">
             <form class="kp-search" id="kpSearchForm" role="search" autocomplete="off">
-              <span class="kp-search__icon" aria-hidden="true">🔍</span>
+              <span class="kp-search__icon" aria-hidden="true"></span>
               <input type="search" id="kpQuery" placeholder="Bạn muốn đi đâu? Hà Giang, Hội An, Phú Quốc..." aria-label="Tìm điểm đến" />
               
-              <!-- Nút Bật/Tắt Bộ Lọc Popover -->
               <button type="button" class="kp-filter-btn" id="kpFilterBtn" aria-expanded="false" aria-controls="kpFilterPanel">
                 <span>Bộ lọc</span>
                 <span class="kp-filter-btn__count" id="kpFilterCount" hidden>0</span>
@@ -41,13 +41,11 @@
               
               <button type="submit" class="kp-btn kp-btn--primary">Tìm kiếm</button>
 
-              <!-- Panel Chọn Bộ Lọc (Hiển thị khi nhấn nút Bộ lọc) -->
               <div class="kp-filter-panel" id="kpFilterPanel" role="dialog" aria-label="Bộ lọc bài viết" hidden>
                 <div class="kp-filter-panel__head">
                   <h2>Bộ lọc</h2>
                   <button type="button" class="kp-filter-close" id="kpFilterClose" aria-label="Đóng">×</button>
                 </div>
-                <!-- Vùng JS render động các nút lọc (Vùng miền, Trải nghiệm, Chuyên mục) -->
                 <div id="kpFilterBody"></div>
                 <div class="kp-filter-panel__foot">
                   <button type="button" class="kp-btn kp-btn--ghost kp-btn--sm" id="kpFilterClear">Xóa bộ lọc</button>
@@ -57,16 +55,13 @@
             </form>
           </div>
 
-          <!-- 1.3 Danh sách các bộ lọc đang chọn (Tag Chips) -->
           <div class="kp-active" id="kpActive" hidden></div>
 
-          <!-- 1.4 Khối Bài Viết Nổi Bật (Chỉ hiển thị khi không tìm kiếm) -->
           <section class="kp-section" id="kpFeatured" hidden>
             <div class="kp-section__head"><h2>Bài viết nổi bật</h2></div>
             <div class="kp-grid" id="kpFeaturedGrid"></div>
           </section>
 
-          <!-- 1.5 Khối Danh Sách Bài Viết Chính / Kết Quả Tìm Kiếm -->
           <section class="kp-section" id="kpLatest">
             <div class="kp-section__head">
               <h2 id="kpLatestTitle">Tất cả bài viết</h2>
@@ -75,13 +70,11 @@
             <div class="kp-grid" id="kpGrid" aria-live="polite">
               <div class="kp-loading">Đang tải bài viết...</div>
             </div>
-            <!-- Nút Phân Trang / Xem Thêm -->
             <div class="kp-more" id="kpMoreBox" hidden>
               <button type="button" class="kp-btn kp-btn--ghost" id="kpMore">Xem thêm bài viết</button>
             </div>
           </section>
 
-          <!-- 1.6 Màn Hình Khi Không Có Kết Quả Tìm Kiếm -->
           <section class="kp-empty" id="kpEmpty" hidden>
             <h2>Không tìm thấy bài viết phù hợp</h2>
             <p>Hãy thử từ khóa khác hoặc bỏ bớt bộ lọc để xem thêm điểm đến.</p>
@@ -92,21 +85,20 @@
         </div>
       </div>
 
-      <!-- ============ MÀN HÌNH 2: ĐỌC BÀI VIẾT CHI TIẾT ============ -->
+      <!-- ĐỌC BÀI VIẾT CHI TIẾT -->
       <div id="kpRead" hidden>
         <div class="kp-wrap">
           <div class="kp-reader">
             <button type="button" class="kp-back" id="kpBack">← Quay lại Khám phá điểm đến</button>
-            <!-- Khối JS tự động đổ nội dung bài viết vào đây -->
             <article class="kp-article" id="kpArticle"></article>
           </div>
         </div>
       </div>
     </main>
-    <!-- KHỐI FOOTER & TOAST THÔNG BÁO -->
+
     <div id="site-footer"></div>
     <div class="kp-toast" id="kpToast" role="status" aria-live="polite"></div>
-    <!-- Script điều hướng & xử lý dữ liệu -->
+
     <script src="../js/main.js" defer></script>
     <script src="../js/explore.js" defer></script>
   </body>

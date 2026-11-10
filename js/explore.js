@@ -4,38 +4,34 @@
   /* ==========================================================================
      1. CẤU HÌNH ĐƯỜNG DẪN & HẰNG SỐ DỰ ÁN
      ========================================================================== */
-  var DATA_URL = "../data/explore.json";      // Đường dẫn lấy file dữ liệu JSON
-  var IMG_BASE = "../assets/explore/";        // Thư mục chứa ảnh bài viết
-  var TOUR_URL = "./service/tour.html";        // Liên kết trang tour
-  var REVIEW_KEY = "vivugo_kpdd_reviews";     // Khóa lưu Đánh giá vào LocalStorage
-  var PAGE_SIZE = 9;                          // Số bài viết phân trang
-  var FEATURED_MAX = 3;                       // Số bài viết nổi bật hiển thị ở trên
-  var ROUTE = "#bai-viet/";                   // Tiền tố đường dẫn Hash URL
+  var DATA_URL = "../data/explore.json";      // Dữ liệu bài viết Khám phá
+  var TOUR_DATA_URL = "../data/tour.json";    // Dữ liệu danh sách Tour
+  var IMG_BASE = "../assets/explore/";        // Thư mục ảnh bài viết
+  var REVIEW_KEY = "vivugo_kpdd_reviews";     // Khóa LocalStorage lưu đánh giá
+  var PAGE_SIZE = 9;
+  var FEATURED_MAX = 3;
+  var ROUTE = "#bai-viet/";
 
   /* ==========================================================================
-     2. HÀM TIỆN ÍCH LỌC, ĐỊNH DẠNG & CHUẨN HOẢ SỐ LIỆU
+     2. HÀM TIỆN ÍCH DÙNG CHUNG
      ========================================================================== */
   function $(id) { return document.getElementById(id); }
 
-  // Mã hóa ký tự HTML để tránh lỗi bảo mật XSS
   function esc(v) {
     return String(v == null ? "" : v).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
     });
   }
 
-  // Chuyển chuỗi tiếng Việt có dấu thành không dấu để tìm kiếm
   function fold(s) {
     return String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[đĐ]/g, "d").toLowerCase();
   }
 
-  // Định dạng tiền tệ VND
   function fmt(n) { return Number(n || 0).toLocaleString("vi-VN") + "đ"; }
-
-  // Định dạng sao đánh giá (VD: 4.9)
   function rate(n) { return n ? Number(n).toFixed(1).replace(".", ",") : "5,0"; }
+  function dateVN(s) { return s ? s.split('-').reverse().join('/') : ''; }
+  function fixImgPath(path) { return path ? path.replace('/images/tours/', '/tours/') : ''; }
 
-  // Tạo khung Avatar viết tắt chữ cái tên người dùng
   function avatar(name, large) {
     var w = String(name || "?").trim().split(/\s+/);
     var ini = (w.length > 1 ? w[w.length - 2][0] + w[w.length - 1][0] : w[0][0]).toUpperCase();
@@ -49,13 +45,16 @@
      ========================================================================== */
   var data = {};
   var articles = [];
+  var tourDataList = [];
+  var tourPolicy = "";
+  var currentTour = null;
   var state = { q: "", region: "", type: "", cat: "", shown: PAGE_SIZE };
   var listScroll = 0;
   var toastTimer = null;
   var scrim = null;
 
   /* ==========================================================================
-     4. TẠO HTML CHO THẺ BÀI VIẾT (CARDS) & ẢNH BÌA
+     4. TẠO HTML CHO CARDS & BỘ LỌC BÀI VIẾT (ĐÃ XÓA ICON)
      ========================================================================== */
   function coverHtml(a) {
     return '<div class="kp-cover" data-region="' + esc(a.region) + '">' +
@@ -64,15 +63,11 @@
       "</div>";
   }
 
-  // Lắng nghe lỗi nạp ảnh để ẩn thẻ img bị hỏng
   document.addEventListener("error", function (e) {
     var img = e.target;
     if (img.tagName === "IMG" && img.classList.contains("kp-img")) img.parentNode.classList.add("is-failed");
   }, true);
 
-  /* ==========================================================================
-     5. BỘ LỌC VÀ SẮP XẾP BÀI VIẾT
-     ========================================================================== */
   function hasFilter() { return !!(state.q.trim() || state.region || state.type || state.cat); }
 
   function filtered() {
@@ -91,7 +86,6 @@
     }).sort(function (x, y) { return (y.published || "").localeCompare(x.published || ""); });
   }
 
-  // Khung HTML cho từng bài viết
   function cardHtml(a, feature) {
     var aTypes = a.types || [];
     var tags = aTypes.slice(0, 3).map(function (t) { return '<span class="kp-tag">' + esc(t) + "</span>"; }).join("");
@@ -99,22 +93,19 @@
     var tourPrice = (a.tour && a.tour.price) ? fmt(a.tour.price) : "Liên hệ";
 
     return '<a class="kp-card' + (feature ? " kp-card--feature" : "") + '" href="' + ROUTE + encodeURIComponent(a.id) + '" aria-label="Đọc bài: ' + esc(a.title) + '">' +
-      (feature ? '<span class="kp-card__flag">★ NỔI BẬT</span>' : "") +
+      (feature ? '<span class="kp-card__flag">NỔI BẬT</span>' : "") +
       coverHtml(a) +
       '<div class="kp-card__body">' +
-        '<div class="kp-card__top"><span class="kp-kicker">' + esc(a.cat) + '</span><span class="kp-rate">★ ' + rate(a.rating) + "</span></div>" +
+        '<div class="kp-card__top"><span class="kp-kicker">' + esc(a.cat) + '</span><span class="kp-rate" style="color: #FF9D16;">★ ' + rate(a.rating) + "</span></div>" +
         "<h3>" + esc(a.title) + "</h3>" +
-        '<div class="kp-loc"><span aria-hidden="true">📍</span>' + esc(a.dest) + " · " + esc(a.region) + "</div>" +
+        '<div class="kp-loc">' + esc(a.dest) + " · " + esc(a.region) + "</div>" +
         '<p class="kp-card__ex">' + esc(a.excerpt) + "</p>" +
         (tags ? '<div class="kp-tags">' + tags + "</div>" : "") +
         '<div class="kp-byline">' + avatar(authorName) + "<strong>" + esc(authorName) + '</strong><span class="kp-dot">·</span><span>' + esc(a.read || 5) + " phút đọc</span></div>" +
-        '<div class="kp-card__foot"><span>Tour từ <b>' + tourPrice + '</b></span><span class="kp-card__go">ĐỌC BÀI VIẾT →</span></div>' +
+        '<div class="kp-card__foot"><span>' + (a.tour && a.tour.price ? 'Tour từ <b>' + tourPrice + '</b>' : 'Bài viết kinh nghiệm') + '</span><span class="kp-card__go">ĐỌC BÀI VIẾT</span></div>' +
       "</div></a>";
   }
 
-  /* ==========================================================================
-     6. RENDER DỮ LIỆU BÀI VIẾT VÀ BỘ LỌC RA GIAO DIỆN
-     ========================================================================== */
   function renderActive() {
     var chips = ["region", "type", "cat"].filter(function (k) { return state[k]; });
     var box = $("kpActive");
@@ -165,7 +156,6 @@
     }
 
     if (!filtering) {
-      // Tách riêng 3 bài viết NỔI BẬT
       var feat = items.filter(function (a) { return a.featured; }).slice(0, FEATURED_MAX);
 
       if ($("kpFeatured")) {
@@ -174,7 +164,6 @@
       }
 
       if ($("kpLatestTitle")) $("kpLatestTitle").textContent = "Tất cả bài viết";
-      // Loại trừ các bài đã xuất hiện ở NỔI BẬT để tránh lặp bài
       var remainingArticles = items.filter(function (a) {
         return !feat.some(function (f) { return f.id === a.id; });
       }).sort(function (x, y) {
@@ -186,7 +175,6 @@
       if ($("kpMoreBox")) $("kpMoreBox").hidden = remainingArticles.length <= visible.length;
 
     } else {
-      // Khi người dùng thực hiện lọc/tìm kiếm
       if ($("kpFeatured")) $("kpFeatured").hidden = true;
       if ($("kpLatestTitle")) $("kpLatestTitle").textContent = "Kết quả phù hợp";
       if ($("kpLatestSub")) $("kpLatestSub").textContent = state.q.trim() ? 'Kết quả cho "' + state.q.trim() + '"' : "Bài viết khớp với bộ lọc của bạn.";
@@ -198,13 +186,7 @@
   }
 
   function refresh() { state.shown = PAGE_SIZE; renderFilterPanel(); renderList(); }
-
-  function resetFilters() {
-    state.q = ""; state.region = ""; state.type = ""; state.cat = "";
-    if ($("kpQuery")) $("kpQuery").value = "";
-    refresh();
-  }
-
+  function resetFilters() { state.q = ""; state.region = ""; state.type = ""; state.cat = ""; if ($("kpQuery")) $("kpQuery").value = ""; refresh(); }
   function isMobile() { return window.matchMedia("(max-width: 720px)").matches; }
 
   function openPanel() {
@@ -226,18 +208,275 @@
   }
 
   /* ==========================================================================
-     7. QUẢN LÝ VÀ ĐỌC CHI TIẾT BÀI VIẾT (ARTICLE READER)
+     5. POPUP FORM ĐẶT TOUR VÀ THÔNG BÁO THÀNH CÔNG
+     ========================================================================== */
+  function openBookingFormPopup() {
+    var t = currentTour;
+    if (!t) return;
+
+    var deps = (t.departures || []).map(function (d, i) {
+      return '<option value="' + i + '">' + dateVN(d.date) + ' · ' + esc(d.time) + '</option>';
+    }).join('');
+
+    var formHtml =
+      '<div class="modal-overlay is-open" id="kpBookingOverlay" style="z-index: 10000;">' +
+        '<div class="booking-modal" role="dialog" aria-modal="true">' +
+          '<div class="booking-modal-head">' +
+            '<div><span class="modal-kicker">Đặt tour</span><h3>' + esc(t.name) + '</h3></div>' +
+            '<button type="button" class="modal-close" id="closeKpBookingModal">&times;</button>' +
+          '</div>' +
+          '<div class="booking-provider-bar">' +
+            '<div><strong>' + esc(t.from) + ' → ' + esc(t.to) + '</strong><p>Thời lượng: ' + esc(t.duration) + '</p></div>' +
+            '<div class="booking-price">' + fmt(t.price) + '<small>/khách</small></div>' +
+          '</div>' +
+          '<form id="kpBookingForm" class="booking-form" novalidate>' +
+            '<div class="form-row">' +
+              '<div class="form-group"><label for="kpDepDate">Ngày khởi hành</label><select id="kpDepDate">' + deps + '</select></div>' +
+              '<div class="form-group"><label for="kpQty">Số lượng vé</label><input type="number" id="kpQty" min="1" value="1" /></div>' +
+            '</div>' +
+            '<div class="form-group"><label for="kpName">Họ và tên *</label><input type="text" id="kpName" placeholder="Nguyễn Văn A" required /></div>' +
+            '<div class="form-row">' +
+              '<div class="form-group"><label for="kpPhone">Số điện thoại *</label><input type="tel" id="kpPhone" placeholder="0912 345 678" required /></div>' +
+              '<div class="form-group"><label for="kpEmail">Email *</label><input type="email" id="kpEmail" placeholder="email@example.com" required /></div>' +
+            '</div>' +
+            '<div class="form-group"><label for="kpNote">Ghi chú (tuỳ chọn)</label><input type="text" id="kpNote" placeholder="Ăn chay, đón khách sạn..." /></div>' +
+            '<div class="form-group">' +
+              '<label for="kpPay">Thanh toán</label>' +
+              '<select id="kpPay"><option>VietQR - Quét mã</option><option>Thẻ Visa / Master</option><option>Ví MoMo</option><option>Thanh toán sau</option></select>' +
+            '</div>' +
+            '<div class="booking-summary">' +
+              '<div class="summary-line"><span>Đơn giá</span><span id="kpSumBase">' + fmt(t.price) + '</span></div>' +
+              '<div class="summary-total"><span id="kpTotalLabel">Tổng tiền (1 vé)</span><strong id="kpTotalAmount">' + fmt(t.price) + '</strong></div>' +
+            '</div>' +
+            '<button type="submit" class="btn-confirm">Xác Nhận Đặt Tour</button>' +
+          '</form>' +
+        '</div>' +
+      '</div>';
+
+    var oldB = $("kpBookingOverlay");
+    if (oldB) oldB.remove();
+
+    document.body.insertAdjacentHTML("beforeend", formHtml);
+
+    function calcTotal() {
+      var q = Math.max(1, parseInt($("kpQty").value, 10) || 1);
+      var total = t.price * q;
+      if ($("kpSumBase")) $("kpSumBase").textContent = fmt(total);
+      if ($("kpTotalLabel")) $("kpTotalLabel").textContent = "Tổng tiền (" + q + " vé)";
+      if ($("kpTotalAmount")) $("kpTotalAmount").textContent = fmt(total);
+      return total;
+    }
+
+    if ($("kpQty")) $("kpQty").oninput = calcTotal;
+
+    function closeB() {
+      var b = $("kpBookingOverlay");
+      if (b) b.remove();
+    }
+
+    if ($("closeKpBookingModal")) $("closeKpBookingModal").onclick = closeB;
+    if ($("kpBookingOverlay")) {
+      $("kpBookingOverlay").onclick = function (e) { if (e.target === this) closeB(); };
+    }
+
+    if ($("kpBookingForm")) {
+      $("kpBookingForm").onsubmit = function (e) {
+        e.preventDefault();
+        var name = $("kpName").value.trim();
+        var phone = $("kpPhone").value.trim();
+        var email = $("kpEmail").value.trim();
+
+        if (!name || !phone || !email) {
+          alert("Vui lòng điền đầy đủ thông tin Họ tên, Số điện thoại và Email!");
+          return;
+        }
+
+        var totalMoney = calcTotal();
+        closeB();
+        var detailModal = $("kpTourPopupOverlay");
+        if (detailModal) detailModal.remove();
+        document.body.classList.remove("kp-lock");
+
+        showSuccessPopup(t, name, email, totalMoney);
+      };
+    }
+  }
+
+  function showSuccessPopup(t, name, email, totalMoney) {
+    var code = 'TOUR-' + Math.floor(100000 + Math.random() * 900000);
+    var successHtml =
+      '<div class="modal-overlay is-open" id="kpSuccessOverlay" style="z-index: 10001;">' +
+        '<div class="success-modal" role="dialog" aria-modal="true">' +
+          '<div class="success-head">' +
+            '<div><strong>Đặt Chỗ Thành Công</strong><p>Xác nhận tức thời</p></div>' +
+            '<button type="button" class="modal-close" id="closeKpSuccess">&times;</button>' +
+          '</div>' +
+          '<div class="success-body">' +
+            '<div class="success-check">✓</div>' +
+            '<h3>Chúc mừng bạn đã đặt chỗ thành công!</h3>' +
+            '<div class="order-code">' + code + '</div>' +
+            '<div class="success-info">' +
+              '<div class="info-row"><span>Khách hàng:</span><strong>' + esc(name) + '</strong></div>' +
+              '<div class="info-row"><span>Email:</span><strong>' + esc(email) + '</strong></div>' +
+              '<div class="info-row"><span>Dịch vụ:</span><strong>' + esc(t.name) + '</strong></div>' +
+              '<div class="info-row"><span>Tổng thanh toán:</span><strong class="amount">' + fmt(totalMoney) + '</strong></div>' +
+            '</div>' +
+            '<button type="button" class="btn-primary btn-block" id="kpBtnCloseSuccess">Đóng</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    var oldS = $("kpSuccessOverlay");
+    if (oldS) oldS.remove();
+
+    document.body.insertAdjacentHTML("beforeend", successHtml);
+
+    function closeS() {
+      var s = $("kpSuccessOverlay");
+      if (s) s.remove();
+    }
+
+    if ($("closeKpSuccess")) $("closeKpSuccess").onclick = closeS;
+    if ($("kpBtnCloseSuccess")) $("kpBtnCloseSuccess").onclick = closeS;
+    if ($("kpSuccessOverlay")) {
+      $("kpSuccessOverlay").onclick = function (e) { if (e.target === this) closeS(); };
+    }
+  }
+
+  /* ==========================================================================
+     6. POPUP CHI TIẾT TOUR
+     ========================================================================== */
+  function openTourDetailPopup(tourId) {
+    var t = currentTour = tourDataList.find(function (x) { return x.id === Number(tourId); });
+    if (!t) {
+      toast("Không tìm thấy thông tin tour!");
+      return;
+    }
+
+    var li = function (a) { return (a || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join(''); };
+    var tl = (t.itinerary || []).map(function (s) {
+      return '<li><span class="t-time">' + esc(s.time) + '</span><div>' + esc(s.title) + (s.desc ? '<span class="t-desc">' + esc(s.desc) + '</span>' : '') + '</div></li>';
+    }).join('');
+
+    var rows = [1, 2, 4, 6].map(function (n) {
+      return '<tr><td>' + n + ' khách</td><td>' + fmt(t.price) + '</td><td><strong>' + fmt(t.price * n) + '</strong></td></tr>';
+    }).join('');
+
+    var badges = (t.booked >= 40000 ? '<span class="car-badge hot">Hot</span>' : '') +
+                 (t.discount ? '<span class="car-badge sale">Giảm ' + t.discount + '%</span>' : '');
+
+    var media = function (i, label) {
+      var src = t.images && t.images[i] ? fixImgPath(t.images[i]) : '';
+      return '<div class="media-placeholder" data-label="' + label + '">' + (src ? '<img src="' + esc(src) + '" alt="' + esc(t.name) + '">' : '') + '</div>';
+    };
+
+    var popupHtml =
+      '<div class="modal-overlay is-open" id="kpTourPopupOverlay" style="z-index: 9999;">' +
+        '<div class="booking-modal detail-modal" id="kpTourDetailModal" role="dialog" aria-modal="true">' +
+          '<button type="button" class="modal-close" id="closeKpTourPopup">&times;</button>' +
+          '<div class="gallery">' + [0, 1, 2, 3, 4].map(function (i) { return media(i, i ? 'Ảnh ' + (i + 1) : 'Ảnh chính'); }).join('') + '</div>' +
+          '<div class="detail-top">' +
+            '<div><h2>' + esc(t.name) + '</h2><div class="badge-row" style="position:static;margin-top:8px">' + badges + '</div>' +
+              '<div class="detail-price">' + fmt(t.price) + ' <small>/khách · đã gồm thuế</small></div>' +
+              (t.discount ? '<span class="old-price">' + fmt(t.priceOriginal) + '</span>' : '') +
+            '</div>' +
+            '<button type="button" class="btn-cta btn-trigger-booking">Đặt tour ngay</button>' +
+          '</div>' +
+          '<div class="quick-info">' +
+            '<div><span>Đánh giá</span><span style="color:#FF9D16;">★</span> ' + rate(t.rating) + ' (' + (t.reviews || 0).toLocaleString('vi-VN') + ')</div>' +
+            '<div><span>Thời lượng</span>' + esc(t.duration) + '</div>' +
+            '<div><span>Khởi hành từ</span>' + esc(t.from) + '</div>' +
+          '</div>' +
+          '<div class="detail-body">' +
+            '<div class="tab-bar">' + ['Lịch trình', 'Bao gồm', 'Bảng giá', 'Chính sách'].map(function (n, i) {
+              return '<button type="button" class="tab-btn' + (i === 0 ? ' is-active' : '') + '" data-tab="' + i + '">' + n + '</button>';
+            }).join('') + '</div>' +
+
+            '<div class="tab-panel is-active">' +
+              '<h4 class="panel-h">Điểm nổi bật</h4><ul class="hl-list">' + li(t.highlights) + '</ul>' +
+              '<h4 class="panel-h">Lịch trình chi tiết</h4>' +
+              '<button type="button" class="acc-head" id="kpAccHead">Ngày 1 · ' + esc(t.to) + ' <span>▾</span></button>' +
+              '<ul class="timeline" id="kpAccBody">' + tl + '</ul>' +
+              '<p class="section-sub">' + esc(t.itineraryNote || '') + '</p>' +
+            '</div>' +
+
+            '<div class="tab-panel">' +
+              '<h4 class="panel-h">Bao gồm</h4><ul class="inc-list">' + li(t.includes) + '</ul>' +
+              '<h4 class="panel-h">Không bao gồm</h4><ul class="exc-list">' + li(t.excludes) + '</ul>' +
+              '<h4 class="panel-h">Phương tiện</h4><ul class="note-list">' + li(t.vehicle) + '</ul>' +
+              '<h4 class="panel-h">Tập trung / đón khách</h4><p style="font-size:13.5px">' + esc(t.pickup || '') + '</p>' +
+            '</div>' +
+
+            '<div class="tab-panel"><table class="price-table"><tr><th>Số lượng</th><th>Đơn giá</th><th>Tổng</th></tr>' + rows + '</table>' +
+              '<p class="section-sub">Giá quy đổi ước tính, đã bao gồm thuế.</p>' +
+            '</div>' +
+
+            '<div class="tab-panel">' +
+              '<h4 class="panel-h">Điều kiện &amp; chính sách hủy</h4><p style="font-size:13.5px">' + esc(tourPolicy) + '</p>' +
+              '<h4 class="panel-h">Lưu ý trước khi đặt</h4><ul class="note-list">' + li(t.notes) + '</ul>' +
+            '</div>' +
+          '</div>' +
+          '<div class="detail-cta"><span class="section-sub" style="margin:0">Giá từ <strong>' + fmt(t.price) + '</strong>/khách</span>' +
+            '<button type="button" class="btn-cta btn-trigger-booking">Đặt tour ngay</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    var oldPopup = $("kpTourPopupOverlay");
+    if (oldPopup) oldPopup.remove();
+
+    document.body.insertAdjacentHTML("beforeend", popupHtml);
+    document.body.classList.add("kp-lock");
+
+    function closePopup() {
+      var p = $("kpTourPopupOverlay");
+      if (p) p.remove();
+      document.body.classList.remove("kp-lock");
+    }
+
+    if ($("closeKpTourPopup")) $("closeKpTourPopup").onclick = closePopup;
+    if ($("kpTourPopupOverlay")) {
+      $("kpTourPopupOverlay").onclick = function (e) {
+        if (e.target === this) closePopup();
+      };
+    }
+
+    var popupElem = $("kpTourDetailModal");
+    if (popupElem) {
+      popupElem.querySelectorAll('.btn-trigger-booking').forEach(function (btn) {
+        btn.onclick = openBookingFormPopup;
+      });
+
+      popupElem.querySelectorAll('.tab-btn').forEach(function (b) {
+        b.onclick = function () {
+          popupElem.querySelectorAll('.tab-btn').forEach(function (x) { x.classList.toggle('is-active', x === b); });
+          popupElem.querySelectorAll('.tab-panel').forEach(function (p, i) { p.classList.toggle('is-active', i === +b.dataset.tab); });
+        };
+      });
+
+      var accBtn = $("kpAccHead");
+      if (accBtn) {
+        accBtn.onclick = function () {
+          var body = $("kpAccBody");
+          if (body) body.hidden = !body.hidden;
+        };
+      }
+      popupElem.scrollTop = 0;
+    }
+  }
+
+  /* ==========================================================================
+     7. CHI TIẾT BÀI VIẾT (ẨN KHỐI CTA NẾU BÀI VIẾT KHÔNG CÓ TOUR)
      ========================================================================== */
   function getReviews() {
     try { return JSON.parse(localStorage.getItem(REVIEW_KEY) || "{}"); } catch (e) { return {}; }
   }
 
-  // HTML khung Đánh giá (Đã xử lý khoảng cách tên + tag không bị dính chữ)
   function reviewHtml(r, mine) {
     return '<div class="kp-review"><div class="kp-review__top"><div class="kp-review__who">' + avatar(r.user) +
       '<div><div class="kp-review__name"><span>' + esc(r.user) + '</span><span class="kp-sample">' + (mine ? "Mới gửi" : "Đánh giá") + "</span></div>" +
       '<div class="kp-review__meta">' + esc(r.date) + (r.tag ? " · " + esc(r.tag) : "") + "</div></div></div>" +
-      '<div class="kp-review__stars">★ ' + esc(r.rating) + "/5</div></div><p>" + esc(r.comment) + "</p></div>";
+      '<div class="kp-review__stars" style="color: #FF9D16;">★ ' + esc(r.rating) + "/5</div></div><p>" + esc(r.comment) + "</p></div>";
   }
 
   function related(a) {
@@ -250,17 +489,39 @@
   function openArticle(id) {
     var a = articles.filter(function (x) { return x.id === id; })[0];
     if (!a) return false;
+
     var mine = getReviews()[a.id] || [];
     var sampleReviews = a.reviews || [];
-    var count = (a.reviewsCount || sampleReviews.length) + mine.length;
-    var tourName = (a.tour && a.tour.name) || "Tour du lịch";
-    var tourPrice = (a.tour && a.tour.price) ? fmt(a.tour.price) : "Liên hệ";
-    var tourUnit = (a.tour && a.tour.unit) || "khách";
-    var priceStr = tourPrice + "/" + esc(tourUnit);
-    var tourLink = (a.tour && a.tour.url) ? esc(a.tour.url) : esc(TOUR_URL);
+    var allReviews = mine.concat(sampleReviews);
+    var count = allReviews.length;
+    var avgRating = 5.0;
+
+    if (count > 0) {
+      var totalStars = allReviews.reduce(function (sum, r) { return sum + (Number(r.rating) || 5); }, 0);
+      avgRating = totalStars / count;
+    }
 
     var authorName = (a.author && a.author.name) || "VivuGo";
     var authorDate = (a.author && a.author.date) || a.published || "";
+
+    // Kiểm tra xem bài viết có tour liên quan hay không
+    var hasTour = a.tour && (a.tour.id || a.tour.name);
+    var tourCtaHtml = "";
+
+    if (hasTour) {
+      var tourName = a.tour.name || "Tour du lịch";
+      var tourPrice = a.tour.price ? fmt(a.tour.price) : "Liên hệ";
+      var tourUnit = a.tour.unit || "khách";
+      var priceStr = tourPrice + "/" + esc(tourUnit);
+      var tourId = a.tour.id || 1;
+
+      tourCtaHtml = 
+        '<h3>Gợi ý tour</h3>' +
+        '<div class="kp-cta kp-cta--end">' +
+          '<div><b>Sẵn sàng cho chuyến đi này?</b><small>' + esc(tourName) + ' · từ ' + priceStr + '</small></div>' +
+          '<button type="button" class="kp-btn kp-btn--cta" id="kpBtnOpenTourModal" data-tour-id="' + tourId + '">Xem tour & Đặt tour</button>' +
+        '</div>';
+    }
 
     var mainImageHtml = a.image 
       ? '<div class="kp-section-image"><img src="' + esc(IMG_BASE + encodeURIComponent(a.image)) + '" alt="' + esc(a.title) + '" /></div>' 
@@ -270,42 +531,32 @@
       var imgHtml = s.image 
         ? '<figure class="kp-section-image"><img src="' + esc(IMG_BASE + encodeURIComponent(s.image)) + '" alt="' + esc(s.imageCaption || s.h) + '" /><figcaption>' + esc(s.imageCaption || "") + '</figcaption></figure>' 
         : "";
-      return '<div class="kp-content-section">' +
-        "<h2>" + esc(s.h) + "</h2>" +
-        "<p>" + esc(s.p) + "</p>" +
-        imgHtml +
-      '</div>';
+      return '<div class="kp-content-section"><h2>' + esc(s.h) + '</h2><p>' + esc(s.p) + '</p>' + imgHtml + '</div>';
     }).join("");
 
     var more = related(a);
 
     $("kpArticle").innerHTML =
-      '<span class="kp-kicker">📍 ' + esc(a.dest) + " · " + esc(a.cat) + " · " + esc(a.region) + "</span>" +
+      '<span class="kp-kicker">' + esc(a.dest) + " · " + esc(a.cat) + " · " + esc(a.region) + "</span>" +
       '<h1 class="kp-article-title">' + esc(a.title) + '</h1>' +
       
       '<div class="kp-byline" style="margin-bottom: 20px; font-size: 15px; display: flex; align-items: center; gap: 8px;">' + 
         avatar(authorName) + 
-        '<strong>' + esc(authorName) + '</strong>' +
-        '<span class="kp-dot">·</span>' +
-        '<span>' + esc(authorDate) + '</span>' +
-        '<span class="kp-dot">·</span>' +
-        '<span class="kp-rate" style="color: #f59e0b; font-weight: 600;">★ ' + rate(a.rating) + '</span>' +
+        '<strong>' + esc(authorName) + '</strong><span class="kp-dot">·</span><span>' + esc(authorDate) + '</span><span class="kp-dot">·</span>' +
+        '<span class="kp-rate" style="color: #FF9D16; font-weight: 600;">★ ' + rate(avgRating) + '</span>' +
         '<span style="color: #6b7280; font-size: 14px;"> (' + count + ' đánh giá)</span>' +
       '</div>' +
 
       mainImageHtml +
-      
       '<p class="kp-lead-plain">' + esc(a.excerpt) + "</p>" +
-      
       '<div class="kp-body-text">' + body + "</div>" +
       
-      '<h3>Gợi ý tour</h3>' +
-      '<div class="kp-cta kp-cta--end"><div><b>Sẵn sàng cho chuyến đi này?</b><small>' + esc(tourName) + " · từ " + priceStr + "</small></div>" +
-        '<a class="kp-btn kp-btn--cta" href="' + tourLink + '">XEM TOUR &amp; ĐẶT TOUR →</a></div>' +
+      /* Chèn khối CTA (Chỉ xuất hiện khi bài viết có Tour) */
+      tourCtaHtml +
         
       '<section class="kp-reviews" id="kpReviews">' +
         '<div class="kp-reviews__head"><h2>Đánh giá</h2><button type="button" class="kp-btn kp-btn--ghost kp-btn--sm" id="kpToggleForm">+ Viết đánh giá</button></div>' +
-        '<div class="kp-score"><strong>★ ' + rate(a.rating) + "</strong><span>Đánh giá từ du khách về " + esc(a.dest) + ".<br>" + count + " lượt đánh giá.</span></div>" +
+        '<div class="kp-score"><strong style="color:#FF9D16;">★ ' + rate(avgRating) + "</strong><span>Đánh giá từ du khách về " + esc(a.dest) + ".<br>" + count + " lượt đánh giá.</span></div>" +
         '<form class="kp-form" id="kpReviewForm" novalidate hidden>' +
           "<h3>Gửi đánh giá cho " + esc(a.dest) + "</h3>" +
           '<div class="kp-field"><label for="kpRevName">Họ và tên</label><input id="kpRevName" type="text" maxlength="60" placeholder="VD: Nguyễn Văn A" /></div>' +
@@ -319,6 +570,14 @@
       "</section>" +
       (more.length ? '<section class="kp-related"><h2>Bài viết cùng chủ đề</h2><div class="kp-grid">' + more.map(function (x) { return cardHtml(x, false); }).join("") + "</div></section>" : "");
 
+    // Gắn sự kiện mở Popup Chi tiết Tour khi click nút CTA
+    if ($("kpBtnOpenTourModal")) {
+      $("kpBtnOpenTourModal").onclick = function () {
+        var tid = this.getAttribute("data-tour-id");
+        openTourDetailPopup(tid);
+      };
+    }
+
     bindReviewForm(a);
     if ($("kpList")) $("kpList").hidden = true;
     if ($("kpRead")) $("kpRead").hidden = false;
@@ -327,17 +586,16 @@
     return true;
   }
 
-  // Xử lý gửi Form đánh giá
   function bindReviewForm(a) {
     var form = $("kpReviewForm");
     if ($("kpToggleForm")) {
-      $("kpToggleForm").addEventListener("click", function () {
+      $("kpToggleForm").onclick = function () {
         form.hidden = !form.hidden;
         if (!form.hidden && $("kpRevName")) $("kpRevName").focus();
-      });
+      };
     }
     if (form) {
-      form.addEventListener("submit", function (e) {
+      form.onsubmit = function (e) {
         e.preventDefault();
         var name = $("kpRevName").value.trim();
         var text = $("kpRevText").value.trim();
@@ -356,12 +614,13 @@
           all[a.id] = [review].concat(all[a.id] || []);
           localStorage.setItem(REVIEW_KEY, JSON.stringify(all));
         } catch (err) {}
-        if ($("kpReviewList")) $("kpReviewList").insertAdjacentHTML("afterbegin", reviewHtml(review, true));
+        
         if ($("kpRevName")) $("kpRevName").value = ""; 
         if ($("kpRevText")) $("kpRevText").value = ""; 
         form.hidden = true;
         toast("Cảm ơn bạn! Đánh giá đã được ghi nhận.");
-      });
+        openArticle(a.id);
+      };
     }
   }
 
@@ -372,7 +631,6 @@
     window.requestAnimationFrame(function () { window.scrollTo(0, listScroll); });
   }
 
-  // Điều hướng bằng URL Hash (#bai-viet/id)
   function route() {
     var h = decodeURIComponent(location.hash || "");
     if (h.indexOf(ROUTE) === 0 && openArticle(h.slice(ROUTE.length))) return;
@@ -399,82 +657,67 @@
     if (covered > 0) main.style.paddingTop = Math.ceil(covered) + "px";
   }
 
-  /* ==========================================================================
-     8. LẮNG NGHE SỰ KIỆN NGUỜI DÙNG (EVENT LISTENERS)
-     ========================================================================== */
   function bindEvents() {
-    if ($("kpSearchForm")) $("kpSearchForm").addEventListener("submit", function (e) { e.preventDefault(); closePanel(); });
+    if ($("kpSearchForm")) $("kpSearchForm").onsubmit = function (e) { e.preventDefault(); closePanel(); };
     if ($("kpQuery")) {
-      $("kpQuery").addEventListener("input", function () { state.q = this.value; state.shown = PAGE_SIZE; renderList(); });
-      $("kpQuery").addEventListener("focus", closePanel);
+      $("kpQuery").oninput = function () { state.q = this.value; state.shown = PAGE_SIZE; renderList(); };
+      $("kpQuery").onfocus = closePanel;
     }
 
-    if ($("kpFilterBtn")) $("kpFilterBtn").addEventListener("click", function () { $("kpFilterPanel").hidden ? openPanel() : closePanel(); });
-    if ($("kpFilterClose")) $("kpFilterClose").addEventListener("click", closePanel);
+    if ($("kpFilterBtn")) $("kpFilterBtn").onclick = function () { $("kpFilterPanel").hidden ? openPanel() : closePanel(); };
+    if ($("kpFilterClose")) $("kpFilterClose").onclick = closePanel;
     if ($("kpFilterDone")) {
-      $("kpFilterDone").addEventListener("click", function () {
+      $("kpFilterDone").onclick = function () {
         closePanel();
         if ($("kpLatest")) window.scrollTo({ top: Math.max(0, $("kpLatest").getBoundingClientRect().top + window.pageYOffset - 90), behavior: "smooth" });
-      });
+      };
     }
-    if ($("kpFilterClear")) $("kpFilterClear").addEventListener("click", resetFilters);
-    if ($("kpEmptyClear")) $("kpEmptyClear").addEventListener("click", resetFilters);
+    if ($("kpFilterClear")) $("kpFilterClear").onclick = resetFilters;
+    if ($("kpEmptyClear")) $("kpEmptyClear").onclick = resetFilters;
 
     if ($("kpFilterBody")) {
-      $("kpFilterBody").addEventListener("click", function (e) {
+      $("kpFilterBody").onclick = function (e) {
         var b = e.target.closest("[data-f]");
         if (!b) return;
         state[b.getAttribute("data-f")] = b.getAttribute("data-v");
         refresh();
-      });
+      };
     }
 
     if ($("kpActive")) {
-      $("kpActive").addEventListener("click", function (e) {
+      $("kpActive").onclick = function (e) {
         var b = e.target.closest("[data-clear]");
         if (!b) return;
         var k = b.getAttribute("data-clear");
         if (k === "all") { state.region = ""; state.type = ""; state.cat = ""; } else state[k] = "";
         refresh();
-      });
+      };
     }
 
-    if ($("kpMore")) $("kpMore").addEventListener("click", function () { state.shown += PAGE_SIZE; renderList(); });
+    if ($("kpMore")) $("kpMore").onclick = function () { state.shown += PAGE_SIZE; renderList(); };
 
-    document.addEventListener("click", function (e) {
+    document.onclick = function (e) {
       if (!$("kpFilterPanel") || $("kpFilterPanel").hidden || isMobile() || !e.target.isConnected) return;
       if (!e.target.closest("#kpFilterPanel") && !e.target.closest("#kpFilterBtn")) closePanel();
-    });
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closePanel(); });
+    };
+    document.onkeydown = function (e) { if (e.key === "Escape") closePanel(); };
 
     if ($("kpMain")) {
-      $("kpMain").addEventListener("click", function (e) {
+      $("kpMain").onclick = function (e) {
         if (e.target.closest("a.kp-card") && $("kpList") && !$("kpList").hidden) listScroll = window.pageYOffset;
-      });
+      };
     }
-    if ($("kpBack")) $("kpBack").addEventListener("click", function () { location.hash = ""; });
+    if ($("kpBack")) $("kpBack").onclick = function () { location.hash = ""; };
 
-    window.addEventListener("hashchange", route);
-    window.addEventListener("resize", fixHeaderOffset);
-    window.addEventListener("load", fixHeaderOffset);
-
-    var hdBox = $("site-header");
-    if (hdBox && window.MutationObserver) new MutationObserver(fixHeaderOffset).observe(hdBox, { childList: true, subtree: true });
+    window.onhashchange = route;
+    window.onresize = fixHeaderOffset;
+    window.onload = fixHeaderOffset;
   }
 
-  /* ==========================================================================
-     9. KHỞI TẠO DỮ LIỆU BAN ĐẦU (FETCH DATA)
-     ========================================================================== */
-  function init(d) {
-    data = d;
-    articles = d.articles || [];
-    if ($("kpNote")) $("kpNote").textContent = (d.meta && d.meta.note) || "";
-    
-    var heroElem = document.querySelector('.kp-hero');
-    if (heroElem && d.meta && d.meta.bannerImage) {
-      var bannerUrl = IMG_BASE + encodeURIComponent(d.meta.bannerImage);
-      heroElem.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url("' + bannerUrl + '")';
-    }
+  function init(exploreJson) {
+    data = exploreJson;
+    articles = exploreJson.articles || [];
+    if ($("kpNote")) $("kpNote").textContent = (exploreJson.meta && exploreJson.meta.note) || "";
 
     bindEvents();
     renderFilterPanel();
@@ -485,15 +728,19 @@
 
   function showError(err) {
     if ($("kpGrid")) {
-      $("kpGrid").innerHTML = '<div class="kp-loading">' + (location.protocol === "file:"
-        ? "Không đọc được explore.json khi mở trực tiếp từ file local. Hãy chạy bằng Live Server."
-        : "Không đọc được dữ liệu. Kiểm tra file data/explore.json và đường dẫn DATA_URL.") + "</div>";
+      $("kpGrid").innerHTML = '<div class="kp-loading">Không nạp được dữ liệu bài viết hoặc tour.json. Vui lòng kiểm tra Live Server.</div>';
     }
-    console.error("Lỗi nạp dữ liệu Khám phá điểm đến:", err);
+    console.error("Lỗi:", err);
   }
 
-  fetch(DATA_URL)
-    .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-    .then(function (d) { try { init(d); } catch (err) { showError(err); } })
-    .catch(showError);
+  // Tải đồng thời dữ liệu explore.json và tour.json
+  Promise.all([
+    fetch(DATA_URL).then(function (r) { return r.json(); }),
+    fetch(TOUR_DATA_URL).then(function (r) { return r.json(); })
+  ]).then(function (res) {
+    tourDataList = res[1].tours || [];
+    tourPolicy = res[1].policy || "";
+    init(res[0]);
+  }).catch(showError);
+
 })();
