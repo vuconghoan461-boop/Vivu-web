@@ -37,7 +37,7 @@
     "image": "xe4.jpg",
     "features": ["Ghế cơ trưởng massage chỉnh điện", "Cửa trượt điện 2 bên", "Cốp điện thông minh"],
     "priceOriginal": 1650000,
-    "discount": 0,
+    "discount": 15,
     "priceUnit": "/ngày",
     "policy": "Người thuê xe phải cung cấp giấy tờ tùy thân hợp lệ và các thông tin cần thiết theo yêu cầu của đơn vị cho thuê trước khi nhận xe. Khách hàng có trách nhiệm kiểm tra tình trạng phương tiện, giấy tờ xe và các trang thiết bị đi kèm trước khi bắt đầu hành trình. Việc nhận xe đồng nghĩa với việc khách hàng xác nhận phương tiện đáp ứng yêu cầu sử dụng và ở trong tình trạng hoạt động bình thường.\n\nTrong thời gian thuê, người thuê có trách nhiệm sử dụng phương tiện đúng mục đích, tuân thủ quy định của pháp luật về giao thông đường bộ và đảm bảo an toàn cho người và tài sản. Không được tự ý cho người khác thuê lại, chuyển giao quyền sử dụng hoặc thực hiện các hành vi trái pháp luật bằng phương tiện thuê. Mọi khoản phạt vi phạm giao thông, chi phí phát sinh do lỗi của người thuê hoặc thiệt hại gây ra cho phương tiện trong thời gian thuê sẽ thuộc trách nhiệm của người thuê.\n\nNgười thuê phải hoàn trả phương tiện đúng thời gian, địa điểm và tình trạng như đã thỏa thuận khi ký kết hợp đồng. Trường hợp trả xe chậm, làm mất giấy tờ, phụ kiện hoặc gây hư hỏng ngoài hao mòn thông thường, khách hàng có trách nhiệm thanh toán các chi phí phát sinh theo quy định của đơn vị cho thuê. Đơn vị cho thuê có quyền từ chối phục vụ hoặc chấm dứt hợp đồng nếu phát hiện hành vi gian lận, cung cấp thông tin không chính xác hoặc sử dụng phương tiện không đúng quy định."
   },
@@ -436,7 +436,7 @@
     "image": "xe1.jpg",
     "features": ["Ghế ngả massage", "Cổng sạc USB từng ghế", "Đón trả tại khách sạn"],
     "priceOriginal": 2500000,
-    "discount": 0,
+    "discount": 15,
     "priceUnit": "/ngày",
     "policy": "Người thuê xe phải cung cấp giấy tờ tùy thân hợp lệ và các thông tin cần thiết theo yêu cầu của đơn vị cho thuê trước khi nhận xe. Khách hàng có trách nhiệm kiểm tra tình trạng phương tiện, giấy tờ xe và các trang thiết bị đi kèm trước khi bắt đầu hành trình. Việc nhận xe đồng nghĩa với việc khách hàng xác nhận phương tiện đáp ứng yêu cầu sử dụng và ở trong tình trạng hoạt động bình thường.\n\nTrong thời gian thuê, người thuê có trách nhiệm sử dụng phương tiện đúng mục đích, tuân thủ quy định của pháp luật về giao thông đường bộ và đảm bảo an toàn cho người và tài sản. Không được tự ý cho người khác thuê lại, chuyển giao quyền sử dụng hoặc thực hiện các hành vi trái pháp luật bằng phương tiện thuê. Mọi khoản phạt vi phạm giao thông, chi phí phát sinh do lỗi của người thuê hoặc thiệt hại gây ra cho phương tiện trong thời gian thuê sẽ thuộc trách nhiệm của người thuê.\n\nNgười thuê phải hoàn trả phương tiện đúng thời gian, địa điểm và tình trạng như đã thỏa thuận khi ký kết hợp đồng. Trường hợp trả xe chậm, làm mất giấy tờ, phụ kiện hoặc gây hư hỏng ngoài hao mòn thông thường, khách hàng có trách nhiệm thanh toán các chi phí phát sinh theo quy định của đơn vị cho thuê. Đơn vị cho thuê có quyền từ chối phục vụ hoặc chấm dứt hợp đồng nếu phát hiện hành vi gian lận, cung cấp thông tin không chính xác hoặc sử dụng phương tiện không đúng quy định."
   },
