@@ -3,7 +3,20 @@
     "description": "Dữ liệu mẫu module Phương tiện VivuGo: máy bay, tàu hỏa, xe khách",
     "currency": "VND",
     "schemaVersion": 1,
-    "note": "Mỗi chuyến có trường categories để phục vụ bộ lọc. Định nghĩa giá trị ở categoryDefinitions."
+    "note": "Mỗi chuyến có trường categories để phục vụ bộ lọc. Định nghĩa giá trị ở categoryDefinitions. Chuyến bay có thêm các trường hiển thị trong khung vàng: fromTerminal, toTerminal, meal, checkInNote, changePolicy (dữ liệu mẫu). Phí dịch vụ mỗi vé và ghi chú giá nằm ở mục pricing. Tàu hỏa/xe ghép có thêm các trường thông tin hiển thị trong khung vàng."
+  },
+  "pricing": {
+    "currency": "VND",
+    "serviceFeePerTicket": {
+      "flight": 60000,
+      "train": 35000,
+      "bus": 20000
+    },
+    "priceNote": {
+      "flight": "Chưa gồm thuế & phí dịch vụ",
+      "train": "Chưa gồm thuế & phí dịch vụ",
+      "bus": "Giá chia sẻ, chưa gồm phí dịch vụ"
+    }
   },
   "categoryDefinitions": {
     "flight": {
@@ -501,6 +514,8 @@
       "toCity": "TP. Hồ Chí Minh",
       "toCode": "SGN",
       "toAirport": "Sân bay Quốc tế Tân Sơn Nhất",
+      "fromTerminal": "Nhà ga T1 (nội địa)",
+      "toTerminal": "Nhà ga T1 (nội địa)",
       "departureTime": "07:00",
       "arrivalTime": "09:15",
       "duration": "2h 15m",
@@ -510,6 +525,9 @@
       "baggageIncluded": "12kg xách tay + 23kg ký gửi",
       "aircraft": "Boeing 787-9 Dreamliner",
       "stops": 0,
+      "meal": "Suất ăn nhẹ & đồ uống miễn phí",
+      "checkInNote": "Quầy làm thủ tục đóng trước giờ khởi hành 40 phút",
+      "changePolicy": "Được đổi, hoàn vé (có phí)",
       "categories": {
         "carrierType": "full-service",
         "timeSlot": "morning",
@@ -532,6 +550,8 @@
       "toCity": "TP. Hồ Chí Minh",
       "toCode": "SGN",
       "toAirport": "Sân bay Quốc tế Tân Sơn Nhất",
+      "fromTerminal": "Nhà ga T1 (nội địa)",
+      "toTerminal": "Nhà ga T1 (nội địa)",
       "departureTime": "08:30",
       "arrivalTime": "10:45",
       "duration": "2h 15m",
@@ -541,6 +561,9 @@
       "baggageIncluded": "7kg xách tay",
       "aircraft": "Airbus A321 Neo",
       "stops": 0,
+      "meal": "Không bao gồm (mua thêm trên chuyến bay)",
+      "checkInNote": "Quầy làm thủ tục đóng trước giờ khởi hành 40 phút",
+      "changePolicy": "Được đổi vé (có phí), hoàn vé hạn chế",
       "categories": {
         "carrierType": "low-cost",
         "timeSlot": "morning",
@@ -563,6 +586,8 @@
       "toCity": "TP. Hồ Chí Minh",
       "toCode": "SGN",
       "toAirport": "Sân bay Quốc tế Tân Sơn Nhất",
+      "fromTerminal": "Nhà ga T1 (nội địa)",
+      "toTerminal": "Nhà ga T1 (nội địa)",
       "departureTime": "13:45",
       "arrivalTime": "16:00",
       "duration": "2h 15m",
@@ -572,6 +597,9 @@
       "baggageIncluded": "7kg xách tay + 20kg ký gửi",
       "aircraft": "Airbus A320 Neo",
       "stops": 0,
+      "meal": "Suất ăn nhẹ miễn phí",
+      "checkInNote": "Quầy làm thủ tục đóng trước giờ khởi hành 40 phút",
+      "changePolicy": "Được đổi, hoàn vé (có phí)",
       "categories": {
         "carrierType": "full-service",
         "timeSlot": "afternoon",
@@ -594,6 +622,8 @@
       "toCity": "Đà Nẵng",
       "toCode": "DAD",
       "toAirport": "Sân bay Quốc tế Đà Nẵng",
+      "fromTerminal": "Nhà ga T1 (nội địa)",
+      "toTerminal": "Nhà ga T1 (nội địa)",
       "departureTime": "09:00",
       "arrivalTime": "10:20",
       "duration": "1h 20m",
@@ -603,6 +633,9 @@
       "baggageIncluded": "12kg xách tay + 23kg ký gửi",
       "aircraft": "Airbus A350-900",
       "stops": 0,
+      "meal": "Suất ăn nhẹ & đồ uống miễn phí",
+      "checkInNote": "Quầy làm thủ tục đóng trước giờ khởi hành 40 phút",
+      "changePolicy": "Được đổi, hoàn vé (có phí)",
       "categories": {
         "carrierType": "full-service",
         "timeSlot": "morning",
@@ -625,6 +658,8 @@
       "toCity": "Đà Nẵng",
       "toCode": "DAD",
       "toAirport": "Sân bay Quốc tế Đà Nẵng",
+      "fromTerminal": "Nhà ga T1 (nội địa)",
+      "toTerminal": "Nhà ga T1 (nội địa)",
       "departureTime": "11:15",
       "arrivalTime": "12:35",
       "duration": "1h 20m",
@@ -634,6 +669,9 @@
       "baggageIncluded": "7kg xách tay",
       "aircraft": "Airbus A321",
       "stops": 0,
+      "meal": "Không bao gồm (mua thêm trên chuyến bay)",
+      "checkInNote": "Quầy làm thủ tục đóng trước giờ khởi hành 40 phút",
+      "changePolicy": "Được đổi vé (có phí), hoàn vé hạn chế",
       "categories": {
         "carrierType": "low-cost",
         "timeSlot": "morning",
@@ -656,6 +694,8 @@
       "toCity": "Phú Quốc",
       "toCode": "PQC",
       "toAirport": "Sân bay Quốc tế Phú Quốc",
+      "fromTerminal": "Nhà ga T1 (nội địa)",
+      "toTerminal": "Nhà ga T1 (nội địa)",
       "departureTime": "06:45",
       "arrivalTime": "08:55",
       "duration": "2h 10m",
@@ -665,6 +705,9 @@
       "baggageIncluded": "12kg xách tay + 23kg ký gửi",
       "aircraft": "Boeing 787-9",
       "stops": 0,
+      "meal": "Suất ăn nhẹ & đồ uống miễn phí",
+      "checkInNote": "Quầy làm thủ tục đóng trước giờ khởi hành 40 phút",
+      "changePolicy": "Được đổi, hoàn vé (có phí)",
       "categories": {
         "carrierType": "full-service",
         "timeSlot": "morning",
@@ -687,6 +730,8 @@
       "toCity": "Phú Quốc",
       "toCode": "PQC",
       "toAirport": "Sân bay Quốc tế Phú Quốc",
+      "fromTerminal": "Nhà ga T1 (nội địa)",
+      "toTerminal": "Nhà ga T1 (nội địa)",
       "departureTime": "10:10",
       "arrivalTime": "12:20",
       "duration": "2h 10m",
@@ -696,6 +741,9 @@
       "baggageIncluded": "7kg xách tay",
       "aircraft": "Airbus A321",
       "stops": 0,
+      "meal": "Không bao gồm (mua thêm trên chuyến bay)",
+      "checkInNote": "Quầy làm thủ tục đóng trước giờ khởi hành 40 phút",
+      "changePolicy": "Được đổi vé (có phí), hoàn vé hạn chế",
       "categories": {
         "carrierType": "low-cost",
         "timeSlot": "morning",
@@ -718,6 +766,8 @@
       "toCity": "Nha Trang (Cam Ranh)",
       "toCode": "CXR",
       "toAirport": "Sân bay Quốc tế Cam Ranh",
+      "fromTerminal": "Nhà ga T1 (nội địa)",
+      "toTerminal": "Nhà ga T1 (nội địa)",
       "departureTime": "08:20",
       "arrivalTime": "09:25",
       "duration": "1h 05m",
@@ -727,6 +777,9 @@
       "baggageIncluded": "12kg xách tay + 23kg ký gửi",
       "aircraft": "Airbus A321",
       "stops": 0,
+      "meal": "Suất ăn nhẹ & đồ uống miễn phí",
+      "checkInNote": "Quầy làm thủ tục đóng trước giờ khởi hành 40 phút",
+      "changePolicy": "Được đổi, hoàn vé (có phí)",
       "categories": {
         "carrierType": "full-service",
         "timeSlot": "morning",
@@ -749,6 +802,8 @@
       "toCity": "Phú Quốc",
       "toCode": "PQC",
       "toAirport": "Sân bay Quốc tế Phú Quốc",
+      "fromTerminal": "Nhà ga T1 (nội địa)",
+      "toTerminal": "Nhà ga T1 (nội địa)",
       "departureTime": "09:40",
       "arrivalTime": "10:40",
       "duration": "1h 00m",
@@ -758,6 +813,9 @@
       "baggageIncluded": "7kg xách tay",
       "aircraft": "Airbus A320",
       "stops": 0,
+      "meal": "Không bao gồm (mua thêm trên chuyến bay)",
+      "checkInNote": "Quầy làm thủ tục đóng trước giờ khởi hành 40 phút",
+      "changePolicy": "Được đổi vé (có phí), hoàn vé hạn chế",
       "categories": {
         "carrierType": "low-cost",
         "timeSlot": "morning",
@@ -780,6 +838,8 @@
       "toCity": "Đà Nẵng",
       "toCode": "DAD",
       "toAirport": "Sân bay Quốc tế Đà Nẵng",
+      "fromTerminal": "Nhà ga T1 (nội địa)",
+      "toTerminal": "Nhà ga T1 (nội địa)",
       "departureTime": "15:20",
       "arrivalTime": "16:40",
       "duration": "1h 20m",
@@ -789,6 +849,9 @@
       "baggageIncluded": "7kg xách tay + 20kg ký gửi",
       "aircraft": "Airbus A321",
       "stops": 0,
+      "meal": "Nước uống miễn phí, suất ăn mua thêm",
+      "checkInNote": "Quầy làm thủ tục đóng trước giờ khởi hành 40 phút",
+      "changePolicy": "Được đổi vé (có phí)",
       "categories": {
         "carrierType": "hybrid",
         "timeSlot": "afternoon",
@@ -811,6 +874,8 @@
       "toCity": "Hà Nội",
       "toCode": "HAN",
       "toAirport": "Sân bay Quốc tế Nội Bài",
+      "fromTerminal": "Nhà ga T1 (nội địa)",
+      "toTerminal": "Nhà ga T1 (nội địa)",
       "departureTime": "18:10",
       "arrivalTime": "19:30",
       "duration": "1h 20m",
@@ -820,6 +885,9 @@
       "baggageIncluded": "12kg xách tay + 23kg ký gửi",
       "aircraft": "Airbus A321",
       "stops": 0,
+      "meal": "Suất ăn nhẹ & đồ uống miễn phí",
+      "checkInNote": "Quầy làm thủ tục đóng trước giờ khởi hành 40 phút",
+      "changePolicy": "Được đổi, hoàn vé (có phí)",
       "categories": {
         "carrierType": "full-service",
         "timeSlot": "evening",
@@ -883,6 +951,11 @@
           "default": false
         }
       ],
+      "onboardServices": "Điều hòa, ổ cắm điện, toa ăn, chăn gối (toa giường nằm)",
+      "baggageNote": "Miễn cước hành lý xách tay tối đa 20kg/người",
+      "checkInNote": "Có mặt tại ga trước giờ tàu chạy 30 phút",
+      "idNote": "Mang CCCD/hộ chiếu đúng thông tin đã đặt khi lên tàu",
+      "changePolicy": "Đổi/trả vé có phí theo quy định Đường sắt Việt Nam",
       "categories": {
         "serviceType": "express",
         "coachClass": [
@@ -950,6 +1023,11 @@
           "default": false
         }
       ],
+      "onboardServices": "Điều hòa, ổ cắm điện, toa ăn, chăn gối (toa giường nằm)",
+      "baggageNote": "Miễn cước hành lý xách tay tối đa 20kg/người",
+      "checkInNote": "Có mặt tại ga trước giờ tàu chạy 30 phút",
+      "idNote": "Mang CCCD/hộ chiếu đúng thông tin đã đặt khi lên tàu",
+      "changePolicy": "Đổi/trả vé có phí theo quy định Đường sắt Việt Nam",
       "categories": {
         "serviceType": "express",
         "coachClass": [
@@ -1010,6 +1088,11 @@
           "default": false
         }
       ],
+      "onboardServices": "Điều hòa, ổ cắm điện, toa ăn, chăn gối (toa giường nằm)",
+      "baggageNote": "Miễn cước hành lý xách tay tối đa 20kg/người",
+      "checkInNote": "Có mặt tại ga trước giờ tàu chạy 30 phút",
+      "idNote": "Mang CCCD/hộ chiếu đúng thông tin đã đặt khi lên tàu",
+      "changePolicy": "Đổi/trả vé có phí theo quy định Đường sắt Việt Nam",
       "categories": {
         "serviceType": "express",
         "coachClass": [
@@ -1069,6 +1152,11 @@
           "default": false
         }
       ],
+      "onboardServices": "Điều hòa, ổ cắm điện, toa ăn, chăn gối (toa giường nằm)",
+      "baggageNote": "Miễn cước hành lý xách tay tối đa 20kg/người",
+      "checkInNote": "Có mặt tại ga trước giờ tàu chạy 30 phút",
+      "idNote": "Mang CCCD/hộ chiếu đúng thông tin đã đặt khi lên tàu",
+      "changePolicy": "Đổi/trả vé có phí theo quy định Đường sắt Việt Nam",
       "categories": {
         "serviceType": "express",
         "coachClass": [
@@ -1121,6 +1209,11 @@
           "default": false
         }
       ],
+      "onboardServices": "Điều hòa, ổ cắm điện, bán đồ ăn nhẹ trên tàu",
+      "baggageNote": "Miễn cước hành lý xách tay tối đa 20kg/người",
+      "checkInNote": "Có mặt tại ga trước giờ tàu chạy 30 phút",
+      "idNote": "Mang CCCD/hộ chiếu đúng thông tin đã đặt khi lên tàu",
+      "changePolicy": "Đổi/trả vé có phí theo quy định Đường sắt Việt Nam",
       "categories": {
         "serviceType": "express",
         "coachClass": [
@@ -1172,6 +1265,11 @@
           "default": false
         }
       ],
+      "onboardServices": "Điều hòa, ổ cắm điện, bán đồ ăn nhẹ trên tàu",
+      "baggageNote": "Miễn cước hành lý xách tay tối đa 20kg/người",
+      "checkInNote": "Có mặt tại ga trước giờ tàu chạy 30 phút",
+      "idNote": "Mang CCCD/hộ chiếu đúng thông tin đã đặt khi lên tàu",
+      "changePolicy": "Đổi/trả vé có phí theo quy định Đường sắt Việt Nam",
       "categories": {
         "serviceType": "express",
         "coachClass": [
@@ -1230,6 +1328,11 @@
           "default": false
         }
       ],
+      "onboardServices": "Điều hòa, ổ cắm điện, toa ăn, chăn gối (toa giường nằm)",
+      "baggageNote": "Miễn cước hành lý xách tay tối đa 20kg/người",
+      "checkInNote": "Có mặt tại ga trước giờ tàu chạy 30 phút",
+      "idNote": "Mang CCCD/hộ chiếu đúng thông tin đã đặt khi lên tàu",
+      "changePolicy": "Đổi/trả vé có phí theo quy định Đường sắt Việt Nam",
       "categories": {
         "serviceType": "express",
         "coachClass": [
@@ -1282,6 +1385,11 @@
           "default": false
         }
       ],
+      "onboardServices": "Điều hòa, ổ cắm điện, bán đồ ăn nhẹ trên tàu",
+      "baggageNote": "Miễn cước hành lý xách tay tối đa 20kg/người",
+      "checkInNote": "Có mặt tại ga trước giờ tàu chạy 30 phút",
+      "idNote": "Mang CCCD/hộ chiếu đúng thông tin đã đặt khi lên tàu",
+      "changePolicy": "Đổi/trả vé có phí theo quy định Đường sắt Việt Nam",
       "categories": {
         "serviceType": "express",
         "coachClass": [
@@ -1317,14 +1425,15 @@
       "currency": "VND",
       "priceUnit": "vé",
       "seatsLeft": 12,
-      "rating": 4.5,
-      "reviewCount": 512,
       "driverVerified": true,
       "amenities": [
         "Giường nằm",
         "Chăn gối",
         "Điều hòa"
       ],
+      "pickupNote": "Có mặt tại bến trước giờ xe chạy 20 phút",
+      "baggageNote": "1 hành lý ≤ 20kg miễn phí, hành lý thêm tính phí",
+      "cancelPolicy": "Hủy/đổi vé trước giờ chạy 12 giờ, phí 10%",
       "categories": {
         "busType": "sleeper",
         "capacityGroup": "large",
@@ -1355,14 +1464,15 @@
       "currency": "VND",
       "priceUnit": "vé",
       "seatsLeft": 5,
-      "rating": 4.8,
-      "reviewCount": 326,
       "driverVerified": true,
       "amenities": [
         "Đón tận nơi",
         "Wifi",
         "Nước suối miễn phí"
       ],
+      "pickupNote": "Tài xế liên hệ trước giờ đón 30 phút",
+      "baggageNote": "1 vali ≤ 20kg + 1 hành lý xách tay",
+      "cancelPolicy": "Hủy miễn phí trước giờ đón 24 giờ",
       "categories": {
         "busType": "limousine",
         "capacityGroup": "small",
@@ -1393,14 +1503,15 @@
       "currency": "VND",
       "priceUnit": "vé",
       "seatsLeft": 6,
-      "rating": 4.9,
-      "reviewCount": 412,
       "driverVerified": true,
       "amenities": [
         "Wifi",
         "Cổng sạc USB",
         "Nước suối miễn phí"
       ],
+      "pickupNote": "Tài xế liên hệ trước giờ đón 30 phút",
+      "baggageNote": "1 vali ≤ 20kg + 1 hành lý xách tay",
+      "cancelPolicy": "Hủy miễn phí trước giờ đón 24 giờ",
       "categories": {
         "busType": "limousine",
         "capacityGroup": "small",
@@ -1431,13 +1542,14 @@
       "currency": "VND",
       "priceUnit": "vé",
       "seatsLeft": 18,
-      "rating": 4.2,
-      "reviewCount": 230,
       "driverVerified": true,
       "amenities": [
         "Điều hòa",
         "Nước suối miễn phí"
       ],
+      "pickupNote": "Có mặt tại bến trước giờ xe chạy 20 phút",
+      "baggageNote": "1 hành lý ≤ 20kg miễn phí, hành lý thêm tính phí",
+      "cancelPolicy": "Hủy/đổi vé trước giờ chạy 12 giờ, phí 10%",
       "categories": {
         "busType": "seat",
         "capacityGroup": "large",
@@ -1468,13 +1580,14 @@
       "currency": "VND",
       "priceUnit": "vé",
       "seatsLeft": 4,
-      "rating": 4.7,
-      "reviewCount": 188,
       "driverVerified": true,
       "amenities": [
         "Đón tận nơi",
         "Wifi"
       ],
+      "pickupNote": "Tài xế liên hệ trước giờ đón 30 phút",
+      "baggageNote": "1 vali ≤ 20kg + 1 hành lý xách tay",
+      "cancelPolicy": "Hủy miễn phí trước giờ đón 24 giờ",
       "categories": {
         "busType": "limousine",
         "capacityGroup": "small",
@@ -1505,12 +1618,13 @@
       "currency": "VND",
       "priceUnit": "vé",
       "seatsLeft": 25,
-      "rating": 4.3,
-      "reviewCount": 640,
       "driverVerified": true,
       "amenities": [
         "Điều hòa"
       ],
+      "pickupNote": "Có mặt tại bến trước giờ xe chạy 20 phút",
+      "baggageNote": "1 hành lý ≤ 20kg miễn phí, hành lý thêm tính phí",
+      "cancelPolicy": "Hủy/đổi vé trước giờ chạy 12 giờ, phí 10%",
       "categories": {
         "busType": "seat",
         "capacityGroup": "large",
@@ -1541,14 +1655,15 @@
       "currency": "VND",
       "priceUnit": "vé",
       "seatsLeft": 8,
-      "rating": 4.4,
-      "reviewCount": 1250,
       "driverVerified": true,
       "amenities": [
         "Giường nằm",
         "Wifi",
         "Chăn gối"
       ],
+      "pickupNote": "Có mặt tại bến trước giờ xe chạy 20 phút",
+      "baggageNote": "1 hành lý ≤ 20kg miễn phí, hành lý thêm tính phí",
+      "cancelPolicy": "Hủy/đổi vé trước giờ chạy 12 giờ, phí 10%",
       "categories": {
         "busType": "sleeper",
         "capacityGroup": "large",
@@ -1579,14 +1694,15 @@
       "currency": "VND",
       "priceUnit": "vé",
       "seatsLeft": 4,
-      "rating": 4.8,
-      "reviewCount": 289,
       "driverVerified": true,
       "amenities": [
         "Đón tận nơi",
         "Wifi",
         "Ghế massage"
       ],
+      "pickupNote": "Tài xế liên hệ trước giờ đón 30 phút",
+      "baggageNote": "1 vali ≤ 20kg + 1 hành lý xách tay",
+      "cancelPolicy": "Hủy miễn phí trước giờ đón 24 giờ",
       "categories": {
         "busType": "limousine",
         "capacityGroup": "small",
@@ -1617,12 +1733,13 @@
       "currency": "VND",
       "priceUnit": "vé",
       "seatsLeft": 2,
-      "rating": 4.5,
-      "reviewCount": 97,
       "driverVerified": false,
       "amenities": [
         "Nước suối miễn phí"
       ],
+      "pickupNote": "Tài xế liên hệ trước giờ đón 30 phút",
+      "baggageNote": "1 hành lý ≤ 20kg miễn phí",
+      "cancelPolicy": "Hủy miễn phí trước giờ đón 24 giờ",
       "categories": {
         "busType": "minibus",
         "capacityGroup": "medium",
@@ -1653,13 +1770,14 @@
       "currency": "VND",
       "priceUnit": "vé",
       "seatsLeft": 10,
-      "rating": 4.6,
-      "reviewCount": 305,
       "driverVerified": true,
       "amenities": [
         "Đón theo giờ chuyến bay",
         "Điều hòa"
       ],
+      "pickupNote": "Đón theo giờ hạ cánh, tài xế chờ tối đa 30 phút",
+      "baggageNote": "1 hành lý ≤ 20kg miễn phí",
+      "cancelPolicy": "Hủy miễn phí trước giờ đón 24 giờ",
       "categories": {
         "busType": "minibus",
         "capacityGroup": "medium",
