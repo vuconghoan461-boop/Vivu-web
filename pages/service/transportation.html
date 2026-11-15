@@ -45,8 +45,8 @@
       @media (max-width: 640px) {
         .vf-filter .rental-field, .vf-filter .rental-field select, .vf-filter .segmented { width: 100%; min-width: 0; }
       }
-      .vf-ico { width: 14px; height: 14px; margin-right: 4px; vertical-align: -2px; fill: none; stroke: #008FE5; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-      .btn-primary .vf-ico { margin: 0; stroke: #fff; width: 16px; height: 16px; }
+      .vf-ico { margin-right: 4px; font-size: 14px; color: #008FE5; }
+      .btn-primary .vf-ico { margin: 0; font-size: 16px; color: #fff; }
       .rental-filter-bar .form-error:not(:empty) { margin-top: 10px; }
 
       /* ----- Tiêu đề + kết quả ----- */
@@ -68,7 +68,7 @@
       .vt-card { --page-bg: #fff; position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 210px; }
       .vt-main { display: flex; gap: 16px; padding: 20px 24px; }
       .vt-logo { flex: none; display: grid; place-items: center; width: 64px; height: 64px; overflow: hidden; font-size: 20px; font-weight: 800; letter-spacing: 0.02em; color: var(--vt-ac); background: #fff; border: 1px solid var(--vt-ac); border-radius: 10px; }
-      .vt-logo svg { width: 38px; height: 38px; }
+      .vt-logo i { font-size: 30px; }
       .vt-logo img { width: 100%; height: 100%; object-fit: cover; }
       .vt-info { flex: 1; min-width: 0; }
       .vt-title { font-size: 18px; font-weight: 800; line-height: 1.3; }
@@ -97,7 +97,7 @@
       .vt-buy::before { top: -11px; }
       .vt-buy::after { bottom: -11px; }
       .vt-buy small { display: block; font-size: 12px; font-weight: 500; color: #6B7280; }
-      .vt-buy .price .amount { font-size: 22px; font-weight: 800; color: var(--vt-ac); }
+      .vt-buy .price .amount { font-size: 22px; font-weight: 800; color: #FFA216; }
       .vt-buy .btn-primary, .vt-buy .btn-primary:focus { background: var(--vt-ac); border-color: var(--vt-ac); }
       .vt-buy .btn-primary:hover { background: var(--vt-ac-dark); border-color: var(--vt-ac-dark); }
       .vt-best { align-self: center; padding: 2px 10px; font-size: 11px; font-weight: 700; color: #E2870A; background: #FFF7EC; border: 1px solid #FCE3B8; border-radius: 999px; }
@@ -117,12 +117,19 @@
       .rental-field input[type="radio"], .modal-overlay input[type="radio"] { accent-color: var(--vt-ac); }
       .vf-filter .seg-btn.is-active { background: var(--vt-ac); box-shadow: 0 1px 3px rgba(0, 143, 229, 0.35); }
       .vf-filter .seg-btn[data-class="business"].is-active { background: #F59E0B; box-shadow: 0 1px 3px rgba(245, 158, 11, 0.4); }
-      .rental-filter-bar .rental-search-btn, .modal-overlay .btn-confirm { background: var(--vt-ac); border-color: var(--vt-ac); }
-      .rental-filter-bar .rental-search-btn:hover, .modal-overlay .btn-confirm:hover { background: var(--vt-ac-dark); border-color: var(--vt-ac-dark); }
+      .modal-overlay .btn-confirm { background: var(--vt-ac); border-color: var(--vt-ac); }
+      .modal-overlay .btn-confirm:hover { background: var(--vt-ac-dark); border-color: var(--vt-ac-dark); }
+      /* Nút tìm chuyến bay / tàu / xe: màu vàng cam */
+      .rental-filter-bar .rental-search-btn { background: #FFA216; border-color: #FFA216; color: #fff; }
+      .rental-filter-bar .rental-search-btn:hover, .rental-filter-bar .rental-search-btn:focus { background: #E88F08; border-color: #E88F08; }
       .modal-overlay .seat-pill.is-active, .modal-overlay .lm-seg .seg-btn.is-active { color: #fff; background: var(--vt-ac); border-color: var(--vt-ac); }
-      .modal-overlay .booking-price { color: var(--vt-ac); }
-      .modal-overlay .promo-row { display: flex; gap: 10px; }
-      .modal-overlay .promo-row input { flex: 1; min-width: 0; }
+      /* Tất cả giá tiền: vàng cam */
+      .modal-overlay .booking-price, .modal-overlay .summary-total strong, .modal-overlay .info-row .amount, .lm-opt-price b { color: #FFA216; }
+
+      /* Gộp bộ lọc + form tìm kiếm thành một khung */
+      .vf-merged { background: #fff; }
+      .vf-merged .vf-filter { background: transparent; gap: 14px 36px; }
+      .vf-merged .rental-filter-grid + .rental-filter-grid { margin-top: 16px; padding-top: 16px; border-top: 1px solid #E5E7EB; }
 
       /* Khối thông tin hành khách + liên hệ (dùng chung) */
       .vt-pax-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
@@ -158,7 +165,7 @@
       .tr-cabin { padding: 14px; background: #fff; border: 1px solid #E5E7EB; border-radius: 10px; }
       .tr-cabin-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
       .tr-ic { display: grid; place-items: center; width: 40px; height: 40px; color: var(--vt-ac); border: 1px solid var(--vt-ac); border-radius: 10px; }
-      .tr-ic svg { width: 24px; height: 24px; }
+      .tr-ic i { font-size: 20px; }
       .tr-cabin-t { flex: 1; min-width: 160px; }
       .tr-cabin-t b { display: block; font-size: 15px; }
       .tr-cabin-t small { font-size: 12px; color: #6B7280; }
@@ -189,9 +196,6 @@
 
 
       /* ----- Xe ghép Limo: phần riêng ----- */
-      .lm-rate { font-weight: 700; color: #1F2937; }
-      .lm-rate i { color: #F59E0B; font-size: 12px; }
-      .lm-rv { font-size: 12.5px; }
       .lm-chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; font-size: 12px; font-weight: 600; border-radius: 999px; }
       .lm-ok { color: var(--vt-ac); background: var(--vt-soft); border: 1px solid var(--vt-line); }
       .lm-ok-ic { color: var(--vt-ac); }
@@ -222,7 +226,6 @@
       .lm-opt b { display: block; font-size: 15px; font-weight: 800; }
       .lm-opt small { display: block; margin-top: 2px; font-size: 12.5px; color: #6B7280; }
       .lm-opt-price { text-align: right; }
-      .lm-opt-price b { color: var(--vt-ac); }
       .lm-email { margin-top: 12px; }
       @media (max-width: 760px) {
         .lm-opt { grid-template-columns: 22px minmax(0, 1fr); }
@@ -234,11 +237,67 @@
         .st-gap { width: 14px; }
         .st-row .seat-pill { width: 38px; font-size: 11px; }
       }
+
+      /* =====================================================================
+         BANNER TRANG DỊCH VỤ (giữ nguyên như servicepage) - chỉ áp dụng trong .module-hero
+         Slider ảnh do ../../js/servicepage.js dựng; sửa ảnh trong HERO_SLIDES của file đó
+         ===================================================================== */
+      .module-hero {
+        position: relative; display: flex; flex-direction: column; justify-content: center;
+        min-height: 420px; margin: 20px 0 0; padding: 40px; overflow: hidden;
+        border-radius: 10px; color: #fff; font-family: "Inter", sans-serif;
+        background: linear-gradient(135deg, #0A5FA8 0%, #0079C7 100%);
+      }
+      .module-hero > .module-hero-inner { position: relative; z-index: 2; width: 100%; padding: 0; }
+      .module-hero .crumb { margin: 0 0 16px; font-size: 13.5px; color: #E4F3FD; }
+      .module-hero .crumb a { color: #E4F3FD; text-decoration: none; }
+      .module-hero .crumb a:hover { color: #fff; text-decoration: underline; }
+      .module-hero .crumb .sep { margin: 0 6px; opacity: .6; }
+      .module-hero .tag-pill {
+        display: inline-block; margin-bottom: 16px; padding: 0 0 0 12px;
+        font-size: 14px; font-weight: 500; color: #E4F3FD;
+        background: none; border: none; border-left: 3px solid #FF9D16; border-radius: 0;
+      }
+      .module-hero .page-title {
+        max-width: 100%; margin: 0 0 12px; font-family: "Be Vietnam Pro", "Inter", sans-serif;
+        font-size: 40px; font-weight: 700; line-height: 1.25; color: #fff; text-transform: uppercase; text-wrap: balance;
+      }
+      .module-hero .page-desc { max-width: 560px; margin: 0; font-size: 15px; color: #E4F3FD; }
+
+      .hero-slider { position: absolute; inset: 0; z-index: 0; }
+      .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; opacity: 0; transition: opacity .9s ease; }
+      .hero-slide.is-active { opacity: 1; }
+      .hero-slider::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.94) 0%, rgba(152,144,144,.225) 42%); }
+      .hero-controls { position: absolute; z-index: 3; left: 40px; right: 40px; bottom: 24px; display: flex; align-items: center; justify-content: space-between; pointer-events: none; }
+      .hero-controls > * { pointer-events: auto; }
+      .hero-dots { display: flex; align-items: center; gap: 6px; }
+      .hero-dot { width: 28px; height: 4px; padding: 0; border: none; border-radius: 0; background: rgba(255,255,255,.45); cursor: pointer; transition: background .2s ease; }
+      .hero-dot:hover { background: rgba(255,255,255,.8); }
+      .hero-dot.is-active { background: #FF9D16; }
+      .hero-arrows { display: flex; gap: 4px; }
+      .hero-arrow { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: none; border-radius: 8px; background: rgba(8,28,48,.6); color: #fff; cursor: pointer; transition: background .15s ease; }
+      .hero-arrow:hover { background: #0B2740; }
+      @media (max-width: 768px) {
+        .module-hero { min-height: 300px; padding: 24px 24px 44px; }
+        .module-hero .page-title { font-size: 28px; }
+        .hero-arrows { display: none; }
+        .hero-controls { left: 24px; right: 24px; bottom: 18px; }
+      }
     </style>
-    <script src="../../js/Vehicles.js?v=20261106" defer></script>
+    <script src="../../js/servicepage.js" defer></script>
+    <script src="../../js/Vehicles.js" defer></script>
   </head>
   <body class="site-body">
     <main>
+      <!-- Banner giống trang Dịch vụ (slider ảnh do servicepage.js dựng) -->
+      <section class="module-hero">
+        <div class="vivugo-container module-hero-inner">
+          <p class="crumb"><a href="servicepage.html">Trang chủ</a><span class="sep">/</span>Dịch vụ</p>
+          <span class="tag-pill">4 nhóm dịch vụ · Đặt trong một chạm</span>
+          <h1 class="page-title">Đặt dịch vụ cho chuyến đi của bạn</h1>
+          <p class="page-desc">Khách sạn, tour trọn gói, thuê xe và phương tiện di chuyển - tất cả ở một nơi, giá cập nhật theo ngày thực tế.</p>
+        </div>
+      </section>
       <div class="vivugo-container">
         <section class="section" style="border-top:none; padding-top:32px;" data-tab-group data-vehicles-src="../../data/Vehicles.json">
 
@@ -248,6 +307,16 @@
             <img data-code="VJ" src="../../assets/airlines/vj.png" alt="Vietjet Air" />
             <img data-code="QH" src="../../assets/airlines/bb.png" alt="Bamboo Airways" />
             <img data-code="VU" src="../../assets/airlines/vna.png" alt="Vietravel Airlines" />
+            <img data-code="DSVN" src="../../assets/limo/tau-hoa.jpg" alt="Đường sắt Việt Nam" />
+            <img data-code="Sapa Express" src="../../assets/limo/pic1.png" alt="Sapa Express" />
+            <img data-code="Hạ Long Limo" src="../../assets/limo/pic2.png" alt="Hạ Long Limo" />
+            <img data-code="Tràng An Limo" src="../../assets/limo/pic3.png" alt="Tràng An Limo" />
+            <img data-code="Đà Lạt Xanh" src="../../assets/limo/pic4.png" alt="Đà Lạt Xanh" />
+            <img data-code="Biển Xanh" src="../../assets/limo/pic5.png" alt="Biển Xanh" />
+            <img data-code="Hội An Shuttle" src="../../assets/limo/pic6.png" alt="Hội An Shuttle" />
+            <img data-code="LIMO" src="../../assets/limo/piclimo1.png" alt="Xe ghép Limo" />
+            <img data-code="VN" src="../../assets/limo/pic_tau.jpg" alt="Đường sắt Việt Nam" />
+
           </div>
 
           <div class="tab-bar">
@@ -266,9 +335,9 @@
 
             <form class="vf-wrap" data-flight-filter novalidate>
 
-              <!-- 1. Bộ lọc: loại vé, hạng ghế, hãng bay -->
-              <div class="rental-filter-bar vf-filter">
-                <div class="rental-filter-grid">
+              <!-- Một khung duy nhất: hàng 1 = loại vé, hạng ghế, hãng bay; hàng 2 = điểm đi/đến, ngày, nút tìm -->
+              <div class="rental-filter-bar vf-merged">
+                <div class="rental-filter-grid vf-filter">
                   <div class="rental-field">
                     <label>Loại vé</label>
                     <div class="vf-radios" role="radiogroup" aria-label="Loại vé">
@@ -292,10 +361,7 @@
                     </select>
                   </div>
                 </div>
-              </div>
 
-              <!-- 2. Form tìm kiếm riêng: điểm đi/đến, ngày đi/về, nút tìm -->
-              <div class="rental-filter-bar">
                 <div class="rental-filter-grid">
                   <div class="rental-field">
                     <label for="flight-from">Điểm đi</label>
@@ -324,7 +390,7 @@
                   </div>
 
                   <button type="submit" class="btn-primary rental-search-btn">
-                    <svg class="vf-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+                    <i class="fa-solid fa-magnifying-glass vf-ico" aria-hidden="true"></i>
                     Tìm chuyến bay
                   </button>
                 </div>
@@ -342,9 +408,9 @@
             </header>
             <form class="vf-wrap" data-train-filter novalidate>
 
-              <!-- 1. Bộ lọc: loại vé -->
-              <div class="rental-filter-bar vf-filter">
-                <div class="rental-filter-grid">
+              <!-- Một khung duy nhất: loại vé + form tìm kiếm -->
+              <div class="rental-filter-bar vf-merged">
+                <div class="rental-filter-grid vf-filter">
                   <div class="rental-field">
                     <label>Loại vé</label>
                     <div class="vf-radios" role="radiogroup" aria-label="Loại vé">
@@ -353,10 +419,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- 2. Form tìm kiếm riêng: ga đi/đến, ngày đi/về, nút tìm -->
-              <div class="rental-filter-bar">
                 <div class="rental-filter-grid">
                   <div class="rental-field">
                     <label for="train-from">Điểm đi</label>
@@ -385,7 +448,7 @@
                   </div>
 
                   <button type="submit" class="btn-primary rental-search-btn">
-                    <svg class="vf-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+                    <i class="fa-solid fa-magnifying-glass vf-ico" aria-hidden="true"></i>
                     Tìm chuyến tàu
                   </button>
                 </div>
@@ -406,9 +469,9 @@
 
             <form class="vf-wrap" data-bus-filter novalidate>
 
-              <!-- 1. Bộ lọc: loại vé -->
-              <div class="rental-filter-bar vf-filter">
-                <div class="rental-filter-grid">
+              <!-- Một khung duy nhất: loại vé + form tìm kiếm -->
+              <div class="rental-filter-bar vf-merged">
+                <div class="rental-filter-grid vf-filter">
                   <div class="rental-field">
                     <label>Loại vé</label>
                     <div class="vf-radios" role="radiogroup" aria-label="Loại vé">
@@ -417,10 +480,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- 2. Form tìm kiếm riêng: điểm đi/đến, ngày đi/về, nút tìm -->
-              <div class="rental-filter-bar">
                 <div class="rental-filter-grid">
                   <div class="rental-field">
                     <label for="bus-from">Điểm đi</label>
@@ -444,7 +504,7 @@
                       <input type="date" id="bus-return" data-b="return" /></div>
                   </div>
                   <button type="submit" class="btn-primary rental-search-btn">
-                    <svg class="vf-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+                    <i class="fa-solid fa-magnifying-glass vf-ico" aria-hidden="true"></i>
                     Tìm chuyến xe
                   </button>
                 </div>
@@ -454,27 +514,6 @@
 
             <div data-list="bus"></div>
 
-            <!-- Tính năng nổi bật riêng của xe ghép Limo -->
-            <section class="lm-features" aria-label="Tính năng nổi bật">
-              <h3 class="lm-feat-title">Vì sao chọn xe ghép Limo?</h3>
-              <div class="lm-feat-grid">
-                <article class="lm-feat">
-                  <span class="lm-feat-ic"><i class="fa-solid fa-piggy-bank"></i></span>
-                  <h4>Giá chia sẻ rõ ràng</h4>
-                  <p>Chia đều chi phí chuyến đi, tiết kiệm <b>40–60%</b> so với thuê xe riêng. Giá hiển thị theo từng ghế, không phụ thu bất ngờ.</p>
-                </article>
-                <article class="lm-feat">
-                  <span class="lm-feat-ic"><i class="fa-solid fa-user-shield"></i></span>
-                  <h4>Tài xế xác minh &amp; đánh giá thật</h4>
-                  <p>Mọi tài xế đều được xác minh thông tin. Xem điểm đánh giá và nhận xét (Reviews) từ hành khách trước khi đặt.</p>
-                </article>
-                <article class="lm-feat">
-                  <span class="lm-feat-ic"><i class="fa-solid fa-headset"></i></span>
-                  <h4>Liên hệ trực tiếp hoặc đặt online</h4>
-                  <p>Gọi nhà xe qua hotline <a data-hotline href="#"></a> hoặc đặt vé ngay trên hệ thống chỉ với vài thao tác.</p>
-                </article>
-              </div>
-            </section>
           </div>
 
         </section>
