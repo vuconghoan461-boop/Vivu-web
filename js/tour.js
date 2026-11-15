@@ -1,22 +1,24 @@
-/* Trang Tour - VivuGo */
+
 (function () {
+  // ---------- [KEY: UTILS] HÀM TIỆN ÍCH DÙNG CHUNG ----------
   const $ = id => document.getElementById(id);
   const money = n => (n ? n.toLocaleString('vi-VN') + 'đ' : '0đ');
   const dateVN = s => (s ? s.split('-').reverse().join('/') : '');
   const norm = s => (s ? s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').toLowerCase() : '');
   const kfmt = n => (n >= 1000 ? (n / 1000).toLocaleString('vi-VN') + 'K+' : n);
-  const open = id => $(id) && $(id).classList.add('is-open');
-  const close = id => $(id) && $(id).classList.remove('is-open');
+  const openModal = id => $(id) && $(id).classList.add('is-open');
+  const closeModal = id => $(id) && $(id).classList.remove('is-open');
 
-  // Hàm chuẩn hóa đường dẫn hình ảnh (loại bỏ /images/ thừa nếu có)
+  // Tự động chuẩn hóa đường dẫn hình ảnh (Sửa lỗi dính /images/ thừa nếu có)
   const fixImgPath = path => (path ? path.replace('/images/tours/', '/tours/') : '');
 
   let DATA = { tours: [], promoCodes: [], policy: '' };
   let state = { cat: 'all', dest: 'all' };
   let current = null, promo = null;
 
+  // ---------- [KEY: FETCH_DATA] KHỞI TẠO VÀ NẠP DỮ LIỆU TOUR.JSON ----------
   document.addEventListener('DOMContentLoaded', () => {
-    if (!$('tourGrid')) return; // Chỉ chạy trên trang Tour
+    if (!$('tourGrid')) return; // Chỉ chạy khi đúng ở trang Tour
     
     fetch('../../data/tour.json')
       .then(r => r.json())
@@ -29,8 +31,8 @@
         init();
       })
       .catch((err) => {
-        console.error('Lỗi nạp tour.json:', err);
-        $('tourGrid').innerHTML = '<div class="car-empty">Không tải được tour.json. Hãy chạy bằng Live Server / localhost.</div>';
+        console.error('Lỗi nạp dữ liệu tour.json:', err);
+        $('tourGrid').innerHTML = '<div class="car-empty">Không tải được tour.json. Vui lòng mở bằng Live Server/Localhost.</div>';
       });
   });
 
@@ -38,7 +40,7 @@
     const T = DATA.tours, uniq = a => [...new Set(a)];
 
     if ($('fType')) {
-      $('fType').innerHTML = '<option value="">Tất cả loại chi tiết</option>' + 
+      $('fType').innerHTML = '<option value="">Tất cả các loại tour</option>' + 
         uniq(T.flatMap(t => t.types || [])).map(v => `<option>${v}</option>`).join('');
     }
 
@@ -48,7 +50,7 @@
       
       $('categoryTabs').addEventListener('click', e => {
         const b = e.target.closest('.cat-tab'); if (!b) return;
-        state.cat = b.dataset.cat; toggle('#categoryTabs .cat-tab', b); render();
+        state.cat = b.dataset.cat; toggleActive('#categoryTabs .cat-tab', b); render();
       });
     }
 
@@ -59,7 +61,7 @@
 
       $('destFilter').addEventListener('click', e => {
         const b = e.target.closest('.seat-pill'); if (!b) return;
-        state.dest = b.dataset.dest; toggle('#destFilter .seat-pill', b); render();
+        state.dest = b.dataset.dest; toggleActive('#destFilter .seat-pill', b); render();
       });
     }
 
@@ -71,13 +73,13 @@
         ['keyword', 'fType', 'fFrom', 'fTo'].forEach(i => $(i) && ($(i).value = ''));
         if ($('fSort')) $('fSort').value = 'popular';
         state = { cat: 'all', dest: 'all' };
-        toggle('#categoryTabs .cat-tab', document.querySelector('#categoryTabs .cat-tab'));
-        toggle('#destFilter .seat-pill', document.querySelector('#destFilter .seat-pill'));
+        toggleActive('#categoryTabs .cat-tab', document.querySelector('#categoryTabs .cat-tab'));
+        toggleActive('#destFilter .seat-pill', document.querySelector('#destFilter .seat-pill'));
         render();
       };
     }
 
-    // Event Delegation cho việc click vào card tour
+    // ---------- [KEY: EVENT_CARD] BẮT SỰ KIỆN CLICK TRÊN THẺ TOUR ----------
     $('tourGrid').addEventListener('click', e => {
       const card = e.target.closest('.car-card');
       const btnDetail = e.target.closest('.btn-detail');
@@ -95,8 +97,8 @@
       }
     });
 
-    if ($('closeBookingModal')) $('closeBookingModal').onclick = () => close('bookingModalOverlay');
-    if ($('closeSuccessModal')) $('closeSuccessModal').onclick = () => close('successModalOverlay');
+    if ($('closeBookingModal')) $('closeBookingModal').onclick = () => closeModal('bookingModalOverlay');
+    if ($('closeSuccessModal')) $('closeSuccessModal').onclick = () => closeModal('successModalOverlay');
     
     document.querySelectorAll('.modal-overlay').forEach(o => o.addEventListener('click', e => { 
       if (e.target === o) o.classList.remove('is-open'); 
@@ -110,12 +112,12 @@
     render();
   }
 
-  function toggle(sel, btn) { 
+  function toggleActive(sel, btn) { 
     if (!btn) return;
     document.querySelectorAll(sel).forEach(x => x.classList.toggle('is-active', x === btn)); 
   }
 
-  /* ---------- Lọc + Sắp xếp ---------- */
+  // ---------- [KEY: FILTER_LOGIC] THUẬT TOÁN LỌC VÀ SẮP XẾP ----------
   function filtered() {
     const type = $('fType') ? $('fType').value : '';
     const from = $('fFrom') ? $('fFrom').value : '';
@@ -153,6 +155,7 @@
     
   const media = (t, i, label) => `<div class="media-placeholder" data-label="${label}">${t.images && t.images[i] ? `<img src="${fixImgPath(t.images[i])}" alt="${t.name}">` : ''}</div>`;
 
+  // ---------- [KEY: RENDER_GRID] VẼ DANH SÁCH TOUR RA GIAO DIỆN ----------
   function render() {
     const list = filtered();
     if ($('resultCount')) $('resultCount').textContent = `Tìm thấy ${list.length} tour phù hợp`;
@@ -182,7 +185,7 @@
     }).join('') : '<div class="car-empty">Không tìm thấy tour phù hợp. Hãy thử thay đổi bộ lọc.</div>';
   }
 
-  /* ---------- Popup xem chi tiết tour ---------- */
+  // ---------- [KEY: POPUP_DETAIL] HIỂN THỊ POPUP CHI TIẾT TOUR ----------
   function openDetail(id) {
     const t = current = DATA.tours.find(x => x.id === id);
     if (!t) return;
@@ -230,7 +233,7 @@
       <div class="detail-cta"><span class="section-sub" style="margin:0">Giá từ <strong>${money(t.price)}</strong>/khách</span>
         <button type="button" class="btn-cta" data-book>Đặt tour ngay</button></div>`;
         
-    m.querySelector('[data-x]').onclick = () => close('detailModalOverlay');
+    m.querySelector('[data-x]').onclick = () => closeModal('detailModalOverlay');
     m.querySelectorAll('[data-book]').forEach(b => b.onclick = openBooking);
     m.querySelectorAll('.tab-btn').forEach(b => b.onclick = () => {
       m.querySelectorAll('.tab-btn').forEach(x => x.classList.toggle('is-active', x === b));
@@ -242,10 +245,10 @@
       accBtn.onclick = () => { const b = $('accBody'); if (b) b.hidden = !b.hidden; };
     }
     
-    m.scrollTop = 0; open('detailModalOverlay');
+    m.scrollTop = 0; openModal('detailModalOverlay');
   }
 
-  /* ---------- Form đặt tour ---------- */
+  // ---------- [KEY: BOOKING_LOGIC] XỬ LÝ ĐẶT TOUR & KHUYẾN MÃI ----------
   function openBooking() {
     const t = current; promo = null;
     if (!t) return;
@@ -266,7 +269,7 @@
     
     $('sumPromoRow').style.display = 'none'; 
     calc(); 
-    open('bookingModalOverlay');
+    openModal('bookingModalOverlay');
   }
 
   function calc() {
@@ -301,8 +304,11 @@
     $('infoTotal').textContent = money(calc());
     $('infoPay').textContent = $('payMethod').value;
     
-    close('bookingModalOverlay'); 
-    close('detailModalOverlay'); 
-    open('successModalOverlay');
+    closeModal('bookingModalOverlay'); 
+    closeModal('detailModalOverlay'); 
+    openModal('successModalOverlay');
   }
 })();
+// Tìm /* [KEY: FETCH_DATA] để kiểm tra/sửa nạp dữ liệu.
+// // Tìm /* [KEY: RENDER_GRID] để sửa cấu trúc thẻ tour trên danh sách.
+// // Tìm /* [KEY: EVENT_CARD] để sửa sự kiện bấm nút Xem chi tiết / Đặt ngay.

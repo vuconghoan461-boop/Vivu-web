@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VivuGo - Đăng nhập</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/login.css">
+</head>
+
+<body>
+    <div class="auth-wrap">
+        <div class="auth-card">
+            <div class="m-left">
+                <h2>Khám phá thế giới cùng VivuGo!</h2>
+            </div>
+            <div class="m-right">
+                <div class="tabs">
+                    <a class="tab active" href="login.html">ĐĂNG NHẬP</a>
+                    <a class="tab" href="register.html">ĐĂNG KÝ</a>
+                </div>
+                <p class="sso-title">Đăng nhập nhanh bằng Gmail, mạng xã hội hoặc Apple</p>
+                <div class="sso">
+                    <button type="button" title="Sẽ kết nối khi có backend"><i
+                            class="fa-brands fa-google"></i><span>Google</span></button>
+                    <button type="button" title="Sẽ kết nối khi có backend"><i
+                            class="fa-brands fa-facebook"></i><span>Facebook</span></button>
+                    <button type="button" title="Sẽ kết nối khi có backend"><i
+                            class="fa-brands fa-apple"></i><span>Apple</span></button>
+                </div>
+                <div class="or"><span>hoặc dùng tài khoản VivuGo</span></div>
+                <form id="login" class="form active" novalidate>
+                    <div class="field">
+                        <input id="lEmail" placeholder=" " autocomplete="username">
+                        <label for="lEmail">Email hoặc số điện thoại</label>
+                        <small class="err"></small>
+                    </div>
+                    <div class="field">
+                        <input id="lPass" type="password" placeholder=" " autocomplete="current-password">
+                        <label for="lPass">Mật khẩu</label>
+                        <i class="fa-regular fa-eye eye"></i>
+                        <small class="err"></small>
+                    </div>
+                    <div class="opts">
+                        <label><input type="checkbox" id="remember" checked> Ghi nhớ đăng nhập</label>
+                        <a href="#">Quên mật khẩu?</a>
+                    </div>
+                    <button type="submit" class="btn-full">Đăng nhập</button>
+                    <p class="hint">Tài khoản demo: demo@vivugo.vn / 12345678</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/login.js"></script>
+</body>
+
+</html>

@@ -69,6 +69,12 @@ function closeMobileMenu() {
 // Để trang ngoài là nơi cuộn duy nhất, iframe tự cao theo nội dung module.
 function autoResizeIframe() {
   let resizeObserver;
+  let popupObserver;
+  let popupWasOpen = false;
+  const shellHeader = document.querySelector('.site-header');
+  const shellFooter = document.querySelector('.footer');
+  const headerDisplay = shellHeader?.style.display ?? '';
+  const footerDisplay = shellFooter?.style.display ?? '';
 
   const updateVisibleModalArea = () => {
     try {
@@ -108,6 +114,26 @@ function autoResizeIframe() {
     }
   };
 
+  const syncPopupChrome = () => {
+    try {
+      const doc = frame.contentDocument;
+      if (!doc) return;
+
+      const popupIsOpen = Boolean(
+        doc.querySelector('.modal-overlay.is-open, dialog[open]')
+      );
+      if (popupIsOpen === popupWasOpen) return;
+
+      popupWasOpen = popupIsOpen;
+      if (shellHeader) shellHeader.style.display = popupIsOpen ? 'none' : headerDisplay;
+      if (shellFooter) shellFooter.style.display = popupIsOpen ? 'none' : footerDisplay;
+
+      requestAnimationFrame(updateVisibleModalArea);
+    } catch (error) {
+      console.warn('Không thể đồng bộ header/footer với hộp thoại:', error);
+    }
+  };
+
   const handleLoad = () => {
     try {
       const doc = frame.contentDocument;
@@ -116,9 +142,17 @@ function autoResizeIframe() {
       // Bỏ chiều cao của module trước để trang ngắn (như AI) đo lại được.
       frame.style.height = '1px';
       resizeObserver?.disconnect();
+      popupObserver?.disconnect();
       resizeObserver = new ResizeObserver(update);
       resizeObserver.observe(doc.documentElement);
       resizeObserver.observe(doc.body);
+      popupObserver = new MutationObserver(syncPopupChrome);
+      popupObserver.observe(doc.body, {
+        subtree: true,
+        childList: true,
+        attributes: true,
+        attributeFilter: ['class', 'open', 'hidden']
+      });
 
       if (!doc.querySelector('#outer-modal-viewport-style')) {
         const style = doc.createElement('style');
@@ -150,6 +184,7 @@ function autoResizeIframe() {
 
       doc.fonts?.ready.then(update).catch(() => {});
       update();
+      syncPopupChrome();
     } catch (error) {
       console.warn('Không thể tự động điều chỉnh iframe:', error);
     }
