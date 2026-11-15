@@ -1,5 +1,6 @@
 const HERO_SLIDES = [
   "https://www.youtube.com/watch?v=_8uioycwhhc",
+    "../../assets/slicer/pic1.jpg",
   "../../assets/slicer/pic2.jpg",
   "../../assets/slicer/pic3.jpg"
 ];

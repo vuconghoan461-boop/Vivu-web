@@ -522,6 +522,13 @@ select:focus-visible {
   border: 0;
   pointer-events: none;
 }
+.hero-slide-embed iframe {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.hero-slide-embed iframe.is-ready {
+  opacity: 1;
+}
 /* lớp tối ở bên trái để chữ trắng luôn đọc được */
 .hero-slider::after {
   content: "";
