@@ -137,7 +137,9 @@ function carCardHTML(car) {
              ${oldPrice}
             <span class="price-value">${formatCurrency(car.price)} <span>${car.priceUnit}</span></span>
           </div>
-          <button type="button" class="btn-book" data-id="${car.id}">Đặt xe nhanh</button>
+          
+          <button type="button" class="btn-detail" data-id="${car.id}">Xem chi tiết</button>
+          <button type="button" class="btn-book" data-id="${car.id}">Đặt ngay</button>
         </div>
       </div>
     </article>
@@ -302,23 +304,41 @@ function openCarDetail(carId) {
       <h2>${car.name}</h2>
       <p class="detail-address">Đơn vị cho thuê: ${car.provider}</p>
     </div>
-
     <div class="detail-body" style="padding-top:14px">
       <div class="car-detail-top">
         <div class="image-box" data-label="${car.name}">${image}</div>
-        <div>
-          <h4>Thông số</h4>
-          <table class="amenity-table">
-            <tr><th>Số chỗ ngồi</th><td>${car.seats} chỗ</td></tr>
-            <tr><th>Hộp số</th><td>${car.transmission}</td></tr>
-            <tr><th>Nhiên liệu</th><td>${car.fuel}</td></tr>
-            <tr><th>Tiện ích</th><td>${(car.features || []).join(", ")}</td></tr>
-          </table>
+        <div class="car-info"> 
+          <h4>Thông tin xe: </h4>
+          <div class="car-stats">
+            <div class="car-stat">
+              <i class="fa-solid fa-users"></i>
+              <small>Số chỗ ngồi</small>
+              <strong>${car.seats} chỗ</strong>
+            </div>
+            <div class="car-stat">
+              <i class="fa-solid fa-gears"></i>
+              <small>Hộp số</small>
+              <strong>${car.transmission}</strong>
+            </div>
+            <div class="car-stat">
+              <i class="fa-solid fa-gas-pump"></i>
+              <small>Nhiên liệu</small>
+              <strong>${car.fuel}</strong>
+            </div>
+          </div>
+          <h4>Tiện ích:</h4>
+          <ul class="car-amenities">
+            ${(car.features || []).map(f =>
+              `<li><i class="fa-solid fa-check"></i>${f}</li>`
+            ).join("")}
+          </ul>
         </div>
       </div>
 
-      <h4 class="car-detail-title">Chính sách thuê xe</h4>
+      <div class="car-detail-policy">
+      <h4>Chính sách thuê xe</h4>
       <p class="policy-text">${car.policy}</p>
+      </div>
 
       <div class="car-detail-foot">
         <div class="price-box">
@@ -326,8 +346,9 @@ function openCarDetail(carId) {
           ${oldPrice}
           <span class="price-value">${formatCurrency(car.price)} <span>${car.priceUnit}</span></span>
         </div>
-        <button type="button" class="btn-book"
-          onclick="closeModal('carDetailOverlay'); openBookingModal(${car.id})">Đặt xe nhanh</button>
+        <button type="button" class="btn-book" onclick="openBookingModal(${car.id})" >
+            Đặt xe ngay
+        </button>
       </div>
     </div>`;
 
@@ -409,6 +430,7 @@ function initBookingForm() {
     if (!car) return;
 
     closeBookingModal();
+    closeModal("carDetailOverlay");
     openSuccessModal({
       name: document.getElementById("renterName").value.trim(),
       phone: document.getElementById("renterPhone").value.trim(),
@@ -457,9 +479,15 @@ function initModals() {
 
   // Event delegation cho nút "Đặt xe nhanh" trong grid
     document.getElementById("carGrid").addEventListener("click", (e) => {
-      const btn = e.target.closest(".btn-book");
-      if (btn) { openBookingModal(btn.dataset.id); return; }
+      // Nút "Xe chi tiết"
+      const detailBtn = e.target.closest(".btn-detail");
+      if (detailBtn) { openCarDetail(detailBtn.dataset.id); return; }
 
+      // Nút "Đặt xe nhanh"
+      const bookBtn = e.target.closest(".btn-book");
+      if (bookBtn) { openBookingModal(bookBtn.dataset.id); return; }
+
+      //Vùng tối đóng popup
       const card = e.target.closest(".car-card");
       if (card) openCarDetail(card.dataset.id);
     });
@@ -609,7 +637,8 @@ function hotelCardHTML(hotel) {
             ${oldPrice}
             <span class="price-value">${money(room.price)}<span> /đêm</span></span>
           </div>
-          <button type="button" class="btn-book">Đặt phòng ngay</button>
+          <button type="button" class="btn-detail">Xem chi tiết</button>
+          <button type="button" class="btn-book">Đặt ngay</button>
         </div>
       </div>
     </article>`;
@@ -627,6 +656,25 @@ function renderHotels() {
 }
 
 /* ---------- 5. POPUP CHI TIẾT KHÁCH SẠN ---------- */
+/*Sửa chỗ chính sách*/
+const POLICY_GROUPS = [
+  { key: "pickup", title: "Nhận phòng & trả phòng", icon: "fa-right-left", cls: "" },
+  { key: "cancel", title: "Hủy phòng & hoàn tiền", icon: "fa-ban", cls: "policy-cancel" },
+  { key: "other",  title: "Lưu ý khác", icon: "fa-circle-info", cls: "" }
+];
+
+function policyHTML(policy) {
+  return POLICY_GROUPS
+    .filter(g => policy[g.key] && policy[g.key].length)
+    .map(g => `
+      <div class="policy-card ${g.cls}">
+        <h4><i class="fa-solid ${g.icon}"></i> ${g.title}</h4>
+        <ul>${policy[g.key].map(t => `<li>${t}</li>`).join("")}</ul>
+      </div>`)
+    .join("");
+}
+
+/*-----*/
 function openHotelDetail(hotelId) {
   const hotel = HOTELS.find(h => h.id === hotelId);
   if (!hotel) return;
@@ -696,15 +744,13 @@ function openHotelDetail(hotelId) {
       </div>
 
         <div class="tab-content" id="tabInfo1">
-          <h4>Tiện nghi khách sạn</h4>
           <table class="amenity-table">
             ${hotel.amenities.map(a => `<tr><th>${a.group}</th><td>${a.items}</td></tr>`).join("")}
           </table>
         </div>
 
        <div class="tab-content" id="tabInfo2">
-          <h4>Chi tiết chính sách lưu trú:</h4>
-          <p class="policy-text" style ="text-align: justify">${hotel.policy}</p>
+          <div class="policy-grid">${policyHTML(hotel.policy)}</div>
         </div>
     </div>`;
 
@@ -749,7 +795,6 @@ function updateHotelSummary() {
   document.getElementById("sumLabel").textContent = `Tạm tính (${rooms} phòng × ${nights} đêm)`;
   document.getElementById("sumBase").textContent = money(total);
   document.getElementById("totalAmount").textContent = money(total);
-  document.getElementById("confirmBtn").textContent = `Hoàn Tất Đặt Chỗ (${money(total)})`;
   return total;
 }
 
@@ -824,7 +869,23 @@ document.addEventListener("DOMContentLoaded", () => {
   // Bấm vào thẻ khách sạn -> mở popup chi tiết
   document.getElementById("hotelGrid").addEventListener("click", e => {
     const card = e.target.closest(".hotel-card");
-    if (card) openHotelDetail(Number(card.dataset.id));
+    if (!card) return;
+    const id = Number(card.dataset.id);
+
+    // Nút "Chi tiết": mở popup, tab Danh sách phòng
+    if (e.target.closest(".btn-detail")) {
+      openHotelDetail(id);
+      return;
+    }
+
+    // Nút "Đặt phòng ngay": mở popup rồi nhảy thẳng vào form đặt phòng rẻ nhất
+    if (e.target.closest(".btn-book")) {
+      openHotelDetail(id);
+      return;
+    }
+
+    // Bấm vào vùng khác của thẻ
+    openHotelDetail(id);
   });
 
   // Form đặt phòng
