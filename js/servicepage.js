@@ -79,9 +79,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
   });
 
-  /* ===================================================================
-     5. BỘ ĐẾM SỐ LƯỢNG KẾT QUẢ
-     =================================================================== */
+  /*5. BỘ ĐẾM SỐ LƯỢNG KẾT QUẢ */
 
   const resultCountEl = document.querySelector("[data-result-count]");
 
@@ -97,9 +95,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
   }
 
-  /* ===================================================================
-     6. ẨN / HIỆN BỘ LỌC TRÊN MOBILE
-     =================================================================== */
+  /* 6. ẨN / HIỆN BỘ LỌC TRÊN MOBILE */
 
   const filterToggle = document.querySelector("[data-filter-toggle]");
   const filterPanel = document.querySelector(".filter-panel");
@@ -110,9 +106,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
   }
 
-  /* ===================================================================
-     7. SLIDER ẢNH / VIDEO Ở BANNER ĐẦU TRANG
-     =================================================================== */
+  /* 7. SLIDER ẢNH / VIDEO Ở BANNER ĐẦU TRANG */
 
   const hero = document.querySelector(".module-hero");
 
