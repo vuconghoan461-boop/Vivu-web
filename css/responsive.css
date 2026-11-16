@@ -1,0 +1,244 @@
+/* Shared responsive safeguards for every VivuGo page. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+input,
+select,
+textarea,
+button {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Keep the shared navigation compact without changing its structure. */
+.site-header .header-inner {
+  height: 54px;
+  min-height: 54px;
+  gap: 10px;
+  padding: 0 16px;
+}
+
+.site-header .logo-image {
+  width: 116px;
+  height: 46px;
+}
+
+.site-header .nav-link {
+  padding: 6px 10px;
+  font-size: 12.5px;
+}
+
+.site-header .btn-icon {
+  width: 34px;
+  height: 34px;
+}
+
+.site-header .btn-primary {
+  padding: 8px 12px;
+  font-size: 11.5px;
+}
+
+@media (max-width: 1024px) {
+  .vivugo-container,
+  .container,
+  .kp-wrap {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .booking-modal,
+  .detail-modal {
+    max-width: calc(100vw - 32px);
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header .header-inner {
+    height: 48px;
+    min-height: 48px;
+    padding-inline: 12px;
+  }
+
+  .site-header .logo-image {
+    width: 104px;
+    height: 40px;
+  }
+
+  .site-header .header-actions {
+    gap: 8px;
+  }
+
+  .site-header .btn-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .modal-overlay {
+    padding: 12px;
+  }
+
+  .booking-modal,
+  .detail-modal {
+    width: 100%;
+    max-width: 100%;
+    max-height: calc(100vh - 24px);
+    overflow-y: auto;
+  }
+
+  .detail-body,
+  .booking-modal-head {
+    padding-inline: 16px;
+  }
+
+  .detail-cta {
+    flex-wrap: wrap;
+    padding-inline: 16px;
+  }
+
+  .quick-info {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  table {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .header-inner {
+    gap: 8px;
+  }
+
+  .site-header .header-inner {
+    height: 46px;
+    min-height: 46px;
+    padding-inline: 8px;
+  }
+
+  .site-header .logo-image {
+    width: min(94px, 27vw);
+    height: 36px;
+  }
+
+  .logo-image {
+    width: min(132px, 34vw);
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .btn-primary {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .module-hero,
+  .slider-hotel,
+  .slider-carent,
+  .banner-hotel {
+    min-height: 260px;
+    height: auto;
+    padding: 22px 16px;
+  }
+
+  .page-title {
+    font-size: clamp(1.45rem, 7vw, 2rem);
+    line-height: 1.2;
+  }
+
+  .search-bar {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 12px;
+  }
+
+  .search-field {
+    padding: 10px 4px;
+    border-right: 0;
+  }
+
+  .search-submit {
+    grid-column: auto;
+    padding: 8px 0 0;
+  }
+
+  .search-submit button,
+  .search-submit .btn-cta {
+    width: 100%;
+  }
+
+  .rental-filter-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rental-toolbar,
+  .rental-toolbar-hotel,
+  .detail-top,
+  .car-detail-foot {
+    flex-wrap: wrap;
+  }
+
+  .quick-info {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-inline: 14px;
+  }
+
+  .quick-info div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    height: 200px;
+  }
+
+  .price-table,
+  #trip table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .auth-wrap {
+    padding: 12px;
+  }
+
+  .m-right {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .btn-primary {
+    padding-inline: 9px;
+    font-size: 11px;
+  }
+
+  .quick-info {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .quick-info div {
+    border-right: 0;
+    border-bottom: 1px solid #E5E7EB;
+  }
+
+  .quick-info div:last-child {
+    border-bottom: 0;
+  }
+}
