@@ -1,4 +1,3 @@
-
 (function () {
   // ---------- [KEY: UTILS] HÀM TIỆN ÍCH DÙNG CHUNG ----------
   const $ = id => document.getElementById(id);
@@ -6,26 +5,24 @@
   const dateVN = s => (s ? s.split('-').reverse().join('/') : '');
   const norm = s => (s ? s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').toLowerCase() : '');
   const kfmt = n => (n >= 1000 ? (n / 1000).toLocaleString('vi-VN') + 'K+' : n);
-  const openModal = id => $(id) && $(id).classList.add('is-open');
-  const closeModal = id => $(id) && $(id).classList.remove('is-open');
+  const openModal = id => $(id) &&$(id).classList.add('is-open');
+  const closeModal = id => $(id) && $(id).classList.remove('is-remove',$(id).classList.remove('is-open'));
 
-  // Tự động chuẩn hóa đường dẫn hình ảnh (Sửa lỗi dính /images/ thừa nếu có)
   const fixImgPath = path => (path ? path.replace('/images/tours/', '/tours/') : '');
 
   let DATA = { tours: [], promoCodes: [], policy: '' };
-  let state = { cat: 'all', dest: 'all' };
-  let current = null, promo = null;
+  let state = { cat: 'all' };
+  let current = null;
 
   // ---------- [KEY: FETCH_DATA] KHỞI TẠO VÀ NẠP DỮ LIỆU TOUR.JSON ----------
   document.addEventListener('DOMContentLoaded', () => {
-    if (!$('tourGrid')) return; // Chỉ chạy khi đúng ở trang Tour
+    if (!$('tourGrid')) return;
     
     fetch('../../data/tour.json')
       .then(r => r.json())
       .then(d => {
         DATA = {
           tours: d.tours || d.Tours || [],
-          promoCodes: d.promoCodes || [],
           policy: d.policy || ''
         };
         init();
@@ -39,13 +36,11 @@
   function init() {
     const T = DATA.tours, uniq = a => [...new Set(a)];
 
-    if ($('fType')) {
-      $('fType').innerHTML = '<option value="">Tất cả các loại tour</option>' + 
+    if ($('fType')) {$('fType').innerHTML = '<option value="">Tất cả các loại tour</option>' + 
         uniq(T.flatMap(t => t.types || [])).map(v => `<option>${v}</option>`).join('');
     }
 
-    if ($('categoryTabs')) {
-      $('categoryTabs').innerHTML = '<button class="cat-tab is-active" data-cat="all">Tất cả loại hình</button>' +
+    if ($('categoryTabs')) {$('categoryTabs').innerHTML = '<button class="cat-tab is-active" data-cat="all">Tất cả loại hình</button>' +
         uniq(T.map(t => t.category)).map(c => `<button class="cat-tab" data-cat="${c}">${c}</button>`).join('');
       
       $('categoryTabs').addEventListener('click', e => {
@@ -54,27 +49,14 @@
       });
     }
 
-    if ($('destFilter')) {
-      const dests = uniq(T.flatMap(t => uniq([t.from, t.to])));
-      $('destFilter').innerHTML = '<button class="seat-pill is-active" data-dest="all">Tất cả điểm đến</button>' +
-        dests.map(d => `<button class="seat-pill" data-dest="${d}">${d} (${T.filter(t => t.from === d || t.to === d).length})</button>`).join('');
-
-      $('destFilter').addEventListener('click', e => {
-        const b = e.target.closest('.seat-pill'); if (!b) return;
-        state.dest = b.dataset.dest; toggleActive('#destFilter .seat-pill', b); render();
-      });
-    }
-
-    ['fType', 'fFrom', 'fTo', 'fSort'].forEach(i => $(i) && $(i).addEventListener('change', render));
-    if ($('keyword')) $('keyword').addEventListener('input', render);
-    if ($('searchBtn')) $('searchBtn').onclick = render;
-    if ($('resetBtn')) {
-      $('resetBtn').onclick = () => {
+    ['fType', 'fFrom', 'fTo', 'fSort'].forEach(i => $(i) &&$(i).addEventListener('change', render));
+    if ($('keyword'))$('keyword').addEventListener('input', render);
+    if ($('searchBtn'))$('searchBtn').onclick = render;
+    if ($('resetBtn')) {$('resetBtn').onclick = () => {
         ['keyword', 'fType', 'fFrom', 'fTo'].forEach(i => $(i) && ($(i).value = ''));
-        if ($('fSort')) $('fSort').value = 'popular';
-        state = { cat: 'all', dest: 'all' };
+        if ($('fSort'))$('fSort').value = 'popular';
+        state = { cat: 'all' };
         toggleActive('#categoryTabs .cat-tab', document.querySelector('#categoryTabs .cat-tab'));
-        toggleActive('#destFilter .seat-pill', document.querySelector('#destFilter .seat-pill'));
         render();
       };
     }
@@ -97,17 +79,16 @@
       }
     });
 
-    if ($('closeBookingModal')) $('closeBookingModal').onclick = () => closeModal('bookingModalOverlay');
-    if ($('closeSuccessModal')) $('closeSuccessModal').onclick = () => closeModal('successModalOverlay');
+    if ($('closeBookingModal'))$('closeBookingModal').onclick = () => closeModal('bookingModalOverlay');
+    if ($('closeSuccessModal'))$('closeSuccessModal').onclick = () => closeModal('successModalOverlay');
     
     document.querySelectorAll('.modal-overlay').forEach(o => o.addEventListener('click', e => { 
       if (e.target === o) o.classList.remove('is-open'); 
     }));
     
-    if ($('ticketQty')) $('ticketQty').addEventListener('input', calc);
-    if ($('applyPromo')) $('applyPromo').onclick = applyPromo;
-    if ($('bookingForm')) $('bookingForm').addEventListener('submit', submitBooking);
-    if ($('goToMyTrips')) $('goToMyTrips').onclick = () => { window.location.href = '../../index.html'; };
+    if ($('ticketQty'))$('ticketQty').addEventListener('input', calc);
+    if ($('bookingForm'))$('bookingForm').addEventListener('submit', submitBooking);
+    if ($('goToMyTrips'))$('goToMyTrips').onclick = () => { window.location.href = '../../index.html'; };
     
     render();
   }
@@ -119,14 +100,13 @@
 
   // ---------- [KEY: FILTER_LOGIC] THUẬT TOÁN LỌC VÀ SẮP XẾP ----------
   function filtered() {
-    const type = $('fType') ? $('fType').value : '';
-    const from = $('fFrom') ? $('fFrom').value : '';
-    const to = $('fTo') ? $('fTo').value : '';
+    const type = $('fType') ?$('fType').value : '';
+    const from = $('fFrom') ?$('fFrom').value : '';
+    const to = $('fTo') ?$('fTo').value : '';
     const kw = $('keyword') ? norm($('keyword').value.trim()) : '';
 
     const list = DATA.tours.filter(t =>
       (state.cat === 'all' || t.category === state.cat) &&
-      (state.dest === 'all' || t.from === state.dest || t.to === state.dest) &&
       (!type || (t.types && t.types.includes(type))) &&
       (!t.departures || t.departures.some(d => (!from || d.date >= from) && (!to || d.date <= to))) &&
       (!kw || norm(t.name + ' ' + t.from + ' ' + t.to).includes(kw))
@@ -145,34 +125,34 @@
       }
     };
     
-    const sortVal = $('fSort') ? $('fSort').value : 'popular';
+    const sortVal = $('fSort') ?$('fSort').value : 'popular';
     return list.sort(by[sortVal] || by.popular);
   }
 
   const badges = t =>
-    (t.booked >= 40000 ? '<span class="car-badge hot">🔥 Hot</span>' : '') +
+    (t.booked >= 40000 ? '<span class="car-badge hot">Hot</span>' : '') +
     (t.discount ? `<span class="car-badge sale">Giảm ${t.discount}%</span>` : '');
     
   const media = (t, i, label) => `<div class="media-placeholder" data-label="${label}">${t.images && t.images[i] ? `<img src="${fixImgPath(t.images[i])}" alt="${t.name}">` : ''}</div>`;
 
-  // ---------- [KEY: RENDER_GRID] VẼ DANH SÁCH TOUR RA GIAO DIỆN ----------
+  // ---------- [KEY: RENDER_GRID] VẼ DANH SÁCH TOUR (ĐÃ XÓA SỐ CHỖ CÒN LẠI) ----------
   function render() {
     const list = filtered();
-    if ($('resultCount')) $('resultCount').textContent = `Tìm thấy ${list.length} tour phù hợp`;
+    if ($('resultCount'))$('resultCount').textContent = `Tìm thấy ${list.length} tour phù hợp`;
     
     $('tourGrid').innerHTML = list.length ? list.map(t => {
-      const d = (t.departures && t.departures[0]) || { date: '', slots: 0 };
+      const d = (t.departures && t.departures[0]) || { date: '' };
       return `<article class="car-card" data-id="${t.id}">
         <div class="car-media"><div class="badge-row">${badges(t)}</div>${media(t, 0, 'Ảnh tour')}</div>
         <div class="car-body">
           <div class="car-rating-row"><span class="rating">★ ${t.rating}</span><span class="dot">·</span>
             <span class="provider">${t.reviews.toLocaleString('vi-VN')} đánh giá</span><span class="dot">·</span><span>${kfmt(t.booked)} đã đặt</span></div>
           <h3 class="car-name">${t.name}</h3>
-          <div class="tour-route">📍 ${t.from} → ${t.to}</div>
+          <div class="tour-route"> ${t.from} → ${t.to}</div>
           <div class="car-specs">
             <div><span class="spec-label">Thời lượng</span><span class="spec-value">${t.duration ? t.duration.split(' (')[0] : ''}</span></div>
             <div><span class="spec-label">Khởi hành</span><span class="spec-value">${dateVN(d.date).slice(0, 5)}</span></div>
-            <div><span class="spec-label">Còn chỗ</span><span class="spec-value">${d.slots}</span></div></div>
+          </div>
           <div class="car-foot">
             <div class="car-price">${t.discount ? `<span class="old-price">${money(t.priceOriginal)}</span>` : '<span class="label">Giá từ</span>'}
               <span class="value">${money(t.price)}<span>/khách</span></span></div>
@@ -185,12 +165,11 @@
     }).join('') : '<div class="car-empty">Không tìm thấy tour phù hợp. Hãy thử thay đổi bộ lọc.</div>';
   }
 
-  // ---------- [KEY: POPUP_DETAIL] HIỂN THỊ POPUP CHI TIẾT TOUR ----------
+  // ---------- [KEY: POPUP_DETAIL] POPUP CHI TIẾT TOUR (ĐÃ XÓA TAG CHIP & SỐ CHỖ) ----------
   function openDetail(id) {
     const t = current = DATA.tours.find(x => x.id === id);
     if (!t) return;
     
-    const d = (t.departures && t.departures[0]) || { slots: 0 };
     const li = a => (a || []).map(x => `<li>${x}</li>`).join('');
     const tl = (t.itinerary || []).map(s => `<li><span class="t-time">${s.time}</span><div>${s.title}${s.desc ? `<span class="t-desc">${s.desc}</span>` : ''}</div></li>`).join('');
     const rows = [1, 2, 4, 6].map(n => `<tr><td>${n} khách</td><td>${money(t.price)}</td><td><strong>${money(t.price * n)}</strong></td></tr>`).join('');
@@ -209,10 +188,8 @@
         <div><span>Đánh giá</span>★ ${t.rating} (${t.reviews.toLocaleString('vi-VN')})</div>
         <div><span>Thời lượng</span>${t.duration}</div>
         <div><span>Khởi hành từ</span>${t.from}</div>
-        <div><span>Còn lại</span>${d.slots} chỗ</div>
       </div>
       <div class="detail-body">
-        <div class="tag-row" style="margin-bottom:12px">${(t.tags || []).map(x => `<span class="tag-chip">${x}</span>`).join('')}</div>
         <div class="tab-bar">${['Lịch trình', 'Bao gồm', 'Bảng giá', 'Chính sách'].map((n, i) => `<button type="button" class="tab-btn${i ? '' : ' is-active'}" data-tab="${i}">${n}</button>`).join('')}</div>
         <div class="tab-panel is-active">
           <h4 class="panel-h">Điểm nổi bật</h4><ul class="hl-list">${li(t.highlights)}</ul>
@@ -248,9 +225,9 @@
     m.scrollTop = 0; openModal('detailModalOverlay');
   }
 
-  // ---------- [KEY: BOOKING_LOGIC] XỬ LÝ ĐẶT TOUR & KHUYẾN MÃI ----------
+  // ---------- [KEY: BOOKING_LOGIC] XỬ LÝ ĐẶT TOUR ----------
   function openBooking() {
-    const t = current; promo = null;
+    const t = current;
     if (!t) return;
 
     $('bookingTourName').textContent = t.name;
@@ -259,56 +236,40 @@
     $('bookingPrice').innerHTML = `${money(t.price)}<small>/khách</small>`;
     
     $('departureDate').innerHTML = (t.departures || []).map((d, i) => 
-      `<option value="${i}">${dateVN(d.date)} · ${d.time} (còn ${d.slots} chỗ)</option>`
+      `<option value="${i}">${dateVN(d.date)} · ${d.time}</option>`
     ).join('');
     
     $('bookingForm').reset(); 
-    if (t.departures && t.departures[0]) {
-      $('ticketQty').max = t.departures[0].slots;
-    }
-    
-    $('sumPromoRow').style.display = 'none'; 
     calc(); 
     openModal('bookingModalOverlay');
   }
 
   function calc() {
     if (!current) return 0;
-    const q = Math.max(1, +$('ticketQty').value || 1), sub = current.price * q;
-    const dis = promo ? Math.round(sub * promo.percent / 100) : 0;
-    $('sumBase').textContent = money(sub);
-    $('sumPromoRow').style.display = promo ? 'flex' : 'none';
-    $('sumPromo').textContent = '-' + money(dis);
-    $('totalLabel').textContent = `Tổng tiền (${q} vé)`;
-    $('totalAmount').textContent = money(sub - dis);
-    return sub - dis;
-  }
-
-  function applyPromo() {
-    const p = DATA.promoCodes.find(x => x.code === $('promoCode').value.trim().toUpperCase());
-    promo = p || null; calc();
-    if (!p && $('promoCode').value.trim()) alert('Mã ưu đãi không hợp lệ.');
+    const q = Math.max(1, +$('ticketQty').value || 1);
+    const sub = current.price * q;
+    $('sumBase').textContent = money(sub);$('totalLabel').textContent = `Tổng tiền (${q} vé)`;
+    $('totalAmount').textContent = money(sub);
+    return sub;
   }
 
   function submitBooking(e) {
     e.preventDefault();
     const q = +$('ticketQty').value;
     const d = current.departures[+$('departureDate').value];
-    if (!(q >= 1 && q <= d.slots)) { alert(`Số lượng vé phải từ 1 đến ${d.slots}.`); return; }
-    
+    if (q < 1) { alert(`Số lượng vé tối thiểu là 1.`); return; }
+
     $('orderCode').textContent = 'TOUR-' + Math.floor(100000 + Math.random() * 900000);
-    $('infoName').textContent = $('renterName').value;
-    $('infoEmail').textContent = $('renterEmail').value;
+    $('infoName').textContent =$('renterName').value;
+    $('infoEmail').textContent =$('renterEmail').value;
     $('infoService').textContent = current.name;
     $('infoDate').textContent = `${dateVN(d.date)} · ${d.time}`;
     $('infoTotal').textContent = money(calc());
-    $('infoPay').textContent = $('payMethod').value;
+    $('infoPay').textContent =$('payMethod').value;
     
     closeModal('bookingModalOverlay'); 
     closeModal('detailModalOverlay'); 
     openModal('successModalOverlay');
+    render();
   }
 })();
-// Tìm /* [KEY: FETCH_DATA] để kiểm tra/sửa nạp dữ liệu.
-// // Tìm /* [KEY: RENDER_GRID] để sửa cấu trúc thẻ tour trên danh sách.
-// // Tìm /* [KEY: EVENT_CARD] để sửa sự kiện bấm nút Xem chi tiết / Đặt ngay.
