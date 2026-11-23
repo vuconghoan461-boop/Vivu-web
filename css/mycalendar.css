@@ -241,24 +241,6 @@ svg {
   gap: 4px;
 }
 
-.view-btn {
-  display: block;
-  width: 100%;
-  margin-top: 10px;
-  background: none;
-  border: 1px solid var(--line);
-  color: var(--blue-700);
-  font-size: 12.5px;
-  font-weight: 600;
-  padding: 6px;
-  border-radius: 7px;
-  cursor: pointer;
-}
-
-.view-btn:hover {
-  background: #eef6ff;
-}
-
 .empty-note {
   text-align: center;
   color: var(--sub);
@@ -266,66 +248,6 @@ svg {
   padding: 16px 8px 4px;
   border-top: 1px dashed var(--line);
   margin-top: 6px;
-}
-
-.quick-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-.quick-item {
-  border: 1px solid var(--line);
-  border-radius: 11px;
-  padding: 12px 10px;
-  font-size: 12.5px;
-  cursor: pointer;
-}
-
-.quick-item:hover {
-  border-color: #bcd8f2;
-  background: #f9fcff;
-}
-
-.quick-item .qi-icon {
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-  font-size: 15px;
-}
-
-.qi-blue {
-  background: #eaf3fd;
-  color: var(--blue-600);
-}
-
-.qi-green {
-  background: #e7f7ef;
-  color: var(--green);
-}
-
-.qi-amber {
-  background: #fdf2e3;
-  color: var(--amber);
-}
-
-.qi-violet {
-  background: #efedfe;
-  color: var(--violet);
-}
-
-.quick-item b {
-  display: block;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.quick-item small {
-  color: var(--sub);
 }
 
 /* main trip panel */
@@ -342,7 +264,7 @@ svg {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg,rgba(4,20,28,.7),rgba(4,20,28,.05) 60%);
+  background: linear-gradient(0deg,rgba(4,20,28,.55),rgba(4,20,28,0) 55%);
 }
 
 .trip-hero-inner {
@@ -966,17 +888,8 @@ svg {
   display: none !important;
 }
 
-.panel-gap {
-  margin-bottom: 16px;
-}
-
 .empty-note.no-border {
   border: none;
-}
-
-/* khoảng cách giữa các thẻ chuyến đi trong sidebar */
-.view-btn + .trip-card {
-  margin-top: 12px;
 }
 
 /* màu theo ngày (JS chỉ gắn class day-c0 ... day-c4) */
@@ -1150,7 +1063,7 @@ svg {
 .banner .hero-slide.is-active { opacity: 1; }
 .banner .hero-slider::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(0,0,0,.94) 0%, rgba(152,144,144,.225) 42%);
+  background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 55%);
 }
 .banner .hero-controls {
   position: absolute; z-index: 3; left: var(--edge); right: var(--edge); bottom: 24px;
@@ -1212,4 +1125,63 @@ svg {
   font-weight: 700;
   margin: 4px 0 10px;
   color: var(--ink);
+}
+
+/* ===== Thông báo lỗi trong hộp thoại thêm hoạt động ===== */
+.modal-error {
+  margin: 4px 0 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #fdecea;
+  color: #b3261e;
+  font-size: 13px;
+}
+
+
+/* ===== Icon Font Awesome ===== */
+.trip-meta i,
+.trip-hero-meta i,
+.hotel p i {
+  width: 14px;
+  text-align: center;
+  color: var(--blue-500);
+}
+.trip-hero-meta i { color: rgba(255,255,255,.9); }
+
+.activity .content p i {
+  width: 14px;
+  text-align: center;
+  color: var(--blue-600);
+}
+
+.share-btn,
+.modal-head button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-act i { margin-right: 4px; }
+
+/* chữ trên ảnh vẫn đọc rõ khi lớp phủ nhẹ hơn */
+.trip-hero-inner h2,
+.trip-hero-meta,
+.banner .module-hero .page-title,
+.banner .module-hero .page-desc,
+.banner .module-hero .tag-pill,
+.banner .module-hero .crumb {
+  text-shadow: 0 1px 4px rgba(0,0,0,.55);
+}
+
+/* Các class thumb-* dùng "background:" viết tắt nên làm mất background-size/position của ảnh thu nhỏ
+   (ảnh hiện ở cỡ gốc, chỉ thấy một góc mờ). Đặt lại ở cuối file để luôn thắng. */
+.trip-thumb {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Cột lưới không được rộng hơn màn hình: hàng chọn ngày tự cuộn ngang bên trong thay vì làm cả trang tràn */
+.layout > * {
+  min-width: 0;
 }

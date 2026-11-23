@@ -1,42 +1,20 @@
 {
-  "quickAdds": [
-    {
-      "icon": "fa-location-dot",
-      "title": "Thêm điểm đến",
-      "desc": "Nơi bạn muốn khám phá"
-    },
-    {
-      "icon": "fa-hotel",
-      "title": "Thêm khách sạn",
-      "desc": "Nơi bạn sẽ nghỉ"
-    },
-    {
-      "icon": "fa-car",
-      "title": "Thêm phương tiện",
-      "desc": "Máy bay, tàu, xe"
-    },
-    {
-      "icon": "fa-map-location-dot",
-      "title": "Thêm tour",
-      "desc": "Trải nghiệm đặt sẵn"
-    }
-  ],
   "activityTypes": [
     {
-      "icon": "🍜",
+      "icon": "fa-utensils",
       "label": "Ăn uống",
       "active": true
     },
     {
-      "icon": "📍",
+      "icon": "fa-location-dot",
       "label": "Điểm đến"
     },
     {
-      "icon": "🏨",
+      "icon": "fa-hotel",
       "label": "Khách sạn"
     },
     {
-      "icon": "🚗",
+      "icon": "fa-car",
       "label": "Di chuyển"
     }
   ],
@@ -47,6 +25,7 @@
   "trips": [
     {
       "id": "danang",
+      "tourId": 6,
       "name": "Đà Nẵng – Hội An",
       "sidebarName": "Đà Nẵng",
       "thumbClass": "thumb-danang",
@@ -59,23 +38,27 @@
             {
               "time": "08:00",
               "title": "Hà Nội → Đà Nẵng",
-              "note": "✈ Bay VN162"
+              "note": "Bay VN162",
+              "icon": "fa-plane"
             },
             {
               "time": "12:00",
               "title": "Nhận phòng khách sạn",
-              "note": "🏨 Đà Nẵng"
+              "note": "Đà Nẵng",
+              "icon": "fa-hotel"
             },
             {
               "time": "14:00",
               "title": "Tham quan Cầu Rồng",
-              "note": "📍 Đà Nẵng",
-              "thumb": "thumb-bridge"
+              "note": "Đà Nẵng",
+              "thumb": "thumb-bridge",
+              "icon": "fa-location-dot"
             },
             {
               "time": "19:00",
               "title": "Ăn tối",
-              "note": "🍜 Hải sản Bé Mặn"
+              "note": "Hải sản Bé Mặn",
+              "icon": "fa-utensils"
             }
           ]
         },
@@ -84,18 +67,21 @@
             {
               "time": "09:00",
               "title": "Bà Nà Hills",
-              "note": "🚡 Cáp treo"
+              "note": "Cáp treo",
+              "icon": "fa-cable-car"
             },
             {
               "time": "17:00",
               "title": "Ăn tối",
-              "note": "🍽 Chợ Đêm"
+              "note": "Chợ Đêm",
+              "icon": "fa-utensils"
             },
             {
               "time": "18:30",
               "title": "Phố cổ Hội An",
-              "note": "🏮 Đèn lồng Hội An",
-              "thumb": "thumb-lantern"
+              "note": "Đèn lồng Hội An",
+              "thumb": "thumb-lantern",
+              "icon": "fa-lightbulb"
             }
           ]
         },
@@ -104,18 +90,21 @@
             {
               "time": "08:00",
               "title": "Hội An",
-              "note": "🚶 Phố cổ ban ngày"
+              "note": "Phố cổ ban ngày",
+              "icon": "fa-person-walking"
             },
             {
               "time": "12:00",
               "title": "Ăn trưa",
-              "note": "🍲 Cao Lầu"
+              "note": "Cao Lầu",
+              "icon": "fa-bowl-food"
             },
             {
               "time": "18:30",
               "title": "Chèo thúng",
-              "note": "🛶 Rừng dừa Bảy Mẫu",
-              "thumb": "thumb-boat"
+              "note": "Rừng dừa Bảy Mẫu",
+              "thumb": "thumb-boat",
+              "icon": "fa-sailboat"
             }
           ]
         },
@@ -124,7 +113,8 @@
             {
               "time": "09:00",
               "title": "Biển Mỹ Khê",
-              "note": "🏖 Nghỉ dưỡng"
+              "note": "Nghỉ dưỡng",
+              "icon": "fa-umbrella-beach"
             }
           ]
         },
@@ -133,7 +123,8 @@
             {
               "time": "10:00",
               "title": "Đà Nẵng → Hà Nội",
-              "note": "✈ Bay VN177"
+              "note": "Bay VN177",
+              "icon": "fa-plane"
             }
           ]
         }
@@ -233,6 +224,7 @@
     },
     {
       "id": "dalat",
+      "tourId": 10,
       "name": "Đà Lạt",
       "sidebarName": "Đà Lạt",
       "thumbClass": "thumb-dalat",
@@ -243,6 +235,7 @@
     },
     {
       "id": "phuquoc",
+      "tourId": 13,
       "name": "Phú Quốc",
       "sidebarName": "Phú Quốc",
       "thumbClass": "thumb-phuquoc",
@@ -255,17 +248,20 @@
             {
               "time": "07:30",
               "title": "Hà Nội → Phú Quốc",
-              "note": "✈ Chuyến bay buổi sáng"
+              "note": "Chuyến bay buổi sáng",
+              "icon": "fa-plane"
             },
             {
               "time": "14:00",
               "title": "Nhận phòng resort",
-              "note": "🏨 Bãi Dài"
+              "note": "Bãi Dài",
+              "icon": "fa-hotel"
             },
             {
               "time": "18:30",
               "title": "Ăn tối",
-              "note": "🦀 Chợ đêm Dinh Cậu"
+              "note": "Chợ đêm Dinh Cậu",
+              "icon": "fa-utensils"
             }
           ]
         },
@@ -274,17 +270,20 @@
             {
               "time": "08:00",
               "title": "Tour 4 đảo",
-              "note": "🏝 Cano khám phá Nam đảo"
+              "note": "Cano khám phá Nam đảo",
+              "icon": "fa-umbrella-beach"
             },
             {
               "time": "12:30",
               "title": "Ăn trưa",
-              "note": "🐟 Hải sản trên đảo"
+              "note": "Hải sản trên đảo",
+              "icon": "fa-fish"
             },
             {
               "time": "16:00",
               "title": "Lặn ngắm san hô",
-              "note": "🤿 Hòn Thơm"
+              "note": "Hòn Thơm",
+              "icon": "fa-person-swimming"
             }
           ]
         },
@@ -293,12 +292,14 @@
             {
               "time": "09:00",
               "title": "VinWonders",
-              "note": "🎢 Vui chơi cả ngày"
+              "note": "Vui chơi cả ngày",
+              "icon": "fa-ticket"
             },
             {
               "time": "18:00",
               "title": "Ngắm hoàng hôn",
-              "note": "🌅 Bãi Sao"
+              "note": "Bãi Sao",
+              "icon": "fa-sun"
             }
           ]
         },
@@ -307,12 +308,14 @@
             {
               "time": "08:30",
               "title": "Nhà tù Phú Quốc",
-              "note": "📍 Tham quan"
+              "note": "Tham quan",
+              "icon": "fa-location-dot"
             },
             {
               "time": "15:00",
               "title": "Cơ sở nước mắm",
-              "note": "🛍 Mua quà"
+              "note": "Mua quà",
+              "icon": "fa-bag-shopping"
             }
           ]
         },
@@ -321,7 +324,8 @@
             {
               "time": "11:00",
               "title": "Phú Quốc → Hà Nội",
-              "note": "✈ Chuyến bay về"
+              "note": "Chuyến bay về",
+              "icon": "fa-plane"
             }
           ]
         }
@@ -379,6 +383,7 @@
     },
     {
       "id": "sapa",
+      "tourId": 3,
       "name": "Sa Pa",
       "sidebarName": "Sa Pa",
       "thumbClass": "thumb-sapa",
@@ -391,12 +396,14 @@
             {
               "time": "06:00",
               "title": "Hà Nội → Sa Pa",
-              "note": "🚌 Xe giường nằm"
+              "note": "Xe giường nằm",
+              "icon": "fa-bus"
             },
             {
               "time": "14:00",
               "title": "Nhận phòng",
-              "note": "🏨 Thị trấn Sa Pa"
+              "note": "Thị trấn Sa Pa",
+              "icon": "fa-hotel"
             }
           ]
         },
@@ -405,12 +412,14 @@
             {
               "time": "08:00",
               "title": "Bản Cát Cát",
-              "note": "🚶 Đi bộ trải nghiệm"
+              "note": "Đi bộ trải nghiệm",
+              "icon": "fa-person-walking"
             },
             {
               "time": "12:00",
               "title": "Ăn trưa",
-              "note": "🍲 Thắng cố"
+              "note": "Thắng cố",
+              "icon": "fa-bowl-food"
             }
           ]
         },
@@ -419,7 +428,8 @@
             {
               "time": "07:00",
               "title": "Fansipan",
-              "note": "🚡 Cáp treo lên đỉnh"
+              "note": "Cáp treo lên đỉnh",
+              "icon": "fa-cable-car"
             }
           ]
         },
@@ -428,12 +438,14 @@
             {
               "time": "09:00",
               "title": "Chợ Sa Pa",
-              "note": "🛍 Mua đặc sản"
+              "note": "Mua đặc sản",
+              "icon": "fa-bag-shopping"
             },
             {
               "time": "13:00",
               "title": "Sa Pa → Hà Nội",
-              "note": "🚌 Xe về"
+              "note": "Xe về",
+              "icon": "fa-bus"
             }
           ]
         }

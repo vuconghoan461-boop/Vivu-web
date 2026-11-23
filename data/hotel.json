@@ -97,7 +97,20 @@
           "items": "Yêu cầu trong phòng không được phép hút thuốc. Có cung cấp dịch vụ và tiện nghi dành riêng cho khách khiếm khuyết."
         }
       ],
-      "policy": "Nhận phòng từ 14:00 và trả phòng trước 12:00. Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. \nChính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. \nTrẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00.",
+          "Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí."
+        ],
+        "cancel": [
+          "Chính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn."
+        ],
+        "other": [
+          "Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định.",
+          "Trẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí.",
+          "Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú."
+        ]
+      },
       "images": [
         "hotel1.jpg",
         "hotel12.jpg",
@@ -184,7 +197,20 @@
           "items": "WiFi miễn phí. Phòng họp cho sự kiện và công tác. Có xe đưa đón sân bay (đặt trước). Ngoài ra còn có dịch vụ Majordome 24/7 dành cho khách hạng Club Metropole."
         }
       ],
-      "policy": "Nhận phòng từ 14:00 đến 00:00 và trả phòng trước 12:00. Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. \nChính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. \nTrẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 đến 00:00 và trả phòng trước 12:00.",
+          "Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí."
+        ],
+        "cancel": [
+          "Chính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn."
+        ],
+        "other": [
+          "Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định.",
+          "Trẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí.",
+          "Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú."
+        ]
+      },
       "images": [
         "hotel12.jpg",
         "hotel1.jpg",
@@ -286,7 +312,20 @@
           "items": "WiFi miễn phí. Pacific Club Lounge dành cho khách hạng phòng Club. Trung tâm dịch vụ doanh nhân hỗ trợ công tác. Bãi đỗ xe miễn phí theo tình trạng chỗ trống."
         }
       ],
-      "policy": "Nhận phòng từ 14:00 và trả phòng trước 12:00. Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. \nChính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. \nTrẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00.",
+          "Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí."
+        ],
+        "cancel": [
+          "Chính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn."
+        ],
+        "other": [
+          "Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định.",
+          "Trẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí.",
+          "Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú."
+        ]
+      },
       "images": [
         "hotel211.jpg",
         "hotel2.jpg",
@@ -397,7 +436,20 @@
           "items": "WiFi miễn phí toàn khuôn viên. Lễ tân 24 giờ. Airport shuttle và bãi đỗ xe miễn phí. Có giặt là, thu đổi ngoại tệ, thuê xe, đặt vé và tour. Phòng họp/tiệc cho sự kiện."
         }
       ],
-      "policy": "Nhận phòng từ 15:00 và trả phòng trước 13:00. Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. \nChính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. \nTrẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 15:00 và trả phòng trước 13:00.",
+          "Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí."
+        ],
+        "cancel": [
+          "Chính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn."
+        ],
+        "other": [
+          "Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định.",
+          "Trẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí.",
+          "Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú."
+        ]
+      },
       "images": [
         "hotel3.jpg",
         "hotel31.jpg",
@@ -488,7 +540,20 @@
           "items": "Cung cấp WiFi miễn phí trong toàn khách sạn. Bộ phận lễ tân hoạt động 24/7. Có bãi đỗ xe cho khách tự lái xe tới và lưu trú qua đêm. Cung cấp dịch vụ đưa đón sân bay theo yêu cầu."
         }
       ],
-      "policy": "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng/trả phòng cần xác nhận theo điều kiện đặt phòng của từng loại giá. Khách sạn không nhận vật nuôi. Bữa sáng buffet được khách sạn công bố tại 1968 Restaurant; breakfast box có thể yêu cầu trước. Dịch vụ đưa đón sân bay có tính phí; giá vận chuyển được niêm yết theo loại xe và đã bao gồm service charge/VAT theo trang dịch vụ. Hủy/trả trước và giường phụ phụ thuộc loại phòng/giá. Các khu wellness có giới hạn giám sát trẻ em.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng/trả phòng cần xác nhận theo điều kiện đặt phòng của từng loại giá."
+        ],
+        "cancel": [
+          "Hủy/trả trước và giường phụ phụ thuộc loại phòng/giá."
+        ],
+        "other": [
+          "Bên cạnh đó, khách sạn không nhận vật nuôi.",
+          "Bữa sáng buffet được khách sạn công bố tại 1968 Restaurant; breakfast box có thể yêu cầu trước.",
+          "Dịch vụ đưa đón sân bay có tính phí; giá vận chuyển được niêm yết theo loại xe và đã bao gồm service charge/VAT theo trang dịch vụ.",
+          "Các khu wellness có giới hạn giám sát trẻ em."
+        ]
+      },
       "images": [
         "hotel4.jpg",
         "hotel1.jpg",
@@ -576,7 +641,20 @@
           "items": "Có bãi đỗ xe cho khách tự lái xe tới và lưu trú qua đêm. Cung cấp dịch vụ đưa đón sân bay theo yêu cầu từ phía khách."
         }
       ],
-      "policy": "Nhận phòng từ 14:00 và trả phòng trước 12:00. Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. \nChính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. \nTrẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00.",
+          "Khách cần xuất trình giấy tờ tùy thân hợp lệ khi nhận phòng; yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí."
+        ],
+        "cancel": [
+          "Chính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn."
+        ],
+        "other": [
+          "Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định.",
+          "Trẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí.",
+          "Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú."
+        ]
+      },
       "images": [
         "hotel41.jpg",
         "hotel5.jpg",
@@ -660,7 +738,22 @@
           "items": "Đưa đón sân bay có phụ phí. Có bãi đỗ xe máy."
         }
       ],
-      "policy": "Nhận phòng từ 14:00 và trả phòng trước 12:00. Nhận phòng và yêu cầu đặc biệt theo chính sách tại thời điểm đặt. Yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. Chính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Có thể yêu cầu giấy tờ tùy thân và thẻ/tiền đặt cọc cho chi phí phát sinh. Chỉ khách đã đăng ký được lưu trú. Khách sạn không hút thuốc; bữa sáng có thể tính phí. Chỗ đỗ xe chủ yếu dành cho xe máy.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00.",
+          "Nhận phòng và yêu cầu đặc biệt theo chính sách tại thời điểm đặt.",
+          "Yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí."
+        ],
+        "cancel": [
+          "Chính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn."
+        ],
+        "other": [
+          "Có thể yêu cầu giấy tờ tùy thân và thẻ/tiền đặt cọc cho chi phí phát sinh.",
+          "Chỉ khách đã đăng ký được lưu trú.",
+          "Khách sạn không hút thuốc; bữa sáng có thể tính phí.",
+          "Chỗ đỗ xe chủ yếu dành cho xe máy."
+        ]
+      },
       "images": [
         "hotel42.jpg",
         "hotel5.jpg",
@@ -742,7 +835,19 @@
           "items": "Không cung cấp dịch vụ đưa đón sân ban. Nhưng có hỗ trợ liên hệ dịch vụ đưa đón nếu khách hàng có như cầu."
         }
       ],
-      "policy": "Nhận phòng sau 14:00, trả phòng trước 12:00; lễ tân 24/7. Trẻ em mọi độ tuổi được chào đón; có thể phát sinh phí khi sử dụng giường hiện có. Không kê thêm cũi/giường phụ. Thú cưng không được phép. Khách chính nhận phòng phải từ 18 tuổi. Bữa sáng phục vụ khoảng 06:00-09:00 và có thể tính phí riêng.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng sau 14:00, trả phòng trước 12:00; lễ tân 24/7.",
+          "Khách chính nhận phòng phải từ 18 tuổi."
+        ],
+        "cancel": [],
+        "other": [
+          "Trẻ em mọi độ tuổi được chào đón; có thể phát sinh phí khi sử dụng giường hiện có.",
+          "Không kê thêm cũi/giường phụ.",
+          "Thú cưng không được phép.",
+          "Bữa sáng phục vụ khoảng 06:00-09:00 và có thể tính phí riêng."
+        ]
+      },
       "images": [
         "hotel92.jpg",
         "hotel9.jpg",
@@ -812,7 +917,19 @@
           "items": "Không có dịch vụ ăn uống tại chỗ. Nhưng vị trí gần các hàng quán với món ngon địa phương. Khách hàng có thể nhận gợi ý từ nhân viên."
         }
       ],
-      "policy": "Nhận phòng từ 14:00 và trả phòng trước 12:00. Theo quy định, yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí. Chính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00.",
+          "Theo quy định, yêu cầu nhận phòng sớm hoặc trả phòng muộn phụ thuộc vào tình trạng phòng trống và có thể phát sinh phụ phí."
+        ],
+        "cancel": [
+          "Chính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn."
+        ],
+        "other": [
+          "Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định.",
+          "Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú."
+        ]
+      },
       "images": [
         "hotel51.jpg",
         "hotel52.jpg",
@@ -894,7 +1011,20 @@
           "items": "Không có dịch vụ ăn uống tại chỗ. Nhưng vị trí gần các hàng quán với món ngon địa phương. Khách hàng có thể nhận gợi ý từ nhân viên."
         }
       ],
-      "policy": "Nhận phòng từ 14:00 và trả phòng trước 12:00. Giá tham khảo/đêm; kiểm tra chính sách hủy, thuế phí và phụ thu theo ngày lưu trú. Chính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn. Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định. Trẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí. Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00."
+        ],
+        "cancel": [
+          "Giá tham khảo/đêm; kiểm tra chính sách hủy, thuế phí và phụ thu theo ngày lưu trú.",
+          "Chính sách hủy, thay đổi đặt phòng và hoàn tiền được áp dụng tùy theo loại phòng và gói giá đã lựa chọn."
+        ],
+        "other": [
+          "Khách sạn có thể yêu cầu thanh toán trước hoặc đặt cọc để đảm bảo đặt phòng; các chi phí phát sinh sẽ được thông báo theo quy định.",
+          "Trẻ em cần đi cùng người lớn chịu trách nhiệm, trong khi việc bố trí giường phụ hoặc nôi em bé phụ thuộc vào tình trạng cung cấp và có thể tính thêm phí.",
+          "Khách cần liên hệ trước để xác nhận quy định về vật nuôi, đồng thời tuân thủ nội quy về hút thuốc, giữ gìn vệ sinh, hạn chế tiếng ồn và bảo quản tài sản trong suốt thời gian lưu trú."
+        ]
+      },
       "images": [
         "hotel52.jpg",
         "hotel53.jpg",
@@ -987,7 +1117,21 @@
           "items": "Không có dịch vụ ăn uống tại chỗ. Nhưng vị trí gần các hàng quán với món ngon địa phương. Khách hàng có thể nhận gợi ý từ nhân viên."
         }
       ],
-      "policy": "Giá tham khảo theo đêm, dịch vụ và ưu đãi thay đổi theo ngày và mùa du lịch. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 48 giờ so với ngày nhận phòng; hủy muộn hơn hoặc không đến nhận phòng sẽ bị tính phí 01 đêm đầu tiên. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 48 giờ so với ngày nhận phòng; hủy muộn hơn hoặc không đến nhận phòng sẽ bị tính phí 01 đêm đầu tiên."
+        ],
+        "other": [
+          "Giá tham khảo theo đêm, dịch vụ và ưu đãi thay đổi theo ngày và mùa du lịch.",
+          "Ngoài ra, trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng.",
+          "Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "hotel6.jpg",
         "hotel61.jpg",
@@ -1081,7 +1225,22 @@
           "items": "Phòng hội nghị cho sự kiện và công tác."
         }
       ],
-      "policy": "Giá tham khảo theo mức đặt phòng được công bố, thay đổi theo ngày và chương trình ưu đãi. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Giá có thể chưa gồm phí chơi golf, xe điện và dịch vụ caddie; vui lòng đặt riêng với khách sạn. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền."
+        ],
+        "other": [
+          "Giá tham khảo theo mức đặt phòng được công bố, thay đổi theo ngày và chương trình ưu đãi.",
+          "Chú ý: trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng.",
+          "Giá có thể chưa gồm phí chơi golf, xe điện và dịch vụ caddie; vui lòng đặt riêng với khách sạn.",
+          "Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "hotel64.jpg",
         "hotel62.jpg",
@@ -1174,7 +1333,23 @@
           "items": "Cano đưa đón từ đất liền ra đảo theo lịch của resort."
         }
       ],
-      "policy": "Giá tham khảo theo đêm; giá thay đổi theo mùa và chương trình ưu đãi. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Cano đưa đón đất liền – đảo hoạt động theo lịch của resort; khách nên đến bến trước giờ khởi hành ít nhất 30 phút. Thời tiết xấu có thể làm thay đổi lịch cano. Vui lòng giữ yên tĩnh sau 22:00 để không ảnh hưởng khách lưu trú khác; hư hỏng hoặc mất mát tài sản trong phòng sẽ được tính theo giá bồi thường của đơn vị. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Cano đưa đón đất liền – đảo hoạt động theo lịch của resort; khách nên đến bến trước giờ khởi hành ít nhất 30 phút.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy."
+        ],
+        "other": [
+          "Giá tham khảo theo đêm; giá thay đổi theo mùa và chương trình ưu đãi.",
+          "Lưu ý: Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng.",
+          "Thời tiết xấu có thể làm thay đổi lịch cano.",
+          "Vui lòng giữ yên tĩnh sau 22:00 để không ảnh hưởng khách lưu trú khác; hư hỏng hoặc mất mát tài sản trong phòng sẽ được tính theo giá bồi thường của đơn vị.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "hotel65.jpg",
         "hotel67.jpg",
@@ -1264,7 +1439,21 @@
           "items": "Lễ tân hoạt động 24/7."
         }
       ],
-      "policy": "Giá tham khảo theo đêm, giá thực tế thay đổi theo ngày và điều kiện đặt phòng. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 48 giờ so với ngày nhận phòng; hủy muộn hơn hoặc không đến nhận phòng sẽ bị tính phí 01 đêm đầu tiên. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 48 giờ so với ngày nhận phòng; hủy muộn hơn hoặc không đến nhận phòng sẽ bị tính phí 01 đêm đầu tiên."
+        ],
+        "other": [
+          "Giá tham khảo theo đêm, giá thực tế thay đổi theo ngày và điều kiện đặt phòng.",
+          "Lưu ý: Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng.",
+          "Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "hotel7.jpg",
         "hotel69.jpg",
@@ -1357,7 +1546,22 @@
           "items": "Phòng hội nghị phù hợp tổ chức sự kiện nhỏ."
         }
       ],
-      "policy": "Giá tham khảo theo mức công bố, thay đổi theo ngày và chương trình ưu đãi. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Vào dịp lễ, Tết và pháo hoa quốc tế, khách sạn có thể áp dụng chính sách đặt cọc và không hoàn hủy. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền.",
+          "Vào dịp lễ, Tết và pháo hoa quốc tế, khách sạn có thể áp dụng chính sách đặt cọc và không hoàn hủy."
+        ],
+        "other": [
+          "Giá tham khảo theo mức công bố, thay đổi theo ngày và chương trình ưu đãi.",
+          "Lưu ý: Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng.",
+          "Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "hotel71.jpg",
         "hotel69.jpg",
@@ -1448,7 +1652,22 @@
           "items": "Phòng hội nghị và bãi đỗ xe."
         }
       ],
-      "policy": "Giá tham khảo theo đêm; thuế, phí và chính sách hủy tùy theo loại giá đã chọn. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 48 giờ so với ngày nhận phòng; hủy muộn hơn hoặc không đến nhận phòng sẽ bị tính phí 01 đêm đầu tiên. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Vui lòng giữ yên tĩnh sau 22:00 để không ảnh hưởng khách lưu trú khác; hư hỏng hoặc mất mát tài sản trong phòng sẽ được tính theo giá bồi thường của đơn vị. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Giá tham khảo theo đêm; thuế, phí và chính sách hủy tùy theo loại giá đã chọn.",
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 48 giờ so với ngày nhận phòng; hủy muộn hơn hoặc không đến nhận phòng sẽ bị tính phí 01 đêm đầu tiên."
+        ],
+        "other": [
+          "Lưu ý: Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng.",
+          "Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng.",
+          "Vui lòng giữ yên tĩnh sau 22:00 để không ảnh hưởng khách lưu trú khác; hư hỏng hoặc mất mát tài sản trong phòng sẽ được tính theo giá bồi thường của đơn vị.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "hotel8.jpg",
         "hotel81.jpg",
@@ -1540,7 +1759,21 @@
           "items": "Phòng hội nghị và bãi đỗ xe."
         }
       ],
-      "policy": "Giá tham khảo theo đêm; một số mức giá có ưu đãi theo mùa, vui lòng kiểm tra điều kiện hủy trước khi đặt. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Giá tham khảo theo đêm; một số mức giá có ưu đãi theo mùa, vui lòng kiểm tra điều kiện hủy trước khi đặt.",
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền."
+        ],
+        "other": [
+          "Lưu ý: Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng.",
+          "Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "hotel84.jpg",
         "hotel81.jpg",
@@ -1633,7 +1866,22 @@
           "items": "Phòng hội nghị phục vụ khách công tác."
         }
       ],
-      "policy": "Giá tham khảo theo mức giá phòng được hiển thị; có thể phát sinh thuế và phí tùy kênh đặt. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng. Khách hạng Executive Suite được sử dụng lounge theo khung giờ quy định của khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền."
+        ],
+        "other": [
+          "Giá tham khảo theo mức giá phòng được hiển thị; có thể phát sinh thuế và phí tùy kênh đặt.",
+          "Lưu ý: Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng.",
+          "Khách sạn không hút thuốc trong phòng, hút thuốc tại khu vực quy định; không mang thú cưng; không mang đồ có mùi nặng như sầu riêng vào phòng.",
+          "Khách hạng Executive Suite được sử dụng lounge theo khung giờ quy định của khách sạn.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "hotel85.jpg",
         "hotel67.jpg",
@@ -1704,7 +1952,23 @@
           "items": "Bãi đỗ xe. Chủ villa hỗ trợ đặt tour."
         }
       ],
-      "policy": "Giá tham khảo theo đêm; villa nguyên căn và phụ thu số người ở cần xác nhận theo ngày. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Mùa lạnh (tháng 11 – tháng 3) khách nên mang đủ đồ ấm; villa có thể tính phụ phí sưởi. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy."
+        ],
+        "other": [
+          "Giá tham khảo theo đêm; villa nguyên căn và phụ thu số người ở cần xác nhận theo ngày.",
+          "Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ.",
+          "Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa.",
+          "Mùa lạnh (tháng 11 – tháng 3) khách nên mang đủ đồ ấm; villa có thể tính phụ phí sưởi.",
+          "Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "villa1.jpg",
         "villa5.jpg",
@@ -1773,7 +2037,23 @@
           "items": "Bãi đỗ xe. Hỗ trợ đặt tour."
         }
       ],
-      "policy": "Giá tham khảo theo đêm; giá villa thay đổi theo số khách và ngày cuối tuần. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Khu BBQ cần đặt trước và có thể tính phí than, dụng cụ; vui lòng dọn dẹp và tắt lửa sau khi sử dụng. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy."
+        ],
+        "other": [
+          "Giá tham khảo theo đêm; giá villa thay đổi theo số khách và ngày cuối tuần.",
+          "Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ.",
+          "Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa.",
+          "Khu BBQ cần đặt trước và có thể tính phí than, dụng cụ; vui lòng dọn dẹp và tắt lửa sau khi sử dụng.",
+          "Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "villa2.jpg",
         "villa3.jpg",
@@ -1847,7 +2127,23 @@
           "items": "Dịch vụ đưa đón (cần đặt trước)."
         }
       ],
-      "policy": "Mức giá tham khảo từ website đặt phòng; giá thay đổi theo ngày và chương trình ưu đãi. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Dịch vụ đưa đón và các hoạt động yoga, spa cần đặt trước với resort. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy."
+        ],
+        "other": [
+          "Mức giá tham khảo từ website đặt phòng; giá thay đổi theo ngày và chương trình ưu đãi.",
+          "Lưu ý: Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ.",
+          "Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa.",
+          "Dịch vụ đưa đón và các hoạt động yoga, spa cần đặt trước với resort.",
+          "Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "villa4.jpg",
         "villa5.jpg",
@@ -1921,7 +2217,22 @@
           "items": "Sân vườn, bãi đỗ xe và tour trải nghiệm bản làng."
         }
       ],
-      "policy": "Giá tham khảo theo đêm; chính sách hủy và phụ thu tùy loại giá. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Mùa cao điểm (dịp lễ, Tết, mùa lúa chín) resort có thể yêu cầu đặt tối thiểu 2 đêm. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Giá tham khảo theo đêm; chính sách hủy và phụ thu tùy loại giá.",
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền."
+        ],
+        "other": [
+          "Lưu ý: Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng.",
+          "Mùa cao điểm (dịp lễ, Tết, mùa lúa chín) resort có thể yêu cầu đặt tối thiểu 2 đêm.",
+          "Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "villa7.jpg",
         "villa8.jpg",
@@ -1996,7 +2307,23 @@
           "items": "Sân vườn, tour trekking và xe đưa đón."
         }
       ],
-      "policy": "Giá tham khảo theo đêm; mức giá thay đổi theo mùa và hạng phòng. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Khu nghỉ ưu tiên bảo vệ môi trường: vui lòng hạn chế đồ nhựa dùng một lần và tiết kiệm nước, điện. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy."
+        ],
+        "other": [
+          "Giá tham khảo theo đêm; mức giá thay đổi theo mùa và hạng phòng.",
+          "Lưu ý: Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ.",
+          "Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa.",
+          "Khu nghỉ ưu tiên bảo vệ môi trường: vui lòng hạn chế đồ nhựa dùng một lần và tiết kiệm nước, điện.",
+          "Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "villa8.jpg",
         "villa9.jpg",
@@ -2071,7 +2398,22 @@
           "items": "Hỗ trợ đặt tour tham quan."
         }
       ],
-      "policy": "Giá niêm yết tham khảo; các hạng phòng cao hơn có thể vượt mức này; giá thay đổi theo thời gian. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy."
+        ],
+        "other": [
+          "Giá niêm yết tham khảo; các hạng phòng cao hơn có thể vượt mức này; giá thay đổi theo thời gian.",
+          "Lưu ý: Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ.",
+          "Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa.",
+          "Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "villa12.jpg",
         "villa13.jpg",
@@ -2145,7 +2487,23 @@
           "items": "Sân vườn rộng và xe đưa đón."
         }
       ],
-      "policy": "Giá tham khảo theo mức phòng công bố, phụ thuộc loại villa và ngày lưu trú. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Villa Pháp cổ có cầu thang và địa hình dốc, khách có người lớn tuổi hoặc xe lăn nên báo trước để được xếp phòng phù hợp. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy."
+        ],
+        "other": [
+          "Giá tham khảo theo mức phòng công bố, phụ thuộc loại villa và ngày lưu trú.",
+          "Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ.",
+          "Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa.",
+          "Villa Pháp cổ có cầu thang và địa hình dốc, khách có người lớn tuổi hoặc xe lăn nên báo trước để được xếp phòng phù hợp.",
+          "Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "villa14.jpg",
         "villa15.jpg",
@@ -2215,7 +2573,23 @@
           "items": "Sân vườn và bãi đỗ xe."
         }
       ],
-      "policy": "Giá tham khảo theo đêm; villa nhiều phòng có thể cao hơn; vui lòng xác nhận phụ thu và điều kiện hủy. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Khu nghỉ nằm xa trung tâm, khách nên chủ động phương tiện di chuyển hoặc đặt xe đưa đón trước. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Giá tham khảo theo đêm; villa nhiều phòng có thể cao hơn; vui lòng xác nhận phụ thu và điều kiện hủy.",
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy."
+        ],
+        "other": [
+          "Lưu ý: Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ.",
+          "Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa.",
+          "Khu nghỉ nằm xa trung tâm, khách nên chủ động phương tiện di chuyển hoặc đặt xe đưa đón trước.",
+          "Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "villa17.jpg",
         "villa16.jpg",
@@ -2287,7 +2661,22 @@
           "items": "Sân vườn rộng."
         }
       ],
-      "policy": "Giá tham khảo theo đêm; villa nhiều phòng có thể cao hơn mức này. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ. Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy."
+        ],
+        "other": [
+          "Giá tham khảo theo đêm; villa nhiều phòng có thể cao hơn mức này.",
+          "Lưu ý: Trẻ em dưới 5 tuổi ở chung giường với bố mẹ được miễn phí; từ 5 tuổi trở lên tính như người lớn nếu dùng thêm giường phụ.",
+          "Số khách tối đa theo từng hạng phòng, vui lòng không vượt quá sức chứa.",
+          "Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "villa18.jpg",
         "villa19.jpg",
@@ -2363,7 +2752,21 @@
           "items": "Khuôn viên ven hồ Tuyền Lâm."
         }
       ],
-      "policy": "Mức tham khảo theo giá hiển thị năm 2026; có thể thay đổi theo ngày và ưu đãi. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy."
+        ],
+        "other": [
+          "Mức tham khảo theo giá hiển thị năm 2026; có thể thay đổi theo ngày và ưu đãi.",
+          "Lưu ý: Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng.",
+          "Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "villa21.jpg",
         "villa17.jpg",
@@ -2453,7 +2856,21 @@
           "items": "Sân vườn rộng trong khuôn viên."
         }
       ],
-      "policy": "Giá tham khảo theo đêm cho phòng khách sạn; villa nhiều phòng có giá cao hơn. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 7 ngày so với ngày nhận phòng; hủy trong vòng 7 ngày sẽ bị tính phí 50% tổng tiền phòng, vào dịp lễ và cuối tuần cao điểm có thể không hoàn hủy."
+        ],
+        "other": [
+          "Giá tham khảo theo đêm cho phòng khách sạn; villa nhiều phòng có giá cao hơn.",
+          "Lưu ý: Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng.",
+          "Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "villa22.jpg",
         "villa15.jpg",
@@ -2528,7 +2945,21 @@
           "items": "Bãi đỗ xe rộng, thuận tiện cho khách tự lái."
         }
       ],
-      "policy": "Giá tham khảo theo đêm; giá và điều kiện hủy thay đổi theo ngày. Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí. Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền. Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng. Chi phí chơi golf tại sân lân cận không bao gồm trong giá phòng. Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn. Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ. Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa.",
+      "policy": {
+        "pickup": [
+          "Nhận phòng từ 14:00 và trả phòng trước 12:00; nhận phòng sớm hoặc trả phòng muộn tùy tình trạng phòng và có thể phát sinh phụ phí.",
+          "Khách vui lòng xuất trình CCCD/hộ chiếu khi nhận phòng; khách nước ngoài cần hộ chiếu và thị thực hợp lệ."
+        ],
+        "cancel": [
+          "Miễn phí hủy hoặc đổi ngày nếu thông báo trước 72 giờ so với ngày nhận phòng; hủy muộn hơn sẽ bị tính phí 01 đêm đầu tiên, không đến nhận phòng sẽ không được hoàn tiền."
+        ],
+        "other": [
+          "Trẻ em dưới 6 tuổi ngủ chung giường với bố mẹ được miễn phí; trẻ từ 6 đến 11 tuổi phụ thu ăn sáng; giường phụ có phụ phí theo mức công bố và tùy loại phòng.",
+          "Chi phí chơi golf tại sân lân cận không bao gồm trong giá phòng.",
+          "Hút thuốc trong phòng sẽ bị phạt phí vệ sinh; thú cưng không được chấp nhận trừ khi có thỏa thuận trước bằng văn bản với khách sạn.",
+          "Giá chưa bao gồm các dịch vụ phát sinh trong thời gian lưu trú như minibar, giặt ủi hoặc dịch vụ spa."
+        ]
+      },
       "images": [
         "villa23.jpg",
         "villa24.jpg",

@@ -468,7 +468,7 @@ input:focus-visible {
   color: #6B7280;}
 
 /* ---------- Nút Đặt xe nhanh ---------- */
-.btn-book {
+.btn-book, .btn-detail {
   background: #008FE5;
   color: #FFFFFF;
   border: none;
@@ -478,7 +478,9 @@ input:focus-visible {
   font-weight: bold;
   cursor: pointer;
   white-space: nowrap; }
-.btn-book:hover { background: #FF9D16; }
+.btn-book:hover, .btn-detail:hover { 
+  background: #FF9D16; 
+}
 
 /* Khối form đăng kí thông tin và thông báo thành công chung */
 .modal-overlay {
@@ -793,29 +795,127 @@ input:focus-visible {
   font-size: 15px;
   font-weight: bold;
 }
+
 /*Bổ sung popup xe*/
 .car-card { cursor: pointer; }
 .car-detail-top {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
-  align-items: start;
+  height: 240px;
 }
-.car-detail-top .image-box { 
-  border-radius: 10px; 
-  overflow: hidden; }
-.detail-body h4 { 
-  font-size: 16px; 
-  color: black; 
-  font-weight: bold; }
-.car-detail-title { margin-top: 16px; }
+.car-detail-top .image-box {
+  border-radius: 10px;
+  overflow: hidden;
+  height: 100%;
+  aspect-ratio: auto;
+}
+.car-info { 
+  overflow-y: auto; 
+  font-size: 12px; 
+}
+
+/* Đặc điểm */
+.car-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  margin-top: 8px;
+}
+.car-stat i {
+  display: inline-block;
+  width: 30px; 
+  height: 30px; 
+  line-height: 30px;
+  border-radius: 10px;
+  background: #F3FAFF; 
+  color: #008FE5;
+}
+.car-stat small{
+  display: block;
+  font-size: 11px;
+}
+.car-stat strong { 
+  display: block; 
+  font-size: 13px;
+}
+
+/* Tiện ích */
+.car-amenities li { 
+  margin-top: 5px; 
+  font-size: 13px;
+}
+.car-amenities li i { 
+  color: #FF9D16; 
+  margin-right: 6px; 
+}
+
+.detail-body h4 {
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
+}
+.car-detail-policy {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ababac;
+}
 .policy-text {
+  white-space: pre-line;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/*Nội dung phần chính sách*/
+.policy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+/* thẻ lẻ cuối chiếm trọn hàng */
+.policy-grid .policy-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.policy-card {
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  padding: 10px 14px;
   font-size: 14px;
   line-height: 1.6;
-  margin-top: 8px;
-  text-align: justify;
-  white-space: pre-line;
 }
+.tab-content .policy-card h4 {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.policy-card i { 
+  color: #008FE5; 
+  margin-right: 6px; 
+}
+.policy-card li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.policy-card li::before { 
+  content: "•"; 
+  position: absolute; 
+  left: 0; 
+}
+
+/* thẻ hủy phòng: nền khác */
+.policy-cancel { 
+  background: #ffdfdf;
+}
+.policy-cancel i { color: #FF9D16; }
+
+@media (max-width: 640px) {
+  .policy-grid { grid-template-columns: 1fr; }
+}
+
 .car-detail-foot {
   display: flex;
   align-items: center;
@@ -826,9 +926,14 @@ input:focus-visible {
   border-top: 1px solid #E5E7EB;
 }
 @media (max-width: 640px) {
-  .car-detail-top { grid-template-columns: 1fr; }
+  .car-detail-top { 
+    grid-template-columns: 1fr; 
+    height: auto; }
+  .car-detail-top .image-box { 
+    height: auto; 
+    aspect-ratio: 4/3; 
+  }
 }
-
 /* ---- MODULE CON: HOTEL---- */
 /* ===== Banner ===== */
 .banner-hotel {
@@ -875,11 +980,12 @@ input:focus-visible {
 /* ===== Danh sách khách sạn ===== */
 .hotel-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 .hotel-card {
   display: flex;
+  flex-direction: column;
   background: #fff;
   border: 1px solid  #E5E7EB;
   border-radius: 12px;
@@ -895,8 +1001,10 @@ input:focus-visible {
 }
 .hotel-media {
   position: relative;
-  flex: 0 0 38%;
-  min-height: 240px;
+  flex: none;
+  min-height: 0px;
+  width: 100%;
+  aspect-ratio: 4/3;
 }
 .hotel-media .image-box {
   position: absolute;
@@ -1095,13 +1203,16 @@ input:focus-visible {
 }
 /* ===== Responsive ===== */
 @media (max-width: 1024px) {
+  .hotel-grid { 
+    grid-template-columns:repeat(2, 1fr);  
+  }
+}
+@media (max-width: 768px) {
   .hotel-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .banner-hotel { height: 300px; padding: 24px; }
   .banner-hotel .page-title { font-size: 28px; }
-  .hotel-card { flex-direction: column; }
-  .hotel-media { flex-basis: auto; min-height: 180px; }
   .hotel-gallery { height: 120px; }
   .room-row { grid-template-columns: 1fr; }
   .room-side { align-items: flex-start; text-align: left; }
@@ -1133,7 +1244,13 @@ input:focus-visible {
   margin-top: 10px;
   font-size: 14px;
 }
-.amenity-table th,
+.amenity-table th{
+  border: 1px solid #E5E7EB;
+  padding: 10px 14px;
+  text-align: center;
+  vertical-align: top;
+  line-height: 1.6;
+}
 .amenity-table td {
   border: 1px solid #E5E7EB;
   padding: 10px 14px;
