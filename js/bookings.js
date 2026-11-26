@@ -38,14 +38,21 @@
    *   payment: { method, total }
    * } */
   function save(b) {
+    b = b || {};
+    var customer = b.customer || b.contact || {};
+    var service = Object.assign({}, b.service || {});
+    ['name', 'subtitle', 'place', 'from', 'to', 'startDate', 'endDate', 'startTime', 'endTime', 'refId', 'quantity', 'image', 'details'].forEach(function (key) {
+      if (service[key] == null && b[key] != null) service[key] = b[key];
+    });
+    if (!service.name) service.name = b.title || '';
     var record = {
-      id: b.id || ('VG-' + Math.floor(100000 + Math.random() * 900000)),
+      id: b.id || newCode(b.type || 'VG'),
       type: b.type || 'other',
       createdAt: new Date().toISOString(),
       status: 'pending',
-      account: currentAccount(),                 // null nếu khách chưa đăng nhập
-      customer: b.customer || {},
-      service: b.service || {},
+      account: currentAccount(),
+      customer: customer,
+      service: service,
       payment: {
         method: (b.payment && b.payment.method) || '',
         total: toNumber(b.payment && b.payment.total),
@@ -54,10 +61,42 @@
     };
     var list = readAll();
     list.push(record);
-    writeAll(list);
+    record.ok = writeAll(list);
+    if (!record.ok) record.error = 'Không thể lưu đơn vào bộ nhớ trình duyệt.';
     return record;
   }
-
+  function todayISO() {
+    var now = new Date();
+    return new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  }
+  function prefill(fields) {
+    var user = currentAccount();
+    if (!user || !fields) return;
+    Object.keys(fields).forEach(function (key) {
+      var input = document.getElementById(fields[key]);
+      if (input && !input.value && user[key]) input.value = user[key];
+    });
+  }
+  function isPhone(value) { return /^0\d{9}$/.test(String(value || '').replace(/\D/g, '')); }
+  function isEmail(value) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || '').trim()); }
+  function newCode(prefix) {
+    return String(prefix || 'VG').toUpperCase() + '-' + Date.now().toString().slice(-8) + Math.floor(Math.random() * 90 + 10);
+  }
+  function addDaysISO(date, days) {
+    var parts = String(date || todayISO()).split('-').map(Number);
+    var value = new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
+    value.setUTCDate(value.getUTCDate() + Number(days || 0));
+    return value.toISOString().slice(0, 10);
+  }
+  function tourDayCount(tour) {
+    var match = String((tour && tour.duration) || '').match(/(\d+)\s*ngày/i);
+    return match ? Math.max(1, Number(match[1])) : 1;
+  }
+  function showSaved(element, saved) {
+    if (!element) return;
+    element.hidden = false;
+    element.textContent = saved && saved.id ? 'Đã lưu đơn đặt tour ' + saved.id + '.' : 'Đã lưu đơn đặt tour.';
+  }
   function getAll() { return readAll(); }
 
   // Đơn của tài khoản đang đăng nhập (khớp email hoặc SĐT)
@@ -120,6 +159,14 @@ global.VGBookings = {
   clear: clear,
   exportJSON: exportJSON,
   toNumber: toNumber,
-  requireLogin: requireLogin
+  requireLogin: requireLogin,
+  todayISO: todayISO,
+  prefill: prefill,
+  isPhone: isPhone,
+  isEmail: isEmail,
+  newCode: newCode,
+  addDaysISO: addDaysISO,
+  tourDayCount: tourDayCount,
+  showSaved: showSaved
 };
 })(window);
