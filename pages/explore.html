@@ -6,6 +6,7 @@
     <title>Khám phá điểm đến | VivuGo</title>
     <meta name="description" content="Cẩm nang, lịch trình và kinh nghiệm du lịch khắp Việt Nam — VivuGo." />
 
+    <link rel="stylesheet" href="../css/tour.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -29,7 +30,7 @@
 
           <div class="kp-searchbox">
             <form class="kp-search" id="kpSearchForm" role="search" autocomplete="off">
-              <span class="kp-search__icon" aria-hidden="true">🔍</span>
+              <span class="kp-search__icon" aria-hidden="true"></span>
               <input type="search" id="kpQuery" placeholder="Bạn muốn đi đâu? Hà Giang, Hội An, Phú Quốc..." aria-label="Tìm điểm đến" />
               
               <button type="button" class="kp-filter-btn" id="kpFilterBtn" aria-expanded="false" aria-controls="kpFilterPanel">
@@ -98,6 +99,7 @@
     <div id="site-footer"></div>
     <div class="kp-toast" id="kpToast" role="status" aria-live="polite"></div>
 
+    <script src="../js/bookings.js" defer></script>
     <script src="../js/main.js" defer></script>
     <script src="../js/explore.js" defer></script>
   </body>

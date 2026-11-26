@@ -33,11 +33,18 @@ function openModal(overlayId) {
 function closeModal(overlayId) {
   document.getElementById(overlayId).classList.remove("is-open");
 }
+// Đổi Date -> "yyyy-mm-dd" theo giờ máy (không bị lệch múi giờ)
+function dateToString(date) {
+  const local = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+  return local.toISOString().slice(0, 10);
+}
+function todayString() {
+  return dateToString(new Date());
+}
 
 /*JS CỦA MODULE CON: CARRENT*/
 let CARS = [];
 let currentCarId = null;
-let promoApplied = false;
 
 /* Khởi tạo carrent */
 document.addEventListener("DOMContentLoaded", () => {
@@ -137,7 +144,9 @@ function carCardHTML(car) {
              ${oldPrice}
             <span class="price-value">${formatCurrency(car.price)} <span>${car.priceUnit}</span></span>
           </div>
-          <button type="button" class="btn-book" data-id="${car.id}">Đặt xe nhanh</button>
+          
+          <button type="button" class="btn-detail" data-id="${car.id}">Xem chi tiết</button>
+          <button type="button" class="btn-book" data-id="${car.id}">Đặt ngay</button>
         </div>
       </div>
     </article>
@@ -302,23 +311,41 @@ function openCarDetail(carId) {
       <h2>${car.name}</h2>
       <p class="detail-address">Đơn vị cho thuê: ${car.provider}</p>
     </div>
-
     <div class="detail-body" style="padding-top:14px">
       <div class="car-detail-top">
         <div class="image-box" data-label="${car.name}">${image}</div>
-        <div>
-          <h4>Thông số</h4>
-          <table class="amenity-table">
-            <tr><th>Số chỗ ngồi</th><td>${car.seats} chỗ</td></tr>
-            <tr><th>Hộp số</th><td>${car.transmission}</td></tr>
-            <tr><th>Nhiên liệu</th><td>${car.fuel}</td></tr>
-            <tr><th>Tiện ích</th><td>${(car.features || []).join(", ")}</td></tr>
-          </table>
+        <div class="car-info"> 
+          <h4>Thông tin xe: </h4>
+          <div class="car-stats">
+            <div class="car-stat">
+              <i class="fa-solid fa-users"></i>
+              <small>Số chỗ ngồi</small>
+              <strong>${car.seats} chỗ</strong>
+            </div>
+            <div class="car-stat">
+              <i class="fa-solid fa-gears"></i>
+              <small>Hộp số</small>
+              <strong>${car.transmission}</strong>
+            </div>
+            <div class="car-stat">
+              <i class="fa-solid fa-gas-pump"></i>
+              <small>Nhiên liệu</small>
+              <strong>${car.fuel}</strong>
+            </div>
+          </div>
+          <h4>Tiện ích:</h4>
+          <ul class="car-amenities">
+            ${(car.features || []).map(f =>
+              `<li><i class="fa-solid fa-check"></i>${f}</li>`
+            ).join("")}
+          </ul>
         </div>
       </div>
 
-      <h4 class="car-detail-title">Chính sách thuê xe</h4>
+      <div class="car-detail-policy">
+      <h4>Chính sách thuê xe</h4>
       <p class="policy-text">${car.policy}</p>
+      </div>
 
       <div class="car-detail-foot">
         <div class="price-box">
@@ -326,8 +353,9 @@ function openCarDetail(carId) {
           ${oldPrice}
           <span class="price-value">${formatCurrency(car.price)} <span>${car.priceUnit}</span></span>
         </div>
-        <button type="button" class="btn-book"
-          onclick="closeModal('carDetailOverlay'); openBookingModal(${car.id})">Đặt xe nhanh</button>
+        <button type="button" class="btn-book" onclick="openBookingModal(${car.id})" >
+            Đặt xe ngay
+        </button>
       </div>
     </div>`;
 
@@ -340,12 +368,11 @@ function openBookingModal(carId) {
   const car = CARS.find(c => c.id === Number(carId));
   if (!car) return;
   currentCarId = car.id;
-  promoApplied = false;
 
   document.getElementById("bookingForm").reset();
   document.getElementById("bookingCarName").textContent = car.name;
   document.getElementById("bookingProvider").textContent = `Đơn vị cung cấp: ${car.provider}`;
-  document.getElementById("bookingPerks").textContent = car.perks;
+  document.getElementById("bookingPerks").textContent = car.perks || "";
   document.getElementById("bookingPricePerDay").innerHTML =
     `${formatCurrency(car.price)}<small>${car.priceUnit}</small>`;
 
@@ -358,8 +385,8 @@ function openBookingModal(carId) {
       : "";
 
   document.getElementById("rentalDays").value = "2";
-  document.getElementById("bookingPickupDate").value = new Date().toISOString().slice(0, 10);
-
+  document.getElementById("bookingPickupDate").min = todayString();
+document.getElementById("bookingPickupDate").value = todayString();
   updateSummary();
   document.getElementById("bookingModalOverlay").classList.add("is-open");
 }
@@ -376,32 +403,17 @@ function updateSummary() {
 
   const base = car.price * days;
   const driverFee = withDriver ? 500000 * days : 0;
-  const subtotal = base + driverFee;
-  const discount = promoApplied ? Math.round(subtotal * 0.1) : 0;
 
   document.getElementById("sumBase").textContent = formatCurrency(base);
   document.getElementById("sumDriverRow").style.display = withDriver ? "flex" : "none";
   document.getElementById("sumDriver").textContent = formatCurrency(driverFee);
-  document.getElementById("sumPromoRow").style.display = promoApplied ? "flex" : "none";
-  document.getElementById("sumPromo").textContent = "-" + formatCurrency(discount);
   document.getElementById("totalLabel").textContent = `Tổng tiền (${days} ngày)`;
-  document.getElementById("totalAmount").textContent = formatCurrency(subtotal - discount);
+  document.getElementById("totalAmount").textContent = formatCurrency(base + driverFee);
 }
 
 function initBookingForm() {
   document.getElementById("rentalDays").addEventListener("change", updateSummary);
   document.getElementById("withDriver").addEventListener("change", updateSummary);
-
-  document.getElementById("applyPromo").addEventListener("click", () => {
-    const code = document.getElementById("promoCode").value.trim().toUpperCase();
-    if (code === "VIVU10") {
-      promoApplied = true;
-    } else {
-      promoApplied = false;
-      alert("Mã ưu đãi không hợp lệ hoặc đã hết hạn.");
-    }
-    updateSummary();
-  });
 
   document.getElementById("bookingForm").addEventListener("submit", (e) => {
     e.preventDefault();
@@ -409,13 +421,20 @@ function initBookingForm() {
     if (!car) return;
 
     closeBookingModal();
+    closeModal("carDetailOverlay");
     openSuccessModal({
       name: document.getElementById("renterName").value.trim(),
       phone: document.getElementById("renterPhone").value.trim(),
       service: car.name,
       pickup: document.getElementById("pickupPlace").value.trim(),
-      dropoff: document.getElementById("dropoffPlace").value.trim(),
-      total: document.getElementById("totalAmount").textContent
+      dropoff: document.getElementById("dropoffPlace").value.trim() || document.getElementById("pickupPlace").value.trim(),
+      total: document.getElementById("totalAmount").textContent,
+      carId: car.id,
+      provider: car.provider,
+      pickupDate: document.getElementById("bookingPickupDate").value,
+      days: parseInt(document.getElementById("rentalDays").value, 10) || 1,
+      withDriver: document.getElementById("withDriver").checked,
+      payMethod: document.getElementById("payMethod").value
     });
   });
 }
@@ -423,6 +442,17 @@ function initBookingForm() {
 /* Modal thành công */
 function openSuccessModal(info) {
   const code = "CAR-" + Math.floor(100000 + Math.random() * 900000);
+  // Lưu đơn vào kho dữ liệu (js/bookings.js)
+  if (window.VGBookings) VGBookings.save({
+    id: code,
+    type: "car",
+    customer: { name: info.name, phone: info.phone },
+    service: {
+      name: info.service, provider: info.provider, pickupPlace: info.pickup, dropoffPlace: info.dropoff,
+      pickupDate: info.pickupDate, days: info.days, withDriver: info.withDriver
+    },
+    payment: { method: info.payMethod, total: info.total }
+  });
   document.getElementById("orderCode").textContent = code;
   document.getElementById("infoName").textContent = info.name;
   document.getElementById("infoPhone").textContent = info.phone;
@@ -451,15 +481,20 @@ function initModals() {
 
   document.getElementById("goToMyTrips").addEventListener("click", () => {
     closeSuccessModal();
-    // TODO: đổi sang đường dẫn thật của module "Lịch của tôi" khi có
-    // window.location.href = "lich-cua-toi.html";
+    window.top.location.hash = "calendar";   // mở mục "Lịch của tôi" ở trang chủ
   });
 
   // Event delegation cho nút "Đặt xe nhanh" trong grid
     document.getElementById("carGrid").addEventListener("click", (e) => {
-      const btn = e.target.closest(".btn-book");
-      if (btn) { openBookingModal(btn.dataset.id); return; }
+      // Nút "Xe chi tiết"
+      const detailBtn = e.target.closest(".btn-detail");
+      if (detailBtn) { openCarDetail(detailBtn.dataset.id); return; }
 
+      // Nút "Đặt xe nhanh"
+      const bookBtn = e.target.closest(".btn-book");
+      if (bookBtn) { openBookingModal(bookBtn.dataset.id); return; }
+
+      //Vùng tối đóng popup
       const card = e.target.closest(".car-card");
       if (card) openCarDetail(card.dataset.id);
     });
@@ -473,7 +508,6 @@ function initModals() {
 
 /* JS MODULE CON: HOTEL */
 let HOTELS = [];
-let PROMOS = [];
 let currentHotel = null;
 let currentRoom = null;
 
@@ -514,8 +548,7 @@ function loadHotels() {
       return res.json();
     })
     .then(data => {
-      HOTELS = data.Hotels;
-      PROMOS = data.promoCodes;
+      HOTELS = data.Hotels || data.hotels || [];
 
       // Giá sau giảm = giá gốc × (1 − %giảm / 100), tính riêng cho từng phòng
       HOTELS.forEach(h => {
@@ -527,6 +560,11 @@ function loadHotels() {
       });
 
       renderHotels();
+    })
+    .catch(err => {
+      console.error("Lỗi tải hotel.json:", err);
+      document.getElementById("hotelGrid").innerHTML =
+        '<div class="empty-message">Không tải được dữ liệu khách sạn. Hãy chạy bằng Live Server / localhost.</div>';
     });
 }
 
@@ -609,7 +647,8 @@ function hotelCardHTML(hotel) {
             ${oldPrice}
             <span class="price-value">${money(room.price)}<span> /đêm</span></span>
           </div>
-          <button type="button" class="btn-book">Đặt phòng ngay</button>
+          <button type="button" class="btn-detail">Xem chi tiết</button>
+          <button type="button" class="btn-book">Đặt ngay</button>
         </div>
       </div>
     </article>`;
@@ -627,6 +666,25 @@ function renderHotels() {
 }
 
 /* ---------- 5. POPUP CHI TIẾT KHÁCH SẠN ---------- */
+/*Sửa chỗ chính sách*/
+const POLICY_GROUPS = [
+  { key: "pickup", title: "Nhận phòng & trả phòng", icon: "fa-right-left", cls: "" },
+  { key: "cancel", title: "Hủy phòng & hoàn tiền", icon: "fa-ban", cls: "policy-cancel" },
+  { key: "other",  title: "Lưu ý khác", icon: "fa-circle-info", cls: "" }
+];
+
+function policyHTML(policy) {
+  return POLICY_GROUPS
+    .filter(g => policy[g.key] && policy[g.key].length)
+    .map(g => `
+      <div class="policy-card ${g.cls}">
+        <h4><i class="fa-solid ${g.icon}"></i> ${g.title}</h4>
+        <ul>${policy[g.key].map(t => `<li>${t}</li>`).join("")}</ul>
+      </div>`)
+    .join("");
+}
+
+/*-----*/
 function openHotelDetail(hotelId) {
   const hotel = HOTELS.find(h => h.id === hotelId);
   if (!hotel) return;
@@ -696,15 +754,13 @@ function openHotelDetail(hotelId) {
       </div>
 
         <div class="tab-content" id="tabInfo1">
-          <h4>Tiện nghi khách sạn</h4>
           <table class="amenity-table">
             ${hotel.amenities.map(a => `<tr><th>${a.group}</th><td>${a.items}</td></tr>`).join("")}
           </table>
         </div>
 
        <div class="tab-content" id="tabInfo2">
-          <h4>Chi tiết chính sách lưu trú:</h4>
-          <p class="policy-text" style ="text-align: justify">${hotel.policy}</p>
+          <div class="policy-grid">${policyHTML(hotel.policy)}</div>
         </div>
     </div>`;
 
@@ -732,8 +788,8 @@ function openBooking(roomIndex) {
   // Ngày hôm nay theo giờ máy (tránh lệch múi giờ)
   const now = new Date();
   const today = new Date(now - now.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
-  document.getElementById("checkInDate").min = today;
-  document.getElementById("checkInDate").value = today;
+  document.getElementById("checkInDate").min = todayString();
+  document.getElementById("checkInDate").value = todayString();
   document.getElementById("roomQty").max = currentRoom.left;
 
   updateHotelSummary();
@@ -742,6 +798,7 @@ function openBooking(roomIndex) {
 
 // Tiền = giá phòng × số đêm × số phòng
 function updateHotelSummary() {
+  if (!currentRoom) return 0;
   const nights = Number(document.getElementById("nights").value);
   const rooms = Math.max(1, Number(document.getElementById("roomQty").value) || 1);
   const total = currentRoom.price * nights * rooms;
@@ -749,17 +806,7 @@ function updateHotelSummary() {
   document.getElementById("sumLabel").textContent = `Tạm tính (${rooms} phòng × ${nights} đêm)`;
   document.getElementById("sumBase").textContent = money(total);
   document.getElementById("totalAmount").textContent = money(total);
-  document.getElementById("confirmBtn").textContent = `Hoàn Tất Đặt Chỗ (${money(total)})`;
   return total;
-}
-
-function applyPromo() {
-  const code = document.getElementById("promoCode").value.trim().toUpperCase();
-  const promo = PROMOS.find(p => p.code === code);
-
-  promoPercent = promo ? promo.percent : 0;
-  if (!promo && code !== "") alert("Mã ưu đãi không hợp lệ hoặc đã hết hạn.");
-  updateHotelSummary();
 }
 
 function submitBooking(e) {
@@ -792,10 +839,28 @@ function submitBooking(e) {
   document.getElementById("infoTotal").textContent = money(updateHotelSummary());
   document.getElementById("infoPay").textContent = document.getElementById("payMethod").value;
 
+  // Lưu đơn vào kho dữ liệu (js/bookings.js)
+  if (window.VGBookings) VGBookings.save({
+    id: document.getElementById("orderCode").textContent,
+    type: "hotel",
+    customer: {
+      name: document.getElementById("renterName").value.trim(),
+      phone: document.getElementById("renterPhone").value.trim(),
+      email: document.getElementById("renterEmail").value.trim(),
+      note: document.getElementById("renterNote").value.trim()
+    },
+    service: {
+      name: currentHotel.name, room: currentRoom.name,
+      checkIn: document.getElementById("checkInDate").value,
+      checkOut: checkOut.toISOString().slice(0, 10),
+      nights: nights, rooms: rooms, guests: guests
+    },
+    payment: { method: document.getElementById("payMethod").value, total: updateHotelSummary() }
+  });
+
   closeModal("bookingModalOverlay");
   closeModal("detailModalOverlay");
   openModal("successModalOverlay");
-  // TODO: gửi đơn lên server / lưu vào "Kế hoạch của tôi"
 }
 
 /* ---------- 7. MỞ / ĐÓNG POPUP (dùng chung cho cả 3 popup) ---------- */
@@ -824,13 +889,28 @@ document.addEventListener("DOMContentLoaded", () => {
   // Bấm vào thẻ khách sạn -> mở popup chi tiết
   document.getElementById("hotelGrid").addEventListener("click", e => {
     const card = e.target.closest(".hotel-card");
-    if (card) openHotelDetail(Number(card.dataset.id));
+    if (!card) return;
+    const id = Number(card.dataset.id);
+
+    // Nút "Chi tiết": mở popup, tab Danh sách phòng
+    if (e.target.closest(".btn-detail")) {
+      openHotelDetail(id);
+      return;
+    }
+
+    // Nút "Đặt phòng ngay": mở popup rồi nhảy thẳng vào form đặt phòng rẻ nhất
+    if (e.target.closest(".btn-book")) {
+      openHotelDetail(id);
+      return;
+    }
+
+    // Bấm vào vùng khác của thẻ
+    openHotelDetail(id);
   });
 
   // Form đặt phòng
   document.getElementById("nights").addEventListener("change", updateHotelSummary);
   document.getElementById("roomQty").addEventListener("input", updateHotelSummary);
-  document.getElementById("applyPromo").addEventListener("click", applyPromo);
   document.getElementById("bookingForm").addEventListener("submit", submitBooking);
 
   // Đóng popup: nút × và bấm ra vùng tối
@@ -843,7 +923,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.getElementById("goToMyTrips").addEventListener("click", () => {
-    window.location.href = "../../index.html";   // TODO: đổi sang trang "Kế hoạch của tôi"
+    window.top.location.hash = "calendar";   // đổi tab ở trang chủ, KHÔNG đổi địa chỉ iframe
   });
 
   // Cuối cùng: tải dữ liệu

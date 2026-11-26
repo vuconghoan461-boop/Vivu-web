@@ -85,6 +85,13 @@
      "date": "25/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Leo Hang Múa mệt nhưng cảnh Tam Cốc từ trên cao thực sự đáng đồng tiền bát gạo."
+    },
+    {
+     "user": "Nguyễn Văn Hùng",
+     "rating": 4,
+     "date": "22/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Hướng dẫn viên nhiệt tình, thời tiết đẹp. Chuyến đi gia đình rất vui."
     }
    ]
   },
@@ -94,11 +101,11 @@
    "dest": "Ninh Bình",
    "region": "Miền Bắc",
    "cat": "Ẩm thực",
-   "featured": false,
+   "featured": true,
    "published": "2026-10-28",
    "read": 8,
-   "rating": 5.0,
-   "reviewsCount": 2,
+   "rating": 4.7,
+   "reviewsCount": 3,
    "image": "kpdd2.jpg",
    "excerpt": "Đến Ninh Bình, đừng bỏ lỡ cơ hội thưởng thức dê núi thơm mềm, cơm cháy vàng giòn cùng nhiều món ăn dân dã mang đậm hương vị vùng đất cố đô.",
    "tour": {
@@ -144,6 +151,20 @@
      "date": "28/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Dê tái chanh thơm nức vị sả, cơm cháy sốt tim cật giòn rụm rất ngon!"
+    },
+    {
+     "user": "Bùi Khánh Linh",
+     "rating": 5,
+     "date": "26/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Thịt dê săn chắc không bị hôi, tương gừng chấm chuẩn vị miền Bắc."
+    },
+    {
+     "user": "Hoàng Minh Trí",
+     "rating": 4,
+     "date": "20/10/2026",
+     "tag": "Đã đọc",
+     "comment": "Bài viết gợi ý nhà hàng chi tiết, mua cơm cháy về làm quà ai cũng thích."
     }
    ]
   },
@@ -156,8 +177,8 @@
    "featured": false,
    "published": "2026-10-27",
    "read": 9,
-   "rating": 4.8,
-   "reviewsCount": 2,
+   "rating": 4.7,
+   "reviewsCount": 3,
    "image": "kpdd3.jpg",
    "excerpt": "Hành trình 8 tiếng đắm mình giữa lòng Hà Nội ngàn năm văn hiến, đưa bạn từ không gian lắng đọng của Lăng Bác đến nét cổ kính Văn Miếu và vẹn tròn cảm xúc bên Hồ Gươm.",
    "tour": {
@@ -203,6 +224,20 @@
      "date": "28/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Tour Hà Nội 1 ngày rất đáng trải nghiệm cho người lần đầu đến Thủ đô."
+    },
+    {
+     "user": "Nguyễn Hoàng Nam",
+     "rating": 5,
+     "date": "24/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Hướng dẫn viên thuyết minh tại Bảo tàng Dân tộc học cực kỳ hấp dẫn."
+    },
+    {
+     "user": "Lê Thị Hồng",
+     "rating": 4,
+     "date": "21/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Lịch trình hợp lý, không quá mệt. Ăn trưa ngon."
     }
    ]
   },
@@ -216,7 +251,7 @@
    "published": "2026-10-26",
    "read": 7,
    "rating": 4.7,
-   "reviewsCount": 1,
+   "reviewsCount": 3,
    "image": "kpdd4.jpg",
    "excerpt": "Cẩm nang dắt túi cực kỳ quan trọng giúp chuyến du ngoạn di sản Hà Nội diễn ra suôn sẻ, tránh những bất tiện về thời gian và trang phục.",
    "tour": {
@@ -256,6 +291,20 @@
      "date": "27/10/2026",
      "tag": "Đã đọc",
      "comment": "Thông tin rất hữu ích, nhờ bài viết mình tránh đi Lăng Bác vào thứ 2."
+    },
+    {
+     "user": "Trịnh Mỹ Duyên",
+     "rating": 4,
+     "date": "23/10/2026",
+     "tag": "Đã đọc",
+     "comment": "Lưu ý trang phục rất thiết thực cho khách đi lần đầu."
+    },
+    {
+     "user": "Vũ Anh Tuấn",
+     "rating": 5,
+     "date": "21/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Phương án đi Bát Tràng thay thế rất hay và linh hoạt!"
     }
    ]
   },
@@ -268,8 +317,8 @@
    "featured": false,
    "published": "2026-10-25",
    "read": 11,
-   "rating": 4.9,
-   "reviewsCount": 2,
+   "rating": 4.7,
+   "reviewsCount": 3,
    "image": "kpdd5.jpg",
    "excerpt": "Tận hưởng 3 ngày 2 đêm thư thái tại thị trấn sương mờ, đi xe cabin đôi cao cấp, nghỉ khách sạn 4 sao view thung lũng.",
    "tour": {
@@ -309,6 +358,20 @@
      "date": "26/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Xe cabin nằm rất êm, cáp treo Fansipan ngắm biển mây đẹp mê hồn."
+    },
+    {
+     "user": "Đặng Thị Mai",
+     "rating": 5,
+     "date": "24/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Khách sạn view thung lũng siêu đẹp, lẩu cá hồi buổi tối ngon tuyệt."
+    },
+    {
+     "user": "Trần Đức Tiến",
+     "rating": 4,
+     "date": "22/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Đi bản Cát Cát cần mang giày thể thao nhé mọi người, đi bộ khá nhiều."
     }
    ]
   },
@@ -321,8 +384,8 @@
    "featured": false,
    "published": "2026-10-24",
    "read": 8,
-   "rating": 5.0,
-   "reviewsCount": 1,
+   "rating": 4.7,
+   "reviewsCount": 3,
    "image": "kpdd6.jpg",
    "excerpt": "Bí kíp xương máu giúp bạn bắt trọn khoảnh khắc biển mây bồng bềnh trên đỉnh Fansipan mà không gặp sương mù.",
    "tour": {
@@ -362,6 +425,20 @@
      "date": "25/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Nhờ mẹo mặc áo đỏ nổi bật mà mình có bộ ảnh săn mây Fansipan xuất sắc!"
+    },
+    {
+     "user": "Phan Quốc Việt",
+     "rating": 5,
+     "date": "23/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Đi tầm 8h30 sáng mây bồng bềnh cực đỉnh đúng như bài viết dặn."
+    },
+    {
+     "user": "Vũ Thu Hương",
+     "rating": 4,
+     "date": "20/10/2026",
+     "tag": "Đã đọc",
+     "comment": "Mẹo mang sạc dự phòng rất chuẩn, lên đỉnh lạnh pin sụt nhanh lắm."
     }
    ]
   },
@@ -374,8 +451,8 @@
    "featured": true,
    "published": "2026-10-23",
    "read": 9,
-   "rating": 4.9,
-   "reviewsCount": 2,
+   "rating": 4.7,
+   "reviewsCount": 3,
    "image": "kpdd7.jpg",
    "excerpt": "Trải nghiệm 6 tiếng đắt giá trên du thuyền Hercules Grand sang trọng: thưởng thức buffet hải sản tươi ngon và chèo kayak Hang Luồn.",
    "tour": {
@@ -415,6 +492,20 @@
      "date": "24/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Buffet hải sản tươi ngon, du thuyền mới đẹp sang trọng."
+    },
+    {
+     "user": "Trần Ngọc Ánh",
+     "rating": 5,
+     "date": "22/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Tiệc Sunset Party ngắm chiều tà trên sundeck chill kinh khủng."
+    },
+    {
+     "user": "Đỗ Minh Tâm",
+     "rating": 4,
+     "date": "21/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Nhân viên du thuyền chu đáo, lịch trình di chuyển 6 tiếng vừa đủ."
     }
    ]
   },
@@ -427,8 +518,8 @@
    "featured": false,
    "published": "2026-10-22",
    "read": 7,
-   "rating": 4.8,
-   "reviewsCount": 1,
+   "rating": 4.7,
+   "reviewsCount": 3,
    "image": "kpdd8.jpg",
    "excerpt": "Những tuyệt chiêu chuẩn bị đồ dùng và phân bổ thời gian để có chuyến du ngoạn Vịnh Hạ Long thoải mái.",
    "tour": {
@@ -468,6 +559,20 @@
      "date": "23/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Bài viết hướng dẫn chi tiết, chèo kayak rất vui!"
+    },
+    {
+     "user": "Nguyễn Hoàng Giang",
+     "rating": 4,
+     "date": "21/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Mẹo mang túi chống nước cho điện thoại rất hữu ích khi chèo kayak."
+    },
+    {
+     "user": "Phạm Văn Thành",
+     "rating": 5,
+     "date": "19/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Leo đỉnh Titop mệt nhưng view nhìn bao quát cả vịnh cực đẹp."
     }
    ]
   },
@@ -481,7 +586,7 @@
    "published": "2026-10-21",
    "read": 11,
    "rating": 5.0,
-   "reviewsCount": 2,
+   "reviewsCount": 3,
    "image": "kpdd9.jpg",
    "excerpt": "Hành trình 3 ngày 2 đêm vượt đèo Mã Pí Lèng ngoạn mục, chạm tay vào cờ Lũng Cú và đi thuyền sông Nho Quế.",
    "tour": {
@@ -521,6 +626,20 @@
      "date": "22/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Sông Nho Quế xanh ngắt cực đẹp, chuyến đi tuyệt vời!"
+    },
+    {
+     "user": "Lương Thu Trang",
+     "rating": 5,
+     "date": "20/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Tài xế đi đèo cứng tay, HDV bản địa nhiệt tình thân thiện."
+    },
+    {
+     "user": "Nguyễn Tuấn Anh",
+     "rating": 5,
+     "date": "18/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Đứng ở Cột cờ Lũng Cú cảm giác tự hào và thiêng liêng vô cùng."
     }
    ]
   },
@@ -533,8 +652,8 @@
    "featured": false,
    "published": "2026-10-20",
    "read": 8,
-   "rating": 4.8,
-   "reviewsCount": 1,
+   "rating": 4.7,
+   "reviewsCount": 3,
    "image": "kpdd10.jpg",
    "excerpt": "Thưởng thức những món ăn đặc sản ấm nóng đậm đà làm say lòng du khách giữa không gian núi rừng đá xám.",
    "tour": {
@@ -574,6 +693,20 @@
      "date": "21/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Cháo ấu tẩu mới đầu hơi đắng nhưng ăn xong rất nhẹ người."
+    },
+    {
+     "user": "Trịnh Mỹ Hạnh",
+     "rating": 5,
+     "date": "19/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Thắng dền ăn đêm phố cổ Đồng Văn siêu ấm bụng."
+    },
+    {
+     "user": "Lê Minh Đức",
+     "rating": 4,
+     "date": "17/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Thịt trâu gác bếp thơm nức mùi mắc khén, mua về nhậu rất tốn."
     }
    ]
   },
@@ -583,7 +716,7 @@
    "dest": "Đà Nẵng",
    "region": "Miền Trung",
    "cat": "Lịch trình",
-   "featured": true,
+   "featured": false,
    "published": "2026-10-19",
    "read": 12,
    "rating": 5.0,
@@ -627,6 +760,20 @@
      "date": "20/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Tour dài ngày nhưng thiết kế hợp lý không mệt chút nào."
+    },
+    {
+     "user": "Hoàng Nhật Nam",
+     "rating": 5,
+     "date": "18/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Động Phong Nha tráng lệ ngoài sức tưởng tượng, Cầu Vàng đẹp lắm."
+    },
+    {
+     "user": "Phạm Thị Hương",
+     "rating": 5,
+     "date": "16/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Dịch vụ VivuGo chu đáo từ xe cộ đến các bữa ăn đặc sản."
     }
    ]
   },
@@ -639,8 +786,8 @@
    "featured": false,
    "published": "2026-10-18",
    "read": 7,
-   "rating": 4.9,
-   "reviewsCount": 1,
+   "rating": 4.7,
+   "reviewsCount": 3,
    "image": "kpdd12.jpg",
    "excerpt": "Bí kíp chụp ảnh không dính người tại Cầu Vàng và lịch trình vui chơi tối ưu trên đỉnh Bà Nà.",
    "tour": {
@@ -680,6 +827,20 @@
      "date": "19/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Mẹo đi sáng sớm cực chuẩn, chụp hình không dính ai cả!"
+    },
+    {
+     "user": "Nguyễn Hải Yến",
+     "rating": 5,
+     "date": "17/10/2026",
+     "tag": "Đã đọc",
+     "comment": "Bài viết chỉ góc chụp ở Làng Pháp sống ảo rất vỡ cữ."
+    },
+    {
+     "user": "Bùi Văn Thành",
+     "rating": 4,
+     "date": "15/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Đi tầm chiều muộn cũng vắng người, mây xuống thơ mộng."
     }
    ]
   },
@@ -692,8 +853,8 @@
    "featured": false,
    "published": "2026-10-17",
    "read": 10,
-   "rating": 4.8,
-   "reviewsCount": 2,
+   "rating": 4.7,
+   "reviewsCount": 3,
    "image": "kpdd13.jpg",
    "excerpt": "Hành trình tối ưu thời gian kết nối biển xanh Đà Nẵng, Phố cổ Hội An và di sản Cố đô Huế.",
    "tour": {
@@ -733,6 +894,20 @@
      "date": "18/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Giá tốt, khách sạn gần biển Mỹ Khê rất tiện lợi."
+    },
+    {
+     "user": "Vũ Ngọc Long",
+     "rating": 4,
+     "date": "16/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Lịch trình nối 3 điểm tham quan mượt mà, xe di chuyển êm."
+    },
+    {
+     "user": "Đỗ Hoàng Yến",
+     "rating": 5,
+     "date": "14/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Lần đầu đi miền Trung ghép tour này rất yên tâm."
     }
    ]
   },
@@ -746,7 +921,7 @@
    "published": "2026-10-16",
    "read": 8,
    "rating": 5.0,
-   "reviewsCount": 2,
+   "reviewsCount": 3,
    "image": "kpdd14.jpg",
    "excerpt": "Khám phá thiên đường ẩm thực miền Trung: mì cao lầu, bún bò Huế đậm đà và chả bò Chợ Hàn.",
    "tour": {
@@ -786,6 +961,20 @@
      "date": "17/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Mì Cao lầu ăn rất vừa miệng, bún bò Huế chuẩn vị củ sả."
+    },
+    {
+     "user": "Ngô Bích Thủy",
+     "rating": 5,
+     "date": "15/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Gợi ý quán bún bò chuẩn vị Huế ngon ngất ngây."
+    },
+    {
+     "user": "Trần Thanh Sơn",
+     "rating": 5,
+     "date": "13/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Chả bò chợ Hàn giòn thơm đúng chuẩn quà miền Trung."
     }
    ]
   },
@@ -798,8 +987,8 @@
    "featured": false,
    "published": "2026-10-15",
    "read": 8,
-   "rating": 4.9,
-   "reviewsCount": 1,
+   "rating": 4.7,
+   "reviewsCount": 3,
    "image": "kpdd15.jpg",
    "excerpt": "Lướt cano siêu tốc ra đảo hoang sơ, lặn ngắm san hô Hòn Dài và thưởng thức hải sản tươi ngon.",
    "tour": {
@@ -839,6 +1028,20 @@
      "date": "16/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "San hô ở Hòn Dài rất đẹp, hải sản đảo tươi ngon cực kỳ."
+    },
+    {
+     "user": "Phạm Lan Anh",
+     "rating": 5,
+     "date": "14/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Cano đi nhanh không bị say sóng, nước biển trong vắt nhìn thấy đáy."
+    },
+    {
+     "user": "Lê Văn Tùng",
+     "rating": 4,
+     "date": "12/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Đêm trên đảo rất yên bình, không khí trong lành dễ chịu."
     }
    ]
   },
@@ -852,7 +1055,7 @@
    "published": "2026-10-13",
    "read": 8,
    "rating": 5.0,
-   "reviewsCount": 2,
+   "reviewsCount": 3,
    "image": "kpdd16.jpg",
    "excerpt": "Dạo bước qua Chùa Cầu 400 năm tuổi và tự tay thả hoa đăng lung linh lãng mạn trên dòng sông Hoài.",
    "tour": {
@@ -892,6 +1095,20 @@
      "date": "14/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Trải nghiệm thả hoa đăng trên sông Hoài vô cùng lãng mạn."
+    },
+    {
+     "user": "Vũ Công Vinh",
+     "rating": 5,
+     "date": "12/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Phố cổ lên đèn siêu lung linh, tour đón trả khách rất đúng giờ."
+    },
+    {
+     "user": "Đặng Thu Thủy",
+     "rating": 5,
+     "date": "10/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Món ăn tối cao lầu và hoành thánh trong tour ăn ngon miệng."
     }
    ]
   },
@@ -904,8 +1121,8 @@
    "featured": false,
    "published": "2026-10-11",
    "read": 9,
-   "rating": 4.9,
-   "reviewsCount": 2,
+   "rating": 4.7,
+   "reviewsCount": 3,
    "image": "kpdd17.jpg",
    "excerpt": "Hòa mình cùng thiên nhiên thác Prenn, Thiền viện Trúc Lâm và chơi đùa cùng cún cưng tại Puppy Farm.",
    "tour": {
@@ -945,6 +1162,20 @@
      "date": "12/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Dàn cún Puppy Farm cưng xỉu, chụp ảnh sống ảo cháy máy."
+    },
+    {
+     "user": "Nguyễn Duy Hưng",
+     "rating": 5,
+     "date": "10/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Không khí Thiền viện Trúc Lâm thanh tĩnh, thác Prenn mát rượi."
+    },
+    {
+     "user": "Lương Mỹ Duyên",
+     "rating": 4,
+     "date": "09/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Lẩu rau ăn trưa tươi ngon, nhiều rau củ tự chọn."
     }
    ]
   },
@@ -957,8 +1188,8 @@
    "featured": false,
    "published": "2026-10-09",
    "read": 8,
-   "rating": 4.8,
-   "reviewsCount": 1,
+   "rating": 4.7,
+   "reviewsCount": 3,
    "image": "kpdd18.jpg",
    "excerpt": "Khám phá mê cung dưới lòng đất Củ Chi, tìm hiểu bếp Hoàng Cầm và thưởng thức khoai mì luộc.",
    "tour": {
@@ -998,6 +1229,20 @@
      "date": "10/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Tour nửa ngày rất vừa sức, HDV giải thích lịch sử sinh động."
+    },
+    {
+     "user": "Phan Hoàng Yến",
+     "rating": 4,
+     "date": "08/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Trải nghiệm chui hầm địa đạo độc đáo, khoai mì luộc chấm muối mè ngon bất ngờ."
+    },
+    {
+     "user": "Trần Thanh Bình",
+     "rating": 5,
+     "date": "07/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Xe đưa đón đúng giờ, dịch vụ tốt so với mức giá."
     }
    ]
   },
@@ -1010,8 +1255,8 @@
    "featured": false,
    "published": "2026-10-07",
    "read": 9,
-   "rating": 4.9,
-   "reviewsCount": 2,
+   "rating": 4.7,
+   "reviewsCount": 3,
    "image": "kpdd19.jpg",
    "excerpt": "Lênh đênh du thuyền sông Tiền, chèo xuồng ba lá dưới rặng dừa nước và thưởng thức đờn ca tài tử.",
    "tour": {
@@ -1051,6 +1296,20 @@
      "date": "08/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Chèo xuồng ba lá trong kênh dừa nước mát rượi, không khí miền Tây rất yên bình."
+    },
+    {
+     "user": "Nguyễn Mỹ Hạnh",
+     "rating": 5,
+     "date": "06/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Cá tai tượng chiên xù xé bánh tráng cuốn ăn giòn rụm thơm ngon."
+    },
+    {
+     "user": "Vũ Văn Nam",
+     "rating": 4,
+     "date": "05/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Thưởng thức trái cây tươi vừa nghe đờn ca tài tử rất chill."
     }
    ]
   },
@@ -1104,6 +1363,20 @@
      "date": "06/10/2026",
      "tag": "Đã trải nghiệm",
      "comment": "Cáp treo view biển siêu đỉnh, công viên nước chơi rã rời cả ngày!"
+    },
+    {
+     "user": "Trần Bảo Ngọc",
+     "rating": 5,
+     "date": "04/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Quét mã QR VivuGo qua cổng cáp treo siêu nhanh, không phải xếp hàng chút nào."
+    },
+    {
+     "user": "Lê Quốc Khánh",
+     "rating": 5,
+     "date": "02/10/2026",
+     "tag": "Đã trải nghiệm",
+     "comment": "Công viên nước Aquatopia nhiều trò chơi mạo hiểm rất đã!"
     }
    ]
   }

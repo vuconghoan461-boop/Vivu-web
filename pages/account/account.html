@@ -1,99 +1,260 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VivuGo - Trang cá nhân</title>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../../css/account.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Calendar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../css/mycalendar.css">
+<link rel="stylesheet" href="../../../css/main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="../../../js/mycalendar.js" defer></script>
 </head>
 <body>
-    <div class="profile-container">
-        <!-- HEADER TRANG CÁ NHÂN KIỂU FACEBOOK -->
-        <div class="fb-profile-header">
-            <div class="fb-cover">
-                <span class="tier-badge">
-            </div>
-            <div class="fb-user-bar">
-                <div class="fb-avatar" id="avatarInitial">T</div>
-                <div class="fb-user-info">
-                    <h1 id="profileFullName">Phạm Anh Tú</h1>
-                    <p id="profileMeta">demo@vivugo.vn · 0 Điểm thưởng</p>
-                </div>
-                <div class="fb-actions">
-                    <button class="btn-Action-outline" data-tab-target="infoPane">
-                        <i class="fa-regular fa-pen-to-square"></i> Chỉnh sửa hồ sơ
-                    </button>
-                    <button class="btn-Action-logout" id="btnLogout">
-                        <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
-                    </button>
-                </div>
-            </div>
+<div class="banner">
+  <section class="module-hero" data-slides="../../../assets/slicer/pic2.jpg,../../../assets/slicer/pic1.jpg,../../../assets/slicer/pic3.jpg">
+    <button class="new-trip-btn" data-action="open-modal">✈ Tạo chuyến đi</button>
+    <div class="vivugo-container module-hero-inner">
+      <p class="crumb"><a href="../../../index.html">Trang chủ</a><span class="sep">/</span>Lịch của tôi</p>
+      
+      <span class="tag-pill">Quản lý chuyến đi · Lên kế hoạch</span>
+      <h1 class="page-title">Lịch của tôi</h1>
+      <p class="page-desc">Quản lý và lên kế hoạch cho những chuyến đi sắp tới của bạn.</p>
+    </div>
+  </section>
 
-            <!-- THANH TAB ĐIỀU HƯỚNG TRONG TRANG CÁ NHÂN -->
-            <div class="fb-nav-tabs">
-                <button class="fb-tab active" data-tab="calendarPane">
-                    <i class="fa-regular fa-calendar-check"></i> Lịch của tôi
-                </button>
-                <button class="fb-tab" data-tab="infoPane">
-                    <i class="fa-regular fa-id-card"></i> Thông tin cá nhân
-                </button>
-            </div>
-        </div>
-
-        <!-- TAB 1: LỊCH CỦA TÔI (NHÚNG NGUYÊN BẢN CỦA BẠN LINH, KHÔNG SỬA CODE CỦA LINH) -->
-        <div id="calendarPane" class="tab-pane active">
-            <iframe 
-                id="linhCalendarFrame" 
-                src="mycalendar/mycalendar.html" 
-                title="Lịch của tôi" 
-                class="calendar-iframe">
-            </iframe>
-        </div>
-
-        <!-- TAB 2: THÔNG TIN CÁ NHÂN -->
-        <div id="infoPane" class="tab-pane" hidden>
-            <div class="info-card">
-                <h3>Thông tin hồ sơ cá nhân</h3>
-                <p class="sub-text">Thông tin này được dùng để tự động điền khi bạn đặt vé máy bay, khách sạn và tour trên VivuGo.</p>
-                <form id="profileForm">
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label>Họ và tên</label>
-                            <input type="text" id="pName" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Số điện thoại</label>
-                            <input type="tel" id="pPhone" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" id="pEmail" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Ngày sinh</label>
-                            <input type="date" id="pDob">
-                        </div>
-                        <div class="form-group">
-                            <label>Giới tính</label>
-                            <select id="pGender">
-                                <option value="Nam">Nam</option>
-                                <option value="Nữ">Nữ</option>
-                                <option value="Khác">Khác</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Địa chỉ</label>
-                            <input type="text" id="pAddress">
-                        </div>
-                    </div>
-                    <button type="submit" class="btn-save">Lưu thay đổi</button>
-                </form>
-            </div>
-        </div>
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <div>
+      <div class="panel panel-gap">
+        <ul class="nav-list" id="navList">
+          <li class="active" data-filter="all" data-title="Tất cả chuyến đi" data-label="Tất cả"><span class="dot"><i class="fa-solid fa-border-all"></i></span> Tất cả <span class="count"></span></li>
+          <li data-filter="upcoming" data-title="Chuyến đi sắp tới" data-label="Sắp tới"><span class="dot"><i class="fa-solid fa-calendar-days"></i></span> Sắp tới <span class="count"></span></li>
+          <li data-filter="ongoing" data-title="Chuyến đi đang diễn ra" data-label="Đang diễn ra"><span class="dot"><i class="fa-solid fa-globe"></i></span> Đang diễn ra <span class="count"></span></li>
+          <li data-filter="completed" data-title="Chuyến đi đã hoàn thành" data-label="Đã hoàn thành"><span class="dot"><i class="fa-solid fa-check-circle"></i></span> Đã hoàn thành <span class="count"></span></li>
+        </ul>
+        <div class="section-title" id="listTitle">Chuyến đi</div>
+        <div id="tripList"></div>
+        <div id="listEmpty" class="empty-note no-border" hidden>Chưa có chuyến đi nào ở mục này</div>
+        <div id="listError" class="empty-note no-border" hidden>Chưa tải được dữ liệu chuyến đi</div>
+        <div class="empty-note">Mỗi chuyến đi<br>là một câu chuyện đáng nhớ</div>
+      </div>
+      <div class="panel">
+        <div class="section-title">Thêm nhanh vào lịch</div>
+        <div class="quick-grid" id="quickGrid"></div>
+      </div>
     </div>
 
-    <script src="../../js/account.js"></script>
+    <!-- MAIN -->
+    <div class="panel">
+      <div id="loadError" class="empty-note no-border" hidden>
+        Không tải được dữ liệu lịch (data/mycalendar.json).<br>Hãy mở trang qua máy chủ cục bộ (ví dụ <b>python -m http.server</b>) thay vì mở trực tiếp file.
+      </div>
+      <div id="emptyMain" class="empty-note no-border" hidden>
+        Chưa có chuyến đi nào để hiển thị.<br>Hãy chọn mục khác hoặc tạo chuyến đi mới.
+      </div>
+
+      <div id="tripView" hidden>
+        <div class="trip-hero">
+          <button class="share-btn">⋯</button>
+          <div class="trip-hero-inner">
+            <h2 id="tripName"></h2>
+            <div class="trip-hero-meta">
+              <span id="tripDate"></span>
+              <span id="tripPlace"></span>
+              <span id="tripStatus" class="status-tag"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabs">
+          <div class="tab active" data-tab="itinerary">Lịch trình</div>
+          <div class="tab" data-tab="info">Thông tin chuyến đi</div>
+        </div>
+
+        <!-- TAB: LỊCH TRÌNH -->
+        <div data-panel="itinerary">
+          <div class="day-row" id="dayRow"></div>
+          <div id="days"></div>
+          <div id="daysEmpty" class="empty-note" hidden>
+            Chuyến đi này chưa có lịch trình.<br>Bấm “Tạo chuyến đi” hoặc thêm hoạt động để bắt đầu.
+          </div>
+        </div>
+
+        <!-- TAB: THÔNG TIN CHUYẾN ĐI -->
+        <div data-panel="info" hidden>
+          <div id="infoEmpty" class="empty-note no-border" hidden>
+            Chuyến đi này chưa có thông tin đặt chỗ.<br>Thêm mục “info” cho chuyến đi trong data/mycalendar.json để hiển thị.
+          </div>
+
+          <div id="infoBody">
+            <div class="card" id="infoBookings" hidden>
+              <div class="card-head"><h3>Mã đặt chỗ &amp; vé</h3></div>
+              <div class="kv-row">
+                <div class="kv"><small>Trạng thái xác nhận</small><b class="ok" data-f="status"></b></div>
+                <div class="kv"><small>Ngày khởi hành</small><b data-f="departure"></b></div>
+                <div class="kv"><small>Mã đặt chỗ</small><b data-f="code"></b></div>
+              </div>
+              <div class="booking">
+                <div class="booking-list" data-slot="rows"></div>
+              </div>
+            </div>
+
+            <div class="info-grid" id="infoGrid">
+              <div class="card" id="infoHotel" hidden>
+                <div class="card-head"><h3>Lưu trú</h3></div>
+                <div class="hotel">
+                  <div class="hotel-thumb thumb-hotel" data-thumb></div>
+                  <div>
+                    <b data-f="name"></b>
+                    <p>📍 <span data-f="address"></span></p>
+                    <p>🛏 <span data-f="room"></span></p>
+                  </div>
+                </div>
+                <div class="kv-row">
+                  <div class="kv"><small>Nhận phòng</small><b data-f="checkIn"></b></div>
+                  <div class="kv"><small>Trả phòng</small><b data-f="checkOut"></b></div>
+                </div>
+              </div>
+
+              <div class="card" id="infoTransport" hidden>
+                <div class="card-head"><h3 data-f="title"></h3></div>
+                <div data-slot="rows"></div>
+              </div>
+            </div>
+
+            <div class="card" id="infoCosts" hidden>
+              <div class="card-head"><h3>Chi phí chuyến đi</h3></div>
+              <div class="invoice-head">
+                <span>Khoản chi</span>
+                <span>Ngày</span>
+                <span>Số tiền</span>
+              </div>
+              <div data-slot="rows"></div>
+              <div class="invoice-total">
+                <span>Tổng cộng</span>
+                <b data-f="total"></b>
+              </div>
+            </div>
+
+            <div class="card" id="infoNotes" hidden>
+              <div data-slot="rows"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="modal-head"><h3>Thêm hoạt động</h3><button data-action="close-modal">✕</button></div>
+    <div class="type-row" id="typeRow"></div>
+    <div class="field"><label>Tên hoạt động</label><input type="text" id="inputName" maxlength="120" placeholder="Ví dụ: Ăn tối tại nhà hàng..."></div>
+    <div class="field-row">
+      <div class="field"><label>Ngày</label><input type="date" id="inputDate"></div>
+      <div class="field"><label>Thời gian</label><input type="time" id="inputTime"></div>
+    </div>
+    <div class="field"><label>Ghi chú</label><textarea id="inputNote" maxlength="300" placeholder="Thêm ghi chú, địa chỉ..."></textarea></div>
+    <p class="modal-error" id="modalError" role="alert" hidden></p>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" data-action="close-modal">Hủy</button>
+      <button class="btn btn-primary" data-action="save-activity">Lưu</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TEMPLATES =====================
+     Khuôn HTML cho các phần được lặp lại. JS chỉ nhân bản (clone)
+     và điền dữ liệu vào các chỗ có data-f / data-icon / data-slot. -->
+
+<!-- Sidebar: thẻ chuyến đi + nút xem -->
+<template id="tpl-trip-item">
+  <div class="trip-card" data-trip>
+    <div class="trip-thumb"></div>
+    <div class="trip-info">
+      <h4 data-f="name"></h4>
+      <div class="trip-meta">
+        <span>📅 <span data-f="dates"></span></span>
+        <span>📍 <span data-f="place"></span></span>
+        <span><span class="status-tag" data-f="status"></span></span>
+      </div>
+    </div>
+  </div>
+  <button class="view-btn" data-trip>Xem lịch trình</button>
+</template>
+
+<!-- Sidebar: thêm nhanh -->
+<template id="tpl-quick">
+  <div class="quick-item">
+    <div class="qi-icon qi-blue"><i class="fa-solid" data-icon></i></div>
+    <b data-f="title"></b>
+    <small data-f="desc"></small>
+  </div>
+</template>
+
+<!-- Chip chọn ngày -->
+<template id="tpl-day-chip-all">
+  <div class="day-chip"><div class="dnum">Tất cả</div></div>
+</template>
+<template id="tpl-day-chip">
+  <div class="day-chip">
+    <div class="dnum">Ngày <span data-f="num"></span></div>
+    <div class="ddate" data-f="date"></div>
+  </div>
+</template>
+
+<!-- Khối một ngày + hoạt động -->
+<template id="tpl-day-block">
+  <div class="day-block">
+    <div class="day-block-head">
+      <h3>
+        <span class="day-badge" data-f="badge"></span>
+        <span class="day-title">Ngày <span data-f="num"></span> · <span data-f="title"></span></span>
+      </h3>
+      <button class="add-act" data-action="open-modal" data-day="">＋ Thêm hoạt động</button>
+    </div>
+    <div data-slot="activities"></div>
+  </div>
+</template>
+<template id="tpl-activity">
+  <div class="activity">
+    <div class="time" data-f="time"></div>
+    <div class="content"><h4 data-f="title"></h4><p data-f="note"></p></div>
+    <div class="thumb" data-thumb hidden></div>
+  </div>
+</template>
+
+<!-- Tab thông tin: các dòng con -->
+<template id="tpl-booking-row">
+  <div class="booking-row">
+    <i class="fa-solid" data-icon></i>
+    <span data-f="title"></span>
+    <span class="pill ok" data-f="state"></span>
+  </div>
+</template>
+<template id="tpl-kv-line">
+  <div class="kv line"><small data-f="label"></small><b data-f="value"></b></div>
+</template>
+<template id="tpl-cost-row">
+  <div class="cost-row">
+    <div class="cost-main"><b data-f="label"></b><small data-f="note"></small></div>
+    <span class="cost-date" data-f="date"></span>
+    <span class="cost-amount" data-f="amount"></span>
+  </div>
+</template>
+<template id="tpl-note">
+  <div class="note"><b data-f="title"></b><p data-f="text"></p></div>
+</template>
+
+<!-- Modal: loại hoạt động -->
+<template id="tpl-type-chip">
+  <div class="type-chip"><span class="ti" data-f="icon"></span><span data-f="label"></span></div>
+</template>
 </body>
 </html>
