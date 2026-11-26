@@ -341,8 +341,7 @@ function initializeApp() {
   if (pages[name]) {
     openPage(name, auth, false);
   } else {
-    updateModuleInfo(pages.explore);
-    updateActiveMenu('explore');
+    openPage('services', '', false);
   }
 }
 
