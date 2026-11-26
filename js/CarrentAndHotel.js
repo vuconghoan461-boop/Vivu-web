@@ -33,11 +33,18 @@ function openModal(overlayId) {
 function closeModal(overlayId) {
   document.getElementById(overlayId).classList.remove("is-open");
 }
+// Đổi Date -> "yyyy-mm-dd" theo giờ máy (không bị lệch múi giờ)
+function dateToString(date) {
+  const local = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+  return local.toISOString().slice(0, 10);
+}
+function todayString() {
+  return dateToString(new Date());
+}
 
 /*JS CỦA MODULE CON: CARRENT*/
 let CARS = [];
 let currentCarId = null;
-let promoApplied = false;
 
 /* Khởi tạo carrent */
 document.addEventListener("DOMContentLoaded", () => {
@@ -361,12 +368,11 @@ function openBookingModal(carId) {
   const car = CARS.find(c => c.id === Number(carId));
   if (!car) return;
   currentCarId = car.id;
-  promoApplied = false;
 
   document.getElementById("bookingForm").reset();
   document.getElementById("bookingCarName").textContent = car.name;
   document.getElementById("bookingProvider").textContent = `Đơn vị cung cấp: ${car.provider}`;
-  document.getElementById("bookingPerks").textContent = car.perks;
+  document.getElementById("bookingPerks").textContent = car.perks || "";
   document.getElementById("bookingPricePerDay").innerHTML =
     `${formatCurrency(car.price)}<small>${car.priceUnit}</small>`;
 
@@ -379,8 +385,8 @@ function openBookingModal(carId) {
       : "";
 
   document.getElementById("rentalDays").value = "2";
-  document.getElementById("bookingPickupDate").value = new Date().toISOString().slice(0, 10);
-
+  document.getElementById("bookingPickupDate").min = todayString();
+document.getElementById("bookingPickupDate").value = todayString();
   updateSummary();
   document.getElementById("bookingModalOverlay").classList.add("is-open");
 }
@@ -397,32 +403,17 @@ function updateSummary() {
 
   const base = car.price * days;
   const driverFee = withDriver ? 500000 * days : 0;
-  const subtotal = base + driverFee;
-  const discount = promoApplied ? Math.round(subtotal * 0.1) : 0;
 
   document.getElementById("sumBase").textContent = formatCurrency(base);
   document.getElementById("sumDriverRow").style.display = withDriver ? "flex" : "none";
   document.getElementById("sumDriver").textContent = formatCurrency(driverFee);
-  document.getElementById("sumPromoRow").style.display = promoApplied ? "flex" : "none";
-  document.getElementById("sumPromo").textContent = "-" + formatCurrency(discount);
   document.getElementById("totalLabel").textContent = `Tổng tiền (${days} ngày)`;
-  document.getElementById("totalAmount").textContent = formatCurrency(subtotal - discount);
+  document.getElementById("totalAmount").textContent = formatCurrency(base + driverFee);
 }
 
 function initBookingForm() {
   document.getElementById("rentalDays").addEventListener("change", updateSummary);
   document.getElementById("withDriver").addEventListener("change", updateSummary);
-
-  document.getElementById("applyPromo").addEventListener("click", () => {
-    const code = document.getElementById("promoCode").value.trim().toUpperCase();
-    if (code === "VIVU10") {
-      promoApplied = true;
-    } else {
-      promoApplied = false;
-      alert("Mã ưu đãi không hợp lệ hoặc đã hết hạn.");
-    }
-    updateSummary();
-  });
 
   document.getElementById("bookingForm").addEventListener("submit", (e) => {
     e.preventDefault();
@@ -436,7 +427,7 @@ function initBookingForm() {
       phone: document.getElementById("renterPhone").value.trim(),
       service: car.name,
       pickup: document.getElementById("pickupPlace").value.trim(),
-      dropoff: document.getElementById("dropoffPlace").value.trim(),
+      dropoff: document.getElementById("dropoffPlace").value.trim() || document.getElementById("pickupPlace").value.trim(),
       total: document.getElementById("totalAmount").textContent,
       carId: car.id,
       provider: car.provider,
@@ -517,7 +508,6 @@ function initModals() {
 
 /* JS MODULE CON: HOTEL */
 let HOTELS = [];
-let PROMOS = [];
 let currentHotel = null;
 let currentRoom = null;
 
@@ -558,8 +548,7 @@ function loadHotels() {
       return res.json();
     })
     .then(data => {
-      HOTELS = data.Hotels;
-      PROMOS = data.promoCodes;
+      HOTELS = data.Hotels || data.hotels || [];
 
       // Giá sau giảm = giá gốc × (1 − %giảm / 100), tính riêng cho từng phòng
       HOTELS.forEach(h => {
@@ -571,6 +560,11 @@ function loadHotels() {
       });
 
       renderHotels();
+    })
+    .catch(err => {
+      console.error("Lỗi tải hotel.json:", err);
+      document.getElementById("hotelGrid").innerHTML =
+        '<div class="empty-message">Không tải được dữ liệu khách sạn. Hãy chạy bằng Live Server / localhost.</div>';
     });
 }
 
@@ -794,8 +788,8 @@ function openBooking(roomIndex) {
   // Ngày hôm nay theo giờ máy (tránh lệch múi giờ)
   const now = new Date();
   const today = new Date(now - now.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
-  document.getElementById("checkInDate").min = today;
-  document.getElementById("checkInDate").value = today;
+  document.getElementById("checkInDate").min = todayString();
+  document.getElementById("checkInDate").value = todayString();
   document.getElementById("roomQty").max = currentRoom.left;
 
   updateHotelSummary();
@@ -804,6 +798,7 @@ function openBooking(roomIndex) {
 
 // Tiền = giá phòng × số đêm × số phòng
 function updateHotelSummary() {
+  if (!currentRoom) return 0;
   const nights = Number(document.getElementById("nights").value);
   const rooms = Math.max(1, Number(document.getElementById("roomQty").value) || 1);
   const total = currentRoom.price * nights * rooms;
@@ -812,15 +807,6 @@ function updateHotelSummary() {
   document.getElementById("sumBase").textContent = money(total);
   document.getElementById("totalAmount").textContent = money(total);
   return total;
-}
-
-function applyPromo() {
-  const code = document.getElementById("promoCode").value.trim().toUpperCase();
-  const promo = PROMOS.find(p => p.code === code);
-
-  promoPercent = promo ? promo.percent : 0;
-  if (!promo && code !== "") alert("Mã ưu đãi không hợp lệ hoặc đã hết hạn.");
-  updateHotelSummary();
 }
 
 function submitBooking(e) {
@@ -925,7 +911,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Form đặt phòng
   document.getElementById("nights").addEventListener("change", updateHotelSummary);
   document.getElementById("roomQty").addEventListener("input", updateHotelSummary);
-  document.getElementById("applyPromo").addEventListener("click", applyPromo);
   document.getElementById("bookingForm").addEventListener("submit", submitBooking);
 
   // Đóng popup: nút × và bấm ra vùng tối
