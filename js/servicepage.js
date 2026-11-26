@@ -6,46 +6,6 @@ const HERO_SLIDES = [
 ];
 /* TRANG SERVICE CHUNG */
 document.addEventListener("DOMContentLoaded", async function () {
-  const headerContainer = document.getElementById("site-header");
-
-  if (headerContainer) {
-    try {
-      const response = await fetch("header.html");
-      if (!response.ok) {
-        throw new Error("Không thể tải header.html");
-      }
-      headerContainer.innerHTML = await response.text();
-    } catch (error) {
-      console.error("Lỗi khi tải Header:", error);
-    }
-  }
-
-  const footerContainer = document.getElementById("site-footer");
-
-  if (footerContainer) {
-    try {
-      const response = await fetch("footer.html");
-      if (!response.ok) {
-        throw new Error("Không thể tải footer.html");
-      }
-      footerContainer.innerHTML = await response.text();
-    } catch (error) {
-      console.error("Lỗi khi tải Footer:", error);
-    }
-  }
-
-
-  const navToggle = document.querySelector(".nav-toggle");
-  const mainNav = document.querySelector(".main-nav");
-
-  if (navToggle && mainNav) {
-    navToggle.addEventListener("click", function () {
-      const isOpen = mainNav.classList.toggle("is-open");
-      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    });
-  }
-
-
   const tabButtons = document.querySelectorAll("[data-tab-target]");
 
   tabButtons.forEach(function (btn) {
