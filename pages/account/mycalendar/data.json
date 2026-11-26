@@ -47,6 +47,7 @@
   "trips": [
     {
       "id": "danang",
+      "tourId": 6,
       "name": "Đà Nẵng – Hội An",
       "sidebarName": "Đà Nẵng",
       "thumbClass": "thumb-danang",
@@ -233,6 +234,7 @@
     },
     {
       "id": "dalat",
+      "tourId": 10,
       "name": "Đà Lạt",
       "sidebarName": "Đà Lạt",
       "thumbClass": "thumb-dalat",
@@ -243,6 +245,7 @@
     },
     {
       "id": "phuquoc",
+      "tourId": 13,
       "name": "Phú Quốc",
       "sidebarName": "Phú Quốc",
       "thumbClass": "thumb-phuquoc",
@@ -379,6 +382,7 @@
     },
     {
       "id": "sapa",
+      "tourId": 3,
       "name": "Sa Pa",
       "sidebarName": "Sa Pa",
       "thumbClass": "thumb-sapa",
