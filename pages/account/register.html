@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VivuGo - Đăng ký</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../../css/register.css">
 </head>
 <body>
     <div class="auth-wrap">
-        <a class="logo" id="logo" href="#"><img src="../../assets/LogoVivugo.png" alt="VivuGo"></a>
+        <a class="logo" id="logo" href="../../index.html" title="Quay lại Trang chủ VivuGo">
+            <img src="../../assets/LogoVivugo.png" alt="VivuGo">
+        </a>
         <div class="auth-card">
             <div class="m-left"><h2>Khám phá thế giới cùng VivuGo!</h2></div>
             <div class="m-right">
@@ -58,15 +57,20 @@
                         <small class="err"></small>
                     </div>
                     <div>
-                        <label class="check"><input type="checkbox" id="agree"> Tôi đồng ý với <a href="#">Điều khoản dịch vụ</a> & <a href="#">Chính sách bảo mật</a></label>
+                        <label class="check">
+                            <input type="checkbox" id="agree"> Tôi đồng ý với
+                            <a href="javascript:void(0)" id="termsLink">Điều khoản dịch vụ</a> &amp;
+                            <a href="javascript:void(0)" id="privacyLink">Chính sách bảo mật</a>
+                        </label>
                         <small class="err" id="agreeErr"></small>
                     </div>
                     <button type="submit" class="btn-full">Tạo tài khoản</button>
                 </form>
             </div>
         </div>
+        <a class="back-home" href="../../index.html"><i class="fa-solid fa-arrow-left"></i> Quay lại trang chủ</a>
     </div>
-
+    <script src="../../js/userlogic.js"></script>   
     <script src="../../js/register.js"></script>
 </body>
 </html>

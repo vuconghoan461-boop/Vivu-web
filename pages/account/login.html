@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VivuGo - Đăng nhập</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../../css/login.css">
 </head>
 <body>
     <div class="auth-wrap">
-        <a class="logo" id="logo" href="#"><img src="../../assets/LogoVivugo.png" alt="VivuGo"></a>
+        <a class="logo" id="logo" href="../../index.html" title="Quay lại Trang chủ VivuGo">
+            <img src="../../assets/LogoVivugo.png" alt="VivuGo">
+        </a>
         <div class="auth-card">
             <div class="m-left"><h2>Khám phá thế giới cùng VivuGo!</h2></div>
             <div class="m-right">
@@ -41,15 +41,16 @@
                     </div>
                     <div class="opts">
                         <label><input type="checkbox" id="remember" checked> Ghi nhớ đăng nhập</label>
-                        <a href="#">Quên mật khẩu?</a>
+                        <a href="javascript:void(0)" id="forgotBtn">Quên mật khẩu?</a>
                     </div>
                     <button type="submit" class="btn-full">Đăng nhập</button>
-                    <p class="hint">Tài khoản demo: demo@vivugo.vn / 12345678</p>
+                    <p class="hint">Demo: demo@vivugo.vn | Nick mới: new@vivugo.vn (MK: 12345678)</p>
                 </form>
             </div>
         </div>
+        <a class="back-home" href="../../index.html"><i class="fa-solid fa-arrow-left"></i> Quay lại trang chủ</a>
     </div>
-
+    <script src="../../js/userlogic.js"></script>
     <script src="../../js/login.js"></script>
 </body>
 </html>
