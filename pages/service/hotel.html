@@ -129,7 +129,7 @@
 
           <div class="form-group">
             <label>Họ và tên khách *</label>
-            <input type="text" id="renterName" placeholder="Nhập họ tên" />
+            <input type="text" id="renterName" placeholder="Nhập họ tên" required/>
           </div>
 
           <div class="form-row">
@@ -163,20 +163,14 @@
             </select>
           </div>
 
-          <div class="booking-summary">
-            <span>Mã ưu đãi</span>
-            <div class="promo-row">
-              <input type="text" id="promoCode" placeholder="Nhập mã ưu đãi (nếu có)" />
-              <button type="button" class="btn-ghost btn-sm" id="applyPromo">Áp dụng</button>
-            </div>
-            <div class="summary-line"><span id="sumLabel">Tạm tính</span><span id="sumBase">0đ</span></div>
-            <div class="summary-line"><span>Phí dịch vụ và VAT</span><span>Đã bao gồm</span></div>
-            <div class="summary-line" id="sumPromoRow" style="display:none;"><span>Giảm giá</span><span id="sumPromo">-0đ</span></div>
-            <div class="summary-total">
-              <span>Tổng thanh toán</span>
-              <strong id="totalAmount">0đ</strong>
-            </div>
+         <div class="booking-summary">
+          <div class="summary-line"><span id="sumLabel">Tạm tính</span><span id="sumBase">0đ</span></div>
+          <div class="summary-line"><span>Phí dịch vụ và VAT</span><span>Đã bao gồm</span></div>
+          <div class="summary-total">
+            <span>Tổng thanh toán</span>
+            <strong id="totalAmount">0đ</strong>
           </div>
+        </div>
 
           <button type="submit" class="btn-confirm" id="confirmBtn">Hoàn tất đặt phòng</button>
         </form>
