@@ -292,6 +292,16 @@
         }
 
         var totalMoney = calcTotal();
+        var depObj = (t.departures || [])[parseInt($("kpDepDate").value, 10)] || {};
+        window.__kpBookingExtra = {
+          depDate: depObj.date || "",
+          depTime: depObj.time || "",
+          phone: phone,
+          note: $("kpNote") ? $("kpNote").value.trim() : "",
+          date: $("kpDepDate") && $("kpDepDate").selectedOptions[0] ? $("kpDepDate").selectedOptions[0].text : "",
+          qty: Math.max(1, parseInt($("kpQty").value, 10) || 1),
+          pay: $("kpPay") ? $("kpPay").value : ""
+        };
         closeB();
         var detailModal = $("kpTourPopupOverlay");
         if (detailModal) detailModal.remove();
@@ -304,6 +314,15 @@
 
   function showSuccessPopup(t, name, email, totalMoney) {
     var code = 'TOUR-' + Math.floor(100000 + Math.random() * 900000);
+    // Lưu đơn vào kho dữ liệu (js/bookings.js)
+    var ex = window.__kpBookingExtra || {};
+    if (window.VGBookings) VGBookings.save({
+      id: code,
+      type: 'tour',
+      customer: { name: name, phone: ex.phone || '', email: email, note: ex.note || '' },
+      service: { tourId: t.id, name: t.name || '', departureDate: ex.depDate || '', departureTime: ex.depTime || '', tickets: ex.qty || 1 },
+      payment: { method: ex.pay || '', total: totalMoney }
+    });
     var successHtml =
       '<div class="modal-overlay is-open" id="kpSuccessOverlay" style="z-index: 10001;">' +
         '<div class="success-modal" role="dialog" aria-modal="true">' +
