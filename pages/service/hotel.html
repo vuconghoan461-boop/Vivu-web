@@ -129,7 +129,7 @@
 
           <div class="form-group">
             <label>Họ và tên khách *</label>
-            <input type="text" id="renterName" placeholder="Nhập họ tên" required/>
+            <input type="text" id="renterName" placeholder="Nhập họ tên" />
           </div>
 
           <div class="form-row">
@@ -163,14 +163,20 @@
             </select>
           </div>
 
-         <div class="booking-summary">
-          <div class="summary-line"><span id="sumLabel">Tạm tính</span><span id="sumBase">0đ</span></div>
-          <div class="summary-line"><span>Phí dịch vụ và VAT</span><span>Đã bao gồm</span></div>
-          <div class="summary-total">
-            <span>Tổng thanh toán</span>
-            <strong id="totalAmount">0đ</strong>
+          <div class="booking-summary">
+            <span>Mã ưu đãi</span>
+            <div class="promo-row">
+              <input type="text" id="promoCode" placeholder="Nhập mã ưu đãi (nếu có)" />
+              <button type="button" class="btn-ghost btn-sm" id="applyPromo">Áp dụng</button>
+            </div>
+            <div class="summary-line"><span id="sumLabel">Tạm tính</span><span id="sumBase">0đ</span></div>
+            <div class="summary-line"><span>Phí dịch vụ và VAT</span><span>Đã bao gồm</span></div>
+            <div class="summary-line" id="sumPromoRow" style="display:none;"><span>Giảm giá</span><span id="sumPromo">-0đ</span></div>
+            <div class="summary-total">
+              <span>Tổng thanh toán</span>
+              <strong id="totalAmount">0đ</strong>
+            </div>
           </div>
-        </div>
 
           <button type="submit" class="btn-confirm" id="confirmBtn">Hoàn tất đặt phòng</button>
         </form>
@@ -201,7 +207,8 @@
             <div class="info-row"><span>Tổng thanh toán:</span><strong class="amount" id="infoTotal"></strong></div>
             <div class="info-row"><span>Hình thức:</span><strong id="infoPay"></strong></div>
           </div>
-          <button type="button" class="btn-primary btn-block" id="goToMyTrips">Xem vé trong "Kế hoạch của tôi"</button>
+          <div class="vgbk-saved" id="savedNote" hidden></div>
+          <button type="button" class="btn-primary btn-block" id="goToMyTrips">Xem trong "Lịch của tôi"</button>
         </div>
       </div>
     </div>

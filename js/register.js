@@ -1,126 +1,132 @@
+/* ===== Trang Đăng ký (pages/account/register.html) – Độc lập, không cần auth.js ===== */
 const $ = id => document.getElementById(id);
+const KEY = 'vg_user', USERS = 'vg_users';
 const EMAIL = /^\S+@\S+\.\S+$/, PHONE = /^0\d{9}$/;
 
-// Tài khoản + phiên đăng nhập (demo front-end: lưu bằng localStorage / sessionStorage, chưa có backend)
+/* --- 1. HÀM DÙNG CHUNG --- */
+/* Sau khi đăng nhập quay lại trang đang đặt dở (?next=/pages/service/tour.html).
+   Chỉ nhận đường dẫn nội bộ bắt đầu bằng một dấu "/", không nhận địa chỉ trang khác. */
+function nextUrl() {
+    const n = new URLSearchParams(location.search).get('next') || '';
+    return /^\/(?!\/)[^\\]*$/.test(n) && !/[\r\n]/.test(n) ? n : '';
+}
+
 function getUsers() {
-    if (!localStorage.getItem('vg_users')) {                 // tài khoản demo có sẵn
-        localStorage.setItem('vg_users', JSON.stringify([{ name: 'Phạm Anh Tú', email: 'demo@vivugo.vn', phone: '0123456789', pass: '12345678' }]));
+    if (!localStorage.getItem(USERS)) {
+        localStorage.setItem(USERS, JSON.stringify([
+            { name: 'Phạm Anh Tú', email: 'demo@vivugo.vn', phone: '0900000000', pass: '12345678', dob: '2006-05-15', gender: 'Nam', address: '12 Chùa Bộc, Đống Đa, Hà Nội' }
+        ]));
     }
-    return JSON.parse(localStorage.getItem('vg_users'));
-}
-const getUser = () => JSON.parse(localStorage.getItem('vg_user') || sessionStorage.getItem('vg_user') || 'null');
-
-// Header ở index.html gửi kèm ?next=<địa chỉ trang chủ> để đăng nhập xong quay về đúng chỗ
-const NEXT = new URLSearchParams(location.search).get('next') || '';
-function safeNext() {                                        // chỉ cho quay về trang cùng website
-    if (!NEXT) return '';
-    try { const u = new URL(NEXT, location.href); return u.origin === location.origin ? u.href : ''; } catch (e) { return ''; }
-}
-const keepNext = url => NEXT ? url + '?next=' + encodeURIComponent(NEXT) : url;
-$('toLogin').href = keepNext('login.html');                  // chuyển qua lại giữa 2 trang vẫn giữ ?next
-$('toRegister').href = keepNext('register.html');
-$('logo').href = safeNext() || '#';                          // bấm logo = về trang chủ
-
-function loginOK(u, remember = true) {                       // lưu phiên rồi quay về trang chủ (header sẽ đổi thành avatar)
-    (remember ? localStorage : sessionStorage).setItem('vg_user', JSON.stringify(u));
-    toast('Đăng nhập thành công!');
-    setTimeout(() => { location.href = safeNext() || 'profile.html'; }, 800);
+    return JSON.parse(localStorage.getItem(USERS));
 }
 
-// Báo lỗi ngay dưới ô nhập (không dùng alert)
+function addUser(u) {
+    localStorage.setItem(USERS, JSON.stringify([...getUsers(), u]));
+}
+
+function showToast(msg) {
+    const t = document.createElement('div');
+    t.className = 'vg-toast';
+    t.textContent = msg;
+    document.body.appendChild(t);
+    void t.offsetWidth;
+    t.classList.add('show');
+    setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }, 2500);
+}
+
 function setError(id, msg) {
     const box = $(id).parentElement;
     box.classList.toggle('error', !!msg);
     box.querySelector('.err').textContent = msg;
 }
-// rules = { idÔ: v => 'câu báo lỗi' (hoặc '' nếu hợp lệ) }  ->  trả về { check(id), validate() }
+
 function setupValidation(rules) {
-    const check = id => { const msg = rules[id]($(id).value); setError(id, msg); return !msg; };
+    const check = id => { const msg = rules[id]($(id).value.trim()); setError(id, msg); return !msg; };
     Object.keys(rules).forEach(id => {
-        $(id).addEventListener('blur', () => check(id));                  // rời ô -> kiểm tra
-        $(id).addEventListener('input', () => {                           // đang có lỗi -> sửa tới đâu báo tới đó
+        $(id).addEventListener('blur', () => check(id));
+        $(id).addEventListener('input', () => {
             if ($(id).parentElement.classList.contains('error')) check(id);
         });
     });
     return { check, validate: () => Object.keys(rules).map(check).every(Boolean) };
 }
-// Biểu tượng con mắt: bấm để ẩn/hiện mật khẩu
+
 function bindEyes() {
     document.querySelectorAll('.eye').forEach(icon => icon.onclick = () => {
         const input = icon.parentElement.querySelector('input');
         const show = input.type === 'password';
         input.type = show ? 'text' : 'password';
-        icon.classList.toggle('on', show);                                // đổi giữa mắt mở / mắt gạch chéo
-    });
-}
-// Thông báo nhỏ ở đáy màn hình
-function toast(msg) {
-    const t = document.createElement('div');
-    t.className = 'toast';
-    t.textContent = msg;
-    document.body.appendChild(t);
-    void t.offsetWidth;                                                   // ép trình duyệt vẽ trước để chạy hiệu ứng
-    t.classList.add('show');
-    setTimeout(() => t.remove(), 2500);
-}
-
-// Bấm Google / Facebook / Apple: MÔ PHỎNG hộp "chọn tài khoản" rồi đăng nhập bằng tài khoản demo (chưa kết nối backend thật)
-const SOCIAL = {
-    google:   { name: 'Google',   email: 'anhtu.demo@gmail.com' },
-    facebook: { name: 'Facebook', email: 'anhtu.demo@facebook.com' },
-    apple:    { name: 'Apple',    email: 'anhtu.demo@icloud.com' }
-};
-function bindSocial() {
-    document.querySelectorAll('.sso button').forEach(btn => btn.onclick = () => {
-        const p = btn.dataset.provider, s = SOCIAL[p];
-        const box = document.createElement('div');
-        box.className = 'sso-dialog';
-        box.innerHTML = '<div class="sso-card"><div class="sso-logo"></div><h3></h3>' +
-            '<button class="sso-acc" type="button"><span class="sso-ava">T</span><span><b></b><small></small></span></button>' +
-            '<p class="sso-note"></p><button class="sso-cancel" type="button">Hủy</button></div>';
-        box.querySelector('.sso-logo').innerHTML = btn.querySelector('svg').outerHTML;   // dùng lại logo của nút vừa bấm
-        box.querySelector('h3').textContent = 'Tiếp tục với ' + s.name;
-        box.querySelector('b').textContent = 'Phạm Anh Tú';
-        box.querySelector('small').textContent = s.email;
-        box.querySelector('.sso-note').textContent = 'Giao diện mô phỏng, chưa kết nối thật.'
-        box.onclick = e => { if (e.target === box) box.remove(); };                      // bấm ra ngoài để đóng
-        box.querySelector('.sso-cancel').onclick = () => box.remove();
-        box.querySelector('.sso-acc').onclick = () => { box.remove(); loginOK({ name: 'Phạm Anh Tú', email: s.email, phone: '', provider: p }); };
-        document.body.appendChild(box);
+        icon.className = 'eye fa-regular ' + (show ? 'fa-eye-slash' : 'fa-eye');
     });
 }
 
-if (getUser()) location.replace(safeNext() || 'profile.html');           // đã đăng nhập rồi thì không cần form nữa
+function loginSuccess(u) {
+    localStorage.setItem(KEY, JSON.stringify(u));
+    if (window.parent !== window) {
+        window.parent.postMessage({ type: 'vivugo:auth', action: 'login', user: u }, '*');
+    }
+    const next = nextUrl();
+    showToast(next ? 'Tạo tài khoản thành công! Đang quay lại...' : 'Tạo tài khoản thành công! Đang vào Trang cá nhân...');
+    setTimeout(() => { location.href = next || 'account.html'; }, 700);
+}
 
-/* ---------- TRANG ĐĂNG KÝ ---------- */
-const { check, validate } = setupValidation({      // quy tắc từng ô: trả về '' nếu hợp lệ
-    rName:  v => v.trim().length >= 2 ? '' : 'Vui lòng nhập họ và tên.',
-    rEmail: v => EMAIL.test(v) ? '' : 'Email không đúng định dạng.',
-    rPhone: v => PHONE.test(v) ? '' : 'Số điện thoại gồm 10 số, bắt đầu bằng 0.',
-    rPass:  v => v.length >= 8 ? '' : 'Mật khẩu cần tối thiểu 8 ký tự.',
-    rPass2: v => v === $('rPass').value ? '' : 'Mật khẩu xác nhận chưa khớp.'
+/* --- 2. ĐO ĐỘ MẠNH MẬT KHẨU (WEAK / MEDIUM / STRONG) --- */
+const strengthBox = $('strength');
+const strengthLabel = strengthBox.querySelector('em');
+
+$('rPass').addEventListener('input', function () {
+    const v = this.value;
+    let level = 0;
+    if (v.length >= 8) {
+        level = 1;
+        if (/[A-Z]/.test(v) && /\d/.test(v)) level = 2;
+        if (/[A-Z]/.test(v) && /\d/.test(v) && /[^A-Za-z0-9]/.test(v) || v.length >= 10) level = 3;
+    } else if (v.length > 0) {
+        level = 1;
+    }
+    strengthBox.dataset.level = v ? level : 0;
+    const labels = ['', 'Yếu', 'Trung bình', 'Mạnh'];
+    strengthLabel.textContent = v ? `Độ mạnh: ${labels[level]}` : '';
 });
-bindEyes();
-bindSocial();
 
-// Thanh độ mạnh mật khẩu: Yếu / Trung bình / Mạnh
-$('rPass').addEventListener('input', e => {
-    const v = e.target.value;
-    const score = (v.length >= 8) + /[A-Z]/.test(v) + /\d/.test(v) + /[^A-Za-z0-9]/.test(v);
-    const lv = !v ? 0 : score <= 1 ? 1 : score <= 3 ? 2 : 3;
-    [...$('strength').children].forEach((el, i) => { if (i < 3) el.className = i < lv ? 'lv' + lv : ''; });
-    $('strength').lastElementChild.textContent = ['', 'Yếu', 'Trung bình', 'Mạnh'][lv];
-    if ($('rPass2').value) check('rPass2');                  // đổi mật khẩu -> kiểm tra lại ô xác nhận
+/* --- 3. KIỂM TRA FORM ĐĂNG KÝ --- */
+const { validate } = setupValidation({
+    rName:  v => v.length >= 2 ? '' : 'Vui lòng nhập họ và tên hợp lệ.',
+    rEmail: v => !EMAIL.test(v) ? 'Email không đúng định dạng.' : (getUsers().some(u => u.email === v) ? 'Email này đã được sử dụng.' : ''),
+    rPhone: v => !PHONE.test(v) ? 'Số điện thoại gồm 10 chữ số (bắt đầu bằng 0).' : (getUsers().some(u => u.phone === v) ? 'Số điện thoại này đã được đăng ký.' : ''),
+    rPass:  v => v.length >= 8 ? '' : 'Mật khẩu phải có tối thiểu 8 ký tự.',
+    rPass2: v => (v && v === $('rPass').value) ? '' : 'Mật khẩu xác nhận không khớp.'
+});
+
+bindEyes();
+/* Giữ tham số ?next= khi chuyển qua lại giữa hai tab Đăng nhập / Đăng ký */
+document.querySelectorAll('.tab[href$="login.html"], .tab[href$="register.html"]').forEach(a => {
+    if (nextUrl()) a.search = '?next=' + encodeURIComponent(nextUrl());
+});
+
+
+$('agree').addEventListener('change', function () {
+    if (this.checked) $('agreeErr').textContent = '';
 });
 
 $('register').onsubmit = e => {
     e.preventDefault();
-    const ok = validate();
-    $('agreeErr').textContent = $('agree').checked ? '' : 'Bạn cần đồng ý với điều khoản để tiếp tục.';
-    if (!ok || !$('agree').checked) return;
-    const email = $('rEmail').value.trim();
-    if (getUsers().some(x => x.email === email)) return setError('rEmail', 'Email này đã được đăng ký.');
-    const u = { name: $('rName').value.trim(), email, phone: $('rPhone').value.trim(), pass: $('rPass').value };
-    localStorage.setItem('vg_users', JSON.stringify([...getUsers(), u]));   // lưu tài khoản mới
-    loginOK(u);                                       // đăng ký xong tự đăng nhập luôn
+    const okFields = validate();
+    if (!$('agree').checked) {
+        $('agreeErr').textContent = 'Bạn cần đồng ý với Điều khoản dịch vụ & Chính sách bảo mật.';
+        return;
+    }
+    if (!okFields) return;
+
+    const newUser = {
+        name: $('rName').value.trim(),
+        email: $('rEmail').value.trim(),
+        phone: $('rPhone').value.trim(),
+        pass: $('rPass').value,
+        dob: '2006-01-01',
+        gender: 'Nam',
+        address: 'Hà Nội, Việt Nam'
+    };
+    addUser(newUser);
+    loginSuccess(newUser);
 };

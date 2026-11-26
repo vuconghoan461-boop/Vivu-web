@@ -88,7 +88,7 @@
     
     if ($('ticketQty'))$('ticketQty').addEventListener('input', calc);
     if ($('bookingForm'))$('bookingForm').addEventListener('submit', submitBooking);
-    if ($('goToMyTrips'))$('goToMyTrips').onclick = () => { window.top.location.hash = 'calendar'; };   /* đổi tab ở trang chủ, KHÔNG đổi địa chỉ iframe */
+    if ($('goToMyTrips'))$('goToMyTrips').onclick = () => VGBookings.goToCalendar();
     
     render();
   }
@@ -229,17 +229,23 @@
   function openBooking() {
     const t = current;
     if (!t) return;
+    // Đặt chỗ được lưu theo tài khoản nên cần đăng nhập trước khi điền form
+    if (!VGBookings.requireLogin()) return;
 
     $('bookingTourName').textContent = t.name;
     $('bookingRoute').textContent = `${t.from} → ${t.to}`;
     $('bookingMeta').textContent = `Thời lượng: ${t.duration}`;
     $('bookingPrice').innerHTML = `${money(t.price)}<small>/khách</small>`;
     
-    $('departureDate').innerHTML = (t.departures || []).map((d, i) => 
-      `<option value="${i}">${dateVN(d.date)} · ${d.time}</option>`
-    ).join('');
-    
+    // Chỉ cho chọn lịch khởi hành từ hôm nay trở đi (value giữ nguyên chỉ số trong t.departures)
+    const today = VGBookings.todayISO();
+    const upcoming = (t.departures || []).map((d, i) => ({ d, i })).filter(x => x.d.date >= today);
+    $('departureDate').innerHTML = upcoming.length
+      ? upcoming.map(x => `<option value="${x.i}">${dateVN(x.d.date)} · ${x.d.time}</option>`).join('')
+      : '<option value="">Chưa có lịch khởi hành sắp tới</option>';
+
     $('bookingForm').reset(); 
+    VGBookings.prefill({ name: 'renterName', phone: 'renterPhone', email: 'renterEmail' });
     calc(); 
     openModal('bookingModalOverlay');
   }
@@ -255,26 +261,55 @@
 
   function submitBooking(e) {
     e.preventDefault();
-    const q = +$('ticketQty').value;
-    const d = current.departures[+$('departureDate').value];
-    if (q < 1) { alert(`Số lượng vé tối thiểu là 1.`); return; }
+    if (!VGBookings.requireLogin()) return;          // phòng khi phiên đăng nhập hết hạn lúc đang điền form
 
-    $('orderCode').textContent = 'TOUR-' + Math.floor(100000 + Math.random() * 900000);
-    $('infoName').textContent =$('renterName').value;
-    $('infoEmail').textContent =$('renterEmail').value;
+    const idx = $('departureDate').value;
+    const d = idx === '' ? null : current.departures[+idx];
+    if (!d) { alert('Tour này hiện chưa có lịch khởi hành sắp tới.'); return; }
+
+    const q = +$('ticketQty').value;
+    if (!Number.isInteger(q) || q < 1) { alert('Số lượng vé tối thiểu là 1.'); return; }
+    if (d.slots && q > d.slots) { alert(`Lịch khởi hành này chỉ còn ${d.slots} chỗ.`); return; }
+
+    const name = $('renterName').value.trim();
+    const phone = $('renterPhone').value.trim();
+    const email = $('renterEmail').value.trim();
+    if (name.length < 2) { alert('Vui lòng nhập họ và tên.'); return; }
+    if (!VGBookings.isPhone(phone)) { alert('Số điện thoại chưa đúng (10 số, bắt đầu bằng 0).'); return; }
+    if (!VGBookings.isEmail(email)) { alert('Email chưa đúng định dạng.'); return; }
+
+    const total = calc();
+    const days = VGBookings.tourDayCount(current);
+    const cover = (current.images || [])[0];
+    const saved = VGBookings.save({
+      id: VGBookings.newCode('TOUR'),
+      type: 'tour',
+      title: current.name,
+      subtitle: `${current.from} → ${current.to} · ${current.duration}`,
+      place: current.city, from: current.from, to: current.to,
+      startDate: d.date, endDate: VGBookings.addDaysISO(d.date, days - 1),
+      startTime: d.time, endTime: d.endTime || '',
+      refId: current.id, quantity: q,
+      image: cover ? cover.replace(/^(\.\.\/)+/, '') : '',
+      contact: { name, phone, email },
+      details: [
+        { label: 'Mã tour', value: current.code },
+        { label: 'Số vé', value: String(q) },
+        { label: 'Thời lượng', value: current.duration }
+      ],
+      payment: { method: $('payMethod').value, total, lines: [{ label: `Tour × ${q} vé (${money(current.price)}/khách)`, amount: total }] },
+      note: $('renterNote').value
+    });
+    if (!saved.ok) { alert(saved.error); return; }
+
+    $('orderCode').textContent = saved.id;
+    $('infoName').textContent = name;
+    $('infoEmail').textContent = email;
     $('infoService').textContent = current.name;
     $('infoDate').textContent = `${dateVN(d.date)} · ${d.time}`;
-    $('infoTotal').textContent = money(calc());
-    $('infoPay').textContent =$('payMethod').value;
-
-    // Lưu đơn vào kho dữ liệu (js/bookings.js)
-    if (window.VGBookings) VGBookings.save({
-      id: $('orderCode').textContent,
-      type: 'tour',
-      customer: { name: $('renterName').value.trim(), phone: $('renterPhone').value.trim(), email: $('renterEmail').value.trim(), note: $('renterNote').value.trim() },
-      service: { tourId: current.id, name: current.name, departureDate: d.date, departureTime: d.time, tickets: q },
-      payment: { method: $('payMethod').value, total: calc() }
-    });
+    $('infoTotal').textContent = money(total);
+    $('infoPay').textContent = $('payMethod').value;
+    VGBookings.showSaved($('savedNote'), saved);
 
     closeModal('bookingModalOverlay'); 
     closeModal('detailModalOverlay'); 

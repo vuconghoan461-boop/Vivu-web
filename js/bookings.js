@@ -94,5 +94,32 @@
     location.href = '../../index.html#calendar';
   }
 
-  global.VGBookings = { goToCalendar: goToCalendar, save: save, getAll: getAll, getMine: getMine, clear: clear, exportJSON: exportJSON, toNumber: toNumber };
+ // Kiểm tra đăng nhập trước khi cho phép đặt dịch vụ
+function requireLogin() {
+  if (currentAccount()) {
+    return true;
+  }
+
+  alert('Vui lòng đăng nhập để tiếp tục đặt dịch vụ.');
+
+  // Lưu trang hiện tại để có thể quay lại sau khi đăng nhập
+  var next = location.pathname + location.search + location.hash;
+
+  // Điều chỉnh đường dẫn này nếu login.html nằm ở vị trí khác
+  location.href =
+    '../account/login.html?next=' + encodeURIComponent(next);
+
+  return false;
+}
+
+global.VGBookings = {
+  goToCalendar: goToCalendar,
+  save: save,
+  getAll: getAll,
+  getMine: getMine,
+  clear: clear,
+  exportJSON: exportJSON,
+  toNumber: toNumber,
+  requireLogin: requireLogin
+};
 })(window);

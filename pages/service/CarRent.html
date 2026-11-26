@@ -187,6 +187,11 @@
           </div>
 
           <div class="booking-summary">
+            <span>Mã ưu đãi</span>
+            <div class="promo-row">
+              <input type="text" id="promoCode" placeholder="Nhập mã ưu đãi (nếu có)" />
+              <button type="button" class="btn-ghost btn-sm" id="applyPromo">Áp dụng</button>
+            </div>
             <div class="summary-line"><span>Đơn giá thuê</span><span id="sumBase">0đ</span></div>
             <div class="summary-line" id="sumDriverRow" style="display:none;"><span>Phí tài xế</span><span id="sumDriver">0đ</span></div>
             <div class="summary-line" id="sumPromoRow" style="display:none;"><span>Giảm giá</span><span id="sumPromo">-0đ</span></div>
@@ -226,7 +231,8 @@
             <div class="info-row"><span>Tổng thanh toán:</span><strong class="amount" id="infoTotal"></strong></div>
             <div class="info-row"><span>Hình thức:</span><strong>Thanh toán khi nhận xe</strong></div>
           </div>
-          <button type="button" class="btn-primary btn-block" id="goToMyTrips">Xem vé trong "Kế hoạch của tôi"</button>
+          <div class="vgbk-saved" id="savedNote" hidden></div>
+          <button type="button" class="btn-primary btn-block" id="goToMyTrips">Xem trong "Lịch của tôi"</button>
         </div>
       </div>
     </div>
