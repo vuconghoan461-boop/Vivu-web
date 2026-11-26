@@ -213,6 +213,39 @@
       '</div></div>';
   }
 
+  /* ---------- Lưu đặt chỗ vào "Lịch của tôi" (js/bookings.js) ---------- */
+
+  function loggedIn() { return !window.VGBookings || window.VGBookings.requireLogin(); }
+  function todayISO() { return window.VGBookings.todayISO(); }
+  // Hành khách -> bản ghi lưu trữ: chỉ giữ 3 ký tự cuối của CCCD / hộ chiếu
+  function paxRecord(p, seat) {
+    return { name: (p.name || '').trim(), phone: (p.phone || '').trim(), email: (p.email || '').trim(),
+             idMasked: window.VGBookings.maskId((p.id || '').trim()), seat: seat || '' };
+  }
+  function bookingRecord(o) {
+    var V = window.VGBookings;
+    var date = /^\d{4}-\d{2}-\d{2}$/.test(o.date || '') && o.date >= V.todayISO() ? o.date : V.todayISO();
+    var u = V.currentUser();
+    var first = (o.passengers[0] || {});
+    return {
+      id: V.newCode(o.prefix), type: o.type, title: o.title, subtitle: o.subtitle,
+      place: o.toCity, from: o.from, to: o.to,
+      startDate: date, endDate: V.addDaysISO(date, o.dayOffset || 0),
+      startTime: o.startTime, endTime: o.endTime,
+      refId: o.refId, quantity: o.quantity, image: '',
+      contact: { name: first.name, phone: first.phone, email: first.email || o.email || (u ? u.email : '') },
+      details: o.details, passengers: o.passengers,
+      payment: { method: o.payMethod, total: o.total, lines: o.lines }, note: ''
+    };
+  }
+  function billLines(b, what) {
+    return [{ label: what + ' (' + b.n + ' × ' + money(b.price) + ')', amount: b.sub },
+            { label: 'Phí dịch vụ (' + b.n + ' × ' + money(b.feeUnit) + ')', amount: b.fee }];
+  }
+  document.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('[data-vg-calendar]')) window.VGBookings.goToCalendar();
+  });
+
   // o: { sub, code, rows:[[nhãn, giá trị, laTien?]], policy:[...], close:'data-xx-close' }
   function successHtml(o) {
     return '<div class="success-body"><div class="success-check"><i class="fa-solid fa-check" aria-hidden="true"></i></div><h3>Đặt vé thành công</h3>' +
@@ -223,6 +256,10 @@
       }).join('') + '</div>' +
       '<div class="bk-policy"><b>Chính sách hủy / đổi vé (demo)</b><ul>' +
         o.policy.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul></div>' +
+      (o.saved ? (o.saved.ok === false
+        ? '<p class="form-error" role="alert">' + esc(o.saved.error || 'Không lưu được vào Lịch của tôi.') + '</p>'
+        : window.VGBookings.savedNoteHtml() +
+          '<button type="button" class="btn-primary btn-block" data-vg-calendar>Xem trong "Lịch của tôi"</button>') : '') +
       '<button type="button" class="btn-confirm btn-block" ' + o.close + '>Đóng</button></div>';
   }
 
@@ -422,7 +459,7 @@
 
   function openBooking(id, cls, date) {
     var f = allFlights.filter(function (x) { return x.id === id; })[0];
-    if (!f) return;
+    if (!f || !loggedIn()) return;
     B = { f: f, cls: cls === 'business' ? 'business' : 'economy', date: date, seats: [], pax: {} };
     ensureModal();
     dlg.innerHTML =
@@ -509,15 +546,30 @@
 
     var pay = modal.querySelector('input[name="bk-pay"]:checked');
     var bill = pricing(B.seats.length, seatPrice(), SERVICE_FEES.flight);
-    var code = 'VG-' + (100000 + hash(B.f.id + Date.now()) % 900000);
-    if (window.VGBookings) { var p0 = B.pax[B.seats[0]] || {}; VGBookings.save({
-      id: code, type: 'flight',
-      customer: { name: p0.name, phone: p0.phone, email: p0.email },
-      service: { name: B.f.airline + ' ' + B.f.flightNumber, from: B.f.fromCode, to: B.f.toCode, date: B.date || '', departureTime: B.f.departureTime, arrivalTime: B.f.arrivalTime, class: B.cls, seats: B.seats.slice(),
-        passengers: B.seats.map(function (s) { var p = B.pax[s] || {}; return { seat: s, name: p.name, phone: p.phone, email: p.email }; }) },
-      payment: { method: pay ? pay.value : '', total: bill.total }
-    }); }
+    if (!loggedIn()) return;
+    var f = B.f;
+    var rec = bookingRecord({
+      prefix: 'VG', type: 'flight', date: B.date, dayOffset: f.arrivalDayOffset || 0,
+      title: f.airline + ' ' + f.flightNumber,
+      subtitle: f.fromCode + ' → ' + f.toCode + ' · ' + clsName() + ' · ' + B.seats.length + ' ghế',
+      from: f.fromCity + ' (' + f.fromCode + ')', to: f.toCity + ' (' + f.toCode + ')', toCity: f.toCity,
+      startTime: f.departureTime, endTime: f.arrivalTime, refId: f.id, quantity: B.seats.length,
+      passengers: B.seats.map(function (st) { return paxRecord(B.pax[st] || {}, st); }),
+      details: [
+        { label: 'Chuyến bay', value: f.airline + ' ' + f.flightNumber },
+        { label: 'Sân bay đi', value: f.fromAirport || f.fromCity },
+        { label: 'Sân bay đến', value: f.toAirport || f.toCity },
+        { label: 'Hạng ghế', value: clsName() },
+        { label: 'Ghế', value: B.seats.join(', ') },
+        { label: 'Hành lý', value: f.baggageIncluded || '' }
+      ],
+      payMethod: pay ? pay.value : '', total: bill.total, lines: billLines(bill, 'Vé ' + clsName())
+    });
+    var saved = window.VGBookings.save(rec);
+    if (!saved.ok) { msg.textContent = saved.error; return; }
+    var code = saved.id;
     dlg.innerHTML = successHtml({
+      saved: saved,
       sub: 'VivuGo sẽ đặt vé hộ bạn và gửi vé điện tử qua email của từng hành khách sau khi xác nhận thanh toán.',
       code: code,
       rows: [
@@ -1076,7 +1128,7 @@
 
   function openTrainBooking(id, date) {
     var t = allTrains.filter(function (x) { return x.id === id; })[0];
-    if (!t) return;
+    if (!t || !loggedIn()) return;
     var def = (t.coachTypes || []).filter(function (c) { return c['default']; })[0] || (t.coachTypes || [])[0];
     T = { t: t, coach: def ? def.id : 'soft-seat', date: date, seats: [], pax: {} };
     ensureTrainModal();
@@ -1166,15 +1218,28 @@
 
     var pay = tmodal.querySelector('input[name="tk-pay"]:checked');
     var b = calcBill();
-    var code = 'VT-' + (100000 + hash(T.t.id + Date.now()) % 900000);
-    if (window.VGBookings) { var p1 = T.pax[T.seats[0]] || {}; VGBookings.save({
-      id: code, type: 'train',
-      customer: { name: p1.name, phone: p1.phone, email: p1.email },
-      service: { name: T.t.trainCode, from: T.t.fromCity, to: T.t.toCity, departureTime: T.t.departureTime, date: T.date || '', coach: coachNow().label, seats: T.seats.slice(),
-        passengers: T.seats.map(function (s) { var p = T.pax[s] || {}; return { seat: s, name: p.name, phone: p.phone, email: p.email }; }) },
-      payment: { method: pay ? pay.value : '', total: b.total }
-    }); }
+    if (!loggedIn()) return;
+    var tr = T.t;
+    var trec = bookingRecord({
+      prefix: 'VT', type: 'train', date: T.date, dayOffset: tr.arrivalDayOffset || 0,
+      title: 'Tàu ' + tr.trainCode + ' · ' + tr.company,
+      subtitle: tr.fromCity + ' → ' + tr.toCity + ' · ' + coachNow().label + ' · ' + T.seats.length + ' chỗ',
+      from: tr.fromStation || tr.fromCity, to: tr.toStation || tr.toCity, toCity: tr.toCity,
+      startTime: tr.departureTime, endTime: tr.arrivalTime, refId: tr.id, quantity: T.seats.length,
+      passengers: T.seats.map(function (st) { return paxRecord(T.pax[st] || {}, st); }),
+      details: [
+        { label: 'Chuyến tàu', value: tr.trainCode },
+        { label: 'Hạng chỗ', value: coachNow().label },
+        { label: 'Chỗ ngồi', value: T.seats.join(', ') },
+        { label: 'Thời gian chạy', value: tr.duration || '' }
+      ],
+      payMethod: pay ? pay.value : '', total: b.total, lines: billLines(b, 'Vé tàu')
+    });
+    var tsaved = window.VGBookings.save(trec);
+    if (!tsaved.ok) { msg.textContent = tsaved.error; return; }
+    var code = tsaved.id;
     tdlg.innerHTML = successHtml({
+      saved: tsaved,
       sub: 'Vé điện tử sẽ được gửi qua email (và Zalo theo số điện thoại đã đăng ký) sau khi VivuGo xác nhận thanh toán.',
       code: code,
       rows: [
@@ -1488,7 +1553,7 @@
 
   function openLimoBooking(id, date) {
     var b0 = allBuses.filter(function (x) { return x.id === id; })[0];
-    if (!b0) return;
+    if (!b0 || !loggedIn()) return;
     var trips = allBuses
       .filter(function (x) { return isLimo(x) && x.fromCity === b0.fromCity && x.toCity === b0.toCity; })
       .sort(function (a, b) { return a.departureTime < b.departureTime ? -1 : 1; });
@@ -1609,14 +1674,29 @@
     var b = lmTrip();
     var bill = lmBill();
     var pay = lmodal.querySelector('input[name="lm-pay"]:checked');
-    var code = 'VL-' + (100000 + hash(b.id + Date.now()) % 900000);
-    if (window.VGBookings) VGBookings.save({
-      id: code, type: 'limousine',
-      customer: { name: p.name, phone: p.phone, email: L.email.trim() },
-      service: { name: b.operator + ' · ' + b.vehicleType, from: b.fromCity, to: b.toCity, departureTime: b.departureTime, date: L.date || '', pickupPoint: b.pickupPoint || b.fromCity, seats: L.qty },
-      payment: { method: pay ? pay.value : '', total: bill.total }
+    if (!loggedIn()) return;
+    var lrec = bookingRecord({
+      prefix: 'VL', type: 'bus', date: L.date, dayOffset: b.arrivalDayOffset || 0,
+      title: b.operator + ' · ' + b.vehicleType,
+      subtitle: b.fromCity + ' → ' + b.toCity + ' · ' + L.qty + ' ghế',
+      from: b.pickupPoint || b.fromCity, to: b.dropoffPoint || b.toCity, toCity: b.toCity,
+      startTime: b.departureTime, endTime: b.arrivalTime, refId: b.id, quantity: L.qty,
+      email: L.email.trim(),
+      passengers: [paxRecord({ name: p.name, phone: p.phone, email: L.email, id: '' }, '')],
+      details: [
+        { label: 'Nhà xe', value: b.operator },
+        { label: 'Loại xe', value: b.vehicleType },
+        { label: 'Điểm đón', value: b.pickupPoint || b.fromCity },
+        { label: 'Điểm trả', value: b.dropoffPoint || b.toCity },
+        { label: 'Số ghế', value: String(L.qty) }
+      ],
+      payMethod: pay ? pay.value : '', total: bill.total, lines: billLines(bill, 'Vé xe')
     });
+    var lsaved = window.VGBookings.save(lrec);
+    if (!lsaved.ok) { msg.textContent = lsaved.error; return; }
+    var code = lsaved.id;
     ldlg.innerHTML = successHtml({
+      saved: lsaved,
       sub: 'Vé điện tử sẽ được gửi qua Zalo theo số điện thoại người đặt vé' + (L.email.trim() ? ' và email ' + esc(L.email.trim()) : '') + ' sau khi VivuGo xác nhận thanh toán.',
       code: code,
       rows: [

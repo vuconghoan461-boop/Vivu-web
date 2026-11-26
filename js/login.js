@@ -4,6 +4,13 @@ const KEY = 'vg_user', USERS = 'vg_users';
 const EMAIL = /^\S+@\S+\.\S+$/, PHONE = /^0\d{9}$/;
 
 /* --- 1. HÀM DÙNG CHUNG (Quản lý User, Toast, Bắt lỗi, Ẩn/hiện mật khẩu) --- */
+/* Sau khi đăng nhập quay lại trang đang đặt dở (?next=/pages/service/tour.html).
+   Chỉ nhận đường dẫn nội bộ bắt đầu bằng một dấu "/", không nhận địa chỉ trang khác. */
+function nextUrl() {
+    const n = new URLSearchParams(location.search).get('next') || '';
+    return /^\/(?!\/)[^\\]*$/.test(n) && !/[\r\n]/.test(n) ? n : '';
+}
+
 function getUsers() {
     if (!localStorage.getItem(USERS)) {
         localStorage.setItem(USERS, JSON.stringify([
@@ -54,8 +61,9 @@ function loginSuccess(u, remember = true) {
     if (window.parent !== window) {
         window.parent.postMessage({ type: 'vivugo:auth', action: 'login', user: u }, '*');
     }
-    showToast('Đăng nhập thành công! Đang vào Trang cá nhân...');
-    setTimeout(() => { location.href = 'account.html'; }, 700);
+    const next = nextUrl();
+    showToast(next ? 'Đăng nhập thành công! Đang quay lại...' : 'Đăng nhập thành công! Đang vào Trang cá nhân...');
+    setTimeout(() => { location.href = next || 'account.html'; }, 700);
 }
 
 /* --- 2. KHỞI TẠO KIỂM TRA FORM ĐĂNG NHẬP --- */
@@ -65,6 +73,11 @@ const { validate } = setupValidation({
 });
 
 bindEyes();
+/* Giữ tham số ?next= khi chuyển qua lại giữa hai tab Đăng nhập / Đăng ký */
+document.querySelectorAll('.tab[href$="login.html"], .tab[href$="register.html"]').forEach(a => {
+    if (nextUrl()) a.search = '?next=' + encodeURIComponent(nextUrl());
+});
+
 
 $('login').onsubmit = e => {
     e.preventDefault();

@@ -1,0 +1,7 @@
+# Dữ liệu đặt chỗ của khách (có họ tên, số điện thoại, email) – không đưa lên GitHub
+data/bookings.json
+data/bookings.json.tmp
+data/bookings.corrupt-*.json
+
+node_modules/
+.DS_Store

@@ -38,6 +38,7 @@ function closeModal(overlayId) {
 let CARS = [];
 let currentCarId = null;
 let promoApplied = false;
+let promoPercent = 0;   // % giảm của mã ưu đãi khách sạn đang áp dụng
 
 /* Khởi tạo carrent */
 document.addEventListener("DOMContentLoaded", () => {
@@ -358,12 +359,14 @@ function openCarDetail(carId) {
 
 /* ---------------- Form điền thông tin đặt xe ---------------- */
 function openBookingModal(carId) {
+  if (!VGBookings.requireLogin()) return;   // đặt xe cần đăng nhập để lưu vào "Lịch của tôi"
   const car = CARS.find(c => c.id === Number(carId));
   if (!car) return;
   currentCarId = car.id;
   promoApplied = false;
 
   document.getElementById("bookingForm").reset();
+  VGBookings.prefill({ name: "renterName", phone: "renterPhone" });
   document.getElementById("bookingCarName").textContent = car.name;
   document.getElementById("bookingProvider").textContent = `Đơn vị cung cấp: ${car.provider}`;
   document.getElementById("bookingPerks").textContent = car.perks;
@@ -379,7 +382,9 @@ function openBookingModal(carId) {
       : "";
 
   document.getElementById("rentalDays").value = "2";
-  document.getElementById("bookingPickupDate").value = new Date().toISOString().slice(0, 10);
+  const pickupInput = document.getElementById("bookingPickupDate");
+  pickupInput.min = VGBookings.todayISO();
+  pickupInput.value = VGBookings.todayISO();
 
   updateSummary();
   document.getElementById("bookingModalOverlay").classList.add("is-open");
@@ -426,49 +431,84 @@ function initBookingForm() {
 
   document.getElementById("bookingForm").addEventListener("submit", (e) => {
     e.preventDefault();
+    if (!VGBookings.requireLogin()) return;
     const car = CARS.find(c => c.id === currentCarId);
     if (!car) return;
+
+    const name = document.getElementById("renterName").value.trim();
+    const phone = document.getElementById("renterPhone").value.trim();
+    const pickup = document.getElementById("pickupPlace").value.trim();
+    const dropoff = document.getElementById("dropoffPlace").value.trim();
+    const startISO = document.getElementById("bookingPickupDate").value;
+    const days = parseInt(document.getElementById("rentalDays").value, 10) || 1;
+    const withDriver = document.getElementById("withDriver").checked;
+
+    if (name.length < 2) { alert("Vui lòng nhập họ và tên."); return; }
+    if (!VGBookings.isPhone(phone)) { alert("Số điện thoại chưa đúng (10 số, bắt đầu bằng 0)."); return; }
+    if (!pickup || !dropoff) { alert("Vui lòng nhập địa điểm nhận và trả xe."); return; }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(startISO) || startISO < VGBookings.todayISO()) {
+      alert("Ngày nhận xe không hợp lệ (không được ở quá khứ).");
+      return;
+    }
+
+    // Tính tiền bằng đúng công thức của updateSummary()
+    const base = car.price * days;
+    const driverFee = withDriver ? 500000 * days : 0;
+    const discount = promoApplied ? Math.round((base + driverFee) * 0.1) : 0;
+    const total = base + driverFee - discount;
+    const lines = [{ label: `Thuê xe × ${days} ngày (${formatCurrency(car.price)}/ngày)`, amount: base }];
+    if (driverFee) lines.push({ label: `Tài xế × ${days} ngày`, amount: driverFee });
+    if (discount) lines.push({ label: "Mã ưu đãi VIVU10 (-10%)", amount: -discount });
+
+    const user = VGBookings.currentUser();
+    const saved = VGBookings.save({
+      id: VGBookings.newCode("CAR"),
+      type: "car",
+      title: car.name,
+      subtitle: `${days} ngày · ${withDriver ? "Có tài xế" : "Tự lái"} · ${car.provider}`,
+      place: car.city, from: pickup, to: dropoff,
+      startDate: startISO, endDate: VGBookings.addDaysISO(startISO, days),
+      startTime: "", endTime: "",
+      refId: car.id, quantity: days,
+      image: car.image ? "assets/cars/" + car.image : "",
+      contact: { name, phone, email: user ? user.email : "" },
+      details: [
+        { label: "Đơn vị cung cấp", value: car.provider },
+        { label: "Số chỗ", value: String(car.seats) },
+        { label: "Hộp số", value: car.transmission },
+        { label: "Nhiên liệu", value: car.fuel },
+        { label: "Tài xế", value: withDriver ? "Có" : "Không (tự lái)" }
+      ],
+      payment: { method: document.getElementById("payMethod").value, total, lines },
+      note: ""
+    });
+    if (!saved.ok) { alert(saved.error); return; }
 
     closeBookingModal();
     closeModal("carDetailOverlay");
     openSuccessModal({
-      name: document.getElementById("renterName").value.trim(),
-      phone: document.getElementById("renterPhone").value.trim(),
+      code: saved.id,
+      name,
+      phone,
       service: car.name,
-      pickup: document.getElementById("pickupPlace").value.trim(),
-      dropoff: document.getElementById("dropoffPlace").value.trim(),
-      total: document.getElementById("totalAmount").textContent,
-      carId: car.id,
-      provider: car.provider,
-      pickupDate: document.getElementById("bookingPickupDate").value,
-      days: parseInt(document.getElementById("rentalDays").value, 10) || 1,
-      withDriver: document.getElementById("withDriver").checked,
-      payMethod: document.getElementById("payMethod").value
+      pickup,
+      dropoff,
+      total: formatCurrency(total),
+      saved
     });
   });
 }
 
 /* Modal thành công */
 function openSuccessModal(info) {
-  const code = "CAR-" + Math.floor(100000 + Math.random() * 900000);
-  // Lưu đơn vào kho dữ liệu (js/bookings.js)
-  if (window.VGBookings) VGBookings.save({
-    id: code,
-    type: "car",
-    customer: { name: info.name, phone: info.phone },
-    service: {
-      name: info.service, provider: info.provider, pickupPlace: info.pickup, dropoffPlace: info.dropoff,
-      pickupDate: info.pickupDate, days: info.days, withDriver: info.withDriver
-    },
-    payment: { method: info.payMethod, total: info.total }
-  });
-  document.getElementById("orderCode").textContent = code;
+  document.getElementById("orderCode").textContent = info.code;
   document.getElementById("infoName").textContent = info.name;
   document.getElementById("infoPhone").textContent = info.phone;
   document.getElementById("infoService").textContent = info.service;
   document.getElementById("infoPickup").textContent = info.pickup;
   document.getElementById("infoDropoff").textContent = info.dropoff;
   document.getElementById("infoTotal").textContent = info.total;
+  VGBookings.showSaved(document.getElementById("savedNote"), info.saved);
   document.getElementById("successModalOverlay").classList.add("is-open");
 }
 
@@ -490,7 +530,7 @@ function initModals() {
 
   document.getElementById("goToMyTrips").addEventListener("click", () => {
     closeSuccessModal();
-    window.top.location.hash = "calendar";   // mở mục "Lịch của tôi" ở trang chủ
+    VGBookings.goToCalendar();
   });
 
   // Event delegation cho nút "Đặt xe nhanh" trong grid
@@ -785,8 +825,11 @@ function switchTab(btn, panelId) {
 
 /* ---------- 6. POPUP FORM ĐẶT PHÒNG ---------- */
 function openBooking(roomIndex) {
+  if (!VGBookings.requireLogin()) return;   // đặt phòng cần đăng nhập để lưu vào "Lịch của tôi"
   currentRoom = currentHotel.rooms[roomIndex];
+  promoPercent = 0;
   document.getElementById("bookingForm").reset();
+  VGBookings.prefill({ name: "renterName", phone: "renterPhone", email: "renterEmail" });
   document.getElementById("bookingHotel").textContent = currentHotel.name;
   document.getElementById("bookingRoom").textContent = `${currentRoom.name} · ${currentRoom.info}`;
   document.getElementById("bookingPrice").innerHTML = `${money(currentRoom.price)}<small>/đêm</small>`;
@@ -806,10 +849,14 @@ function openBooking(roomIndex) {
 function updateHotelSummary() {
   const nights = Number(document.getElementById("nights").value);
   const rooms = Math.max(1, Number(document.getElementById("roomQty").value) || 1);
-  const total = currentRoom.price * nights * rooms;
+  const base = currentRoom.price * nights * rooms;
+  const discount = Math.round(base * promoPercent / 100);
+  const total = base - discount;
 
   document.getElementById("sumLabel").textContent = `Tạm tính (${rooms} phòng × ${nights} đêm)`;
-  document.getElementById("sumBase").textContent = money(total);
+  document.getElementById("sumBase").textContent = money(base);
+  document.getElementById("sumPromoRow").style.display = discount ? "" : "none";
+  document.getElementById("sumPromo").textContent = "-" + money(discount);
   document.getElementById("totalAmount").textContent = money(total);
   return total;
 }
@@ -825,52 +872,72 @@ function applyPromo() {
 
 function submitBooking(e) {
   e.preventDefault();   // không cho trang tải lại
+  if (!VGBookings.requireLogin()) return;
 
   const rooms = Number(document.getElementById("roomQty").value);
   const guests = Number(document.getElementById("guestQty").value);
   const nights = Number(document.getElementById("nights").value);
+  const checkInISO = document.getElementById("checkInDate").value;
+  const name = document.getElementById("renterName").value.trim();
+  const phone = document.getElementById("renterPhone").value.trim();
+  const email = document.getElementById("renterEmail").value.trim();
 
-  if (rooms < 1 || rooms > currentRoom.left) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(checkInISO) || checkInISO < VGBookings.todayISO()) {
+    alert("Ngày nhận phòng không hợp lệ (không được ở quá khứ).");
+    return;
+  }
+  if (!Number.isInteger(rooms) || rooms < 1 || rooms > currentRoom.left) {
     alert(`Số phòng phải từ 1 đến ${currentRoom.left}.`);
     return;
   }
-  if (guests < 1 || guests > currentRoom.capacity * rooms) {
+  if (!Number.isInteger(guests) || guests < 1 || guests > currentRoom.capacity * rooms) {
     alert(`Tối đa ${currentRoom.capacity * rooms} khách cho ${rooms} phòng này.`);
     return;
   }
+  if (name.length < 2) { alert("Vui lòng nhập họ và tên."); return; }
+  if (!VGBookings.isPhone(phone)) { alert("Số điện thoại chưa đúng (10 số, bắt đầu bằng 0)."); return; }
+  if (!VGBookings.isEmail(email)) { alert("Email chưa đúng định dạng."); return; }
 
-  // 7. Điền thông tin vào popup thành công
-  const checkIn = new Date(document.getElementById("checkInDate").value);
-  const checkOut = new Date(checkIn);
-  checkOut.setDate(checkOut.getDate() + nights);
+  const checkOutISO = VGBookings.addDaysISO(checkInISO, nights);
+  const base = currentRoom.price * nights * rooms;
+  const total = updateHotelSummary();
+  const lines = [{ label: `${currentRoom.name} × ${rooms} phòng × ${nights} đêm (${money(currentRoom.price)}/đêm)`, amount: base }];
+  if (total !== base) lines.push({ label: `Mã ưu đãi (-${promoPercent}%)`, amount: total - base });
 
-  document.getElementById("orderCode").textContent = "HOTEL-" + Math.floor(100000 + Math.random() * 900000);
-  document.getElementById("infoName").textContent = document.getElementById("renterName").value.trim();
-  document.getElementById("infoEmail").textContent = document.getElementById("renterEmail").value.trim();
+  const cover = currentRoom.image || (currentHotel.images || [])[0];
+  const saved = VGBookings.save({
+    id: VGBookings.newCode("HOTEL"),
+    type: "hotel",
+    title: currentHotel.name,
+    subtitle: `${currentRoom.name} · ${rooms} phòng · ${nights} đêm`,
+    place: currentHotel.city, from: "", to: "",
+    startDate: checkInISO, endDate: checkOutISO,
+    startTime: "14:00", endTime: "12:00",
+    refId: currentHotel.id, quantity: rooms,
+    image: cover ? "assets/hotels/" + cover : "",
+    contact: { name, phone, email },
+    details: [
+      { label: "Phòng", value: currentRoom.name },
+      { label: "Địa chỉ", value: currentHotel.address || currentHotel.city },
+      { label: "Số phòng", value: String(rooms) },
+      { label: "Số khách", value: String(guests) },
+      { label: "Số đêm", value: String(nights) }
+    ],
+    payment: { method: document.getElementById("payMethod").value, total, lines },
+    note: document.getElementById("renterNote").value
+  });
+  if (!saved.ok) { alert(saved.error); return; }
+
+  // Điền thông tin vào popup thành công
+  document.getElementById("orderCode").textContent = saved.id;
+  document.getElementById("infoName").textContent = name;
+  document.getElementById("infoEmail").textContent = email;
   document.getElementById("infoService").textContent = `${currentHotel.name} - ${currentRoom.name}`;
   document.getElementById("infoStay").textContent =
-    `${checkIn.toLocaleDateString("vi-VN")} → ${checkOut.toLocaleDateString("vi-VN")} (${nights} đêm, ${rooms} phòng)`;
-  document.getElementById("infoTotal").textContent = money(updateHotelSummary());
+    `${new Date(checkInISO + "T00:00").toLocaleDateString("vi-VN")} → ${new Date(checkOutISO + "T00:00").toLocaleDateString("vi-VN")} (${nights} đêm, ${rooms} phòng)`;
+  document.getElementById("infoTotal").textContent = money(total);
   document.getElementById("infoPay").textContent = document.getElementById("payMethod").value;
-
-  // Lưu đơn vào kho dữ liệu (js/bookings.js)
-  if (window.VGBookings) VGBookings.save({
-    id: document.getElementById("orderCode").textContent,
-    type: "hotel",
-    customer: {
-      name: document.getElementById("renterName").value.trim(),
-      phone: document.getElementById("renterPhone").value.trim(),
-      email: document.getElementById("renterEmail").value.trim(),
-      note: document.getElementById("renterNote").value.trim()
-    },
-    service: {
-      name: currentHotel.name, room: currentRoom.name,
-      checkIn: document.getElementById("checkInDate").value,
-      checkOut: checkOut.toISOString().slice(0, 10),
-      nights: nights, rooms: rooms, guests: guests
-    },
-    payment: { method: document.getElementById("payMethod").value, total: updateHotelSummary() }
-  });
+  VGBookings.showSaved(document.getElementById("savedNote"), saved);
 
   closeModal("bookingModalOverlay");
   closeModal("detailModalOverlay");
@@ -937,9 +1004,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  document.getElementById("goToMyTrips").addEventListener("click", () => {
-    window.top.location.hash = "calendar";   // đổi tab ở trang chủ, KHÔNG đổi địa chỉ iframe
-  });
+  document.getElementById("goToMyTrips").addEventListener("click", () => VGBookings.goToCalendar());
 
   // Cuối cùng: tải dữ liệu
   loadHotels();
