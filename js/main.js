@@ -99,12 +99,9 @@ function autoResizeIframe() {
       if (!doc?.body || !doc.documentElement) return;
 
       const body = doc.body;
-      const root = doc.documentElement;
       const height = Math.max(
         body.scrollHeight,
-        body.offsetHeight,
-        root.scrollHeight,
-        root.offsetHeight
+        body.offsetHeight
       );
 
       frame.style.height = `${height}px`;
@@ -138,6 +135,11 @@ function autoResizeIframe() {
     try {
       const doc = frame.contentDocument;
       if (!doc?.documentElement || !doc.body) return;
+
+      // Cuộn ở trang chính; module trong iframe không có thanh cuộn riêng.
+      frame.setAttribute('scrolling', 'no');
+      doc.documentElement.style.overflowY = 'hidden';
+      doc.body.style.overflowY = 'hidden';
 
       // Bỏ chiều cao của module trước để trang ngắn (như AI) đo lại được.
       frame.style.height = '1px';
