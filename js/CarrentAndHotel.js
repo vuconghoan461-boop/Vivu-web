@@ -437,7 +437,13 @@ function initBookingForm() {
       service: car.name,
       pickup: document.getElementById("pickupPlace").value.trim(),
       dropoff: document.getElementById("dropoffPlace").value.trim(),
-      total: document.getElementById("totalAmount").textContent
+      total: document.getElementById("totalAmount").textContent,
+      carId: car.id,
+      provider: car.provider,
+      pickupDate: document.getElementById("bookingPickupDate").value,
+      days: parseInt(document.getElementById("rentalDays").value, 10) || 1,
+      withDriver: document.getElementById("withDriver").checked,
+      payMethod: document.getElementById("payMethod").value
     });
   });
 }
@@ -445,6 +451,17 @@ function initBookingForm() {
 /* Modal thành công */
 function openSuccessModal(info) {
   const code = "CAR-" + Math.floor(100000 + Math.random() * 900000);
+  // Lưu đơn vào kho dữ liệu (js/bookings.js)
+  if (window.VGBookings) VGBookings.save({
+    id: code,
+    type: "car",
+    customer: { name: info.name, phone: info.phone },
+    service: {
+      name: info.service, provider: info.provider, pickupPlace: info.pickup, dropoffPlace: info.dropoff,
+      pickupDate: info.pickupDate, days: info.days, withDriver: info.withDriver
+    },
+    payment: { method: info.payMethod, total: info.total }
+  });
   document.getElementById("orderCode").textContent = code;
   document.getElementById("infoName").textContent = info.name;
   document.getElementById("infoPhone").textContent = info.phone;
@@ -473,8 +490,7 @@ function initModals() {
 
   document.getElementById("goToMyTrips").addEventListener("click", () => {
     closeSuccessModal();
-    // TODO: đổi sang đường dẫn thật của module "Lịch của tôi" khi có
-    // window.location.href = "lich-cua-toi.html";
+    window.top.location.hash = "calendar";   // mở mục "Lịch của tôi" ở trang chủ
   });
 
   // Event delegation cho nút "Đặt xe nhanh" trong grid
@@ -837,10 +853,28 @@ function submitBooking(e) {
   document.getElementById("infoTotal").textContent = money(updateHotelSummary());
   document.getElementById("infoPay").textContent = document.getElementById("payMethod").value;
 
+  // Lưu đơn vào kho dữ liệu (js/bookings.js)
+  if (window.VGBookings) VGBookings.save({
+    id: document.getElementById("orderCode").textContent,
+    type: "hotel",
+    customer: {
+      name: document.getElementById("renterName").value.trim(),
+      phone: document.getElementById("renterPhone").value.trim(),
+      email: document.getElementById("renterEmail").value.trim(),
+      note: document.getElementById("renterNote").value.trim()
+    },
+    service: {
+      name: currentHotel.name, room: currentRoom.name,
+      checkIn: document.getElementById("checkInDate").value,
+      checkOut: checkOut.toISOString().slice(0, 10),
+      nights: nights, rooms: rooms, guests: guests
+    },
+    payment: { method: document.getElementById("payMethod").value, total: updateHotelSummary() }
+  });
+
   closeModal("bookingModalOverlay");
   closeModal("detailModalOverlay");
   openModal("successModalOverlay");
-  // TODO: gửi đơn lên server / lưu vào "Kế hoạch của tôi"
 }
 
 /* ---------- 7. MỞ / ĐÓNG POPUP (dùng chung cho cả 3 popup) ---------- */
@@ -904,7 +938,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.getElementById("goToMyTrips").addEventListener("click", () => {
-    window.location.href = "../../index.html";   // TODO: đổi sang trang "Kế hoạch của tôi"
+    window.top.location.hash = "calendar";   // đổi tab ở trang chủ, KHÔNG đổi địa chỉ iframe
   });
 
   // Cuối cùng: tải dữ liệu

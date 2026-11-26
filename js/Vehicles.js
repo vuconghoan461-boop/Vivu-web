@@ -510,6 +510,13 @@
     var pay = modal.querySelector('input[name="bk-pay"]:checked');
     var bill = pricing(B.seats.length, seatPrice(), SERVICE_FEES.flight);
     var code = 'VG-' + (100000 + hash(B.f.id + Date.now()) % 900000);
+    if (window.VGBookings) { var p0 = B.pax[B.seats[0]] || {}; VGBookings.save({
+      id: code, type: 'flight',
+      customer: { name: p0.name, phone: p0.phone, email: p0.email },
+      service: { name: B.f.airline + ' ' + B.f.flightNumber, from: B.f.fromCode, to: B.f.toCode, date: B.date || '', departureTime: B.f.departureTime, arrivalTime: B.f.arrivalTime, class: B.cls, seats: B.seats.slice(),
+        passengers: B.seats.map(function (s) { var p = B.pax[s] || {}; return { seat: s, name: p.name, phone: p.phone, email: p.email }; }) },
+      payment: { method: pay ? pay.value : '', total: bill.total }
+    }); }
     dlg.innerHTML = successHtml({
       sub: 'VivuGo sẽ đặt vé hộ bạn và gửi vé điện tử qua email của từng hành khách sau khi xác nhận thanh toán.',
       code: code,
@@ -1160,6 +1167,13 @@
     var pay = tmodal.querySelector('input[name="tk-pay"]:checked');
     var b = calcBill();
     var code = 'VT-' + (100000 + hash(T.t.id + Date.now()) % 900000);
+    if (window.VGBookings) { var p1 = T.pax[T.seats[0]] || {}; VGBookings.save({
+      id: code, type: 'train',
+      customer: { name: p1.name, phone: p1.phone, email: p1.email },
+      service: { name: T.t.trainCode, from: T.t.fromCity, to: T.t.toCity, departureTime: T.t.departureTime, date: T.date || '', coach: coachNow().label, seats: T.seats.slice(),
+        passengers: T.seats.map(function (s) { var p = T.pax[s] || {}; return { seat: s, name: p.name, phone: p.phone, email: p.email }; }) },
+      payment: { method: pay ? pay.value : '', total: b.total }
+    }); }
     tdlg.innerHTML = successHtml({
       sub: 'Vé điện tử sẽ được gửi qua email (và Zalo theo số điện thoại đã đăng ký) sau khi VivuGo xác nhận thanh toán.',
       code: code,
@@ -1596,6 +1610,12 @@
     var bill = lmBill();
     var pay = lmodal.querySelector('input[name="lm-pay"]:checked');
     var code = 'VL-' + (100000 + hash(b.id + Date.now()) % 900000);
+    if (window.VGBookings) VGBookings.save({
+      id: code, type: 'limousine',
+      customer: { name: p.name, phone: p.phone, email: L.email.trim() },
+      service: { name: b.operator + ' · ' + b.vehicleType, from: b.fromCity, to: b.toCity, departureTime: b.departureTime, date: L.date || '', pickupPoint: b.pickupPoint || b.fromCity, seats: L.qty },
+      payment: { method: pay ? pay.value : '', total: bill.total }
+    });
     ldlg.innerHTML = successHtml({
       sub: 'Vé điện tử sẽ được gửi qua Zalo theo số điện thoại người đặt vé' + (L.email.trim() ? ' và email ' + esc(L.email.trim()) : '') + ' sau khi VivuGo xác nhận thanh toán.',
       code: code,

@@ -88,7 +88,7 @@
     
     if ($('ticketQty'))$('ticketQty').addEventListener('input', calc);
     if ($('bookingForm'))$('bookingForm').addEventListener('submit', submitBooking);
-    if ($('goToMyTrips'))$('goToMyTrips').onclick = () => { window.location.href = '../../index.html'; };
+    if ($('goToMyTrips'))$('goToMyTrips').onclick = () => { window.top.location.hash = 'calendar'; };   /* đổi tab ở trang chủ, KHÔNG đổi địa chỉ iframe */
     
     render();
   }
@@ -266,7 +266,16 @@
     $('infoDate').textContent = `${dateVN(d.date)} · ${d.time}`;
     $('infoTotal').textContent = money(calc());
     $('infoPay').textContent =$('payMethod').value;
-    
+
+    // Lưu đơn vào kho dữ liệu (js/bookings.js)
+    if (window.VGBookings) VGBookings.save({
+      id: $('orderCode').textContent,
+      type: 'tour',
+      customer: { name: $('renterName').value.trim(), phone: $('renterPhone').value.trim(), email: $('renterEmail').value.trim(), note: $('renterNote').value.trim() },
+      service: { tourId: current.id, name: current.name, departureDate: d.date, departureTime: d.time, tickets: q },
+      payment: { method: $('payMethod').value, total: calc() }
+    });
+
     closeModal('bookingModalOverlay'); 
     closeModal('detailModalOverlay'); 
     openModal('successModalOverlay');

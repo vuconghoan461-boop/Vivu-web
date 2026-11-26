@@ -1,13 +1,12 @@
 /* ---------- Cấu hình nguồn dữ liệu ---------- */
-// mycalendar.json : các chuyến đi khách đã đăng ký (ngày đi, mã đặt chỗ, khách sạn, chi phí...). Mỗi chuyến có thể có "tourId"
+// data.json : các chuyến đi khách đã đăng ký (ngày đi, mã đặt chỗ, khách sạn, chi phí...). Mỗi chuyến có thể có "tourId"
 // tour.json : dữ liệu chính thức của tour. Chuyến nào có "tourId" sẽ lấy tên, ảnh, lịch trình, lưu ý... từ đây
-// Đường dẫn tính từ trang pages/account/mycalendar/mycalendar.html -> thư mục data/ ở gốc dự án
-const DATA_JSON_URL = "../../../data/mycalendar.json";
-const TOUR_JSON_URL = "../../../data/tour.json";
+const DATA_JSON_URL = "data.json";
+const TOUR_JSON_URL = "../../../data/tour.json";   // data/tour.json từ pages/account/mycalendar/
 // Ảnh trong tour.json ghi theo trang tour ("../../assets/..."); trang lịch nằm sâu hơn 1 cấp nên thêm "../"
 const TOUR_IMAGE_PREFIX = "../";
 
-let ACTIVITY_TYPES = [], MODAL_DEFAULTS = {}, TRIPS = [];
+let QUICK_ADDS = [], ACTIVITY_TYPES = [], MODAL_DEFAULTS = {}, TRIPS = [];
 let currentFilter = "all";
 let currentTrip = null;
 let currentDay = "";
@@ -16,7 +15,7 @@ let currentTab = "itinerary";
 const WEEKDAYS = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
 const DAY_COLOR_COUNT = 5; // tương ứng các class day-c0 ... day-c4 trong CSS
 const STATUS_ORDER = { ongoing: 0, upcoming: 1, completed: 2 };
-const BOOKING_ICONS = { flight: "fa-plane", hotel: "fa-hotel", bus: "fa-bus", tour: "fa-ticket" };
+const BOOKING_ICONS = { flight: "fa-plane", hotel: "fa-hotel", bus: "fa-bus", tour: "fa-ticket", car: "fa-car", train: "fa-train", limousine: "fa-bus" };
 
 /* ---------- Tiện ích thao tác DOM ---------- */
 const $ = (id) => document.getElementById(id);
@@ -133,12 +132,20 @@ function renderTripList() {
   });
 }
 
+function renderQuickAdds() {
+  if (!$("quickGrid")) return;   // đã bỏ khu "Thêm nhanh vào lịch"
+  renderList($("quickGrid"), "tpl-quick", QUICK_ADDS, (frag, q) => {
+    fill(frag, { title: q.title, desc: q.desc });
+    setIcon(frag, q.icon);
+  });
+}
+
 /* ---------- Render: tab Lịch trình ---------- */
 function renderTripHero() {
   const t = currentTrip;
   $("tripName").textContent = t.name;
-  $("tripDate").textContent = `${fmtFull(parseDate(t.startDate))} – ${fmtFull(parseDate(t.endDate))} · ${durationText(t)}`;
-  $("tripPlace").textContent = t.place;
+  $("tripDate").textContent = `📅 ${fmtFull(parseDate(t.startDate))} – ${fmtFull(parseDate(t.endDate))} · ${durationText(t)}`;
+  $("tripPlace").textContent = "📍 " + t.place;
   $("tripStatus").textContent = statusLabel(statusOf(t));
   setImage(document.querySelector(".trip-hero"), t.heroImage || t.image);
 }
@@ -166,14 +173,10 @@ function renderDays() {
     frag.querySelector(".day-badge").classList.add(info.colorClass);
     const block = frag.querySelector(".day-block");
     block.dataset.block = n;
-    frag.querySelector(".add-act").dataset.day = n;
     block.hidden = currentDay !== "" && String(n) !== currentDay;
 
     renderList(slot(frag, "activities"), "tpl-activity", d.activities, (af, a) => {
       fill(af, { time: a.time, title: a.title, note: a.note });
-      const noteIcon = af.querySelector("[data-icon]");
-      noteIcon.hidden = !a.icon;
-      if (a.icon) noteIcon.classList.add(a.icon);
       const thumb = af.querySelector("[data-thumb]");
       thumb.hidden = !a.thumb && !a.image;
       if (a.thumb) thumb.classList.add(a.thumb);
@@ -264,12 +267,11 @@ function renderAll() {
 
 function renderModal() {
   renderList($("typeRow"), "tpl-type-chip", ACTIVITY_TYPES, (frag, t) => {
-    fill(frag, { label: t.label });
-    setIcon(frag, t.icon);
-    const chip = frag.querySelector(".type-chip");
-    chip.dataset.icon = t.icon;
-    chip.classList.toggle("active", !!t.active);
+    fill(frag, { icon: t.icon, label: t.label });
+    frag.querySelector(".type-chip").classList.toggle("active", !!t.active);
   });
+  $("inputDate").value = MODAL_DEFAULTS.date;
+  $("inputTime").value = MODAL_DEFAULTS.time;
 }
 
 /* ---------- Tương tác ---------- */
@@ -291,87 +293,8 @@ function selectTrip(id) {
   renderAll();
 }
 
-// Ngày mặc định trong hộp thoại: ngày đang xem; không có thì hôm nay nếu nằm trong chuyến đi, còn lại là ngày đầu
-function modalDefaultDate(dayNum) {
-  if (!currentTrip) return MODAL_DEFAULTS.date || toISO(TODAY);
-  const start = parseDate(currentTrip.startDate), end = parseDate(currentTrip.endDate);
-  const n = Number(dayNum || currentDay);
-  if (n >= 1) return toISO(addDays(start, n - 1));
-  return toISO(TODAY >= start && TODAY <= end ? TODAY : start);
-}
-
-function openModal(dayNum) {
-  $("inputName").value = "";
-  $("inputNote").value = "";
-  $("inputDate").value = modalDefaultDate(dayNum);
-  $("inputTime").value = MODAL_DEFAULTS.time || "09:00";
-  if (currentTrip) {
-    $("inputDate").min = currentTrip.startDate;
-    $("inputDate").max = currentTrip.endDate;
-  }
-  showModalError("");
-  $("overlay").classList.add("open");
-  $("inputName").focus();
-}
+function openModal()  { $("overlay").classList.add("open"); }
 function closeModal() { $("overlay").classList.remove("open"); }
-
-function showModalError(msg) {
-  $("modalError").textContent = msg;
-  $("modalError").hidden = !msg;
-}
-
-/* ---------- Hoạt động do người dùng thêm (lưu trong trình duyệt) ---------- */
-const EXTRA_KEY = "vivugo.calendar.extraActivities";
-
-function loadExtras() {
-  try { return JSON.parse(localStorage.getItem(EXTRA_KEY)) || {}; } catch { return {}; }
-}
-function saveExtras(extras) {
-  try { localStorage.setItem(EXTRA_KEY, JSON.stringify(extras)); } catch { /* chế độ riêng tư: bỏ qua */ }
-}
-
-// Đưa hoạt động vào đúng ngày của chuyến đi (tự tạo thêm ngày trống nếu cần) và sắp theo giờ
-function insertActivity(trip, act) {
-  const idx = diffDays(parseDate(trip.startDate), parseDate(act.date));
-  if (idx < 0 || idx > diffDays(parseDate(trip.startDate), parseDate(trip.endDate))) return -1;
-  while (trip.days.length <= idx) trip.days.push({ activities: [] });
-  const list = trip.days[idx].activities;
-  list.push({ time: act.time || "", title: act.title, note: act.note, icon: act.icon, extra: true });
-  list.sort((a, b) => (a.time || "99:99").localeCompare(b.time || "99:99"));
-  return idx;
-}
-
-function applyExtras() {
-  const extras = loadExtras();
-  TRIPS.forEach(t => (extras[t.id] || []).forEach(a => insertActivity(t, a)));
-}
-
-function saveActivity() {
-  if (!currentTrip) return showModalError("Hãy chọn một chuyến đi trước khi thêm hoạt động.");
-
-  const title = $("inputName").value.trim();
-  const date = $("inputDate").value;
-  if (!title) return showModalError("Vui lòng nhập tên hoạt động.");
-  if (!date) return showModalError("Vui lòng chọn ngày.");
-
-  const icon = document.querySelector("#typeRow .type-chip.active")?.dataset.icon || "";
-  const act = { date, time: $("inputTime").value, title, note: $("inputNote").value.trim(), icon };
-
-  const idx = insertActivity(currentTrip, act);
-  if (idx < 0) {
-    return showModalError(`Ngày phải nằm trong chuyến đi (${dateRangeShort(currentTrip)}).`);
-  }
-
-  const extras = loadExtras();
-  (extras[currentTrip.id] = extras[currentTrip.id] || []).push(act);
-  saveExtras(extras);
-
-  currentDay = String(idx + 1);
-  closeModal();
-  renderAll();
-  showTab("itinerary");
-}
-
 
 function bindEvents() {
   $("navList").addEventListener("click", e => {
@@ -405,12 +328,9 @@ function bindEvents() {
   document.addEventListener("click", e => {
     const btn = e.target.closest("[data-action]");
     if (!btn) return;
-    if (btn.dataset.action === "open-modal")    openModal(btn.dataset.day);
-    if (btn.dataset.action === "close-modal")   closeModal();
-    if (btn.dataset.action === "save-activity") saveActivity();
+    if (btn.dataset.action === "open-modal")  openModal();
+    if (btn.dataset.action === "close-modal") closeModal();
   });
-
-  document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
 
   // Bấm ra vùng nền tối để đóng modal
   $("overlay").addEventListener("click", e => {
@@ -467,24 +387,15 @@ function tourInfo(own, tour, dep) {
 function mergeTour(trip, tour) {
   if (!tour) return trip;
   const images = (tour.images || []).map(tourImage);
-  const cover = images[0] || "";   // tạm lấy ảnh đầu; chooseSharpestCovers() sẽ đổi sang ảnh nét nhất sau khi đo kích thước
-  const tourDayList = tourDays(tour, images);
+  const cover = images.length ? images[Math.floor(Math.random() * images.length)] : "";   // ảnh bìa: ngẫu nhiên trong ảnh của tour
+  const days = tourDays(tour, images);
   const dep = (tour.departures || []).find(d => d.date === trip.startDate);
-
-  // Lịch trình tự soạn của khách dài hơn tour (vd. chuyến 5 ngày có kèm 1 tour trong ngày) thì giữ nguyên, không để tour ghi đè mất
-  const ownDays = trip.days || [];
-  const days = tourDayList.length >= ownDays.length ? tourDayList : ownDays;
-
-  // Ngày kết thúc: lấy mốc muộn hơn giữa dữ liệu của khách và độ dài tour
-  const tourEnd = toISO(addDays(parseDate(trip.startDate), Math.max(tourDayList.length, 1) - 1));
-  const endDate = trip.endDate && trip.endDate > tourEnd ? trip.endDate : tourEnd;
-
   return {
     ...trip,
     name: tour.name,
     sidebarName: tour.city || trip.sidebarName,
     place: tour.city || trip.place,
-    endDate,
+    endDate: toISO(addDays(parseDate(trip.startDate), Math.max(days.length, 1) - 1)),
     days,
     images,
     heroImage: cover || trip.heroImage,
@@ -493,32 +404,124 @@ function mergeTour(trip, tour) {
   };
 }
 
-// Ảnh tour có kích thước rất khác nhau (từ ~270px đến ~740px). Ảnh nhỏ bị phóng to lên khung banner sẽ bị mờ,
-// nên đo kích thước thật rồi chọn ảnh rộng nhất của tour làm ảnh bìa.
-function imageWidth(src) {
-  return new Promise(resolve => {
-    const img = new Image();
-    img.onload = () => resolve(img.naturalWidth);
-    img.onerror = () => resolve(0);
-    img.src = src;
-  });
+/* ---------- Đồng bộ đơn đặt dịch vụ (js/bookings.js) -> chuyến đi trên lịch ---------- */
+// Loại đơn được đưa lên lịch. Muốn bớt loại nào thì xóa khỏi danh sách này.
+const CALENDAR_BOOKING_TYPES = ["tour", "car", "flight", "hotel", "train", "limousine"];
+const PENDING_TEXT = "Chờ xác nhận";
+
+const emptyDays = (n) => Array.from({ length: Math.max(1, n) }, () => ({ activities: [] }));
+const dm = (iso) => iso ? fmtShort(parseDate(iso)) : "";
+const kv = (label, value) => (value || value === 0) ? [{ label, value: String(value) }] : [];
+
+function bookingToTrip(b) {
+  const s = b.service || {}, c = b.customer || {}, pay = b.payment || {};
+  const created = (b.createdAt || "").slice(0, 10) || toISO(TODAY);
+  const people = [c.name, c.phone, c.email].filter(Boolean).join(" · ");
+  const info = {
+    status: PENDING_TEXT,
+    bookingCode: b.id,
+    bookings: [],
+    costs: [{ label: "Tổng thanh toán", note: pay.method || "", date: created, amount: pay.total || 0 }],
+    notes: people ? [{ title: "Người đặt", text: people + (c.note ? " · Ghi chú: " + c.note : "") }] : []
+  };
+  const trip = { id: "bk-" + b.id, bookingId: b.id, info, days: [] };
+  const row = (type, title) => info.bookings.push({ type, title, status: PENDING_TEXT });
+
+  switch (b.type) {
+    case "tour": {
+      trip.name = trip.sidebarName = s.name || "Tour";
+      trip.place = s.name || "";
+      trip.tourId = s.tourId;                       // có tourId -> mergeTour lấy lịch trình/ảnh từ tour.json
+      trip.startDate = trip.endDate = s.departureDate || created;
+      trip.days = [{ activities: [{ time: s.departureTime || "Cả ngày", title: trip.name, note: `🎫 ${s.tickets || 1} vé` }] }];
+      row("tour", `${trip.name} · ${s.tickets || 1} vé · ${dm(trip.startDate)}`);
+      info.transport = { title: "Thông tin đặt tour", rows: [...kv("Giờ khởi hành", s.departureTime), ...kv("Số vé", s.tickets)] };
+      break;
+    }
+    case "car": {
+      const n = s.days || 1;
+      trip.name = trip.sidebarName = s.name || "Thuê xe";
+      trip.place = s.pickupPlace || "";
+      trip.startDate = s.pickupDate || created;
+      trip.endDate = toISO(addDays(parseDate(trip.startDate), n - 1));
+      trip.days = emptyDays(n);
+      trip.days[0].activities.push({ time: "Cả ngày", title: "Nhận xe", note: "🚗 " + (s.pickupPlace || "") });
+      trip.days[n - 1].activities.push({ time: "Cả ngày", title: "Trả xe", note: "📍 " + (s.dropoffPlace || "") });
+      row("car", `${trip.name} (${n} ngày) · ${dm(trip.startDate)}`);
+      info.transport = { title: "Thông tin thuê xe", rows: [
+        ...kv("Xe", s.name), ...kv("Đơn vị cho thuê", s.provider), ...kv("Số ngày", n),
+        ...kv("Tài xế", s.withDriver ? "Có tài xế" : "Tự lái"),
+        ...kv("Nhận xe", s.pickupPlace), ...kv("Trả xe", s.dropoffPlace)
+      ] };
+      break;
+    }
+    case "flight": {
+      const route = `${s.from} → ${s.to}`;
+      trip.name = `Vé máy bay ${route}`;
+      trip.sidebarName = route;
+      trip.place = s.to || "";
+      trip.startDate = trip.endDate = s.date || created;
+      const acts = [{ time: s.departureTime || "", title: route, note: `✈ ${s.name || ""} · Ghế ${(s.seats || []).join(", ")}` }];
+      if (s.arrivalTime) acts.push({ time: s.arrivalTime, title: "Hạ cánh " + (s.to || ""), note: "🛬 " + (s.name || "") });
+      trip.days = [{ activities: acts }];
+      row("flight", `${s.name || "Chuyến bay"} (${route}) · ${dm(trip.startDate)}`);
+      info.transport = { title: "Thông tin chuyến bay", rows: [
+        ...kv("Chuyến bay", s.name), ...kv("Hành trình", route),
+        ...kv("Giờ bay", s.departureTime && (s.arrivalTime ? `${s.departureTime} – ${s.arrivalTime}` : s.departureTime)),
+        ...kv("Hạng ghế", s.class === "business" ? "Thương gia" : "Phổ thông"), ...kv("Số ghế", (s.seats || []).join(", ")),
+        ...(s.passengers || []).map((p, i) => ({ label: "Hành khách " + (i + 1), value: `${p.name || ""} (ghế ${p.seat})` }))
+      ] };
+      break;
+    }
+    case "hotel": {
+      const nights = s.nights || 1;
+      trip.name = trip.sidebarName = s.name || "Khách sạn";
+      trip.place = s.name || "";
+      trip.startDate = s.checkIn || created;
+      trip.endDate = s.checkOut || toISO(addDays(parseDate(trip.startDate), nights));
+      trip.days = emptyDays(nights + 1);
+      trip.days[0].activities.push({ time: "14:00", title: "Nhận phòng", note: "🏨 " + (s.name || "") });
+      trip.days[nights].activities.push({ time: "12:00", title: "Trả phòng", note: "🏨 " + (s.name || "") });
+      row("hotel", `${s.name || "Khách sạn"} (${nights} đêm, ${s.rooms || 1} phòng)`);
+      info.hotel = { name: s.name, address: "", room: `${s.room || ""} · ${s.rooms || 1} phòng · ${s.guests || 1} khách`,
+        checkIn: `14:00 · ${dm(trip.startDate)}`, checkOut: `12:00 · ${dm(trip.endDate)}`, thumbClass: "thumb-hotel" };
+      break;
+    }
+    case "train":
+    case "limousine": {
+      const route = `${s.from} → ${s.to}`;
+      const isTrain = b.type === "train";
+      trip.name = `${isTrain ? "Vé tàu" : "Vé xe khách"} ${route}`;
+      trip.sidebarName = route;
+      trip.place = s.to || "";
+      trip.startDate = trip.endDate = s.date || created;
+      const seats = isTrain ? (s.seats || []).join(", ") : s.seats;
+      trip.days = [{ activities: [{ time: s.departureTime || "", title: route, note: `${isTrain ? "🚆" : "🚌"} ${s.name || ""}` }] }];
+      row(isTrain ? "train" : "limousine", `${s.name || ""} (${route}) · ${dm(trip.startDate)}`);
+      info.transport = { title: isTrain ? "Thông tin chuyến tàu" : "Thông tin chuyến xe", rows: [
+        ...kv(isTrain ? "Chuyến tàu" : "Nhà xe", s.name), ...kv("Hành trình", route), ...kv("Giờ khởi hành", s.departureTime),
+        ...kv("Hạng chỗ", s.coach), ...kv("Điểm đón", s.pickupPoint), ...kv(isTrain ? "Chỗ ngồi" : "Số ghế", seats)
+      ] };
+      break;
+    }
+    default:
+      return null;
+  }
+  return trip;
 }
 
-async function chooseSharpestCovers() {
-  TRIPS = await Promise.all(TRIPS.map(async trip => {
-    if (!trip.images || trip.images.length < 2) return trip;
-    const widths = await Promise.all(trip.images.map(imageWidth));
-    const best = trip.images[widths.indexOf(Math.max(...widths))];
-    return { ...trip, heroImage: best, thumbImage: best };
-  }));
-}
-
-// Đảm bảo mỗi ngày của chuyến đi đều có một khối lịch trình (ngày chưa có gì vẫn thêm được hoạt động)
-function padDays(trip) {
-  const total = diffDays(parseDate(trip.startDate), parseDate(trip.endDate)) + 1;
-  const days = (trip.days || []).slice();
-  while (days.length < total) days.push({ activities: [] });
-  return { ...trip, days };
+// Đơn của tài khoản đang đăng nhập (chưa đăng nhập thì lấy mọi đơn trên máy này)
+function loadBookedTrips() {
+  if (!window.VGBookings) return [];
+  let list = [];
+  try {
+    const logged = localStorage.getItem("vg_user") || sessionStorage.getItem("vg_user");
+    list = logged ? VGBookings.getMine() : VGBookings.getAll();
+  } catch (e) { return []; }
+  return list
+    .filter(b => CALENDAR_BOOKING_TYPES.includes(b.type))
+    .map(b => { try { return bookingToTrip(b); } catch (e) { console.warn("Bỏ qua đơn lỗi", b, e); return null; } })
+    .filter(Boolean);
 }
 
 /* ---------- Khởi tạo: tải data.json (+ tour.json) rồi dựng giao diện ---------- */
@@ -528,9 +531,10 @@ async function init() {
     const res = await fetch(DATA_JSON_URL, { cache: "no-store" });
     if (!res.ok) throw new Error("HTTP " + res.status);
     const data = await res.json();
+    QUICK_ADDS     = data.quickAdds;
     ACTIVITY_TYPES = data.activityTypes;
     MODAL_DEFAULTS = data.modalDefaults;
-    TRIPS          = data.trips;
+    TRIPS          = data.trips.concat(loadBookedTrips());   // chuyến mẫu + đơn khách vừa đặt
   } catch (err) {
     $("loadError").hidden = false;
     $("listError").hidden = false;
@@ -549,9 +553,7 @@ async function init() {
     console.warn("Không tải được " + TOUR_JSON_URL + ", dùng dữ liệu trong data.json", err);
   }
 
-  await chooseSharpestCovers();
-  TRIPS = TRIPS.map(padDays);
-  applyExtras();
+  renderQuickAdds();
   renderModal();
   applyFilter("all");
 }
@@ -593,6 +595,7 @@ function buildHeroSlider(hero, images) {
 
   if (images.length < 2) return;
 
+  const arrowSvg = (d) => `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="${d}"/></svg>`;
   const controls = document.createElement("div");
   controls.className = "hero-controls";
   controls.innerHTML =
@@ -600,8 +603,8 @@ function buildHeroSlider(hero, images) {
       `<button type="button" class="hero-dot${i === 0 ? " is-active" : ""}" data-i="${i}" aria-label="Xem ảnh ${i + 1}"></button>`
     ).join("")}</div>` +
     `<div class="hero-arrows">
-      <button type="button" class="hero-arrow" data-dir="-1" aria-label="Ảnh trước"><i class="fa-solid fa-chevron-left"></i></button>
-      <button type="button" class="hero-arrow" data-dir="1" aria-label="Ảnh sau"><i class="fa-solid fa-chevron-right"></i></button>
+      <button type="button" class="hero-arrow" data-dir="-1" aria-label="Ảnh trước">${arrowSvg("M15 18l-6-6 6-6")}</button>
+      <button type="button" class="hero-arrow" data-dir="1" aria-label="Ảnh sau">${arrowSvg("M9 18l6-6-6-6")}</button>
     </div>`;
   hero.appendChild(controls);
 

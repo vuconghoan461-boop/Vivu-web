@@ -10,12 +10,12 @@
 <link rel="stylesheet" href="../../../css/mycalendar.css">
 <link rel="stylesheet" href="../../../css/main.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="../../../js/bookings.js" defer></script>
 <script src="../../../js/mycalendar.js" defer></script>
 </head>
 <body>
 <div class="banner">
   <section class="module-hero" data-slides="../../../assets/slicer/pic2.jpg,../../../assets/slicer/pic1.jpg,../../../assets/slicer/pic3.jpg">
-    <button class="new-trip-btn" data-action="open-modal"><i class="fa-solid fa-plane"></i> Tạo chuyến đi</button>
     <div class="vivugo-container module-hero-inner">
       <p class="crumb"><a href="../../../index.html">Trang chủ</a><span class="sep">/</span>Lịch của tôi</p>
       
@@ -28,7 +28,7 @@
   <div class="layout">
     <!-- SIDEBAR -->
     <div>
-      <div class="panel">
+      <div class="panel panel-gap">
         <ul class="nav-list" id="navList">
           <li class="active" data-filter="all" data-title="Tất cả chuyến đi" data-label="Tất cả"><span class="dot"><i class="fa-solid fa-border-all"></i></span> Tất cả <span class="count"></span></li>
           <li data-filter="upcoming" data-title="Chuyến đi sắp tới" data-label="Sắp tới"><span class="dot"><i class="fa-solid fa-calendar-days"></i></span> Sắp tới <span class="count"></span></li>
@@ -39,27 +39,25 @@
         <div id="tripList"></div>
         <div id="listEmpty" class="empty-note no-border" hidden>Chưa có chuyến đi nào ở mục này</div>
         <div id="listError" class="empty-note no-border" hidden>Chưa tải được dữ liệu chuyến đi</div>
-        <div class="empty-note">Mỗi chuyến đi<br>là một câu chuyện đáng nhớ</div>
       </div>
     </div>
 
     <!-- MAIN -->
     <div class="panel">
       <div id="loadError" class="empty-note no-border" hidden>
-        Không tải được dữ liệu lịch (data/mycalendar.json).<br>Hãy mở trang qua máy chủ cục bộ (ví dụ <b>python -m http.server</b>) thay vì mở trực tiếp file.
+        Không tải được data.json.<br>Hãy mở trang qua máy chủ cục bộ (ví dụ <b>python -m http.server</b>) thay vì mở trực tiếp file.
       </div>
       <div id="emptyMain" class="empty-note no-border" hidden>
-        Chưa có chuyến đi nào để hiển thị.<br>Hãy chọn mục khác hoặc tạo chuyến đi mới.
+        Chưa có chuyến đi nào để hiển thị.<br>Hãy chọn mục khác ở menu bên trái.
       </div>
 
       <div id="tripView" hidden>
         <div class="trip-hero">
-          <button class="share-btn" aria-label="Tùy chọn"><i class="fa-solid fa-ellipsis"></i></button>
           <div class="trip-hero-inner">
             <h2 id="tripName"></h2>
             <div class="trip-hero-meta">
-              <span><i class="fa-solid fa-calendar-days"></i> <span id="tripDate"></span></span>
-              <span><i class="fa-solid fa-location-dot"></i> <span id="tripPlace"></span></span>
+              <span id="tripDate"></span>
+              <span id="tripPlace"></span>
               <span id="tripStatus" class="status-tag"></span>
             </div>
           </div>
@@ -75,14 +73,14 @@
           <div class="day-row" id="dayRow"></div>
           <div id="days"></div>
           <div id="daysEmpty" class="empty-note" hidden>
-            Chuyến đi này chưa có lịch trình.<br>Bấm “Tạo chuyến đi” hoặc thêm hoạt động để bắt đầu.
+            Chuyến đi này chưa có lịch trình.<br>Bấm “Thêm hoạt động” để bắt đầu.
           </div>
         </div>
 
         <!-- TAB: THÔNG TIN CHUYẾN ĐI -->
         <div data-panel="info" hidden>
           <div id="infoEmpty" class="empty-note no-border" hidden>
-            Chuyến đi này chưa có thông tin đặt chỗ.<br>Thêm mục “info” cho chuyến đi trong data/mycalendar.json để hiển thị.
+            Chuyến đi này chưa có thông tin đặt chỗ.<br>Thêm mục “info” cho chuyến đi trong data.json để hiển thị.
           </div>
 
           <div id="infoBody">
@@ -105,8 +103,8 @@
                   <div class="hotel-thumb thumb-hotel" data-thumb></div>
                   <div>
                     <b data-f="name"></b>
-                    <p><i class="fa-solid fa-location-dot"></i> <span data-f="address"></span></p>
-                    <p><i class="fa-solid fa-bed"></i> <span data-f="room"></span></p>
+                    <p>📍 <span data-f="address"></span></p>
+                    <p>🛏 <span data-f="room"></span></p>
                   </div>
                 </div>
                 <div class="kv-row">
@@ -149,18 +147,17 @@
 <!-- MODAL -->
 <div class="overlay" id="overlay">
   <div class="modal">
-    <div class="modal-head"><h3>Thêm hoạt động</h3><button data-action="close-modal" aria-label="Đóng"><i class="fa-solid fa-xmark"></i></button></div>
+    <div class="modal-head"><h3>Thêm hoạt động</h3><button data-action="close-modal">✕</button></div>
     <div class="type-row" id="typeRow"></div>
-    <div class="field"><label>Tên hoạt động</label><input type="text" id="inputName" maxlength="120" placeholder="Ví dụ: Ăn tối tại nhà hàng..."></div>
+    <div class="field"><label>Tên hoạt động</label><input type="text" placeholder="Ví dụ: Ăn tối tại nhà hàng..."></div>
     <div class="field-row">
       <div class="field"><label>Ngày</label><input type="date" id="inputDate"></div>
       <div class="field"><label>Thời gian</label><input type="time" id="inputTime"></div>
     </div>
-    <div class="field"><label>Ghi chú</label><textarea id="inputNote" maxlength="300" placeholder="Thêm ghi chú, địa chỉ..."></textarea></div>
-    <p class="modal-error" id="modalError" role="alert" hidden></p>
+    <div class="field"><label>Ghi chú</label><textarea placeholder="Thêm ghi chú, địa chỉ..."></textarea></div>
     <div class="modal-actions">
       <button class="btn btn-ghost" data-action="close-modal">Hủy</button>
-      <button class="btn btn-primary" data-action="save-activity">Lưu</button>
+      <button class="btn btn-primary" data-action="close-modal">Lưu</button>
     </div>
   </div>
 </div>
@@ -169,15 +166,15 @@
      Khuôn HTML cho các phần được lặp lại. JS chỉ nhân bản (clone)
      và điền dữ liệu vào các chỗ có data-f / data-icon / data-slot. -->
 
-<!-- Sidebar: thẻ chuyến đi -->
+<!-- Sidebar: thẻ chuyến đi + nút xem -->
 <template id="tpl-trip-item">
   <div class="trip-card" data-trip>
     <div class="trip-thumb"></div>
     <div class="trip-info">
       <h4 data-f="name"></h4>
       <div class="trip-meta">
-        <span><i class="fa-solid fa-calendar-days"></i> <span data-f="dates"></span></span>
-        <span><i class="fa-solid fa-location-dot"></i> <span data-f="place"></span></span>
+        <span>📅 <span data-f="dates"></span></span>
+        <span>📍 <span data-f="place"></span></span>
         <span><span class="status-tag" data-f="status"></span></span>
       </div>
     </div>
@@ -203,7 +200,7 @@
         <span class="day-badge" data-f="badge"></span>
         <span class="day-title">Ngày <span data-f="num"></span> · <span data-f="title"></span></span>
       </h3>
-      <button class="add-act" data-action="open-modal" data-day=""><i class="fa-solid fa-plus"></i> Thêm hoạt động</button>
+      <button class="add-act" data-action="open-modal">＋ Thêm hoạt động</button>
     </div>
     <div data-slot="activities"></div>
   </div>
@@ -211,7 +208,7 @@
 <template id="tpl-activity">
   <div class="activity">
     <div class="time" data-f="time"></div>
-    <div class="content"><h4 data-f="title"></h4><p><i class="fa-solid" data-icon hidden></i><span data-f="note"></span></p></div>
+    <div class="content"><h4 data-f="title"></h4><p data-f="note"></p></div>
     <div class="thumb" data-thumb hidden></div>
   </div>
 </template>
@@ -240,7 +237,7 @@
 
 <!-- Modal: loại hoạt động -->
 <template id="tpl-type-chip">
-  <div class="type-chip"><i class="fa-solid ti" data-icon></i><span data-f="label"></span></div>
+  <div class="type-chip"><span class="ti" data-f="icon"></span><span data-f="label"></span></div>
 </template>
 </body>
 </html>
