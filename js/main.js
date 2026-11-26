@@ -1,4 +1,3 @@
-
 const pages = {
   explore: {
     title: 'Khám phá điểm đến',
@@ -100,12 +99,17 @@ function autoResizeIframe() {
 
       const body = doc.body;
       const root = doc.documentElement;
-      const height = Math.max(
+      // root.scrollHeight luôn >= chiều cao hiện tại của iframe nên không bao giờ co lại được.
+      // Vì vậy chỉ đo theo nội dung thật; riêng lúc đang mở hộp thoại (nằm absolute) mới tính thêm scrollHeight.
+      const popupOpen = Boolean(doc.querySelector('.modal-overlay.is-open, dialog[open]'));
+      const contentHeight = Math.max(
         body.scrollHeight,
         body.offsetHeight,
-        root.scrollHeight,
         root.offsetHeight
       );
+      const height = popupOpen
+        ? Math.max(contentHeight, root.scrollHeight)
+        : contentHeight;
 
       frame.style.height = `${height}px`;
       updateVisibleModalArea();
