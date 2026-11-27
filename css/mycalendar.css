@@ -1106,6 +1106,8 @@ button:focus-visible {
 .trip-hero-meta .status-tag { background: rgba(255,255,255,.22); color: #fff; }
 .pill { border-radius: var(--r-sm); }
 .pill.ok { background: var(--leaf-50); color: var(--leaf); }
+.pill.pending, .status-tag.pending { background: #fff4df; color: #9a5b00; }
+.trip-hero-meta .status-tag.pending { background: rgba(255,255,255,.22); color: #fff; }
 
 /* ---------- Ảnh bìa chuyến đi + nút ⋯ ---------- */
 .trip-hero { border-radius: var(--r-md); }
@@ -1278,9 +1280,11 @@ button:focus-visible {
 
 /* ---------- Trạng thái "Đã hủy" ---------- */
 .st-cancelled { background: var(--coral-50); color: var(--coral); }
+.st-pending { background: #fff4df; color: #9a5b00; }
 .trip-hero-meta .status-tag.st-cancelled { background: rgba(255,255,255,.22); color: #fff; }
 .pill.bad { background: var(--coral-50); color: var(--coral); }
 .kv .bad { color: var(--coral); }
+.kv .pending { color: #9a5b00; }
 .trip-card.is-cancelled { opacity: .72; }
 .trip-card.is-cancelled h4 { text-decoration: line-through; }
 .trip-hero.is-cancelled { filter: grayscale(.8); }
