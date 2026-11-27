@@ -8,114 +8,6 @@ const HERO_SLIDES = [
 document.addEventListener("DOMContentLoaded", async function () {
   const tabButtons = document.querySelectorAll("[data-tab-target]");
 
-  /* Dashboard minh họa: nạp dữ liệu tĩnh từ JSON */
-  const topServiceGrid = document.getElementById("topServiceGrid");
-  if (topServiceGrid) {
-    try {
-      const response = await fetch("../../data/dashboard.json", { cache: "no-store" });
-      if (!response.ok) throw new Error("HTTP " + response.status);
-      const dashboard = await response.json();
-      const items = dashboard.items || [];
-      const money = value => Number(value || 0).toLocaleString("vi-VN") + "đ";
-      topServiceGrid.replaceChildren();
-      const totalBookings = items.reduce((sum, item) => sum + Number(item.bookingCount || 0), 0);
-      const leader = items.reduce((best, item) => !best || Number(item.bookingCount || 0) > Number(best.bookingCount || 0) ? item : best, null);
-      const cheapest = items.reduce((best, item) => !best || Number(item.price || 0) < Number(best.price || 0) ? item : best, null);
-      const setText = (id, value) => { const el = document.getElementById(id); if (el) el.textContent = value; };
-      setText("dashTotalBookings", totalBookings.toLocaleString("vi-VN"));
-      setText("dashLeaderCategory", leader?.category || "—");
-      setText("dashLeaderCount", leader ? `${Number(leader.bookingCount || 0).toLocaleString("vi-VN")} lượt đặt` : "Gói có lượt đặt cao nhất");
-      setText("dashLowestPrice", cheapest ? money(cheapest.price) : "—");
-      setText("dashLowestCategory", cheapest ? `${cheapest.category} · ${cheapest.name}` : "Trong các gói nổi bật");
-      setText("dashCategoryCount", String(items.length));
-
-      items.forEach(item => {
-        const link = document.createElement("a");
-        link.className = "top-service-card";
-        link.href = item.href || "#";
-        const rank = document.createElement("span");
-        rank.className = "top-service-rank";
-        rank.textContent = "TOP 1";
-        const image = document.createElement("img");
-        image.src = item.image || "";
-        image.alt = item.name || item.category || "Dịch vụ nổi bật";
-        image.loading = "lazy";
-        image.onerror = () => { image.hidden = true; link.classList.add("top-service-no-image"); };
-        const body = document.createElement("div");
-        body.className = "top-service-body";
-        const category = document.createElement("span");
-        category.className = "top-service-category";
-        category.textContent = item.category || "Dịch vụ";
-        const title = document.createElement("h3");
-        title.textContent = item.name || "Gói dịch vụ";
-        const location = document.createElement("p");
-        location.className = "top-service-location";
-        location.textContent = item.location || "";
-        const description = document.createElement("p");
-        description.className = "top-service-description";
-        description.textContent = item.description || "";
-        const stats = document.createElement("div");
-        stats.className = "top-service-stats";
-        const countWrap = document.createElement("span");
-        countWrap.className = "top-service-count";
-        const count = document.createElement("strong");
-        count.textContent = Number(item.bookingCount || 0).toLocaleString("vi-VN");
-        const countLabel = document.createElement("small");
-        countLabel.textContent = "lượt đặt";
-        countWrap.append(count, countLabel);
-        const price = document.createElement("strong");
-        price.className = "top-service-price";
-        price.textContent = `${money(item.price)}${item.priceUnit || ""}`;
-        stats.append(countWrap, price);
-        body.append(category, title, location, description, stats);
-        link.append(rank, image, body);
-        topServiceGrid.append(link);
-      });
-      const breakdown = document.getElementById("categoryBreakdown");
-      if (breakdown) {
-        breakdown.replaceChildren();
-        items.forEach(item => {
-          const row = document.createElement("div");
-          row.className = "dashboard-bar-row";
-          const top = document.createElement("div");
-          top.className = "dashboard-bar-label";
-          const label = document.createElement("b");
-          label.textContent = item.category || "Dịch vụ";
-          const count = document.createElement("span");
-          count.textContent = Number(item.bookingCount || 0).toLocaleString("vi-VN");
-          top.append(label, count);
-          const track = document.createElement("div");
-          track.className = "dashboard-bar-track";
-          const fill = document.createElement("i");
-          const share = totalBookings ? Number(item.bookingCount || 0) / totalBookings * 100 : 0;
-          fill.style.width = `${share}%`;
-          track.append(fill);
-          const percent = document.createElement("small");
-          percent.textContent = `${Math.round(share)}% tổng lượt đặt`;
-          row.append(top, track, percent);
-          breakdown.append(row);
-        });
-      }
-      if (leader) {
-        const spotlight = document.getElementById("dashboardLeader");
-        const eyebrow = document.createElement("span");
-        eyebrow.textContent = "ĐANG DẪN ĐẦU";
-        const title = document.createElement("h3");
-        title.textContent = leader.name;
-        const meta = document.createElement("p");
-        meta.textContent = `${leader.category} · ${Number(leader.bookingCount || 0).toLocaleString("vi-VN")} lượt đặt`;
-        const action = document.createElement("a");
-        action.href = leader.href || "#";
-        action.textContent = "Xem gói dịch vụ";
-        spotlight.replaceChildren(eyebrow, title, meta, action);
-      }
-      if (!items.length) topServiceGrid.innerHTML = '<p class="dashboard-loading">Chưa có dữ liệu nổi bật.</p>';
-    } catch (error) {
-      console.warn("Không tải được dữ liệu dashboard:", error);
-      topServiceGrid.innerHTML = '<p class="dashboard-loading dashboard-error">Chưa tải được bảng xếp hạng. Hãy mở trang bằng Live Server hoặc máy chủ web.</p>';
-    }
-  }
-
   tabButtons.forEach(function (btn) {
     btn.addEventListener("click", function () {
       const targetId = btn.getAttribute("data-tab-target");
@@ -301,9 +193,9 @@ function buildHeroSlider(hero, items) {
       }).join("") + '</div>' +
       '<div class="hero-arrows">' +
         '<button type="button" class="hero-arrow" data-dir="-1" aria-label="Slide trước">' +
-          '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>' +
+          '<i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>' +
         '<button type="button" class="hero-arrow" data-dir="1" aria-label="Slide sau">' +
-          '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>' +
+          '<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>' +
       '</div>';
     hero.appendChild(controls);
     dots = controls.querySelectorAll(".hero-dot");

@@ -1,33 +1,23 @@
-/* ===== Trang Đăng nhập (pages/account/login.html) – Độc lập, không cần auth.js ===== */
+/* ===== Trang Đăng nhập (js/login.js) – dùng js/userLogic.js ===== */
 const $ = id => document.getElementById(id);
-const KEY = 'vg_user', USERS = 'vg_users';
 const EMAIL = /^\S+@\S+\.\S+$/, PHONE = /^0\d{9}$/;
 
-/* --- 1. HÀM DÙNG CHUNG (Quản lý User, Toast, Bắt lỗi, Ẩn/hiện mật khẩu) --- */
-/* Sau khi đăng nhập quay lại trang đang đặt dở (?next=/pages/service/tour.html).
-   Chỉ nhận đường dẫn nội bộ bắt đầu bằng một dấu "/", không nhận địa chỉ trang khác. */
-function nextUrl() {
-    const n = new URLSearchParams(location.search).get('next') || '';
-    return /^\/(?!\/)[^\\]*$/.test(n) && !/[\r\n]/.test(n) ? n : '';
+const NEXT = new URLSearchParams(location.search).get('next') || '';
+function safeNext() {
+    if (!NEXT) return '../../index.html?page=account';
+    try {
+        const u = new URL(NEXT, location.href);
+        return u.origin === location.origin ? u.href : '../../index.html?page=account';
+    } catch { return '../../index.html?page=account'; }
 }
+const keepNext = url => NEXT ? url + '?next=' + encodeURIComponent(NEXT) : url;
+if ($('toLogin')) $('toLogin').href = keepNext('login.html');
+if ($('toRegister')) $('toRegister').href = keepNext('register.html');
+if ($('logo')) $('logo').href = '../../index.html';
 
-function getUsers() {
-    if (!localStorage.getItem(USERS)) {
-        localStorage.setItem(USERS, JSON.stringify([
-            { name: 'Phạm Anh Tú', email: 'demo@vivugo.vn', phone: '0900000000', pass: '12345678', dob: '2006-05-15', gender: 'Nam', address: '12 Chùa Bộc, Đống Đa, Hà Nội' }
-        ]));
-    }
-    return JSON.parse(localStorage.getItem(USERS));
-}
-
-function showToast(msg) {
-    const t = document.createElement('div');
-    t.className = 'vg-toast';
-    t.textContent = msg;
-    document.body.appendChild(t);
-    void t.offsetWidth;
-    t.classList.add('show');
-    setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }, 2500);
+function redirectAfterAuth(msg = 'Đăng nhập thành công!') {
+    toast(msg);
+    setTimeout(() => { location.href = safeNext(); }, 700);
 }
 
 function setError(id, msg) {
@@ -52,39 +42,88 @@ function bindEyes() {
         const input = icon.parentElement.querySelector('input');
         const show = input.type === 'password';
         input.type = show ? 'text' : 'password';
-        icon.className = 'eye fa-regular ' + (show ? 'fa-eye-slash' : 'fa-eye');
+        icon.classList.toggle('on', show);
     });
 }
 
-function loginSuccess(u, remember = true) {
-    (remember ? localStorage : sessionStorage).setItem(KEY, JSON.stringify(u));
-    if (window.parent !== window) {
-        window.parent.postMessage({ type: 'vivugo:auth', action: 'login', user: u }, '*');
-    }
-    const next = nextUrl();
-    showToast(next ? 'Đăng nhập thành công! Đang quay lại...' : 'Đăng nhập thành công! Đang vào Trang cá nhân...');
-    setTimeout(() => { location.href = next || 'account.html'; }, 700);
+function toast(msg) {
+    const t = document.createElement('div');
+    t.className = 'toast';
+    t.textContent = msg;
+    document.body.appendChild(t);
+    void t.offsetWidth;
+    t.classList.add('show');
+    setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }, 2400);
 }
 
-/* --- 2. KHỞI TẠO KIỂM TRA FORM ĐĂNG NHẬP --- */
+const SOCIAL = {
+    google:   { name: 'Google',   email: 'nguoidung.google@gmail.com' },
+    facebook: { name: 'Facebook', email: 'nguoidung.fb@facebook.com' },
+    apple:    { name: 'Apple',    email: 'nguoidung.apple@icloud.com' }
+};
+function bindSocial() {
+    document.querySelectorAll('.sso button').forEach(btn => btn.onclick = () => {
+        const p = btn.dataset.provider, s = SOCIAL[p];
+        if (!s) return;
+        const box = document.createElement('div');
+        box.className = 'sso-dialog';
+        box.innerHTML = `<div class="sso-card">
+            <div class="sso-logo">${btn.querySelector('i') ? btn.querySelector('i').outerHTML : ''}</div>
+            <h3>Tiếp tục với ${s.name}</h3>
+            <button class="sso-acc" type="button">
+                <span class="sso-ava">V</span>
+                <span><b>Thành viên VivuGo</b><small>${s.email}</small></span>
+            </button>
+            <p class="sso-note">Chọn tài khoản để đăng nhập nhanh vào VivuGo.</p>
+            <button class="sso-cancel" type="button">Hủy</button>
+        </div>`;
+        box.onclick = e => { if (e.target === box) box.remove(); };
+        box.querySelector('.sso-cancel').onclick = () => box.remove();
+        box.querySelector('.sso-acc').onclick = () => {
+            box.remove();
+            VivuUser.loginSocial({ name: 'Thành viên VivuGo', email: s.email, provider: p });
+            redirectAfterAuth(`Đăng nhập nhanh bằng ${s.name} thành công!`);
+        };
+        document.body.appendChild(box);
+    });
+}
+
+if (VivuUser.getCurrentUser()) location.replace(safeNext());
+
 const { validate } = setupValidation({
     lEmail: v => (EMAIL.test(v) || PHONE.test(v)) ? '' : 'Vui lòng nhập email hoặc số điện thoại hợp lệ.',
-    lPass: v => v ? '' : 'Vui lòng nhập mật khẩu.'
+    lPass:  v => v ? '' : 'Vui lòng nhập mật khẩu.'
 });
-
 bindEyes();
-/* Giữ tham số ?next= khi chuyển qua lại giữa hai tab Đăng nhập / Đăng ký */
-document.querySelectorAll('.tab[href$="login.html"], .tab[href$="register.html"]').forEach(a => {
-    if (nextUrl()) a.search = '?next=' + encodeURIComponent(nextUrl());
-});
-
+bindSocial();
 
 $('login').onsubmit = e => {
     e.preventDefault();
     if (!validate()) return;
-    const id = $('lEmail').value.trim();
-    const pass = $('lPass').value;
-    const u = getUsers().find(x => (x.email === id || x.phone === id) && x.pass === pass);
+    const u = VivuUser.loginUser($('lEmail').value, $('lPass').value, $('remember').checked);
     if (!u) return setError('lPass', 'Sai tài khoản hoặc mật khẩu. Vui lòng thử lại.');
-    loginSuccess(u, $('remember').checked);
+    redirectAfterAuth();
 };
+
+if ($('forgotBtn')) {
+    $('forgotBtn').onclick = () => {
+        const box = document.createElement('div');
+        box.className = 'sso-dialog';
+        box.innerHTML = `<div class="sso-card">
+            <h3>Khôi phục mật khẩu</h3>
+            <p class="sso-note" style="margin-bottom:14px;">Nhập email đã đăng ký để nhận hướng dẫn đặt lại mật khẩu.</p>
+            <input type="email" class="dialog-input" id="resetEmail" placeholder="example@vivugo.vn">
+            <button type="button" class="btn-full" id="sendReset">Gửi yêu cầu</button>
+            <button type="button" class="sso-cancel">Đóng</button>
+        </div>`;
+        box.onclick = e => { if (e.target === box) box.remove(); };
+        box.querySelector('.sso-cancel').onclick = () => box.remove();
+        box.querySelector('#sendReset').onclick = () => {
+            const em = box.querySelector('#resetEmail').value.trim();
+            if (!EMAIL.test(em)) return toast('Vui lòng nhập đúng định dạng email.');
+            box.remove();
+            toast(`Đã gửi liên kết đặt lại mật khẩu tới ${em}!`);
+        };
+        document.body.appendChild(box);
+    };
+}
