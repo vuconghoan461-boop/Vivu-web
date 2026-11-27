@@ -1586,8 +1586,8 @@ input:focus-visible {
 .panel-h { font-size: 14px; font-weight: 700; margin: 14px 0 6px; }
 .old-price { display: block; font-size: 12px; color: #6B7280; text-decoration: line-through; }
 .hl-list li, .inc-list li, .exc-list li, .note-list li { position: relative; padding: 4px 0 4px 20px; font-size: 13.5px; }
-.hl-list li::before, .inc-list li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: .85em; position: absolute; left: 0; color: #008FE5; }
-.exc-list li::before { content: "\f00d"; font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: .85em; position: absolute; left: 0; color: #DC2626; }
+.hl-list li::before, .inc-list li::before { content: "✓"; position: absolute; left: 0; color: #008FE5; font-weight: 700; }
+.exc-list li::before { content: "✕"; position: absolute; left: 0; color: #DC2626; font-weight: 700; }
 .note-list li::before { content: "•"; position: absolute; left: 6px; color: #FF9D16; }
 .badge-row { position: absolute; top: 10px; left: 10px; display: flex; gap: 6px; z-index: 2; }
 .badge-row .car-badge { position: static; }
@@ -1613,6 +1613,18 @@ input:focus-visible {
   .quick-info { grid-template-columns: 1fr 1fr; }
 }
 
-/* ---------- Icon: Font Awesome 6.5.0 (dùng chung toàn site) ---------- */
-.btn-icon, .nav-toggle { font-size: 18px; color: inherit; }
-.category-card .cat-icon { font-size: 18px; }
+
+
+/* Nút X của popup đặt chỗ thành công: góc trên cùng bên trái */
+.success-modal { position: relative; }
+.success-head, .success-header {
+  position: sticky; top: 0; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; padding: 18px 56px; background: #fff;
+  border-bottom: 1px solid #E5E7EB; text-align: left;
+}
+.success-head .modal-close, .success-header .modal-close {
+  position: absolute; top: 12px; left: 12px; margin: 0;
+}
+.success-body { position: relative; }
+.success-body > .success-x { position: absolute; top: 12px; right: 12px; margin: 0; z-index: 2; }

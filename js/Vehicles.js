@@ -248,7 +248,7 @@
 
   // o: { sub, code, rows:[[nhãn, giá trị, laTien?]], policy:[...], close:'data-xx-close' }
   function successHtml(o) {
-    return '<div class="success-body"><div class="success-check"><i class="fa-solid fa-check" aria-hidden="true"></i></div><h3>Đặt vé thành công</h3>' +
+    return '<div class="success-body"><button type="button" class="modal-close success-x" ' + o.close + ' aria-label="Đóng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button><div class="success-check"><i class="fa-solid fa-check" aria-hidden="true"></i></div><h3>Đặt vé thành công</h3>' +
       '<p class="success-sub">' + o.sub + '</p>' +
       '<div class="order-code">' + o.code + '</div>' +
       '<div class="success-info">' + o.rows.map(function (r) {
@@ -260,7 +260,7 @@
         ? '<p class="form-error" role="alert">' + esc(o.saved.error || 'Không lưu được vào Lịch của tôi.') + '</p>'
         : window.VGBookings.savedNoteHtml() +
           '<button type="button" class="btn-primary btn-block" data-vg-calendar>Xem trong "Lịch của tôi"</button>') : '') +
-      '<button type="button" class="btn-confirm btn-block" ' + o.close + '>Đóng</button></div>';
+      '</div>';
   }
 
   /* ---------- Thẻ chuyến bay (tab Máy bay) ---------- */
