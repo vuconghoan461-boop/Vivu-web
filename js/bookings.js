@@ -451,16 +451,18 @@
     location.href = ROOT + 'index.html#calendar';
   }
 
+  // Chỉ hiện thông báo khi lưu thất bại; lưu thành công thì không hiện dòng "Đã lưu đơn..." nữa.
   function showSaved(element, saved) {
     if (!element) return;
-    element.hidden = false;
-    element.textContent = saved && saved.ok === false
-      ? (saved.error || 'Không lưu được vào "Lịch của tôi".')
-      : 'Đã lưu đơn' + (saved && saved.id ? ' ' + saved.id : '') + ' vào "Lịch của tôi".';
+    if (saved && saved.ok === false) {
+      element.hidden = false;
+      element.textContent = saved.error || 'Không lưu được vào "Lịch của tôi".';
+    } else {
+      element.hidden = true;
+      element.textContent = '';
+    }
   }
-  function savedNoteHtml() {
-    return '<p class="vgbk-saved" style="margin:10px 0;color:#047857;font-weight:600">Đơn của bạn đã được lưu vào "Lịch của tôi".</p>';
-  }
+  function savedNoteHtml() { return ''; }
 
   // Các hàm cũ, giữ lại cho tương thích
   function getAll() { return readAll().map(toRecord).filter(function (r) { return r && !r.deleted; }); }
