@@ -886,6 +886,9 @@ function submitBooking(e) {
     alert("Ngày nhận phòng không hợp lệ (không được ở quá khứ).");
     return;
   }
+  if (checkInISO === VGBookings.todayISO() && !confirm(
+    "Ngày nhận phòng là hôm nay. Đặt phòng trong ngày sẽ không thể hủy trên Lịch của tôi. Bạn vẫn muốn xác nhận đặt phòng?"
+  )) return;
   if (!Number.isInteger(rooms) || rooms < 1 || rooms > currentRoom.left) {
     alert(`Số phòng phải từ 1 đến ${currentRoom.left}.`);
     return;
