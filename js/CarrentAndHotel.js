@@ -119,7 +119,7 @@ function carCardHTML(car) {
       </div>
       <div class="car-body">
         <div class="car-rating-row">
-          <span class="rating">★ ${car.rating.toFixed(2)}</span>
+          <span class="rating"><i class="fa-solid fa-star" aria-hidden="true"></i> ${car.rating.toFixed(2)}</span>
           <span class="dot">·</span>
           <span>${car.reviews} chuyến</span>
           <span class="dot">·</span>
@@ -299,7 +299,7 @@ function openCarDetail(carId) {
     : "";
 
   document.getElementById("carDetailModal").innerHTML = `
-    <button type="button" class="modal-close" onclick="closeModal('carDetailOverlay')">×</button>
+    <button type="button" class="modal-close" onclick="closeModal('carDetailOverlay')" aria-label="Đóng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
 
     <div class="detail-header">
       <h2>${car.name}</h2>
@@ -660,10 +660,10 @@ function resetFilters() {
 /* ---------- 4. DANH SÁCH KHÁCH SẠN ---------- */
 function hotelCardHTML(hotel) {
   const room = getCheapestRoom(hotel);
-  const stars = "★".repeat(hotel.stars) + "☆".repeat(5 - hotel.stars);
+  const stars = '<i class="fa-solid fa-star" aria-hidden="true"></i>'.repeat(hotel.stars) + '<i class="fa-regular fa-star" aria-hidden="true"></i>'.repeat(5 - hotel.stars);
 
   const ratingText = hotel.reviews > 0
-    ? `★ ${hotel.rating}<span>/${hotel.ratingMax} (${hotel.reviews.toLocaleString("vi-VN")})</span>`
+    ? `<i class="fa-solid fa-star" aria-hidden="true"></i> ${hotel.rating}<span>/${hotel.ratingMax} (${hotel.reviews.toLocaleString("vi-VN")})</span>`
     : "Chưa có đánh giá";
 
   const oldPrice = room.discount
@@ -772,7 +772,7 @@ function openHotelDetail(hotelId) {
   }).join("");
 
   document.getElementById("detailModal").innerHTML = `
-    <button type="button" class="modal-close" onclick="closeModal('detailModalOverlay')">×</button>
+    <button type="button" class="modal-close" onclick="closeModal('detailModalOverlay')" aria-label="Đóng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
 
     <div class="detail-header">
       <div>

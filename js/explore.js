@@ -96,7 +96,7 @@
       (feature ? '<span class="kp-card__flag">NỔI BẬT</span>' : "") +
       coverHtml(a) +
       '<div class="kp-card__body">' +
-        '<div class="kp-card__top"><span class="kp-kicker">' + esc(a.cat) + '</span><span class="kp-rate" style="color: #FF9D16;">★ ' + rate(a.rating) + "</span></div>" +
+        '<div class="kp-card__top"><span class="kp-kicker">' + esc(a.cat) + '</span><span class="kp-rate" style="color: #FF9D16;"><i class="fa-solid fa-star" aria-hidden="true"></i> ' + rate(a.rating) + "</span></div>" +
         "<h3>" + esc(a.title) + "</h3>" +
         '<div class="kp-loc">' + esc(a.dest) + " · " + esc(a.region) + "</div>" +
         '<p class="kp-card__ex">' + esc(a.excerpt) + "</p>" +
@@ -117,7 +117,7 @@
       box.hidden = !chips.length;
       box.innerHTML = chips.length
         ? chips.map(function (k) {
-            return '<span class="kp-chip">' + esc(state[k]) + '<button type="button" data-clear="' + k + '" aria-label="Bỏ lọc ' + esc(state[k]) + '">×</button></span>';
+            return '<span class="kp-chip">' + esc(state[k]) + '<button type="button" data-clear="' + k + '" aria-label="Bỏ lọc ' + esc(state[k]) + '"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></span>';
           }).join("") + '<button type="button" class="kp-link-btn" data-clear="all">Xóa bộ lọc</button>'
         : "";
     }
@@ -223,7 +223,7 @@
         '<div class="booking-modal" role="dialog" aria-modal="true">' +
           '<div class="booking-modal-head">' +
             '<div><span class="modal-kicker">Đặt tour</span><h3>' + esc(t.name) + '</h3></div>' +
-            '<button type="button" class="modal-close" id="closeKpBookingModal">&times;</button>' +
+            '<button type="button" class="modal-close" id="closeKpBookingModal" aria-label="Đóng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>' +
           '</div>' +
           '<div class="booking-provider-bar">' +
             '<div><strong>' + esc(t.from) + ' → ' + esc(t.to) + '</strong><p>Thời lượng: ' + esc(t.duration) + '</p></div>' +
@@ -328,10 +328,10 @@
         '<div class="success-modal" role="dialog" aria-modal="true">' +
           '<div class="success-head">' +
             '<div><strong>Đặt Chỗ Thành Công</strong><p>Xác nhận tức thời</p></div>' +
-            '<button type="button" class="modal-close" id="closeKpSuccess">&times;</button>' +
+            '<button type="button" class="modal-close" id="closeKpSuccess" aria-label="Đóng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>' +
           '</div>' +
           '<div class="success-body">' +
-            '<div class="success-check">✓</div>' +
+            '<div class="success-check"><i class="fa-solid fa-check" aria-hidden="true"></i></div>' +
             '<h3>Chúc mừng bạn đã đặt chỗ thành công!</h3>' +
             '<div class="order-code">' + code + '</div>' +
             '<div class="success-info">' +
@@ -392,7 +392,7 @@
     var popupHtml =
       '<div class="modal-overlay is-open" id="kpTourPopupOverlay" style="z-index: 9999;">' +
         '<div class="booking-modal detail-modal" id="kpTourDetailModal" role="dialog" aria-modal="true">' +
-          '<button type="button" class="modal-close" id="closeKpTourPopup">&times;</button>' +
+          '<button type="button" class="modal-close" id="closeKpTourPopup" aria-label="Đóng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>' +
           '<div class="gallery">' + [0, 1, 2, 3, 4].map(function (i) { return media(i, i ? 'Ảnh ' + (i + 1) : 'Ảnh chính'); }).join('') + '</div>' +
           '<div class="detail-top">' +
             '<div><h2>' + esc(t.name) + '</h2><div class="badge-row" style="position:static;margin-top:8px">' + badges + '</div>' +
@@ -402,7 +402,7 @@
             '<button type="button" class="btn-cta btn-trigger-booking">Đặt tour ngay</button>' +
           '</div>' +
           '<div class="quick-info">' +
-            '<div><span>Đánh giá</span><span style="color:#FF9D16;">★</span> ' + rate(t.rating) + ' (' + (t.reviews || 0).toLocaleString('vi-VN') + ')</div>' +
+            '<div><span>Đánh giá</span><span style="color:#FF9D16;"><i class="fa-solid fa-star" aria-hidden="true"></i></span> ' + rate(t.rating) + ' (' + (t.reviews || 0).toLocaleString('vi-VN') + ')</div>' +
             '<div><span>Thời lượng</span>' + esc(t.duration) + '</div>' +
             '<div><span>Khởi hành từ</span>' + esc(t.from) + '</div>' +
           '</div>' +
@@ -414,7 +414,7 @@
             '<div class="tab-panel is-active">' +
               '<h4 class="panel-h">Điểm nổi bật</h4><ul class="hl-list">' + li(t.highlights) + '</ul>' +
               '<h4 class="panel-h">Lịch trình chi tiết</h4>' +
-              '<button type="button" class="acc-head" id="kpAccHead">Ngày 1 · ' + esc(t.to) + ' <span>▾</span></button>' +
+              '<button type="button" class="acc-head" id="kpAccHead">Ngày 1 · ' + esc(t.to) + ' <span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span></button>' +
               '<ul class="timeline" id="kpAccBody">' + tl + '</ul>' +
               '<p class="section-sub">' + esc(t.itineraryNote || '') + '</p>' +
             '</div>' +
@@ -495,7 +495,7 @@
     return '<div class="kp-review"><div class="kp-review__top"><div class="kp-review__who">' + avatar(r.user) +
       '<div><div class="kp-review__name"><span>' + esc(r.user) + '</span><span class="kp-sample">' + (mine ? "Mới gửi" : "Đánh giá") + "</span></div>" +
       '<div class="kp-review__meta">' + esc(r.date) + (r.tag ? " · " + esc(r.tag) : "") + "</div></div></div>" +
-      '<div class="kp-review__stars" style="color: #FF9D16;">★ ' + esc(r.rating) + "/5</div></div><p>" + esc(r.comment) + "</p></div>";
+      '<div class="kp-review__stars" style="color: #FF9D16;"><i class="fa-solid fa-star" aria-hidden="true"></i> ' + esc(r.rating) + "/5</div></div><p>" + esc(r.comment) + "</p></div>";
   }
 
   function related(a) {
@@ -562,7 +562,7 @@
       '<div class="kp-byline" style="margin-bottom: 20px; font-size: 15px; display: flex; align-items: center; gap: 8px;">' + 
         avatar(authorName) + 
         '<strong>' + esc(authorName) + '</strong><span class="kp-dot">·</span><span>' + esc(authorDate) + '</span><span class="kp-dot">·</span>' +
-        '<span class="kp-rate" style="color: #FF9D16; font-weight: 600;">★ ' + rate(avgRating) + '</span>' +
+        '<span class="kp-rate" style="color: #FF9D16; font-weight: 600;"><i class="fa-solid fa-star" aria-hidden="true"></i> ' + rate(avgRating) + '</span>' +
         '<span style="color: #6b7280; font-size: 14px;"> (' + count + ' đánh giá)</span>' +
       '</div>' +
 
@@ -575,7 +575,7 @@
         
       '<section class="kp-reviews" id="kpReviews">' +
         '<div class="kp-reviews__head"><h2>Đánh giá</h2><button type="button" class="kp-btn kp-btn--ghost kp-btn--sm" id="kpToggleForm">+ Viết đánh giá</button></div>' +
-        '<div class="kp-score"><strong style="color:#FF9D16;">★ ' + rate(avgRating) + "</strong><span>Đánh giá từ du khách về " + esc(a.dest) + ".<br>" + count + " lượt đánh giá.</span></div>" +
+        '<div class="kp-score"><strong style="color:#FF9D16;"><i class="fa-solid fa-star" aria-hidden="true"></i> ' + rate(avgRating) + "</strong><span>Đánh giá từ du khách về " + esc(a.dest) + ".<br>" + count + " lượt đánh giá.</span></div>" +
         '<form class="kp-form" id="kpReviewForm" novalidate hidden>' +
           "<h3>Gửi đánh giá cho " + esc(a.dest) + "</h3>" +
           '<div class="kp-field"><label for="kpRevName">Họ và tên</label><input id="kpRevName" type="text" maxlength="60" placeholder="VD: Nguyễn Văn A" /></div>' +

@@ -145,7 +145,7 @@
       return `<article class="car-card" data-id="${t.id}">
         <div class="car-media"><div class="badge-row">${badges(t)}</div>${media(t, 0, 'Ảnh tour')}</div>
         <div class="car-body">
-          <div class="car-rating-row"><span class="rating">★ ${t.rating}</span><span class="dot">·</span>
+          <div class="car-rating-row"><span class="rating"><i class="fa-solid fa-star" aria-hidden="true"></i> ${t.rating}</span><span class="dot">·</span>
             <span class="provider">${t.reviews.toLocaleString('vi-VN')} đánh giá</span><span class="dot">·</span><span>${kfmt(t.booked)} đã đặt</span></div>
           <h3 class="car-name">${t.name}</h3>
           <div class="tour-route"> ${t.from} → ${t.to}</div>
@@ -176,7 +176,7 @@
     const m = $('detailModal');
     
     m.innerHTML = `
-      <button type="button" class="modal-close" data-x>×</button>
+      <button type="button" class="modal-close" data-x aria-label="Đóng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
       <div class="gallery">${[0, 1, 2, 3, 4].map(i => media(t, i, i ? 'Ảnh ' + (i + 1) : 'Ảnh chính')).join('')}</div>
       <div class="detail-top">
         <div><h2>${t.name}</h2><div class="badge-row" style="position:static;margin-top:8px">${badges(t)}</div>
@@ -185,7 +185,7 @@
         <button type="button" class="btn-cta" data-book>Đặt tour ngay</button>
       </div>
       <div class="quick-info">
-        <div><span>Đánh giá</span>★ ${t.rating} (${t.reviews.toLocaleString('vi-VN')})</div>
+        <div><span>Đánh giá</span><i class="fa-solid fa-star" aria-hidden="true"></i> ${t.rating} (${t.reviews.toLocaleString('vi-VN')})</div>
         <div><span>Thời lượng</span>${t.duration}</div>
         <div><span>Khởi hành từ</span>${t.from}</div>
       </div>
@@ -194,7 +194,7 @@
         <div class="tab-panel is-active">
           <h4 class="panel-h">Điểm nổi bật</h4><ul class="hl-list">${li(t.highlights)}</ul>
           <h4 class="panel-h">Lịch trình chi tiết</h4>
-          <button type="button" class="acc-head" data-acc>Ngày 1 · ${t.to}<span>▾</span></button>
+          <button type="button" class="acc-head" data-acc>Ngày 1 · ${t.to}<span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span></button>
           <ul class="timeline" id="accBody">${tl}</ul>
           <p class="section-sub">${t.itineraryNote || ''}</p></div>
         <div class="tab-panel">

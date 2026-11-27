@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VivuGo - Trang cá nhân</title>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/tokens.css">
     <link rel="stylesheet" href="../../css/account.css">
 </head>
 <body>
@@ -235,12 +238,12 @@
                     <div class="pref-group">
                         <label class="pref-label">Phong cách yêu thích (bấm để chọn)</label>
                         <div class="chip-list" id="styleChips">
-                            <button type="button" class="chip" data-style="Biển đảo">🏖️ Biển đảo</button>
-                            <button type="button" class="chip" data-style="Nghỉ dưỡng">🏨 Nghỉ dưỡng</button>
-                            <button type="button" class="chip" data-style="Ẩm thực">🍜 Ẩm thực</button>
-                            <button type="button" class="chip" data-style="Khám phá thiên nhiên">⛰️ Thiên nhiên</button>
-                            <button type="button" class="chip" data-style="Du lịch tự túc">🎒 Tự túc</button>
-                            <button type="button" class="chip" data-style="Văn hóa - Lịch sử">🏛️ Văn hóa</button>
+                            <button type="button" class="chip" data-style="Biển đảo"><i class="fa-solid fa-umbrella-beach" aria-hidden="true"></i> Biển đảo</button>
+                            <button type="button" class="chip" data-style="Nghỉ dưỡng"><i class="fa-solid fa-hotel" aria-hidden="true"></i> Nghỉ dưỡng</button>
+                            <button type="button" class="chip" data-style="Ẩm thực"><i class="fa-solid fa-utensils" aria-hidden="true"></i> Ẩm thực</button>
+                            <button type="button" class="chip" data-style="Khám phá thiên nhiên"><i class="fa-solid fa-mountain-sun" aria-hidden="true"></i> Thiên nhiên</button>
+                            <button type="button" class="chip" data-style="Du lịch tự túc"><i class="fa-solid fa-person-hiking" aria-hidden="true"></i> Tự túc</button>
+                            <button type="button" class="chip" data-style="Văn hóa - Lịch sử"><i class="fa-solid fa-landmark" aria-hidden="true"></i> Văn hóa</button>
                         </div>
                     </div>
 
@@ -291,7 +294,7 @@
         <div class="modal-card modal-post">
             <div class="modal-head">
                 <h3>Tạo bài viết mới</h3>
-                <button type="button" id="closePostModal">&times;</button>
+                <button type="button" id="closePostModal" aria-label="Đóng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
             </div>
             <div class="modal-author">
                 <div class="mini-ava" id="modalPostAva"></div>
@@ -318,7 +321,7 @@
                         </button>
                         <div class="img-preview-wrap" id="postImgPreviewWrap" hidden>
                             <img id="postImgPreview" alt="Xem trước ảnh bài viết">
-                            <button type="button" class="btn-remove-img" id="removePostImgBtn" title="Gỡ ảnh">&times;</button>
+                            <button type="button" class="btn-remove-img" id="removePostImgBtn" title="Gỡ ảnh" aria-label="Đóng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
                         </div>
                     </div>
                 </div>
@@ -336,7 +339,7 @@
         <div class="modal-card">
             <div class="modal-head">
                 <h3>Đổi mật khẩu</h3>
-                <button type="button" id="closePassModal">&times;</button>
+                <button type="button" id="closePassModal" aria-label="Đóng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
             </div>
             <form id="passForm" novalidate>
                 <div class="form-row">

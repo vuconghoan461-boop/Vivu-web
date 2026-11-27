@@ -494,8 +494,8 @@
   color: #374151;
 }
 
-.hl-list li::before, .inc-list li::before { content: "✓"; position: absolute; left: 0; color: var(--p); font-weight: 700; }
-.exc-list li::before { content: "✕"; position: absolute; left: 0; color: #dc2626; font-weight: 700; }
+.hl-list li::before, .inc-list li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: .85em; position: absolute; left: 0; color: var(--p); }
+.exc-list li::before { content: "\f00d"; font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: .85em; position: absolute; left: 0; color: #dc2626; }
 .note-list li::before { content: "•"; position: absolute; left: 6px; color: var(--o); font-size: 16px; }
 
 .acc-head {

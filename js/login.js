@@ -68,7 +68,7 @@ function bindSocial() {
         const box = document.createElement('div');
         box.className = 'sso-dialog';
         box.innerHTML = `<div class="sso-card">
-            <div class="sso-logo">${btn.querySelector('svg') ? btn.querySelector('svg').outerHTML : ''}</div>
+            <div class="sso-logo">${btn.querySelector('i') ? btn.querySelector('i').outerHTML : ''}</div>
             <h3>Tiếp tục với ${s.name}</h3>
             <button class="sso-acc" type="button">
                 <span class="sso-ava">V</span>
