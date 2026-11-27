@@ -64,42 +64,6 @@
             <span class="cat-price">Chỉ từ 89.000đ/chặng</span>
           </a>
         </div>
-
-        <!-- Dashboard top dịch vụ: dữ liệu đọc từ JSON -->
-        <section class="service-dashboard section" aria-labelledby="serviceDashboardTitle">
-          <div class="dashboard-heading">
-            <div>
-              <h2 id="serviceDashboardTitle">TOP DỊCH VỤ ĐƯỢC ƯA CHUỘNG</h2>
-            </div>
-          </div>
-
-          <div class="dashboard-kpis" aria-label="Chỉ số tổng quan">
-            <article class="dashboard-kpi"><span>Tổng lượt đặt</span><strong id="dashTotalBookings">—</strong><small>Trên bốn hạng mục</small></article>
-            <article class="dashboard-kpi"><span>Hạng mục nổi bật</span><strong id="dashLeaderCategory">—</strong><small id="dashLeaderCount">Gói có lượt đặt cao nhất</small></article>
-            <article class="dashboard-kpi"><span>Giá tham khảo từ</span><strong id="dashLowestPrice">—</strong><small id="dashLowestCategory">Trong các gói nổi bật</small></article>
-            <article class="dashboard-kpi dashboard-kpi-brand"><span>Hạng mục theo dõi</span><strong id="dashCategoryCount">4</strong><small>Khách sạn · Tour · Thuê xe · Di chuyển</small></article>
-          </div>
-
-          <div class="dashboard-layout">
-            <section class="dashboard-panel dashboard-top-panel" aria-labelledby="dashboardTopTitle">
-              <div class="dashboard-panel-head">
-                <div><h3 id="dashboardTopTitle">Top gói theo hạng mục</h3><p>Mỗi hạng mục hiển thị gói được đặt nhiều nhất.</p></div>
-                <span class="dashboard-panel-tag">TOP 01</span>
-              </div>
-              <div class="top-service-list" id="topServiceGrid" aria-live="polite">
-                <p class="dashboard-loading">Đang tải dữ liệu…</p>
-              </div>
-            </section>
-
-            <aside class="dashboard-side">
-              <section class="dashboard-panel dashboard-chart-panel" aria-labelledby="dashboardChartTitle">
-                <div class="dashboard-panel-head"><div><h3 id="dashboardChartTitle">Cơ cấu lượt đặt</h3><p>So sánh tương quan giữa các hạng mục.</p></div></div>
-                <div id="categoryBreakdown" class="dashboard-bars" aria-label="Biểu đồ cơ cấu lượt đặt"></div>
-              </section>
-              <section class="dashboard-insight" id="dashboardLeader" aria-live="polite"></section>
-            </aside>
-          </div>
-        </section>
       </div>
     </main>
   </body>

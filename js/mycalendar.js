@@ -13,7 +13,6 @@ const ASSET_PREFIX = "../../../";
 
 const TYPE_META = {
   tour:   { label: "Tour",            icon: "fa-ticket",     info: "Thông tin tour" },
-  ai_plan:{ label: "Tour cá nhân hóa", icon: "fa-wand-magic-sparkles", info: "Thông tin kế hoạch AI" },
   hotel:  { label: "Khách sạn",       icon: "fa-hotel",      info: "Chi tiết đặt phòng" },
   car:    { label: "Thuê xe",         icon: "fa-car",        info: "Chi tiết thuê xe" },
   flight: { label: "Máy bay",         icon: "fa-plane",      info: "Chi tiết chuyến bay" },
@@ -24,13 +23,16 @@ const TYPE_META = {
 let TRIPS = [];
 let TOURS = null;           // { id: tour } từ tour.json (tải một lần)
 let currentFilter = "all";
+let currentType = "all";     // lọc theo loại: all | tour | hotel | car | flight | train | bus
+let listExpanded = false;    // false: chỉ hiện vài đặt chỗ tiêu biểu trong danh sách bên trái
+const LIST_LIMIT = 3;
 let currentTrip = null;
 let currentDay = "";
 let currentTab = "itinerary";
 
 const WEEKDAYS = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
 const DAY_COLOR_COUNT = 5; // tương ứng các class day-c0 ... day-c4 trong CSS
-const STATUS_ORDER = { pending: 0, ongoing: 1, upcoming: 2, completed: 3, cancelled: 4 };
+const STATUS_ORDER = { ongoing: 0, upcoming: 1, completed: 2, cancelled: 3 };
 
 /* ---------- Tiện ích thao tác DOM ---------- */
 const $ = (id) => document.getElementById(id);
@@ -77,12 +79,9 @@ const TODAY = parseDate(TODAY_ISO);
 
 const statusOf = (trip) => VGBookings.statusOf(trip.raw, TODAY_ISO);
 function statusLabel(status) {
-  return document.querySelector(`#navList [data-filter="${status}"]`)?.dataset.label || status;
+  return document.querySelector(`#navList [data-filter="${status}"]`).dataset.label;
 }
 function dayInfo(trip, i) {
-  if (trip.raw.type === "ai_plan" && !trip.raw.startDate) {
-    return { short: "", title: trip.raw.itinerary?.days?.[i]?.title || "Chưa xếp ngày khởi hành", colorClass: `day-c${i % DAY_COLOR_COUNT}` };
-  }
   const date = addDays(parseDate(trip.startDate), i);
   return {
     short: fmtShort(date),
@@ -91,12 +90,10 @@ function dayInfo(trip, i) {
   };
 }
 function durationText(trip) {
-  if (trip.raw.type === "ai_plan") return trip.raw.itinerary?.duration || "Thời lượng chưa xác định";
   const nights = diffDays(parseDate(trip.startDate), parseDate(trip.endDate));
   return nights === 0 ? "Trong ngày" : `${nights + 1} ngày ${nights} đêm`;
 }
 function dateRangeShort(trip) {
-  if (trip.raw.type === "ai_plan" && !trip.raw.startDate) return "Chưa chọn ngày đi";
   return trip.startDate === trip.endDate
     ? fmtFull(parseDate(trip.startDate))
     : `${fmtShort(parseDate(trip.startDate))} – ${fmtFull(parseDate(trip.endDate))}`;
@@ -104,6 +101,7 @@ function dateRangeShort(trip) {
 function tripsInFilter() {
   return TRIPS
     .filter(t => currentFilter === "all" || statusOf(t) === currentFilter)
+    .filter(t => currentType === "all" || t.raw.type === currentType)
     .sort((a, b) => STATUS_ORDER[statusOf(a)] - STATUS_ORDER[statusOf(b)] || a.startDate.localeCompare(b.startDate));
 }
 function defaultDay(trip) {
@@ -167,22 +165,38 @@ function renderUser() {
   const active = TRIPS.filter(t => statusOf(t) !== "cancelled");
   $("statTotal").textContent = active.length;
   $("statUpcoming").textContent = active.filter(t => statusOf(t) === "upcoming").length;
-  $("statSpent").textContent = fmtMoney(active.reduce((s, t) => s + (t.raw.type === "ai_plan" ? 0 : t.raw.payment.total), 0));
+  $("statSpent").textContent = fmtMoney(active.reduce((s, t) => s + t.raw.payment.total, 0));
 
   const mode = VGBookings.mode();
-  $("userMode").classList.toggle("is-server", mode === "server");
-  $("userMode").textContent = mode === "server"
-    ? "Đang lưu vào file data/bookings.json"
-    : "Đang lưu trong trình duyệt này. Chạy “node server.js” để lưu ra file JSON.";
 }
 
 /* ---------- Render: sidebar ---------- */
 function renderNav() {
   document.querySelectorAll("#navList li").forEach(li => {
     const f = li.dataset.filter;
-    const count = TRIPS.filter(t => f === "all" || statusOf(t) === f).length;
+    const count = TRIPS.filter(t => (currentType === "all" || t.raw.type === currentType) && (f === "all" || statusOf(t) === f)).length;
     li.classList.toggle("active", f === currentFilter);
     li.querySelector(".count").textContent = count || "";
+  });
+  renderTypeFilter();
+}
+
+// Bộ lọc theo loại dịch vụ (Tour, Khách sạn, Thuê xe, Máy bay, ...)
+function renderTypeFilter() {
+  const box = $("typeFilter");
+  if (!box) return;
+  const inStatus = TRIPS.filter(t => currentFilter === "all" || statusOf(t) === currentFilter);
+  const chips = [["all", "Tất cả loại"], ...Object.entries(TYPE_META).map(([k, m]) => [k, m.label])];
+  box.innerHTML = "";
+  chips.forEach(([key, label]) => {
+    const count = key === "all" ? inStatus.length : inStatus.filter(t => t.raw.type === key).length;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "type-chip" + (key === currentType ? " active" : "") + (count === 0 && key !== currentType ? " is-empty" : "");
+    btn.dataset.type = key;
+    btn.setAttribute("aria-pressed", String(key === currentType));
+    btn.textContent = `${label} (${count})`;
+    box.appendChild(btn);
   });
 }
 
@@ -191,7 +205,15 @@ function renderTripList() {
   $("listTitle").textContent = document.querySelector(`#navList [data-filter="${currentFilter}"]`).dataset.title;
   $("listEmpty").hidden = list.length > 0 || !VGBookings.currentUser();
 
-  renderList($("tripList"), "tpl-trip-item", list, (frag, t) => {
+  // Chỉ hiện vài đặt chỗ đầu tiên; bấm "Xem thêm" để mở hết
+  const visible = listExpanded ? list : list.slice(0, LIST_LIMIT);
+  const more = $("btnMoreTrips");
+  if (more) {
+    more.hidden = list.length <= LIST_LIMIT;
+    more.textContent = listExpanded ? "Thu gọn" : `Xem thêm ${list.length - LIST_LIMIT} đặt chỗ`;
+  }
+
+  renderList($("tripList"), "tpl-trip-item", visible, (frag, t) => {
     const st = statusOf(t);
     fill(frag, { name: t.name, dates: dateRangeShort(t), place: t.place || (t.from && t.to ? `${t.from} → ${t.to}` : t.meta.label), type: t.meta.label, status: statusLabel(st) });
     setIcon(frag, t.meta.icon);
@@ -216,7 +238,6 @@ function renderTripHero() {
   $("tripTypeIcon").className = `fa-solid ${t.meta.icon}`;
   const stEl = $("tripStatus");
   stEl.textContent = statusLabel(st);
-  stEl.classList.toggle("st-pending", st === "pending");
   $("btnCancel").hidden = !VGBookings.canCancel(t.raw, TODAY_ISO);
   $("btnRemove").hidden = !VGBookings.canRemove(t.raw, TODAY_ISO);
   const hero = document.querySelector(".trip-hero");
@@ -278,15 +299,13 @@ function renderInfo() {
   section("infoBookings", info.bookings, (el, bk) => {
     fill(el, { status: bk.statusText, departureLabel: bk.startLabel, departure: bk.startText, code: bk.code });
     el.querySelector('[data-f="status"]').classList.toggle("bad", bk.cancelled);
-    el.querySelector('[data-f="status"]').classList.toggle("ok", !bk.cancelled && !bk.pending);
-    el.querySelector('[data-f="status"]').classList.toggle("pending", bk.pending);
+    el.querySelector('[data-f="status"]').classList.toggle("ok", !bk.cancelled);
     renderList(slot(el, "rows"), "tpl-booking-row", bk.rows, (frag, r) => {
       fill(frag, { title: r.title, state: r.state });
       setIcon(frag, r.icon, "fa-ticket");
       const pill = frag.querySelector(".pill");
-      pill.classList.toggle("ok", !bk.cancelled && !bk.pending);
+      pill.classList.toggle("ok", !bk.cancelled);
       pill.classList.toggle("bad", bk.cancelled);
-      pill.classList.toggle("pending", bk.pending);
     });
   });
 
@@ -350,8 +369,10 @@ function renderAll() {
 }
 
 /* ---------- Tương tác ---------- */
-function applyFilter(filter) {
+function applyFilter(filter, type) {
   currentFilter = filter;
+  if (type !== undefined) currentType = type;
+  listExpanded = false;
   const list = tripsInFilter();
   if (!currentTrip || !list.includes(currentTrip)) {
     currentTrip = list[0] || null;
@@ -407,6 +428,14 @@ function bindEvents() {
     const li = e.target.closest("[data-filter]");
     if (li) applyFilter(li.dataset.filter);
   });
+  $("typeFilter").addEventListener("click", e => {
+    const chip = e.target.closest("[data-type]");
+    if (chip) applyFilter(currentFilter, chip.dataset.type);
+  });
+  $("btnMoreTrips").addEventListener("click", () => {
+    listExpanded = !listExpanded;
+    renderTripList();
+  });
   $("tripList").addEventListener("click", e => {
     const el = e.target.closest("[data-trip]");
     if (el) selectTrip(el.dataset.trip);
@@ -449,15 +478,6 @@ function tourDays(tour, images) {
 
 // Lịch trình theo ngày cho từng loại dịch vụ
 function buildDays(b, total, tour, images) {
-  if (b.type === "ai_plan") {
-    return (b.itinerary?.days || []).map(day => ({
-      activities: (day.activities || []).map(a => ({
-        time: a.time || "Lịch dự kiến", title: a.title || "Hoạt động",
-        note: [a.description, a.location, a.cost].filter(Boolean).join(" · "),
-        icon: "fa-wand-magic-sparkles"
-      }))
-    }));
-  }
   if (tour) {
     const days = tourDays(tour, images);
     while (days.length < total) days.push({ activities: [] });
@@ -487,10 +507,9 @@ function buildDays(b, total, tour, images) {
 
 function buildInfo(b, tour) {
   const meta = TYPE_META[b.type], cancelled = b.status === "cancelled";
-  const pending = b.type === "ai_plan" && b.status === "pending";
   const detail = (label) => (b.details.find(d => d.label === label) || {}).value || "";
   const hotelLabels = new Set(["Phòng", "Địa chỉ"]);
-  const state = cancelled ? "Đã hủy" : pending ? "Chờ tư vấn" : "Đã xác nhận";
+  const state = cancelled ? "Đã hủy" : "Đã xác nhận";
 
   const tickets = (b.type === "flight" || b.type === "train") && b.passengers.length
     ? b.passengers.map(p => ({ title: `${p.name}${p.seat ? " · " + (b.type === "flight" ? "Ghế " : "Chỗ ") + p.seat : ""}`, state, icon: meta.icon }))
@@ -498,9 +517,9 @@ function buildInfo(b, tour) {
 
   const info = {
     bookings: {
-      code: b.id, cancelled, pending, statusText: state, rows: tickets,
-      startLabel: pending ? "Ngày đi dự kiến" : b.type === "hotel" ? "Nhận phòng" : b.type === "car" ? "Nhận xe" : "Ngày khởi hành",
-      startText: b.startDate ? fmtFull(parseDate(b.startDate)) + (b.startTime ? ` · ${b.startTime}` : "") : "Chưa chọn ngày"
+      code: b.id, cancelled, statusText: state, rows: tickets,
+      startLabel: b.type === "hotel" ? "Nhận phòng" : b.type === "car" ? "Nhận xe" : "Ngày khởi hành",
+      startText: fmtShort(parseDate(b.startDate)) + (b.startTime ? ` · ${b.startTime}` : "")
     },
     total: b.payment.total
   };
@@ -523,9 +542,7 @@ function buildInfo(b, tour) {
     if (tour.vehicle?.length) rows.push({ label: "Phương tiện", value: tour.vehicle.join(" · ") });
     if (tour.pickup) rows.push({ label: "Điểm đón", value: tour.pickup });
   }
-  if (pending) {
-    info.transport = { title: meta.info, rows: b.details.map(d => ({ label: d.label, value: d.value })) };
-  } else if (rows.length) info.transport = { title: meta.info, rows };
+  if (rows.length) info.transport = { title: meta.info, rows };
 
   const people = [
     { label: "Người đặt", value: b.contact.name },
@@ -539,21 +556,14 @@ function buildInfo(b, tour) {
   info.people = people;
 
   const created = fmtFull(new Date(b.createdAt));
-  info.costs = pending ? null : b.payment.lines.length
+  info.costs = b.payment.lines.length
     ? b.payment.lines.map(l => ({ label: l.label, amount: l.amount, date: created }))
     : [{ label: b.title, amount: b.payment.total, date: created }];
 
   const notes = [];
   if (b.payment.method) notes.push({ title: "Hình thức thanh toán", text: b.payment.method });
   if (b.note) notes.push({ title: "Ghi chú của bạn", text: b.note });
-  if (pending) notes.push({ title: "Trạng thái yêu cầu", text: "VivuGo đã nhận kế hoạch. Đội ngũ sẽ xem xét và liên hệ bạn để tư vấn, hoàn thiện chương trình và trao đổi hợp đồng." });
-  if (pending && b.itinerary?.overview) {
-    if (b.itinerary.overview.summary) notes.push({ title: "Tổng quan kế hoạch", text: b.itinerary.overview.summary });
-    if (b.itinerary.overview.bestTimeToVisit) notes.push({ title: "Thời điểm phù hợp", text: b.itinerary.overview.bestTimeToVisit });
-    if (b.itinerary.overview.packingTips?.length) notes.push({ title: "Gợi ý chuẩn bị", text: b.itinerary.overview.packingTips.join(" · ") });
-    if (b.itinerary.costBreakdown?.length) notes.push({ title: "Chi phí ước tính / người", text: b.itinerary.costBreakdown.map(x => `${x.category}: ${fmtMoney(x.amount)}`).join(" · ") });
-  }
-  notes.push({ title: pending ? "Mã yêu cầu" : "Mã đặt chỗ", text: `${b.id} · gửi lúc ${fmtStamp(b.createdAt)}` });
+  notes.push({ title: "Mã đặt chỗ", text: `${b.id} · đặt lúc ${fmtStamp(b.createdAt)}` });
   if (cancelled) notes.push({ title: "Đã hủy", text: `Đặt chỗ này đã được hủy lúc ${fmtStamp(b.updatedAt)}.` });
   if (tour) {
     if (tour.itineraryNote) notes.push({ title: "Lưu ý lịch trình", text: tour.itineraryNote });
@@ -571,11 +581,11 @@ function buildTrip(b) {
   const tour = b.type === "tour" && TOURS ? TOURS[b.refId] : null;
   const tourImgs = tour ? (tour.images || []).map(tourImage) : [];
   const cover = tourImgs[0] || assetImage(b.image);
-  const total = b.type === "ai_plan" ? (b.itinerary?.days || []).length : diffDays(parseDate(b.startDate), parseDate(b.endDate)) + 1;
+  const total = diffDays(parseDate(b.startDate), parseDate(b.endDate)) + 1;
   return {
     id: b.id, raw: b, meta,
     name: b.title, place: b.place, from: b.from, to: b.to,
-    startDate: b.startDate || TODAY_ISO, endDate: b.endDate || TODAY_ISO,
+    startDate: b.startDate, endDate: b.endDate,
     images: tourImgs, heroImage: cover, thumbImage: cover,
     days: buildDays(b, total, tour, tourImgs),
     info: buildInfo(b, tour)

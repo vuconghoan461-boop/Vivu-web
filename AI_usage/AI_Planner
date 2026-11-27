@@ -1,0 +1,56 @@
+# AI Usage Log — AI Planner
+
+## Entry 01 — 29/09/2026: Dựng demo AI planner 
+- Công cụ: Claude
+- Ngày: 29/09/2026 
+- Mục đích: Dựng demo AI Planner.
+- Tóm tắt prompt: Tạo trang du lịch đơn giản, ít thành phần; người dùng chọn tour, xem gợi ý AI, chỉnh lịch trình và lưu vào Lịch của tôi. Bản demo chưa có Gemini API key.
+- Đầu ra đã dùng: Module AI Planner bản demo.
+- Cách kiểm chứng: Nhóm review.
+- File/commit liên quan: `pages/AI planner/AI.html`, `js/AI.js`, `css/AIplanner.css`.
+
+## Entry 02 — 25/10/2026: Kết nối API Gemini thông qua server 
+- Công cụ: ChatGPT
+- Ngày: 25/10/2026
+- Mục đích: Khởi tạo backend cho AI Planner để nhận tiêu chí chuyến đi và gọi Gemini API.
+- Tóm tắt prompt: Tạo backend nhận yêu cầu hành trình, gửi tới Gemini và trả gợi ý điểm đến/lịch trình; cấu hình API key bằng biến môi trường.
+- Đầu ra đã dùng: `server.js` với các API `/api/ai/recommend`, `/api/ai/itinerary`, `/api/ai/customize`; key cấu hình qua `.env`.
+- Cách kiểm chứng: Chạy server local và gửi yêu cầu từ form AI Planner; khi Gemini quá tải, giao diện báo lỗi và hiện dữ liệu mẫu.
+- File/commit liên quan: `server.js`, `js/AI.js`, `.env.example`, `README.md`.
+
+## Entry 03 — 29/10/2026: Chuyển sang gọi Gemini trực tiếp
+- Công cụ: ChatGPT
+- Ngày: 06/11/2026
+- Mục đích: Đơn giản hóa cách chạy AI Planner.
+- Tóm tắt prompt: Hỏi vì sao cần server trung gian, rồi yêu cầu gọi thẳng Gemini từ trang AI Planner và hỏi thời điểm hiển thị hộp thoại nhập API key.
+- Đầu ra đã dùng: Hướng dẫn luồng gọi API trực tiếp từ `AI.js`, lấy API key qua giao diện khi cần truy vấn; thảo luận giới hạn khi đưa bản gọi trực tiếp lên hosting như Netlify.
+- Cách kiểm chứng: Truy vấn từ trang AI Planner đã tới Gemini; sau đó nhận được phản hồi lỗi 503, cho thấy cần xử lý lỗi phía giao diện.
+- File/commit liên quan: `pages/AI planner/AI.html`, `js/AI.js`.
+
+## Entry 04 — 05/11/2026: Chọn model và xử lý HTTP 503
+- Công cụ: ChatGPT
+- Ngày: 09/11/2026
+- Mục đích: Phân biệt lỗi API key với lỗi model/quá tải và chọn model phù hợp để thử nghiệm.
+- Tóm tắt prompt: Báo API key đúng nhưng Gemini trả HTTP 503 `UNAVAILABLE`, rồi hỏi model nào phù hợp để test với quota thấp.
+- Đầu ra đã dùng: Giải thích 503 là tình trạng model quá tải tạm thời; đề xuất cách xử lý thông báo lỗi và giữ dữ liệu mẫu làm phương án dự phòng.
+- Cách kiểm chứng: Đối chiếu phản hồi JSON 503 với thông báo lỗi trên giao diện; trang hiển thị dữ liệu mẫu khi Gemini không xử lý được yêu cầu.
+- File/commit liên quan: `js/AI.js`, `pages/AI planner/AI.html`.
+
+
+## Entry 05 — 12/11/2026: Chỉnh giao diện và lỗi điều khiển form
+- Công cụ: ChatGPT
+- Ngày: 12/11/2026
+- Mục đích: Đồng bộ giao diện AI Planner và giữ các điều khiển form hoạt động.
+- Tóm tắt prompt: Chỉnh bố cục hero/form, giữ lại lựa chọn sở thích, xử lý khoảng trắng và các lỗi listener của nút nhúng/cấu hình API key; yêu cầu responsive.
+- Đầu ra đã dùng: Hướng dẫn chỉnh `AI.html`, `AI.js`, `AIplanner.css` và kiểm tra ID của nút với phần tử HTML tương ứng.
+- Cách kiểm chứng: Người dùng mở trang local, phản hồi rằng lựa chọn sở thích bị mất và một số listener báo lỗi; các vấn đề được xử lý qua hướng dẫn trong chat.
+- File/commit liên quan: `pages/AI planner/AI.html`, `js/AI.js`, `css/AIplanner.css`.
+
+## Entry 06 — 15/11/2026: Nút Lưu kế hoạch 
+- Công cụ: ChatGPT
+- Ngày: 15/11/2026
+- Mục đích: Thêm điểm gọi hành động lưu kế hoạch sau khi người dùng tạo hoặc cập nhật lịch trình.
+- Tóm tắt prompt: Đặt nút “Lưu kế hoạch” dưới nút cập nhật lịch trình, dùng kiểu dáng tương tự; chưa cần kết nối logic vì Lịch của tôi chưa hoàn thiện.
+- Đầu ra đã dùng: Mẫu HTML/CSS cho nút hiển thị sẵn; ghi rõ nút chưa lưu dữ liệu.
+- Cách kiểm chứng: Review vị trí và phong cách giao diện; không kiểm chứng lưu thực tế vì chưa có logic lưu.
+- File/commit liên quan: `pages/AI planner/AI.html`, `css/AIplanner.css`.
