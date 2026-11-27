@@ -1229,15 +1229,3 @@ select:focus-visible {
     text-align: left;
   }
 }
-
-/* ---------- Icon: Font Awesome 6.5.0 (thay các SVG cũ) ---------- */
-.btn-icon,
-.nav-toggle {
-  font-size: 18px;
-}
-.category-card .cat-icon {
-  font-size: 20px;
-}
-.hero-arrow {
-  font-size: 15px;
-}

@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/explore.css" />
@@ -37,7 +36,7 @@
               <button type="button" class="kp-filter-btn" id="kpFilterBtn" aria-expanded="false" aria-controls="kpFilterPanel">
                 <span>Bộ lọc</span>
                 <span class="kp-filter-btn__count" id="kpFilterCount" hidden>0</span>
-                <span class="kp-filter-btn__arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span>
+                <span class="kp-filter-btn__arrow" aria-hidden="true">▾</span>
               </button>
               
               <button type="submit" class="kp-btn kp-btn--primary">Tìm kiếm</button>
@@ -45,7 +44,7 @@
               <div class="kp-filter-panel" id="kpFilterPanel" role="dialog" aria-label="Bộ lọc bài viết" hidden>
                 <div class="kp-filter-panel__head">
                   <h2>Bộ lọc</h2>
-                  <button type="button" class="kp-filter-close" id="kpFilterClose" aria-label="Đóng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                  <button type="button" class="kp-filter-close" id="kpFilterClose" aria-label="Đóng">×</button>
                 </div>
                 <div id="kpFilterBody"></div>
                 <div class="kp-filter-panel__foot">
@@ -100,7 +99,7 @@
     <div id="site-footer"></div>
     <div class="kp-toast" id="kpToast" role="status" aria-live="polite"></div>
 
-    <script src="../js/bookings.js?v=20261127" defer></script>
+    <script src="../js/bookings.js" defer></script>
     <script src="../js/explore.js" defer></script>
   </body>
 </html>

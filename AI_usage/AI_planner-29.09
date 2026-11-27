@@ -1,0 +1,10 @@
+# AI Usage Log
+
+## Entry 02
+- Công cụ: Claude
+- Ngày: 29.09
+- Mục đích: Dựng demo AI planner theo ý tưởng 
+- Tóm tắt prompt: Hãy dựng demo cho tôi 1 web page AI planner cho du lịch, người dùng là giới trẻ nên cần đơn giản và ít thành phần, người dùng có thể chọn tour, sau đó AI fetch nội dung, người dùng có thể tùy ý chỉnh lại tour và lưu tour vào lịch của tôi. Demo tạm thời chưa có gemini API key
+- Đầu ra đã dùng: module AI_planner
+- Cách kiểm chứng: review bởi cả team
+-File/commit liên quan: page/AI_planner/AI.html; js/AI.js; css/AI.css
