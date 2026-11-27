@@ -23,9 +23,6 @@ const TYPE_META = {
 let TRIPS = [];
 let TOURS = null;           // { id: tour } từ tour.json (tải một lần)
 let currentFilter = "all";
-let currentType = "all";     // lọc theo loại: all | tour | hotel | car | flight | train | bus
-let listExpanded = false;    // false: chỉ hiện vài đặt chỗ tiêu biểu trong danh sách bên trái
-const LIST_LIMIT = 3;
 let currentTrip = null;
 let currentDay = "";
 let currentTab = "itinerary";
@@ -101,7 +98,6 @@ function dateRangeShort(trip) {
 function tripsInFilter() {
   return TRIPS
     .filter(t => currentFilter === "all" || statusOf(t) === currentFilter)
-    .filter(t => currentType === "all" || t.raw.type === currentType)
     .sort((a, b) => STATUS_ORDER[statusOf(a)] - STATUS_ORDER[statusOf(b)] || a.startDate.localeCompare(b.startDate));
 }
 function defaultDay(trip) {
@@ -168,35 +164,19 @@ function renderUser() {
   $("statSpent").textContent = fmtMoney(active.reduce((s, t) => s + t.raw.payment.total, 0));
 
   const mode = VGBookings.mode();
+  $("userMode").classList.toggle("is-server", mode === "server");
+  $("userMode").textContent = mode === "server"
+    ? "Đang lưu vào file data/bookings.json"
+    : "Đang lưu trong trình duyệt này. Chạy “node server.js” để lưu ra file JSON.";
 }
 
 /* ---------- Render: sidebar ---------- */
 function renderNav() {
   document.querySelectorAll("#navList li").forEach(li => {
     const f = li.dataset.filter;
-    const count = TRIPS.filter(t => (currentType === "all" || t.raw.type === currentType) && (f === "all" || statusOf(t) === f)).length;
+    const count = TRIPS.filter(t => f === "all" || statusOf(t) === f).length;
     li.classList.toggle("active", f === currentFilter);
     li.querySelector(".count").textContent = count || "";
-  });
-  renderTypeFilter();
-}
-
-// Bộ lọc theo loại dịch vụ (Tour, Khách sạn, Thuê xe, Máy bay, ...)
-function renderTypeFilter() {
-  const box = $("typeFilter");
-  if (!box) return;
-  const inStatus = TRIPS.filter(t => currentFilter === "all" || statusOf(t) === currentFilter);
-  const chips = [["all", "Tất cả loại"], ...Object.entries(TYPE_META).map(([k, m]) => [k, m.label])];
-  box.innerHTML = "";
-  chips.forEach(([key, label]) => {
-    const count = key === "all" ? inStatus.length : inStatus.filter(t => t.raw.type === key).length;
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "type-chip" + (key === currentType ? " active" : "") + (count === 0 && key !== currentType ? " is-empty" : "");
-    btn.dataset.type = key;
-    btn.setAttribute("aria-pressed", String(key === currentType));
-    btn.textContent = `${label} (${count})`;
-    box.appendChild(btn);
   });
 }
 
@@ -205,15 +185,7 @@ function renderTripList() {
   $("listTitle").textContent = document.querySelector(`#navList [data-filter="${currentFilter}"]`).dataset.title;
   $("listEmpty").hidden = list.length > 0 || !VGBookings.currentUser();
 
-  // Chỉ hiện vài đặt chỗ đầu tiên; bấm "Xem thêm" để mở hết
-  const visible = listExpanded ? list : list.slice(0, LIST_LIMIT);
-  const more = $("btnMoreTrips");
-  if (more) {
-    more.hidden = list.length <= LIST_LIMIT;
-    more.textContent = listExpanded ? "Thu gọn" : `Xem thêm ${list.length - LIST_LIMIT} đặt chỗ`;
-  }
-
-  renderList($("tripList"), "tpl-trip-item", visible, (frag, t) => {
+  renderList($("tripList"), "tpl-trip-item", list, (frag, t) => {
     const st = statusOf(t);
     fill(frag, { name: t.name, dates: dateRangeShort(t), place: t.place || (t.from && t.to ? `${t.from} → ${t.to}` : t.meta.label), type: t.meta.label, status: statusLabel(st) });
     setIcon(frag, t.meta.icon);
@@ -369,10 +341,8 @@ function renderAll() {
 }
 
 /* ---------- Tương tác ---------- */
-function applyFilter(filter, type) {
+function applyFilter(filter) {
   currentFilter = filter;
-  if (type !== undefined) currentType = type;
-  listExpanded = false;
   const list = tripsInFilter();
   if (!currentTrip || !list.includes(currentTrip)) {
     currentTrip = list[0] || null;
@@ -427,14 +397,6 @@ function bindEvents() {
   $("navList").addEventListener("click", e => {
     const li = e.target.closest("[data-filter]");
     if (li) applyFilter(li.dataset.filter);
-  });
-  $("typeFilter").addEventListener("click", e => {
-    const chip = e.target.closest("[data-type]");
-    if (chip) applyFilter(currentFilter, chip.dataset.type);
-  });
-  $("btnMoreTrips").addEventListener("click", () => {
-    listExpanded = !listExpanded;
-    renderTripList();
   });
   $("tripList").addEventListener("click", e => {
     const el = e.target.closest("[data-trip]");

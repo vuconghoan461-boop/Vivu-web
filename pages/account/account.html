@@ -4,366 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VivuGo - Trang cá nhân</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../../css/tokens.css">
     <link rel="stylesheet" href="../../css/account.css">
 </head>
 <body>
     <div class="profile" id="profile" hidden>
-        <!-- ẢNH BÌA -->
-        <div class="cover" id="coverBox">
-            <button type="button" class="btn-cover-upload" id="uploadCoverBtn">
-                <i class="fa-solid fa-camera"></i> Đổi ảnh bìa
-            </button>
-            <input type="file" id="coverInput" accept="image/*" hidden>
-        </div>
-
-        <!-- ĐẦU TRANG KIỂU FACEBOOK -->
+        <div class="cover"></div>
         <div class="head">
-            <div class="avatar-wrap">
-                <div class="avatar" id="avatar">
-                    <span id="avatarLetter">T</span>
-                    <img id="avatarImg" alt="Ảnh đại diện" hidden>
-                </div>
-                <button type="button" class="btn-avatar-upload" id="uploadAvatarBtn" title="Tải ảnh đại diện lên">
-                    <i class="fa-solid fa-camera"></i>
-                </button>
-                <input type="file" id="avatarInput" accept="image/*" hidden>
-            </div>
-
+            <div class="avatar" id="avatar"></div>
             <div class="who">
-                <h2 id="pName">Thành viên VivuGo</h2>
-                <p class="sub-meta" id="pSubMeta"></p>
-                <p class="bio" id="pBio"></p>
+                <h2 id="pName"></h2>
+                <p class="tier">🥉 Bronze Priority · 0 điểm</p>
             </div>
-
-            <div class="head-actions">
-                <button class="btn-edit" id="openPostModalTop" type="button">
-                    <i class="fa-solid fa-plus"></i> Thêm bài viết
-                </button>
-                <button class="btn-sec" id="editProfileBtn" type="button">
-                    <i class="fa-regular fa-pen-to-square"></i> Chỉnh sửa hồ sơ
-                </button>
-                <button class="btn-sec" id="changePassBtn" type="button">
-                    <i class="fa-solid fa-key"></i> Đổi mật khẩu
-                </button>
-                <button class="btn-out" id="logoutBtn" type="button">
-                    <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
-                </button>
-            </div>
+            <button class="btn-out" id="logoutBtn" type="button">Đăng xuất</button>
         </div>
 
-        <!-- THANH 3 TAB KIỂU FACEBOOK -->
         <div class="tabs">
-            <button class="tab active" data-tab="posts" type="button">
-                <i class="fa-regular fa-newspaper"></i> Bài viết của tôi <span class="tab-count" id="tabPostCount">0</span>
-            </button>
-            <button class="tab" data-tab="info" type="button">
-                <i class="fa-regular fa-id-card"></i> Thông tin cá nhân
-            </button>
-            <button class="tab" data-tab="calendar" type="button">
-                <i class="fa-regular fa-calendar-check"></i> Lịch của tôi
-            </button>
+            <button class="tab active" data-tab="info" type="button">Thông tin cá nhân</button>
+            <button class="tab" data-tab="calendar" type="button">Lịch của tôi</button>
         </div>
 
-        <!-- TAB 1: BÀI VIẾT CỦA TÔI -->
-        <section id="panel-posts" class="fb-layout">
-            <aside class="fb-side">
-                <div class="panel card-box">
-                    <div class="card-top">
-                        <h3><i class="fa-solid fa-circle-info"></i> Giới thiệu</h3>
-                        <button type="button" class="link-btn" id="sideEditBtn">Sửa</button>
-                    </div>
-                    <p class="side-bio" id="sideBio">Chưa có lời giới thiệu bản thân.</p>
-                    <ul class="side-list">
-                        <li><i class="fa-solid fa-location-dot"></i> Sống tại: <b id="sideCity">Chưa cập nhật</b></li>
-                        <li><i class="fa-solid fa-suitcase-rolling"></i> Chuyến đi: <b id="sideTrips">0 chuyến đi</b></li>
-                        <li><i class="fa-solid fa-heart"></i> Sở thích: <b id="sideStyles">Chưa chọn</b></li>
-                        <li><i class="fa-regular fa-clock"></i> Tham gia từ: <b id="sideJoined">—</b></li>
-                    </ul>
-                </div>
-
-                <!-- Chuyến đi gần nhất (Chỉ hiện khi tài khoản có chuyến đi) -->
-                <div class="panel card-box" id="sideRecentBox" hidden>
-                    <div class="card-top">
-                        <h3><i class="fa-solid fa-plane-departure"></i> Chuyến đi gần nhất</h3>
-                    </div>
-                    <h4 id="sideRecentName" class="side-trip-title"></h4>
-                    <p id="sideRecentMeta" class="side-trip-meta"></p>
-                    <button type="button" class="btn-outline-full" id="sideGoCalBtn">Xem trong Lịch của tôi</button>
-                </div>
-            </aside>
-
-            <div class="fb-feed">
-                <div class="panel composer-bar">
-                    <div class="composer-top">
-                        <div class="mini-ava" id="composerAva"></div>
-                        <button type="button" class="composer-trigger" id="composerTrigger">
-                            Bạn vừa đi đâu về? Chia sẻ trải nghiệm du lịch của bạn...
-                        </button>
-                    </div>
-                    <div class="composer-actions">
-                        <button type="button" class="comp-btn" id="composerPhotoBtn">
-                            <i class="fa-regular fa-image" style="color:#16A34A;"></i> Thêm hình ảnh
-                        </button>
-                        <button type="button" class="comp-btn primary" id="composerAddBtn">
-                            <i class="fa-solid fa-pen-nib"></i> Thêm bài viết
-                        </button>
-                    </div>
-                </div>
-
-                <div id="postsList" class="posts-list"></div>
-            </div>
+        <!-- Tab 1: thông tin tài khoản -->
+        <section class="panel" id="panel-info">
+            <dl class="info">
+                <div><dt>Họ và tên</dt><dd id="iName"></dd></div>
+                <div><dt>Email</dt><dd id="iEmail"></dd></div>
+                <div><dt>Số điện thoại</dt><dd id="iPhone"></dd></div>
+                <div><dt>Hạng thành viên</dt><dd>Bronze Priority</dd></div>
+                <div><dt>Điểm tích lũy</dt><dd>0 điểm</dd></div>
+            </dl>
         </section>
 
-        <!-- TAB 2: THÔNG TIN CÁ NHÂN -->
-        <section id="panel-info" class="info-workspace" hidden>
-            <div class="stats-grid" id="statsGrid">
-                <div class="stat-card">
-                    <div class="stat-icon blue"><i class="fa-solid fa-suitcase-rolling"></i></div>
-                    <div>
-                        <b id="statTrips">0 chuyến đi</b>
-                        <small>Lịch trình đã lưu</small>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon violet"><i class="fa-solid fa-heart"></i></div>
-                    <div>
-                        <b id="statStylesCount">0 sở thích</b>
-                        <small>Gu du lịch đã chọn</small>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon green"><i class="fa-solid fa-location-dot"></i></div>
-                    <div>
-                        <b id="statCity">Chưa cập nhật</b>
-                        <small>Thành phố sinh sống</small>
-                    </div>
-                </div>
-            </div>
-
-            <div class="panel recent-trip-card" id="recentTripCard" hidden>
-                <div class="card-top">
-                    <h3><i class="fa-solid fa-plane-departure"></i> Chuyến đi gần nhất</h3>
-                    <span class="trip-pill" id="recentStatus"></span>
-                </div>
-                <div class="recent-body">
-                    <div class="recent-info">
-                        <h4 id="recentName"></h4>
-                        <div class="recent-meta">
-                            <span><i class="fa-regular fa-calendar"></i> <span id="recentDates"></span></span>
-                            <span><i class="fa-solid fa-location-dot"></i> <span id="recentPlace"></span></span>
-                        </div>
-                    </div>
-                    <button type="button" class="btn-go-cal" id="goCalendarBtn">
-                        Xem lịch trình <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="two-col">
-                <div class="panel card-box">
-                    <div class="card-top">
-                        <h3><i class="fa-regular fa-user"></i> Hồ sơ cá nhân</h3>
-                        <button type="button" class="link-btn" id="inlineEditBtn">Chỉnh sửa</button>
-                    </div>
-
-                    <dl class="info" id="infoView">
-                        <div><dt>Họ và tên</dt><dd id="iName"></dd></div>
-                        <div><dt>Email</dt><dd id="iEmail"></dd></div>
-                        <div><dt>Số điện thoại</dt><dd id="iPhone"></dd></div>
-                        <div><dt>Ngày sinh</dt><dd id="iDob"></dd></div>
-                        <div><dt>Giới tính</dt><dd id="iGender"></dd></div>
-                        <div><dt>Thành phố</dt><dd id="iCity"></dd></div>
-                        <div><dt>CCCD / Hộ chiếu</dt><dd id="iIdCard"></dd></div>
-                        <div><dt>Ngày tham gia</dt><dd id="iJoined"></dd></div>
-                    </dl>
-
-                    <form class="edit-form" id="infoForm" hidden>
-                        <div class="form-row">
-                            <label>Họ và tên</label>
-                            <input type="text" id="eName" required>
-                        </div>
-                        <div class="form-row">
-                            <label>Email</label>
-                            <input type="email" id="eEmail" required>
-                        </div>
-                        <div class="form-row">
-                            <label>Số điện thoại</label>
-                            <input type="tel" id="ePhone" placeholder="VD: 0912345678">
-                        </div>
-                        <div class="form-grid-2">
-                            <div class="form-row">
-                                <label>Ngày sinh</label>
-                                <input type="date" id="eDob">
-                            </div>
-                            <div class="form-row">
-                                <label>Giới tính</label>
-                                <select id="eGender">
-                                    <option value="">-- Chọn --</option>
-                                    <option value="Nam">Nam</option>
-                                    <option value="Nữ">Nữ</option>
-                                    <option value="Khác">Khác</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <label>Thành phố / Địa chỉ</label>
-                            <input type="text" id="eCity" placeholder="VD: Hà Nội, TP.HCM...">
-                        </div>
-                        <div class="form-row">
-                            <label>CCCD / Hộ chiếu</label>
-                            <input type="text" id="eIdCard" placeholder="Dùng khi đặt vé máy bay, khách sạn">
-                        </div>
-                        <div class="form-row">
-                            <label>Giới thiệu ngắn (Bio)</label>
-                            <input type="text" id="eBio" placeholder="Viết vài dòng về phong cách du lịch của bạn">
-                        </div>
-                        <div class="form-actions">
-                            <button type="button" class="btn-cancel" id="cancelEditBtn">Hủy</button>
-                            <button type="submit" class="btn-save">Lưu thay đổi</button>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="panel card-box">
-                    <div class="card-top">
-                        <h3><i class="fa-solid fa-compass"></i> Sở thích du lịch</h3>
-                        <span class="sub-badge">Tự động lưu</span>
-                    </div>
-
-                    <div class="pref-group">
-                        <label class="pref-label">Phong cách yêu thích (bấm để chọn)</label>
-                        <div class="chip-list" id="styleChips">
-                            <button type="button" class="chip" data-style="Biển đảo"><i class="fa-solid fa-umbrella-beach" aria-hidden="true"></i> Biển đảo</button>
-                            <button type="button" class="chip" data-style="Nghỉ dưỡng"><i class="fa-solid fa-hotel" aria-hidden="true"></i> Nghỉ dưỡng</button>
-                            <button type="button" class="chip" data-style="Ẩm thực"><i class="fa-solid fa-utensils" aria-hidden="true"></i> Ẩm thực</button>
-                            <button type="button" class="chip" data-style="Khám phá thiên nhiên"><i class="fa-solid fa-mountain-sun" aria-hidden="true"></i> Thiên nhiên</button>
-                            <button type="button" class="chip" data-style="Du lịch tự túc"><i class="fa-solid fa-person-hiking" aria-hidden="true"></i> Tự túc</button>
-                            <button type="button" class="chip" data-style="Văn hóa - Lịch sử"><i class="fa-solid fa-landmark" aria-hidden="true"></i> Văn hóa</button>
-                        </div>
-                    </div>
-
-                    <div class="pref-group">
-                        <label class="pref-label" for="prefBudget">Ngân sách trung bình / chuyến đi</label>
-                        <select id="prefBudget" class="pref-select">
-                            <option value="">-- Chưa chọn --</option>
-                            <option value="Tiết kiệm (dưới 3 triệu)">Tiết kiệm (dưới 3 triệu)</option>
-                            <option value="Trung bình (3 – 8 triệu)">Trung bình (3 – 8 triệu)</option>
-                            <option value="Thoải mái (8 – 15 triệu)">Thoải mái (8 – 15 triệu)</option>
-                            <option value="Cao cấp (trên 15 triệu)">Cao cấp (trên 15 triệu)</option>
-                        </select>
-                    </div>
-
-                    <div class="pref-group">
-                        <label class="pref-label" for="prefStay">Loại lưu trú ưu tiên</label>
-                        <select id="prefStay" class="pref-select">
-                            <option value="">-- Chưa chọn --</option>
-                            <option value="Khách sạn 3–4 sao">Khách sạn 3–4 sao</option>
-                            <option value="Homestay / Villa địa phương">Homestay / Villa địa phương</option>
-                            <option value="Resort ven biển">Resort ven biển</option>
-                            <option value="Hostel tiết kiệm">Hostel tiết kiệm</option>
-                        </select>
-                    </div>
-
-                    <div class="pref-group">
-                        <label class="pref-label" for="prefTransport">Phương tiện ưa thích</label>
-                        <select id="prefTransport" class="pref-select">
-                            <option value="">-- Chưa chọn --</option>
-                            <option value="Máy bay">Máy bay</option>
-                            <option value="Xe khách / Limousine">Xe khách / Limousine</option>
-                            <option value="Tàu hỏa">Tàu hỏa</option>
-                            <option value="Thuê xe tự lái">Thuê xe tự lái</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- TAB 3: LỊCH CỦA TÔI -->
+        <!-- Tab 2: Lịch của tôi = trang mycalendar của Linh, nhúng nguyên trạng bằng iframe (không sửa file của Linh) -->
         <section class="panel" id="panel-calendar" hidden>
             <iframe id="calFrame" title="Lịch của tôi" data-src="mycalendar/mycalendar.html"></iframe>
         </section>
     </div>
 
-    <!-- HỘP THOẠI TẠO BÀI VIẾT KIỂU FACEBOOK -->
-    <div class="modal-bg" id="postModal" hidden>
-        <div class="modal-card modal-post">
-            <div class="modal-head">
-                <h3>Tạo bài viết mới</h3>
-                <button type="button" id="closePostModal" aria-label="Đóng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
-            </div>
-            <div class="modal-author">
-                <div class="mini-ava" id="modalPostAva"></div>
-                <div>
-                    <b id="modalPostAuthor"></b>
-                    <small><i class="fa-solid fa-earth-asia"></i> Công khai trên VivuGo</small>
-                </div>
-            </div>
-            <form id="postForm" novalidate>
-                <div class="form-row">
-                    <label for="postTitle">Tiêu đề bài viết</label>
-                    <input type="text" id="postTitle" placeholder="VD: Review 3 ngày 2 đêm ở Ninh Bình..." required>
-                </div>
-                <div class="form-row">
-                    <label for="postContent">Nội dung</label>
-                    <textarea id="postContent" rows="4" placeholder="Chia sẻ lịch trình, món ngon hoặc kinh nghiệm thực tế của bạn..." required></textarea>
-                </div>
-                <div class="form-row">
-                    <label>Hình ảnh đính kèm</label>
-                    <div class="img-upload-box" id="postImgBox">
-                        <input type="file" id="postImageInput" accept="image/*" hidden>
-                        <button type="button" class="btn-pick-img" id="pickPostImgBtn">
-                            <i class="fa-regular fa-image"></i> Chọn ảnh từ máy tính
-                        </button>
-                        <div class="img-preview-wrap" id="postImgPreviewWrap" hidden>
-                            <img id="postImgPreview" alt="Xem trước ảnh bài viết">
-                            <button type="button" class="btn-remove-img" id="removePostImgBtn" title="Gỡ ảnh" aria-label="Đóng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <p class="modal-err" id="postErr"></p>
-                <div class="form-actions">
-                    <button type="button" class="btn-cancel" id="cancelPostModal">Hủy</button>
-                    <button type="submit" class="btn-save"><i class="fa-solid fa-paper-plane"></i> Đăng bài</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- HỘP THOẠI ĐỔI MẬT KHẨU -->
-    <div class="modal-bg" id="passModal" hidden>
-        <div class="modal-card">
-            <div class="modal-head">
-                <h3>Đổi mật khẩu</h3>
-                <button type="button" id="closePassModal" aria-label="Đóng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
-            </div>
-            <form id="passForm" novalidate>
-                <div class="form-row">
-                    <label>Mật khẩu hiện tại</label>
-                    <input type="password" id="oldPass" placeholder="Nhập mật khẩu đang dùng" required>
-                </div>
-                <div class="form-row">
-                    <label>Mật khẩu mới (tối thiểu 8 ký tự)</label>
-                    <input type="password" id="newPass" placeholder="Nhập mật khẩu mới" required>
-                </div>
-                <div class="form-row">
-                    <label>Xác nhận mật khẩu mới</label>
-                    <input type="password" id="newPass2" placeholder="Nhập lại mật khẩu mới" required>
-                </div>
-                <p class="modal-err" id="passErr"></p>
-                <div class="form-actions">
-                    <button type="button" class="btn-cancel" id="cancelPassModal">Hủy</button>
-                    <button type="submit" class="btn-save">Cập nhật mật khẩu</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <script src="../../js/userlogic.js"></script>
     <script src="../../js/account.js"></script>
 </body>
 </html>
