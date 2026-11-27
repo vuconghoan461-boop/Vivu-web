@@ -20,7 +20,7 @@ Thành viên của nhóm bao gồm : + Vũ Công Hoàn - 27A4043292 ( Nhóm trư
   a. Về book tour du lịch : VivuGo có số lượng tour rất đa dạng, khách hàng có thể xem được thông tin tour, địa điểm thời         gian, chi phí, đồng thời có thể đặt và thanh toán tour tại đây
   b. Về thiết kế chuyến du lịch: Khách hàng có thể nhập những thông tin cơ bản về nhu cầu của mình và AI sẽ chủ động thiết        lập 1 chuyến du lịch tùy theo nhu cầu, ngoài ra có thể chủ động thay đổi thông tin chuyến đi và lưu chuyến đi vào lịch
 
- 4.Link web demo: https://vivugo.netlify.app/
+ 4.Link web demo: (https://vivugolala.netlify.app/)
 
  5.Phân công 
 + Module dịch vụ book tour du lịch: (Khánh Linh, Lan phụ trách chính)
