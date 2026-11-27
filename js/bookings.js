@@ -11,14 +11,14 @@
  *
  * Một đặt chỗ (sau khi chuẩn hóa):
  * {
- *   id, type: 'tour'|'hotel'|'car'|'flight'|'train'|'bus',
+ *   id, type: 'tour'|'hotel'|'car'|'flight'|'train'|'bus'|'ai_plan',
  *   title, subtitle, place, from, to, startDate, endDate (YYYY-MM-DD), startTime, endTime,
  *   refId, quantity, image,
  *   contact:    { name, phone, email },
  *   details:    [{ label, value }],
  *   passengers: [{ name, phone, email, idMasked, seat }],     // CCCD/hộ chiếu chỉ giữ 3 ký tự cuối
  *   payment:    { method, total, currency, lines: [{ label, amount }] },
- *   note, status: 'confirmed'|'cancelled', deleted,
+ *   itinerary (AI plan only), note, status: 'confirmed'|'pending'|'cancelled', deleted,
  *   createdAt, updatedAt (ISO), userEmail (khóa tài khoản: email, nếu không có thì SĐT)
  * }
  */
@@ -31,7 +31,7 @@
   var VERSION = 2;
   var KEY = 'vg_bookings';      // danh sách đặt chỗ
   var USER_KEY = 'vg_user';     // tài khoản đang đăng nhập (do userlogic.js lưu)
-  var TYPES = ['tour', 'hotel', 'car', 'flight', 'train', 'bus'];
+  var TYPES = ['tour', 'hotel', 'car', 'flight', 'train', 'bus', 'ai_plan'];
   var MASK = '•';          // •
   var IS_BROWSER = typeof window !== 'undefined' && typeof document !== 'undefined';
 
@@ -143,9 +143,11 @@
     if (!userEmail) return fail('Thiếu tài khoản đặt chỗ');
 
     var startDate = str(b.startDate, 10);
-    if (!isISODate(startDate)) return fail('Ngày bắt đầu không hợp lệ');
+    if (type === 'ai_plan' && !startDate) startDate = '';
+    else if (!isISODate(startDate)) return fail('Ngày bắt đầu không hợp lệ');
     var endDate = str(b.endDate, 10);
-    if (!isISODate(endDate) || endDate < startDate) endDate = startDate;
+    if (type === 'ai_plan' && !startDate) endDate = '';
+    else if (!isISODate(endDate) || endDate < startDate) endDate = startDate;
 
     var createdAt = isStamp(b.createdAt) ? new Date(b.createdAt).toISOString() : new Date().toISOString();
     var updatedAt = isStamp(b.updatedAt) ? new Date(b.updatedAt).toISOString() : createdAt;
@@ -173,25 +175,53 @@
         contact: { name: str(c.name, 100), phone: str(c.phone, 20), email: str(c.email, 120) },
         details: details, passengers: passengers,
         payment: { method: str(pay.method, 80), total: int(toNumber(pay.total), 0, 1e10, 0), currency: 'VND', lines: lines },
+        itinerary: type === 'ai_plan' ? sanitizeItinerary(b.itinerary) : null,
         note: str(b.note, 1000, true),
-        status: b.status === 'cancelled' ? 'cancelled' : 'confirmed',
+        status: type === 'ai_plan' ? (b.status === 'cancelled' ? 'cancelled' : 'pending') : (b.status === 'cancelled' ? 'cancelled' : 'confirmed'),
         deleted: b.deleted === true,
         createdAt: createdAt, updatedAt: updatedAt, userEmail: userEmail
       }
     };
   }
 
-  /* Trạng thái hiển thị: 'upcoming' | 'ongoing' | 'completed' | 'cancelled' */
+  function sanitizeItinerary(plan) {
+    plan = plan && typeof plan === 'object' ? plan : {};
+    return {
+      duration: str(plan.duration, 80),
+      estimatedCostPerPerson: int(toNumber(plan.estimatedCostPerPerson), 0, 1e10, 0),
+      overview: {
+        summary: str(plan.overview && plan.overview.summary, 1000, true),
+        bestTimeToVisit: str(plan.overview && plan.overview.bestTimeToVisit, 200),
+        suitableFor: str(plan.overview && plan.overview.suitableFor, 200),
+        packingTips: (Array.isArray(plan.overview && plan.overview.packingTips) ? plan.overview.packingTips : []).slice(0, 20).map(function (x) { return str(x, 200); })
+      },
+      costBreakdown: (Array.isArray(plan.costBreakdown) ? plan.costBreakdown : []).slice(0, 20).map(function (x) {
+        return { category: str(x && x.category, 100), amount: int(toNumber(x && x.amount), 0, 1e10, 0), details: str(x && x.details, 300, true) };
+      }),
+      days: (Array.isArray(plan.days) ? plan.days : []).slice(0, 15).map(function (day, index) {
+        return {
+          dayNumber: int(day && day.dayNumber, 1, 15, index + 1),
+          title: str(day && day.title, 200), summary: str(day && day.summary, 500, true),
+          activities: (Array.isArray(day && day.activities) ? day.activities : []).slice(0, 30).map(function (a) {
+            return { time: str(a && a.time, 30), title: str(a && a.title, 200), description: str(a && a.description, 500, true), location: str(a && a.location, 200), cost: str(a && a.cost, 100), tag: str(a && a.tag, 80) };
+          })
+        };
+      })
+    };
+  }
+
+  /* Trạng thái hiển thị: 'pending' | 'upcoming' | 'ongoing' | 'completed' | 'cancelled' */
   function statusOf(rec, today) {
     if (!rec) return 'upcoming';
     if (rec.status === 'cancelled') return 'cancelled';
+    if (rec.type === 'ai_plan' && rec.status === 'pending') return 'pending';
     var t = today || todayISO();
     if (rec.endDate < t) return 'completed';
     if (rec.startDate <= t) return 'ongoing';
     return 'upcoming';
   }
   function canCancel(rec, today) { return statusOf(rec, today) === 'upcoming'; }          // chỉ hủy được khi chưa khởi hành
-  function canRemove(rec, today) { var s = statusOf(rec, today); return s === 'completed' || s === 'cancelled'; }
+  function canRemove(rec, today) { var s = statusOf(rec, today); return s === 'completed' || s === 'cancelled' || s === 'pending'; }
 
   /* ---------------------------------------------------------------
    * Kho trong trình duyệt (localStorage)
@@ -451,18 +481,16 @@
     location.href = ROOT + 'index.html#calendar';
   }
 
-  // Chỉ hiện thông báo khi lưu thất bại; lưu thành công thì không hiện dòng "Đã lưu đơn..." nữa.
   function showSaved(element, saved) {
     if (!element) return;
-    if (saved && saved.ok === false) {
-      element.hidden = false;
-      element.textContent = saved.error || 'Không lưu được vào "Lịch của tôi".';
-    } else {
-      element.hidden = true;
-      element.textContent = '';
-    }
+    element.hidden = false;
+    element.textContent = saved && saved.ok === false
+      ? (saved.error || 'Không lưu được vào "Lịch của tôi".')
+      : 'Đã lưu đơn' + (saved && saved.id ? ' ' + saved.id : '') + ' vào "Lịch của tôi".';
   }
-  function savedNoteHtml() { return ''; }
+  function savedNoteHtml() {
+    return '<p class="vgbk-saved" style="margin:10px 0;color:#047857;font-weight:600">Đơn của bạn đã được lưu vào "Lịch của tôi".</p>';
+  }
 
   // Các hàm cũ, giữ lại cho tương thích
   function getAll() { return readAll().map(toRecord).filter(function (r) { return r && !r.deleted; }); }

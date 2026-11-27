@@ -157,4 +157,77 @@ $('form').addEventListener('submit', suggest);
 $('destList').addEventListener('click', (e) => { const b = e.target.closest('button[data-i]'); if (b) pickDest(state.list[+b.dataset.i]); });
 $('customBtn').addEventListener('click', customize);
 
+const savePlanDialog = $('savePlanDialog');
+$('savePlanBtn').addEventListener('click', () => {
+  if (!state.itin || !state.dest) { setStatus('Hãy tạo lịch trình trước khi lưu.', true); return; }
+  if (!VGBookings.requireLogin()) return;
+  $('savePlanFields').hidden = false;
+  $('savePlanSuccess').hidden = true;
+  $('savePlanError').hidden = true;
+  $('savePlanForm').reset();
+  VGBookings.prefill({ name: 'planContactName', phone: 'planContactPhone', email: 'planContactEmail' });
+  $('planDepartureDate').min = VGBookings.todayISO();
+  $('savePlanSummary').textContent = `${state.itin.destinationName || state.dest.name} · ${state.itin.duration || state.inputs?.duration || ''} · Ước tính ${money(state.itin.estimatedCostPerPerson)} / người`;
+  let pageWindow = window;
+  try { if (window.top && window.top.location.origin === window.location.origin) pageWindow = window.top; } catch { /* iframe khác origin: cuộn trang hiện tại */ }
+  pageWindow.scrollTo({ top: 0, behavior: 'smooth' });
+  const showForm = () => {
+    if (savePlanDialog.open) return;
+    savePlanDialog.showModal();
+    $('planContactName').focus();
+  };
+  const scrollDeadline = Date.now() + 1800;
+  const waitForTop = () => {
+    if (pageWindow.scrollY <= 4 || Date.now() >= scrollDeadline) showForm();
+    else window.requestAnimationFrame(waitForTop);
+  };
+  waitForTop();
+});
+$('closeSavePlan').addEventListener('click', () => savePlanDialog.close());
+$('finishSavePlan').addEventListener('click', () => savePlanDialog.close());
+$('savePlanForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const form = $('savePlanForm');
+  if (!form.reportValidity()) return;
+  const phone = $('planContactPhone').value.trim();
+  if (!VGBookings.isPhone(phone)) {
+    $('savePlanError').textContent = 'Số điện thoại cần gồm 10 chữ số và bắt đầu bằng 0.';
+    $('savePlanError').hidden = false;
+    return;
+  }
+
+  const inputs = state.inputs || readInputs();
+  const startDate = $('planDepartureDate').value;
+  const dayCount = Math.max(1, (state.itin.days || []).length);
+  const details = [
+    { label: 'Sở thích', value: (inputs.prefs || []).join(', ') || 'Chưa chọn' },
+    { label: 'Thời gian', value: state.itin.duration || inputs.duration },
+    { label: 'Ngân sách / người', value: inputs.budget },
+    { label: 'Đi cùng', value: inputs.companions },
+    { label: 'Phương tiện', value: inputs.transport },
+    { label: 'Yêu cầu đặc biệt', value: inputs.notes || 'Không có' },
+    { label: 'Chi phí dự kiến / người', value: money(state.itin.estimatedCostPerPerson) },
+  ];
+  if (startDate) details.push({ label: 'Ngày đi dự kiến', value: startDate });
+
+  const saved = VGBookings.save({
+    id: VGBookings.newCode('AIPLAN'), type: 'ai_plan', title: state.itin.destinationName || state.dest.name,
+    subtitle: `${state.itin.duration || inputs.duration} · kế hoạch cá nhân hóa`,
+    place: state.itin.destinationName || state.dest.name, from: inputs.departure, to: state.itin.destinationName || state.dest.name,
+    startDate, endDate: startDate ? VGBookings.addDaysISO(startDate, dayCount - 1) : '',
+    refId: state.dest.id, quantity: 1, image: state.dest.imageUrl || '',
+    contact: { name: $('planContactName').value.trim(), phone, email: $('planContactEmail').value.trim() },
+    details, itinerary: state.itin, status: 'pending',
+    payment: { method: '', total: 0, lines: [] },
+    note: 'Yêu cầu tư vấn kế hoạch tour cá nhân hóa.'
+  });
+  if (!saved.ok) {
+    $('savePlanError').textContent = saved.error || 'Chưa lưu được kế hoạch. Vui lòng thử lại.';
+    $('savePlanError').hidden = false;
+    return;
+  }
+  $('savePlanFields').hidden = true;
+  $('savePlanSuccess').hidden = false;
+});
+
 renderPrefs();
