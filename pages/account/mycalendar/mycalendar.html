@@ -44,7 +44,6 @@
           <button type="button" class="btn btn-ghost" id="btnImport"><i class="fa-solid fa-file-arrow-up"></i> Nhập JSON</button>
           <input type="file" id="importFile" accept=".json,application/json" hidden>
         </div>
-        <p class="user-mode" id="userMode"></p>
       </div>
 
       <div class="panel">
@@ -55,10 +54,14 @@
           <li data-filter="completed" data-title="Đặt chỗ đã hoàn thành" data-label="Đã hoàn thành"><span class="dot"><i class="fa-solid fa-check-circle"></i></span> Đã hoàn thành <span class="count"></span></li>
           <li data-filter="cancelled" data-title="Đặt chỗ đã hủy" data-label="Đã hủy"><span class="dot"><i class="fa-solid fa-ban"></i></span> Đã hủy <span class="count"></span></li>
         </ul>
+        <div class="type-filter-wrap">
+          <div class="type-filter-title">Lọc theo loại</div>
+          <div class="type-filter" id="typeFilter" role="group" aria-label="Lọc theo loại dịch vụ"></div>
+        </div>
         <div class="section-title" id="listTitle">Đặt chỗ</div>
         <div id="tripList"></div>
+        <button type="button" class="more-trips" id="btnMoreTrips" hidden></button>
         <div id="listEmpty" class="empty-note no-border" hidden>Chưa có đặt chỗ nào ở mục này</div>
-        <div class="empty-note">Đặt dịch vụ xong, thông tin<br>tự động có mặt ở đây</div>
       </div>
     </div>
 

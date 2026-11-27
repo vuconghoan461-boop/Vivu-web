@@ -1613,3 +1613,18 @@ input:focus-visible {
   .quick-info { grid-template-columns: 1fr 1fr; }
 }
 
+
+
+/* Nút X của popup đặt chỗ thành công: góc trên cùng bên trái */
+.success-modal { position: relative; }
+.success-head, .success-header {
+  position: sticky; top: 0; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; padding: 18px 56px; background: #fff;
+  border-bottom: 1px solid #E5E7EB; text-align: left;
+}
+.success-head .modal-close, .success-header .modal-close {
+  position: absolute; top: 12px; left: 12px; margin: 0;
+}
+.success-body { position: relative; }
+.success-body > .success-x { position: absolute; top: 12px; right: 12px; margin: 0; z-index: 2; }
