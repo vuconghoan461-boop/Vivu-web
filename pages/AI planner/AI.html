@@ -67,7 +67,36 @@
     </div>
   </section>
 </main>
+<dialog id="savePlanDialog" class="save-plan-dialog" aria-labelledby="savePlanTitle">
+  <form id="savePlanForm" class="save-plan-form">
+    <button class="save-plan-close" type="button" id="closeSavePlan" aria-label="Đóng">×</button>
+    <div id="savePlanFields">
+      <h2 id="savePlanTitle">Nhận tư vấn kế hoạch</h2>
+      <p class="muted">Kế hoạch AI sẽ được lưu vào Lịch của tôi. VivuGo sẽ liên hệ để tư vấn bạn nhé!</p>
+      <p id="savePlanSummary" class="save-plan-summary"></p>
+      <label for="planContactName">Họ và tên</label>
+      <input id="planContactName" name="name" autocomplete="name" required minlength="2" maxlength="100">
+      <label for="planContactPhone">Số điện thoại</label>
+      <input id="planContactPhone" name="phone" type="tel" autocomplete="tel" inputmode="numeric" pattern="0[0-9]{9}" placeholder="Ví dụ: 0912345678" required>
+      <label for="planContactEmail">Email</label>
+      <input id="planContactEmail" name="email" type="email" autocomplete="email" required>
+      <label for="planDepartureDate">Ngày đi dự kiến <span>(không bắt buộc)</span></label>
+      <input id="planDepartureDate" name="departureDate" type="date">
+      <p id="savePlanError" class="save-plan-error" role="alert" hidden></p>
+      <button id="submitSavePlan" class="primary" type="submit">Gửi yêu cầu &amp; lưu kế hoạch</button>
+    </div>
+    <div id="savePlanSuccess" hidden>
+      <h2>Đã nhận thông tin kế hoạch</h2>
+      <p>Hệ thống đã nhận thông tin về tour cá nhân của bạn. Đội ngũ VivuGo sẽ xem xét, lên kế hoạch chi tiết và liên hệ để trao đổi hợp đồng.</p>
+      <div class="save-plan-success-actions">
+        <a class="primary" href="../../index.html#calendar" target="_top">Mở Lịch của tôi</a>
+        <button class="cta alt" id="finishSavePlan" type="button">Đóng</button>
+      </div>
+    </div>
+  </form>
+</dialog>
 <footer class="foot"><img src="../../assets/LogoVivugo.png" alt="VivuGo" height="44"><span>Nền tảng du lịch thông minh &amp; gợi ý tour AI</span></footer>
+<script src="../../js/bookings.js"></script>
 <script src="../../js/AI.js"></script>
 </body>
 </html>
