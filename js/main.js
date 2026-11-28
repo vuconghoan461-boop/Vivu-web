@@ -27,6 +27,12 @@ const pages = {
     title: 'Tài khoản',
     kicker: 'HỒ SƠ · ĐẶT CHỖ · HỖ TRỢ',
     src: 'pages/account/login.html'
+  },
+
+  help: {
+    title: 'Trợ giúp & chính sách',
+    kicker: 'THÔNG TIN HỖ TRỢ VIVUGO',
+    src: 'pages/help.html'
   }
 };
 
@@ -209,7 +215,7 @@ function autoResizeIframe() {
 autoResizeIframe();
 
 // Điều hướng module chính
-function openPage(name, auth = '', saveHistory = true) {
+function openPage(name, auth = '', saveHistory = true, section = '') {
   const page = pages[name];
 
   if (!page) {
@@ -217,7 +223,7 @@ function openPage(name, auth = '', saveHistory = true) {
     return;
   }
 
-  frame.src = page.src + (auth ? '#' + auth : '');
+  frame.src = page.src + (section ? '#' + section : auth ? '#' + auth : '');
 
   updateModuleInfo(page);
   updateActiveMenu(name);
@@ -225,12 +231,20 @@ function openPage(name, auth = '', saveHistory = true) {
 
   if (saveHistory) {
     history.pushState(
-      { page: name, auth },
+      { page: name, auth, section },
       '',
-      '#' + name + (auth ? '-' + auth : '')
+      '#' + name + (section ? '-' + section : auth ? '-' + auth : '')
     );
   }
 }
+
+// Mở đúng mục trợ giúp được chọn từ footer.
+document.querySelectorAll('[data-help-section]').forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault();
+    openPage('help', '', true, link.dataset.helpSection);
+  });
+});
 
 // Điều hướng dịch vụ con
 function openService(filename) {
@@ -299,11 +313,12 @@ window.addEventListener('popstate', event => {
   }
 
   if (state?.page && pages[state.page]) {
-    openPage(state.page, state.auth || '', false);
+    openPage(state.page, state.auth || '', false, state.section || '');
     return;
   }
 
-  const name = location.hash.slice(1).split('-')[0];
+  const hash = location.hash.slice(1);
+  const name = hash.split('-')[0];
 
   if (pages[name]) {
     const auth = location.hash.includes('-login')
@@ -312,7 +327,8 @@ window.addEventListener('popstate', event => {
         ? 'register'
         : '';
 
-    openPage(name, auth, false);
+    const section = name === 'help' ? hash.slice('help-'.length) : '';
+    openPage(name, auth, false, section);
   }
 });
 
@@ -339,7 +355,8 @@ function initializeApp() {
       : '';
 
   if (pages[name]) {
-    openPage(name, auth, false);
+    const section = name === 'help' ? hash.slice('help-'.length) : '';
+    openPage(name, auth, false, section);
   } else {
     openPage('services', '', false);
   }
